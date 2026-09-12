@@ -1,0 +1,732 @@
+{
+  "complete": true,
+  "signature": "6a599a0933a4eb9a8e3edc580479116e24e22ef2148040706904796e90c47a96",
+  "attempts": [
+    {
+      "asr_seconds": 0.31601481488905847,
+      "alignment_seconds": 0.0005514668300747871,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " My uncle John was your uncle John you Diana and Mary are his sister's children as I am his brother's child",
+          "start": 0.05,
+          "end": 6.95,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.927734375
+            },
+            {
+              "text": " uncle",
+              "start": 0.55,
+              "end": 0.83,
+              "probability": 0.40380859375
+            },
+            {
+              "text": " John",
+              "start": 0.83,
+              "end": 1.13,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " was",
+              "start": 1.13,
+              "end": 1.33,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " your",
+              "start": 1.33,
+              "end": 1.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " uncle",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.6533203125
+            },
+            {
+              "text": " John",
+              "start": 1.71,
+              "end": 2.09,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " you",
+              "start": 2.09,
+              "end": 2.93,
+              "probability": 0.62353515625
+            },
+            {
+              "text": " Diana",
+              "start": 2.93,
+              "end": 3.39,
+              "probability": 0.53271484375
+            },
+            {
+              "text": " and",
+              "start": 3.39,
+              "end": 3.65,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Mary",
+              "start": 3.65,
+              "end": 3.91,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " are",
+              "start": 3.91,
+              "end": 4.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 4.13,
+              "end": 4.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sister's",
+              "start": 4.29,
+              "end": 4.79,
+              "probability": 0.856689453125
+            },
+            {
+              "text": " children",
+              "start": 4.79,
+              "end": 5.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " as",
+              "start": 5.17,
+              "end": 5.73,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " I",
+              "start": 5.73,
+              "end": 5.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " am",
+              "start": 5.91,
+              "end": 6.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 6.03,
+              "end": 6.19,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " brother's",
+              "start": 6.19,
+              "end": 6.63,
+              "probability": 0.985107421875
+            },
+            {
+              "text": " child",
+              "start": 6.63,
+              "end": 6.95,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "uncle",
+          "start": 0.55,
+          "end": 0.83
+        },
+        {
+          "raw": "John",
+          "start": 0.83,
+          "end": 1.13
+        },
+        {
+          "raw": "was",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "raw": "your",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "raw": "uncle",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "John",
+          "start": 1.71,
+          "end": 2.09
+        },
+        {
+          "raw": "you",
+          "start": 2.09,
+          "end": 2.93
+        },
+        {
+          "raw": "Diana",
+          "start": 2.93,
+          "end": 3.39
+        },
+        {
+          "raw": "and",
+          "start": 3.39,
+          "end": 3.65
+        },
+        {
+          "raw": "Mary",
+          "start": 3.65,
+          "end": 3.91
+        },
+        {
+          "raw": "are",
+          "start": 3.91,
+          "end": 4.13
+        },
+        {
+          "raw": "his",
+          "start": 4.13,
+          "end": 4.29
+        },
+        {
+          "raw": "sister's",
+          "start": 4.29,
+          "end": 4.79
+        },
+        {
+          "raw": "children",
+          "start": 4.79,
+          "end": 5.17
+        },
+        {
+          "raw": "as",
+          "start": 5.17,
+          "end": 5.73
+        },
+        {
+          "raw": "I",
+          "start": 5.73,
+          "end": 5.91
+        },
+        {
+          "raw": "am",
+          "start": 5.91,
+          "end": 6.03
+        },
+        {
+          "raw": "his",
+          "start": 6.03,
+          "end": 6.19
+        },
+        {
+          "raw": "brother's",
+          "start": 6.19,
+          "end": 6.63
+        },
+        {
+          "raw": "child",
+          "start": 6.63,
+          "end": 6.95
+        }
+      ],
+      "expected_tokens": [
+        "\"My",
+        "uncle",
+        "John",
+        "was",
+        "your",
+        "uncle",
+        "John?",
+        "You,",
+        "Diana,",
+        "and",
+        "Mary",
+        "are",
+        "his",
+        "sister's",
+        "children,",
+        "as",
+        "I",
+        "am",
+        "his",
+        "brother's",
+        "child?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "my",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "uncle",
+          "start": 0.55,
+          "end": 0.83,
+          "key": "uncle",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 0.83,
+          "end": 1.13,
+          "key": "john",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.13,
+          "end": 1.33,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.33,
+          "end": 1.49,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "uncle",
+          "start": 1.49,
+          "end": 1.71,
+          "key": "uncle",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 1.71,
+          "end": 2.09,
+          "key": "john",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.09,
+          "end": 2.93,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Diana",
+          "start": 2.93,
+          "end": 3.39,
+          "key": "diana",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.39,
+          "end": 3.65,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Mary",
+          "start": 3.65,
+          "end": 3.91,
+          "key": "mary",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.91,
+          "end": 4.13,
+          "key": "are",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.13,
+          "end": 4.29,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "sister's",
+          "start": 4.29,
+          "end": 4.79,
+          "key": "sisters",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "children",
+          "start": 4.79,
+          "end": 5.17,
+          "key": "children",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 5.17,
+          "end": 5.73,
+          "key": "as",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.73,
+          "end": 5.91,
+          "key": "i",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 5.91,
+          "end": 6.03,
+          "key": "am",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.03,
+          "end": 6.19,
+          "key": "his",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "brother's",
+          "start": 6.19,
+          "end": 6.63,
+          "key": "brothers",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "child",
+          "start": 6.63,
+          "end": 6.95,
+          "key": "child",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"My",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "uncle",
+          "start": 0.55,
+          "end": 0.83
+        },
+        {
+          "text": "John",
+          "start": 0.83,
+          "end": 1.13
+        },
+        {
+          "text": "was",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "text": "your",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "text": "uncle",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "text": "John?",
+          "start": 1.71,
+          "end": 2.09
+        },
+        {
+          "text": "You,",
+          "start": 2.09,
+          "end": 2.93
+        },
+        {
+          "text": "Diana,",
+          "start": 2.93,
+          "end": 3.39
+        },
+        {
+          "text": "and",
+          "start": 3.39,
+          "end": 3.65
+        },
+        {
+          "text": "Mary",
+          "start": 3.65,
+          "end": 3.91
+        },
+        {
+          "text": "are",
+          "start": 3.91,
+          "end": 4.13
+        },
+        {
+          "text": "his",
+          "start": 4.13,
+          "end": 4.29
+        },
+        {
+          "text": "sister's",
+          "start": 4.29,
+          "end": 4.79
+        },
+        {
+          "text": "children,",
+          "start": 4.79,
+          "end": 5.17
+        },
+        {
+          "text": "as",
+          "start": 5.17,
+          "end": 5.73
+        },
+        {
+          "text": "I",
+          "start": 5.73,
+          "end": 5.91
+        },
+        {
+          "text": "am",
+          "start": 5.91,
+          "end": 6.03
+        },
+        {
+          "text": "his",
+          "start": 6.03,
+          "end": 6.19
+        },
+        {
+          "text": "brother's",
+          "start": 6.19,
+          "end": 6.63
+        },
+        {
+          "text": "child?\"",
+          "start": 6.63,
+          "end": 6.95
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31682455679401755
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b1764d46e8fcefadf71767a50f15365592eee3826a9f4ad822c398a68b6fbb1b",
+  "selected_reasons": []
+}

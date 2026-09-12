@@ -1,0 +1,553 @@
+{
+  "complete": true,
+  "signature": "1f021cc50866b8bf318a3076a789c55fcdbd0bc28d23534b7fce635453dcda38",
+  "attempts": [
+    {
+      "asr_seconds": 1.0826604701578617,
+      "alignment_seconds": 0.000321822939440608,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Suez to London._",
+        "hotwords": "London._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " á á á á á",
+          "start": 0.08,
+          "end": 1.82,
+          "words": [
+            {
+              "text": " á",
+              "start": 0.08,
+              "end": 0.48,
+              "probability": 0.078677237033844
+            },
+            {
+              "text": " á",
+              "start": 0.48,
+              "end": 0.6,
+              "probability": 0.4797525405883789
+            },
+            {
+              "text": " á",
+              "start": 0.6,
+              "end": 0.66,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " á",
+              "start": 0.66,
+              "end": 0.88,
+              "probability": 0.853271484375
+            },
+            {
+              "text": " á",
+              "start": 0.88,
+              "end": 1.82,
+              "probability": 0.832763671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "á",
+          "start": 0.08,
+          "end": 0.48
+        },
+        {
+          "raw": "á",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "raw": "á",
+          "start": 0.6,
+          "end": 0.66
+        },
+        {
+          "raw": "á",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "raw": "á",
+          "start": 0.88,
+          "end": 1.82
+        }
+      ],
+      "expected_tokens": [
+        "_Suez",
+        "to",
+        "London._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "á",
+          "start": 0.08,
+          "end": 0.48,
+          "key": "á",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "á",
+          "start": 0.48,
+          "end": 0.6,
+          "key": "á",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "á",
+          "start": 0.6,
+          "end": 0.66,
+          "key": "á",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "á",
+          "start": 0.66,
+          "end": 0.88,
+          "key": "á",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "á",
+          "start": 0.88,
+          "end": 1.82,
+          "key": "á",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Suez",
+          "start": 0.0,
+          "end": 0.91
+        },
+        {
+          "text": "to",
+          "start": 0.91,
+          "end": 1.365
+        },
+        {
+          "text": "London._",
+          "start": 1.365,
+          "end": 1.593
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 5,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 1.0831101650837809
+    },
+    {
+      "asr_seconds": 0.15286711207590997,
+      "alignment_seconds": 0.0003249009605497122,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "London._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Sueys to London._",
+          "start": 0.08,
+          "end": 1.76,
+          "words": [
+            {
+              "text": " Sueys",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.51708984375
+            },
+            {
+              "text": " to",
+              "start": 0.72,
+              "end": 0.86,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " London._",
+              "start": 0.86,
+              "end": 1.76,
+              "probability": 0.497802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sueys",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "to",
+          "start": 0.72,
+          "end": 0.86
+        },
+        {
+          "raw": "London._",
+          "start": 0.86,
+          "end": 1.76
+        }
+      ],
+      "expected_tokens": [
+        "_Suez",
+        "to",
+        "London._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sueys",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "sueys",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.72,
+          "end": 0.86,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "London._",
+          "start": 0.86,
+          "end": 1.76,
+          "key": "london_",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Suez",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "to",
+          "start": 0.72,
+          "end": 0.86
+        },
+        {
+          "text": "London._",
+          "start": 0.86,
+          "end": 1.31
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.153292884118855
+    },
+    {
+      "asr_seconds": 0.1379933429416269,
+      "alignment_seconds": 0.00032821809872984886,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sueys to London.",
+          "start": 0.08,
+          "end": 1.1,
+          "words": [
+            {
+              "text": " Sueys",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.51708984375
+            },
+            {
+              "text": " to",
+              "start": 0.72,
+              "end": 0.86,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " London.",
+              "start": 0.86,
+              "end": 1.1,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sueys",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "to",
+          "start": 0.72,
+          "end": 0.86
+        },
+        {
+          "raw": "London.",
+          "start": 0.86,
+          "end": 1.1
+        }
+      ],
+      "expected_tokens": [
+        "_Suez",
+        "to",
+        "London._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sueys",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "sueys",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.72,
+          "end": 0.86,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "London.",
+          "start": 0.86,
+          "end": 1.1,
+          "key": "london",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Suez",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "to",
+          "start": 0.72,
+          "end": 0.86
+        },
+        {
+          "text": "London._",
+          "start": 0.86,
+          "end": 1.1
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13843002007342875
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fae6a4a4217767297001275802ba9b54c5786504f7a77eed965af9b040a14114",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

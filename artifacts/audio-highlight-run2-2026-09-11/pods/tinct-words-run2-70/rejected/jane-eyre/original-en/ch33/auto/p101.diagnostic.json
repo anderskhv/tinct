@@ -1,0 +1,990 @@
+{
+  "complete": true,
+  "signature": "15e3830304f863d7d8ccd9c8dde8f38e345153ee68133b36d9dbf46207ba3f3f",
+  "attempts": [
+    {
+      "asr_seconds": 0.36219427292235196,
+      "alignment_seconds": 0.0005140341818332672,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Do let me speak,\" I said; \"let me have one moment to draw breath and reflect.\" I paused—he stood before me, hat in hand, looking composed enough. I resumed—",
+        "hotwords": "Do, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Do let me speak, I said. Let me have one moment to draw breath and reflect. I paused—he stood before me, hat in hand, looking composed enough. I resumed—",
+          "start": 0.02,
+          "end": 10.7,
+          "words": [
+            {
+              "text": " Do",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.1920166015625
+            },
+            {
+              "text": " let",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " me",
+              "start": 0.7,
+              "end": 0.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " speak,",
+              "start": 0.84,
+              "end": 1.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 1.4,
+              "end": 1.5,
+              "probability": 0.98828125
+            },
+            {
+              "text": " said.",
+              "start": 1.5,
+              "end": 1.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Let",
+              "start": 2.26,
+              "end": 2.32,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " me",
+              "start": 2.32,
+              "end": 2.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " have",
+              "start": 2.42,
+              "end": 2.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " one",
+              "start": 2.58,
+              "end": 2.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " moment",
+              "start": 2.82,
+              "end": 3.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 3.08,
+              "end": 3.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " draw",
+              "start": 3.28,
+              "end": 3.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " breath",
+              "start": 3.5,
+              "end": 3.78,
+              "probability": 0.884765625
+            },
+            {
+              "text": " and",
+              "start": 3.78,
+              "end": 4.02,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " reflect.",
+              "start": 4.02,
+              "end": 4.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 5.1,
+              "end": 5.28,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " paused—he",
+              "start": 5.28,
+              "end": 6.16,
+              "probability": 0.6400032043457031
+            },
+            {
+              "text": " stood",
+              "start": 6.16,
+              "end": 6.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " before",
+              "start": 6.38,
+              "end": 6.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me,",
+              "start": 6.7,
+              "end": 6.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hat",
+              "start": 7.02,
+              "end": 7.2,
+              "probability": 0.308349609375
+            },
+            {
+              "text": " in",
+              "start": 7.2,
+              "end": 7.36,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " hand,",
+              "start": 7.36,
+              "end": 7.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " looking",
+              "start": 7.86,
+              "end": 8.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " composed",
+              "start": 8.06,
+              "end": 8.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " enough.",
+              "start": 8.54,
+              "end": 8.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 9.44,
+              "end": 9.58,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " resumed—",
+              "start": 9.58,
+              "end": 10.7,
+              "probability": 0.49819087982177734
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Do",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "let",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "me",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "raw": "speak,",
+          "start": 0.84,
+          "end": 1.22
+        },
+        {
+          "raw": "I",
+          "start": 1.4,
+          "end": 1.5
+        },
+        {
+          "raw": "said.",
+          "start": 1.5,
+          "end": 1.78
+        },
+        {
+          "raw": "Let",
+          "start": 2.26,
+          "end": 2.32
+        },
+        {
+          "raw": "me",
+          "start": 2.32,
+          "end": 2.42
+        },
+        {
+          "raw": "have",
+          "start": 2.42,
+          "end": 2.58
+        },
+        {
+          "raw": "one",
+          "start": 2.58,
+          "end": 2.82
+        },
+        {
+          "raw": "moment",
+          "start": 2.82,
+          "end": 3.08
+        },
+        {
+          "raw": "to",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "raw": "draw",
+          "start": 3.28,
+          "end": 3.5
+        },
+        {
+          "raw": "breath",
+          "start": 3.5,
+          "end": 3.78
+        },
+        {
+          "raw": "and",
+          "start": 3.78,
+          "end": 4.02
+        },
+        {
+          "raw": "reflect.",
+          "start": 4.02,
+          "end": 4.38
+        },
+        {
+          "raw": "I",
+          "start": 5.1,
+          "end": 5.28
+        },
+        {
+          "raw": "paused—he",
+          "start": 5.28,
+          "end": 6.16
+        },
+        {
+          "raw": "stood",
+          "start": 6.16,
+          "end": 6.38
+        },
+        {
+          "raw": "before",
+          "start": 6.38,
+          "end": 6.7
+        },
+        {
+          "raw": "me,",
+          "start": 6.7,
+          "end": 6.96
+        },
+        {
+          "raw": "hat",
+          "start": 7.02,
+          "end": 7.2
+        },
+        {
+          "raw": "in",
+          "start": 7.2,
+          "end": 7.36
+        },
+        {
+          "raw": "hand,",
+          "start": 7.36,
+          "end": 7.66
+        },
+        {
+          "raw": "looking",
+          "start": 7.86,
+          "end": 8.06
+        },
+        {
+          "raw": "composed",
+          "start": 8.06,
+          "end": 8.54
+        },
+        {
+          "raw": "enough.",
+          "start": 8.54,
+          "end": 8.84
+        },
+        {
+          "raw": "I",
+          "start": 9.44,
+          "end": 9.58
+        },
+        {
+          "raw": "resumed—",
+          "start": 9.58,
+          "end": 10.7
+        }
+      ],
+      "expected_tokens": [
+        "\"Do",
+        "let",
+        "me",
+        "speak,\"",
+        "I",
+        "said;",
+        "\"let",
+        "me",
+        "have",
+        "one",
+        "moment",
+        "to",
+        "draw",
+        "breath",
+        "and",
+        "reflect.\"",
+        "I",
+        "paused—he",
+        "stood",
+        "before",
+        "me,",
+        "hat",
+        "in",
+        "hand,",
+        "looking",
+        "composed",
+        "enough.",
+        "I",
+        "resumed—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          29,
+          0,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Do",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "let",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.7,
+          "end": 0.84,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "speak,",
+          "start": 0.84,
+          "end": 1.22,
+          "key": "speak",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.4,
+          "end": 1.5,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.5,
+          "end": 1.78,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 2.26,
+          "end": 2.32,
+          "key": "let",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.32,
+          "end": 2.42,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.42,
+          "end": 2.58,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.58,
+          "end": 2.82,
+          "key": "one",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "moment",
+          "start": 2.82,
+          "end": 3.08,
+          "key": "moment",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.08,
+          "end": 3.28,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "draw",
+          "start": 3.28,
+          "end": 3.5,
+          "key": "draw",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "breath",
+          "start": 3.5,
+          "end": 3.78,
+          "key": "breath",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.78,
+          "end": 4.02,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "reflect.",
+          "start": 4.02,
+          "end": 4.38,
+          "key": "reflect",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.1,
+          "end": 5.28,
+          "key": "i",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "paused—he",
+          "start": 5.28,
+          "end": 6.16,
+          "key": "pausedhe",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "stood",
+          "start": 6.16,
+          "end": 6.38,
+          "key": "stood",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 6.38,
+          "end": 6.7,
+          "key": "before",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 6.7,
+          "end": 6.96,
+          "key": "me",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "hat",
+          "start": 7.02,
+          "end": 7.2,
+          "key": "hat",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.2,
+          "end": 7.36,
+          "key": "in",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "hand,",
+          "start": 7.36,
+          "end": 7.66,
+          "key": "hand",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 7.86,
+          "end": 8.06,
+          "key": "looking",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "composed",
+          "start": 8.06,
+          "end": 8.54,
+          "key": "composed",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "enough.",
+          "start": 8.54,
+          "end": 8.84,
+          "key": "enough",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.44,
+          "end": 9.58,
+          "key": "i",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "resumed—",
+          "start": 9.58,
+          "end": 10.7,
+          "key": "resumed",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Do",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "let",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "me",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "text": "speak,\"",
+          "start": 0.84,
+          "end": 1.22
+        },
+        {
+          "text": "I",
+          "start": 1.4,
+          "end": 1.5
+        },
+        {
+          "text": "said;",
+          "start": 1.5,
+          "end": 1.78
+        },
+        {
+          "text": "\"let",
+          "start": 2.26,
+          "end": 2.32
+        },
+        {
+          "text": "me",
+          "start": 2.32,
+          "end": 2.42
+        },
+        {
+          "text": "have",
+          "start": 2.42,
+          "end": 2.58
+        },
+        {
+          "text": "one",
+          "start": 2.58,
+          "end": 2.82
+        },
+        {
+          "text": "moment",
+          "start": 2.82,
+          "end": 3.08
+        },
+        {
+          "text": "to",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "text": "draw",
+          "start": 3.28,
+          "end": 3.5
+        },
+        {
+          "text": "breath",
+          "start": 3.5,
+          "end": 3.78
+        },
+        {
+          "text": "and",
+          "start": 3.78,
+          "end": 4.02
+        },
+        {
+          "text": "reflect.\"",
+          "start": 4.02,
+          "end": 4.38
+        },
+        {
+          "text": "I",
+          "start": 5.1,
+          "end": 5.28
+        },
+        {
+          "text": "paused—he",
+          "start": 5.28,
+          "end": 6.16
+        },
+        {
+          "text": "stood",
+          "start": 6.16,
+          "end": 6.38
+        },
+        {
+          "text": "before",
+          "start": 6.38,
+          "end": 6.7
+        },
+        {
+          "text": "me,",
+          "start": 6.7,
+          "end": 6.96
+        },
+        {
+          "text": "hat",
+          "start": 7.02,
+          "end": 7.2
+        },
+        {
+          "text": "in",
+          "start": 7.2,
+          "end": 7.36
+        },
+        {
+          "text": "hand,",
+          "start": 7.36,
+          "end": 7.66
+        },
+        {
+          "text": "looking",
+          "start": 7.86,
+          "end": 8.06
+        },
+        {
+          "text": "composed",
+          "start": 8.06,
+          "end": 8.54
+        },
+        {
+          "text": "enough.",
+          "start": 8.54,
+          "end": 8.84
+        },
+        {
+          "text": "I",
+          "start": 9.44,
+          "end": 9.58
+        },
+        {
+          "text": "resumed—",
+          "start": 9.58,
+          "end": 10.7
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 29,
+        "matched_words": 29
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3629316119477153
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e9ea702fff4dc2a94a398c56d11bc34c3b2fac2285adfa754a02799cf05491fa",
+  "selected_reasons": []
+}

@@ -1,0 +1,310 @@
+{
+  "complete": true,
+  "signature": "d557f16a1629e3297b0a61c4ba7c48d4e7e873a419cd0440fa78576d72abc772",
+  "attempts": [
+    {
+      "asr_seconds": 0.1380689509678632,
+      "alignment_seconds": 0.0005597390700131655,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Have you a pocket-comb about you, sir?\"",
+        "hotwords": "Have"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Have you a pocket-comb about you, sir?",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " Have",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " you",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.00797271728515625
+            },
+            {
+              "text": " a",
+              "start": 0.67,
+              "end": 0.77,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " pocket",
+              "start": 0.77,
+              "end": 0.97,
+              "probability": 0.9951171875
+            },
+            {
+              "text": "-comb",
+              "start": 0.97,
+              "end": 1.17,
+              "probability": 0.4470195770263672
+            },
+            {
+              "text": " about",
+              "start": 1.17,
+              "end": 1.41,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you,",
+              "start": 1.41,
+              "end": 1.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sir?",
+              "start": 1.73,
+              "end": 1.83,
+              "probability": 0.94091796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Have",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "you",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "a",
+          "start": 0.67,
+          "end": 0.77
+        },
+        {
+          "raw": "pocket",
+          "start": 0.77,
+          "end": 0.97
+        },
+        {
+          "raw": "-comb",
+          "start": 0.97,
+          "end": 1.17
+        },
+        {
+          "raw": "about",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "raw": "you,",
+          "start": 1.41,
+          "end": 1.67
+        },
+        {
+          "raw": "sir?",
+          "start": 1.73,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "\"Have",
+        "you",
+        "a",
+        "pocket-comb",
+        "about",
+        "you,",
+        "sir?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Have",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "have",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.53,
+          "end": 0.67,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.67,
+          "end": 0.77,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "pocket -comb",
+          "start": 0.77,
+          "end": 1.17,
+          "key": "pocketcomb",
+          "pieces": [
+            3,
+            4
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 1.17,
+          "end": 1.41,
+          "key": "about",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.41,
+          "end": 1.67,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 1.73,
+          "end": 1.83,
+          "key": "sir",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 3,
+          "text": "pocket-comb",
+          "heard": "pocket -comb",
+          "heard_indexes": [
+            3,
+            4
+          ],
+          "start": 0.77,
+          "end": 1.17
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Have",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "you",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "a",
+          "start": 0.67,
+          "end": 0.77
+        },
+        {
+          "text": "pocket-comb",
+          "start": 0.77,
+          "end": 1.17
+        },
+        {
+          "text": "about",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "text": "you,",
+          "start": 1.41,
+          "end": 1.67
+        },
+        {
+          "text": "sir?\"",
+          "start": 1.73,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13879799703136086
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ebc4457da5aae57f7cd89ef6428b7a76190fa7c3157c2c1eb4da2ccc6d526403",
+  "selected_reasons": []
+}

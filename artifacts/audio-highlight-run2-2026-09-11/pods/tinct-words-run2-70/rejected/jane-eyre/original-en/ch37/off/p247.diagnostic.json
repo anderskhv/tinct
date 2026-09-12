@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "844a5dd1f6b81c8a6a0f19b6d13c86ae625f33cdf408e7a1d09c5f2bc259299d",
+  "attempts": [
+    {
+      "asr_seconds": 0.22001736308448017,
+      "alignment_seconds": 0.0004449309781193733,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He pursued his own thoughts without heeding me.",
+          "start": 0.05,
+          "end": 2.49,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " pursued",
+              "start": 0.49,
+              "end": 0.79,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 0.79,
+              "end": 0.99,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " own",
+              "start": 0.99,
+              "end": 1.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thoughts",
+              "start": 1.23,
+              "end": 1.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " without",
+              "start": 1.63,
+              "end": 1.93,
+              "probability": 0.9921875
+            },
+            {
+              "text": " heeding",
+              "start": 1.93,
+              "end": 2.29,
+              "probability": 0.6776123046875
+            },
+            {
+              "text": " me.",
+              "start": 2.29,
+              "end": 2.49,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "pursued",
+          "start": 0.49,
+          "end": 0.79
+        },
+        {
+          "raw": "his",
+          "start": 0.79,
+          "end": 0.99
+        },
+        {
+          "raw": "own",
+          "start": 0.99,
+          "end": 1.23
+        },
+        {
+          "raw": "thoughts",
+          "start": 1.23,
+          "end": 1.63
+        },
+        {
+          "raw": "without",
+          "start": 1.63,
+          "end": 1.93
+        },
+        {
+          "raw": "heeding",
+          "start": 1.93,
+          "end": 2.29
+        },
+        {
+          "raw": "me.",
+          "start": 2.29,
+          "end": 2.49
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "pursued",
+        "his",
+        "own",
+        "thoughts",
+        "without",
+        "heeding",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "pursued",
+          "start": 0.49,
+          "end": 0.79,
+          "key": "pursued",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.79,
+          "end": 0.99,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 0.99,
+          "end": 1.23,
+          "key": "own",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thoughts",
+          "start": 1.23,
+          "end": 1.63,
+          "key": "thoughts",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 1.63,
+          "end": 1.93,
+          "key": "without",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "heeding",
+          "start": 1.93,
+          "end": 2.29,
+          "key": "heeding",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.29,
+          "end": 2.49,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "pursued",
+          "start": 0.49,
+          "end": 0.79
+        },
+        {
+          "text": "his",
+          "start": 0.79,
+          "end": 0.99
+        },
+        {
+          "text": "own",
+          "start": 0.99,
+          "end": 1.23
+        },
+        {
+          "text": "thoughts",
+          "start": 1.23,
+          "end": 1.63
+        },
+        {
+          "text": "without",
+          "start": 1.63,
+          "end": 1.93
+        },
+        {
+          "text": "heeding",
+          "start": 1.93,
+          "end": 2.29
+        },
+        {
+          "text": "me.",
+          "start": 2.29,
+          "end": 2.49
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22063242713920772
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "081715236765fd2209f84141f1f83d72f84e0d6373c4fc5bad104bd847485513",
+  "selected_reasons": []
+}

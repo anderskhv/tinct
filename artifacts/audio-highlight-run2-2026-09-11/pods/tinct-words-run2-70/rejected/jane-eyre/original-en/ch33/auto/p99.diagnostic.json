@@ -1,0 +1,3087 @@
+{
+  "complete": true,
+  "signature": "424e548548b00cbc1a67bbe33fcc11c2fb3020a0f9fdcd3cabb1daf5282d9166",
+  "attempts": [
+    {
+      "asr_seconds": 1.0072077410295606,
+      "alignment_seconds": 0.0029080279637128115,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I stopped: I could not trust myself to entertain, much less to express, the thought that rushed upon me—that embodied itself,—that, in a second, stood out a strong, solid probability. Circumstances knit themselves, fitted themselves, shot into order: the chain that had been lying hitherto a formless lump of links was drawn out straight,—every ring was perfect, the connection complete. I knew, by instinct, how the matter stood, before St. John had said another word; but I cannot expect the reader to have the same intuitive perception, so I must repeat his explanation.",
+        "hotwords": "I, Circumstances, St, John"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I stopped, I could not trust myself to entertain, much less to express, the thought that rushed",
+          "start": 0.08,
+          "end": 5.32,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.295166015625
+            },
+            {
+              "text": " stopped,",
+              "start": 0.54,
+              "end": 0.92,
+              "probability": 0.70068359375
+            },
+            {
+              "text": " I",
+              "start": 1.26,
+              "end": 1.36,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " could",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 1.46,
+              "end": 1.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " trust",
+              "start": 1.64,
+              "end": 1.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " myself",
+              "start": 1.9,
+              "end": 2.2,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 2.2,
+              "end": 2.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " entertain,",
+              "start": 2.44,
+              "end": 2.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " much",
+              "start": 3.16,
+              "end": 3.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " less",
+              "start": 3.28,
+              "end": 3.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 3.48,
+              "end": 3.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " express,",
+              "start": 3.7,
+              "end": 4.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 4.54,
+              "end": 4.64,
+              "probability": 0.9921875
+            },
+            {
+              "text": " thought",
+              "start": 4.64,
+              "end": 4.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 4.84,
+              "end": 5.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " rushed",
+              "start": 5.08,
+              "end": 5.32,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " upon me—that embodied itself,—that, in a second, stood out a strong, solid probability.",
+          "start": 5.32,
+          "end": 10.7,
+          "words": [
+            {
+              "text": " upon",
+              "start": 5.32,
+              "end": 5.6,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " me—that",
+              "start": 5.6,
+              "end": 6.24,
+              "probability": 0.6336288452148438
+            },
+            {
+              "text": " embodied",
+              "start": 6.24,
+              "end": 6.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " itself,—that,",
+              "start": 6.64,
+              "end": 7.86,
+              "probability": 0.6497002442677816
+            },
+            {
+              "text": " in",
+              "start": 7.86,
+              "end": 8.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 8.02,
+              "end": 8.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " second,",
+              "start": 8.14,
+              "end": 8.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " stood",
+              "start": 8.62,
+              "end": 8.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " out",
+              "start": 8.74,
+              "end": 8.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 8.9,
+              "end": 9.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " strong,",
+              "start": 9.06,
+              "end": 9.44,
+              "probability": 0.99609375
+            },
+            {
+              "text": " solid",
+              "start": 9.68,
+              "end": 10.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " probability.",
+              "start": 10.02,
+              "end": 10.7,
+              "probability": 0.9736328125
+            }
+          ]
+        },
+        {
+          "text": " Circumstances knit themselves, fitted themselves, shot into order. The chain that had been lying",
+          "start": 11.68,
+          "end": 16.8,
+          "words": [
+            {
+              "text": " Circumstances",
+              "start": 11.68,
+              "end": 12.2,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " knit",
+              "start": 12.2,
+              "end": 12.44,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " themselves,",
+              "start": 12.44,
+              "end": 12.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " fitted",
+              "start": 13.24,
+              "end": 13.44,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " themselves,",
+              "start": 13.44,
+              "end": 13.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shot",
+              "start": 14.26,
+              "end": 14.48,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " into",
+              "start": 14.48,
+              "end": 14.72,
+              "probability": 0.984375
+            },
+            {
+              "text": " order.",
+              "start": 14.72,
+              "end": 15.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " The",
+              "start": 15.4,
+              "end": 15.82,
+              "probability": 0.9921875
+            },
+            {
+              "text": " chain",
+              "start": 15.82,
+              "end": 16.06,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 16.06,
+              "end": 16.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " had",
+              "start": 16.24,
+              "end": 16.34,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " been",
+              "start": 16.34,
+              "end": 16.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " lying",
+              "start": 16.48,
+              "end": 16.8,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " hitherto a formless lump of links was drawn out straight,—every ring was perfect, the",
+          "start": 16.8,
+          "end": 21.86,
+          "words": [
+            {
+              "text": " hitherto",
+              "start": 16.8,
+              "end": 17.14,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " a",
+              "start": 17.14,
+              "end": 17.5,
+              "probability": 0.7470703125
+            },
+            {
+              "text": " formless",
+              "start": 17.5,
+              "end": 17.98,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " lump",
+              "start": 17.98,
+              "end": 18.18,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 18.18,
+              "end": 18.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " links",
+              "start": 18.4,
+              "end": 18.58,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " was",
+              "start": 18.58,
+              "end": 18.82,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " drawn",
+              "start": 18.82,
+              "end": 19.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " out",
+              "start": 19.08,
+              "end": 19.3,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " straight,—every",
+              "start": 19.3,
+              "end": 20.42,
+              "probability": 0.5942420959472656
+            },
+            {
+              "text": " ring",
+              "start": 20.42,
+              "end": 20.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " was",
+              "start": 20.66,
+              "end": 20.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " perfect,",
+              "start": 20.84,
+              "end": 21.3,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 21.6,
+              "end": 21.86,
+              "probability": 0.99365234375
+            }
+          ]
+        },
+        {
+          "text": " connection complete.",
+          "start": 21.86,
+          "end": 22.74,
+          "words": [
+            {
+              "text": " connection",
+              "start": 21.86,
+              "end": 22.2,
+              "probability": 0.947265625
+            },
+            {
+              "text": " complete.",
+              "start": 22.2,
+              "end": 22.74,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " I knew, by instinct, how the matter stood, before St. John had said another word, but",
+          "start": 23.46,
+          "end": 29.74,
+          "words": [
+            {
+              "text": " I",
+              "start": 23.46,
+              "end": 23.98,
+              "probability": 0.982421875
+            },
+            {
+              "text": " knew,",
+              "start": 23.98,
+              "end": 24.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " by",
+              "start": 24.4,
+              "end": 24.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " instinct,",
+              "start": 24.56,
+              "end": 25.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " how",
+              "start": 25.48,
+              "end": 25.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 25.7,
+              "end": 25.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " matter",
+              "start": 25.88,
+              "end": 26.08,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " stood,",
+              "start": 26.08,
+              "end": 26.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " before",
+              "start": 26.86,
+              "end": 27.26,
+              "probability": 0.99609375
+            },
+            {
+              "text": " St.",
+              "start": 27.26,
+              "end": 27.5,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " John",
+              "start": 27.82,
+              "end": 27.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " had",
+              "start": 27.86,
+              "end": 28.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " said",
+              "start": 28.04,
+              "end": 28.26,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " another",
+              "start": 28.26,
+              "end": 28.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " word,",
+              "start": 28.58,
+              "end": 28.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " but",
+              "start": 29.16,
+              "end": 29.74,
+              "probability": 0.87255859375
+            }
+          ]
+        },
+        {
+          "text": " I cannot expect the reader to have the same intuitive perception, so I must repeat his",
+          "start": 29.74,
+          "end": 34.78,
+          "words": [
+            {
+              "text": " I",
+              "start": 29.74,
+              "end": 29.88,
+              "probability": 0.13134765625
+            },
+            {
+              "text": " cannot",
+              "start": 29.88,
+              "end": 30.1,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " expect",
+              "start": 30.1,
+              "end": 30.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 30.58,
+              "end": 30.76,
+              "probability": 0.994140625
+            },
+            {
+              "text": " reader",
+              "start": 30.76,
+              "end": 30.96,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " to",
+              "start": 30.96,
+              "end": 31.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " have",
+              "start": 31.2,
+              "end": 31.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 31.4,
+              "end": 31.6,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " same",
+              "start": 31.6,
+              "end": 31.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " intuitive",
+              "start": 31.92,
+              "end": 32.48,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " perception,",
+              "start": 32.48,
+              "end": 32.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " so",
+              "start": 33.5,
+              "end": 33.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 33.72,
+              "end": 33.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " must",
+              "start": 33.9,
+              "end": 34.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " repeat",
+              "start": 34.1,
+              "end": 34.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 34.54,
+              "end": 34.78,
+              "probability": 0.98046875
+            }
+          ]
+        },
+        {
+          "text": " explanation.",
+          "start": 34.78,
+          "end": 35.34,
+          "words": [
+            {
+              "text": " explanation.",
+              "start": 34.78,
+              "end": 35.34,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "stopped,",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "raw": "I",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "raw": "could",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "not",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "raw": "trust",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "raw": "myself",
+          "start": 1.9,
+          "end": 2.2
+        },
+        {
+          "raw": "to",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "raw": "entertain,",
+          "start": 2.44,
+          "end": 2.92
+        },
+        {
+          "raw": "much",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "raw": "less",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "raw": "to",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "raw": "express,",
+          "start": 3.7,
+          "end": 4.14
+        },
+        {
+          "raw": "the",
+          "start": 4.54,
+          "end": 4.64
+        },
+        {
+          "raw": "thought",
+          "start": 4.64,
+          "end": 4.84
+        },
+        {
+          "raw": "that",
+          "start": 4.84,
+          "end": 5.08
+        },
+        {
+          "raw": "rushed",
+          "start": 5.08,
+          "end": 5.32
+        },
+        {
+          "raw": "upon",
+          "start": 5.32,
+          "end": 5.6
+        },
+        {
+          "raw": "me—that",
+          "start": 5.6,
+          "end": 6.24
+        },
+        {
+          "raw": "embodied",
+          "start": 6.24,
+          "end": 6.64
+        },
+        {
+          "raw": "itself,—that,",
+          "start": 6.64,
+          "end": 7.86
+        },
+        {
+          "raw": "in",
+          "start": 7.86,
+          "end": 8.02
+        },
+        {
+          "raw": "a",
+          "start": 8.02,
+          "end": 8.14
+        },
+        {
+          "raw": "second,",
+          "start": 8.14,
+          "end": 8.4
+        },
+        {
+          "raw": "stood",
+          "start": 8.62,
+          "end": 8.74
+        },
+        {
+          "raw": "out",
+          "start": 8.74,
+          "end": 8.9
+        },
+        {
+          "raw": "a",
+          "start": 8.9,
+          "end": 9.06
+        },
+        {
+          "raw": "strong,",
+          "start": 9.06,
+          "end": 9.44
+        },
+        {
+          "raw": "solid",
+          "start": 9.68,
+          "end": 10.02
+        },
+        {
+          "raw": "probability.",
+          "start": 10.02,
+          "end": 10.7
+        },
+        {
+          "raw": "Circumstances",
+          "start": 11.68,
+          "end": 12.2
+        },
+        {
+          "raw": "knit",
+          "start": 12.2,
+          "end": 12.44
+        },
+        {
+          "raw": "themselves,",
+          "start": 12.44,
+          "end": 12.98
+        },
+        {
+          "raw": "fitted",
+          "start": 13.24,
+          "end": 13.44
+        },
+        {
+          "raw": "themselves,",
+          "start": 13.44,
+          "end": 13.96
+        },
+        {
+          "raw": "shot",
+          "start": 14.26,
+          "end": 14.48
+        },
+        {
+          "raw": "into",
+          "start": 14.48,
+          "end": 14.72
+        },
+        {
+          "raw": "order.",
+          "start": 14.72,
+          "end": 15.0
+        },
+        {
+          "raw": "The",
+          "start": 15.4,
+          "end": 15.82
+        },
+        {
+          "raw": "chain",
+          "start": 15.82,
+          "end": 16.06
+        },
+        {
+          "raw": "that",
+          "start": 16.06,
+          "end": 16.24
+        },
+        {
+          "raw": "had",
+          "start": 16.24,
+          "end": 16.34
+        },
+        {
+          "raw": "been",
+          "start": 16.34,
+          "end": 16.48
+        },
+        {
+          "raw": "lying",
+          "start": 16.48,
+          "end": 16.8
+        },
+        {
+          "raw": "hitherto",
+          "start": 16.8,
+          "end": 17.14
+        },
+        {
+          "raw": "a",
+          "start": 17.14,
+          "end": 17.5
+        },
+        {
+          "raw": "formless",
+          "start": 17.5,
+          "end": 17.98
+        },
+        {
+          "raw": "lump",
+          "start": 17.98,
+          "end": 18.18
+        },
+        {
+          "raw": "of",
+          "start": 18.18,
+          "end": 18.4
+        },
+        {
+          "raw": "links",
+          "start": 18.4,
+          "end": 18.58
+        },
+        {
+          "raw": "was",
+          "start": 18.58,
+          "end": 18.82
+        },
+        {
+          "raw": "drawn",
+          "start": 18.82,
+          "end": 19.08
+        },
+        {
+          "raw": "out",
+          "start": 19.08,
+          "end": 19.3
+        },
+        {
+          "raw": "straight,—every",
+          "start": 19.3,
+          "end": 20.42
+        },
+        {
+          "raw": "ring",
+          "start": 20.42,
+          "end": 20.66
+        },
+        {
+          "raw": "was",
+          "start": 20.66,
+          "end": 20.84
+        },
+        {
+          "raw": "perfect,",
+          "start": 20.84,
+          "end": 21.3
+        },
+        {
+          "raw": "the",
+          "start": 21.6,
+          "end": 21.86
+        },
+        {
+          "raw": "connection",
+          "start": 21.86,
+          "end": 22.2
+        },
+        {
+          "raw": "complete.",
+          "start": 22.2,
+          "end": 22.74
+        },
+        {
+          "raw": "I",
+          "start": 23.46,
+          "end": 23.98
+        },
+        {
+          "raw": "knew,",
+          "start": 23.98,
+          "end": 24.24
+        },
+        {
+          "raw": "by",
+          "start": 24.4,
+          "end": 24.56
+        },
+        {
+          "raw": "instinct,",
+          "start": 24.56,
+          "end": 25.06
+        },
+        {
+          "raw": "how",
+          "start": 25.48,
+          "end": 25.7
+        },
+        {
+          "raw": "the",
+          "start": 25.7,
+          "end": 25.88
+        },
+        {
+          "raw": "matter",
+          "start": 25.88,
+          "end": 26.08
+        },
+        {
+          "raw": "stood,",
+          "start": 26.08,
+          "end": 26.5
+        },
+        {
+          "raw": "before",
+          "start": 26.86,
+          "end": 27.26
+        },
+        {
+          "raw": "St.",
+          "start": 27.26,
+          "end": 27.5
+        },
+        {
+          "raw": "John",
+          "start": 27.82,
+          "end": 27.86
+        },
+        {
+          "raw": "had",
+          "start": 27.86,
+          "end": 28.04
+        },
+        {
+          "raw": "said",
+          "start": 28.04,
+          "end": 28.26
+        },
+        {
+          "raw": "another",
+          "start": 28.26,
+          "end": 28.58
+        },
+        {
+          "raw": "word,",
+          "start": 28.58,
+          "end": 28.96
+        },
+        {
+          "raw": "but",
+          "start": 29.16,
+          "end": 29.74
+        },
+        {
+          "raw": "I",
+          "start": 29.74,
+          "end": 29.88
+        },
+        {
+          "raw": "cannot",
+          "start": 29.88,
+          "end": 30.1
+        },
+        {
+          "raw": "expect",
+          "start": 30.1,
+          "end": 30.58
+        },
+        {
+          "raw": "the",
+          "start": 30.58,
+          "end": 30.76
+        },
+        {
+          "raw": "reader",
+          "start": 30.76,
+          "end": 30.96
+        },
+        {
+          "raw": "to",
+          "start": 30.96,
+          "end": 31.2
+        },
+        {
+          "raw": "have",
+          "start": 31.2,
+          "end": 31.4
+        },
+        {
+          "raw": "the",
+          "start": 31.4,
+          "end": 31.6
+        },
+        {
+          "raw": "same",
+          "start": 31.6,
+          "end": 31.92
+        },
+        {
+          "raw": "intuitive",
+          "start": 31.92,
+          "end": 32.48
+        },
+        {
+          "raw": "perception,",
+          "start": 32.48,
+          "end": 32.94
+        },
+        {
+          "raw": "so",
+          "start": 33.5,
+          "end": 33.72
+        },
+        {
+          "raw": "I",
+          "start": 33.72,
+          "end": 33.9
+        },
+        {
+          "raw": "must",
+          "start": 33.9,
+          "end": 34.1
+        },
+        {
+          "raw": "repeat",
+          "start": 34.1,
+          "end": 34.54
+        },
+        {
+          "raw": "his",
+          "start": 34.54,
+          "end": 34.78
+        },
+        {
+          "raw": "explanation.",
+          "start": 34.78,
+          "end": 35.34
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "stopped:",
+        "I",
+        "could",
+        "not",
+        "trust",
+        "myself",
+        "to",
+        "entertain,",
+        "much",
+        "less",
+        "to",
+        "express,",
+        "the",
+        "thought",
+        "that",
+        "rushed",
+        "upon",
+        "me—that",
+        "embodied",
+        "itself,—that,",
+        "in",
+        "a",
+        "second,",
+        "stood",
+        "out",
+        "a",
+        "strong,",
+        "solid",
+        "probability.",
+        "Circumstances",
+        "knit",
+        "themselves,",
+        "fitted",
+        "themselves,",
+        "shot",
+        "into",
+        "order:",
+        "the",
+        "chain",
+        "that",
+        "had",
+        "been",
+        "lying",
+        "hitherto",
+        "a",
+        "formless",
+        "lump",
+        "of",
+        "links",
+        "was",
+        "drawn",
+        "out",
+        "straight,—every",
+        "ring",
+        "was",
+        "perfect,",
+        "the",
+        "connection",
+        "complete.",
+        "I",
+        "knew,",
+        "by",
+        "instinct,",
+        "how",
+        "the",
+        "matter",
+        "stood,",
+        "before",
+        "St.",
+        "John",
+        "had",
+        "said",
+        "another",
+        "word;",
+        "but",
+        "I",
+        "cannot",
+        "expect",
+        "the",
+        "reader",
+        "to",
+        "have",
+        "the",
+        "same",
+        "intuitive",
+        "perception,",
+        "so",
+        "I",
+        "must",
+        "repeat",
+        "his",
+        "explanation."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          93,
+          0,
+          93
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "stopped,",
+          "start": 0.54,
+          "end": 0.92,
+          "key": "stopped",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.26,
+          "end": 1.36,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "could",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.46,
+          "end": 1.64,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "trust",
+          "start": 1.64,
+          "end": 1.9,
+          "key": "trust",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "myself",
+          "start": 1.9,
+          "end": 2.2,
+          "key": "myself",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.2,
+          "end": 2.44,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "entertain,",
+          "start": 2.44,
+          "end": 2.92,
+          "key": "entertain",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 3.16,
+          "end": 3.28,
+          "key": "much",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "less",
+          "start": 3.28,
+          "end": 3.48,
+          "key": "less",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.48,
+          "end": 3.7,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "express,",
+          "start": 3.7,
+          "end": 4.14,
+          "key": "express",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.54,
+          "end": 4.64,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 4.64,
+          "end": 4.84,
+          "key": "thought",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.84,
+          "end": 5.08,
+          "key": "that",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "rushed",
+          "start": 5.08,
+          "end": 5.32,
+          "key": "rushed",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 5.32,
+          "end": 5.6,
+          "key": "upon",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "me—that",
+          "start": 5.6,
+          "end": 6.24,
+          "key": "methat",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "embodied",
+          "start": 6.24,
+          "end": 6.64,
+          "key": "embodied",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "itself,—that,",
+          "start": 6.64,
+          "end": 7.86,
+          "key": "itselfthat",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.86,
+          "end": 8.02,
+          "key": "in",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.02,
+          "end": 8.14,
+          "key": "a",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "second,",
+          "start": 8.14,
+          "end": 8.4,
+          "key": "second",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "stood",
+          "start": 8.62,
+          "end": 8.74,
+          "key": "stood",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 8.74,
+          "end": 8.9,
+          "key": "out",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.9,
+          "end": 9.06,
+          "key": "a",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "strong,",
+          "start": 9.06,
+          "end": 9.44,
+          "key": "strong",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "solid",
+          "start": 9.68,
+          "end": 10.02,
+          "key": "solid",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "probability.",
+          "start": 10.02,
+          "end": 10.7,
+          "key": "probability",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Circumstances",
+          "start": 11.68,
+          "end": 12.2,
+          "key": "circumstances",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "knit",
+          "start": 12.2,
+          "end": 12.44,
+          "key": "knit",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "themselves,",
+          "start": 12.44,
+          "end": 12.98,
+          "key": "themselves",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "fitted",
+          "start": 13.24,
+          "end": 13.44,
+          "key": "fitted",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "themselves,",
+          "start": 13.44,
+          "end": 13.96,
+          "key": "themselves",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "shot",
+          "start": 14.26,
+          "end": 14.48,
+          "key": "shot",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 14.48,
+          "end": 14.72,
+          "key": "into",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "order.",
+          "start": 14.72,
+          "end": 15.0,
+          "key": "order",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 15.4,
+          "end": 15.82,
+          "key": "the",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "chain",
+          "start": 15.82,
+          "end": 16.06,
+          "key": "chain",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 16.06,
+          "end": 16.24,
+          "key": "that",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 16.24,
+          "end": 16.34,
+          "key": "had",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 16.34,
+          "end": 16.48,
+          "key": "been",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "lying",
+          "start": 16.48,
+          "end": 16.8,
+          "key": "lying",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "hitherto",
+          "start": 16.8,
+          "end": 17.14,
+          "key": "hitherto",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 17.14,
+          "end": 17.5,
+          "key": "a",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "formless",
+          "start": 17.5,
+          "end": 17.98,
+          "key": "formless",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "lump",
+          "start": 17.98,
+          "end": 18.18,
+          "key": "lump",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 18.18,
+          "end": 18.4,
+          "key": "of",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "links",
+          "start": 18.4,
+          "end": 18.58,
+          "key": "links",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 18.58,
+          "end": 18.82,
+          "key": "was",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "drawn",
+          "start": 18.82,
+          "end": 19.08,
+          "key": "drawn",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 19.08,
+          "end": 19.3,
+          "key": "out",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "straight,—every",
+          "start": 19.3,
+          "end": 20.42,
+          "key": "straightevery",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "ring",
+          "start": 20.42,
+          "end": 20.66,
+          "key": "ring",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 20.66,
+          "end": 20.84,
+          "key": "was",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "perfect,",
+          "start": 20.84,
+          "end": 21.3,
+          "key": "perfect",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.6,
+          "end": 21.86,
+          "key": "the",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "connection",
+          "start": 21.86,
+          "end": 22.2,
+          "key": "connection",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "complete.",
+          "start": 22.2,
+          "end": 22.74,
+          "key": "complete",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 23.46,
+          "end": 23.98,
+          "key": "i",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "knew,",
+          "start": 23.98,
+          "end": 24.24,
+          "key": "knew",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 24.4,
+          "end": 24.56,
+          "key": "by",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "instinct,",
+          "start": 24.56,
+          "end": 25.06,
+          "key": "instinct",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 25.48,
+          "end": 25.7,
+          "key": "how",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 25.7,
+          "end": 25.88,
+          "key": "the",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "matter",
+          "start": 25.88,
+          "end": 26.08,
+          "key": "matter",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "stood,",
+          "start": 26.08,
+          "end": 26.5,
+          "key": "stood",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 26.86,
+          "end": 27.26,
+          "key": "before",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "St.",
+          "start": 27.26,
+          "end": 27.5,
+          "key": "st",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 27.82,
+          "end": 27.86,
+          "key": "john",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 27.86,
+          "end": 28.04,
+          "key": "had",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 28.04,
+          "end": 28.26,
+          "key": "said",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 28.26,
+          "end": 28.58,
+          "key": "another",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "word,",
+          "start": 28.58,
+          "end": 28.96,
+          "key": "word",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 29.16,
+          "end": 29.74,
+          "key": "but",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 29.74,
+          "end": 29.88,
+          "key": "i",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 29.88,
+          "end": 30.1,
+          "key": "cannot",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "expect",
+          "start": 30.1,
+          "end": 30.58,
+          "key": "expect",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 30.58,
+          "end": 30.76,
+          "key": "the",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "reader",
+          "start": 30.76,
+          "end": 30.96,
+          "key": "reader",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 30.96,
+          "end": 31.2,
+          "key": "to",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 31.2,
+          "end": 31.4,
+          "key": "have",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 31.4,
+          "end": 31.6,
+          "key": "the",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 31.6,
+          "end": 31.92,
+          "key": "same",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "intuitive",
+          "start": 31.92,
+          "end": 32.48,
+          "key": "intuitive",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "perception,",
+          "start": 32.48,
+          "end": 32.94,
+          "key": "perception",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 33.5,
+          "end": 33.72,
+          "key": "so",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 33.72,
+          "end": 33.9,
+          "key": "i",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 33.9,
+          "end": 34.1,
+          "key": "must",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "repeat",
+          "start": 34.1,
+          "end": 34.54,
+          "key": "repeat",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 34.54,
+          "end": 34.78,
+          "key": "his",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "explanation.",
+          "start": 34.78,
+          "end": 35.34,
+          "key": "explanation",
+          "pieces": [
+            92
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "stopped:",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "text": "I",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "text": "could",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "not",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "text": "trust",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "text": "myself",
+          "start": 1.9,
+          "end": 2.2
+        },
+        {
+          "text": "to",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "text": "entertain,",
+          "start": 2.44,
+          "end": 2.92
+        },
+        {
+          "text": "much",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "text": "less",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "text": "to",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "text": "express,",
+          "start": 3.7,
+          "end": 4.14
+        },
+        {
+          "text": "the",
+          "start": 4.54,
+          "end": 4.64
+        },
+        {
+          "text": "thought",
+          "start": 4.64,
+          "end": 4.84
+        },
+        {
+          "text": "that",
+          "start": 4.84,
+          "end": 5.08
+        },
+        {
+          "text": "rushed",
+          "start": 5.08,
+          "end": 5.32
+        },
+        {
+          "text": "upon",
+          "start": 5.32,
+          "end": 5.6
+        },
+        {
+          "text": "me—that",
+          "start": 5.6,
+          "end": 6.24
+        },
+        {
+          "text": "embodied",
+          "start": 6.24,
+          "end": 6.64
+        },
+        {
+          "text": "itself,—that,",
+          "start": 6.64,
+          "end": 7.86
+        },
+        {
+          "text": "in",
+          "start": 7.86,
+          "end": 8.02
+        },
+        {
+          "text": "a",
+          "start": 8.02,
+          "end": 8.14
+        },
+        {
+          "text": "second,",
+          "start": 8.14,
+          "end": 8.4
+        },
+        {
+          "text": "stood",
+          "start": 8.62,
+          "end": 8.74
+        },
+        {
+          "text": "out",
+          "start": 8.74,
+          "end": 8.9
+        },
+        {
+          "text": "a",
+          "start": 8.9,
+          "end": 9.06
+        },
+        {
+          "text": "strong,",
+          "start": 9.06,
+          "end": 9.44
+        },
+        {
+          "text": "solid",
+          "start": 9.68,
+          "end": 10.02
+        },
+        {
+          "text": "probability.",
+          "start": 10.02,
+          "end": 10.7
+        },
+        {
+          "text": "Circumstances",
+          "start": 11.68,
+          "end": 12.2
+        },
+        {
+          "text": "knit",
+          "start": 12.2,
+          "end": 12.44
+        },
+        {
+          "text": "themselves,",
+          "start": 12.44,
+          "end": 12.98
+        },
+        {
+          "text": "fitted",
+          "start": 13.24,
+          "end": 13.44
+        },
+        {
+          "text": "themselves,",
+          "start": 13.44,
+          "end": 13.96
+        },
+        {
+          "text": "shot",
+          "start": 14.26,
+          "end": 14.48
+        },
+        {
+          "text": "into",
+          "start": 14.48,
+          "end": 14.72
+        },
+        {
+          "text": "order:",
+          "start": 14.72,
+          "end": 15.0
+        },
+        {
+          "text": "the",
+          "start": 15.4,
+          "end": 15.82
+        },
+        {
+          "text": "chain",
+          "start": 15.82,
+          "end": 16.06
+        },
+        {
+          "text": "that",
+          "start": 16.06,
+          "end": 16.24
+        },
+        {
+          "text": "had",
+          "start": 16.24,
+          "end": 16.34
+        },
+        {
+          "text": "been",
+          "start": 16.34,
+          "end": 16.48
+        },
+        {
+          "text": "lying",
+          "start": 16.48,
+          "end": 16.8
+        },
+        {
+          "text": "hitherto",
+          "start": 16.8,
+          "end": 17.14
+        },
+        {
+          "text": "a",
+          "start": 17.14,
+          "end": 17.5
+        },
+        {
+          "text": "formless",
+          "start": 17.5,
+          "end": 17.98
+        },
+        {
+          "text": "lump",
+          "start": 17.98,
+          "end": 18.18
+        },
+        {
+          "text": "of",
+          "start": 18.18,
+          "end": 18.4
+        },
+        {
+          "text": "links",
+          "start": 18.4,
+          "end": 18.58
+        },
+        {
+          "text": "was",
+          "start": 18.58,
+          "end": 18.82
+        },
+        {
+          "text": "drawn",
+          "start": 18.82,
+          "end": 19.08
+        },
+        {
+          "text": "out",
+          "start": 19.08,
+          "end": 19.3
+        },
+        {
+          "text": "straight,—every",
+          "start": 19.3,
+          "end": 20.42
+        },
+        {
+          "text": "ring",
+          "start": 20.42,
+          "end": 20.66
+        },
+        {
+          "text": "was",
+          "start": 20.66,
+          "end": 20.84
+        },
+        {
+          "text": "perfect,",
+          "start": 20.84,
+          "end": 21.3
+        },
+        {
+          "text": "the",
+          "start": 21.6,
+          "end": 21.86
+        },
+        {
+          "text": "connection",
+          "start": 21.86,
+          "end": 22.2
+        },
+        {
+          "text": "complete.",
+          "start": 22.2,
+          "end": 22.74
+        },
+        {
+          "text": "I",
+          "start": 23.46,
+          "end": 23.98
+        },
+        {
+          "text": "knew,",
+          "start": 23.98,
+          "end": 24.24
+        },
+        {
+          "text": "by",
+          "start": 24.4,
+          "end": 24.56
+        },
+        {
+          "text": "instinct,",
+          "start": 24.56,
+          "end": 25.06
+        },
+        {
+          "text": "how",
+          "start": 25.48,
+          "end": 25.7
+        },
+        {
+          "text": "the",
+          "start": 25.7,
+          "end": 25.88
+        },
+        {
+          "text": "matter",
+          "start": 25.88,
+          "end": 26.08
+        },
+        {
+          "text": "stood,",
+          "start": 26.08,
+          "end": 26.5
+        },
+        {
+          "text": "before",
+          "start": 26.86,
+          "end": 27.26
+        },
+        {
+          "text": "St.",
+          "start": 27.26,
+          "end": 27.5
+        },
+        {
+          "text": "John",
+          "start": 27.82,
+          "end": 27.86
+        },
+        {
+          "text": "had",
+          "start": 27.86,
+          "end": 28.04
+        },
+        {
+          "text": "said",
+          "start": 28.04,
+          "end": 28.26
+        },
+        {
+          "text": "another",
+          "start": 28.26,
+          "end": 28.58
+        },
+        {
+          "text": "word;",
+          "start": 28.58,
+          "end": 28.96
+        },
+        {
+          "text": "but",
+          "start": 29.16,
+          "end": 29.74
+        },
+        {
+          "text": "I",
+          "start": 29.74,
+          "end": 29.88
+        },
+        {
+          "text": "cannot",
+          "start": 29.88,
+          "end": 30.1
+        },
+        {
+          "text": "expect",
+          "start": 30.1,
+          "end": 30.58
+        },
+        {
+          "text": "the",
+          "start": 30.58,
+          "end": 30.76
+        },
+        {
+          "text": "reader",
+          "start": 30.76,
+          "end": 30.96
+        },
+        {
+          "text": "to",
+          "start": 30.96,
+          "end": 31.2
+        },
+        {
+          "text": "have",
+          "start": 31.2,
+          "end": 31.4
+        },
+        {
+          "text": "the",
+          "start": 31.4,
+          "end": 31.6
+        },
+        {
+          "text": "same",
+          "start": 31.6,
+          "end": 31.92
+        },
+        {
+          "text": "intuitive",
+          "start": 31.92,
+          "end": 32.48
+        },
+        {
+          "text": "perception,",
+          "start": 32.48,
+          "end": 32.94
+        },
+        {
+          "text": "so",
+          "start": 33.5,
+          "end": 33.72
+        },
+        {
+          "text": "I",
+          "start": 33.72,
+          "end": 33.9
+        },
+        {
+          "text": "must",
+          "start": 33.9,
+          "end": 34.1
+        },
+        {
+          "text": "repeat",
+          "start": 34.1,
+          "end": 34.54
+        },
+        {
+          "text": "his",
+          "start": 34.54,
+          "end": 34.78
+        },
+        {
+          "text": "explanation.",
+          "start": 34.78,
+          "end": 35.34
+        }
+      ],
+      "stats": {
+        "expected_words": 93,
+        "heard_words": 93,
+        "matched_words": 93
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.0114489360712469
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3e3e364c1d6db467d839ef22b251a56ba0f8690bdd3c75af99af66f984099439",
+  "selected_reasons": []
+}

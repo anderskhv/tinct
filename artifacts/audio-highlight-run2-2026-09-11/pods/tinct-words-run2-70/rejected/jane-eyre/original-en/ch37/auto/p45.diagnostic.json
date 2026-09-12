@@ -1,0 +1,766 @@
+{
+  "complete": true,
+  "signature": "73e23964ae06fbf2cde9eb4650420aacee4a1edc3cdc777ff29a22aafe8fc482",
+  "attempts": [
+    {
+      "asr_seconds": 0.346244104905054,
+      "alignment_seconds": 0.0008124969899654388,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You touch me, sir,—you hold me, and fast enough: I am not cold like a corpse, nor vacant like air, am I?\"",
+        "hotwords": "You, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You touch me, sir,—you hold me, and fast enough. I am not cold like a corpse, nor vacant like air, am I?",
+          "start": 0.02,
+          "end": 6.54,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.8515625
+            },
+            {
+              "text": " touch",
+              "start": 0.52,
+              "end": 0.74,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " me,",
+              "start": 0.74,
+              "end": 1.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sir,—you",
+              "start": 1.1,
+              "end": 1.82,
+              "probability": 0.6276042064030966
+            },
+            {
+              "text": " hold",
+              "start": 1.82,
+              "end": 2.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me,",
+              "start": 2.02,
+              "end": 2.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 2.24,
+              "end": 2.42,
+              "probability": 0.98046875
+            },
+            {
+              "text": " fast",
+              "start": 2.42,
+              "end": 2.66,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " enough.",
+              "start": 2.66,
+              "end": 2.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 3.44,
+              "end": 3.62,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " am",
+              "start": 3.62,
+              "end": 3.68,
+              "probability": 0.685546875
+            },
+            {
+              "text": " not",
+              "start": 3.68,
+              "end": 3.86,
+              "probability": 0.98828125
+            },
+            {
+              "text": " cold",
+              "start": 3.86,
+              "end": 4.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " like",
+              "start": 4.14,
+              "end": 4.3,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " a",
+              "start": 4.3,
+              "end": 4.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " corpse,",
+              "start": 4.46,
+              "end": 4.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " nor",
+              "start": 5.06,
+              "end": 5.16,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " vacant",
+              "start": 5.16,
+              "end": 5.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " like",
+              "start": 5.5,
+              "end": 5.78,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " air,",
+              "start": 5.78,
+              "end": 6.02,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " am",
+              "start": 6.22,
+              "end": 6.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I?",
+              "start": 6.26,
+              "end": 6.54,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "touch",
+          "start": 0.52,
+          "end": 0.74
+        },
+        {
+          "raw": "me,",
+          "start": 0.74,
+          "end": 1.02
+        },
+        {
+          "raw": "sir,—you",
+          "start": 1.1,
+          "end": 1.82
+        },
+        {
+          "raw": "hold",
+          "start": 1.82,
+          "end": 2.02
+        },
+        {
+          "raw": "me,",
+          "start": 2.02,
+          "end": 2.22
+        },
+        {
+          "raw": "and",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "raw": "fast",
+          "start": 2.42,
+          "end": 2.66
+        },
+        {
+          "raw": "enough.",
+          "start": 2.66,
+          "end": 2.98
+        },
+        {
+          "raw": "I",
+          "start": 3.44,
+          "end": 3.62
+        },
+        {
+          "raw": "am",
+          "start": 3.62,
+          "end": 3.68
+        },
+        {
+          "raw": "not",
+          "start": 3.68,
+          "end": 3.86
+        },
+        {
+          "raw": "cold",
+          "start": 3.86,
+          "end": 4.14
+        },
+        {
+          "raw": "like",
+          "start": 4.14,
+          "end": 4.3
+        },
+        {
+          "raw": "a",
+          "start": 4.3,
+          "end": 4.46
+        },
+        {
+          "raw": "corpse,",
+          "start": 4.46,
+          "end": 4.82
+        },
+        {
+          "raw": "nor",
+          "start": 5.06,
+          "end": 5.16
+        },
+        {
+          "raw": "vacant",
+          "start": 5.16,
+          "end": 5.5
+        },
+        {
+          "raw": "like",
+          "start": 5.5,
+          "end": 5.78
+        },
+        {
+          "raw": "air,",
+          "start": 5.78,
+          "end": 6.02
+        },
+        {
+          "raw": "am",
+          "start": 6.22,
+          "end": 6.26
+        },
+        {
+          "raw": "I?",
+          "start": 6.26,
+          "end": 6.54
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "touch",
+        "me,",
+        "sir,—you",
+        "hold",
+        "me,",
+        "and",
+        "fast",
+        "enough:",
+        "I",
+        "am",
+        "not",
+        "cold",
+        "like",
+        "a",
+        "corpse,",
+        "nor",
+        "vacant",
+        "like",
+        "air,",
+        "am",
+        "I?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "touch",
+          "start": 0.52,
+          "end": 0.74,
+          "key": "touch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 0.74,
+          "end": 1.02,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir,—you",
+          "start": 1.1,
+          "end": 1.82,
+          "key": "siryou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 1.82,
+          "end": 2.02,
+          "key": "hold",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.02,
+          "end": 2.22,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.24,
+          "end": 2.42,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fast",
+          "start": 2.42,
+          "end": 2.66,
+          "key": "fast",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "enough.",
+          "start": 2.66,
+          "end": 2.98,
+          "key": "enough",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.44,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 3.62,
+          "end": 3.68,
+          "key": "am",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.68,
+          "end": 3.86,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "cold",
+          "start": 3.86,
+          "end": 4.14,
+          "key": "cold",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 4.14,
+          "end": 4.3,
+          "key": "like",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.3,
+          "end": 4.46,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "corpse,",
+          "start": 4.46,
+          "end": 4.82,
+          "key": "corpse",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 5.06,
+          "end": 5.16,
+          "key": "nor",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "vacant",
+          "start": 5.16,
+          "end": 5.5,
+          "key": "vacant",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 5.5,
+          "end": 5.78,
+          "key": "like",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "air,",
+          "start": 5.78,
+          "end": 6.02,
+          "key": "air",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 6.22,
+          "end": 6.26,
+          "key": "am",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "I?",
+          "start": 6.26,
+          "end": 6.54,
+          "key": "i",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "touch",
+          "start": 0.52,
+          "end": 0.74
+        },
+        {
+          "text": "me,",
+          "start": 0.74,
+          "end": 1.02
+        },
+        {
+          "text": "sir,—you",
+          "start": 1.1,
+          "end": 1.82
+        },
+        {
+          "text": "hold",
+          "start": 1.82,
+          "end": 2.02
+        },
+        {
+          "text": "me,",
+          "start": 2.02,
+          "end": 2.22
+        },
+        {
+          "text": "and",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "text": "fast",
+          "start": 2.42,
+          "end": 2.66
+        },
+        {
+          "text": "enough:",
+          "start": 2.66,
+          "end": 2.98
+        },
+        {
+          "text": "I",
+          "start": 3.44,
+          "end": 3.62
+        },
+        {
+          "text": "am",
+          "start": 3.62,
+          "end": 3.68
+        },
+        {
+          "text": "not",
+          "start": 3.68,
+          "end": 3.86
+        },
+        {
+          "text": "cold",
+          "start": 3.86,
+          "end": 4.14
+        },
+        {
+          "text": "like",
+          "start": 4.14,
+          "end": 4.3
+        },
+        {
+          "text": "a",
+          "start": 4.3,
+          "end": 4.46
+        },
+        {
+          "text": "corpse,",
+          "start": 4.46,
+          "end": 4.82
+        },
+        {
+          "text": "nor",
+          "start": 5.06,
+          "end": 5.16
+        },
+        {
+          "text": "vacant",
+          "start": 5.16,
+          "end": 5.5
+        },
+        {
+          "text": "like",
+          "start": 5.5,
+          "end": 5.78
+        },
+        {
+          "text": "air,",
+          "start": 5.78,
+          "end": 6.02
+        },
+        {
+          "text": "am",
+          "start": 6.22,
+          "end": 6.26
+        },
+        {
+          "text": "I?\"",
+          "start": 6.26,
+          "end": 6.54
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3473758220206946
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3a32361121b6bceade2e0bae0ad641e72169029db08059bffefb947341799e86",
+  "selected_reasons": []
+}

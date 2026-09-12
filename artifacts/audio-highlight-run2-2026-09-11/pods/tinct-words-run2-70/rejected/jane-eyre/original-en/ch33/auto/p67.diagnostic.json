@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "a5c5856f98b6fc82e47e8fdc7106a2510bf21257608c65938f84ed96629466b1",
+  "attempts": [
+    {
+      "asr_seconds": 0.11558674089610577,
+      "alignment_seconds": 0.00031719496473670006,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Twenty thousand pounds?\"",
+        "hotwords": "Twenty"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Twenty thousand pounds.",
+          "start": 0.08,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " Twenty",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.1131591796875
+            },
+            {
+              "text": " thousand",
+              "start": 0.58,
+              "end": 0.94,
+              "probability": 0.740234375
+            },
+            {
+              "text": " pounds.",
+              "start": 0.94,
+              "end": 1.32,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Twenty",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "thousand",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "raw": "pounds.",
+          "start": 0.94,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "\"Twenty",
+        "thousand",
+        "pounds?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Twenty",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "twenty",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 0.58,
+          "end": 0.94,
+          "key": "thousand",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pounds.",
+          "start": 0.94,
+          "end": 1.32,
+          "key": "pounds",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Twenty",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "thousand",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "text": "pounds?\"",
+          "start": 0.94,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11601468804292381
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "96d30aa7765a196cada9f6467a3b6da8f71ca204f15aa14a3487bac23355e269",
+  "selected_reasons": []
+}

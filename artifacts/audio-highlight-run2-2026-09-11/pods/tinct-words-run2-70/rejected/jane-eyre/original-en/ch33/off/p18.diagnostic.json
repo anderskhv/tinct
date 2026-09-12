@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "9b5aae09be0d1d424e26cf03fa9c236940c14743919451e232543ed3fcccdf6b",
+  "attempts": [
+    {
+      "asr_seconds": 0.20958182984031737,
+      "alignment_seconds": 0.00047567090950906277,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Not since the letter I showed you a week ago",
+          "start": 0.05,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.873046875
+            },
+            {
+              "text": " since",
+              "start": 0.61,
+              "end": 0.81,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 0.81,
+              "end": 1.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " letter",
+              "start": 1.03,
+              "end": 1.23,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " I",
+              "start": 1.23,
+              "end": 1.51,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " showed",
+              "start": 1.51,
+              "end": 1.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 1.69,
+              "end": 1.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 1.89,
+              "end": 2.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " week",
+              "start": 2.01,
+              "end": 2.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ago",
+              "start": 2.15,
+              "end": 2.43,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "since",
+          "start": 0.61,
+          "end": 0.81
+        },
+        {
+          "raw": "the",
+          "start": 0.81,
+          "end": 1.03
+        },
+        {
+          "raw": "letter",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "raw": "I",
+          "start": 1.23,
+          "end": 1.51
+        },
+        {
+          "raw": "showed",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "raw": "you",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "raw": "a",
+          "start": 1.89,
+          "end": 2.01
+        },
+        {
+          "raw": "week",
+          "start": 2.01,
+          "end": 2.15
+        },
+        {
+          "raw": "ago",
+          "start": 2.15,
+          "end": 2.43
+        }
+      ],
+      "expected_tokens": [
+        "\"Not",
+        "since",
+        "the",
+        "letter",
+        "I",
+        "showed",
+        "you",
+        "a",
+        "week",
+        "ago.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "not",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "since",
+          "start": 0.61,
+          "end": 0.81,
+          "key": "since",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.81,
+          "end": 1.03,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 1.03,
+          "end": 1.23,
+          "key": "letter",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.23,
+          "end": 1.51,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "showed",
+          "start": 1.51,
+          "end": 1.69,
+          "key": "showed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.69,
+          "end": 1.89,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.89,
+          "end": 2.01,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "week",
+          "start": 2.01,
+          "end": 2.15,
+          "key": "week",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ago",
+          "start": 2.15,
+          "end": 2.43,
+          "key": "ago",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Not",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "since",
+          "start": 0.61,
+          "end": 0.81
+        },
+        {
+          "text": "the",
+          "start": 0.81,
+          "end": 1.03
+        },
+        {
+          "text": "letter",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "text": "I",
+          "start": 1.23,
+          "end": 1.51
+        },
+        {
+          "text": "showed",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "text": "you",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "text": "a",
+          "start": 1.89,
+          "end": 2.01
+        },
+        {
+          "text": "week",
+          "start": 2.01,
+          "end": 2.15
+        },
+        {
+          "text": "ago.\"",
+          "start": 2.15,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21025488199666142
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b6e0a0692e2fccd9a8abdda6f832315bfd7442a1c3cd851f5fd544e8e7b2eb1b",
+  "selected_reasons": []
+}

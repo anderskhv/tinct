@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "630d5c37fa5e4164a41e0a02ca055af784d1be630dbbba3fbf5cab914e77a89a",
+  "attempts": [
+    {
+      "asr_seconds": 0.12902222713455558,
+      "alignment_seconds": 0.00028811092488467693,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Now and then.\"",
+        "hotwords": "Now"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Now and then.",
+          "start": 0.02,
+          "end": 0.98,
+          "words": [
+            {
+              "text": " Now",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.4453125
+            },
+            {
+              "text": " and",
+              "start": 0.6,
+              "end": 0.76,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " then.",
+              "start": 0.76,
+              "end": 0.98,
+              "probability": 0.9638671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Now",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "and",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "raw": "then.",
+          "start": 0.76,
+          "end": 0.98
+        }
+      ],
+      "expected_tokens": [
+        "\"Now",
+        "and",
+        "then.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Now",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "now",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.6,
+          "end": 0.76,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then.",
+          "start": 0.76,
+          "end": 0.98,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Now",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "and",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "text": "then.\"",
+          "start": 0.76,
+          "end": 0.98
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12941879499703646
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "18bb9be9808939f9116ecb5f7052f472dfd2455b1a0e9d14638dc3caacda847f",
+  "selected_reasons": []
+}

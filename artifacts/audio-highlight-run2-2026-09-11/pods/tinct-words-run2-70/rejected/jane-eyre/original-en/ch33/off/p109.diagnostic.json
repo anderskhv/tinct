@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "907a0dc8992984b197a4a7f9d8ea898510d90a5a652a3962a80416e3cad48013",
+  "attempts": [
+    {
+      "asr_seconds": 0.14100629393942654,
+      "alignment_seconds": 0.00028227223083376884,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " We are cousins, yes.",
+          "start": 0.02,
+          "end": 1.48,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.880859375
+            },
+            {
+              "text": " are",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " cousins,",
+              "start": 0.6,
+              "end": 0.88,
+              "probability": 0.974609375
+            },
+            {
+              "text": " yes.",
+              "start": 1.24,
+              "end": 1.48,
+              "probability": 0.98291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "are",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "cousins,",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "raw": "yes.",
+          "start": 1.24,
+          "end": 1.48
+        }
+      ],
+      "expected_tokens": [
+        "\"We",
+        "are",
+        "cousins;",
+        "yes.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.5,
+          "end": 0.6,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cousins,",
+          "start": 0.6,
+          "end": 0.88,
+          "key": "cousins",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "yes.",
+          "start": 1.24,
+          "end": 1.48,
+          "key": "yes",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"We",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "are",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "cousins;",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "text": "yes.\"",
+          "start": 1.24,
+          "end": 1.48
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14142529806122184
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c8aa259ec5849f26f5d5b7e34706fa0cdd8245853a2c0f84f6f6768126ebeeae",
+  "selected_reasons": []
+}

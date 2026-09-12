@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "0df26902fcec906fa01a4e3ce3fd37ff07237cc252824fb51f72ac31954929bf",
+  "attempts": [
+    {
+      "asr_seconds": 0.22545277699828148,
+      "alignment_seconds": 0.0004951849114149809,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You have spoken of him often. Do you like him?",
+          "start": 0.02,
+          "end": 2.56,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.9140625
+            },
+            {
+              "text": " have",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " spoken",
+              "start": 0.6,
+              "end": 0.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 0.86,
+              "end": 1.04,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " him",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " often.",
+              "start": 1.14,
+              "end": 1.52,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Do",
+              "start": 1.9,
+              "end": 1.98,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " you",
+              "start": 1.98,
+              "end": 2.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " like",
+              "start": 2.1,
+              "end": 2.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him?",
+              "start": 2.32,
+              "end": 2.56,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "have",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "spoken",
+          "start": 0.6,
+          "end": 0.86
+        },
+        {
+          "raw": "of",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "raw": "him",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "often.",
+          "start": 1.14,
+          "end": 1.52
+        },
+        {
+          "raw": "Do",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "raw": "you",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "raw": "like",
+          "start": 2.1,
+          "end": 2.32
+        },
+        {
+          "raw": "him?",
+          "start": 2.32,
+          "end": 2.56
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "have",
+        "spoken",
+        "of",
+        "him",
+        "often:",
+        "do",
+        "you",
+        "like",
+        "him?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.5,
+          "end": 0.6,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "spoken",
+          "start": 0.6,
+          "end": 0.86,
+          "key": "spoken",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.86,
+          "end": 1.04,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.04,
+          "end": 1.14,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "often.",
+          "start": 1.14,
+          "end": 1.52,
+          "key": "often",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 1.9,
+          "end": 1.98,
+          "key": "do",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.98,
+          "end": 2.1,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 2.1,
+          "end": 2.32,
+          "key": "like",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "him?",
+          "start": 2.32,
+          "end": 2.56,
+          "key": "him",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "have",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "spoken",
+          "start": 0.6,
+          "end": 0.86
+        },
+        {
+          "text": "of",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "text": "him",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "text": "often:",
+          "start": 1.14,
+          "end": 1.52
+        },
+        {
+          "text": "do",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "text": "you",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "text": "like",
+          "start": 2.1,
+          "end": 2.32
+        },
+        {
+          "text": "him?\"",
+          "start": 2.32,
+          "end": 2.56
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2261386108584702
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "41f89eef26debaafadf00e6bcae10227881146b20359943ac238597049c6ef91",
+  "selected_reasons": []
+}

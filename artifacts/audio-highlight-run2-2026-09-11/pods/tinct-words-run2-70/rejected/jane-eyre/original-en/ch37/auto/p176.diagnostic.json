@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "394d20cc03d3aafde9a37df456b320c42e2dc31f5d739e657ae54a9d65264faf",
+  "attempts": [
+    {
+      "asr_seconds": 0.12270332383923233,
+      "alignment_seconds": 0.0001330818049609661,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes, sir.\"",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, sir.",
+          "start": 0.02,
+          "end": 0.9,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " sir.",
+              "start": 0.82,
+              "end": 0.9,
+              "probability": 0.888671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "sir.",
+          "start": 0.82,
+          "end": 0.9
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "sir.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 0.82,
+          "end": 0.9,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "sir.\"",
+          "start": 0.82,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1228792320471257
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7ac85ecb93572caa75cf74975d607795d3fbdc36cafdc97d2183bfc7e4309799",
+  "selected_reasons": []
+}

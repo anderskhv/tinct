@@ -1,0 +1,628 @@
+{
+  "complete": true,
+  "signature": "491f78a292fe9fb407d896a4304404bb90bf2e28e64e152ca706fbd63a5b99f6",
+  "attempts": [
+    {
+      "asr_seconds": 0.32856633397750556,
+      "alignment_seconds": 0.0005919579416513443,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A good man. Does that mean a respectable, well-conducted man of 50? Or what does it mean?",
+          "start": 0.02,
+          "end": 5.78,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.70947265625
+            },
+            {
+              "text": " good",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.927734375
+            },
+            {
+              "text": " man.",
+              "start": 0.7,
+              "end": 1.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Does",
+              "start": 1.64,
+              "end": 1.76,
+              "probability": 0.986328125
+            },
+            {
+              "text": " that",
+              "start": 1.76,
+              "end": 1.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " mean",
+              "start": 1.96,
+              "end": 2.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 2.16,
+              "end": 2.3,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " respectable,",
+              "start": 2.3,
+              "end": 2.76,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " well",
+              "start": 3.08,
+              "end": 3.2,
+              "probability": 0.99072265625
+            },
+            {
+              "text": "-conducted",
+              "start": 3.2,
+              "end": 3.8,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " man",
+              "start": 3.8,
+              "end": 3.98,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " of",
+              "start": 3.98,
+              "end": 4.16,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " 50?",
+              "start": 4.16,
+              "end": 4.38,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " Or",
+              "start": 5.02,
+              "end": 5.14,
+              "probability": 0.93359375
+            },
+            {
+              "text": " what",
+              "start": 5.14,
+              "end": 5.34,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " does",
+              "start": 5.34,
+              "end": 5.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 5.46,
+              "end": 5.56,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " mean?",
+              "start": 5.56,
+              "end": 5.78,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "good",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "man.",
+          "start": 0.7,
+          "end": 1.06
+        },
+        {
+          "raw": "Does",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "raw": "that",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "raw": "mean",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "raw": "a",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "raw": "respectable,",
+          "start": 2.3,
+          "end": 2.76
+        },
+        {
+          "raw": "well",
+          "start": 3.08,
+          "end": 3.2
+        },
+        {
+          "raw": "-conducted",
+          "start": 3.2,
+          "end": 3.8
+        },
+        {
+          "raw": "man",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "raw": "of",
+          "start": 3.98,
+          "end": 4.16
+        },
+        {
+          "raw": "50?",
+          "start": 4.16,
+          "end": 4.38
+        },
+        {
+          "raw": "Or",
+          "start": 5.02,
+          "end": 5.14
+        },
+        {
+          "raw": "what",
+          "start": 5.14,
+          "end": 5.34
+        },
+        {
+          "raw": "does",
+          "start": 5.34,
+          "end": 5.46
+        },
+        {
+          "raw": "it",
+          "start": 5.46,
+          "end": 5.56
+        },
+        {
+          "raw": "mean?",
+          "start": 5.56,
+          "end": 5.78
+        }
+      ],
+      "expected_tokens": [
+        "\"A",
+        "good",
+        "man.",
+        "Does",
+        "that",
+        "mean",
+        "a",
+        "respectable",
+        "well-conducted",
+        "man",
+        "of",
+        "fifty?",
+        "Or",
+        "what",
+        "does",
+        "it",
+        "mean?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "man.",
+          "start": 0.7,
+          "end": 1.06,
+          "key": "man",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Does",
+          "start": 1.64,
+          "end": 1.76,
+          "key": "does",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.76,
+          "end": 1.96,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 1.96,
+          "end": 2.16,
+          "key": "mean",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.16,
+          "end": 2.3,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "respectable,",
+          "start": 2.3,
+          "end": 2.76,
+          "key": "respectable",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "well -conducted",
+          "start": 3.08,
+          "end": 3.8,
+          "key": "wellconducted",
+          "pieces": [
+            8,
+            9
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 3.8,
+          "end": 3.98,
+          "key": "man",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.98,
+          "end": 4.16,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "50?",
+          "start": 4.16,
+          "end": 4.38,
+          "key": "fifty",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 5.02,
+          "end": 5.14,
+          "key": "or",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 5.14,
+          "end": 5.34,
+          "key": "what",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 5.34,
+          "end": 5.46,
+          "key": "does",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.46,
+          "end": 5.56,
+          "key": "it",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "mean?",
+          "start": 5.56,
+          "end": 5.78,
+          "key": "mean",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 8,
+          "text": "well-conducted",
+          "heard": "well -conducted",
+          "heard_indexes": [
+            8,
+            9
+          ],
+          "start": 3.08,
+          "end": 3.8
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"A",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "good",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "man.",
+          "start": 0.7,
+          "end": 1.06
+        },
+        {
+          "text": "Does",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "text": "that",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "text": "mean",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "text": "a",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "text": "respectable",
+          "start": 2.3,
+          "end": 2.76
+        },
+        {
+          "text": "well-conducted",
+          "start": 3.08,
+          "end": 3.8
+        },
+        {
+          "text": "man",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "text": "of",
+          "start": 3.98,
+          "end": 4.16
+        },
+        {
+          "text": "fifty?",
+          "start": 4.16,
+          "end": 4.38
+        },
+        {
+          "text": "Or",
+          "start": 5.02,
+          "end": 5.14
+        },
+        {
+          "text": "what",
+          "start": 5.14,
+          "end": 5.34
+        },
+        {
+          "text": "does",
+          "start": 5.34,
+          "end": 5.46
+        },
+        {
+          "text": "it",
+          "start": 5.46,
+          "end": 5.56
+        },
+        {
+          "text": "mean?\"",
+          "start": 5.56,
+          "end": 5.78
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3293647689279169
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "93684b0f1d1dff72a86172f041f93fc242630056688dc5042f1878aa0f899fbd",
+  "selected_reasons": []
+}

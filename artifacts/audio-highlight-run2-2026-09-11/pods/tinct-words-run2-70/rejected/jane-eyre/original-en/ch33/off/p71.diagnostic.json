@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "bddf54f5b0333fdca0d02bb36af7c0a2fba92dc499221e1fa23011c92db11bca",
+  "attempts": [
+    {
+      "asr_seconds": 0.15632296819239855,
+      "alignment_seconds": 0.00033498299308121204,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No mistake at all.",
+          "start": 0.02,
+          "end": 1.3,
+          "words": [
+            {
+              "text": " No",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " mistake",
+              "start": 0.6,
+              "end": 0.86,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " at",
+              "start": 0.86,
+              "end": 1.04,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " all.",
+              "start": 1.04,
+              "end": 1.3,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "mistake",
+          "start": 0.6,
+          "end": 0.86
+        },
+        {
+          "raw": "at",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "raw": "all.",
+          "start": 1.04,
+          "end": 1.3
+        }
+      ],
+      "expected_tokens": [
+        "\"No",
+        "mistake",
+        "at",
+        "all.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mistake",
+          "start": 0.6,
+          "end": 0.86,
+          "key": "mistake",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.86,
+          "end": 1.04,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all.",
+          "start": 1.04,
+          "end": 1.3,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "mistake",
+          "start": 0.6,
+          "end": 0.86
+        },
+        {
+          "text": "at",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "text": "all.\"",
+          "start": 1.04,
+          "end": 1.3
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1567841439973563
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5c8fe595fab440789653564e9ddb1a898a14b4d5f28a0d60ef0d97bd0f3525f6",
+  "selected_reasons": []
+}

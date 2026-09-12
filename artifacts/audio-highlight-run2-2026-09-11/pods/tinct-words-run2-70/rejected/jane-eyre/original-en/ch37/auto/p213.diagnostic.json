@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "34ac61f09adbf5d95febae7535357e70a171bd425709e4dd0a6fb634ca408781",
+  "attempts": [
+    {
+      "asr_seconds": 0.15426444611512125,
+      "alignment_seconds": 0.00042050983756780624,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ah! Jane. But I want a wife.\"",
+        "hotwords": "Ah, Jane, But, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ah, Jane. But I want a wife.",
+          "start": 0.18,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 0.18,
+              "end": 0.6,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " Jane.",
+              "start": 0.84,
+              "end": 0.9,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " But",
+              "start": 1.24,
+              "end": 1.32,
+              "probability": 0.990234375
+            },
+            {
+              "text": " I",
+              "start": 1.32,
+              "end": 1.4,
+              "probability": 0.982421875
+            },
+            {
+              "text": " want",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 1.52,
+              "end": 1.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wife.",
+              "start": 1.62,
+              "end": 1.84,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah,",
+          "start": 0.18,
+          "end": 0.6
+        },
+        {
+          "raw": "Jane.",
+          "start": 0.84,
+          "end": 0.9
+        },
+        {
+          "raw": "But",
+          "start": 1.24,
+          "end": 1.32
+        },
+        {
+          "raw": "I",
+          "start": 1.32,
+          "end": 1.4
+        },
+        {
+          "raw": "want",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "a",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "raw": "wife.",
+          "start": 1.62,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "\"Ah!",
+        "Jane.",
+        "But",
+        "I",
+        "want",
+        "a",
+        "wife.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah,",
+          "start": 0.18,
+          "end": 0.6,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Jane.",
+          "start": 0.84,
+          "end": 0.9,
+          "key": "jane",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 1.24,
+          "end": 1.32,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.32,
+          "end": 1.4,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 1.4,
+          "end": 1.52,
+          "key": "want",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.52,
+          "end": 1.62,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wife.",
+          "start": 1.62,
+          "end": 1.84,
+          "key": "wife",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ah!",
+          "start": 0.18,
+          "end": 0.6
+        },
+        {
+          "text": "Jane.",
+          "start": 0.84,
+          "end": 0.9
+        },
+        {
+          "text": "But",
+          "start": 1.24,
+          "end": 1.32
+        },
+        {
+          "text": "I",
+          "start": 1.32,
+          "end": 1.4
+        },
+        {
+          "text": "want",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "a",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "text": "wife.\"",
+          "start": 1.62,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15484120696783066
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8b8d048d910459a290d31e6d85798a1e4f855e1a47e3e652d82e0b2a0da9ad99",
+  "selected_reasons": []
+}

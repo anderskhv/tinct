@@ -1,0 +1,729 @@
+{
+  "complete": true,
+  "signature": "7e78b06976df808a0c73ca6a9282c188151682511cc1144c913bb35202f88430",
+  "attempts": [
+    {
+      "asr_seconds": 0.35238504805602133,
+      "alignment_seconds": 0.0007035678718239069,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, the back parlor was both his study and ours.",
+          "start": 0.02,
+          "end": 3.44,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.8310546875
+            },
+            {
+              "text": " the",
+              "start": 1.06,
+              "end": 1.28,
+              "probability": 0.98828125
+            },
+            {
+              "text": " back",
+              "start": 1.28,
+              "end": 1.5,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " parlor",
+              "start": 1.5,
+              "end": 1.86,
+              "probability": 0.949951171875
+            },
+            {
+              "text": " was",
+              "start": 1.86,
+              "end": 2.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " both",
+              "start": 2.06,
+              "end": 2.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 2.26,
+              "end": 2.48,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " study",
+              "start": 2.48,
+              "end": 2.8,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 2.8,
+              "end": 3.08,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " ours.",
+              "start": 3.08,
+              "end": 3.44,
+              "probability": 0.9814453125
+            }
+          ]
+        },
+        {
+          "text": " He sat near the window, and we by the table.",
+          "start": 4.12,
+          "end": 6.18,
+          "words": [
+            {
+              "text": " He",
+              "start": 4.12,
+              "end": 4.22,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sat",
+              "start": 4.22,
+              "end": 4.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " near",
+              "start": 4.44,
+              "end": 4.6,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 4.6,
+              "end": 4.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " window,",
+              "start": 4.74,
+              "end": 5.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 5.38,
+              "end": 5.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " we",
+              "start": 5.46,
+              "end": 5.58,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " by",
+              "start": 5.58,
+              "end": 5.76,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " the",
+              "start": 5.76,
+              "end": 5.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " table.",
+              "start": 5.9,
+              "end": 6.18,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "the",
+          "start": 1.06,
+          "end": 1.28
+        },
+        {
+          "raw": "back",
+          "start": 1.28,
+          "end": 1.5
+        },
+        {
+          "raw": "parlor",
+          "start": 1.5,
+          "end": 1.86
+        },
+        {
+          "raw": "was",
+          "start": 1.86,
+          "end": 2.06
+        },
+        {
+          "raw": "both",
+          "start": 2.06,
+          "end": 2.26
+        },
+        {
+          "raw": "his",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "raw": "study",
+          "start": 2.48,
+          "end": 2.8
+        },
+        {
+          "raw": "and",
+          "start": 2.8,
+          "end": 3.08
+        },
+        {
+          "raw": "ours.",
+          "start": 3.08,
+          "end": 3.44
+        },
+        {
+          "raw": "He",
+          "start": 4.12,
+          "end": 4.22
+        },
+        {
+          "raw": "sat",
+          "start": 4.22,
+          "end": 4.44
+        },
+        {
+          "raw": "near",
+          "start": 4.44,
+          "end": 4.6
+        },
+        {
+          "raw": "the",
+          "start": 4.6,
+          "end": 4.74
+        },
+        {
+          "raw": "window,",
+          "start": 4.74,
+          "end": 5.04
+        },
+        {
+          "raw": "and",
+          "start": 5.38,
+          "end": 5.46
+        },
+        {
+          "raw": "we",
+          "start": 5.46,
+          "end": 5.58
+        },
+        {
+          "raw": "by",
+          "start": 5.58,
+          "end": 5.76
+        },
+        {
+          "raw": "the",
+          "start": 5.76,
+          "end": 5.9
+        },
+        {
+          "raw": "table.",
+          "start": 5.9,
+          "end": 6.18
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes;",
+        "the",
+        "back",
+        "parlour",
+        "was",
+        "both",
+        "his",
+        "study",
+        "and",
+        "ours:",
+        "he",
+        "sat",
+        "near",
+        "the",
+        "window,",
+        "and",
+        "we",
+        "by",
+        "the",
+        "table.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          20,
+          4,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.06,
+          "end": 1.28,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 1.28,
+          "end": 1.5,
+          "key": "back",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "parlor",
+          "start": 1.5,
+          "end": 1.86,
+          "key": "parlor",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.86,
+          "end": 2.06,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 2.06,
+          "end": 2.26,
+          "key": "both",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.26,
+          "end": 2.48,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "study",
+          "start": 2.48,
+          "end": 2.8,
+          "key": "study",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.8,
+          "end": 3.08,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ours.",
+          "start": 3.08,
+          "end": 3.44,
+          "key": "ours",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.12,
+          "end": 4.22,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sat",
+          "start": 4.22,
+          "end": 4.44,
+          "key": "sat",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "near",
+          "start": 4.44,
+          "end": 4.6,
+          "key": "near",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.6,
+          "end": 4.74,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "window,",
+          "start": 4.74,
+          "end": 5.04,
+          "key": "window",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.38,
+          "end": 5.46,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 5.46,
+          "end": 5.58,
+          "key": "we",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 5.58,
+          "end": 5.76,
+          "key": "by",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.76,
+          "end": 5.9,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "table.",
+          "start": 5.9,
+          "end": 6.18,
+          "key": "table",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes;",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "the",
+          "start": 1.06,
+          "end": 1.28
+        },
+        {
+          "text": "back",
+          "start": 1.28,
+          "end": 1.5
+        },
+        {
+          "text": "parlour",
+          "start": 1.5,
+          "end": 1.68
+        },
+        {
+          "text": "was",
+          "start": 1.86,
+          "end": 2.06
+        },
+        {
+          "text": "both",
+          "start": 2.06,
+          "end": 2.26
+        },
+        {
+          "text": "his",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "text": "study",
+          "start": 2.48,
+          "end": 2.8
+        },
+        {
+          "text": "and",
+          "start": 2.8,
+          "end": 3.08
+        },
+        {
+          "text": "ours:",
+          "start": 3.08,
+          "end": 3.44
+        },
+        {
+          "text": "he",
+          "start": 4.12,
+          "end": 4.22
+        },
+        {
+          "text": "sat",
+          "start": 4.22,
+          "end": 4.44
+        },
+        {
+          "text": "near",
+          "start": 4.44,
+          "end": 4.6
+        },
+        {
+          "text": "the",
+          "start": 4.6,
+          "end": 4.74
+        },
+        {
+          "text": "window,",
+          "start": 4.74,
+          "end": 5.04
+        },
+        {
+          "text": "and",
+          "start": 5.38,
+          "end": 5.46
+        },
+        {
+          "text": "we",
+          "start": 5.46,
+          "end": 5.58
+        },
+        {
+          "text": "by",
+          "start": 5.58,
+          "end": 5.76
+        },
+        {
+          "text": "the",
+          "start": 5.76,
+          "end": 5.9
+        },
+        {
+          "text": "table.\"",
+          "start": 5.9,
+          "end": 6.18
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.3534426148980856
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c988bb61e5eed2ddd663d9a5631a2044e71b8cf9a0630de2993a9fd29fb9ed9a",
+  "selected_reasons": []
+}

@@ -1,0 +1,518 @@
+{
+  "complete": true,
+  "signature": "5013fec983258bdd53f76954098a7823a00905b15a81d774357ef123ab635262",
+  "attempts": [
+    {
+      "asr_seconds": 0.2568644729908556,
+      "alignment_seconds": 0.000393811147660017,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It is nearly 4 o'clock in the afternoon, sir. Don't you feel hungry?",
+          "start": 0.08,
+          "end": 3.94,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " is",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.953125
+            },
+            {
+              "text": " nearly",
+              "start": 0.66,
+              "end": 0.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " 4",
+              "start": 0.96,
+              "end": 1.32,
+              "probability": 0.2216796875
+            },
+            {
+              "text": " o",
+              "start": 1.32,
+              "end": 1.42,
+              "probability": 0.900390625
+            },
+            {
+              "text": "'clock",
+              "start": 1.42,
+              "end": 1.68,
+              "probability": 0.98046875
+            },
+            {
+              "text": " in",
+              "start": 1.68,
+              "end": 1.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 1.82,
+              "end": 1.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " afternoon,",
+              "start": 1.92,
+              "end": 2.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sir.",
+              "start": 2.64,
+              "end": 2.68,
+              "probability": 0.888671875
+            },
+            {
+              "text": " Don't",
+              "start": 3.24,
+              "end": 3.34,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " you",
+              "start": 3.34,
+              "end": 3.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " feel",
+              "start": 3.44,
+              "end": 3.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hungry?",
+              "start": 3.6,
+              "end": 3.94,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "is",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "nearly",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "raw": "4",
+          "start": 0.96,
+          "end": 1.32
+        },
+        {
+          "raw": "o",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "raw": "'clock",
+          "start": 1.42,
+          "end": 1.68
+        },
+        {
+          "raw": "in",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "raw": "the",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "raw": "afternoon,",
+          "start": 1.92,
+          "end": 2.36
+        },
+        {
+          "raw": "sir.",
+          "start": 2.64,
+          "end": 2.68
+        },
+        {
+          "raw": "Don't",
+          "start": 3.24,
+          "end": 3.34
+        },
+        {
+          "raw": "you",
+          "start": 3.34,
+          "end": 3.44
+        },
+        {
+          "raw": "feel",
+          "start": 3.44,
+          "end": 3.6
+        },
+        {
+          "raw": "hungry?",
+          "start": 3.6,
+          "end": 3.94
+        }
+      ],
+      "expected_tokens": [
+        "\"It",
+        "is",
+        "nearly",
+        "four",
+        "o'clock",
+        "in",
+        "the",
+        "afternoon,",
+        "sir.",
+        "Don't",
+        "you",
+        "feel",
+        "hungry?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          13,
+          6,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nearly",
+          "start": 0.66,
+          "end": 0.96,
+          "key": "nearly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "4",
+          "start": 0.96,
+          "end": 1.32,
+          "key": "four",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 1.32,
+          "end": 1.42,
+          "key": "o",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "'clock",
+          "start": 1.42,
+          "end": 1.68,
+          "key": "clock",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.68,
+          "end": 1.82,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.82,
+          "end": 1.92,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "afternoon,",
+          "start": 1.92,
+          "end": 2.36,
+          "key": "afternoon",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 2.64,
+          "end": 2.68,
+          "key": "sir",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Don't",
+          "start": 3.24,
+          "end": 3.34,
+          "key": "dont",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.34,
+          "end": 3.44,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "feel",
+          "start": 3.44,
+          "end": 3.6,
+          "key": "feel",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hungry?",
+          "start": 3.6,
+          "end": 3.94,
+          "key": "hungry",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"It",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "is",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "nearly",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "text": "four",
+          "start": 0.96,
+          "end": 1.32
+        },
+        {
+          "text": "o'clock",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "text": "in",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "text": "the",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "text": "afternoon,",
+          "start": 1.92,
+          "end": 2.36
+        },
+        {
+          "text": "sir.",
+          "start": 2.64,
+          "end": 2.68
+        },
+        {
+          "text": "Don't",
+          "start": 3.24,
+          "end": 3.34
+        },
+        {
+          "text": "you",
+          "start": 3.34,
+          "end": 3.44
+        },
+        {
+          "text": "feel",
+          "start": 3.44,
+          "end": 3.6
+        },
+        {
+          "text": "hungry?\"",
+          "start": 3.6,
+          "end": 3.94
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.2574272349011153
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e5309f7954ad0e4e23dc9abe920de69b7a066898c64e405e3e90cb93503330c1",
+  "selected_reasons": []
+}

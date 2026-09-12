@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "c5ac192f3dd428b846e467428ea8f5caa1418eb5dd56204785b5c036e86c584c",
+  "attempts": [
+    {
+      "asr_seconds": 0.10112876608036458,
+      "alignment_seconds": 0.00025253905914723873,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fix detective",
+          "start": 0.08,
+          "end": 1.06,
+          "words": [
+            {
+              "text": " Fix",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.58935546875
+            },
+            {
+              "text": " detective",
+              "start": 0.66,
+              "end": 1.06,
+              "probability": 0.460205078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fix",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "detective",
+          "start": 0.66,
+          "end": 1.06
+        }
+      ],
+      "expected_tokens": [
+        "Fix,",
+        "_Detective_."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fix",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "fix",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "detective",
+          "start": 0.66,
+          "end": 1.06,
+          "key": "detective",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fix,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "_Detective_.",
+          "start": 0.66,
+          "end": 1.06
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10147708607837558
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f9aa22a0925459e4235fe39c84711b4c5ba0c9d95f76b74bb6a19ce061ff9a48",
+  "selected_reasons": []
+}

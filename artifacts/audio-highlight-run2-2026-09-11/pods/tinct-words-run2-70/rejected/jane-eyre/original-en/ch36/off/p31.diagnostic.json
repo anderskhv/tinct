@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "08bb556b3ed7e6aac68d1c94d8530c72308112874b710637c7478f7b6d5f4cc4",
+  "attempts": [
+    {
+      "asr_seconds": 0.2018886578734964,
+      "alignment_seconds": 0.0005968471523374319,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Did you not in my time? I thought you are a stranger to me",
+          "start": 0.02,
+          "end": 3.84,
+          "words": [
+            {
+              "text": " Did",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.58544921875
+            },
+            {
+              "text": " you",
+              "start": 0.52,
+              "end": 0.84,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " not",
+              "start": 0.84,
+              "end": 1.32,
+              "probability": 0.479736328125
+            },
+            {
+              "text": " in",
+              "start": 1.32,
+              "end": 1.42,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " my",
+              "start": 1.42,
+              "end": 1.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " time?",
+              "start": 1.56,
+              "end": 1.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 1.94,
+              "end": 2.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thought",
+              "start": 2.02,
+              "end": 2.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you",
+              "start": 2.28,
+              "end": 2.7,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " are",
+              "start": 2.7,
+              "end": 2.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 2.84,
+              "end": 2.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " stranger",
+              "start": 2.92,
+              "end": 3.2,
+              "probability": 1.0
+            },
+            {
+              "text": " to",
+              "start": 3.2,
+              "end": 3.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me",
+              "start": 3.48,
+              "end": 3.84,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Did",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "you",
+          "start": 0.52,
+          "end": 0.84
+        },
+        {
+          "raw": "not",
+          "start": 0.84,
+          "end": 1.32
+        },
+        {
+          "raw": "in",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "raw": "my",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "raw": "time?",
+          "start": 1.56,
+          "end": 1.84
+        },
+        {
+          "raw": "I",
+          "start": 1.94,
+          "end": 2.02
+        },
+        {
+          "raw": "thought",
+          "start": 2.02,
+          "end": 2.28
+        },
+        {
+          "raw": "you",
+          "start": 2.28,
+          "end": 2.7
+        },
+        {
+          "raw": "are",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "raw": "a",
+          "start": 2.84,
+          "end": 2.92
+        },
+        {
+          "raw": "stranger",
+          "start": 2.92,
+          "end": 3.2
+        },
+        {
+          "raw": "to",
+          "start": 3.2,
+          "end": 3.48
+        },
+        {
+          "raw": "me",
+          "start": 3.48,
+          "end": 3.84
+        }
+      ],
+      "expected_tokens": [
+        "\"Did",
+        "you?\"",
+        "Not",
+        "in",
+        "my",
+        "time,",
+        "I",
+        "thought:",
+        "you",
+        "are",
+        "a",
+        "stranger",
+        "to",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Did",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "did",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.52,
+          "end": 0.84,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.84,
+          "end": 1.32,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.32,
+          "end": 1.42,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.42,
+          "end": 1.56,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "time?",
+          "start": 1.56,
+          "end": 1.84,
+          "key": "time",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.94,
+          "end": 2.02,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 2.02,
+          "end": 2.28,
+          "key": "thought",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.28,
+          "end": 2.7,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.7,
+          "end": 2.84,
+          "key": "are",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.84,
+          "end": 2.92,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "stranger",
+          "start": 2.92,
+          "end": 3.2,
+          "key": "stranger",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.2,
+          "end": 3.48,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.48,
+          "end": 3.84,
+          "key": "me",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Did",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "you?\"",
+          "start": 0.52,
+          "end": 0.84
+        },
+        {
+          "text": "Not",
+          "start": 0.84,
+          "end": 1.32
+        },
+        {
+          "text": "in",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "text": "my",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "text": "time,",
+          "start": 1.56,
+          "end": 1.84
+        },
+        {
+          "text": "I",
+          "start": 1.94,
+          "end": 2.02
+        },
+        {
+          "text": "thought:",
+          "start": 2.02,
+          "end": 2.28
+        },
+        {
+          "text": "you",
+          "start": 2.28,
+          "end": 2.7
+        },
+        {
+          "text": "are",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "text": "a",
+          "start": 2.84,
+          "end": 2.92
+        },
+        {
+          "text": "stranger",
+          "start": 2.92,
+          "end": 3.2
+        },
+        {
+          "text": "to",
+          "start": 3.2,
+          "end": 3.48
+        },
+        {
+          "text": "me.",
+          "start": 3.48,
+          "end": 3.84
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20275484398007393
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f155998c72aa109b695c38c893505d8264a0e6e7fb0c6af6816346e8c90708dd",
+  "selected_reasons": []
+}

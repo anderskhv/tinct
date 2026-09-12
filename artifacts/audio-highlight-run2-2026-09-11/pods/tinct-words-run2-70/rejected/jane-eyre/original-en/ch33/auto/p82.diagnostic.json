@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "a32f7f20401c99798f9c67a151057bef4e00059f7ecc361a1295301cc50cf1b5",
+  "attempts": [
+    {
+      "asr_seconds": 0.2863889050204307,
+      "alignment_seconds": 0.0006723171100020409,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"It is a very strange piece of business,\" I added; \"I must know more about it.\"",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It is a very strange piece of business, I added. I must know more about it.",
+          "start": 0.05,
+          "end": 4.75,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.29833984375
+            },
+            {
+              "text": " is",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " a",
+              "start": 0.63,
+              "end": 0.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " very",
+              "start": 0.73,
+              "end": 0.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " strange",
+              "start": 0.95,
+              "end": 1.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " piece",
+              "start": 1.39,
+              "end": 1.67,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 1.67,
+              "end": 1.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " business,",
+              "start": 1.87,
+              "end": 2.27,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 2.57,
+              "end": 2.77,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " added.",
+              "start": 2.77,
+              "end": 3.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 3.57,
+              "end": 3.69,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " must",
+              "start": 3.69,
+              "end": 3.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " know",
+              "start": 3.85,
+              "end": 4.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " more",
+              "start": 4.07,
+              "end": 4.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " about",
+              "start": 4.27,
+              "end": 4.51,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " it.",
+              "start": 4.51,
+              "end": 4.75,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "a",
+          "start": 0.63,
+          "end": 0.73
+        },
+        {
+          "raw": "very",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "raw": "strange",
+          "start": 0.95,
+          "end": 1.39
+        },
+        {
+          "raw": "piece",
+          "start": 1.39,
+          "end": 1.67
+        },
+        {
+          "raw": "of",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "raw": "business,",
+          "start": 1.87,
+          "end": 2.27
+        },
+        {
+          "raw": "I",
+          "start": 2.57,
+          "end": 2.77
+        },
+        {
+          "raw": "added.",
+          "start": 2.77,
+          "end": 3.09
+        },
+        {
+          "raw": "I",
+          "start": 3.57,
+          "end": 3.69
+        },
+        {
+          "raw": "must",
+          "start": 3.69,
+          "end": 3.85
+        },
+        {
+          "raw": "know",
+          "start": 3.85,
+          "end": 4.07
+        },
+        {
+          "raw": "more",
+          "start": 4.07,
+          "end": 4.27
+        },
+        {
+          "raw": "about",
+          "start": 4.27,
+          "end": 4.51
+        },
+        {
+          "raw": "it.",
+          "start": 4.51,
+          "end": 4.75
+        }
+      ],
+      "expected_tokens": [
+        "\"It",
+        "is",
+        "a",
+        "very",
+        "strange",
+        "piece",
+        "of",
+        "business,\"",
+        "I",
+        "added;",
+        "\"I",
+        "must",
+        "know",
+        "more",
+        "about",
+        "it.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.63,
+          "end": 0.73,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 0.73,
+          "end": 0.95,
+          "key": "very",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 0.95,
+          "end": 1.39,
+          "key": "strange",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "piece",
+          "start": 1.39,
+          "end": 1.67,
+          "key": "piece",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.67,
+          "end": 1.87,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "business,",
+          "start": 1.87,
+          "end": 2.27,
+          "key": "business",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.57,
+          "end": 2.77,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "added.",
+          "start": 2.77,
+          "end": 3.09,
+          "key": "added",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.57,
+          "end": 3.69,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 3.69,
+          "end": 3.85,
+          "key": "must",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 3.85,
+          "end": 4.07,
+          "key": "know",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 4.07,
+          "end": 4.27,
+          "key": "more",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 4.27,
+          "end": 4.51,
+          "key": "about",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 4.51,
+          "end": 4.75,
+          "key": "it",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "is",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "a",
+          "start": 0.63,
+          "end": 0.73
+        },
+        {
+          "text": "very",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "text": "strange",
+          "start": 0.95,
+          "end": 1.39
+        },
+        {
+          "text": "piece",
+          "start": 1.39,
+          "end": 1.67
+        },
+        {
+          "text": "of",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "text": "business,\"",
+          "start": 1.87,
+          "end": 2.27
+        },
+        {
+          "text": "I",
+          "start": 2.57,
+          "end": 2.77
+        },
+        {
+          "text": "added;",
+          "start": 2.77,
+          "end": 3.09
+        },
+        {
+          "text": "\"I",
+          "start": 3.57,
+          "end": 3.69
+        },
+        {
+          "text": "must",
+          "start": 3.69,
+          "end": 3.85
+        },
+        {
+          "text": "know",
+          "start": 3.85,
+          "end": 4.07
+        },
+        {
+          "text": "more",
+          "start": 4.07,
+          "end": 4.27
+        },
+        {
+          "text": "about",
+          "start": 4.27,
+          "end": 4.51
+        },
+        {
+          "text": "it.\"",
+          "start": 4.51,
+          "end": 4.75
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2873441360425204
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4e652e02027e8911e3b23c5384646007ba501bf44a138446a9dcb55e385bc2b6",
+  "selected_reasons": []
+}

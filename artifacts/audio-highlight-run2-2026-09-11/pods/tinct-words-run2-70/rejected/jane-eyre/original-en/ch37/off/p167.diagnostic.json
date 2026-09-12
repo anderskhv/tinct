@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "387dadb6727ea1ebff4373e308fdfdc36e0d82e7e07467a8762f34e5cedc11b5",
+  "attempts": [
+    {
+      "asr_seconds": 0.12156756920740008,
+      "alignment_seconds": 0.00020246696658432484,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What?",
+          "start": 0.02,
+          "end": 0.68,
+          "words": [
+            {
+              "text": " What?",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.69677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What?",
+          "start": 0.02,
+          "end": 0.68
+        }
+      ],
+      "expected_tokens": [
+        "\"What?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What?",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What?\"",
+          "start": 0.02,
+          "end": 0.68
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12183973100036383
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "24b8c7ab9c12497fc48831c4896741da4ff0809da8be18d3b01d75a2cfb17159",
+  "selected_reasons": []
+}

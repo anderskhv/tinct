@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "e8e598824040f46e52563934fe21344129c725d12360af5d43a87b5514f62b99",
+  "attempts": [
+    {
+      "asr_seconds": 0.1721129990182817,
+      "alignment_seconds": 0.0006339738611131907,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Then Mr. Rochester was at home when the fire broke out?\"",
+        "hotwords": "Then, Mr, Rochester"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then, Mr. Rochester was at home when the fire broke out?",
+          "start": 0.08,
+          "end": 3.86,
+          "words": [
+            {
+              "text": " Then,",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.875
+            },
+            {
+              "text": " Mr.",
+              "start": 0.82,
+              "end": 1.02,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " Rochester",
+              "start": 1.28,
+              "end": 1.48,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " was",
+              "start": 1.48,
+              "end": 2.08,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " at",
+              "start": 2.08,
+              "end": 2.22,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " home",
+              "start": 2.22,
+              "end": 2.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " when",
+              "start": 2.52,
+              "end": 2.86,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " the",
+              "start": 2.86,
+              "end": 2.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fire",
+              "start": 2.98,
+              "end": 3.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " broke",
+              "start": 3.24,
+              "end": 3.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " out?",
+              "start": 3.5,
+              "end": 3.86,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then,",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "raw": "Rochester",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "raw": "was",
+          "start": 1.48,
+          "end": 2.08
+        },
+        {
+          "raw": "at",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "raw": "home",
+          "start": 2.22,
+          "end": 2.52
+        },
+        {
+          "raw": "when",
+          "start": 2.52,
+          "end": 2.86
+        },
+        {
+          "raw": "the",
+          "start": 2.86,
+          "end": 2.98
+        },
+        {
+          "raw": "fire",
+          "start": 2.98,
+          "end": 3.24
+        },
+        {
+          "raw": "broke",
+          "start": 3.24,
+          "end": 3.5
+        },
+        {
+          "raw": "out?",
+          "start": 3.5,
+          "end": 3.86
+        }
+      ],
+      "expected_tokens": [
+        "\"Then",
+        "Mr.",
+        "Rochester",
+        "was",
+        "at",
+        "home",
+        "when",
+        "the",
+        "fire",
+        "broke",
+        "out?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then,",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.82,
+          "end": 1.02,
+          "key": "mr",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Rochester",
+          "start": 1.28,
+          "end": 1.48,
+          "key": "rochester",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.48,
+          "end": 2.08,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.08,
+          "end": 2.22,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "home",
+          "start": 2.22,
+          "end": 2.52,
+          "key": "home",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 2.52,
+          "end": 2.86,
+          "key": "when",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.86,
+          "end": 2.98,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fire",
+          "start": 2.98,
+          "end": 3.24,
+          "key": "fire",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "broke",
+          "start": 3.24,
+          "end": 3.5,
+          "key": "broke",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "out?",
+          "start": 3.5,
+          "end": 3.86,
+          "key": "out",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Then",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "Mr.",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "text": "Rochester",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "text": "was",
+          "start": 1.48,
+          "end": 2.08
+        },
+        {
+          "text": "at",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "text": "home",
+          "start": 2.22,
+          "end": 2.52
+        },
+        {
+          "text": "when",
+          "start": 2.52,
+          "end": 2.86
+        },
+        {
+          "text": "the",
+          "start": 2.86,
+          "end": 2.98
+        },
+        {
+          "text": "fire",
+          "start": 2.98,
+          "end": 3.24
+        },
+        {
+          "text": "broke",
+          "start": 3.24,
+          "end": 3.5
+        },
+        {
+          "text": "out?\"",
+          "start": 3.5,
+          "end": 3.86
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1729270671494305
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5ea8e00131ad7dc2abee2c3b3b686c0ef753f3bd9eb4ec0759a5915efb9cee4a",
+  "selected_reasons": []
+}

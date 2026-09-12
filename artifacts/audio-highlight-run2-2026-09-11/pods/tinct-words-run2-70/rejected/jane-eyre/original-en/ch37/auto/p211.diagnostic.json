@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "b3b9980b88255f5f0e70843da77db9fc0841e3906331db4a3ecbe8cc51d563f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.18928785691969097,
+      "alignment_seconds": 0.00040638004429638386,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You speak of friends, Jane?\" he asked.",
+        "hotwords": "You, Jane"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You speak of friends, Jane?\" he asked.",
+          "start": 0.02,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.31201171875
+            },
+            {
+              "text": " speak",
+              "start": 0.5,
+              "end": 0.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 0.7,
+              "end": 0.86,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " friends,",
+              "start": 0.86,
+              "end": 1.16,
+              "probability": 0.74560546875
+            },
+            {
+              "text": " Jane?\"",
+              "start": 1.4,
+              "end": 1.94,
+              "probability": 0.48630714416503906
+            },
+            {
+              "text": " he",
+              "start": 1.94,
+              "end": 2.02,
+              "probability": 0.875
+            },
+            {
+              "text": " asked.",
+              "start": 2.02,
+              "end": 2.38,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "speak",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "raw": "of",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "raw": "friends,",
+          "start": 0.86,
+          "end": 1.16
+        },
+        {
+          "raw": "Jane?\"",
+          "start": 1.4,
+          "end": 1.94
+        },
+        {
+          "raw": "he",
+          "start": 1.94,
+          "end": 2.02
+        },
+        {
+          "raw": "asked.",
+          "start": 2.02,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "speak",
+        "of",
+        "friends,",
+        "Jane?\"",
+        "he",
+        "asked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 0.5,
+          "end": 0.7,
+          "key": "speak",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.7,
+          "end": 0.86,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "friends,",
+          "start": 0.86,
+          "end": 1.16,
+          "key": "friends",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Jane?\"",
+          "start": 1.4,
+          "end": 1.94,
+          "key": "jane",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.94,
+          "end": 2.02,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "asked.",
+          "start": 2.02,
+          "end": 2.38,
+          "key": "asked",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "speak",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "text": "of",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "text": "friends,",
+          "start": 0.86,
+          "end": 1.16
+        },
+        {
+          "text": "Jane?\"",
+          "start": 1.4,
+          "end": 1.94
+        },
+        {
+          "text": "he",
+          "start": 1.94,
+          "end": 2.02
+        },
+        {
+          "text": "asked.",
+          "start": 2.02,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18984588305465877
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "94ded49e573a5b182c8fbb0c921f96104f9668c34569414f099f48db95b63342",
+  "selected_reasons": []
+}

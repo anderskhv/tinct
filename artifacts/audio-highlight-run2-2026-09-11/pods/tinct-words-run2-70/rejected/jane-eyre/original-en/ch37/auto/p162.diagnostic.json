@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "1a2ad18653ff82520fa059cb14d9eee6b8a9fbecf8bf0a3d0ab4b86785e0cd70",
+  "attempts": [
+    {
+      "asr_seconds": 0.13762261788360775,
+      "alignment_seconds": 0.0002849940210580826,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Five months.\"",
+        "hotwords": "Five"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Five months.",
+          "start": 0.08,
+          "end": 0.92,
+          "words": [
+            {
+              "text": " Five",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.6962890625
+            },
+            {
+              "text": " months.",
+              "start": 0.64,
+              "end": 0.92,
+              "probability": 0.9228515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Five",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "months.",
+          "start": 0.64,
+          "end": 0.92
+        }
+      ],
+      "expected_tokens": [
+        "\"Five",
+        "months.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Five",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "five",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "months.",
+          "start": 0.64,
+          "end": 0.92,
+          "key": "months",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Five",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "months.\"",
+          "start": 0.64,
+          "end": 0.92
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13800479983910918
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f99220aba8828abcb46fa4afa39c51b9a8f49853d133b2e8ce5a63126f9d2066",
+  "selected_reasons": []
+}

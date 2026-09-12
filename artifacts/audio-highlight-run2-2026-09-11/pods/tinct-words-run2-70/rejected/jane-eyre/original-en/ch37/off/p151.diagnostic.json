@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "bca308ef4e74400dd5efed2a7a07d13b19c911d80a12efcc9ac4a4a6cc6fa345",
+  "attempts": [
+    {
+      "asr_seconds": 0.11665226402692497,
+      "alignment_seconds": 0.00021418998949229717,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " daily",
+          "start": 0.05,
+          "end": 0.63,
+          "words": [
+            {
+              "text": " daily",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.62255859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "daily",
+          "start": 0.05,
+          "end": 0.63
+        }
+      ],
+      "expected_tokens": [
+        "\"Daily.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "daily",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "daily",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Daily.\"",
+          "start": 0.05,
+          "end": 0.63
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11693785199895501
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "eb6fa6cdcfb68e7ad24879be92770d9b1f436eebaeeb8dc6d4056ab4c1905757",
+  "selected_reasons": []
+}

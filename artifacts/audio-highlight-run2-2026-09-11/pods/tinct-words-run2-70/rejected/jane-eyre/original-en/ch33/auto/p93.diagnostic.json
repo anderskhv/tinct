@@ -1,0 +1,421 @@
+{
+  "complete": true,
+  "signature": "6c1d5bd63e9dba4b8e09402697a60dc44e1e2a4286ad27da15c0f2628d69efb7",
+  "attempts": [
+    {
+      "asr_seconds": 0.2948941830545664,
+      "alignment_seconds": 0.0005501799751073122,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And then,\" he pursued, \"I am cold: no fervour infects me.\"",
+        "hotwords": "And, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And then, he pursued,",
+          "start": 0.08,
+          "end": 1.5,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.47119140625
+            },
+            {
+              "text": " then,",
+              "start": 0.56,
+              "end": 0.8,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " he",
+              "start": 1.06,
+              "end": 1.14,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " pursued,",
+              "start": 1.14,
+              "end": 1.5,
+              "probability": 0.99365234375
+            }
+          ]
+        },
+        {
+          "text": " I am cold, no fervour infects me.",
+          "start": 1.5,
+          "end": 4.02,
+          "words": [
+            {
+              "text": " I",
+              "start": 1.5,
+              "end": 2.14,
+              "probability": 0.638671875
+            },
+            {
+              "text": " am",
+              "start": 2.14,
+              "end": 2.26,
+              "probability": 0.990234375
+            },
+            {
+              "text": " cold,",
+              "start": 2.26,
+              "end": 2.62,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " no",
+              "start": 2.82,
+              "end": 2.98,
+              "probability": 0.986328125
+            },
+            {
+              "text": " fervour",
+              "start": 2.98,
+              "end": 3.34,
+              "probability": 0.4960174560546875
+            },
+            {
+              "text": " infects",
+              "start": 3.34,
+              "end": 3.84,
+              "probability": 0.940185546875
+            },
+            {
+              "text": " me.",
+              "start": 3.84,
+              "end": 4.02,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "then,",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "raw": "he",
+          "start": 1.06,
+          "end": 1.14
+        },
+        {
+          "raw": "pursued,",
+          "start": 1.14,
+          "end": 1.5
+        },
+        {
+          "raw": "I",
+          "start": 1.5,
+          "end": 2.14
+        },
+        {
+          "raw": "am",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "raw": "cold,",
+          "start": 2.26,
+          "end": 2.62
+        },
+        {
+          "raw": "no",
+          "start": 2.82,
+          "end": 2.98
+        },
+        {
+          "raw": "fervour",
+          "start": 2.98,
+          "end": 3.34
+        },
+        {
+          "raw": "infects",
+          "start": 3.34,
+          "end": 3.84
+        },
+        {
+          "raw": "me.",
+          "start": 3.84,
+          "end": 4.02
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "then,\"",
+        "he",
+        "pursued,",
+        "\"I",
+        "am",
+        "cold:",
+        "no",
+        "fervour",
+        "infects",
+        "me.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then,",
+          "start": 0.56,
+          "end": 0.8,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.06,
+          "end": 1.14,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "pursued,",
+          "start": 1.14,
+          "end": 1.5,
+          "key": "pursued",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.5,
+          "end": 2.14,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.14,
+          "end": 2.26,
+          "key": "am",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cold,",
+          "start": 2.26,
+          "end": 2.62,
+          "key": "cold",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.82,
+          "end": 2.98,
+          "key": "no",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fervour",
+          "start": 2.98,
+          "end": 3.34,
+          "key": "fervour",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "infects",
+          "start": 3.34,
+          "end": 3.84,
+          "key": "infects",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 3.84,
+          "end": 4.02,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "then,\"",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "text": "he",
+          "start": 1.06,
+          "end": 1.14
+        },
+        {
+          "text": "pursued,",
+          "start": 1.14,
+          "end": 1.5
+        },
+        {
+          "text": "\"I",
+          "start": 1.5,
+          "end": 2.14
+        },
+        {
+          "text": "am",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "text": "cold:",
+          "start": 2.26,
+          "end": 2.62
+        },
+        {
+          "text": "no",
+          "start": 2.82,
+          "end": 2.98
+        },
+        {
+          "text": "fervour",
+          "start": 2.98,
+          "end": 3.34
+        },
+        {
+          "text": "infects",
+          "start": 3.34,
+          "end": 3.84
+        },
+        {
+          "text": "me.\"",
+          "start": 3.84,
+          "end": 4.02
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2956821429543197
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c085b35fface9d76f8eaa3c6f4cec6a36fa1170b61ed3bb73406d860987fd4a1",
+  "selected_reasons": []
+}

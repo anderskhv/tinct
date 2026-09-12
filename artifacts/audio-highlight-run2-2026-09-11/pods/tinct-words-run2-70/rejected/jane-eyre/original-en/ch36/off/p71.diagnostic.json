@@ -1,0 +1,700 @@
+{
+  "complete": true,
+  "signature": "bc06f504aaa218bd2bb1c2929111a31204df77f936f2302f600519810e49ba4e",
+  "attempts": [
+    {
+      "asr_seconds": 0.34058039798401296,
+      "alignment_seconds": 0.0006655729375779629,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I had dreaded worse. I had dreaded he was mad. I summoned strength to ask what had caused this calamity.",
+          "start": 0.08,
+          "end": 6.44,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.7236328125
+            },
+            {
+              "text": " had",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " dreaded",
+              "start": 0.64,
+              "end": 0.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " worse.",
+              "start": 0.92,
+              "end": 1.32,
+              "probability": 0.974609375
+            },
+            {
+              "text": " I",
+              "start": 1.98,
+              "end": 2.02,
+              "probability": 0.994140625
+            },
+            {
+              "text": " had",
+              "start": 2.02,
+              "end": 2.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " dreaded",
+              "start": 2.1,
+              "end": 2.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 2.34,
+              "end": 2.58,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " was",
+              "start": 2.58,
+              "end": 2.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " mad.",
+              "start": 2.72,
+              "end": 3.06,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " I",
+              "start": 3.68,
+              "end": 3.76,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " summoned",
+              "start": 3.76,
+              "end": 4.08,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " strength",
+              "start": 4.08,
+              "end": 4.48,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " to",
+              "start": 4.48,
+              "end": 4.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ask",
+              "start": 4.74,
+              "end": 4.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " what",
+              "start": 4.98,
+              "end": 5.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " had",
+              "start": 5.16,
+              "end": 5.3,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " caused",
+              "start": 5.3,
+              "end": 5.62,
+              "probability": 0.986328125
+            },
+            {
+              "text": " this",
+              "start": 5.62,
+              "end": 5.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " calamity.",
+              "start": 5.9,
+              "end": 6.44,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "had",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "dreaded",
+          "start": 0.64,
+          "end": 0.92
+        },
+        {
+          "raw": "worse.",
+          "start": 0.92,
+          "end": 1.32
+        },
+        {
+          "raw": "I",
+          "start": 1.98,
+          "end": 2.02
+        },
+        {
+          "raw": "had",
+          "start": 2.02,
+          "end": 2.1
+        },
+        {
+          "raw": "dreaded",
+          "start": 2.1,
+          "end": 2.34
+        },
+        {
+          "raw": "he",
+          "start": 2.34,
+          "end": 2.58
+        },
+        {
+          "raw": "was",
+          "start": 2.58,
+          "end": 2.72
+        },
+        {
+          "raw": "mad.",
+          "start": 2.72,
+          "end": 3.06
+        },
+        {
+          "raw": "I",
+          "start": 3.68,
+          "end": 3.76
+        },
+        {
+          "raw": "summoned",
+          "start": 3.76,
+          "end": 4.08
+        },
+        {
+          "raw": "strength",
+          "start": 4.08,
+          "end": 4.48
+        },
+        {
+          "raw": "to",
+          "start": 4.48,
+          "end": 4.74
+        },
+        {
+          "raw": "ask",
+          "start": 4.74,
+          "end": 4.98
+        },
+        {
+          "raw": "what",
+          "start": 4.98,
+          "end": 5.16
+        },
+        {
+          "raw": "had",
+          "start": 5.16,
+          "end": 5.3
+        },
+        {
+          "raw": "caused",
+          "start": 5.3,
+          "end": 5.62
+        },
+        {
+          "raw": "this",
+          "start": 5.62,
+          "end": 5.9
+        },
+        {
+          "raw": "calamity.",
+          "start": 5.9,
+          "end": 6.44
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "had",
+        "dreaded",
+        "worse.",
+        "I",
+        "had",
+        "dreaded",
+        "he",
+        "was",
+        "mad.",
+        "I",
+        "summoned",
+        "strength",
+        "to",
+        "ask",
+        "what",
+        "had",
+        "caused",
+        "this",
+        "calamity."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "had",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dreaded",
+          "start": 0.64,
+          "end": 0.92,
+          "key": "dreaded",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "worse.",
+          "start": 0.92,
+          "end": 1.32,
+          "key": "worse",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.98,
+          "end": 2.02,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.02,
+          "end": 2.1,
+          "key": "had",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dreaded",
+          "start": 2.1,
+          "end": 2.34,
+          "key": "dreaded",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.34,
+          "end": 2.58,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.58,
+          "end": 2.72,
+          "key": "was",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "mad.",
+          "start": 2.72,
+          "end": 3.06,
+          "key": "mad",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.68,
+          "end": 3.76,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "summoned",
+          "start": 3.76,
+          "end": 4.08,
+          "key": "summoned",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "strength",
+          "start": 4.08,
+          "end": 4.48,
+          "key": "strength",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.48,
+          "end": 4.74,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 4.74,
+          "end": 4.98,
+          "key": "ask",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 4.98,
+          "end": 5.16,
+          "key": "what",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 5.16,
+          "end": 5.3,
+          "key": "had",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "caused",
+          "start": 5.3,
+          "end": 5.62,
+          "key": "caused",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 5.62,
+          "end": 5.9,
+          "key": "this",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "calamity.",
+          "start": 5.9,
+          "end": 6.44,
+          "key": "calamity",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "had",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "dreaded",
+          "start": 0.64,
+          "end": 0.92
+        },
+        {
+          "text": "worse.",
+          "start": 0.92,
+          "end": 1.32
+        },
+        {
+          "text": "I",
+          "start": 1.98,
+          "end": 2.02
+        },
+        {
+          "text": "had",
+          "start": 2.02,
+          "end": 2.1
+        },
+        {
+          "text": "dreaded",
+          "start": 2.1,
+          "end": 2.34
+        },
+        {
+          "text": "he",
+          "start": 2.34,
+          "end": 2.58
+        },
+        {
+          "text": "was",
+          "start": 2.58,
+          "end": 2.72
+        },
+        {
+          "text": "mad.",
+          "start": 2.72,
+          "end": 3.06
+        },
+        {
+          "text": "I",
+          "start": 3.68,
+          "end": 3.76
+        },
+        {
+          "text": "summoned",
+          "start": 3.76,
+          "end": 4.08
+        },
+        {
+          "text": "strength",
+          "start": 4.08,
+          "end": 4.48
+        },
+        {
+          "text": "to",
+          "start": 4.48,
+          "end": 4.74
+        },
+        {
+          "text": "ask",
+          "start": 4.74,
+          "end": 4.98
+        },
+        {
+          "text": "what",
+          "start": 4.98,
+          "end": 5.16
+        },
+        {
+          "text": "had",
+          "start": 5.16,
+          "end": 5.3
+        },
+        {
+          "text": "caused",
+          "start": 5.3,
+          "end": 5.62
+        },
+        {
+          "text": "this",
+          "start": 5.62,
+          "end": 5.9
+        },
+        {
+          "text": "calamity.",
+          "start": 5.9,
+          "end": 6.44
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3415845239069313
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "91bc5f2f2d241e67a52177f679bfa3f57c9193dd3f2066ddf9425a987ccca1a6",
+  "selected_reasons": []
+}

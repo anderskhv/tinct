@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "477c2c6de7919b3e118cb9ba74d4d3abf9d6ab3131aa9cc1749d14307391b5b0",
+  "attempts": [
+    {
+      "asr_seconds": 0.11969603993929923,
+      "alignment_seconds": 0.0001359118614345789,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I, Rich",
+          "start": 0.21,
+          "end": 1.15,
+          "words": [
+            {
+              "text": " I,",
+              "start": 0.21,
+              "end": 0.67,
+              "probability": 0.59228515625
+            },
+            {
+              "text": " Rich",
+              "start": 0.95,
+              "end": 1.15,
+              "probability": 0.78466796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I,",
+          "start": 0.21,
+          "end": 0.67
+        },
+        {
+          "raw": "Rich",
+          "start": 0.95,
+          "end": 1.15
+        }
+      ],
+      "expected_tokens": [
+        "\"I!—rich?\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I,",
+          "start": 0.21,
+          "end": 0.67,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Rich",
+          "start": 0.95,
+          "end": 1.15,
+          "key": "rich",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I!—rich?\"",
+          "start": 0.0,
+          "end": 0.575
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11988126183860004
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1d69ce89e8916dac264289b46c07647c0ec45c39750415ed6d7040ca0204bdef",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

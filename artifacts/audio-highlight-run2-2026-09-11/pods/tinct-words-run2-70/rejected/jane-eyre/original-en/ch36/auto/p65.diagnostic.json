@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "56b7f3a03a495d563afb8241d0979faeb1f4d96b7f7dd58b6c77b534f12f2169",
+  "attempts": [
+    {
+      "asr_seconds": 0.19462634902447462,
+      "alignment_seconds": 0.0004147319123148918,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You said he was alive?\" I exclaimed.",
+        "hotwords": "You, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You said he was alive, I exclaimed.",
+          "start": 0.02,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.465576171875
+            },
+            {
+              "text": " said",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 0.68,
+              "end": 0.78,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " was",
+              "start": 0.78,
+              "end": 0.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " alive,",
+              "start": 0.88,
+              "end": 1.24,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 1.62,
+              "end": 1.8,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " exclaimed.",
+              "start": 1.8,
+              "end": 2.24,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "said",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "he",
+          "start": 0.68,
+          "end": 0.78
+        },
+        {
+          "raw": "was",
+          "start": 0.78,
+          "end": 0.88
+        },
+        {
+          "raw": "alive,",
+          "start": 0.88,
+          "end": 1.24
+        },
+        {
+          "raw": "I",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "raw": "exclaimed.",
+          "start": 1.8,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "said",
+        "he",
+        "was",
+        "alive?\"",
+        "I",
+        "exclaimed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.68,
+          "end": 0.78,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.78,
+          "end": 0.88,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "alive,",
+          "start": 0.88,
+          "end": 1.24,
+          "key": "alive",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.62,
+          "end": 1.8,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "exclaimed.",
+          "start": 1.8,
+          "end": 2.24,
+          "key": "exclaimed",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "said",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "he",
+          "start": 0.68,
+          "end": 0.78
+        },
+        {
+          "text": "was",
+          "start": 0.78,
+          "end": 0.88
+        },
+        {
+          "text": "alive?\"",
+          "start": 0.88,
+          "end": 1.24
+        },
+        {
+          "text": "I",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "text": "exclaimed.",
+          "start": 1.8,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19519413402304053
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0bfa95a39df6b072cd4fe4cdf81f131083c8910b14efa8cd71f8c64990f1412a",
+  "selected_reasons": []
+}
