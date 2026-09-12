@@ -59,3 +59,12 @@ archive/build-artifacts/
 # Python bytecode from the audio-highlight cloud tools
 __pycache__/
 *.pyc
+
+# Audio-highlight run diagnostics: per-paragraph rejections, raw pod output and
+# tarballs are reproducible from R2 plus tools/audio-highlight, and ~10GB of them
+# made every worktree checkout expensive. Journals, summaries, reports and the
+# small per-pod records stay tracked.
+artifacts/*/pods/*/rejected/
+artifacts/*/pods/*/out/
+artifacts/*/pods/*/cohort/
+artifacts/**/*.tar.gz
