@@ -1111,3 +1111,71 @@ on the fetched asset:
 
 Report live evidence back to the package `status.json` and the generated
 inventory only after those checks pass. Validated is not deployed.
+
+## Lane A automation batch 7: Confessions
+
+Authored on branch `claude/tinct-character-content-1n5iqq` by the Lane A
+automated author per `AUTOMATION-QUEUE.md`. Queued, not production
+verified; this lane never sets `appStatus`.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---:|---:|---|
+| Confessions | 8bc9ee572 | 72 / 72 | build_confessions.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| Confessions | 64b39a8ae77d7175c904625fcc0bf3de13cb59e346e964b37ec8f5e47d95a6d7 | 420b17153b6cb46f6a74e41bb633dcbc88099975720dac27c6bfb0bf6be51b4e |
+
+233 exact mentions in each edition, across all 13 Books and 462
+paragraphs per edition. One omitted entity, on both editions alike (see
+below). Commands: `python3 books/characters/build_confessions.py
+--check`, then `python3 -m unittest discover -s books/characters -p
+'test_*.py'`. Shared dependencies: `build_reviewed.py` and
+`reviewed_aliases.py`; neither was changed.
+
+### Release review points
+
+A memoir addressed entirely to God, not a dialogue or novel with a cast
+-- per editorial policy's guidance for treatises, 62 of 72 bound entries
+are Reference. One entity is Central: **Augustine** himself, the
+narrator, whose conversion the whole work recounts; he never names
+himself in the running text and carries no bindable alias, making him
+the package's one omitted entity on both sides. Four are Major for
+sustained, multi-Book presence: **Monnica** (Books 1-9, her Book 9 death
+narrative the book's most extended human portrait), **Alypius**,
+**Nebridius**, and **Ambrose**. Six are Supporting for a recurring or
+locally significant role: **Patricius**, **Adeodatus**, **Simplicianus**,
+**Victorinus**, **Pontitianus**, and **Faustus**.
+
+No genuine namesake collisions were found -- unlike Politics (nine) or
+Meditations (five), `build_confessions.py` needs no location-scoped
+`bind()` override at all and calls `reviewed_aliases.bind` directly. The
+one near-collision, **Paul/Saul** (the apostle) vs. **Paulus** (Sergius
+Paulus, the converting proconsul) at 8:10, resolves purely by spelling
+under word-boundary-safe matching, with no location scoping needed.
+
+### No source defects
+
+Unlike Aristotle's Politics, this translation shows no footnote-apparatus
+contamination, OCR corruption, or divergence of any kind between
+editions: both render every name identically, down to the exact mention
+count (233 to 233) and the single omitted entity (Augustine, on both
+sides for the same reason). No source edits.
+
+### Required production checks
+
+Register both English editions, version the immutable asset URL, run the
+normal app gates and deploy, then open the production reader and confirm
+on the fetched asset:
+
+1. A first-encounter card in each edition (1:13, "Adam").
+2. That Paul (7:26) and Paulus the Proconsul (8:10) show distinct,
+   correctly identified cards, and that "Saul" at 8:10 resolves to the
+   same card as Paul.
+3. That Augustine himself shows no card anywhere (he is never named).
+4. Monnica's card at her single named mention (9:37) and her Book 9
+   death narrative's earlier "my mother" passages showing no card
+   (unnamed-relation references are never bound).
+
+Report live evidence back to the package `status.json` and the generated
+inventory only after those checks pass. Validated is not deployed.
