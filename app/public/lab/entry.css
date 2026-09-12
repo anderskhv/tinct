@@ -24,7 +24,17 @@
 #tinct-onboarding-worlds-v5 .tov5-book-detail-copy {padding:0;min-width:0}
 #tinct-onboarding-worlds-v5 .tov5-book-detail-copy h2 {font-size:34px;line-height:1.12;margin:7px 0;overflow-wrap:anywhere}
 #tinct-onboarding-worlds-v5 .tov5-book-detail-copy small {font:13px/1.4 Arial,sans-serif}
-#tinct-onboarding-worlds-v5 .tov5-book-length {display:none}
+/* Reading figures: how many words the book is, how long it takes to read, and
+   — when the book has audio — how long it takes to listen. Same pill shape and
+   wording as the book page's own block (see #lab-book-page in index.html);
+   only the sizes are the entry surface's. A figure the catalogue cannot supply
+   is simply absent, so the row shrinks rather than stating a zero. */
+#tinct-onboarding-worlds-v5 .tov5-book-length {display:flex;flex-wrap:wrap;gap:8px;margin:0;max-width:none}
+#tinct-onboarding-worlds-v5 .tov5-book-length:empty {display:none}
+#tinct-onboarding-worlds-v5 .tov5-book-length span {display:inline-flex;align-items:center;gap:8px;min-height:0;padding:8px 14px;border:1px solid rgba(243,236,220,.24);border-radius:999px;background:rgba(243,236,220,.05)}
+#tinct-onboarding-worlds-v5 .tov5-book-length svg {width:15px;height:15px;flex:none;color:#d8c799;stroke:currentColor;fill:none}
+#tinct-onboarding-worlds-v5 .tov5-book-length b {display:inline;margin:0;font:400 13px/1.2 Arial,sans-serif;color:rgba(243,236,220,.92);white-space:nowrap}
+#tinct-onboarding-worlds-v5 .tov5-book-length small {display:none}
 #tinct-onboarding-worlds-v5 .tov5-book-description {display:block;-webkit-line-clamp:unset;max-height:none;height:auto;overflow:visible;margin:0;padding:0;grid-column:auto;grid-row:auto;font:20px/1.5 Georgia,serif;white-space:normal;color:rgba(243,236,220,.87)}
 #tinct-onboarding-worlds-v5 .entry-preface-link {display:inline;padding:0;margin:0 0 0 6px;border:0;border-bottom:1px solid currentColor;background:none;color:#d8c799;font:16px/1.4 Georgia,serif;cursor:pointer}
 #tinct-onboarding-worlds-v5 .entry-preface {font:20px/1.55 Georgia,serif;max-width:68ch}
@@ -107,7 +117,13 @@
  #tinct-onboarding-worlds-v5 .tov5-book-detail-body {padding:48px 42px;grid-template-columns:200px minmax(0,1fr);column-gap:40px;align-content:start}
  #tinct-onboarding-worlds-v5 .tov5-book-identity {display:contents}
  #tinct-onboarding-worlds-v5 .tov5-book-detail-cover {width:200px;height:300px;grid-column:1;grid-row:1/5}
- #tinct-onboarding-worlds-v5 .tov5-book-detail-copy,#tinct-onboarding-worlds-v5 .tov5-book-description,#tinct-onboarding-worlds-v5 .entry-preface,#tinct-onboarding-worlds-v5 .tov5-book-detail-body>.tov5-choose-edition {grid-column:2}
+ #tinct-onboarding-worlds-v5 .tov5-book-detail-copy,#tinct-onboarding-worlds-v5 .tov5-book-length,#tinct-onboarding-worlds-v5 .tov5-book-description,#tinct-onboarding-worlds-v5 .entry-preface,#tinct-onboarding-worlds-v5 .tov5-book-detail-body>.tov5-choose-edition {grid-column:2}
+ #tinct-onboarding-worlds-v5 .tov5-book-length {gap:10px}
+ #tinct-onboarding-worlds-v5 .tov5-book-length span {padding:9px 16px}
+ #tinct-onboarding-worlds-v5 .tov5-book-length svg {width:17px;height:17px}
+ #tinct-onboarding-worlds-v5 .tov5-book-length b {font-size:14px}
+ #tinct-onboarding-worlds-v5 .tov5-both-phone {display:none}
+ #tinct-onboarding-worlds-v5 .tov5-both-wide {display:inline}
  #tinct-onboarding-worlds-v5 .tov5-book-detail-copy h2 {font-size:42px}
  #tinct-onboarding-worlds-v5 .tov5-book-detail-body>.tov5-choose-edition {justify-self:start;width:auto}
  #tinct-onboarding-worlds-v5 .entry-picker-body {padding:38px 42px 48px}
@@ -116,7 +132,7 @@
  #tinct-onboarding-worlds-v5 .tov5-version-btn {padding:14px 18px}
  #tinct-onboarding-worlds-v5 .tov5-version-name {font-size:20px}
  #tinct-onboarding-worlds-v5 .tov5-version-preview {font-size:22px;line-height:1.5}
- #tinct-onboarding-worlds-v5 .entry-picker-footer {flex-direction:row;align-items:center;justify-content:space-between}
+ #tinct-onboarding-worlds-v5 .entry-picker-footer {flex-direction:row;align-items:center;justify-content:flex-end}
  #tinct-onboarding-worlds-v5 .tov5-continue {width:auto}
 }
 @keyframes entry-drift {from{transform:translateY(0)}to{transform:translateY(-50%)}}

@@ -23,6 +23,7 @@ import {
   popularLead,
   popularShelfSize,
   publishedCount,
+  listeningTimeLine,
   readerWordsPerMinute,
   readingTimeLine,
   revealDelayMs,
@@ -35,7 +36,7 @@ import {
   writeReaderOrigin,
   shelfScrollLeft,
   showPopularShelf,
-} from './library-model.js?v=20260911-search-drawer-1'
+} from './library-model.js?v=20260912-figures-1'
 
 {
   const root = document.querySelector('#tinct-onboarding-worlds-v5')
@@ -832,14 +833,19 @@ import {
   const statPill = (icon, value, title) => `<span title="${escapeHtml(title)}"><i data-lucide="${icon}" aria-hidden="true"></i><b>${escapeHtml(value)}</b></span>`
 
   /**
-   * The stat pills: how long the text is, how long it takes — the whole book
-   * for a book not started, and what is left of it for one in progress — and
-   * whether it can be heard. The value carries the meaning; the grey helper
-   * line that used to sit under each one is gone.
+   * The stat pills: how long the text is (words), how long it takes to read —
+   * the whole book for a book not started, and what is left of it for one in
+   * progress — and how long it takes to listen to, for a book that has audio.
+   * The value carries the meaning; the grey helper line that used to sit under
+   * each one is gone.
    *
-   * The pace is the reader's own when the reader's speed model has learned
-   * one, otherwise a stated 250 words a minute. The pill's title says which,
-   * so the number is never a silent claim about the reader.
+   * The reading pace is the reader's own when the reader's speed model has
+   * learned one, otherwise a stated 250 words a minute. The listening pace is
+   * the stated narration pace (the per-chapter audio manifests are on R2, so
+   * real durations are not available to this page). The pill's title says
+   * which, so no number is a silent claim about the reader.
+   *
+   * A figure that cannot be derived is left out rather than shown as zero.
    */
   function renderStats(book) {
     const wpm = readerWpm()
@@ -848,21 +854,27 @@ import {
     const left = Number.isFinite(percent) && percent > 0 && percent < 100
       ? readingTimeLine(Math.round(book.wordCount * (1 - percent / 100)), wpm)
       : null
+    const listen = book.availability.audio ? listeningTimeLine(book.wordCount) : null
+    const words = number(book.wordCount) && book.wordCount > 0 ? formatWordCount(book.wordCount) : null
     const pills = [
-      statPill('book-open', formatWordCount(book.wordCount), 'Length of the published text'),
-      time ? statPill('glasses', time.value, `Time to read the whole book ${time.note}`) : '',
+      words ? statPill('book-open', words, 'Length of the published text') : '',
+      time ? statPill('glasses', `${time.value} read`, `Time to read the whole book ${time.note}`) : '',
       left ? statPill('flag', `${left.value} left`, `Time to finish from where you stopped ${left.note}`) : '',
-      book.availability.audio ? statPill('headphones', 'Audiobook', 'Read aloud, chapter by chapter') : '',
+      listen ? statPill('headphones', `${listen.value} listen`, `Time to hear the audiobook ${listen.note}`)
+        : book.availability.audio ? statPill('headphones', 'Audiobook', 'Read aloud, chapter by chapter') : '',
     ].filter(Boolean)
     const stats = root.querySelector('[data-book-stats]')
     stats.innerHTML = pills.join('')
     stats.dataset.readingTime = time ? time.value : ''
     stats.dataset.readingTimeLeft = left ? left.value : ''
     stats.dataset.readingTimeMeasured = time ? String(time.measured) : 'false'
+    stats.dataset.listeningTime = listen ? listen.value : ''
     stats.setAttribute('aria-label', [
       'About this book',
+      words || '',
       time ? `${time.value} to read ${time.note}` : '',
       left ? `${left.value} left to finish` : '',
+      listen ? `${listen.value} to listen ${listen.note}` : '',
     ].filter(Boolean).join(' — '))
   }
 
@@ -928,8 +940,8 @@ import {
     host.innerHTML = [
       versionField('primary', 'Version', editions, primaryKey, false),
       candidates.length ? versionField('compare', 'Compare with', candidates, compareKey, !both) : '',
-      '<button type="button" class="entry-sample-more" data-sample-more hidden>Read a little more</button>',
-      candidates.length ? `<button type="button" class="tov5-version-both" data-version-both aria-pressed="${both}">Both</button>` : '',
+      '<button type="button" class="entry-sample-more" data-sample-more hidden>See more</button>',
+      candidates.length ? `<button type="button" class="tov5-version-both" data-version-both aria-pressed="${both}"><span class="tov5-both-phone">Read both versions, swipe to switch</span><span class="tov5-both-wide">Read both side by side</span></button>` : '',
     ].filter(Boolean).join('')
     host.dataset.versionCount = String(editions.length)
     host.dataset.compareCount = String(candidates.length)
@@ -946,7 +958,7 @@ import {
     nodes.forEach((node,i) => { node.textContent = samples[i]?.[state.sampleExpanded ? 'full' : 'short'] || 'Sample unavailable for this edition.' })
     const more = root.querySelector('[data-sample-more]')
     more.hidden = !samples.some(sample => sample && sample.full !== sample.short)
-    more.textContent = state.sampleExpanded ? 'Read less' : 'Read a little more'
+    more.textContent = state.sampleExpanded ? 'See less' : 'See more'
     more.setAttribute('aria-expanded',String(state.sampleExpanded))
   }
 
@@ -1057,9 +1069,6 @@ import {
     root.querySelector('[data-picker-cover]').src = cover.src
     root.querySelector('[data-picker-cover]').srcset = cover.srcSet
     root.querySelector('[data-picker-book]').textContent = book.title
-    const primary = book.editions.find(e => e.key === state.selectedEditionKey)
-    const compare = book.editions.find(e => e.key === state.compareEditionKey)
-    root.querySelector('[data-picker-selection]').textContent = [primary,compare].filter(Boolean).map(translationName).join(' + ')
     renderVersions(book)
   }
 
