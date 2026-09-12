@@ -1756,9 +1756,12 @@
     {
       "bookId": "confessions",
       "title": "Confessions",
-      "contentStatus": "not-started",
+      "contentStatus": "validated-package",
       "appStatus": "not-integrated",
-      "reviewedEditions": [],
+      "reviewedEditions": [
+        "original-en",
+        "modern-en"
+      ],
       "sources": [
         {
           "edition": "modern-en",
@@ -1776,7 +1779,7 @@
         }
       ],
       "existingThreadCandidates": 0,
-      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
+      "nextAction": "awaiting-integration: register both English editions, version the asset, run app gates, and verify in production before changing appStatus"
     },
     {
       "bookId": "notes-from-underground",

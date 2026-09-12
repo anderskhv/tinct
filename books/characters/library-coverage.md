@@ -70,7 +70,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | The Oresteia (`oresteia`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The Bacchae (`bacchae`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Medea (`medea`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| Confessions (`confessions`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Confessions (`confessions`) | validated-package | awaiting-integration: register both English editions, version the asset, run app gates, and verify in production before changing appStatus |
 | Notes from Underground (`notes-from-underground`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Magna Carta (`magna-carta`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The US Founding Documents (`us-founding-documents`) | validated-package | Production verified September 11 in both English editions; preserve source fingerprints and contextual exclusions. |
