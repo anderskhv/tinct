@@ -1,0 +1,464 @@
+{
+  "complete": true,
+  "signature": "a6a523ffdb83874d9b254eda80f86d1426116fe320a8397b83390ac6afc309c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.20928424689918756,
+      "alignment_seconds": 0.0007484983652830124,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Slen, give you good morrow, sir. 20.",
+          "start": 0.11,
+          "end": 2.45,
+          "words": [
+            {
+              "text": " Slen,",
+              "start": 0.11,
+              "end": 0.79,
+              "probability": 0.590087890625
+            },
+            {
+              "text": " give",
+              "start": 1.03,
+              "end": 1.15,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " you",
+              "start": 1.15,
+              "end": 1.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " good",
+              "start": 1.27,
+              "end": 1.41,
+              "probability": 0.990234375
+            },
+            {
+              "text": " morrow,",
+              "start": 1.41,
+              "end": 1.79,
+              "probability": 0.836669921875
+            },
+            {
+              "text": " sir.",
+              "start": 1.87,
+              "end": 1.95,
+              "probability": 0.943359375
+            },
+            {
+              "text": " 20.",
+              "start": 2.27,
+              "end": 2.45,
+              "probability": 0.480224609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Slen,",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "raw": "give",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "raw": "you",
+          "start": 1.15,
+          "end": 1.27
+        },
+        {
+          "raw": "good",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "raw": "morrow,",
+          "start": 1.41,
+          "end": 1.79
+        },
+        {
+          "raw": "sir.",
+          "start": 1.87,
+          "end": 1.95
+        },
+        {
+          "raw": "20.",
+          "start": 2.27,
+          "end": 2.45
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "Mistress",
+        "Ford!",
+        "I",
+        "have",
+        "had",
+        "ford",
+        "enough;",
+        "I",
+        "was",
+        "thrown",
+        "into",
+        "the",
+        "ford;",
+        "I",
+        "have",
+        "my",
+        "belly",
+        "full",
+        "of",
+        "ford."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          21,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          21,
+          0,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Slen,",
+          "start": 0.11,
+          "end": 0.79,
+          "key": "slen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.03,
+          "end": 1.15,
+          "key": "give",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.15,
+          "end": 1.27,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.27,
+          "end": 1.41,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "morrow,",
+          "start": 1.41,
+          "end": 1.79,
+          "key": "morrow",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.87,
+          "end": 1.95,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "20.",
+          "start": 2.27,
+          "end": 2.45,
+          "key": "twenty",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.0,
+          "end": 1.225
+        },
+        {
+          "text": "Mistress",
+          "start": 1.225,
+          "end": 1.838
+        },
+        {
+          "text": "Ford!",
+          "start": 1.838,
+          "end": 2.144
+        },
+        {
+          "text": "I",
+          "start": 2.144,
+          "end": 2.297
+        },
+        {
+          "text": "have",
+          "start": 2.297,
+          "end": 2.373
+        },
+        {
+          "text": "had",
+          "start": 2.373,
+          "end": 2.412
+        },
+        {
+          "text": "ford",
+          "start": 2.412,
+          "end": 2.431
+        },
+        {
+          "text": "enough;",
+          "start": 2.431,
+          "end": 2.441
+        },
+        {
+          "text": "I",
+          "start": 2.441,
+          "end": 2.446
+        },
+        {
+          "text": "was",
+          "start": 2.446,
+          "end": 2.448
+        },
+        {
+          "text": "thrown",
+          "start": 2.448,
+          "end": 2.449
+        },
+        {
+          "text": "into",
+          "start": 2.449,
+          "end": 2.45
+        },
+        {
+          "text": "the",
+          "start": 2.45,
+          "end": 2.45
+        },
+        {
+          "text": "ford;",
+          "start": 2.45,
+          "end": 2.45
+        },
+        {
+          "text": "I",
+          "start": 2.45,
+          "end": 2.45
+        },
+        {
+          "text": "have",
+          "start": 2.45,
+          "end": 2.45
+        },
+        {
+          "text": "my",
+          "start": 2.45,
+          "end": 2.45
+        },
+        {
+          "text": "belly",
+          "start": 2.45,
+          "end": 2.45
+        },
+        {
+          "text": "full",
+          "start": 2.45,
+          "end": 2.45
+        },
+        {
+          "text": "of",
+          "start": 2.45,
+          "end": 2.45
+        },
+        {
+          "text": "ford.",
+          "start": 2.45,
+          "end": 2.45
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 7,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.210188458673656
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "03d87617d55a099bd11aa0708dc05092f089da22178989af3a939978a8c647b5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

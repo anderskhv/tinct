@@ -1,0 +1,184 @@
+{
+  "complete": true,
+  "signature": "db6e9c6d80b09b7bad4907432bacc3ecd6d3766e87e7f41a4e82fa602b20dad9",
+  "attempts": [
+    {
+      "asr_seconds": 0.1429209029302001,
+      "alignment_seconds": 0.0002883151173591614,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Host, let us wag then.",
+          "start": 0.08,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Host,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.6591796875
+            },
+            {
+              "text": " let",
+              "start": 1.04,
+              "end": 1.12,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " us",
+              "start": 1.12,
+              "end": 1.24,
+              "probability": 0.994140625
+            },
+            {
+              "text": " wag",
+              "start": 1.24,
+              "end": 1.58,
+              "probability": 0.961669921875
+            },
+            {
+              "text": " then.",
+              "start": 1.58,
+              "end": 1.86,
+              "probability": 0.888671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Host,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "let",
+          "start": 1.04,
+          "end": 1.12
+        },
+        {
+          "raw": "us",
+          "start": 1.12,
+          "end": 1.24
+        },
+        {
+          "raw": "wag",
+          "start": 1.24,
+          "end": 1.58
+        },
+        {
+          "raw": "then.",
+          "start": 1.58,
+          "end": 1.86
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Host,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.04,
+          "end": 1.12,
+          "key": "let",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 1.12,
+          "end": 1.24,
+          "key": "us",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wag",
+          "start": 1.24,
+          "end": 1.58,
+          "key": "wag",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "then.",
+          "start": 1.58,
+          "end": 1.86,
+          "key": "then",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit._",
+          "start": 0.0,
+          "end": 0.93
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 5,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1433632867410779
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0ae121da7738a84483dbc089c420b63b5a97bf2d31962816efb1964133dc79f4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

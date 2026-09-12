@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "3caac325b3cd146846a7224893516fbe4589f24847ae1bd46faf0d937c52809f",
+  "attempts": [
+    {
+      "asr_seconds": 0.13678408320993185,
+      "alignment_seconds": 0.00033921655267477036,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Bard._ Here, sir.",
+        "hotwords": "Here"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Rug, sir.",
+          "start": 0.05,
+          "end": 0.95,
+          "words": [
+            {
+              "text": " Rug,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.5556640625
+            },
+            {
+              "text": " sir.",
+              "start": 0.83,
+              "end": 0.95,
+              "probability": 0.8017578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rug,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "sir.",
+          "start": 0.83,
+          "end": 0.95
+        }
+      ],
+      "expected_tokens": [
+        "_Bard._",
+        "Here,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          3,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rug,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "rug",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 0.83,
+          "end": 0.95,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Bard._",
+          "start": 0.0,
+          "end": 0.415
+        },
+        {
+          "text": "Here,",
+          "start": 0.415,
+          "end": 0.622
+        },
+        {
+          "text": "sir.",
+          "start": 0.83,
+          "end": 0.95
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1372180189937353
+    },
+    {
+      "asr_seconds": 0.14773458056151867,
+      "alignment_seconds": 0.00033773109316825867,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Here"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Rug, sir",
+          "start": 0.05,
+          "end": 0.95,
+          "words": [
+            {
+              "text": " Rug,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.5556640625
+            },
+            {
+              "text": " sir",
+              "start": 0.83,
+              "end": 0.95,
+              "probability": 0.8017578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rug,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "sir",
+          "start": 0.83,
+          "end": 0.95
+        }
+      ],
+      "expected_tokens": [
+        "_Bard._",
+        "Here,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          3,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rug,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "rug",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir",
+          "start": 0.83,
+          "end": 0.95,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Bard._",
+          "start": 0.0,
+          "end": 0.415
+        },
+        {
+          "text": "Here,",
+          "start": 0.415,
+          "end": 0.622
+        },
+        {
+          "text": "sir.",
+          "start": 0.83,
+          "end": 0.95
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1481667971238494
+    },
+    {
+      "asr_seconds": 0.13840017095208168,
+      "alignment_seconds": 0.00032607000321149826,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Rug, sir.",
+          "start": 0.05,
+          "end": 0.95,
+          "words": [
+            {
+              "text": " Rug,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.5556640625
+            },
+            {
+              "text": " sir.",
+              "start": 0.83,
+              "end": 0.95,
+              "probability": 0.8017578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rug,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "sir.",
+          "start": 0.83,
+          "end": 0.95
+        }
+      ],
+      "expected_tokens": [
+        "_Bard._",
+        "Here,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          3,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rug,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "rug",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 0.83,
+          "end": 0.95,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Bard._",
+          "start": 0.0,
+          "end": 0.415
+        },
+        {
+          "text": "Here,",
+          "start": 0.415,
+          "end": 0.622
+        },
+        {
+          "text": "sir.",
+          "start": 0.83,
+          "end": 0.95
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13882161024957895
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a090d23f10c222d2b62973164ad6a5f71761a7e74ea9ad70913b1fae4596ee1f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

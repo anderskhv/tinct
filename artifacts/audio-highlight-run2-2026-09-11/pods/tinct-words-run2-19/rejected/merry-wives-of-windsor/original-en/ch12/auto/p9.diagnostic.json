@@ -1,0 +1,1088 @@
+{
+  "complete": true,
+  "signature": "1e703810db61fc96274686ba4e23ff747f2fcf742bc6a703ee84058964e7fd9a",
+  "attempts": [
+    {
+      "asr_seconds": 0.24489337485283613,
+      "alignment_seconds": 0.0006118640303611755,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Quick._ By your leave; I cry you mercy: give your worship good morrow.",
+        "hotwords": "By, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Chaos. Villainy. Take your rapier. Fifteen.",
+          "start": 0.08,
+          "end": 2.92,
+          "words": [
+            {
+              "text": " Chaos.",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.74365234375
+            },
+            {
+              "text": " Villainy.",
+              "start": 1.22,
+              "end": 1.48,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " Take",
+              "start": 1.58,
+              "end": 1.66,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " your",
+              "start": 1.66,
+              "end": 1.8,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " rapier.",
+              "start": 1.8,
+              "end": 2.22,
+              "probability": 0.858154296875
+            },
+            {
+              "text": " Fifteen.",
+              "start": 2.5,
+              "end": 2.92,
+              "probability": 0.6387939453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chaos.",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "Villainy.",
+          "start": 1.22,
+          "end": 1.48
+        },
+        {
+          "raw": "Take",
+          "start": 1.58,
+          "end": 1.66
+        },
+        {
+          "raw": "your",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "raw": "rapier.",
+          "start": 1.8,
+          "end": 2.22
+        },
+        {
+          "raw": "Fifteen.",
+          "start": 2.5,
+          "end": 2.92
+        }
+      ],
+      "expected_tokens": [
+        "_Quick._",
+        "By",
+        "your",
+        "leave;",
+        "I",
+        "cry",
+        "you",
+        "mercy:",
+        "give",
+        "your",
+        "worship",
+        "good",
+        "morrow."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "equal",
+          2,
+          3,
+          3,
+          4
+        ],
+        [
+          "replace",
+          3,
+          13,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          13,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chaos.",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "chaos",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Villainy.",
+          "start": 1.22,
+          "end": 1.48,
+          "key": "villainy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Take",
+          "start": 1.58,
+          "end": 1.66,
+          "key": "take",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.66,
+          "end": 1.8,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "rapier.",
+          "start": 1.8,
+          "end": 2.22,
+          "key": "rapier",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Fifteen.",
+          "start": 2.5,
+          "end": 2.92,
+          "key": "fifteen",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Quick._",
+          "start": 0.0,
+          "end": 0.83
+        },
+        {
+          "text": "By",
+          "start": 0.83,
+          "end": 1.245
+        },
+        {
+          "text": "your",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "text": "leave;",
+          "start": 1.8,
+          "end": 2.36
+        },
+        {
+          "text": "I",
+          "start": 2.36,
+          "end": 2.64
+        },
+        {
+          "text": "cry",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "text": "you",
+          "start": 2.78,
+          "end": 2.85
+        },
+        {
+          "text": "mercy:",
+          "start": 2.85,
+          "end": 2.885
+        },
+        {
+          "text": "give",
+          "start": 2.885,
+          "end": 2.902
+        },
+        {
+          "text": "your",
+          "start": 2.902,
+          "end": 2.911
+        },
+        {
+          "text": "worship",
+          "start": 2.911,
+          "end": 2.915
+        },
+        {
+          "text": "good",
+          "start": 2.915,
+          "end": 2.917
+        },
+        {
+          "text": "morrow.",
+          "start": 2.917,
+          "end": 2.918
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 6,
+        "matched_words": 1
+      },
+      "match_ratio": 0.07692307692307693,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24564538430422544
+    },
+    {
+      "asr_seconds": 0.2616103161126375,
+      "alignment_seconds": 0.0006083743646740913,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "By, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " chaos villainy take your rapier 15",
+          "start": 0.08,
+          "end": 2.8,
+          "words": [
+            {
+              "text": " chaos",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.046142578125
+            },
+            {
+              "text": " villainy",
+              "start": 0.78,
+              "end": 1.5,
+              "probability": 0.6749267578125
+            },
+            {
+              "text": " take",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.75146484375
+            },
+            {
+              "text": " your",
+              "start": 1.66,
+              "end": 1.8,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " rapier",
+              "start": 1.8,
+              "end": 2.28,
+              "probability": 0.956298828125
+            },
+            {
+              "text": " 15",
+              "start": 2.28,
+              "end": 2.8,
+              "probability": 0.83642578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "chaos",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "villainy",
+          "start": 0.78,
+          "end": 1.5
+        },
+        {
+          "raw": "take",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "your",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "raw": "rapier",
+          "start": 1.8,
+          "end": 2.28
+        },
+        {
+          "raw": "15",
+          "start": 2.28,
+          "end": 2.8
+        }
+      ],
+      "expected_tokens": [
+        "_Quick._",
+        "By",
+        "your",
+        "leave;",
+        "I",
+        "cry",
+        "you",
+        "mercy:",
+        "give",
+        "your",
+        "worship",
+        "good",
+        "morrow."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "equal",
+          2,
+          3,
+          3,
+          4
+        ],
+        [
+          "replace",
+          3,
+          13,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          13,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "chaos",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "chaos",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "villainy",
+          "start": 0.78,
+          "end": 1.5,
+          "key": "villainy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 1.5,
+          "end": 1.66,
+          "key": "take",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.66,
+          "end": 1.8,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "rapier",
+          "start": 1.8,
+          "end": 2.28,
+          "key": "rapier",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "15",
+          "start": 2.28,
+          "end": 2.8,
+          "key": "fifteen",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Quick._",
+          "start": 0.0,
+          "end": 0.83
+        },
+        {
+          "text": "By",
+          "start": 0.83,
+          "end": 1.245
+        },
+        {
+          "text": "your",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "text": "leave;",
+          "start": 1.8,
+          "end": 2.3
+        },
+        {
+          "text": "I",
+          "start": 2.3,
+          "end": 2.55
+        },
+        {
+          "text": "cry",
+          "start": 2.55,
+          "end": 2.675
+        },
+        {
+          "text": "you",
+          "start": 2.675,
+          "end": 2.737
+        },
+        {
+          "text": "mercy:",
+          "start": 2.737,
+          "end": 2.768
+        },
+        {
+          "text": "give",
+          "start": 2.768,
+          "end": 2.784
+        },
+        {
+          "text": "your",
+          "start": 2.784,
+          "end": 2.792
+        },
+        {
+          "text": "worship",
+          "start": 2.792,
+          "end": 2.796
+        },
+        {
+          "text": "good",
+          "start": 2.796,
+          "end": 2.798
+        },
+        {
+          "text": "morrow.",
+          "start": 2.798,
+          "end": 2.799
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 6,
+        "matched_words": 1
+      },
+      "match_ratio": 0.07692307692307693,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2623592671006918
+    },
+    {
+      "asr_seconds": 0.23625672981142998,
+      "alignment_seconds": 0.0007047820836305618,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Chaos, villainy, take your rapier, 15.",
+          "start": 0.08,
+          "end": 2.8,
+          "words": [
+            {
+              "text": " Chaos,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " villainy,",
+              "start": 1.22,
+              "end": 1.48,
+              "probability": 0.6700439453125
+            },
+            {
+              "text": " take",
+              "start": 1.56,
+              "end": 1.66,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " your",
+              "start": 1.66,
+              "end": 1.8,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " rapier,",
+              "start": 1.8,
+              "end": 2.22,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " 15.",
+              "start": 2.52,
+              "end": 2.8,
+              "probability": 0.55126953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chaos,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "villainy,",
+          "start": 1.22,
+          "end": 1.48
+        },
+        {
+          "raw": "take",
+          "start": 1.56,
+          "end": 1.66
+        },
+        {
+          "raw": "your",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "raw": "rapier,",
+          "start": 1.8,
+          "end": 2.22
+        },
+        {
+          "raw": "15.",
+          "start": 2.52,
+          "end": 2.8
+        }
+      ],
+      "expected_tokens": [
+        "_Quick._",
+        "By",
+        "your",
+        "leave;",
+        "I",
+        "cry",
+        "you",
+        "mercy:",
+        "give",
+        "your",
+        "worship",
+        "good",
+        "morrow."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "equal",
+          2,
+          3,
+          3,
+          4
+        ],
+        [
+          "replace",
+          3,
+          13,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          13,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chaos,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "chaos",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "villainy,",
+          "start": 1.22,
+          "end": 1.48,
+          "key": "villainy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 1.56,
+          "end": 1.66,
+          "key": "take",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.66,
+          "end": 1.8,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "rapier,",
+          "start": 1.8,
+          "end": 2.22,
+          "key": "rapier",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "15.",
+          "start": 2.52,
+          "end": 2.8,
+          "key": "fifteen",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Quick._",
+          "start": 0.0,
+          "end": 0.83
+        },
+        {
+          "text": "By",
+          "start": 0.83,
+          "end": 1.245
+        },
+        {
+          "text": "your",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "text": "leave;",
+          "start": 1.8,
+          "end": 2.3
+        },
+        {
+          "text": "I",
+          "start": 2.3,
+          "end": 2.55
+        },
+        {
+          "text": "cry",
+          "start": 2.55,
+          "end": 2.675
+        },
+        {
+          "text": "you",
+          "start": 2.675,
+          "end": 2.737
+        },
+        {
+          "text": "mercy:",
+          "start": 2.737,
+          "end": 2.768
+        },
+        {
+          "text": "give",
+          "start": 2.768,
+          "end": 2.784
+        },
+        {
+          "text": "your",
+          "start": 2.784,
+          "end": 2.792
+        },
+        {
+          "text": "worship",
+          "start": 2.792,
+          "end": 2.796
+        },
+        {
+          "text": "good",
+          "start": 2.796,
+          "end": 2.798
+        },
+        {
+          "text": "morrow.",
+          "start": 2.798,
+          "end": 2.799
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 6,
+        "matched_words": 1
+      },
+      "match_ratio": 0.07692307692307693,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23712874855846167
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "38024dd1a378cb1e9196064cf2f1cd70bea6415a6475dbb87a959a3e4e8df78b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

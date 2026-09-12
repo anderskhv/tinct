@@ -1,0 +1,615 @@
+{
+  "complete": true,
+  "signature": "52d1bad70a49ffa5ec35090176e76c3ce4563ba5a78aea0a73181c057fc16431",
+  "attempts": [
+    {
+      "asr_seconds": 0.3861595820635557,
+      "alignment_seconds": 0.0003531714901328087,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Chaos, by Gar Denn I have as much mock Vader as to Englishman.",
+          "start": 0.08,
+          "end": 4.24,
+          "words": [
+            {
+              "text": " Chaos,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.1549072265625
+            },
+            {
+              "text": " by",
+              "start": 1.24,
+              "end": 1.3,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " Gar",
+              "start": 1.3,
+              "end": 1.52,
+              "probability": 0.35302734375
+            },
+            {
+              "text": " Denn",
+              "start": 1.52,
+              "end": 1.9,
+              "probability": 0.5660400390625
+            },
+            {
+              "text": " I",
+              "start": 1.9,
+              "end": 2.18,
+              "probability": 0.5849609375
+            },
+            {
+              "text": " have",
+              "start": 2.18,
+              "end": 2.32,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " as",
+              "start": 2.32,
+              "end": 2.44,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " much",
+              "start": 2.44,
+              "end": 2.66,
+              "probability": 0.69384765625
+            },
+            {
+              "text": " mock",
+              "start": 2.66,
+              "end": 2.94,
+              "probability": 0.5234375
+            },
+            {
+              "text": " Vader",
+              "start": 2.94,
+              "end": 3.18,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " as",
+              "start": 3.18,
+              "end": 3.46,
+              "probability": 0.98828125
+            },
+            {
+              "text": " to",
+              "start": 3.46,
+              "end": 3.6,
+              "probability": 0.5771484375
+            },
+            {
+              "text": " Englishman.",
+              "start": 3.6,
+              "end": 4.24,
+              "probability": 0.703369140625
+            }
+          ]
+        },
+        {
+          "text": " Scurvy Jackdog Priest, by Gar Meville cut his ears.",
+          "start": 4.92,
+          "end": 8.04,
+          "words": [
+            {
+              "text": " Scurvy",
+              "start": 4.92,
+              "end": 5.16,
+              "probability": 0.8102213541666666
+            },
+            {
+              "text": " Jackdog",
+              "start": 5.16,
+              "end": 5.62,
+              "probability": 0.798095703125
+            },
+            {
+              "text": " Priest,",
+              "start": 5.62,
+              "end": 5.96,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " by",
+              "start": 6.58,
+              "end": 6.66,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " Gar",
+              "start": 6.66,
+              "end": 6.94,
+              "probability": 0.8671875
+            },
+            {
+              "text": " Meville",
+              "start": 6.94,
+              "end": 7.44,
+              "probability": 0.446044921875
+            },
+            {
+              "text": " cut",
+              "start": 7.44,
+              "end": 7.64,
+              "probability": 0.74267578125
+            },
+            {
+              "text": " his",
+              "start": 7.64,
+              "end": 7.8,
+              "probability": 0.986328125
+            },
+            {
+              "text": " ears.",
+              "start": 7.8,
+              "end": 8.04,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chaos,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "by",
+          "start": 1.24,
+          "end": 1.3
+        },
+        {
+          "raw": "Gar",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "raw": "Denn",
+          "start": 1.52,
+          "end": 1.9
+        },
+        {
+          "raw": "I",
+          "start": 1.9,
+          "end": 2.18
+        },
+        {
+          "raw": "have",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "raw": "as",
+          "start": 2.32,
+          "end": 2.44
+        },
+        {
+          "raw": "much",
+          "start": 2.44,
+          "end": 2.66
+        },
+        {
+          "raw": "mock",
+          "start": 2.66,
+          "end": 2.94
+        },
+        {
+          "raw": "Vader",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "raw": "as",
+          "start": 3.18,
+          "end": 3.46
+        },
+        {
+          "raw": "to",
+          "start": 3.46,
+          "end": 3.6
+        },
+        {
+          "raw": "Englishman.",
+          "start": 3.6,
+          "end": 4.24
+        },
+        {
+          "raw": "Scurvy",
+          "start": 4.92,
+          "end": 5.16
+        },
+        {
+          "raw": "Jackdog",
+          "start": 5.16,
+          "end": 5.62
+        },
+        {
+          "raw": "Priest,",
+          "start": 5.62,
+          "end": 5.96
+        },
+        {
+          "raw": "by",
+          "start": 6.58,
+          "end": 6.66
+        },
+        {
+          "raw": "Gar",
+          "start": 6.66,
+          "end": 6.94
+        },
+        {
+          "raw": "Meville",
+          "start": 6.94,
+          "end": 7.44
+        },
+        {
+          "raw": "cut",
+          "start": 7.44,
+          "end": 7.64
+        },
+        {
+          "raw": "his",
+          "start": 7.64,
+          "end": 7.8
+        },
+        {
+          "raw": "ears.",
+          "start": 7.8,
+          "end": 8.04
+        }
+      ],
+      "expected_tokens": [
+        "_Ford._",
+        "That,",
+        "indeed,",
+        "Sir",
+        "John,",
+        "is",
+        "my",
+        "business."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          8,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          8,
+          0,
+          22
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chaos,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "chaos",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.24,
+          "end": 1.3,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Gar",
+          "start": 1.3,
+          "end": 1.52,
+          "key": "gar",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Denn",
+          "start": 1.52,
+          "end": 1.9,
+          "key": "denn",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.9,
+          "end": 2.18,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.18,
+          "end": 2.32,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.32,
+          "end": 2.44,
+          "key": "as",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.44,
+          "end": 2.66,
+          "key": "much",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mock",
+          "start": 2.66,
+          "end": 2.94,
+          "key": "mock",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Vader",
+          "start": 2.94,
+          "end": 3.18,
+          "key": "vader",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.18,
+          "end": 3.46,
+          "key": "as",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.46,
+          "end": 3.6,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Englishman.",
+          "start": 3.6,
+          "end": 4.24,
+          "key": "englishman",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Scurvy",
+          "start": 4.92,
+          "end": 5.16,
+          "key": "scurvy",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Jackdog",
+          "start": 5.16,
+          "end": 5.62,
+          "key": "jackdog",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Priest,",
+          "start": 5.62,
+          "end": 5.96,
+          "key": "priest",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 6.58,
+          "end": 6.66,
+          "key": "by",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Gar",
+          "start": 6.66,
+          "end": 6.94,
+          "key": "gar",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Meville",
+          "start": 6.94,
+          "end": 7.44,
+          "key": "meville",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "cut",
+          "start": 7.44,
+          "end": 7.64,
+          "key": "cut",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 7.64,
+          "end": 7.8,
+          "key": "his",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "ears.",
+          "start": 7.8,
+          "end": 8.04,
+          "key": "ears",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Ford._",
+          "start": 0.0,
+          "end": 4.02
+        },
+        {
+          "text": "That,",
+          "start": 4.02,
+          "end": 6.03
+        },
+        {
+          "text": "indeed,",
+          "start": 6.03,
+          "end": 7.035
+        },
+        {
+          "text": "Sir",
+          "start": 7.035,
+          "end": 7.537
+        },
+        {
+          "text": "John,",
+          "start": 7.537,
+          "end": 7.788
+        },
+        {
+          "text": "is",
+          "start": 7.788,
+          "end": 7.914
+        },
+        {
+          "text": "my",
+          "start": 7.914,
+          "end": 7.977
+        },
+        {
+          "text": "business.",
+          "start": 7.977,
+          "end": 8.008
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 22,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3867207169532776
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dbbef9b3da0b3a907599d4b1a547e7badffb8376d42b6f7c0271a2989b2f4166",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,1820 @@
+{
+  "complete": true,
+  "signature": "4f75219a3727d7299d1f84f6710d4da10454bf2f891b92a849c2cc79c7f00249",
+  "attempts": [
+    {
+      "asr_seconds": 0.3368829805403948,
+      "alignment_seconds": 0.00048440229147672653,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Quick._ I will tell her.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Chaos, I pray you bear witness that me have stay six or seven two tree hours for him and he is no come.",
+          "start": 0.08,
+          "end": 7.0,
+          "words": [
+            {
+              "text": " Chaos,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.278076171875
+            },
+            {
+              "text": " I",
+              "start": 1.14,
+              "end": 1.4,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " pray",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " you",
+              "start": 1.6,
+              "end": 1.94,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " bear",
+              "start": 1.94,
+              "end": 2.5,
+              "probability": 0.65576171875
+            },
+            {
+              "text": " witness",
+              "start": 2.5,
+              "end": 2.84,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " that",
+              "start": 2.84,
+              "end": 3.04,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " me",
+              "start": 3.04,
+              "end": 3.14,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " have",
+              "start": 3.14,
+              "end": 3.26,
+              "probability": 0.77734375
+            },
+            {
+              "text": " stay",
+              "start": 3.26,
+              "end": 3.5,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " six",
+              "start": 3.5,
+              "end": 3.8,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " or",
+              "start": 3.8,
+              "end": 3.94,
+              "probability": 0.99609375
+            },
+            {
+              "text": " seven",
+              "start": 3.94,
+              "end": 4.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " two",
+              "start": 4.22,
+              "end": 4.58,
+              "probability": 0.54248046875
+            },
+            {
+              "text": " tree",
+              "start": 4.58,
+              "end": 4.98,
+              "probability": 0.68798828125
+            },
+            {
+              "text": " hours",
+              "start": 4.98,
+              "end": 5.32,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " for",
+              "start": 5.32,
+              "end": 5.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 5.58,
+              "end": 5.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 5.82,
+              "end": 6.26,
+              "probability": 0.64013671875
+            },
+            {
+              "text": " he",
+              "start": 6.26,
+              "end": 6.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 6.38,
+              "end": 6.5,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " no",
+              "start": 6.5,
+              "end": 6.7,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " come.",
+              "start": 6.7,
+              "end": 7.0,
+              "probability": 0.8388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chaos,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.4
+        },
+        {
+          "raw": "pray",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "you",
+          "start": 1.6,
+          "end": 1.94
+        },
+        {
+          "raw": "bear",
+          "start": 1.94,
+          "end": 2.5
+        },
+        {
+          "raw": "witness",
+          "start": 2.5,
+          "end": 2.84
+        },
+        {
+          "raw": "that",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "raw": "me",
+          "start": 3.04,
+          "end": 3.14
+        },
+        {
+          "raw": "have",
+          "start": 3.14,
+          "end": 3.26
+        },
+        {
+          "raw": "stay",
+          "start": 3.26,
+          "end": 3.5
+        },
+        {
+          "raw": "six",
+          "start": 3.5,
+          "end": 3.8
+        },
+        {
+          "raw": "or",
+          "start": 3.8,
+          "end": 3.94
+        },
+        {
+          "raw": "seven",
+          "start": 3.94,
+          "end": 4.22
+        },
+        {
+          "raw": "two",
+          "start": 4.22,
+          "end": 4.58
+        },
+        {
+          "raw": "tree",
+          "start": 4.58,
+          "end": 4.98
+        },
+        {
+          "raw": "hours",
+          "start": 4.98,
+          "end": 5.32
+        },
+        {
+          "raw": "for",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "raw": "him",
+          "start": 5.58,
+          "end": 5.82
+        },
+        {
+          "raw": "and",
+          "start": 5.82,
+          "end": 6.26
+        },
+        {
+          "raw": "he",
+          "start": 6.26,
+          "end": 6.38
+        },
+        {
+          "raw": "is",
+          "start": 6.38,
+          "end": 6.5
+        },
+        {
+          "raw": "no",
+          "start": 6.5,
+          "end": 6.7
+        },
+        {
+          "raw": "come.",
+          "start": 6.7,
+          "end": 7.0
+        }
+      ],
+      "expected_tokens": [
+        "_Quick._",
+        "I",
+        "will",
+        "tell",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          5,
+          2,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          5,
+          2,
+          23
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chaos,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "chaos",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.4,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "pray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.6,
+          "end": 1.94,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 1.94,
+          "end": 2.5,
+          "key": "bear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "witness",
+          "start": 2.5,
+          "end": 2.84,
+          "key": "witness",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.84,
+          "end": 3.04,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.04,
+          "end": 3.14,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.14,
+          "end": 3.26,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "stay",
+          "start": 3.26,
+          "end": 3.5,
+          "key": "stay",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "six",
+          "start": 3.5,
+          "end": 3.8,
+          "key": "six",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 3.8,
+          "end": 3.94,
+          "key": "or",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "seven",
+          "start": 3.94,
+          "end": 4.22,
+          "key": "seven",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 4.22,
+          "end": 4.58,
+          "key": "two",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "tree",
+          "start": 4.58,
+          "end": 4.98,
+          "key": "tree",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "hours",
+          "start": 4.98,
+          "end": 5.32,
+          "key": "hours",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.32,
+          "end": 5.58,
+          "key": "for",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 5.58,
+          "end": 5.82,
+          "key": "him",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.82,
+          "end": 6.26,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 6.26,
+          "end": 6.38,
+          "key": "he",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.38,
+          "end": 6.5,
+          "key": "is",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 6.5,
+          "end": 6.7,
+          "key": "no",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 6.7,
+          "end": 7.0,
+          "key": "come",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Quick._",
+          "start": 0.0,
+          "end": 0.57
+        },
+        {
+          "text": "I",
+          "start": 1.14,
+          "end": 1.4
+        },
+        {
+          "text": "will",
+          "start": 1.4,
+          "end": 4.2
+        },
+        {
+          "text": "tell",
+          "start": 4.2,
+          "end": 5.6
+        },
+        {
+          "text": "her.",
+          "start": 5.6,
+          "end": 6.3
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 23,
+        "matched_words": 1
+      },
+      "match_ratio": 0.2,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.33766601979732513
+    },
+    {
+      "asr_seconds": 0.3838410936295986,
+      "alignment_seconds": 0.0003813058137893677,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Chaos I pray you bear witness that me have stay six or seven two tree hours for him and he is no come",
+          "start": 0.08,
+          "end": 7.04,
+          "words": [
+            {
+              "text": " Chaos",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.278076171875
+            },
+            {
+              "text": " I",
+              "start": 0.72,
+              "end": 1.4,
+              "probability": 0.2401123046875
+            },
+            {
+              "text": " pray",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " you",
+              "start": 1.6,
+              "end": 1.94,
+              "probability": 0.98828125
+            },
+            {
+              "text": " bear",
+              "start": 1.94,
+              "end": 2.5,
+              "probability": 0.92578125
+            },
+            {
+              "text": " witness",
+              "start": 2.5,
+              "end": 2.84,
+              "probability": 0.83203125
+            },
+            {
+              "text": " that",
+              "start": 2.84,
+              "end": 3.04,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " me",
+              "start": 3.04,
+              "end": 3.16,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " have",
+              "start": 3.16,
+              "end": 3.28,
+              "probability": 0.81591796875
+            },
+            {
+              "text": " stay",
+              "start": 3.28,
+              "end": 3.5,
+              "probability": 0.77392578125
+            },
+            {
+              "text": " six",
+              "start": 3.5,
+              "end": 3.8,
+              "probability": 0.935546875
+            },
+            {
+              "text": " or",
+              "start": 3.8,
+              "end": 3.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " seven",
+              "start": 3.94,
+              "end": 4.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " two",
+              "start": 4.22,
+              "end": 4.58,
+              "probability": 0.5126953125
+            },
+            {
+              "text": " tree",
+              "start": 4.58,
+              "end": 5.0,
+              "probability": 0.724609375
+            },
+            {
+              "text": " hours",
+              "start": 5.0,
+              "end": 5.32,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " for",
+              "start": 5.32,
+              "end": 5.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 5.58,
+              "end": 5.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 5.82,
+              "end": 6.26,
+              "probability": 0.62060546875
+            },
+            {
+              "text": " he",
+              "start": 6.26,
+              "end": 6.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 6.38,
+              "end": 6.5,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " no",
+              "start": 6.5,
+              "end": 6.7,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " come",
+              "start": 6.7,
+              "end": 7.04,
+              "probability": 0.84619140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chaos",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "I",
+          "start": 0.72,
+          "end": 1.4
+        },
+        {
+          "raw": "pray",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "you",
+          "start": 1.6,
+          "end": 1.94
+        },
+        {
+          "raw": "bear",
+          "start": 1.94,
+          "end": 2.5
+        },
+        {
+          "raw": "witness",
+          "start": 2.5,
+          "end": 2.84
+        },
+        {
+          "raw": "that",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "raw": "me",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "raw": "have",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "raw": "stay",
+          "start": 3.28,
+          "end": 3.5
+        },
+        {
+          "raw": "six",
+          "start": 3.5,
+          "end": 3.8
+        },
+        {
+          "raw": "or",
+          "start": 3.8,
+          "end": 3.94
+        },
+        {
+          "raw": "seven",
+          "start": 3.94,
+          "end": 4.22
+        },
+        {
+          "raw": "two",
+          "start": 4.22,
+          "end": 4.58
+        },
+        {
+          "raw": "tree",
+          "start": 4.58,
+          "end": 5.0
+        },
+        {
+          "raw": "hours",
+          "start": 5.0,
+          "end": 5.32
+        },
+        {
+          "raw": "for",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "raw": "him",
+          "start": 5.58,
+          "end": 5.82
+        },
+        {
+          "raw": "and",
+          "start": 5.82,
+          "end": 6.26
+        },
+        {
+          "raw": "he",
+          "start": 6.26,
+          "end": 6.38
+        },
+        {
+          "raw": "is",
+          "start": 6.38,
+          "end": 6.5
+        },
+        {
+          "raw": "no",
+          "start": 6.5,
+          "end": 6.7
+        },
+        {
+          "raw": "come",
+          "start": 6.7,
+          "end": 7.04
+        }
+      ],
+      "expected_tokens": [
+        "_Quick._",
+        "I",
+        "will",
+        "tell",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          5,
+          2,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          5,
+          2,
+          23
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chaos",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "chaos",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.72,
+          "end": 1.4,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "pray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.6,
+          "end": 1.94,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 1.94,
+          "end": 2.5,
+          "key": "bear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "witness",
+          "start": 2.5,
+          "end": 2.84,
+          "key": "witness",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.84,
+          "end": 3.04,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.04,
+          "end": 3.16,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.16,
+          "end": 3.28,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "stay",
+          "start": 3.28,
+          "end": 3.5,
+          "key": "stay",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "six",
+          "start": 3.5,
+          "end": 3.8,
+          "key": "six",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 3.8,
+          "end": 3.94,
+          "key": "or",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "seven",
+          "start": 3.94,
+          "end": 4.22,
+          "key": "seven",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 4.22,
+          "end": 4.58,
+          "key": "two",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "tree",
+          "start": 4.58,
+          "end": 5.0,
+          "key": "tree",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "hours",
+          "start": 5.0,
+          "end": 5.32,
+          "key": "hours",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.32,
+          "end": 5.58,
+          "key": "for",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 5.58,
+          "end": 5.82,
+          "key": "him",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.82,
+          "end": 6.26,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 6.26,
+          "end": 6.38,
+          "key": "he",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.38,
+          "end": 6.5,
+          "key": "is",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 6.5,
+          "end": 6.7,
+          "key": "no",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 6.7,
+          "end": 7.04,
+          "key": "come",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Quick._",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "I",
+          "start": 0.72,
+          "end": 1.4
+        },
+        {
+          "text": "will",
+          "start": 1.4,
+          "end": 4.22
+        },
+        {
+          "text": "tell",
+          "start": 4.22,
+          "end": 5.63
+        },
+        {
+          "text": "her.",
+          "start": 5.63,
+          "end": 6.335
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 23,
+        "matched_words": 1
+      },
+      "match_ratio": 0.2,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.38447820115834475
+    },
+    {
+      "asr_seconds": 0.2840193212032318,
+      "alignment_seconds": 0.0003181416541337967,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Chaos, I pray you bear witness that me have stay six or seven two tree hours for him and he is no come",
+          "start": 0.08,
+          "end": 7.02,
+          "words": [
+            {
+              "text": " Chaos,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.278076171875
+            },
+            {
+              "text": " I",
+              "start": 1.14,
+              "end": 1.4,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " pray",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " you",
+              "start": 1.6,
+              "end": 1.94,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " bear",
+              "start": 1.94,
+              "end": 2.5,
+              "probability": 0.65576171875
+            },
+            {
+              "text": " witness",
+              "start": 2.5,
+              "end": 2.84,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " that",
+              "start": 2.84,
+              "end": 3.04,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " me",
+              "start": 3.04,
+              "end": 3.14,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " have",
+              "start": 3.14,
+              "end": 3.26,
+              "probability": 0.77734375
+            },
+            {
+              "text": " stay",
+              "start": 3.26,
+              "end": 3.5,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " six",
+              "start": 3.5,
+              "end": 3.8,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " or",
+              "start": 3.8,
+              "end": 3.94,
+              "probability": 0.99609375
+            },
+            {
+              "text": " seven",
+              "start": 3.94,
+              "end": 4.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " two",
+              "start": 4.22,
+              "end": 4.58,
+              "probability": 0.54248046875
+            },
+            {
+              "text": " tree",
+              "start": 4.58,
+              "end": 4.98,
+              "probability": 0.68798828125
+            },
+            {
+              "text": " hours",
+              "start": 4.98,
+              "end": 5.32,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " for",
+              "start": 5.32,
+              "end": 5.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 5.58,
+              "end": 5.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 5.82,
+              "end": 6.26,
+              "probability": 0.64013671875
+            },
+            {
+              "text": " he",
+              "start": 6.26,
+              "end": 6.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 6.38,
+              "end": 6.5,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " no",
+              "start": 6.5,
+              "end": 6.7,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " come",
+              "start": 6.7,
+              "end": 7.02,
+              "probability": 0.8388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chaos,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.4
+        },
+        {
+          "raw": "pray",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "you",
+          "start": 1.6,
+          "end": 1.94
+        },
+        {
+          "raw": "bear",
+          "start": 1.94,
+          "end": 2.5
+        },
+        {
+          "raw": "witness",
+          "start": 2.5,
+          "end": 2.84
+        },
+        {
+          "raw": "that",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "raw": "me",
+          "start": 3.04,
+          "end": 3.14
+        },
+        {
+          "raw": "have",
+          "start": 3.14,
+          "end": 3.26
+        },
+        {
+          "raw": "stay",
+          "start": 3.26,
+          "end": 3.5
+        },
+        {
+          "raw": "six",
+          "start": 3.5,
+          "end": 3.8
+        },
+        {
+          "raw": "or",
+          "start": 3.8,
+          "end": 3.94
+        },
+        {
+          "raw": "seven",
+          "start": 3.94,
+          "end": 4.22
+        },
+        {
+          "raw": "two",
+          "start": 4.22,
+          "end": 4.58
+        },
+        {
+          "raw": "tree",
+          "start": 4.58,
+          "end": 4.98
+        },
+        {
+          "raw": "hours",
+          "start": 4.98,
+          "end": 5.32
+        },
+        {
+          "raw": "for",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "raw": "him",
+          "start": 5.58,
+          "end": 5.82
+        },
+        {
+          "raw": "and",
+          "start": 5.82,
+          "end": 6.26
+        },
+        {
+          "raw": "he",
+          "start": 6.26,
+          "end": 6.38
+        },
+        {
+          "raw": "is",
+          "start": 6.38,
+          "end": 6.5
+        },
+        {
+          "raw": "no",
+          "start": 6.5,
+          "end": 6.7
+        },
+        {
+          "raw": "come",
+          "start": 6.7,
+          "end": 7.02
+        }
+      ],
+      "expected_tokens": [
+        "_Quick._",
+        "I",
+        "will",
+        "tell",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          5,
+          2,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          5,
+          2,
+          23
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chaos,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "chaos",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.4,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "pray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.6,
+          "end": 1.94,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 1.94,
+          "end": 2.5,
+          "key": "bear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "witness",
+          "start": 2.5,
+          "end": 2.84,
+          "key": "witness",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.84,
+          "end": 3.04,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.04,
+          "end": 3.14,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.14,
+          "end": 3.26,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "stay",
+          "start": 3.26,
+          "end": 3.5,
+          "key": "stay",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "six",
+          "start": 3.5,
+          "end": 3.8,
+          "key": "six",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 3.8,
+          "end": 3.94,
+          "key": "or",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "seven",
+          "start": 3.94,
+          "end": 4.22,
+          "key": "seven",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 4.22,
+          "end": 4.58,
+          "key": "two",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "tree",
+          "start": 4.58,
+          "end": 4.98,
+          "key": "tree",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "hours",
+          "start": 4.98,
+          "end": 5.32,
+          "key": "hours",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.32,
+          "end": 5.58,
+          "key": "for",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 5.58,
+          "end": 5.82,
+          "key": "him",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.82,
+          "end": 6.26,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 6.26,
+          "end": 6.38,
+          "key": "he",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.38,
+          "end": 6.5,
+          "key": "is",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 6.5,
+          "end": 6.7,
+          "key": "no",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 6.7,
+          "end": 7.02,
+          "key": "come",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Quick._",
+          "start": 0.0,
+          "end": 0.57
+        },
+        {
+          "text": "I",
+          "start": 1.14,
+          "end": 1.4
+        },
+        {
+          "text": "will",
+          "start": 1.4,
+          "end": 4.21
+        },
+        {
+          "text": "tell",
+          "start": 4.21,
+          "end": 5.615
+        },
+        {
+          "text": "her.",
+          "start": 5.615,
+          "end": 6.317
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 23,
+        "matched_words": 1
+      },
+      "match_ratio": 0.2,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.28455532994121313
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6e9601802275cd1d8ef9a963bf9c300d7ddff829927736d3ef67d8e6134d3b35",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

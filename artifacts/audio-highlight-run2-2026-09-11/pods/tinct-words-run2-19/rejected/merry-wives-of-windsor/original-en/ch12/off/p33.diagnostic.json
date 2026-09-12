@@ -1,0 +1,580 @@
+{
+  "complete": true,
+  "signature": "bd85573f900c60262b737f2b3f5eb4dc94bcb0c8e03cc462915ba712542fe8d5",
+  "attempts": [
+    {
+      "asr_seconds": 0.31968963239341974,
+      "alignment_seconds": 0.000496487133204937,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Chaos, by gar me do look ye shall clap or dee claw me, for by gar me vill have it",
+          "start": 0.08,
+          "end": 5.26,
+          "words": [
+            {
+              "text": " Chaos,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.442626953125
+            },
+            {
+              "text": " by",
+              "start": 1.38,
+              "end": 1.42,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " gar",
+              "start": 1.42,
+              "end": 1.68,
+              "probability": 0.376220703125
+            },
+            {
+              "text": " me",
+              "start": 1.68,
+              "end": 1.92,
+              "probability": 0.61181640625
+            },
+            {
+              "text": " do",
+              "start": 1.92,
+              "end": 2.1,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " look",
+              "start": 2.1,
+              "end": 2.28,
+              "probability": 0.65673828125
+            },
+            {
+              "text": " ye",
+              "start": 2.28,
+              "end": 2.38,
+              "probability": 0.6513671875
+            },
+            {
+              "text": " shall",
+              "start": 2.38,
+              "end": 2.52,
+              "probability": 0.97265625
+            },
+            {
+              "text": " clap",
+              "start": 2.52,
+              "end": 2.76,
+              "probability": 0.769775390625
+            },
+            {
+              "text": " or",
+              "start": 2.76,
+              "end": 2.86,
+              "probability": 0.11968994140625
+            },
+            {
+              "text": " dee",
+              "start": 2.86,
+              "end": 3.0,
+              "probability": 0.5518798828125
+            },
+            {
+              "text": " claw",
+              "start": 3.0,
+              "end": 3.16,
+              "probability": 0.36376953125
+            },
+            {
+              "text": " me,",
+              "start": 3.16,
+              "end": 3.48,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " for",
+              "start": 3.8,
+              "end": 3.92,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " by",
+              "start": 3.92,
+              "end": 4.1,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " gar",
+              "start": 4.1,
+              "end": 4.4,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " me",
+              "start": 4.4,
+              "end": 4.6,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " vill",
+              "start": 4.6,
+              "end": 4.84,
+              "probability": 0.367431640625
+            },
+            {
+              "text": " have",
+              "start": 4.84,
+              "end": 5.02,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " it",
+              "start": 5.02,
+              "end": 5.26,
+              "probability": 0.97998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chaos,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "by",
+          "start": 1.38,
+          "end": 1.42
+        },
+        {
+          "raw": "gar",
+          "start": 1.42,
+          "end": 1.68
+        },
+        {
+          "raw": "me",
+          "start": 1.68,
+          "end": 1.92
+        },
+        {
+          "raw": "do",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "raw": "look",
+          "start": 2.1,
+          "end": 2.28
+        },
+        {
+          "raw": "ye",
+          "start": 2.28,
+          "end": 2.38
+        },
+        {
+          "raw": "shall",
+          "start": 2.38,
+          "end": 2.52
+        },
+        {
+          "raw": "clap",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "raw": "or",
+          "start": 2.76,
+          "end": 2.86
+        },
+        {
+          "raw": "dee",
+          "start": 2.86,
+          "end": 3.0
+        },
+        {
+          "raw": "claw",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "raw": "me,",
+          "start": 3.16,
+          "end": 3.48
+        },
+        {
+          "raw": "for",
+          "start": 3.8,
+          "end": 3.92
+        },
+        {
+          "raw": "by",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "raw": "gar",
+          "start": 4.1,
+          "end": 4.4
+        },
+        {
+          "raw": "me",
+          "start": 4.4,
+          "end": 4.6
+        },
+        {
+          "raw": "vill",
+          "start": 4.6,
+          "end": 4.84
+        },
+        {
+          "raw": "have",
+          "start": 4.84,
+          "end": 5.02
+        },
+        {
+          "raw": "it",
+          "start": 5.02,
+          "end": 5.26
+        }
+      ],
+      "expected_tokens": [
+        "_Ford._",
+        "How",
+        "so,",
+        "sir?",
+        "Did",
+        "she",
+        "change",
+        "her",
+        "determination?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          9,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          9,
+          0,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chaos,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "chaos",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.38,
+          "end": 1.42,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gar",
+          "start": 1.42,
+          "end": 1.68,
+          "key": "gar",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.68,
+          "end": 1.92,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.92,
+          "end": 2.1,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 2.1,
+          "end": 2.28,
+          "key": "look",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ye",
+          "start": 2.28,
+          "end": 2.38,
+          "key": "ye",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.38,
+          "end": 2.52,
+          "key": "shall",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "clap",
+          "start": 2.52,
+          "end": 2.76,
+          "key": "clap",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 2.76,
+          "end": 2.86,
+          "key": "or",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "dee",
+          "start": 2.86,
+          "end": 3.0,
+          "key": "dee",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "claw",
+          "start": 3.0,
+          "end": 3.16,
+          "key": "claw",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 3.16,
+          "end": 3.48,
+          "key": "me",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.8,
+          "end": 3.92,
+          "key": "for",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.92,
+          "end": 4.1,
+          "key": "by",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "gar",
+          "start": 4.1,
+          "end": 4.4,
+          "key": "gar",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.4,
+          "end": 4.6,
+          "key": "me",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "vill",
+          "start": 4.6,
+          "end": 4.84,
+          "key": "vill",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.84,
+          "end": 5.02,
+          "key": "have",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.02,
+          "end": 5.26,
+          "key": "it",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Ford._",
+          "start": 0.0,
+          "end": 2.63
+        },
+        {
+          "text": "How",
+          "start": 2.63,
+          "end": 3.945
+        },
+        {
+          "text": "so,",
+          "start": 3.945,
+          "end": 4.603
+        },
+        {
+          "text": "sir?",
+          "start": 4.603,
+          "end": 4.931
+        },
+        {
+          "text": "Did",
+          "start": 4.931,
+          "end": 5.095
+        },
+        {
+          "text": "she",
+          "start": 5.095,
+          "end": 5.178
+        },
+        {
+          "text": "change",
+          "start": 5.178,
+          "end": 5.219
+        },
+        {
+          "text": "her",
+          "start": 5.219,
+          "end": 5.239
+        },
+        {
+          "text": "determination?",
+          "start": 5.239,
+          "end": 5.249
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 20,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.32043008226901293
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "508f891aaba6679678b2b1538721b758080d73527bedac7209cfb4d8edeadfd3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}
