@@ -20,6 +20,7 @@ function routerEnv() {
   const lab = '<!doctype html><html><head><meta name="robots" content="noindex, noarchive"><title>Tinct mobile landing and onboarding lab</title></head><body><div id="tinct-onboarding-worlds-v5">lab shell</div></body></html>'
   const library2 = '<!doctype html><html><head><meta name="robots" content="noindex, noarchive"><title>Library 2</title></head><body><div id="tinct-library-2">library 2 shell</div></body></html>'
   const labSignIn = '<!doctype html><html><head><meta name="robots" content="noindex, noarchive"><title>Sign in</title></head><body><div id="tinct-lab-sign-in">sign in shell</div></body></html>'
+  const notFound = '<!doctype html><html><head><title>Page not found — Tinct</title></head><body><a class="nf-wm" href="/">Tinct.</a><h1>This page isn’t on the shelf.</h1><a href="/library">Browse the library</a></body></html>'
   return {
     ASSETS: {
       fetch: async (request: Request) => {
@@ -41,6 +42,9 @@ function routerEnv() {
         }
         if (url.pathname === '/lab/library-2/') {
           return new Response(library2, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
+        }
+        if (url.pathname === '/404.html') {
+          return new Response(notFound, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
         }
         if (url.pathname === '/lab/sign-in/') {
           return new Response(labSignIn, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
@@ -252,18 +256,59 @@ describe('worker SEO routing', () => {
     expect(await resp.text()).toContain('/read/odyssey/summary')
   })
 
-  it('serves bare /{bookId} routes with /read/{bookId} canonical metadata', async () => {
-    const resp = await worker.fetch(new Request('https://tinct.app/odyssey'), routerEnv() as never, ctx)
-    expect(resp.status).toBe(200)
-    const html = await resp.text()
-    expect(html).toContain('<link rel="canonical" href="https://tinct.app/read/odyssey">')
-    expect(html).toContain('"@type":"Book"')
+  it.each(['/odyssey', '/odyssey/'])('sends bare book URL %s to that book in the current library', async (pathname) => {
+    const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
+    expect(resp.status).toBe(302)
+    expect(resp.headers.get('Location')).toBe('/library?book=odyssey&view=book-detail')
   })
 
-  it('returns 404 noindex for unknown /read/{bookId} routes', async () => {
+  it('does not serve the legacy app shell for a bare book URL', async () => {
+    const resp = await worker.fetch(new Request('https://tinct.app/odyssey'), routerEnv() as never, ctx)
+    expect(await resp.text()).not.toContain('app shell')
+  })
+
+  it('returns the branded 404 page for an unknown bare book URL', async () => {
+    const resp = await worker.fetch(new Request('https://tinct.app/not-a-real-book'), routerEnv() as never, ctx)
+    expect(resp.status).toBe(404)
+    expect(resp.headers.get('Content-Type')).toContain('text/html')
+    expect(resp.headers.get('X-Robots-Tag')).toContain('noindex')
+    const html = await resp.text()
+    expect(html).toContain('Browse the library')
+    expect(html).not.toContain('app shell')
+  })
+
+  it('returns the branded 404 page for unknown /read/{bookId} routes', async () => {
     const resp = await worker.fetch(new Request('https://tinct.app/read/seo-audit-missing-book'), routerEnv() as never, ctx)
     expect(resp.status).toBe(404)
+    expect(resp.headers.get('Content-Type')).toContain('text/html')
     expect(resp.headers.get('X-Robots-Tag')).toContain('noindex')
+    expect(await resp.text()).toContain('Browse the library')
+  })
+
+  it('falls back to an inline branded 404 when /404.html is missing from the build', async () => {
+    const env = {
+      ASSETS: {
+        fetch: async () => new Response('Not found', { status: 404, headers: { 'Content-Type': 'text/plain' } }),
+      },
+    }
+    const resp = await worker.fetch(new Request('https://tinct.app/this-does-not-exist'), env as never, ctx)
+    expect(resp.status).toBe(404)
+    expect(resp.headers.get('Content-Type')).toContain('text/html')
+    const html = await resp.text()
+    expect(html).toContain('Tinct')
+    expect(html).toContain('/library')
+  })
+
+  it('keeps missing files as plain 404s rather than serving an HTML page', async () => {
+    const resp = await worker.fetch(new Request('https://tinct.app/missing-image.png'), routerEnv() as never, ctx)
+    expect(resp.status).toBe(404)
+    expect(resp.headers.get('Content-Type')).toContain('text/plain')
+  })
+
+  it('returns no body for a HEAD request to an unknown path', async () => {
+    const resp = await worker.fetch(new Request('https://tinct.app/this-does-not-exist', { method: 'HEAD' }), routerEnv() as never, ctx)
+    expect(resp.status).toBe(404)
+    expect(await resp.text()).toBe('')
   })
 
   it('keeps the public /read/:slug book page for SEO, but in-app opens skip it', async () => {
@@ -359,11 +404,13 @@ describe('worker SEO routing', () => {
     expect(resp.headers.get('Location')).toBe('/library')
   })
 
-  it('serves unknown app paths as noindex SPA fallback', async () => {
+  it('serves unknown paths as a branded 404, not the legacy app shell', async () => {
     const resp = await worker.fetch(new Request('https://tinct.app/some-deep-app-state'), routerEnv() as never, ctx)
-    expect(resp.status).toBe(200)
+    expect(resp.status).toBe(404)
     expect(resp.headers.get('X-Robots-Tag')).toContain('noindex')
-    expect(await resp.text()).toContain('app shell')
+    const html = await resp.text()
+    expect(html).toContain('Browse the library')
+    expect(html).not.toContain('app shell')
     const csp = resp.headers.get('Content-Security-Policy') || ''
     expect(csp).toContain('https://api.openai.com')
     expect(csp).toContain('mediastream:')

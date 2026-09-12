@@ -142,6 +142,51 @@ async function serveStaticHtml(
   return newResp
 }
 
+// Branded 404. An unknown URL used to fall through to the React SPA shell
+// with a 200, so a mistyped address or an old share link silently landed the
+// visitor in the legacy reader app. Serve the committed /404.html instead,
+// with a real 404 status, and keep a minimal inline copy as the last resort
+// in case the asset is missing from a build.
+const INLINE_NOT_FOUND_HTML = `<!doctype html><html lang="en"><head><meta charset="UTF-8">`
+  + `<meta name="viewport" content="width=device-width, initial-scale=1">`
+  + `<meta name="robots" content="noindex, noarchive"><title>Page not found \u2014 Tinct</title>`
+  + `<link rel="stylesheet" href="/fonts/tinct-fonts.css">`
+  + `<style>body{margin:0;min-height:100dvh;display:grid;place-items:center;background:#071723;`
+  + `color:#f4eddf;font-family:'EB Garamond',Georgia,serif;text-align:center;padding:24px}`
+  + `h1{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(30px,6vw,46px);margin:0 0 16px}`
+  + `a{color:#f4eddf}</style></head><body><main><p>Tinct.</p>`
+  + `<h1>This page isn\u2019t on the shelf.</h1>`
+  + `<p><a href="/library">Browse the library</a></p></main></body></html>`
+
+async function serveNotFound(
+  requestMethod: string,
+  url: URL,
+  env: SeoEnv,
+): Promise<Response> {
+  let html = INLINE_NOT_FOUND_HTML
+  try {
+    const assetResp = await env.ASSETS.fetch(new Request(`${url.origin}/404.html`))
+    if (assetResp.ok) {
+      const body = await assetResp.text()
+      if (body.trim()) html = body
+    }
+  } catch {
+    // fall back to the inline page
+  }
+  const resp = new Response(requestMethod === 'HEAD' ? null : html, {
+    status: 404,
+    headers: { 'Content-Type': 'text/html; charset=utf-8' },
+  })
+  resp.headers.set('Cache-Control', 'no-store')
+  resp.headers.set('X-Robots-Tag', 'noindex, noarchive')
+  for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
+    resp.headers.set(key, value)
+  }
+  return resp
+}
+
+export const serveNotFoundForTest = serveNotFound
+
 function isLabPathname(pathname: string): boolean {
   return isLabPath(pathname)
 }
@@ -487,35 +532,38 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
         const bookResp = await serveSpaWithMeta(request.method, url, env, meta, `https://tinct.app/read/${bookId}`, 'book')
         if (bookResp) return bookResp
       }
-      return new Response(request.method === 'HEAD' ? null : 'Not found', {
-        status: 404,
-        headers: {
-          'Content-Type': 'text/plain; charset=utf-8',
-          'Cache-Control': 'no-store',
-          'X-Robots-Tag': 'noindex, noarchive',
-        },
-      })
+      return serveNotFound(request.method, url, env)
     }
 
-    // Bare /{bookId} URLs are legacy/shareable duplicates of /read/{bookId}.
-    // Serve the SPA shell with canonical book metadata so crawlers consolidate
-    // ranking signals on the /read/ URL instead of seeing a generic duplicate.
+    // Bare /{bookId} URLs are legacy/shareable share links. They used to serve
+    // the legacy React SPA shell, so an old link dropped the visitor into a
+    // different product than the one /read/{bookId} and /library?book=... open.
+    // Send them to the same book in the current library instead; the canonical
+    // crawlable surface stays /read/{bookId}, which is what the sitemap lists.
     const bareBookMatch = url.pathname.match(/^\/([a-z0-9-]+)\/?$/i)
     if ((request.method === 'GET' || request.method === 'HEAD') && bareBookMatch) {
       const bookId = bareBookMatch[1].toLowerCase()
-      const meta = BOOK_META[bookId] || GENERATED_BOOK_META[bookId]
-      if (meta) {
-        const bookResp = await serveSpaWithMeta(request.method, url, env, meta, `https://tinct.app/read/${bookId}`, 'book')
-        if (bookResp) return bookResp
+      if (BOOK_META[bookId] || GENERATED_BOOK_META[bookId]) {
+        const target = new URL('/library', url.origin)
+        target.searchParams.set('book', bookId)
+        target.searchParams.set('view', 'book-detail')
+        return new Response(null, {
+          status: 302,
+          headers: { Location: target.pathname + target.search, 'Cache-Control': 'no-store' },
+        })
       }
     }
 
     // Fall through to static assets
     const response = await env.ASSETS.fetch(request)
 
-    // SPA fallback: if asset not found and it's not an /api/ path or an
-    // /assets/ path, serve the React app.
-    // CRITICAL: /assets/* must 404 cleanly, not fall through to the SPA.
+    // Unknown-path handling. This used to be an SPA fallback that answered any
+    // unmatched URL with the React shell and a 200, which meant a typo or an
+    // old link served a different product and told crawlers the page existed.
+    // Every public entry (/, /library, /reader, /read, /read/{bookId}, /lab/*,
+    // /admin/metrics, static pages) is matched above, so anything reaching here
+    // really is missing: answer with the branded 404 page and a 404 status.
+    // CRITICAL: /assets/* must 404 cleanly, not fall through to HTML.
     // After a deploy, Cloudflare deletes the old content-hashed bundle from
     // the assets binding. Without this exclusion, requests for the old URL
     // (e.g. index-kNGlBG-i.js) returned the SPA fallback HTML (200, ~920
@@ -525,14 +573,20 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     // the failure and a fresh HTML reload picks up the new content-hashed
     // URL on next navigation.
     if (response.status === 404 && !url.pathname.startsWith('/api/') && !url.pathname.startsWith('/assets/')) {
-      const spaResponse = await env.ASSETS.fetch(new Request(`${url.origin}/app.html`))
-      const newResponse = new Response(spaResponse.body, spaResponse)
-      newResponse.headers.set('Cache-Control', 'no-store')
-      newResponse.headers.set('X-Robots-Tag', 'noindex, noarchive')
-      for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
-        newResponse.headers.set(key, value)
+      // A request for a missing file (image, script, manifest) should stay a
+      // plain 404; only navigations get the HTML page.
+      const looksLikeFile = /\.[a-z0-9]{1,8}$/i.test(url.pathname)
+      if (looksLikeFile) {
+        return new Response(request.method === 'HEAD' ? null : 'Not found', {
+          status: 404,
+          headers: {
+            'Content-Type': 'text/plain; charset=utf-8',
+            'Cache-Control': 'no-store',
+            'X-Robots-Tag': 'noindex, noarchive',
+          },
+        })
       }
-      return newResponse
+      return serveNotFound(request.method, url, env)
     }
 
     const contentType = response.headers.get('content-type') || ''
