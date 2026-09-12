@@ -157,6 +157,37 @@ Kept current at every push.
   behind — Books 2 and 3 have none, and both scripts assert it. `PROVENANCE.md`
   §4. **Nothing here modifies the served file.**
 
+- 2026-09-12 — **Book 3 drafted and frozen** (steps 2–3):
+  `book03/candidate-v1.json`, sha256
+  `2f2cf21583e9de6f9da86565e9c3888f3380e574bb4a93cbd0b055535162aefa`,
+  **38 paragraphs**, 1:1 with the source. Word ratio **0.9561**, or **0.9959**
+  excluding B03-P038 — the figure to read, since that paragraph's 208 source
+  words are only 12 Butler's. **Butler token retention 0.895** on the Book 2
+  reviewer's measure (Book 1 v3 is 0.721, Book 2 v2 is 0.902); Book 3 sits with
+  Book 2, and for the same reason — it is mostly Nestor talking, in plain
+  argument Butler had already written in modern English. Names: Odysseus 7,
+  Athena 18, Zeus 8, Poseidon 6, each matching the source exactly; `Apollo`,
+  `Hades` and `Amphitrite` left alone as already Greek, the table being closed
+  at seven. **D13's first application** — Butler's `Mycene` at B03-P024 is the
+  city and becomes `Mycenae`. **D12's first class-B bracket** — `[on the
+  embers]` at B03-P001, mark dropped, words kept, flagged by class. **D4
+  applies seven times**, the package's largest use: Nestor's two long speeches
+  run across paragraph breaks and the candidate's unbalanced paragraphs are the
+  same seven as the source, with the quotation totals matching at 42/35.
+  `Diomed` flagged, not corrected (the Cast is silent). No gloss; "the
+  Trito-born" and "aegis-bearing" deliberately unglossed, each recorded as a
+  decision. `continuity.md`, `provenance.json`, `manifest.json`, `README.md`
+  with passing mechanical checks, `review-instructions.md` and **13 review
+  packets** (12×3 + 1×2) built by `scripts/build_book_package.py 3`.
+  **Stopped for independent review** (step 4). Book 3 was not self-reviewed and
+  Book 4 was not started.
+- 2026-09-12 — **B03-P038 is drafted as Butler's half-sentence and nothing
+  else**, against a served paragraph of 208 words. Reasons, alternatives and
+  cost are in `book03/continuity.md`; the cost is that split-pane view shows
+  208 words against 12, and it will look like a bug. **Put to the reviewer and
+  the coordinator**, with the recommended long-term fix stated and not taken:
+  repair the served `original-en`, which this package never overwrites.
+
 ## Decided, and why
 
 | # | Decision | Why |
@@ -177,17 +208,42 @@ Kept current at every push.
 
 ## Next
 
-1. **Book 2 is accepted and closed.** All three things put to its reviewer were
+1. **Waiting on the coordinator: independent review of Book 3**
+   (`book03/review-instructions.md`, `book03/review-packets/`, 13 packets,
+   coverage `B03-P001`…`B03-P038`). On findings: `book03/candidate-v2.json`
+   via a change script in the established pattern, verification, flow read,
+   `book03/ACCEPTANCE.md`. **Five things are put to the reviewer explicitly**
+   and should not be left unruled: **B03-P038**, where the served
+   `original-en` is defective and the candidate renders 12 words against its
+   208 (the alternatives, including repairing the served file, are stated in
+   `book03/continuity.md`); **B03-P001's `[on the embers]`**, the package's
+   first class-B bracket under D12; **B03-P028's** defective clause
+   (`so few cloaks and as to be`), where the stray `and` is dropped and no word
+   supplied; **the retention figure of 0.895**, which the reviewer is asked to
+   treat as a question rather than a pass; and the two glossary rows fixed
+   before drafting — **"Nestor, the horseman of Gerene"** for Butler's *knight
+   of Gerene*, and **"the Trito-born"** kept unglossed.
+2. **Book 2 is accepted and closed.** All three things put to its reviewer were
    ruled on: the `[do not]` bracket (upheld, reason corrected, now **D12**),
    the Erinyes gloss (upheld at this size, for the recorded reason), and the
    marriage-gifts formula (changed, in both Books, as finding 11.1).
-2. Book 3 — drafting in progress under this task's brief.
 3. **Class-C brackets block Book 4** (D12). A coordinator decision is needed
-   before Book 4 is drafted; Books 1–3 contain none.
+   before Book 4 is drafted; Books 1–3 contain none. Book 4 was not started.
 4. Book 10's disposition still needs a coordinator decision — see A2 below,
    now narrowed.
 
 ## Needs Anders (listed, not waited on)
+
+- **A3. The served `original-en`'s Book 3 ¶38 is defective, and only a change
+  to a production file can really fix it.** 196 of its 208 words are the served
+  `modern-en`'s own ¶38, spliced in to complete a half-sentence Butler leaves
+  open at the end of his Book III, and they duplicate ¶37. Everything else in
+  the file is sound — 1,027 paragraphs and 117,228 words checked against PG.
+  This package handles it by rendering Butler's 12 words and recording the
+  cost; the real fix is to repair
+  `app/public/data/editions/odyssey-original-en.json`, which is outside this
+  package's scope. Evidence in `PROVENANCE.md` §4 and
+  `book03/continuity.md`. **No action taken on the served file.**
 
 - ~~**A1. Name-form policy for the whole Odyssey.**~~ **ANSWERED 2026-09-12
   by the coordinator: Greek forms.** Recorded as **D5**–**D8**, applied to

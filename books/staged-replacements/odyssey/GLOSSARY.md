@@ -333,6 +333,53 @@ Settled at Book 1 step 6 from records findings **R2** and **R1**; see
 | the Zeus-reckoning close: "Jove shall reckon with you in full, and when you fall in my father's house there shall be no man to avenge you" | **"Zeus will settle the account with you in full, and when you fall in my father's house, there will be no one to avenge you"** | Telemachus says it twice in the poem's first two Books, to two different audiences (B01-P027, B02-P008). Rendered identically, accounting metaphor included. |
 | "hecatomb" → *see the Book 1 table* | | |
 
+## Recurring epithets and formulas first met in Book 3
+
+Fixed before B03-P001 was drafted, per `WORKFLOW.md` step 2.
+
+| Butler (source) | Modern edition | Notes |
+|---|---|---|
+| "Beg of him to speak the truth, and he will tell no lies, for he is an excellent person." | **"Ask him to speak the truth, and he will tell you no lies, for he is an excellent man."** | Butler says it **twice in Book 3**, word for word — Athena of Nestor at B03-P002, Nestor of Menelaus at B03-P025 — and the repetition is the point: the same warranty is handed down the chain of hosts Telemachus is being passed along. Rendered identically both times. "excellent man" rather than "excellent person" matches accepted **B02-P003**, where the reviewer considered the same narrowing and let it go. |
+| "Nestor, knight of Gerene" | **"Nestor, the horseman of Gerene"** | Butler's standing epithet for Nestor (Γερήνιος ἱππότα Νέστωρ), once in Book 3 (B03-P008) and often later. **"knight" is the one word here that cannot stand**: in current English it is unambiguously medieval, and Butler's sense is the plain one — a man of the chariot and the horse, which is also why his sons are the ones who yoke and drive. Both elements kept: the place, and the horsemanship. Use this exact form every time it recurs. |
+| "honour to the Achaean name" (addressing Nestor) | **"honor of the Achaean name"** | Telemachus's fixed form of address, twice in Book 3 (B03-P011, B03-P017), both times after "Nestor, son of Neleus". American spelling per the standard. |
+| "peer of gods in counsel" | **"the equal of the gods in counsel"** | Butler uses it of Patroclus (B03-P012) and of Neleus (B03-P032) in one Book. Rendered identically; it is a formula, not a description of either man in particular. |
+| "Neptune lord of the Earthquake" | **"Poseidon, lord of the Earthquake"** | Butler's epithet at B03-P001. Kept whole — the earthquake is Poseidon's, not a decoration, and Book 3 opens on a sacrifice to him. |
+| "Minerva, daughter of Aegis-bearing Jove" / "Jove's daughter Minerva" | **"Athena, daughter of aegis-bearing Zeus"** / **"Zeus's daughter Athena"** | B03-P031 and B03-P013. *Aegis* is kept, not glossed: it is named again in later Books and a gloss at every occurrence would be noise; here it is plainly an attribute of Zeus and nothing in Book 3 turns on knowing it is a goatskin. Lower-cased "aegis-bearing" as an ordinary compound adjective. |
+| "the Trito-born" (of Athena) | **"the Trito-born"** — kept, unglossed | B03-P030. Butler's rendering of Τριτογένεια, an epithet whose sense is disputed among scholars; a gloss would either invent a certainty or run to a paragraph. Nothing in the Book turns on it, and the sentence it stands in has already identified her as **"Zeus's formidable daughter"**, which is the information the reader needs. Flagged in `book03/continuity.md` rather than solved. |
+| "nothing loth" | **"willingly enough"** | B03-P037, **twice in one paragraph**, of the horses. Butler's repetition is kept as a repetition. *Loth/loath* is dead in this construction. |
+| "the inward meats" / "the outer meats" | **"the inner meats"** / **"the outer meats"** | Butler's pair for the two courses of a Greek sacrifice — the entrails, tasted first, and the rest of the animal, roasted on spits afterwards. Three uses of the first (B03-P001, P005, P035) and two of the second (B03-P008, P036). **Kept as a pair and not glossed**, because the text teaches it: the reader watches the thigh bones burn, the inner meats tasted, then the rest cut up, spitted and roasted, and sees the order for himself. Butler's *inward* modernized to *inner*; nothing else moves. |
+| "hecatomb" / "hecatombs" | *see the Book 1 table (**D3**)* | B03-P007 "the goodly hecatomb they are offering you" → **"the fine sacrifice they are offering you"**; B03-P014 "till we had offered hecatombs" → **"until we had made great sacrifices"**. Plain description, and **no number supplied**. |
+| "a barrow heaped up for him" | **"a mound"** | B03-P022, inheriting the Book 1 / Book 2 row. |
+| "tell me, and tell me true" | *see the Book 1 table* | B03-P021 "Tell me, therefore, Nestor, and tell me true" → **"So tell me truly, Nestor"**. |
+| the dawn formula | *see the Book 2 table* | B03-P032 and B03-P037, both rendered **"When Dawn, the rosy-fingered child of morning, appeared"**. |
+
+### Names first met in Book 3
+
+Already Greek in Butler and left exactly as he spells them: Pylos, Neleus,
+Nestor, Pisistratus, Thrasymedes, Echephron, Stratius, Perseus, Aretus,
+Polycaste, Eurydice, Clymenus, Laerceus, Diocles, Ortilochus, Alpheus,
+Pherae, Geraestus, Tenedos, Lesbos, Chios, Psyra, Mimas, Euboea, Sunium,
+Malean, Crete, Cydonians, Iardanus, Gortyn, Phaestus, Egypt, Amphitrite,
+Priam, Ajax, Achilles, Patroclus, Antilochus, Neoptolemus, Myrmidons, Poias,
+Philoctetes, Idomeneus, Aegisthus, Clytemnestra, Orestes, Tydeus, Atreus,
+Lacedaemon, Cauconians, Hades, Apollo, Gerene, Phrontis, Trito.
+
+`Apollo` is **not** a mapping row: it is the god's Greek name as well as his
+Roman one, and the closed table has seven rows and no others. `Hades`,
+`Amphitrite` and `Hyperion` are likewise already Greek.
+
+**One flagged, on the `Ilius` precedent:** **`Diomed`** (B03-P015), Butler's
+form for Diomedes. The Cast has no entry for him, so **D8** is silent and
+supplies no authority; Butler's spelling stands and is recorded rather than
+corrected. This is the third flagged spelling in the package, and all three
+are decided the same way — the Cast's display name wins where the Cast has
+one, and nowhere else.
+
+**One mapped under D13:** **`Mycene`** at B03-P024 is the **city** — *"For
+seven years after he had killed Agamemnon he ruled in Mycene"* — and becomes
+**`Mycenae`**. It is the first application of D13, and the woman of B02-P007
+is untouched by it.
+
 ### Glosses
 
 The package's standing rule is the shortest useful explanation, folded into

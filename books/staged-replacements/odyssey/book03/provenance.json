@@ -1,0 +1,70 @@
+{
+ "repository": "anderskhv/tinct",
+ "branch": "claude/odyssey-modern-en-20260911",
+ "staged_original_path": "app/public/data/editions/odyssey-original-en.json",
+ "staged_original_sha256": "da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07",
+ "chapter_extracted": {
+  "number": 3,
+  "title_source": "Book 3 — Telemachus visits Nestor at Pylos",
+  "title_candidate": "Book 3 — Telemachus visits Nestor at Pylos",
+  "title_note": "No name in this chapter title is a mapping-table row, so the candidate's title is byte-identical to the source's. The build maps titles through the closed table regardless; here it is a no-op.",
+  "paragraphs": 38,
+  "extraction": "found by chapter.number == 3 in odyssey-original-en.json; paragraphs byte-identical"
+ },
+ "source_book3_json_sha256": "a3dc00566e0f4517bc7fc68ca6b6dbb363a4e191bb175d1b5c1cabb420815e6a",
+ "candidate_v1_json_sha256": "2f2cf21583e9de6f9da86565e9c3888f3380e574bb4a93cbd0b055535162aefa",
+ "candidate_v1_readable_md_sha256": "ae4ae162066d68a3b4123f3f3ee98307ea9a29fc819415e4a7234e0ebe3e1396",
+ "pg_source_sha256": "ffbdb29c3dda284b65c11243db1a98167826a70c81bca2ed4b6232f86c905fb9",
+ "translation_source": "Samuel Butler, 1900. Project Gutenberg #1727 (source-texts/pg1727-butler-1900.txt). The only translation used for the candidate; no other translation consulted for wording (Fagles, Lattimore, Wilson, Fitzgerald not read). The served odyssey-modern-en.json was not consulted for wording either - which matters more in this Book than in any other, because its own paragraph 38 is sitting inside the served ORIGINAL (see base_text_defects).",
+ "source_verification": {
+  "script": "scripts/verify_source_book3.py",
+  "method": "Re-done from scratch for this Book, and on a different KIND of rule from Book 2's drafter - the Book 2 REVIEWER's kind. It decides nothing in advance and strips nothing up front: structural boundaries on the unique BOOK III (PG line 1117) and BOOK IV (line 1544) headings, never on FOOTNOTES:; the file read as BYTES and decoded so universal-newline mode cannot silently translate CRLF (all 12,246 lines asserted CRLF before the carriage returns are stripped); paragraphs as maximal runs of non-blank lines joined with a newline, so the count of 38 is an OUTPUT; leading all-caps blocks dropped by a stopping condition rather than a fixed number (Book 3's opening is TWO blocks where Book 2's was one, and the second is asserted to match the served chapter title's tail); an audit of the raw range printed before anything is trusted; then a character-level diff against the staged original WITH PG's APPARATUS STILL IN, printing every difference and requiring each to be put in a named class before anything is removed.",
+  "audit": "indented lines 0; [Illustration 0; in-text Greek 0; daggers 0; underscores 0; square brackets 1, and it is [on the embers]; digit runs 12, reading in order as 24..35, contiguous; digit runs preceded by whitespace 0 (asserted, not assumed - see whitespace_clause).",
+  "traps_confirmed": "FOOTNOTES: occurs TWICE in PG #1727 - line 75, indented, inside the table of contents, and line 10843, the real section. Anchoring on the first would put the body at zero lines and make any apparatus relation vacuously true. This script anchors on neither; both occurrences are asserted.",
+  "whitespace_clause": "Book 3's footnote markers are never preceded by a space, so the glued-only removal rule is safe here - asserted rather than assumed, because scripts/scan_staged_original_vs_pg.py found that PG DOES separate some markers with a space in Books 1, 4, 5, 8, 15, 17, 21 and 22, where a glued-only rule leaves part of the marker behind. A later Book's verifier must handle that case.",
+  "result": "14 differences in 11 paragraphs. TWELVE are pure deletions of a bare digit run (PG footnote markers 24-35). TWO ARE NOT APPARATUS: D-A1, a Book-opening capitalization at B03-P001 (PG prints 'but as the sun was rising'; the served file 'But'), and D-A2, 196 words at B03-P038 that PG does not contain at all. After removing only the apparatus: 36 of 38 paragraphs byte-identical, 4,690 words compared word-for-word over B03-P001..P037 with 0 mismatches, and the two that still differ are asserted to be exactly the two classified, so neither can hide a third. A rule that stripped the apparatus before diffing would have hidden both.",
+  "negative_controls": "Joining a paragraph's lines with a space instead of a newline differs in 38 of 38; leaving the footnote markers in differs in 11 of 38 - exactly the paragraphs the diff named."
+ },
+ "word_counts": {
+  "source": 4898,
+  "candidate": 4683,
+  "ratio": 0.9561,
+  "source_excluding_B03_P038": 4690,
+  "candidate_excluding_B03_P038": 4671,
+  "ratio_excluding_B03_P038": 0.9959,
+  "min_paragraph_ratio_excluding_B03_P038": 0.95,
+  "min_paragraph_id": "B03-P002",
+  "max_paragraph_ratio": 1.05,
+  "max_paragraph_id": "B03-P010",
+  "butler_token_retention": 0.895,
+  "butler_token_retention_including_B03_P038": 0.859,
+  "butler_token_retention_book1_v3": 0.721,
+  "butler_token_retention_book2_v2": 0.902,
+  "note": "TWO ratios, because B03-P038 distorts one of them: its source text is 208 words of which only 12 are Butler's, and the candidate renders the 12. The figure to read is the one EXCLUDING it - 0.9959 - since including it makes the Book look compressed by 4% when it is not compressed at all. The primary signal is not the ratio but RETENTION: the fraction of Butler's word tokens carried over unchanged AND in order (name mapping normalized, punctuation and case stripped, difflib matching blocks over word tokens), introduced by Book 2's round-1 reviewer because the word-count ratio is satisfied by a light touch-up and this is not. Book 3's 0.895 sits with Book 2's 0.902 rather than with Book 1's 0.721, for the same reason: the Book is mostly speech in plain argument, where Butler is already modern English. The reviewer is asked to treat it as a QUESTION rather than as a pass and read the least-changed paragraphs."
+ },
+ "naming": {
+  "decision": "Greek forms per GLOSSARY.md D5-D8, applied from the closed seven-row table. Book 3 is the second Book drafted under the decision from the start rather than remapped afterwards.",
+  "counts": "Ulysses->Odysseus 7, Minerva->Athena 18, Jove->Zeus 8, Neptune->Poseidon 6; each matching the source's count exactly. Mercury, Saturn, Diana and Euryclea do not occur.",
+  "not_mapped": "Apollo (his Greek name as well as his Roman one; the table is closed at seven), Hades, Amphitrite - all already Greek. 'heaven' untouched: 12 in the source, 12 in the candidate.",
+  "d13_first_application": "Butler's 'Mycene' at B03-P024 is the CITY - 'For seven years after he had killed Agamemnon he ruled in Mycene' - and becomes 'Mycenae' under D8, since odyssey-threads.json gives Agamemnon the epithet 'Murdered King of Mycenae'. The woman of B02-P007 is untouched. The build asserts no bare 'Mycene' survives in Book 3.",
+  "flagged_not_corrected": "'Diomed' (B03-P015), Butler's form for Diomedes. The Cast has no entry for him, so D8 is silent and supplies no authority. Third flagged spelling in the package after 'Ilius' and 'Mycene'; all three decided by the same rule.",
+  "possessive": "D7 applied: Telemachus's x4, Achilles's, Menelaus's, where Butler prints the bare Telemachus', Achilles', Menelaus' in some places and Telemachus's in others. He is inconsistent; the edition is not."
+ },
+ "punctuation": {
+  "standard": "Typographic quotation marks and apostrophes throughout (PUNCTUATION.md 1). Zero ASCII apostrophes and zero ASCII double quotes.",
+  "quotation_balance": "42 open / 35 close - EXACTLY the source's counts.",
+  "d4_preserved": "D4 applies SEVEN times, by far the package's largest use so far. Nestor's two long speeches run across paragraph breaks (B03-P012->P016 and B03-P022->P025) and Butler omits the closing mark at the end of each continuing paragraph. The candidate's unbalanced paragraphs are B03-P012, P013, P014, P015, P022, P023, P024 - the same seven as the source. PUNCTUATION.md 2's operational note for the app applies with more force here.",
+  "normalizations": "Three Victorian split-quotation constructions regrouped under PUNCTUATION.md 3, at B03-P006, B03-P009 and B03-P011 (the last a split vocative). B03-P003's interrupted question is deliberately LEFT, because a question of that shape is ordinary modern English and is not misread. The regroupings change no mark count."
+ },
+ "base_text_defects": {
+  "1_B03_P038": "THE SERVED ORIGINAL IS DEFECTIVE. PG's Book III ends on a bare half-sentence (line 1539, 'Now when the sun had set and darkness was over the land,') whose other half opens PG's Book IV (line 1549, 'they reached the low lying city of Lacedaemon...'). The served original-en completes it with 196 words taken VERBATIM from the served odyssey-modern-en.json's own paragraph 38 - its only divergence is the opening clause the splice replaced - and those words DUPLICATE the served paragraph 37. scripts/scan_staged_original_vs_pg.py confirms this is the ONLY text-level difference in the whole served file (1,027 paragraphs, 117,228 words; paragraph counts match in all 24 Books). The candidate renders BUTLER'S HALF-SENTENCE AND NOTHING ELSE. Cost, stated plainly: in split-pane view the reader sees 208 words in the original column against 12 in the modern one. Three alternatives are stated and rejected in continuity.md, including (d) repairing the served file, which is the right long-term fix and is outside this package's scope. PUT TO THE REVIEWER AND THE COORDINATOR. Nothing here modifies the served file.",
+  "2_B03_P028": "PG line 1416 prints 'or that I have so few cloaks and as to be unable to find comfortable beds' - 'cloaks and as to be' is ungrammatical. Butler almost certainly wrote 'cloaks and rugs' (two sentences later he has 'store both of rugs and cloaks'). The candidate DROPS THE STRAY 'and' AND SUPPLIES NOTHING. The alternative reading is stated in continuity.md so a later reader has the argument to argue against, on the model of B01-P014's crux.",
+  "3_B03_P001": "Butler's '[on the embers]' (PG line 1129) is the package's FIRST CLASS-B BRACKET under D12: an unflagged explanatory supplement inside the line, with no footnote attached to it. Mark dropped, words kept - the same disposition as class A's '[do not]' at B02-P004, on a warrant D12 itself records as weaker, and therefore flagged by class here. Put to the reviewer. Book 3 contains NO class-C bracket; the first is at PG 1551 in Book 4, and class C is open and blocking.",
+  "4_none_other": "No other corrupted, truncated or mid-sentence source paragraph. No Gutenberg apparatus of any kind inside Book 3's paragraphs."
+ },
+ "glosses": "None. The Trito-born (B03-P030) is deliberately kept UNGLOSSED - the epithet's sense is disputed among scholars, a gloss would either invent a certainty or run to a paragraph, and the sentence has already identified her as Zeus's daughter. 'aegis-bearing' (B03-P031) is likewise kept unglossed: it is plainly an attribute of Zeus and nothing in Book 3 turns on knowing it is a goatskin. Both are recorded in GLOSSARY.md as decisions rather than omissions.",
+ "generation_setting": "Drafted in-conversation by the content agent, whole Book read before drafting any paragraph, glossary rows for Book 3 fixed before B03-P001 was written. Zero Anthropic API calls at any step; no scripts calling any LLM API; generate-editions.cjs not run.",
+ "build_script": "scripts/build_book_package.py 3 (candidate text frozen in scripts/candidates/book3.py; regenerates source-book3.json, candidate-v1.json, candidate-v1-readable.md, manifest.json and review-packets/ deterministically)",
+ "frozen": "candidate-v1.json is frozen at the hash above. Corrections from independent review go to candidate-v2.json; candidate-v1.json, candidate-v1-readable.md and review-packets/ are never regenerated afterwards (D10).",
+ "review_round_1": "not yet run. review-packets/ (13 packets) and review-instructions.md are pushed; findings expected under book03/review/. Book 3 was NOT self-reviewed and Book 4 was NOT started - and Book 4 is blocked in any case until the coordinator rules on D12's class C."
+}
