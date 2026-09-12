@@ -544,6 +544,8 @@ After source chapter 7, paragraph 10: Whose country population came into the cit
 
 After source chapter 19, paragraph 32: Who fell in love with an expedition most of them could not have placed on a map. The older men thought a force that size could not come to grief, the young wanted to see foreign sights, and the crowd wanted the pay; the few who disliked it kept quiet rather than look unpatriotic. Then the Hermae were mutilated in one night, and the city that had just sent out the most splendid armament a single Hellenic state had ever launched spent the summer arresting its best citizens on the word of informers it never tested, executing some and outlawing others, and sleeping one night under arms in the temple of Theseus.
 
+After source chapter 23, paragraph 40: Whose fleet, army and everything was destroyed in Sicily, and few out of many came home. They had two wars at once, a permanent enemy fort at Decelea, twenty thousand slaves gone, and a fortress instead of a city — and would not withdraw from Syracuse. At the end the whole force marched inland in a hollow square, forty thousand men leaving their unburied dead and their sick calling after them; they were shot at for a week, split in two, and finished at the Assinarus, drinking the muddy, bloody water and fighting each other for it. Of the survivors, all but the Athenians, Siceliots and Italiots were sold; the rest had eight months in the quarries.
+
 ## The Lacedaemonians · central
 
 Slow to go to war except under necessity, with the same form of government for more than four hundred years and no tyrants; they put down the tyrannies of the rest of Hellas, led the alliance against the Mede, and exacted no tribute from their allies, only oligarchies. The Corinthians tell them to their faces that they are the only Hellenes who are inactive, and who defend themselves not by doing anything but by looking as though they might.
@@ -561,6 +563,8 @@ Farmers without funds private or public, without experience of long wars oversea
 Set on an isthmus and a commercial hub from time immemorial, the first to build galleys in Hellas and the first Hellenes to fight a sea-battle. They took over Epidamnus from a colony that despised them, lost at Leukimme, claimed the victory at Sybota, and canvassed the Peloponnese city by city for the war — speaking last at both congresses, after letting the other speakers inflame the room.
 
 After source chapter 16, paragraph 35: Who would not accept the peace, went straight from Lacedaemon to Argos to build a coalition against it, and then would not join the coalition either. She told Lacedaemon that her oaths to her Thracian friends stood in the way, and that the formula allowed for it — the gods stood in the way. She was content, she said, with the first defensive alliance, which bound her to help nobody in an attack; and having stood aloof from her own allies, turned her thoughts to Lacedaemon again.
+
+After source chapter 21, paragraph 37: Who sent ships and men to Sicily by every route they could find, strengthened their prows for head-on charging and taught Syracuse to do the same, and fought the Athenians at Erineus to a draw that both sides claimed. At the end they were among those who pressed for Nicias’s death, afraid that a rich man might buy his way out and live to do them more harm.
 
 ## The Corcyraeans · major
 
@@ -653,6 +657,8 @@ Perdiccas’s people, whose six hundred horse followed Philip and Pausanias on t
 ## The Thracians · supporting
 
 Who cut the ten thousand Athenian settlers off at Drabescus, taking the settlement at Nine Ways for an act of war.
+
+After source chapter 21, paragraph 32: Whose swordsmen of the tribe of the Dii came too late for Demosthenes and were sent home because a drachma a day was too much to pay for them. On the way Diitrephes used them on Mycalessus. Thucydides says the Thracian race, like the bloodiest of the barbarians, is at its bloodiest when it has nothing to fear. The Thebans caught them before they had gone far and killed two hundred and fifty of the thirteen hundred, most of them at the water’s edge, because they could not swim.
 
 ## The Carians · supporting
 
@@ -808,7 +814,7 @@ Into whose hands Lacedaemon put the temple in the sacred war, and out of whose h
 
 ## The Histiaeans · reference
 
-Alone of Euboea not settled by agreement: Athens expelled them from their homes and took the territory.
+Alone of Euboea not settled by agreement: Athens expelled them from their homes and took the territory; those living at Hestiaea in Euboea served with the Athenians in Sicily, where the history spells them Hestiaeans.
 
 ## The Byzantines · reference
 
@@ -1546,6 +1552,8 @@ After source chapter 16, paragraph 23: Niceratus’s son, the most successful ge
 
 After source chapter 20, paragraph 45: Niceratus’s son, chosen against his will to command an expedition he had argued twice against. He told the assembly they were leaving many enemies behind to go and fetch more, and that the treaty was nominal; then, hoping to frighten them off with the size of the bill, asked for a hundred galleys and five thousand heavy infantry — and was thanked for good advice and given everything. In Sicily he sailed round the island collecting thirty talents instead of the promised fortune, argued for a show of force and a voyage home, and took the army to Syracuse only after Alcibiades had been recalled. He was in the Circle, sick, when the Syracusans came for it, and saved it by burning the engines and timber in front of the wall. The death of Lamachus left him sole commander of the siege.
 
+After source chapter 23, paragraph 38: Niceratus’s son, who wrote to Athens that the besieger in name had become the besieged in reality, asked to be recalled or relieved because a disease of the kidneys made him unfit, and was refused and given two colleagues instead. He would not take the army away when Demosthenes wanted to, partly because he had correspondents inside Syracuse and partly because he knew what Athens does to generals who come home having achieved nothing — he would rather, he said, take his chance and die at the hands of the enemy. When at last he agreed, an eclipse of the moon stopped him for thrice nine days. He surrendered to Gylippus after the Assinarus, asking only that the killing stop, and was butchered against Gylippus’s will — a man who, Thucydides says, of all the Hellenes of his time least deserved such a fate, having regulated his whole life by virtue.
+
 ## Niceratus · reference
 
 Nicias’s father.
@@ -1586,6 +1594,8 @@ Nicostratus’s father, spelled Diotrephes at the taking of Cythera. Not the com
 
 Thucles’s son, who came to Corcyra with sixty ships — and during the seven days he lay there the Corcyraeans went on butchering their fellow citizens, some for supposed conspiracy and some for money owed.
 
+After source chapter 23, paragraph 3: Thucles’s son, sent ahead in midwinter with ten ships and a hundred and twenty talents to tell the army that help was coming, and afterwards Demosthenes’s colleague in bringing it. He commanded the right wing in the second battle in the harbour, sailed out from the line toward the land to try to surround the enemy, was caught in the hollow recess of the harbour, and was killed with the ships that were with him.
+
 ## Thucles · reference
 
 Eurymedon’s father.
@@ -1616,6 +1626,8 @@ At war with Leontini, with all the Dorian cities of Sicily except Camarina for a
 
 After source chapter 20, paragraph 45: Who would not believe the expedition was coming, made fun of the men who said so, and were still arguing when the fleet reached Rhegium. Beaten in the first battle by troops they outnumbered, they were told by Hermocrates that courage was not their problem and elected three generals instead of fifteen. They built counterwork after counterwork across the Athenian lines, lost each of them, and were walled in by a double wall to the sea — at which point they began to discuss terms with Nicias, deposed their generals, and blamed them for the ill fortune.
 
+After source chapter 23, paragraph 40: Who beat the best navy in Hellas by cutting down their own prows and charging head-on in a harbour too narrow for skill, and then closed its mouth with a line of moored ships so that nothing could get out. Thucydides calls the result the greatest Hellenic achievement of any in this war, or in his opinion in Hellenic history: at once most glorious to the victors and most calamitous to the conquered, who were beaten at all points and altogether, and destroyed with a total destruction. They put the prisoners in the quarries on half a pint of water and a pint of corn a day, and killed both Athenian generals against Gylippus’s wishes.
+
 ## The Leontines · supporting
 
 Who had Camarina and the Chalcidian cities, and who appealed to Athens on their ancient alliance and their Ionian origin.
@@ -1625,6 +1637,8 @@ Who had Camarina and the Chalcidian cities, and who appealed to Athens on their 
 The one Dorian city of Sicily that took the Leontine side.
 
 After source chapter 20, paragraph 27: Who heard Hermocrates and Euphemus in the same assembly and answered both alike. They liked the Athenians and had always been at enmity with Syracuse; but Syracuse was next door and might win without them, so they had already sent a few horsemen that way and meant to go on helping as sparingly as possible — and told both embassies that their oaths made it most consistent to side with neither.
+
+After source chapter 21, paragraph 35: Who had told both embassies that their oaths made it most consistent to side with neither, and who in the end sent Syracuse five hundred heavy infantry, three hundred javelin-men and three hundred archers. Almost the whole of Sicily, except the neutral Agrigentines, stopped watching events at the same moment.
 
 ## The Rhegians · supporting
 
@@ -1642,11 +1656,15 @@ Archidamus’s son, who brought the army as far as the Isthmus and turned back w
 
 After source chapter 16, paragraph 61: Archidamus’s son, king of Lacedaemon, who nearly lost the Peloponnese and then saved it in an afternoon. He had the Argives surrounded before their own walls and granted them a four-month truce instead, on the word of two men who had no authority to give it — for which Sparta came within a vote of razing his house and fining him ten thousand drachmae, and did pass a law attaching ten counsellors to him without whose consent he could not lead an army out. At Mantinea he ordered his left extended in the moment of the onset, two polemarchs refused to fill the gap, and the Mantineans poured through it; he turned the whole army on the broken wing and won the greatest Hellenic battle for a very long time.
 
+After source chapter 21, paragraph 29: Archidamus’s son, king of Lacedaemon, who fortified Decelea in sight of Athens and stayed in the field prosecuting the war — which turned the old short invasions into a permanent occupation, and was one of the principal causes of Athens’s ruin.
+
 ## Demosthenes · central
 
 Alcisthenes’s son. Talked by the Messenians into invading Aetolia against the Acarnanians’ advice, he pushed on without waiting for his Locrian darters, lost his archers’ captain and then his guide, and watched a hundred and twenty Athenian hoplites — by far the best men of the city to fall in the war — die in trackless gullies and in a wood the Aetolians burned around them. He stayed at Naupactus afraid to face Athens; and then saved Naupactus, hid four hundred men in a hollow road at Olpae, broke Eurylochus’s wing from behind, and destroyed the Ambraciot relief at Idomene at dawn by putting Messenians in front to speak Doric to the sentries.
 
 After source chapter 12, paragraph 48: Alcisthenes’s son, who asked for nothing but leave to use the fleet on the Peloponnesian coast, was carried into Pylos by a squall, and could not persuade the generals or the soldiers to fortify it — until the soldiers, with no iron tools, did it themselves in six days with stones that happened to fit and mortar carried on their backs. He was left with five ships, armed his sailors with osier shields off a Messenian privateer, and held the one landing place he had judged the enemy would choose. Afterwards, with the island burnt bare by an accidental fire, he planned the descent that surrounded four hundred and twenty Lacedaemonians with light troops who could conquer in flight, and would not let the killing finish.
+
+After source chapter 23, paragraph 38: Alcisthenes’s son, sent out with a second armament nearly as large as the first, and determined not to waste the one day on which a new army is most terrible. He attacked Epipolae by night — the only night engagement between great armies in the war — went up unseen by Euryelus, took the fort and the counterwall, and was broken by the Boeotians when his own men pushed on too fast in the dark and could not tell friend from enemy by the paean. He then argued for going home at once, and was overruled by Nicias. In the retreat his was the rear division, cut off in an olive grove behind a wall and shot at all day, and he surrendered six thousand men on terms that nobody would be killed. He was butchered with Nicias, being one of Lacedaemon’s greatest enemies on account of Pylos.
 
 ## Alcisthenes · reference
 
@@ -1866,6 +1884,8 @@ Some of them subjects or allies of Syracuse and some in revolt from her; they in
 
 After source chapter 20, paragraph 45: Who came over to the Athenians once there was something to come over to. Those in the lowlands and subject to Syracuse mostly held aloof; the peoples of the interior, who had never been anything but independent, joined almost at once and brought down corn and sometimes money — and more of them came when the double wall began to reach the sea.
 
+After source chapter 21, paragraph 34: Who were readier to join Gylippus once Archonidas was dead, and who then, at Nicias’s request, held the passes for Athens. They laid a triple ambush for the Sicilian reinforcements marching on Syracuse and killed about eight hundred, including every envoy but the Corinthian. Most of them were with the Athenians at the end; the Athenian retreat was aimed at reaching them, and they had been sent to meet the army with food.
+
 ## The Catanians · reference
 
 Who live on Etna, the largest mountain in Sicily, and lost some of their land to the stream of fire.
@@ -1955,6 +1975,8 @@ The Persian taken at Eion on his way from the King to Lacedaemon. His dispatches
 Hermon’s son, a Syracusan, and the most influential man at the congress of Gela. He told the Sicilians that the question before them was not their several grievances but whether there was still time to save the island; that no one should think the Dorians alone were the enemy while Chalcidian blood protected the rest, since the attack was aimed not at a nationality but at what was in Sicily, the common property of them all; and that the quickest way to be rid of the guests was to stop giving them a reason to stay. They took his advice and kept what they had.
 
 After source chapter 20, paragraph 41: Hermon’s son, who told an assembly that would not believe him that the Athenians were already on the voyage, and that the way to stop them was to meet them at Tarentum before they ever reached Sicily. After the first defeat he told the Syracusans that their spirit had not been beaten, only their discipline — fifteen generals and too many orders — and had them elect three with full powers and an oath to leave them alone; he was one. It was his idea to stop fighting pitched battles and build counterworks across the line the Athenian wall had to take.
+
+After source chapter 23, paragraph 25: Hermon’s son, who talked the Syracusans into trying their hand at sea — the Athenians had been landsmen too, he said, until the Mede forced them — and who, when the Athenians were beaten and meant to slip away by night, could not get the magistrates to march out and block the roads, because the city was keeping a feast of Heracles and had fallen to drinking. So he sent friends of his own to ride up to the Athenian camp in the dark and call out, as well-wishers, that the roads were guarded and Nicias had better wait for daylight. Nicias waited, and the roads were guarded by the time he moved.
 
 ## Hermon · reference
 
@@ -2570,7 +2592,7 @@ Who in a Lacedaemonian army always hold the left wing to themselves alone; six h
 
 ## The Neodamodes · supporting
 
-Enfranchised Helots, settled with Brasidas’s men at Lepreum on the Elean border and drawn up beside them at Mantinea.
+Enfranchised Helots, settled with Brasidas’s men at Lepreum on the Elean border and drawn up beside them at Mantinea; the muster before Syracuse glosses the name as Freedmen.
 
 ## The Brasideans · supporting
 
@@ -2840,6 +2862,8 @@ The Athenian ambassador at Camarina, who answered Hermocrates by conceding every
 
 Cleandridas’s son, named by Lacedaemon to command for the Syracusans on Alcibiades’s advice. Hearing on the way that Syracuse was already invested — which was false — he gave the island up for lost and crossed to Tarentum to save Italy instead, tried to claim at Thurii the citizenship his father had held, was blown out to sea off the Terinaean gulf, and put back to refit. Nicias heard he was coming, counted his four ships, and set the voyage down as piracy.
 
+After source chapter 23, paragraph 37: Cleandridas’s son, who came into Sicily by way of Himera with about three thousand men and turned the war round in a fortnight. He offered the Athenians five days to leave, took Labdalum, carried a counterwall past their lines, and after being beaten once told his men the fault was his own for fighting where their cavalry was useless. He took the forts at Plemmyrium while the fleets were engaged — the first and chief cause, Thucydides says, of the ruin of the Athenian army. He blocked the roads for the retreat, and at the Assinarus took Nicias’s surrender. He wanted to carry both Athenian generals home to Lacedaemon as the crown of his triumph, and was overruled.
+
 ## Cleandridas · reference
 
 Gylippus’s father, whose citizenship at Thurii his son tried to claim.
@@ -2891,3 +2915,171 @@ Who would not give Gylippus back his father’s citizenship, and who like Nicias
 ## The Hellespontines · reference
 
 Named by Hermocrates with the Ionians and the islanders as peoples who change continually but always serve a master — against free Dorians dwelling in Sicily.
+
+## Archonidas · reference
+
+A powerful Sicel king of those parts and a friend of Athens, whose recent death made the Sicels readier to join Gylippus.
+
+## Gongylus · supporting
+
+A Corinthian commander who started last with a single ship and got to Syracuse first, a little before Gylippus. He found the city about to hold an assembly on ending the war, stopped it, and told them more ships were coming and that a Lacedaemonian had been sent to take command. Not the Eretrian who carried Pausanias’s letter to the King.
+
+## Erasinides · reference
+
+A Corinthian, who brought the last twelve ships of the Corinthians, Ambraciots and Leucadians into the harbour past the Athenian guard, and helped finish the counterwall.
+
+## Euetion · reference
+
+The Athenian general who marched with Perdiccas against Amphipolis, failed to take it, and blockaded the place from the Strymon with his base at Himeraeum.
+
+## Menander · supporting
+
+One of the two officers at the seat of war whom Athens made Nicias’s colleagues until his proper successors could arrive, since it refused to accept his resignation. He went up Epipolae by night with Demosthenes and Eurymedon, and took a command on board in the last battle in the harbour.
+
+## Euthydemus · supporting
+
+The other. He is given no patronymic, and the history does not say whether he is the Euthydemus who swore to the Peace of Nicias.
+
+## Charicles · supporting
+
+Apollodorus’s son, who took thirty ships round the Peloponnese, collected Argive heavy infantry on the way, and helped Demosthenes fortify the isthmus opposite Cythera for Helots to desert to — a second Pylos.
+
+## Apollodorus · reference
+
+Charicles’s father.
+
+## Eccritus · reference
+
+A Spartan, who commanded the six hundred picked Helots and Neodamodes sent to Sicily in merchant ships out of Taenarus.
+
+## Xenon · reference
+
+One of the two Thebans commanding the three hundred Boeotian heavy infantry sent with them.
+
+## Nicon · reference
+
+The other Theban.
+
+## Hegesander · reference
+
+A Thespian, the third commander of that Boeotian force. Not Pasitelidas’s father.
+
+## Alexarchus · reference
+
+A Corinthian, who commanded the five hundred heavy infantry sent from Corinth and hired in Arcadia.
+
+## Sargeus · reference
+
+A Sicyonian, who commanded the two hundred sent at the same time.
+
+## Diitrephes · supporting
+
+Who was given the thirteen hundred Thracian swordsmen that arrived too late for Demosthenes and were too expensive to keep, and told to do the enemy what harm he could on the way home. He landed them at Tanagra, crossed the Euripus, and took Mycalessus at daybreak. Not the Diitrephes whose son Nicostratus commanded at Corcyra.
+
+## Hermes · reference
+
+By whose temple, not quite two miles from Mycalessus, Diitrephes passed the night unobserved with the Thracians.
+
+## Scirphondas · reference
+
+One of the Boeotarchs, and among the twenty or so Thebans killed driving the Thracians back to their ships.
+
+## Conon · supporting
+
+The commander at Naupactus, who told Demosthenes and Eurymedon that the twenty-five Corinthian ships opposite him meant to fight, and that his eighteen were not enough; they gave him ten of their best sailers.
+
+## Artas · reference
+
+The Iapygian chief, an old friend of Athens, who supplied the hundred and fifty javelin-men of the Messapian tribe.
+
+## Polyanthes · reference
+
+A Corinthian, who commanded the fleet that held the crescent bay at Erineus in Achaia against Diphilus.
+
+## Diphilus · supporting
+
+Who took thirty-three Athenian ships out of Naupactus against them. Each side set up a trophy: the Corinthians because they had disabled more ships, the Athenians because the wind gave them the wrecks — the one side reckoning itself victorious for not being decidedly beaten, the other beaten for not being decidedly victorious.
+
+## Agatharchus · supporting
+
+A Syracusan, who took twelve ships to Italy to destroy the storeships coming to the Athenians and burn their shipbuilding timber in Caulonian territory; and who held one wing of the Syracusan fleet in the last battle in the harbour.
+
+## Ariston · supporting
+
+Pyrrhicus’s son, a Corinthian, and the ablest helmsman in Syracusan service. It was his idea to move the market down to the sea, so that the crews could break off, dine on the beach, and be at the Athenians again the same afternoon before they expected it — which is how the Athenians came to fight the third battle on empty stomachs.
+
+## Pyrrhicus · reference
+
+Ariston the helmsman’s father.
+
+## The Himeraeans · supporting
+
+Who took Gylippus in, joined the war, and armed his sailors out of their own town; the only Hellenes on the Tyrrhenian side of Sicily, and the only people from that quarter who came to help Syracuse.
+
+## The Agrigentines · supporting
+
+Who stayed neutral, and would not let the Sicilian reinforcements pass through their country — which is what put them into the hands of the Sicel ambush.
+
+## The Alicyaeans · reference
+
+One of the Sicel peoples holding the passes, whom Nicias asked to stop the Syracusan reinforcements; they and the Centoripae laid a triple ambush and killed about eight hundred.
+
+## The Centoripae · reference
+
+The other, whose town the Athenians had taken by capitulation the year before.
+
+## The Mycalessians · supporting
+
+Of a small inland town with a weak wall and open gates, who did not expect that anyone would come so far from the sea to molest them. The Thracians killed everything they found — children, women, beasts of burden — and made a particular point of the largest boys’ school, into which the children had just gone. Thucydides says the calamity was for its size as lamentable as any in the war.
+
+## The Messapians · reference
+
+The Iapygian tribe of Artas’s hundred and fifty javelin-men. Not the Ozolian Locrian town of the same name.
+
+## The Iapygians · reference
+
+Whose mercenaries served with the Athenians in Sicily. The Iapygian promontory, which the fleet crossed the Ionian sea to reach, is a headland and carries no card.
+
+## The Metapontines · supporting
+
+Allies of Athens, who sent three hundred javelin-men and two galleys; and who, with the Thurians, were dragged into the quarrel by the harsh necessities of a time of revolution.
+
+## The Crotonians · reference
+
+Who sent word that they would not let the army pass through their country, so that it had to come down to the shore and go on by sea.
+
+## The Cyrenians · reference
+
+Who gave two galleys and pilots to the Peloponnesian heavy infantry that a storm had carried to Libya.
+
+## The Euesperitae · reference
+
+Whose side those troops took, beating the Libyans who were besieging them, before coasting on to a Carthaginian trading post and crossing to Selinus.
+
+## The Tyrrhenians · supporting
+
+Enemies of Syracuse who came from outside Sicily to serve with Athens; they guarded the breakwater, met Gylippus’s men as they came down in disorder, and threw their van into the marsh of Lysimeleia.
+
+## The Rhodians · supporting
+
+Argive by race, and forced to bear arms against the Dorian Syracusans and against the Geloans, whom they had helped to found.
+
+## The Ceans · reference
+
+One of the tribute-paying island peoples in the Athenian muster.
+
+## The Tenians · reference
+
+Another.
+
+## The Styrians · reference
+
+One of the tribute-paying peoples of Euboea in the Athenian muster.
+
+## The Dryopes · reference
+
+What the Carystians are by race — subjects obliged to serve, and still Ionians fighting against Dorians.
+
+## The Aenians · reference
+
+Of Aenus, Aeolians who paid tribute and so fought against the Boeotians, their own Aeolian founders, because they were obliged to. Not the Aenianians who beat the Heracleots in Trachis.

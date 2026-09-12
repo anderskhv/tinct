@@ -1,16 +1,16 @@
 # The Peloponnesian War character package — IN PROGRESS
 
-**Books 1–6 (chapters 1–20) are authored. Chapters 21–26 are not.** Status stays
+**Books 1–7 (chapters 1–23) are authored. Chapters 24–26 are not.** Status stays
 `in-progress` and the package must not be integrated until all eight of
 Thucydides's books are covered.
 
-Current state: 692 entities authored, all 692 bound in both editions, 6,793 and
-6,863 exact mentions. Of those, 946 and 975 fall inside Book 1's chapters, 735
-and 744 inside Book 2's, 831 and 835 inside Book 3's, 1,084 and 1,090 inside
-Book 4's, 1,116 and 1,130 inside Book 5's, and 750 in each inside Book 6's; the
-rest are the nation cards, which are bound through all twenty-six chapters
-because a people is the same people in every book. Content revision
-2026-09-12.6.
+Current state: 734 entities authored, all 734 bound in both editions, 6,933 and
+7,005 exact mentions. Of those, 946 and 975 fall inside Book 1's chapters, 738
+and 747 inside Book 2's, 832 and 836 inside Book 3's, 1,084 and 1,090 inside
+Book 4's, 1,116 and 1,130 inside Book 5's, 751 in each inside Book 6's, and 791
+and 796 inside Book 7's; the rest are the nation cards, which are bound through
+all twenty-six chapters because a people is the same people in every book.
+Content revision 2026-09-12.7.
 
 ## What is hard about this book, and what is not
 
@@ -206,6 +206,30 @@ Thucydides never explains what they are, never names Hermes, and the whole
 second half of Book 6 turns on the night they were defaced. The card says what
 they are and what the city did about them.
 
+## Book 7's namesakes
+
+| Entity | Where | Against |
+|---|---|---|
+| `gongylus-corinth` | 21:1 | the Eretrian who carried Pausanias's letter to the King |
+| `hegesander-thespiae` | 21:20 | Pasitelidas's father |
+| `diitrephes-commander` | 21:30 | Nicostratus's father. He is the man the Book 4 table was deliberately keeping the name away from, and he arrives here with the Thracians who sacked Mycalessus |
+| `euthydemus-general` | 21:17, 23:20 | the signatory of the Peace of Nicias. Still no patronymic in either place, so still no identification |
+| `messapians-iapygia` | 21:35 | the Ozolian Locrian town of Book 3. The two forms happen to differ — *Messapians* there, *Messapian* here — so no table is needed, but they are two peoples and a later pass must not merge them |
+| `aenians` | 23:7 | the **Aenianians** who helped destroy Heraclea in Trachis. Two peoples, two cards, and the names are one letter apart |
+| `histiaeans` (Hestiaeans) | 4:x / 23:7 | one people under two spellings |
+
+**Two more seas.** *Iapygian* is the promontory the fleets cross to at 18:30,
+19:2, 19:12 and 21:35, and a people at 21:35 and 23:8 — and 21:35 has both, the
+promontory first, so that paragraph is keyed by occurrence. *Tyrrhenian* is the
+main at 12:30 and the Sea at 23:9, and the people who guarded the breakwater for
+Athens at 23:3 and 23:8; the two water positions are suppressed by name, as with
+*Sicilian*.
+
+**The muster before Syracuse** at 23:7–23:9 lists nearly forty peoples on the two
+sides — Thucydides's own answer to the Homeric catalogue, and his argument that
+right and community of blood counted for less than interest or compulsion. Every
+one of them carries a card, and a test names them all.
+
 ## How the unauthored books are handled
 
 The rule is this. A name that **has a namesake anywhere in the work** is bound
@@ -215,7 +239,7 @@ that is **single-referent across the whole work** — Brasidas, Archidamus,
 Perdiccas, Phormio, Pericles, Sitalces, Cleon, Demosthenes, Laches — is bound by
 alias and therefore appears in chapters that have not been authored yet, with a
 card that says only what the authored chapters support. Every table has `None`
-for its default; there are 74 of them. Where the later man has not been read at
+for its default; there are 76 of them. Where the later man has not been read at
 all, the name is table-keyed anyway, because a coverage number is not worth a
 wrong card.
 
@@ -263,21 +287,23 @@ treats him as a witness to be cross-examined.
 **goddess of the Brazen House**, whom Thucydides never names; and every name in
 chapters 6–26 belonging to a person this pass has not authored.
 
-**5. Spot-read and sweep.** A hundred and twenty-six mentions drawn at random —
-ten per edition for Book 1, nine for Book 2, eight for Book 3, and twelve each
-for Books 4, 5 and 6 — read back against their paragraphs: all correct. The
-unbound-tabled-names audit over the whole authored range, chapters 1–20, comes
-back with five lines, every one of them deliberate: the Cyrus of 7:20, who is
-the King's son and belongs to a book that has not been read; the river Eurymedon
-of 4:7; the river Sicanus of 18:1; the place called Leon at 20:38; and the town
-of Acanthus, whose name is a person's only in the treaty lists. Run first over
-Book 4 alone it came back with thirty-six, every one of them a table whose new
-chapters had not been keyed in yet — Thucydides himself at Amphipolis among
-them; over Book 5, twenty tables to extend, including Thucydides again at the
-second preface; over Book 6, twenty more, Thucydides again twice. That audit is
-the reason these passes are trustworthy and the tests are not; the tests all
-passed while Thucydides was unbound in six paragraphs of his own history. The
-adjacency sweep — which is what caught the Ionian Sea — over every
+**5. Spot-read and sweep.** A hundred and fifty mentions drawn at random — ten
+per edition for Book 1, nine for Book 2, eight for Book 3, and twelve each for
+Books 4, 5, 6 and 7 — read back against their paragraphs: all correct. The
+unbound-tabled-names audit over the whole authored range, chapters 1–23, comes
+back with six lines, every one of them deliberate: the Cyrus of 7:20, who is the
+King's son and belongs to a book that has not been read; the river Eurymedon of
+4:7; the river Sicanus of 18:1; the place called Leon at 20:38; the town of
+Acanthus, whose name is a person's only in the treaty lists; and the Iapygian
+promontory. Run first over Book 4 alone it came back with thirty-six, every one
+of them a table whose new chapters had not been keyed in yet — Thucydides
+himself at Amphipolis among them; over Book 5, twenty tables to extend,
+including Thucydides again at the second preface; over Book 6, twenty more,
+Thucydides again twice; over Book 7, ten, Nicias in twenty-eight paragraphs
+among them. That audit is the reason these passes are trustworthy and the tests
+are not; the tests all passed while Thucydides was unbound in six paragraphs of
+his own history. The adjacency sweep — which is what caught the Ionian Sea —
+over every
 Book 1 mention whose matched text abuts a capitalised word produced a hundred
 and eighty-seven hits and no mis-binding — sentence-initial *The Athenians*,
 cult titles like *the Delian Apollo* and *Zeus Meilichios*, *King Xerxes*, *the
@@ -286,7 +312,7 @@ lowercase *Hellenic sea*.
 
 **6. Both editions independently.** No entity is missing from either edition,
 which is the first package in this library where that is true of a work this
-size. The mention counts still differ (6,793 against 6,863), almost entirely
+size. The mention counts still differ (6,933 against 7,005), almost entirely
 because the modern edition resolves pronouns the older one leaves standing.
 
 ## Source defects — recorded, not repaired
@@ -304,16 +330,20 @@ No edition byte was touched.
 
 ## Remaining work
 
-- **Chapters 21–23** (Thucydides's Book 7): Gylippus at Syracuse, the night
-  battle on Epipolae, the destruction of the Athenian armament, and the deaths of
-  Nicias and Demosthenes. Nicias, Demosthenes, Eurymedon, Thucles, Gylippus,
-  Sicanus, Hermocrates, Agis, Diitrephes, Hermon, Hegesander, Euthydemus,
-  Thrasycles, Aristocrates, Leon, Hippocrates, Lamachus, Ionian and Sicilian all
-  have occurrences waiting there. **Run the unbound-tabled-names audit before
-  believing the tests** — enumerate every SPLIT pattern against the new chapters
-  rather than reading the mention list, since a table with no key produces no
-  mention to audit.
-- **Chapters 24–26** after that.
+- **Chapters 24–26** (Thucydides's Book 8, the unfinished one): the revolt of
+  Ionia, Tissaphernes and Alcibiades, the Four Hundred, and the recall to Samos.
+  Alcibiades, Agis, Leon, Diitrephes, Thrasycles, Aristocrates, Hippocrates,
+  Ramphias, Pharnaces, Lichas, Endius, Arcesilaus, Hermon, Athenagoras,
+  Chalcidians, Ionian and Tyrrhenian all have occurrences waiting there, and
+  Book 8 is the one that most often gives a patronymic to a name an earlier book
+  left bare — which may finally settle some of the identifications this package
+  has refused to make. **Run the unbound-tabled-names audit before believing the
+  tests** — enumerate every SPLIT pattern against the new chapters rather than
+  reading the mention list, since a table with no key produces no mention to
+  audit.
+- Then the six editorial checks over the whole work, a fresh whole-work
+  spot-read, the adjectival-singular sweep, a refreshed `omittedEntities`, and
+  only then `validated-package`.
 - Adjectival singulars of peoples are bound only where the plural's own book
   bound them (*Edonian*, *Thasian*, *Rhegian*, *Mendaean*, *Andrian*,
   *Thespian*, *Lyncestian* were added in Book 4; *Thracian*, *Theban*,
@@ -327,7 +357,7 @@ No edition byte was touched.
 ## Validation
 
 `python3 books/characters/build_peloponnesian_war.py --check`, then
-`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Seventy-five
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Eighty-two
 focused tests so far. No edition changes, no network generation, no API spend:
 every card here was written in the authoring conversation and committed as a
 file.

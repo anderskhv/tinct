@@ -1,7 +1,7 @@
 """Reviewed bindings for the History of the Peloponnesian War.
 
 Crawley in both editions, 26 chapters covering Thucydides's eight books, 998
-paragraphs per edition. AUTHORING IS IN PROGRESS: Books 1-6 (chapters 1-20) are
+paragraphs per edition. AUTHORING IS IN PROGRESS: Books 1-7 (chapters 1-23) are
 authored.
 
 The two editions share almost all their transliterations, so unlike most of this
@@ -30,7 +30,7 @@ SPLIT={
  'Thucydides':({(1,0):'thucydides',(7,25):'thucydides',(8,33):'thucydides',
                 (9,24):'thucydides',(11,1):'thucydides',(11,34):'thucydides',
                 **{k:'thucydides' for k in [(13,9),(14,30),(14,31),(14,32),
-                   (14,33),(14,70),(16,1),(18,6),(20,34)]},
+                   (14,33),(14,70),(16,1),(18,6),(20,34),(21,19)]},
                 (4,20):'thucydides-samos'},None),
  # The King who dethroned Croesus, and the King's son who paid for the
  # Peloponnesian navy — the second belongs to Book 2 and is not yet authored.
@@ -101,7 +101,9 @@ SPLIT={
  'Theagenes':({(5,7):'theagenes',(12,34):'theagenes-athens',
                (15,26):'theagenes-athens',(15,35):'theagenes-athens'},None),
  'Cleomenes':({(5,7):'cleomenes',(9,25):'cleomenes-commander'},None),
- 'Gongylus':({(5,9):'gongylus'},None),
+ # The Eretrian who carried Pausanias's letter, and the Corinthian who got to
+ # Syracuse one ship ahead of Gylippus.
+ 'Gongylus':({(5,9):'gongylus',(21,1):'gongylus-corinth'},None),
  'Artabazus':({(5,10):'artabazus',(5,15):'artabazus'},None),
  # Artabazus's father, and the satrap who housed the expelled Delians.
  'Pharnaces':({(5,10):'pharnaces',(15,0):'pharnaces-satrap'},None),
@@ -150,8 +152,11 @@ SPLIT={
                (13,0),(13,11),(13,12),(14,54),(14,64),(14,65),(14,67),
                (15,14),(15,26),(15,35),(16,19),(16,21),(16,22),(16,81),
                (18,7),(18,14),(18,15),(18,16),(18,18),(18,19),(18,24),(18,25),
-               (19,14),(19,15),(20,0),(20,5),(20,7),(20,43),(20,44),
-               (20,45)]}},None),
+               (19,14),(19,15),(20,0),(20,5),(20,7),(20,43),(20,44),(20,45),
+               (21,0),(21,2),(21,3),(21,5),(21,7),(21,10),(21,17),(21,33),
+               (21,40),(22,0),(22,1),(22,6),(22,7),(23,0),(23,11),(23,16),
+               (23,20),(23,23),(23,24),(23,26),(23,27),(23,29),(23,31),(23,32),
+               (23,34),(23,35),(23,36),(23,37)]}},None),
  'Timagoras':({(7,22):'timagoras-tegea'},None),
  'Pharnabazus':({(7,22):'pharnabazus'},None),
  # Learchus's father and Phanomachus's father, three paragraphs apart.
@@ -166,9 +171,10 @@ SPLIT={
  'Eurymedon':({(10,30):'eurymedon',(10,31):'eurymedon',(10,35):'eurymedon',
                (11,4):'eurymedon',(11,33):'eurymedon',
                **{k:'eurymedon' for k in [(12,1),(12,2),(12,7),(13,4),
-                  (13,23),(18,0)]}},None),
+                  (13,23),(18,0),(21,17),(21,32),(21,35),(21,37),(22,0),
+                  (22,1),(22,7),(23,2)]}},None),
  'Thucles':({(10,30):'thucles',(11,4):'thucles',(11,33):'thucles',
-             (18,2):'thucles-founder'},None),
+             (21,17):'thucles',(18,2):'thucles-founder'},None),
  # Demosthenes's colleague, not the Spartan of the peace of Book 5.
  'Procles':({(11,4):'procles',(11,12):'procles',
              (15,26):'procles-signatory',(15,35):'procles-signatory'},None),
@@ -205,11 +211,12 @@ SPLIT={
  # Nicostratus's father. The Diitrephes who takes the Thracians home in Books 7
  # and 8 is not said to be the same man, and carries no card yet.
  'Diitrephes':({(10,25):'diitrephes',(14,54):'diitrephes',
-                (14,64):'diitrephes'},None),
+                (14,64):'diitrephes',
+                (21,30):'diitrephes-commander'},None),
  # The Athenian general at Amphipolis, not the Syracusan elected in Book 6.
  'Eucles':({(14,30):'eucles',(20,44):'eucles-syracuse'},None),
  # Pasitelidas's father, not the Thespian commander of Book 7.
- 'Hegesander':({(14,67):'hegesander'},None),
+ 'Hegesander':({(14,67):'hegesander',(21,20):'hegesander-thespiae'},None),
  # Boeotian Orchomenus at Delium; the Orchomenians of Book 5 are Arcadians.
  'Orchomenians':({(14,17):'orchomenians-boeotia',
                   (16,47):'orchomenians-arcadia',
@@ -221,7 +228,7 @@ SPLIT={
                     (14,5),(14,8),(14,29),(14,59),(15,1),(15,28),(16,6),
                     (16,79),(16,80),(16,81),(18,6),(18,9)]},
                  **{k:'chalcidians-sicily' for k in [(18,2),(18,3),(18,4),
-                    (19,12),(20,13),(20,16)]}},None),
+                    (19,12),(20,13),(20,16),(23,7)]}},None),
  'Chalcidian':({**{k:'chalcidians' for k in [(8,8),(8,24),(14,3),(14,7),
                    (14,35),(14,40),(14,58),(15,4),(15,8)]},
                 **{k:'chalcidians-sicily' for k in [(10,36),(12,32),(13,19),
@@ -244,7 +251,8 @@ SPLIT={
  # authored: no patronymic is given in either list, so the later men are left
  # unbound rather than identified with them.
  'Euthydemus':({(15,26):'euthydemus-signatory',
-                (15,35):'euthydemus-signatory'},None),
+                (15,35):'euthydemus-signatory',
+                (21,17):'euthydemus-general',(23,20):'euthydemus-general'},None),
  'Thrasycles':({(15,26):'thrasycles-signatory',
                 (15,35):'thrasycles-signatory'},None),
  'Aristocrates':({(15,26):'aristocrates-signatory',
@@ -253,10 +261,19 @@ SPLIT={
  # ----------------------------------------------- Book 6 (chapters 18-20)
  # Execestes's son, one of the three Syracusan generals. The Sicanus of 18:1 is
  # a river in Iberia and carries no card.
- 'Sicanus':({(20,11):'sicanus'},None),
+ 'Sicanus':({(20,11):'sicanus',(22,4):'sicanus',(23,0):'sicanus',
+             (23,21):'sicanus'},None),
  # The Syracusan popular leader, not the Cyzicene whose son Timagoras appears in
  # Book 8.
  'Athenagoras':({(19,3):'athenagoras',(19,9):'athenagoras'},None),
+
+ # ----------------------------------------------- Book 7 (chapters 21-23)
+ # The Iapygian promontory is a headland; the Iapygian javelin-men and
+ # mercenaries are a people. 21:35 has both, the promontory first.
+ 'Iapygian':({(21,35):[None,'iapygians'],(23,8):'iapygians'},None),
+ # The Tyrrhenian main and the Tyrrhenian Sea are water; 23:8's Tyrrhenians are
+ # the people who guarded the breakwater for Athens.
+ 'Tyrrhenian':({(12,30):None,(23,9):None},'tyrrhenians'),
 
  # Adjectival forms of two peoples, bound by default rather than by alias. The
  # Hellenic sea is water and is excluded by lookahead (the older translation
