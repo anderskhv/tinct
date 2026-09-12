@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "c8289e00140ed17cb5d5e26ce26be47d9bc890ad570c7de10a86ef98d1a75b52",
+  "attempts": [
+    {
+      "asr_seconds": 0.19336640974506736,
+      "alignment_seconds": 0.000318238977342844,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You saw his ghost then says Joe God between us and harm",
+          "start": 0.02,
+          "end": 3.84,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.280029296875
+            },
+            {
+              "text": " saw",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " his",
+              "start": 0.68,
+              "end": 0.86,
+              "probability": 0.94921875
+            },
+            {
+              "text": " ghost",
+              "start": 0.86,
+              "end": 1.1,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " then",
+              "start": 1.1,
+              "end": 1.56,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " says",
+              "start": 1.56,
+              "end": 1.94,
+              "probability": 0.1419677734375
+            },
+            {
+              "text": " Joe",
+              "start": 1.94,
+              "end": 2.28,
+              "probability": 0.751953125
+            },
+            {
+              "text": " God",
+              "start": 2.28,
+              "end": 2.86,
+              "probability": 0.62451171875
+            },
+            {
+              "text": " between",
+              "start": 2.86,
+              "end": 3.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " us",
+              "start": 3.14,
+              "end": 3.36,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 3.36,
+              "end": 3.5,
+              "probability": 0.931640625
+            },
+            {
+              "text": " harm",
+              "start": 3.5,
+              "end": 3.84,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "saw",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "his",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "raw": "ghost",
+          "start": 0.86,
+          "end": 1.1
+        },
+        {
+          "raw": "then",
+          "start": 1.1,
+          "end": 1.56
+        },
+        {
+          "raw": "says",
+          "start": 1.56,
+          "end": 1.94
+        },
+        {
+          "raw": "Joe",
+          "start": 1.94,
+          "end": 2.28
+        },
+        {
+          "raw": "God",
+          "start": 2.28,
+          "end": 2.86
+        },
+        {
+          "raw": "between",
+          "start": 2.86,
+          "end": 3.14
+        },
+        {
+          "raw": "us",
+          "start": 3.14,
+          "end": 3.36
+        },
+        {
+          "raw": "and",
+          "start": 3.36,
+          "end": 3.5
+        },
+        {
+          "raw": "harm",
+          "start": 3.5,
+          "end": 3.84
+        }
+      ],
+      "expected_tokens": [
+        "—You",
+        "saw",
+        "his",
+        "ghost",
+        "then,",
+        "says",
+        "Joe,",
+        "God",
+        "between",
+        "us",
+        "and",
+        "harm."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "saw",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "saw",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.68,
+          "end": 0.86,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ghost",
+          "start": 0.86,
+          "end": 1.1,
+          "key": "ghost",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.1,
+          "end": 1.56,
+          "key": "then",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 1.56,
+          "end": 1.94,
+          "key": "says",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Joe",
+          "start": 1.94,
+          "end": 2.28,
+          "key": "joe",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 2.28,
+          "end": 2.86,
+          "key": "god",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "between",
+          "start": 2.86,
+          "end": 3.14,
+          "key": "between",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 3.14,
+          "end": 3.36,
+          "key": "us",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.36,
+          "end": 3.5,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "harm",
+          "start": 3.5,
+          "end": 3.84,
+          "key": "harm",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "saw",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "his",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "text": "ghost",
+          "start": 0.86,
+          "end": 1.1
+        },
+        {
+          "text": "then,",
+          "start": 1.1,
+          "end": 1.56
+        },
+        {
+          "text": "says",
+          "start": 1.56,
+          "end": 1.94
+        },
+        {
+          "text": "Joe,",
+          "start": 1.94,
+          "end": 2.28
+        },
+        {
+          "text": "God",
+          "start": 2.28,
+          "end": 2.86
+        },
+        {
+          "text": "between",
+          "start": 2.86,
+          "end": 3.14
+        },
+        {
+          "text": "us",
+          "start": 3.14,
+          "end": 3.36
+        },
+        {
+          "text": "and",
+          "start": 3.36,
+          "end": 3.5
+        },
+        {
+          "text": "harm.",
+          "start": 3.5,
+          "end": 3.84
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19384100195020437
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "296f7e8e49c5878175479db226de115b1161984e8998bec92cb449c62bd527a6",
+  "selected_reasons": []
+}

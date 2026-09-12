@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "df64a4a29f93ea10bffcd89ecd312dbaeb4fcc0595d5180fda365f7b6ed5f912",
+  "attempts": [
+    {
+      "asr_seconds": 0.21774865314364433,
+      "alignment_seconds": 0.00044284481555223465,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Honest engine, says Alf. Read them.",
+          "start": 0.08,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " Honest",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.71240234375
+            },
+            {
+              "text": " engine,",
+              "start": 0.72,
+              "end": 1.02,
+              "probability": 0.2357177734375
+            },
+            {
+              "text": " says",
+              "start": 1.34,
+              "end": 1.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Alf.",
+              "start": 1.34,
+              "end": 1.58,
+              "probability": 0.69482421875
+            },
+            {
+              "text": " Read",
+              "start": 1.98,
+              "end": 2.08,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " them.",
+              "start": 2.08,
+              "end": 2.36,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Honest",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "engine,",
+          "start": 0.72,
+          "end": 1.02
+        },
+        {
+          "raw": "says",
+          "start": 1.34,
+          "end": 1.34
+        },
+        {
+          "raw": "Alf.",
+          "start": 1.34,
+          "end": 1.58
+        },
+        {
+          "raw": "Read",
+          "start": 1.98,
+          "end": 2.08
+        },
+        {
+          "raw": "them.",
+          "start": 2.08,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "—Honest",
+        "injun,",
+        "says",
+        "Alf.",
+        "Read",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Honest",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "honest",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "engine,",
+          "start": 0.72,
+          "end": 1.02,
+          "key": "engine",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 1.34,
+          "end": 1.34,
+          "key": "says",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Alf.",
+          "start": 1.34,
+          "end": 1.58,
+          "key": "alf",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Read",
+          "start": 1.98,
+          "end": 2.08,
+          "key": "read",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 2.08,
+          "end": 2.36,
+          "key": "them",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Honest",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "injun,",
+          "start": 0.72,
+          "end": 1.03
+        },
+        {
+          "text": "says",
+          "start": 1.34,
+          "end": 1.34
+        },
+        {
+          "text": "Alf.",
+          "start": 1.34,
+          "end": 1.58
+        },
+        {
+          "text": "Read",
+          "start": 1.98,
+          "end": 2.08
+        },
+        {
+          "text": "them.",
+          "start": 2.08,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21833193209022284
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ba7417a1841a4ba3a25504b6276db528bb5b9421d6525dea59c2489ad74cc040",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

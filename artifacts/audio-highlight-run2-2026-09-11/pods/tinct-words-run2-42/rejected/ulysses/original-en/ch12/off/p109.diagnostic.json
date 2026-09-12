@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "bfef6fda68da05bf68344616ee1f6092e807da1c732be53e60eeb2335c9e1f41",
+  "attempts": [
+    {
+      "asr_seconds": 0.20681715197861195,
+      "alignment_seconds": 0.0005034320056438446,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dead says Alf. He's no more dead than you are",
+          "start": 0.05,
+          "end": 2.83,
+          "words": [
+            {
+              "text": " Dead",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.407958984375
+            },
+            {
+              "text": " says",
+              "start": 0.67,
+              "end": 0.99,
+              "probability": 0.49169921875
+            },
+            {
+              "text": " Alf.",
+              "start": 0.99,
+              "end": 1.25,
+              "probability": 0.5986328125
+            },
+            {
+              "text": " He's",
+              "start": 1.55,
+              "end": 1.69,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " no",
+              "start": 1.69,
+              "end": 1.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " more",
+              "start": 1.81,
+              "end": 1.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " dead",
+              "start": 1.97,
+              "end": 2.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " than",
+              "start": 2.15,
+              "end": 2.33,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " you",
+              "start": 2.33,
+              "end": 2.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " are",
+              "start": 2.49,
+              "end": 2.83,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dead",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "says",
+          "start": 0.67,
+          "end": 0.99
+        },
+        {
+          "raw": "Alf.",
+          "start": 0.99,
+          "end": 1.25
+        },
+        {
+          "raw": "He's",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "raw": "no",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "raw": "more",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "raw": "dead",
+          "start": 1.97,
+          "end": 2.15
+        },
+        {
+          "raw": "than",
+          "start": 2.15,
+          "end": 2.33
+        },
+        {
+          "raw": "you",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "raw": "are",
+          "start": 2.49,
+          "end": 2.83
+        }
+      ],
+      "expected_tokens": [
+        "—Dead!",
+        "says",
+        "Alf.",
+        "He's",
+        "no",
+        "more",
+        "dead",
+        "than",
+        "you",
+        "are."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dead",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "dead",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 0.67,
+          "end": 0.99,
+          "key": "says",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Alf.",
+          "start": 0.99,
+          "end": 1.25,
+          "key": "alf",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 1.55,
+          "end": 1.69,
+          "key": "hes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.69,
+          "end": 1.81,
+          "key": "no",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 1.81,
+          "end": 1.97,
+          "key": "more",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 1.97,
+          "end": 2.15,
+          "key": "dead",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.15,
+          "end": 2.33,
+          "key": "than",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.33,
+          "end": 2.49,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.49,
+          "end": 2.83,
+          "key": "are",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Dead!",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "says",
+          "start": 0.67,
+          "end": 0.99
+        },
+        {
+          "text": "Alf.",
+          "start": 0.99,
+          "end": 1.25
+        },
+        {
+          "text": "He's",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "text": "no",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "text": "more",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "text": "dead",
+          "start": 1.97,
+          "end": 2.15
+        },
+        {
+          "text": "than",
+          "start": 2.15,
+          "end": 2.33
+        },
+        {
+          "text": "you",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "text": "are.",
+          "start": 2.49,
+          "end": 2.83
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20751310884952545
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "540e72926f03c070cbf74d33b763c3ccbb636c28e4aabde23a9b49bec86e6594",
+  "selected_reasons": []
+}

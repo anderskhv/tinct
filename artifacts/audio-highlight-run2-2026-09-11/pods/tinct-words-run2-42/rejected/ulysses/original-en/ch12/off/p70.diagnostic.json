@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "16cf8700b82fedc975b608c10cfbfd076e88d16b548389908b00aa7e202198b9",
+  "attempts": [
+    {
+      "asr_seconds": 0.12863597366958857,
+      "alignment_seconds": 0.00011435803025960922,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Take a what says I",
+          "start": 0.05,
+          "end": 1.57,
+          "words": [
+            {
+              "text": " Take",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.53076171875
+            },
+            {
+              "text": " a",
+              "start": 0.55,
+              "end": 0.69,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " what",
+              "start": 0.69,
+              "end": 0.87,
+              "probability": 0.828125
+            },
+            {
+              "text": " says",
+              "start": 0.87,
+              "end": 1.27,
+              "probability": 0.1959228515625
+            },
+            {
+              "text": " I",
+              "start": 1.27,
+              "end": 1.57,
+              "probability": 0.880859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Take",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "a",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "raw": "what",
+          "start": 0.69,
+          "end": 0.87
+        },
+        {
+          "raw": "says",
+          "start": 0.87,
+          "end": 1.27
+        },
+        {
+          "raw": "I",
+          "start": 1.27,
+          "end": 1.57
+        }
+      ],
+      "expected_tokens": [
+        "—Take",
+        "a",
+        "what?",
+        "says",
+        "I."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Take",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "take",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.55,
+          "end": 0.69,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.69,
+          "end": 0.87,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 0.87,
+          "end": 1.27,
+          "key": "says",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.27,
+          "end": 1.57,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Take",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "a",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "text": "what?",
+          "start": 0.69,
+          "end": 0.87
+        },
+        {
+          "text": "says",
+          "start": 0.87,
+          "end": 1.27
+        },
+        {
+          "text": "I.",
+          "start": 1.27,
+          "end": 1.57
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1288221380673349
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c003e54a0ce62c99d5eda2b8af8f36553aa1ae7b9d29dec56a55b09e20b3bac7",
+  "selected_reasons": []
+}

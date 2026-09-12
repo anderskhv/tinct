@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "fe4a74d6b741820e571a98c6651ce2e59cf745321e4c2f2f724eff079f13af7c",
+  "attempts": [
+    {
+      "asr_seconds": 0.10107954265549779,
+      "alignment_seconds": 0.00030464399605989456,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Patty says Alf.",
+          "start": 0.05,
+          "end": 1.43,
+          "words": [
+            {
+              "text": " Patty",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.56982421875
+            },
+            {
+              "text": " says",
+              "start": 0.67,
+              "end": 1.15,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " Alf.",
+              "start": 1.15,
+              "end": 1.43,
+              "probability": 0.340087890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Patty",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "says",
+          "start": 0.67,
+          "end": 1.15
+        },
+        {
+          "raw": "Alf.",
+          "start": 1.15,
+          "end": 1.43
+        }
+      ],
+      "expected_tokens": [
+        "—Paddy?",
+        "says",
+        "Alf."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Patty",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "patty",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 0.67,
+          "end": 1.15,
+          "key": "says",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Alf.",
+          "start": 1.15,
+          "end": 1.43,
+          "key": "alf",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Paddy?",
+          "start": 0.0,
+          "end": 0.335
+        },
+        {
+          "text": "says",
+          "start": 0.67,
+          "end": 1.15
+        },
+        {
+          "text": "Alf.",
+          "start": 1.15,
+          "end": 1.43
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10148327285423875
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a54c5f7cecc7947f8736f0ceba880212b593912e0946548963096b77768db4a1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

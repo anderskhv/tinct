@@ -1,0 +1,732 @@
+{
+  "complete": true,
+  "signature": "e54265706b799916273b18e267089f474876bc798cb82a307a34e26860e0d207",
+  "attempts": [
+    {
+      "asr_seconds": 0.3407311071641743,
+      "alignment_seconds": 0.00054179597645998,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cattle traders says Joe about the foot and mouth disease. I want to give the citizen the hard word about it",
+          "start": 0.05,
+          "end": 6.85,
+          "words": [
+            {
+              "text": " Cattle",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.6331787109375
+            },
+            {
+              "text": " traders",
+              "start": 0.73,
+              "end": 1.11,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " says",
+              "start": 1.11,
+              "end": 1.71,
+              "probability": 0.1929931640625
+            },
+            {
+              "text": " Joe",
+              "start": 1.71,
+              "end": 2.11,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " about",
+              "start": 2.11,
+              "end": 2.61,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " the",
+              "start": 2.61,
+              "end": 2.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " foot",
+              "start": 2.77,
+              "end": 3.07,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " and",
+              "start": 3.07,
+              "end": 3.27,
+              "probability": 0.77490234375
+            },
+            {
+              "text": " mouth",
+              "start": 3.27,
+              "end": 3.49,
+              "probability": 0.984375
+            },
+            {
+              "text": " disease.",
+              "start": 3.49,
+              "end": 3.93,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I",
+              "start": 4.43,
+              "end": 4.73,
+              "probability": 0.9921875
+            },
+            {
+              "text": " want",
+              "start": 4.73,
+              "end": 4.85,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 4.85,
+              "end": 4.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " give",
+              "start": 4.95,
+              "end": 5.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 5.05,
+              "end": 5.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " citizen",
+              "start": 5.19,
+              "end": 5.51,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " the",
+              "start": 5.51,
+              "end": 5.71,
+              "probability": 0.986328125
+            },
+            {
+              "text": " hard",
+              "start": 5.71,
+              "end": 5.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " word",
+              "start": 5.97,
+              "end": 6.21,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " about",
+              "start": 6.21,
+              "end": 6.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it",
+              "start": 6.49,
+              "end": 6.85,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cattle",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "traders",
+          "start": 0.73,
+          "end": 1.11
+        },
+        {
+          "raw": "says",
+          "start": 1.11,
+          "end": 1.71
+        },
+        {
+          "raw": "Joe",
+          "start": 1.71,
+          "end": 2.11
+        },
+        {
+          "raw": "about",
+          "start": 2.11,
+          "end": 2.61
+        },
+        {
+          "raw": "the",
+          "start": 2.61,
+          "end": 2.77
+        },
+        {
+          "raw": "foot",
+          "start": 2.77,
+          "end": 3.07
+        },
+        {
+          "raw": "and",
+          "start": 3.07,
+          "end": 3.27
+        },
+        {
+          "raw": "mouth",
+          "start": 3.27,
+          "end": 3.49
+        },
+        {
+          "raw": "disease.",
+          "start": 3.49,
+          "end": 3.93
+        },
+        {
+          "raw": "I",
+          "start": 4.43,
+          "end": 4.73
+        },
+        {
+          "raw": "want",
+          "start": 4.73,
+          "end": 4.85
+        },
+        {
+          "raw": "to",
+          "start": 4.85,
+          "end": 4.95
+        },
+        {
+          "raw": "give",
+          "start": 4.95,
+          "end": 5.05
+        },
+        {
+          "raw": "the",
+          "start": 5.05,
+          "end": 5.19
+        },
+        {
+          "raw": "citizen",
+          "start": 5.19,
+          "end": 5.51
+        },
+        {
+          "raw": "the",
+          "start": 5.51,
+          "end": 5.71
+        },
+        {
+          "raw": "hard",
+          "start": 5.71,
+          "end": 5.97
+        },
+        {
+          "raw": "word",
+          "start": 5.97,
+          "end": 6.21
+        },
+        {
+          "raw": "about",
+          "start": 6.21,
+          "end": 6.49
+        },
+        {
+          "raw": "it",
+          "start": 6.49,
+          "end": 6.85
+        }
+      ],
+      "expected_tokens": [
+        "—Cattle",
+        "traders,",
+        "says",
+        "Joe,",
+        "about",
+        "the",
+        "foot",
+        "and",
+        "mouth",
+        "disease.",
+        "I",
+        "want",
+        "to",
+        "give",
+        "the",
+        "citizen",
+        "the",
+        "hard",
+        "word",
+        "about",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cattle",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "cattle",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "traders",
+          "start": 0.73,
+          "end": 1.11,
+          "key": "traders",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 1.11,
+          "end": 1.71,
+          "key": "says",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Joe",
+          "start": 1.71,
+          "end": 2.11,
+          "key": "joe",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 2.11,
+          "end": 2.61,
+          "key": "about",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.61,
+          "end": 2.77,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "foot",
+          "start": 2.77,
+          "end": 3.07,
+          "key": "foot",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.07,
+          "end": 3.27,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mouth",
+          "start": 3.27,
+          "end": 3.49,
+          "key": "mouth",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "disease.",
+          "start": 3.49,
+          "end": 3.93,
+          "key": "disease",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.43,
+          "end": 4.73,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 4.73,
+          "end": 4.85,
+          "key": "want",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.85,
+          "end": 4.95,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 4.95,
+          "end": 5.05,
+          "key": "give",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.05,
+          "end": 5.19,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "citizen",
+          "start": 5.19,
+          "end": 5.51,
+          "key": "citizen",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.51,
+          "end": 5.71,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "hard",
+          "start": 5.71,
+          "end": 5.97,
+          "key": "hard",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "word",
+          "start": 5.97,
+          "end": 6.21,
+          "key": "word",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 6.21,
+          "end": 6.49,
+          "key": "about",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.49,
+          "end": 6.85,
+          "key": "it",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Cattle",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "traders,",
+          "start": 0.73,
+          "end": 1.11
+        },
+        {
+          "text": "says",
+          "start": 1.11,
+          "end": 1.71
+        },
+        {
+          "text": "Joe,",
+          "start": 1.71,
+          "end": 2.11
+        },
+        {
+          "text": "about",
+          "start": 2.11,
+          "end": 2.61
+        },
+        {
+          "text": "the",
+          "start": 2.61,
+          "end": 2.77
+        },
+        {
+          "text": "foot",
+          "start": 2.77,
+          "end": 3.07
+        },
+        {
+          "text": "and",
+          "start": 3.07,
+          "end": 3.27
+        },
+        {
+          "text": "mouth",
+          "start": 3.27,
+          "end": 3.49
+        },
+        {
+          "text": "disease.",
+          "start": 3.49,
+          "end": 3.93
+        },
+        {
+          "text": "I",
+          "start": 4.43,
+          "end": 4.73
+        },
+        {
+          "text": "want",
+          "start": 4.73,
+          "end": 4.85
+        },
+        {
+          "text": "to",
+          "start": 4.85,
+          "end": 4.95
+        },
+        {
+          "text": "give",
+          "start": 4.95,
+          "end": 5.05
+        },
+        {
+          "text": "the",
+          "start": 5.05,
+          "end": 5.19
+        },
+        {
+          "text": "citizen",
+          "start": 5.19,
+          "end": 5.51
+        },
+        {
+          "text": "the",
+          "start": 5.51,
+          "end": 5.71
+        },
+        {
+          "text": "hard",
+          "start": 5.71,
+          "end": 5.97
+        },
+        {
+          "text": "word",
+          "start": 5.97,
+          "end": 6.21
+        },
+        {
+          "text": "about",
+          "start": 6.21,
+          "end": 6.49
+        },
+        {
+          "text": "it.",
+          "start": 6.49,
+          "end": 6.85
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.341537200845778
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4dac39c35cc44b5e288d5dc5f67ce0f631faa3e6e0d03fccefbf173f035850ff",
+  "selected_reasons": []
+}
