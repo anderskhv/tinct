@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "c1055419af1d66213886f71e53403d40d62c3703f0cc2326998f4a84eb343d5d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2355745444074273,
+      "alignment_seconds": 0.0004809042438864708,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"That's much the best way,\" chimed in Pan Vrublevsky.",
+        "hotwords": "That's, Pan, Vrublevsky"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That's much the best way,\" chimed in Pan Vrublevsky.",
+          "start": 0.21,
+          "end": 3.23,
+          "words": [
+            {
+              "text": " That's",
+              "start": 0.21,
+              "end": 0.71,
+              "probability": 0.900634765625
+            },
+            {
+              "text": " much",
+              "start": 0.71,
+              "end": 0.81,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 0.81,
+              "end": 0.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " best",
+              "start": 0.99,
+              "end": 1.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " way,\"",
+              "start": 1.21,
+              "end": 2.09,
+              "probability": 0.5022068023681641
+            },
+            {
+              "text": " chimed",
+              "start": 2.09,
+              "end": 2.23,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " in",
+              "start": 2.23,
+              "end": 2.35,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Pan",
+              "start": 2.35,
+              "end": 2.59,
+              "probability": 0.703125
+            },
+            {
+              "text": " Vrublevsky.",
+              "start": 2.59,
+              "end": 3.23,
+              "probability": 0.2848796844482422
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That's",
+          "start": 0.21,
+          "end": 0.71
+        },
+        {
+          "raw": "much",
+          "start": 0.71,
+          "end": 0.81
+        },
+        {
+          "raw": "the",
+          "start": 0.81,
+          "end": 0.99
+        },
+        {
+          "raw": "best",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "raw": "way,\"",
+          "start": 1.21,
+          "end": 2.09
+        },
+        {
+          "raw": "chimed",
+          "start": 2.09,
+          "end": 2.23
+        },
+        {
+          "raw": "in",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "raw": "Pan",
+          "start": 2.35,
+          "end": 2.59
+        },
+        {
+          "raw": "Vrublevsky.",
+          "start": 2.59,
+          "end": 3.23
+        }
+      ],
+      "expected_tokens": [
+        "\"That's",
+        "much",
+        "the",
+        "best",
+        "way,\"",
+        "chimed",
+        "in",
+        "Pan",
+        "Vrublevsky."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That's",
+          "start": 0.21,
+          "end": 0.71,
+          "key": "thats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 0.71,
+          "end": 0.81,
+          "key": "much",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.81,
+          "end": 0.99,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 0.99,
+          "end": 1.21,
+          "key": "best",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "way,\"",
+          "start": 1.21,
+          "end": 2.09,
+          "key": "way",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "chimed",
+          "start": 2.09,
+          "end": 2.23,
+          "key": "chimed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.23,
+          "end": 2.35,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Pan",
+          "start": 2.35,
+          "end": 2.59,
+          "key": "pan",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Vrublevsky.",
+          "start": 2.59,
+          "end": 3.23,
+          "key": "vrublevsky",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That's",
+          "start": 0.21,
+          "end": 0.71
+        },
+        {
+          "text": "much",
+          "start": 0.71,
+          "end": 0.81
+        },
+        {
+          "text": "the",
+          "start": 0.81,
+          "end": 0.99
+        },
+        {
+          "text": "best",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "text": "way,\"",
+          "start": 1.21,
+          "end": 2.09
+        },
+        {
+          "text": "chimed",
+          "start": 2.09,
+          "end": 2.23
+        },
+        {
+          "text": "in",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "text": "Pan",
+          "start": 2.35,
+          "end": 2.59
+        },
+        {
+          "text": "Vrublevsky.",
+          "start": 2.59,
+          "end": 3.23
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23623917438089848
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9ccf4ca935986a68e7f23e7ab9ad425fefe6f0213abb21120f62763ab919570a",
+  "selected_reasons": []
+}

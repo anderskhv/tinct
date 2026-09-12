@@ -1,0 +1,411 @@
+{
+  "complete": true,
+  "signature": "24b19f71ac8411825fc32a7332b90e27c7bf43c74594f6287f9ff6991945dfb3",
+  "attempts": [
+    {
+      "asr_seconds": 0.19115019962191582,
+      "alignment_seconds": 0.0005408311262726784,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Everyone sat down, all were silent, looking at one another.",
+          "start": 0.05,
+          "end": 3.71,
+          "words": [
+            {
+              "text": " Everyone",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " sat",
+              "start": 0.73,
+              "end": 1.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " down,",
+              "start": 1.07,
+              "end": 1.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " all",
+              "start": 1.75,
+              "end": 1.99,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " were",
+              "start": 1.99,
+              "end": 2.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " silent,",
+              "start": 2.13,
+              "end": 2.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " looking",
+              "start": 2.85,
+              "end": 3.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at",
+              "start": 3.01,
+              "end": 3.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " one",
+              "start": 3.25,
+              "end": 3.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " another.",
+              "start": 3.37,
+              "end": 3.71,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Everyone",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "sat",
+          "start": 0.73,
+          "end": 1.07
+        },
+        {
+          "raw": "down,",
+          "start": 1.07,
+          "end": 1.49
+        },
+        {
+          "raw": "all",
+          "start": 1.75,
+          "end": 1.99
+        },
+        {
+          "raw": "were",
+          "start": 1.99,
+          "end": 2.13
+        },
+        {
+          "raw": "silent,",
+          "start": 2.13,
+          "end": 2.51
+        },
+        {
+          "raw": "looking",
+          "start": 2.85,
+          "end": 3.01
+        },
+        {
+          "raw": "at",
+          "start": 3.01,
+          "end": 3.25
+        },
+        {
+          "raw": "one",
+          "start": 3.25,
+          "end": 3.37
+        },
+        {
+          "raw": "another.",
+          "start": 3.37,
+          "end": 3.71
+        }
+      ],
+      "expected_tokens": [
+        "Every",
+        "one",
+        "sat",
+        "down,",
+        "all",
+        "were",
+        "silent,",
+        "looking",
+        "at",
+        "one",
+        "another."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          11,
+          1,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Everyone",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "everyone",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sat",
+          "start": 0.73,
+          "end": 1.07,
+          "key": "sat",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "down,",
+          "start": 1.07,
+          "end": 1.49,
+          "key": "down",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.75,
+          "end": 1.99,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 1.99,
+          "end": 2.13,
+          "key": "were",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "silent,",
+          "start": 2.13,
+          "end": 2.51,
+          "key": "silent",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 2.85,
+          "end": 3.01,
+          "key": "looking",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.01,
+          "end": 3.25,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 3.25,
+          "end": 3.37,
+          "key": "one",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "another.",
+          "start": 3.37,
+          "end": 3.71,
+          "key": "another",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Every",
+          "start": 0.0,
+          "end": 0.365
+        },
+        {
+          "text": "one",
+          "start": 0.365,
+          "end": 0.547
+        },
+        {
+          "text": "sat",
+          "start": 0.73,
+          "end": 1.07
+        },
+        {
+          "text": "down,",
+          "start": 1.07,
+          "end": 1.49
+        },
+        {
+          "text": "all",
+          "start": 1.75,
+          "end": 1.99
+        },
+        {
+          "text": "were",
+          "start": 1.99,
+          "end": 2.13
+        },
+        {
+          "text": "silent,",
+          "start": 2.13,
+          "end": 2.51
+        },
+        {
+          "text": "looking",
+          "start": 2.85,
+          "end": 3.01
+        },
+        {
+          "text": "at",
+          "start": 3.01,
+          "end": 3.25
+        },
+        {
+          "text": "one",
+          "start": 3.25,
+          "end": 3.37
+        },
+        {
+          "text": "another.",
+          "start": 3.37,
+          "end": 3.71
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19189892709255219
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f4606b52b9fec697fd6f5be1177c8f89e006dd974452b6c9aa904f08463687c0",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

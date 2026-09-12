@@ -1,0 +1,5011 @@
+{
+  "complete": true,
+  "signature": "53ebb120afe69be30e56d88fc188b1274c6455cb278ba13e132195868812f239",
+  "attempts": [
+    {
+      "asr_seconds": 0.948581044562161,
+      "alignment_seconds": 0.0011314693838357925,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Animal? And what sort of cards were you playing with just now? I gave you a pack and you hid it. You played with marked cards! I could send you to Siberia for playing with false cards, d'you know that, for it's just the same as false banknotes....\"",
+        "hotwords": "Animal, I, Siberia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Animal, and what sort of cards were you playing with just now? I gave you a pack and you hid",
+          "start": 0.02,
+          "end": 5.18,
+          "words": [
+            {
+              "text": " Animal,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.25390625
+            },
+            {
+              "text": " and",
+              "start": 1.06,
+              "end": 1.24,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " what",
+              "start": 1.24,
+              "end": 1.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sort",
+              "start": 1.42,
+              "end": 1.58,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " of",
+              "start": 1.58,
+              "end": 1.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " cards",
+              "start": 1.78,
+              "end": 1.94,
+              "probability": 0.99609375
+            },
+            {
+              "text": " were",
+              "start": 1.94,
+              "end": 2.14,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " you",
+              "start": 2.14,
+              "end": 2.3,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " playing",
+              "start": 2.3,
+              "end": 2.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 2.54,
+              "end": 2.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " just",
+              "start": 2.76,
+              "end": 2.94,
+              "probability": 0.98828125
+            },
+            {
+              "text": " now?",
+              "start": 2.94,
+              "end": 3.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 3.78,
+              "end": 3.94,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " gave",
+              "start": 3.94,
+              "end": 4.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 4.08,
+              "end": 4.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 4.22,
+              "end": 4.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " pack",
+              "start": 4.36,
+              "end": 4.64,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " and",
+              "start": 4.64,
+              "end": 4.84,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " you",
+              "start": 4.84,
+              "end": 4.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hid",
+              "start": 4.98,
+              "end": 5.18,
+              "probability": 0.302734375
+            }
+          ]
+        },
+        {
+          "text": " it. You played with marked cards. I could send you to Siberia for playing with false",
+          "start": 5.18,
+          "end": 9.9,
+          "words": [
+            {
+              "text": " it.",
+              "start": 5.18,
+              "end": 5.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " You",
+              "start": 5.74,
+              "end": 5.88,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " played",
+              "start": 5.88,
+              "end": 6.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " with",
+              "start": 6.16,
+              "end": 6.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " marked",
+              "start": 6.38,
+              "end": 6.66,
+              "probability": 0.98828125
+            },
+            {
+              "text": " cards.",
+              "start": 6.66,
+              "end": 7.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 7.72,
+              "end": 7.84,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " could",
+              "start": 7.84,
+              "end": 7.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " send",
+              "start": 7.98,
+              "end": 8.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 8.16,
+              "end": 8.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 8.3,
+              "end": 8.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Siberia",
+              "start": 8.44,
+              "end": 8.8,
+              "probability": 0.955078125
+            },
+            {
+              "text": " for",
+              "start": 8.8,
+              "end": 9.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " playing",
+              "start": 9.12,
+              "end": 9.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 9.38,
+              "end": 9.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " false",
+              "start": 9.64,
+              "end": 9.9,
+              "probability": 0.95068359375
+            }
+          ]
+        },
+        {
+          "text": " cards, d'you know that, for it's just the same as false banknotes....",
+          "start": 9.9,
+          "end": 14.18,
+          "words": [
+            {
+              "text": " cards,",
+              "start": 9.9,
+              "end": 10.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " d",
+              "start": 10.62,
+              "end": 10.72,
+              "probability": 0.01195526123046875
+            },
+            {
+              "text": "'you",
+              "start": 10.72,
+              "end": 10.9,
+              "probability": 0.754638671875
+            },
+            {
+              "text": " know",
+              "start": 10.9,
+              "end": 11.08,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " that,",
+              "start": 11.08,
+              "end": 11.38,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " for",
+              "start": 11.74,
+              "end": 11.84,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " it's",
+              "start": 11.84,
+              "end": 12.0,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " just",
+              "start": 12.0,
+              "end": 12.16,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 12.16,
+              "end": 12.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " same",
+              "start": 12.34,
+              "end": 12.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 12.52,
+              "end": 12.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " false",
+              "start": 12.72,
+              "end": 13.02,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " banknotes....",
+              "start": 13.02,
+              "end": 14.18,
+              "probability": 0.6416212717692057
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Animal,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "and",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "raw": "what",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "raw": "sort",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "raw": "of",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "raw": "cards",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "raw": "were",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "raw": "you",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "raw": "playing",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "raw": "with",
+          "start": 2.54,
+          "end": 2.76
+        },
+        {
+          "raw": "just",
+          "start": 2.76,
+          "end": 2.94
+        },
+        {
+          "raw": "now?",
+          "start": 2.94,
+          "end": 3.28
+        },
+        {
+          "raw": "I",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "raw": "gave",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "raw": "you",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "raw": "a",
+          "start": 4.22,
+          "end": 4.36
+        },
+        {
+          "raw": "pack",
+          "start": 4.36,
+          "end": 4.64
+        },
+        {
+          "raw": "and",
+          "start": 4.64,
+          "end": 4.84
+        },
+        {
+          "raw": "you",
+          "start": 4.84,
+          "end": 4.98
+        },
+        {
+          "raw": "hid",
+          "start": 4.98,
+          "end": 5.18
+        },
+        {
+          "raw": "it.",
+          "start": 5.18,
+          "end": 5.58
+        },
+        {
+          "raw": "You",
+          "start": 5.74,
+          "end": 5.88
+        },
+        {
+          "raw": "played",
+          "start": 5.88,
+          "end": 6.16
+        },
+        {
+          "raw": "with",
+          "start": 6.16,
+          "end": 6.38
+        },
+        {
+          "raw": "marked",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "raw": "cards.",
+          "start": 6.66,
+          "end": 7.22
+        },
+        {
+          "raw": "I",
+          "start": 7.72,
+          "end": 7.84
+        },
+        {
+          "raw": "could",
+          "start": 7.84,
+          "end": 7.98
+        },
+        {
+          "raw": "send",
+          "start": 7.98,
+          "end": 8.16
+        },
+        {
+          "raw": "you",
+          "start": 8.16,
+          "end": 8.3
+        },
+        {
+          "raw": "to",
+          "start": 8.3,
+          "end": 8.44
+        },
+        {
+          "raw": "Siberia",
+          "start": 8.44,
+          "end": 8.8
+        },
+        {
+          "raw": "for",
+          "start": 8.8,
+          "end": 9.12
+        },
+        {
+          "raw": "playing",
+          "start": 9.12,
+          "end": 9.38
+        },
+        {
+          "raw": "with",
+          "start": 9.38,
+          "end": 9.64
+        },
+        {
+          "raw": "false",
+          "start": 9.64,
+          "end": 9.9
+        },
+        {
+          "raw": "cards,",
+          "start": 9.9,
+          "end": 10.4
+        },
+        {
+          "raw": "d",
+          "start": 10.62,
+          "end": 10.72
+        },
+        {
+          "raw": "'you",
+          "start": 10.72,
+          "end": 10.9
+        },
+        {
+          "raw": "know",
+          "start": 10.9,
+          "end": 11.08
+        },
+        {
+          "raw": "that,",
+          "start": 11.08,
+          "end": 11.38
+        },
+        {
+          "raw": "for",
+          "start": 11.74,
+          "end": 11.84
+        },
+        {
+          "raw": "it's",
+          "start": 11.84,
+          "end": 12.0
+        },
+        {
+          "raw": "just",
+          "start": 12.0,
+          "end": 12.16
+        },
+        {
+          "raw": "the",
+          "start": 12.16,
+          "end": 12.34
+        },
+        {
+          "raw": "same",
+          "start": 12.34,
+          "end": 12.52
+        },
+        {
+          "raw": "as",
+          "start": 12.52,
+          "end": 12.72
+        },
+        {
+          "raw": "false",
+          "start": 12.72,
+          "end": 13.02
+        },
+        {
+          "raw": "banknotes....",
+          "start": 13.02,
+          "end": 14.18
+        }
+      ],
+      "expected_tokens": [
+        "\"Animal?",
+        "And",
+        "what",
+        "sort",
+        "of",
+        "cards",
+        "were",
+        "you",
+        "playing",
+        "with",
+        "just",
+        "now?",
+        "I",
+        "gave",
+        "you",
+        "a",
+        "pack",
+        "and",
+        "you",
+        "hid",
+        "it.",
+        "You",
+        "played",
+        "with",
+        "marked",
+        "cards!",
+        "I",
+        "could",
+        "send",
+        "you",
+        "to",
+        "Siberia",
+        "for",
+        "playing",
+        "with",
+        "false",
+        "cards,",
+        "d'you",
+        "know",
+        "that,",
+        "for",
+        "it's",
+        "just",
+        "the",
+        "same",
+        "as",
+        "false",
+        "banknotes....\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          37,
+          0,
+          37
+        ],
+        [
+          "replace",
+          37,
+          38,
+          37,
+          39
+        ],
+        [
+          "equal",
+          38,
+          48,
+          39,
+          49
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          37,
+          38,
+          37,
+          39
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Animal,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "animal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.06,
+          "end": 1.24,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.24,
+          "end": 1.42,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sort",
+          "start": 1.42,
+          "end": 1.58,
+          "key": "sort",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.58,
+          "end": 1.78,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cards",
+          "start": 1.78,
+          "end": 1.94,
+          "key": "cards",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 1.94,
+          "end": 2.14,
+          "key": "were",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.14,
+          "end": 2.3,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "playing",
+          "start": 2.3,
+          "end": 2.54,
+          "key": "playing",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.54,
+          "end": 2.76,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 2.76,
+          "end": 2.94,
+          "key": "just",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "now?",
+          "start": 2.94,
+          "end": 3.28,
+          "key": "now",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.78,
+          "end": 3.94,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 3.94,
+          "end": 4.08,
+          "key": "gave",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.08,
+          "end": 4.22,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.22,
+          "end": 4.36,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "pack",
+          "start": 4.36,
+          "end": 4.64,
+          "key": "pack",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.64,
+          "end": 4.84,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.84,
+          "end": 4.98,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "hid",
+          "start": 4.98,
+          "end": 5.18,
+          "key": "hid",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 5.18,
+          "end": 5.58,
+          "key": "it",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 5.74,
+          "end": 5.88,
+          "key": "you",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "played",
+          "start": 5.88,
+          "end": 6.16,
+          "key": "played",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.16,
+          "end": 6.38,
+          "key": "with",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "marked",
+          "start": 6.38,
+          "end": 6.66,
+          "key": "marked",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "cards.",
+          "start": 6.66,
+          "end": 7.22,
+          "key": "cards",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.72,
+          "end": 7.84,
+          "key": "i",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 7.84,
+          "end": 7.98,
+          "key": "could",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "send",
+          "start": 7.98,
+          "end": 8.16,
+          "key": "send",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 8.16,
+          "end": 8.3,
+          "key": "you",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.3,
+          "end": 8.44,
+          "key": "to",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Siberia",
+          "start": 8.44,
+          "end": 8.8,
+          "key": "siberia",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.8,
+          "end": 9.12,
+          "key": "for",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "playing",
+          "start": 9.12,
+          "end": 9.38,
+          "key": "playing",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 9.38,
+          "end": 9.64,
+          "key": "with",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "false",
+          "start": 9.64,
+          "end": 9.9,
+          "key": "false",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "cards,",
+          "start": 9.9,
+          "end": 10.4,
+          "key": "cards",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "d",
+          "start": 10.62,
+          "end": 10.72,
+          "key": "d",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "'you",
+          "start": 10.72,
+          "end": 10.9,
+          "key": "you",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 10.9,
+          "end": 11.08,
+          "key": "know",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 11.08,
+          "end": 11.38,
+          "key": "that",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 11.74,
+          "end": 11.84,
+          "key": "for",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 11.84,
+          "end": 12.0,
+          "key": "its",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 12.0,
+          "end": 12.16,
+          "key": "just",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.16,
+          "end": 12.34,
+          "key": "the",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 12.34,
+          "end": 12.52,
+          "key": "same",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 12.52,
+          "end": 12.72,
+          "key": "as",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "false",
+          "start": 12.72,
+          "end": 13.02,
+          "key": "false",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "banknotes....",
+          "start": 13.02,
+          "end": 14.18,
+          "key": "banknotes",
+          "pieces": [
+            48
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Animal?",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "And",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "text": "what",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "text": "sort",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "text": "of",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "cards",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "text": "were",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "text": "you",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "text": "playing",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "text": "with",
+          "start": 2.54,
+          "end": 2.76
+        },
+        {
+          "text": "just",
+          "start": 2.76,
+          "end": 2.94
+        },
+        {
+          "text": "now?",
+          "start": 2.94,
+          "end": 3.28
+        },
+        {
+          "text": "I",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "text": "gave",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "text": "you",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "text": "a",
+          "start": 4.22,
+          "end": 4.36
+        },
+        {
+          "text": "pack",
+          "start": 4.36,
+          "end": 4.64
+        },
+        {
+          "text": "and",
+          "start": 4.64,
+          "end": 4.84
+        },
+        {
+          "text": "you",
+          "start": 4.84,
+          "end": 4.98
+        },
+        {
+          "text": "hid",
+          "start": 4.98,
+          "end": 5.18
+        },
+        {
+          "text": "it.",
+          "start": 5.18,
+          "end": 5.58
+        },
+        {
+          "text": "You",
+          "start": 5.74,
+          "end": 5.88
+        },
+        {
+          "text": "played",
+          "start": 5.88,
+          "end": 6.16
+        },
+        {
+          "text": "with",
+          "start": 6.16,
+          "end": 6.38
+        },
+        {
+          "text": "marked",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "text": "cards!",
+          "start": 6.66,
+          "end": 7.22
+        },
+        {
+          "text": "I",
+          "start": 7.72,
+          "end": 7.84
+        },
+        {
+          "text": "could",
+          "start": 7.84,
+          "end": 7.98
+        },
+        {
+          "text": "send",
+          "start": 7.98,
+          "end": 8.16
+        },
+        {
+          "text": "you",
+          "start": 8.16,
+          "end": 8.3
+        },
+        {
+          "text": "to",
+          "start": 8.3,
+          "end": 8.44
+        },
+        {
+          "text": "Siberia",
+          "start": 8.44,
+          "end": 8.8
+        },
+        {
+          "text": "for",
+          "start": 8.8,
+          "end": 9.12
+        },
+        {
+          "text": "playing",
+          "start": 9.12,
+          "end": 9.38
+        },
+        {
+          "text": "with",
+          "start": 9.38,
+          "end": 9.64
+        },
+        {
+          "text": "false",
+          "start": 9.64,
+          "end": 9.9
+        },
+        {
+          "text": "cards,",
+          "start": 9.9,
+          "end": 10.4
+        },
+        {
+          "text": "d'you",
+          "start": 10.4,
+          "end": 10.65
+        },
+        {
+          "text": "know",
+          "start": 10.9,
+          "end": 11.08
+        },
+        {
+          "text": "that,",
+          "start": 11.08,
+          "end": 11.38
+        },
+        {
+          "text": "for",
+          "start": 11.74,
+          "end": 11.84
+        },
+        {
+          "text": "it's",
+          "start": 11.84,
+          "end": 12.0
+        },
+        {
+          "text": "just",
+          "start": 12.0,
+          "end": 12.16
+        },
+        {
+          "text": "the",
+          "start": 12.16,
+          "end": 12.34
+        },
+        {
+          "text": "same",
+          "start": 12.34,
+          "end": 12.52
+        },
+        {
+          "text": "as",
+          "start": 12.52,
+          "end": 12.72
+        },
+        {
+          "text": "false",
+          "start": 12.72,
+          "end": 13.02
+        },
+        {
+          "text": "banknotes....\"",
+          "start": 13.02,
+          "end": 14.18
+        }
+      ],
+      "stats": {
+        "expected_words": 48,
+        "heard_words": 49,
+        "matched_words": 47
+      },
+      "match_ratio": 0.9791666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.9502482358366251
+    },
+    {
+      "asr_seconds": 0.6337034460157156,
+      "alignment_seconds": 0.0010728361085057259,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Animal, I, Siberia"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Animal, and what sort of cards were you playing with just now?",
+          "start": 0.02,
+          "end": 3.28,
+          "words": [
+            {
+              "text": " Animal,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.25390625
+            },
+            {
+              "text": " and",
+              "start": 1.06,
+              "end": 1.24,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " what",
+              "start": 1.24,
+              "end": 1.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sort",
+              "start": 1.42,
+              "end": 1.58,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " of",
+              "start": 1.58,
+              "end": 1.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " cards",
+              "start": 1.78,
+              "end": 1.94,
+              "probability": 0.99609375
+            },
+            {
+              "text": " were",
+              "start": 1.94,
+              "end": 2.14,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " you",
+              "start": 2.14,
+              "end": 2.3,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " playing",
+              "start": 2.3,
+              "end": 2.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 2.54,
+              "end": 2.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " just",
+              "start": 2.76,
+              "end": 2.94,
+              "probability": 0.98828125
+            },
+            {
+              "text": " now?",
+              "start": 2.94,
+              "end": 3.28,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " I gave you a pack and you hit it.",
+          "start": 3.78,
+          "end": 5.52,
+          "words": [
+            {
+              "text": " I",
+              "start": 3.78,
+              "end": 3.94,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " gave",
+              "start": 3.94,
+              "end": 4.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 4.08,
+              "end": 4.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 4.22,
+              "end": 4.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " pack",
+              "start": 4.36,
+              "end": 4.64,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " and",
+              "start": 4.64,
+              "end": 4.84,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " you",
+              "start": 4.84,
+              "end": 4.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hit",
+              "start": 4.98,
+              "end": 5.18,
+              "probability": 0.69287109375
+            },
+            {
+              "text": " it.",
+              "start": 5.18,
+              "end": 5.52,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " You played with marked cards.",
+          "start": 5.74,
+          "end": 7.22,
+          "words": [
+            {
+              "text": " You",
+              "start": 5.74,
+              "end": 5.88,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " played",
+              "start": 5.88,
+              "end": 6.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 6.16,
+              "end": 6.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " marked",
+              "start": 6.38,
+              "end": 6.66,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " cards.",
+              "start": 6.66,
+              "end": 7.22,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " I could send you to Siberia for playing with false cards, do you know that?",
+          "start": 7.72,
+          "end": 11.38,
+          "words": [
+            {
+              "text": " I",
+              "start": 7.72,
+              "end": 7.84,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " could",
+              "start": 7.84,
+              "end": 7.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " send",
+              "start": 7.98,
+              "end": 8.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 8.16,
+              "end": 8.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 8.3,
+              "end": 8.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Siberia",
+              "start": 8.44,
+              "end": 8.8,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " for",
+              "start": 8.8,
+              "end": 9.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " playing",
+              "start": 9.12,
+              "end": 9.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 9.38,
+              "end": 9.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " false",
+              "start": 9.64,
+              "end": 9.9,
+              "probability": 0.947265625
+            },
+            {
+              "text": " cards,",
+              "start": 9.9,
+              "end": 10.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " do",
+              "start": 10.62,
+              "end": 10.72,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " you",
+              "start": 10.72,
+              "end": 10.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " know",
+              "start": 10.9,
+              "end": 11.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that?",
+              "start": 11.08,
+              "end": 11.38,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " For it's just the same as false banknotes.",
+          "start": 11.74,
+          "end": 13.64,
+          "words": [
+            {
+              "text": " For",
+              "start": 11.74,
+              "end": 11.84,
+              "probability": 0.8154296875
+            },
+            {
+              "text": " it's",
+              "start": 11.84,
+              "end": 12.02,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " just",
+              "start": 12.02,
+              "end": 12.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 12.16,
+              "end": 12.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " same",
+              "start": 12.34,
+              "end": 12.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 12.52,
+              "end": 12.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " false",
+              "start": 12.72,
+              "end": 13.02,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " banknotes.",
+              "start": 13.02,
+              "end": 13.64,
+              "probability": 0.9580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Animal,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "and",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "raw": "what",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "raw": "sort",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "raw": "of",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "raw": "cards",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "raw": "were",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "raw": "you",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "raw": "playing",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "raw": "with",
+          "start": 2.54,
+          "end": 2.76
+        },
+        {
+          "raw": "just",
+          "start": 2.76,
+          "end": 2.94
+        },
+        {
+          "raw": "now?",
+          "start": 2.94,
+          "end": 3.28
+        },
+        {
+          "raw": "I",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "raw": "gave",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "raw": "you",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "raw": "a",
+          "start": 4.22,
+          "end": 4.36
+        },
+        {
+          "raw": "pack",
+          "start": 4.36,
+          "end": 4.64
+        },
+        {
+          "raw": "and",
+          "start": 4.64,
+          "end": 4.84
+        },
+        {
+          "raw": "you",
+          "start": 4.84,
+          "end": 4.98
+        },
+        {
+          "raw": "hit",
+          "start": 4.98,
+          "end": 5.18
+        },
+        {
+          "raw": "it.",
+          "start": 5.18,
+          "end": 5.52
+        },
+        {
+          "raw": "You",
+          "start": 5.74,
+          "end": 5.88
+        },
+        {
+          "raw": "played",
+          "start": 5.88,
+          "end": 6.16
+        },
+        {
+          "raw": "with",
+          "start": 6.16,
+          "end": 6.38
+        },
+        {
+          "raw": "marked",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "raw": "cards.",
+          "start": 6.66,
+          "end": 7.22
+        },
+        {
+          "raw": "I",
+          "start": 7.72,
+          "end": 7.84
+        },
+        {
+          "raw": "could",
+          "start": 7.84,
+          "end": 7.98
+        },
+        {
+          "raw": "send",
+          "start": 7.98,
+          "end": 8.16
+        },
+        {
+          "raw": "you",
+          "start": 8.16,
+          "end": 8.3
+        },
+        {
+          "raw": "to",
+          "start": 8.3,
+          "end": 8.44
+        },
+        {
+          "raw": "Siberia",
+          "start": 8.44,
+          "end": 8.8
+        },
+        {
+          "raw": "for",
+          "start": 8.8,
+          "end": 9.12
+        },
+        {
+          "raw": "playing",
+          "start": 9.12,
+          "end": 9.38
+        },
+        {
+          "raw": "with",
+          "start": 9.38,
+          "end": 9.64
+        },
+        {
+          "raw": "false",
+          "start": 9.64,
+          "end": 9.9
+        },
+        {
+          "raw": "cards,",
+          "start": 9.9,
+          "end": 10.4
+        },
+        {
+          "raw": "do",
+          "start": 10.62,
+          "end": 10.72
+        },
+        {
+          "raw": "you",
+          "start": 10.72,
+          "end": 10.9
+        },
+        {
+          "raw": "know",
+          "start": 10.9,
+          "end": 11.08
+        },
+        {
+          "raw": "that?",
+          "start": 11.08,
+          "end": 11.38
+        },
+        {
+          "raw": "For",
+          "start": 11.74,
+          "end": 11.84
+        },
+        {
+          "raw": "it's",
+          "start": 11.84,
+          "end": 12.02
+        },
+        {
+          "raw": "just",
+          "start": 12.02,
+          "end": 12.16
+        },
+        {
+          "raw": "the",
+          "start": 12.16,
+          "end": 12.34
+        },
+        {
+          "raw": "same",
+          "start": 12.34,
+          "end": 12.52
+        },
+        {
+          "raw": "as",
+          "start": 12.52,
+          "end": 12.72
+        },
+        {
+          "raw": "false",
+          "start": 12.72,
+          "end": 13.02
+        },
+        {
+          "raw": "banknotes.",
+          "start": 13.02,
+          "end": 13.64
+        }
+      ],
+      "expected_tokens": [
+        "\"Animal?",
+        "And",
+        "what",
+        "sort",
+        "of",
+        "cards",
+        "were",
+        "you",
+        "playing",
+        "with",
+        "just",
+        "now?",
+        "I",
+        "gave",
+        "you",
+        "a",
+        "pack",
+        "and",
+        "you",
+        "hid",
+        "it.",
+        "You",
+        "played",
+        "with",
+        "marked",
+        "cards!",
+        "I",
+        "could",
+        "send",
+        "you",
+        "to",
+        "Siberia",
+        "for",
+        "playing",
+        "with",
+        "false",
+        "cards,",
+        "d'you",
+        "know",
+        "that,",
+        "for",
+        "it's",
+        "just",
+        "the",
+        "same",
+        "as",
+        "false",
+        "banknotes....\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "equal",
+          20,
+          37,
+          20,
+          37
+        ],
+        [
+          "replace",
+          37,
+          38,
+          37,
+          39
+        ],
+        [
+          "equal",
+          38,
+          48,
+          39,
+          49
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "replace",
+          37,
+          38,
+          37,
+          39
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Animal,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "animal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.06,
+          "end": 1.24,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.24,
+          "end": 1.42,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sort",
+          "start": 1.42,
+          "end": 1.58,
+          "key": "sort",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.58,
+          "end": 1.78,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cards",
+          "start": 1.78,
+          "end": 1.94,
+          "key": "cards",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 1.94,
+          "end": 2.14,
+          "key": "were",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.14,
+          "end": 2.3,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "playing",
+          "start": 2.3,
+          "end": 2.54,
+          "key": "playing",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.54,
+          "end": 2.76,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 2.76,
+          "end": 2.94,
+          "key": "just",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "now?",
+          "start": 2.94,
+          "end": 3.28,
+          "key": "now",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.78,
+          "end": 3.94,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 3.94,
+          "end": 4.08,
+          "key": "gave",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.08,
+          "end": 4.22,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.22,
+          "end": 4.36,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "pack",
+          "start": 4.36,
+          "end": 4.64,
+          "key": "pack",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.64,
+          "end": 4.84,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.84,
+          "end": 4.98,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "hit",
+          "start": 4.98,
+          "end": 5.18,
+          "key": "hit",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 5.18,
+          "end": 5.52,
+          "key": "it",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 5.74,
+          "end": 5.88,
+          "key": "you",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "played",
+          "start": 5.88,
+          "end": 6.16,
+          "key": "played",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.16,
+          "end": 6.38,
+          "key": "with",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "marked",
+          "start": 6.38,
+          "end": 6.66,
+          "key": "marked",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "cards.",
+          "start": 6.66,
+          "end": 7.22,
+          "key": "cards",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.72,
+          "end": 7.84,
+          "key": "i",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 7.84,
+          "end": 7.98,
+          "key": "could",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "send",
+          "start": 7.98,
+          "end": 8.16,
+          "key": "send",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 8.16,
+          "end": 8.3,
+          "key": "you",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.3,
+          "end": 8.44,
+          "key": "to",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Siberia",
+          "start": 8.44,
+          "end": 8.8,
+          "key": "siberia",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.8,
+          "end": 9.12,
+          "key": "for",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "playing",
+          "start": 9.12,
+          "end": 9.38,
+          "key": "playing",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 9.38,
+          "end": 9.64,
+          "key": "with",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "false",
+          "start": 9.64,
+          "end": 9.9,
+          "key": "false",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "cards,",
+          "start": 9.9,
+          "end": 10.4,
+          "key": "cards",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 10.62,
+          "end": 10.72,
+          "key": "do",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 10.72,
+          "end": 10.9,
+          "key": "you",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 10.9,
+          "end": 11.08,
+          "key": "know",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 11.08,
+          "end": 11.38,
+          "key": "that",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 11.74,
+          "end": 11.84,
+          "key": "for",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 11.84,
+          "end": 12.02,
+          "key": "its",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 12.02,
+          "end": 12.16,
+          "key": "just",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.16,
+          "end": 12.34,
+          "key": "the",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 12.34,
+          "end": 12.52,
+          "key": "same",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 12.52,
+          "end": 12.72,
+          "key": "as",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "false",
+          "start": 12.72,
+          "end": 13.02,
+          "key": "false",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "banknotes.",
+          "start": 13.02,
+          "end": 13.64,
+          "key": "banknotes",
+          "pieces": [
+            48
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Animal?",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "And",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "text": "what",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "text": "sort",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "text": "of",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "cards",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "text": "were",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "text": "you",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "text": "playing",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "text": "with",
+          "start": 2.54,
+          "end": 2.76
+        },
+        {
+          "text": "just",
+          "start": 2.76,
+          "end": 2.94
+        },
+        {
+          "text": "now?",
+          "start": 2.94,
+          "end": 3.28
+        },
+        {
+          "text": "I",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "text": "gave",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "text": "you",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "text": "a",
+          "start": 4.22,
+          "end": 4.36
+        },
+        {
+          "text": "pack",
+          "start": 4.36,
+          "end": 4.64
+        },
+        {
+          "text": "and",
+          "start": 4.64,
+          "end": 4.84
+        },
+        {
+          "text": "you",
+          "start": 4.84,
+          "end": 4.98
+        },
+        {
+          "text": "hid",
+          "start": 4.98,
+          "end": 5.08
+        },
+        {
+          "text": "it.",
+          "start": 5.18,
+          "end": 5.52
+        },
+        {
+          "text": "You",
+          "start": 5.74,
+          "end": 5.88
+        },
+        {
+          "text": "played",
+          "start": 5.88,
+          "end": 6.16
+        },
+        {
+          "text": "with",
+          "start": 6.16,
+          "end": 6.38
+        },
+        {
+          "text": "marked",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "text": "cards!",
+          "start": 6.66,
+          "end": 7.22
+        },
+        {
+          "text": "I",
+          "start": 7.72,
+          "end": 7.84
+        },
+        {
+          "text": "could",
+          "start": 7.84,
+          "end": 7.98
+        },
+        {
+          "text": "send",
+          "start": 7.98,
+          "end": 8.16
+        },
+        {
+          "text": "you",
+          "start": 8.16,
+          "end": 8.3
+        },
+        {
+          "text": "to",
+          "start": 8.3,
+          "end": 8.44
+        },
+        {
+          "text": "Siberia",
+          "start": 8.44,
+          "end": 8.8
+        },
+        {
+          "text": "for",
+          "start": 8.8,
+          "end": 9.12
+        },
+        {
+          "text": "playing",
+          "start": 9.12,
+          "end": 9.38
+        },
+        {
+          "text": "with",
+          "start": 9.38,
+          "end": 9.64
+        },
+        {
+          "text": "false",
+          "start": 9.64,
+          "end": 9.9
+        },
+        {
+          "text": "cards,",
+          "start": 9.9,
+          "end": 10.4
+        },
+        {
+          "text": "d'you",
+          "start": 10.4,
+          "end": 10.65
+        },
+        {
+          "text": "know",
+          "start": 10.9,
+          "end": 11.08
+        },
+        {
+          "text": "that,",
+          "start": 11.08,
+          "end": 11.38
+        },
+        {
+          "text": "for",
+          "start": 11.74,
+          "end": 11.84
+        },
+        {
+          "text": "it's",
+          "start": 11.84,
+          "end": 12.02
+        },
+        {
+          "text": "just",
+          "start": 12.02,
+          "end": 12.16
+        },
+        {
+          "text": "the",
+          "start": 12.16,
+          "end": 12.34
+        },
+        {
+          "text": "same",
+          "start": 12.34,
+          "end": 12.52
+        },
+        {
+          "text": "as",
+          "start": 12.52,
+          "end": 12.72
+        },
+        {
+          "text": "false",
+          "start": 12.72,
+          "end": 13.02
+        },
+        {
+          "text": "banknotes....\"",
+          "start": 13.02,
+          "end": 13.64
+        }
+      ],
+      "stats": {
+        "expected_words": 48,
+        "heard_words": 49,
+        "matched_words": 46
+      },
+      "match_ratio": 0.9583333333333334,
+      "rejection_reasons": [],
+      "seconds": 0.6352839125320315
+    },
+    {
+      "asr_seconds": 0.6032013772055507,
+      "alignment_seconds": 0.0005844533443450928,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Animal, and what sort of cards were you playing with just now?",
+          "start": 0.02,
+          "end": 3.28,
+          "words": [
+            {
+              "text": " Animal,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.25390625
+            },
+            {
+              "text": " and",
+              "start": 1.06,
+              "end": 1.24,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " what",
+              "start": 1.24,
+              "end": 1.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sort",
+              "start": 1.42,
+              "end": 1.58,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " of",
+              "start": 1.58,
+              "end": 1.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " cards",
+              "start": 1.78,
+              "end": 1.94,
+              "probability": 0.99609375
+            },
+            {
+              "text": " were",
+              "start": 1.94,
+              "end": 2.14,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " you",
+              "start": 2.14,
+              "end": 2.3,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " playing",
+              "start": 2.3,
+              "end": 2.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 2.54,
+              "end": 2.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " just",
+              "start": 2.76,
+              "end": 2.94,
+              "probability": 0.98828125
+            },
+            {
+              "text": " now?",
+              "start": 2.94,
+              "end": 3.28,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " I gave you a pack and you hit it.",
+          "start": 3.78,
+          "end": 5.52,
+          "words": [
+            {
+              "text": " I",
+              "start": 3.78,
+              "end": 3.94,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " gave",
+              "start": 3.94,
+              "end": 4.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 4.08,
+              "end": 4.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 4.22,
+              "end": 4.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " pack",
+              "start": 4.36,
+              "end": 4.64,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " and",
+              "start": 4.64,
+              "end": 4.84,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " you",
+              "start": 4.84,
+              "end": 4.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hit",
+              "start": 4.98,
+              "end": 5.18,
+              "probability": 0.69287109375
+            },
+            {
+              "text": " it.",
+              "start": 5.18,
+              "end": 5.52,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " You played with marked cards.",
+          "start": 5.74,
+          "end": 7.22,
+          "words": [
+            {
+              "text": " You",
+              "start": 5.74,
+              "end": 5.88,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " played",
+              "start": 5.88,
+              "end": 6.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 6.16,
+              "end": 6.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " marked",
+              "start": 6.38,
+              "end": 6.66,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " cards.",
+              "start": 6.66,
+              "end": 7.22,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " I could send you to Siberia for playing with false cards, do you know that?",
+          "start": 7.72,
+          "end": 11.38,
+          "words": [
+            {
+              "text": " I",
+              "start": 7.72,
+              "end": 7.84,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " could",
+              "start": 7.84,
+              "end": 7.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " send",
+              "start": 7.98,
+              "end": 8.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 8.16,
+              "end": 8.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 8.3,
+              "end": 8.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Siberia",
+              "start": 8.44,
+              "end": 8.8,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " for",
+              "start": 8.8,
+              "end": 9.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " playing",
+              "start": 9.12,
+              "end": 9.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 9.38,
+              "end": 9.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " false",
+              "start": 9.64,
+              "end": 9.9,
+              "probability": 0.947265625
+            },
+            {
+              "text": " cards,",
+              "start": 9.9,
+              "end": 10.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " do",
+              "start": 10.62,
+              "end": 10.72,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " you",
+              "start": 10.72,
+              "end": 10.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " know",
+              "start": 10.9,
+              "end": 11.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that?",
+              "start": 11.08,
+              "end": 11.38,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " For it's just the same as false banknotes.",
+          "start": 11.74,
+          "end": 13.64,
+          "words": [
+            {
+              "text": " For",
+              "start": 11.74,
+              "end": 11.84,
+              "probability": 0.8154296875
+            },
+            {
+              "text": " it's",
+              "start": 11.84,
+              "end": 12.02,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " just",
+              "start": 12.02,
+              "end": 12.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 12.16,
+              "end": 12.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " same",
+              "start": 12.34,
+              "end": 12.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 12.52,
+              "end": 12.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " false",
+              "start": 12.72,
+              "end": 13.02,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " banknotes.",
+              "start": 13.02,
+              "end": 13.64,
+              "probability": 0.9580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Animal,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "and",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "raw": "what",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "raw": "sort",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "raw": "of",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "raw": "cards",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "raw": "were",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "raw": "you",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "raw": "playing",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "raw": "with",
+          "start": 2.54,
+          "end": 2.76
+        },
+        {
+          "raw": "just",
+          "start": 2.76,
+          "end": 2.94
+        },
+        {
+          "raw": "now?",
+          "start": 2.94,
+          "end": 3.28
+        },
+        {
+          "raw": "I",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "raw": "gave",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "raw": "you",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "raw": "a",
+          "start": 4.22,
+          "end": 4.36
+        },
+        {
+          "raw": "pack",
+          "start": 4.36,
+          "end": 4.64
+        },
+        {
+          "raw": "and",
+          "start": 4.64,
+          "end": 4.84
+        },
+        {
+          "raw": "you",
+          "start": 4.84,
+          "end": 4.98
+        },
+        {
+          "raw": "hit",
+          "start": 4.98,
+          "end": 5.18
+        },
+        {
+          "raw": "it.",
+          "start": 5.18,
+          "end": 5.52
+        },
+        {
+          "raw": "You",
+          "start": 5.74,
+          "end": 5.88
+        },
+        {
+          "raw": "played",
+          "start": 5.88,
+          "end": 6.16
+        },
+        {
+          "raw": "with",
+          "start": 6.16,
+          "end": 6.38
+        },
+        {
+          "raw": "marked",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "raw": "cards.",
+          "start": 6.66,
+          "end": 7.22
+        },
+        {
+          "raw": "I",
+          "start": 7.72,
+          "end": 7.84
+        },
+        {
+          "raw": "could",
+          "start": 7.84,
+          "end": 7.98
+        },
+        {
+          "raw": "send",
+          "start": 7.98,
+          "end": 8.16
+        },
+        {
+          "raw": "you",
+          "start": 8.16,
+          "end": 8.3
+        },
+        {
+          "raw": "to",
+          "start": 8.3,
+          "end": 8.44
+        },
+        {
+          "raw": "Siberia",
+          "start": 8.44,
+          "end": 8.8
+        },
+        {
+          "raw": "for",
+          "start": 8.8,
+          "end": 9.12
+        },
+        {
+          "raw": "playing",
+          "start": 9.12,
+          "end": 9.38
+        },
+        {
+          "raw": "with",
+          "start": 9.38,
+          "end": 9.64
+        },
+        {
+          "raw": "false",
+          "start": 9.64,
+          "end": 9.9
+        },
+        {
+          "raw": "cards,",
+          "start": 9.9,
+          "end": 10.4
+        },
+        {
+          "raw": "do",
+          "start": 10.62,
+          "end": 10.72
+        },
+        {
+          "raw": "you",
+          "start": 10.72,
+          "end": 10.9
+        },
+        {
+          "raw": "know",
+          "start": 10.9,
+          "end": 11.08
+        },
+        {
+          "raw": "that?",
+          "start": 11.08,
+          "end": 11.38
+        },
+        {
+          "raw": "For",
+          "start": 11.74,
+          "end": 11.84
+        },
+        {
+          "raw": "it's",
+          "start": 11.84,
+          "end": 12.02
+        },
+        {
+          "raw": "just",
+          "start": 12.02,
+          "end": 12.16
+        },
+        {
+          "raw": "the",
+          "start": 12.16,
+          "end": 12.34
+        },
+        {
+          "raw": "same",
+          "start": 12.34,
+          "end": 12.52
+        },
+        {
+          "raw": "as",
+          "start": 12.52,
+          "end": 12.72
+        },
+        {
+          "raw": "false",
+          "start": 12.72,
+          "end": 13.02
+        },
+        {
+          "raw": "banknotes.",
+          "start": 13.02,
+          "end": 13.64
+        }
+      ],
+      "expected_tokens": [
+        "\"Animal?",
+        "And",
+        "what",
+        "sort",
+        "of",
+        "cards",
+        "were",
+        "you",
+        "playing",
+        "with",
+        "just",
+        "now?",
+        "I",
+        "gave",
+        "you",
+        "a",
+        "pack",
+        "and",
+        "you",
+        "hid",
+        "it.",
+        "You",
+        "played",
+        "with",
+        "marked",
+        "cards!",
+        "I",
+        "could",
+        "send",
+        "you",
+        "to",
+        "Siberia",
+        "for",
+        "playing",
+        "with",
+        "false",
+        "cards,",
+        "d'you",
+        "know",
+        "that,",
+        "for",
+        "it's",
+        "just",
+        "the",
+        "same",
+        "as",
+        "false",
+        "banknotes....\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "equal",
+          20,
+          37,
+          20,
+          37
+        ],
+        [
+          "replace",
+          37,
+          38,
+          37,
+          39
+        ],
+        [
+          "equal",
+          38,
+          48,
+          39,
+          49
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "replace",
+          37,
+          38,
+          37,
+          39
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Animal,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "animal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.06,
+          "end": 1.24,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.24,
+          "end": 1.42,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sort",
+          "start": 1.42,
+          "end": 1.58,
+          "key": "sort",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.58,
+          "end": 1.78,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cards",
+          "start": 1.78,
+          "end": 1.94,
+          "key": "cards",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 1.94,
+          "end": 2.14,
+          "key": "were",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.14,
+          "end": 2.3,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "playing",
+          "start": 2.3,
+          "end": 2.54,
+          "key": "playing",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.54,
+          "end": 2.76,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 2.76,
+          "end": 2.94,
+          "key": "just",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "now?",
+          "start": 2.94,
+          "end": 3.28,
+          "key": "now",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.78,
+          "end": 3.94,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 3.94,
+          "end": 4.08,
+          "key": "gave",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.08,
+          "end": 4.22,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.22,
+          "end": 4.36,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "pack",
+          "start": 4.36,
+          "end": 4.64,
+          "key": "pack",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.64,
+          "end": 4.84,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.84,
+          "end": 4.98,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "hit",
+          "start": 4.98,
+          "end": 5.18,
+          "key": "hit",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 5.18,
+          "end": 5.52,
+          "key": "it",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 5.74,
+          "end": 5.88,
+          "key": "you",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "played",
+          "start": 5.88,
+          "end": 6.16,
+          "key": "played",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.16,
+          "end": 6.38,
+          "key": "with",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "marked",
+          "start": 6.38,
+          "end": 6.66,
+          "key": "marked",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "cards.",
+          "start": 6.66,
+          "end": 7.22,
+          "key": "cards",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.72,
+          "end": 7.84,
+          "key": "i",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 7.84,
+          "end": 7.98,
+          "key": "could",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "send",
+          "start": 7.98,
+          "end": 8.16,
+          "key": "send",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 8.16,
+          "end": 8.3,
+          "key": "you",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.3,
+          "end": 8.44,
+          "key": "to",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Siberia",
+          "start": 8.44,
+          "end": 8.8,
+          "key": "siberia",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.8,
+          "end": 9.12,
+          "key": "for",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "playing",
+          "start": 9.12,
+          "end": 9.38,
+          "key": "playing",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 9.38,
+          "end": 9.64,
+          "key": "with",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "false",
+          "start": 9.64,
+          "end": 9.9,
+          "key": "false",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "cards,",
+          "start": 9.9,
+          "end": 10.4,
+          "key": "cards",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 10.62,
+          "end": 10.72,
+          "key": "do",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 10.72,
+          "end": 10.9,
+          "key": "you",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 10.9,
+          "end": 11.08,
+          "key": "know",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 11.08,
+          "end": 11.38,
+          "key": "that",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 11.74,
+          "end": 11.84,
+          "key": "for",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 11.84,
+          "end": 12.02,
+          "key": "its",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 12.02,
+          "end": 12.16,
+          "key": "just",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.16,
+          "end": 12.34,
+          "key": "the",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 12.34,
+          "end": 12.52,
+          "key": "same",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 12.52,
+          "end": 12.72,
+          "key": "as",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "false",
+          "start": 12.72,
+          "end": 13.02,
+          "key": "false",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "banknotes.",
+          "start": 13.02,
+          "end": 13.64,
+          "key": "banknotes",
+          "pieces": [
+            48
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Animal?",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "And",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "text": "what",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "text": "sort",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "text": "of",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "cards",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "text": "were",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "text": "you",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "text": "playing",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "text": "with",
+          "start": 2.54,
+          "end": 2.76
+        },
+        {
+          "text": "just",
+          "start": 2.76,
+          "end": 2.94
+        },
+        {
+          "text": "now?",
+          "start": 2.94,
+          "end": 3.28
+        },
+        {
+          "text": "I",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "text": "gave",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "text": "you",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "text": "a",
+          "start": 4.22,
+          "end": 4.36
+        },
+        {
+          "text": "pack",
+          "start": 4.36,
+          "end": 4.64
+        },
+        {
+          "text": "and",
+          "start": 4.64,
+          "end": 4.84
+        },
+        {
+          "text": "you",
+          "start": 4.84,
+          "end": 4.98
+        },
+        {
+          "text": "hid",
+          "start": 4.98,
+          "end": 5.08
+        },
+        {
+          "text": "it.",
+          "start": 5.18,
+          "end": 5.52
+        },
+        {
+          "text": "You",
+          "start": 5.74,
+          "end": 5.88
+        },
+        {
+          "text": "played",
+          "start": 5.88,
+          "end": 6.16
+        },
+        {
+          "text": "with",
+          "start": 6.16,
+          "end": 6.38
+        },
+        {
+          "text": "marked",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "text": "cards!",
+          "start": 6.66,
+          "end": 7.22
+        },
+        {
+          "text": "I",
+          "start": 7.72,
+          "end": 7.84
+        },
+        {
+          "text": "could",
+          "start": 7.84,
+          "end": 7.98
+        },
+        {
+          "text": "send",
+          "start": 7.98,
+          "end": 8.16
+        },
+        {
+          "text": "you",
+          "start": 8.16,
+          "end": 8.3
+        },
+        {
+          "text": "to",
+          "start": 8.3,
+          "end": 8.44
+        },
+        {
+          "text": "Siberia",
+          "start": 8.44,
+          "end": 8.8
+        },
+        {
+          "text": "for",
+          "start": 8.8,
+          "end": 9.12
+        },
+        {
+          "text": "playing",
+          "start": 9.12,
+          "end": 9.38
+        },
+        {
+          "text": "with",
+          "start": 9.38,
+          "end": 9.64
+        },
+        {
+          "text": "false",
+          "start": 9.64,
+          "end": 9.9
+        },
+        {
+          "text": "cards,",
+          "start": 9.9,
+          "end": 10.4
+        },
+        {
+          "text": "d'you",
+          "start": 10.4,
+          "end": 10.65
+        },
+        {
+          "text": "know",
+          "start": 10.9,
+          "end": 11.08
+        },
+        {
+          "text": "that,",
+          "start": 11.08,
+          "end": 11.38
+        },
+        {
+          "text": "for",
+          "start": 11.74,
+          "end": 11.84
+        },
+        {
+          "text": "it's",
+          "start": 11.84,
+          "end": 12.02
+        },
+        {
+          "text": "just",
+          "start": 12.02,
+          "end": 12.16
+        },
+        {
+          "text": "the",
+          "start": 12.16,
+          "end": 12.34
+        },
+        {
+          "text": "same",
+          "start": 12.34,
+          "end": 12.52
+        },
+        {
+          "text": "as",
+          "start": 12.52,
+          "end": 12.72
+        },
+        {
+          "text": "false",
+          "start": 12.72,
+          "end": 13.02
+        },
+        {
+          "text": "banknotes....\"",
+          "start": 13.02,
+          "end": 13.64
+        }
+      ],
+      "stats": {
+        "expected_words": 48,
+        "heard_words": 49,
+        "matched_words": 46
+      },
+      "match_ratio": 0.9583333333333334,
+      "rejection_reasons": [],
+      "seconds": 0.6040552193298936
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a40b0cb6f7c27eca3aab10a31f4bc28ba46859cbb7d20a54afe2c290dc7d9163",
+  "selected_reasons": []
+}

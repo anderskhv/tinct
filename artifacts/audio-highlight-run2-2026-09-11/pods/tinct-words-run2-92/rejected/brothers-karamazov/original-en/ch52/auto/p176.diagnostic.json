@@ -1,0 +1,596 @@
+{
+  "complete": true,
+  "signature": "be73aa12f93129fe70711f34b74cada3b34a659761f5e08d4b5f0c210934c908",
+  "attempts": [
+    {
+      "asr_seconds": 0.14424377866089344,
+      "alignment_seconds": 0.0003706337884068489,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And the money, _panie_?\"",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And the money, paini.",
+          "start": 0.11,
+          "end": 1.35,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.11,
+              "end": 0.53,
+              "probability": 0.34619140625
+            },
+            {
+              "text": " the",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " money,",
+              "start": 0.65,
+              "end": 0.89,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " paini.",
+              "start": 0.97,
+              "end": 1.35,
+              "probability": 0.26580810546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "money,",
+          "start": 0.65,
+          "end": 0.89
+        },
+        {
+          "raw": "paini.",
+          "start": 0.97,
+          "end": 1.35
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "the",
+        "money,",
+        "_panie_?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.11,
+          "end": 0.53,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "money,",
+          "start": 0.65,
+          "end": 0.89,
+          "key": "money",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "paini.",
+          "start": 0.97,
+          "end": 1.35,
+          "key": "paini",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "text": "the",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "money,",
+          "start": 0.65,
+          "end": 0.89
+        },
+        {
+          "text": "_panie_?\"",
+          "start": 0.89,
+          "end": 1.12
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1447325786575675
+    },
+    {
+      "asr_seconds": 0.15285484865307808,
+      "alignment_seconds": 0.0003603072836995125,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "And"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " the money, paini.",
+          "start": 0.11,
+          "end": 1.37,
+          "words": [
+            {
+              "text": " the",
+              "start": 0.11,
+              "end": 0.61,
+              "probability": 0.016571044921875
+            },
+            {
+              "text": " money,",
+              "start": 0.61,
+              "end": 0.89,
+              "probability": 0.947265625
+            },
+            {
+              "text": " paini.",
+              "start": 0.97,
+              "end": 1.37,
+              "probability": 0.19403076171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "the",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "raw": "money,",
+          "start": 0.61,
+          "end": 0.89
+        },
+        {
+          "raw": "paini.",
+          "start": 0.97,
+          "end": 1.37
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "the",
+        "money,",
+        "_panie_?\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          3,
+          0,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          3,
+          4,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "the",
+          "start": 0.11,
+          "end": 0.61,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "money,",
+          "start": 0.61,
+          "end": 0.89,
+          "key": "money",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "paini.",
+          "start": 0.97,
+          "end": 1.37,
+          "key": "paini",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.0,
+          "end": 0.055
+        },
+        {
+          "text": "the",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "text": "money,",
+          "start": 0.61,
+          "end": 0.89
+        },
+        {
+          "text": "_panie_?\"",
+          "start": 0.89,
+          "end": 1.13
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15332386549562216
+    },
+    {
+      "asr_seconds": 0.15055293682962656,
+      "alignment_seconds": 0.00037731602787971497,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And the money, Paini.",
+          "start": 0.11,
+          "end": 1.35,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.11,
+              "end": 0.53,
+              "probability": 0.34619140625
+            },
+            {
+              "text": " the",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " money,",
+              "start": 0.65,
+              "end": 0.89,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " Paini.",
+              "start": 0.97,
+              "end": 1.35,
+              "probability": 0.3263346354166667
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "money,",
+          "start": 0.65,
+          "end": 0.89
+        },
+        {
+          "raw": "Paini.",
+          "start": 0.97,
+          "end": 1.35
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "the",
+        "money,",
+        "_panie_?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.11,
+          "end": 0.53,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "money,",
+          "start": 0.65,
+          "end": 0.89,
+          "key": "money",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Paini.",
+          "start": 0.97,
+          "end": 1.35,
+          "key": "paini",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "text": "the",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "money,",
+          "start": 0.65,
+          "end": 0.89
+        },
+        {
+          "text": "_panie_?\"",
+          "start": 0.89,
+          "end": 1.12
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15104753989726305
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "23a29a6146afd8af40cf25be06e86c87a23d63afc2579f6c14dcd09d337ca60b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

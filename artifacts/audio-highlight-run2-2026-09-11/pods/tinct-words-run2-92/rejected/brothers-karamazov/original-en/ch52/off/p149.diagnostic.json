@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "145395967fa9f39828086592bce90a640d50239156a9275f3b239ac0debcd8b3",
+  "attempts": [
+    {
+      "asr_seconds": 0.2045561708509922,
+      "alignment_seconds": 0.0004948191344738007,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That's enough. He shouted in his ringing voice",
+          "start": 0.05,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " That's",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " enough.",
+              "start": 0.73,
+              "end": 0.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " He",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " shouted",
+              "start": 1.55,
+              "end": 1.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 1.79,
+              "end": 2.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " his",
+              "start": 2.01,
+              "end": 2.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ringing",
+              "start": 2.13,
+              "end": 2.35,
+              "probability": 0.994140625
+            },
+            {
+              "text": " voice",
+              "start": 2.35,
+              "end": 2.75,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That's",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "enough.",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "raw": "He",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "shouted",
+          "start": 1.55,
+          "end": 1.79
+        },
+        {
+          "raw": "in",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "raw": "his",
+          "start": 2.01,
+          "end": 2.13
+        },
+        {
+          "raw": "ringing",
+          "start": 2.13,
+          "end": 2.35
+        },
+        {
+          "raw": "voice",
+          "start": 2.35,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "\"That's",
+        "enough!\"",
+        "he",
+        "shouted",
+        "in",
+        "his",
+        "ringing",
+        "voice."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That's",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "thats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "enough.",
+          "start": 0.73,
+          "end": 0.97,
+          "key": "enough",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.45,
+          "end": 1.55,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shouted",
+          "start": 1.55,
+          "end": 1.79,
+          "key": "shouted",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.79,
+          "end": 2.01,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.01,
+          "end": 2.13,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ringing",
+          "start": 2.13,
+          "end": 2.35,
+          "key": "ringing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 2.35,
+          "end": 2.75,
+          "key": "voice",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That's",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "enough!\"",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "text": "he",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "text": "shouted",
+          "start": 1.55,
+          "end": 1.79
+        },
+        {
+          "text": "in",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "text": "his",
+          "start": 2.01,
+          "end": 2.13
+        },
+        {
+          "text": "ringing",
+          "start": 2.13,
+          "end": 2.35
+        },
+        {
+          "text": "voice.",
+          "start": 2.35,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2052251361310482
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ceeb96c3e4e20807e9e9cc510788f7bb9b16ccfc296292a3992ff470bd88c5aa",
+  "selected_reasons": []
+}

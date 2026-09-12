@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "46acdd1e81c27fad009d9acc9b64ea449eb139eb6ee7fd7f988608dc19cd04f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.12974464427679777,
+      "alignment_seconds": 0.00032541342079639435,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " At the station.",
+          "start": 0.11,
+          "end": 1.03,
+          "words": [
+            {
+              "text": " At",
+              "start": 0.11,
+              "end": 0.53,
+              "probability": 0.5791015625
+            },
+            {
+              "text": " the",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " station.",
+              "start": 0.65,
+              "end": 1.03,
+              "probability": 0.86279296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "At",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "station.",
+          "start": 0.65,
+          "end": 1.03
+        }
+      ],
+      "expected_tokens": [
+        "\"At",
+        "the",
+        "station?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "At",
+          "start": 0.11,
+          "end": 0.53,
+          "key": "at",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "station.",
+          "start": 0.65,
+          "end": 1.03,
+          "key": "station",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"At",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "text": "the",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "station?\"",
+          "start": 0.65,
+          "end": 1.03
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13017883151769638
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "eed284c1413392ba1b8f736ab85cf710ca1a9a85563d9bb889d75c05442f206c",
+  "selected_reasons": []
+}

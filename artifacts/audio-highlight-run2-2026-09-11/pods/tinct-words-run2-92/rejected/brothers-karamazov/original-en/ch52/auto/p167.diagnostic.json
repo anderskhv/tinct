@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "2b7cd56f7d3762d4f384e8cdf1e4d3fbc02fbf78ce7e2d11df6639df9674d25a",
+  "attempts": [
+    {
+      "asr_seconds": 0.23422607872635126,
+      "alignment_seconds": 0.0003991397097706795,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"We'll be back in one moment,\" answered Mitya.",
+        "hotwords": "We'll, Mitya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " We'll be back in one moment,\" answered Mitya.",
+          "start": 0.02,
+          "end": 2.7,
+          "words": [
+            {
+              "text": " We'll",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.7021484375
+            },
+            {
+              "text": " be",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " back",
+              "start": 0.66,
+              "end": 0.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 0.86,
+              "end": 1.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " one",
+              "start": 1.02,
+              "end": 1.2,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " moment,\"",
+              "start": 1.2,
+              "end": 2.04,
+              "probability": 0.5677490234375
+            },
+            {
+              "text": " answered",
+              "start": 2.04,
+              "end": 2.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Mitya.",
+              "start": 2.26,
+              "end": 2.7,
+              "probability": 0.3953348795572917
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We'll",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "be",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "back",
+          "start": 0.66,
+          "end": 0.86
+        },
+        {
+          "raw": "in",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "raw": "one",
+          "start": 1.02,
+          "end": 1.2
+        },
+        {
+          "raw": "moment,\"",
+          "start": 1.2,
+          "end": 2.04
+        },
+        {
+          "raw": "answered",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "raw": "Mitya.",
+          "start": 2.26,
+          "end": 2.7
+        }
+      ],
+      "expected_tokens": [
+        "\"We'll",
+        "be",
+        "back",
+        "in",
+        "one",
+        "moment,\"",
+        "answered",
+        "Mitya."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We'll",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.54,
+          "end": 0.66,
+          "key": "be",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 0.66,
+          "end": 0.86,
+          "key": "back",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.86,
+          "end": 1.02,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.02,
+          "end": 1.2,
+          "key": "one",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "moment,\"",
+          "start": 1.2,
+          "end": 2.04,
+          "key": "moment",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "answered",
+          "start": 2.04,
+          "end": 2.26,
+          "key": "answered",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Mitya.",
+          "start": 2.26,
+          "end": 2.7,
+          "key": "mitya",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"We'll",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "be",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "back",
+          "start": 0.66,
+          "end": 0.86
+        },
+        {
+          "text": "in",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "text": "one",
+          "start": 1.02,
+          "end": 1.2
+        },
+        {
+          "text": "moment,\"",
+          "start": 1.2,
+          "end": 2.04
+        },
+        {
+          "text": "answered",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "text": "Mitya.",
+          "start": 2.26,
+          "end": 2.7
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23477697372436523
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e77099521f2f59ffb58441047210508a7dca24dfc2d9580a880cb6c81d3ac1b1",
+  "selected_reasons": []
+}

@@ -1,0 +1,672 @@
+{
+  "complete": true,
+  "signature": "eb871b6e4484e56dd9db614b4ca182eb931baf0908ea2ae302e546da2007ecb1",
+  "attempts": [
+    {
+      "asr_seconds": 0.38125794287770987,
+      "alignment_seconds": 0.0007442794740200043,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I'll bet another ruble. A single steak. Maximov muttered gleefully, hugely delighted at having",
+          "start": 0.08,
+          "end": 6.5,
+          "words": [
+            {
+              "text": " I'll",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.6748046875
+            },
+            {
+              "text": " bet",
+              "start": 0.6,
+              "end": 0.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " another",
+              "start": 0.7,
+              "end": 1.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " ruble.",
+              "start": 1.1,
+              "end": 1.52,
+              "probability": 0.64990234375
+            },
+            {
+              "text": " A",
+              "start": 1.94,
+              "end": 2.06,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " single",
+              "start": 2.06,
+              "end": 2.46,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " steak.",
+              "start": 2.46,
+              "end": 2.9,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " Maximov",
+              "start": 3.46,
+              "end": 4.06,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " muttered",
+              "start": 4.06,
+              "end": 4.38,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " gleefully,",
+              "start": 4.38,
+              "end": 4.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hugely",
+              "start": 5.38,
+              "end": 5.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " delighted",
+              "start": 5.56,
+              "end": 6.08,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " at",
+              "start": 6.08,
+              "end": 6.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " having",
+              "start": 6.28,
+              "end": 6.5,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " won a ruble.",
+          "start": 6.5,
+          "end": 7.18,
+          "words": [
+            {
+              "text": " won",
+              "start": 6.5,
+              "end": 6.72,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " a",
+              "start": 6.72,
+              "end": 6.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ruble.",
+              "start": 6.86,
+              "end": 7.18,
+              "probability": 0.956787109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I'll",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "bet",
+          "start": 0.6,
+          "end": 0.7
+        },
+        {
+          "raw": "another",
+          "start": 0.7,
+          "end": 1.1
+        },
+        {
+          "raw": "ruble.",
+          "start": 1.1,
+          "end": 1.52
+        },
+        {
+          "raw": "A",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "raw": "single",
+          "start": 2.06,
+          "end": 2.46
+        },
+        {
+          "raw": "steak.",
+          "start": 2.46,
+          "end": 2.9
+        },
+        {
+          "raw": "Maximov",
+          "start": 3.46,
+          "end": 4.06
+        },
+        {
+          "raw": "muttered",
+          "start": 4.06,
+          "end": 4.38
+        },
+        {
+          "raw": "gleefully,",
+          "start": 4.38,
+          "end": 4.94
+        },
+        {
+          "raw": "hugely",
+          "start": 5.38,
+          "end": 5.56
+        },
+        {
+          "raw": "delighted",
+          "start": 5.56,
+          "end": 6.08
+        },
+        {
+          "raw": "at",
+          "start": 6.08,
+          "end": 6.28
+        },
+        {
+          "raw": "having",
+          "start": 6.28,
+          "end": 6.5
+        },
+        {
+          "raw": "won",
+          "start": 6.5,
+          "end": 6.72
+        },
+        {
+          "raw": "a",
+          "start": 6.72,
+          "end": 6.86
+        },
+        {
+          "raw": "ruble.",
+          "start": 6.86,
+          "end": 7.18
+        }
+      ],
+      "expected_tokens": [
+        "\"I'll",
+        "bet",
+        "another",
+        "rouble,",
+        "a",
+        "'single'",
+        "stake,\"",
+        "Maximov",
+        "muttered",
+        "gleefully,",
+        "hugely",
+        "delighted",
+        "at",
+        "having",
+        "won",
+        "a",
+        "rouble."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          16,
+          7,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I'll",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "ill",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "bet",
+          "start": 0.6,
+          "end": 0.7,
+          "key": "bet",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 0.7,
+          "end": 1.1,
+          "key": "another",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ruble.",
+          "start": 1.1,
+          "end": 1.52,
+          "key": "ruble",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.94,
+          "end": 2.06,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "single",
+          "start": 2.06,
+          "end": 2.46,
+          "key": "single",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "steak.",
+          "start": 2.46,
+          "end": 2.9,
+          "key": "steak",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Maximov",
+          "start": 3.46,
+          "end": 4.06,
+          "key": "maximov",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "muttered",
+          "start": 4.06,
+          "end": 4.38,
+          "key": "muttered",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "gleefully,",
+          "start": 4.38,
+          "end": 4.94,
+          "key": "gleefully",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "hugely",
+          "start": 5.38,
+          "end": 5.56,
+          "key": "hugely",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "delighted",
+          "start": 5.56,
+          "end": 6.08,
+          "key": "delighted",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 6.08,
+          "end": 6.28,
+          "key": "at",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "having",
+          "start": 6.28,
+          "end": 6.5,
+          "key": "having",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "won",
+          "start": 6.5,
+          "end": 6.72,
+          "key": "won",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.72,
+          "end": 6.86,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "ruble.",
+          "start": 6.86,
+          "end": 7.18,
+          "key": "ruble",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I'll",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "bet",
+          "start": 0.6,
+          "end": 0.7
+        },
+        {
+          "text": "another",
+          "start": 0.7,
+          "end": 1.1
+        },
+        {
+          "text": "rouble,",
+          "start": 1.1,
+          "end": 1.52
+        },
+        {
+          "text": "a",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "text": "'single'",
+          "start": 2.06,
+          "end": 2.46
+        },
+        {
+          "text": "stake,\"",
+          "start": 2.46,
+          "end": 2.96
+        },
+        {
+          "text": "Maximov",
+          "start": 3.46,
+          "end": 4.06
+        },
+        {
+          "text": "muttered",
+          "start": 4.06,
+          "end": 4.38
+        },
+        {
+          "text": "gleefully,",
+          "start": 4.38,
+          "end": 4.94
+        },
+        {
+          "text": "hugely",
+          "start": 5.38,
+          "end": 5.56
+        },
+        {
+          "text": "delighted",
+          "start": 5.56,
+          "end": 6.08
+        },
+        {
+          "text": "at",
+          "start": 6.08,
+          "end": 6.28
+        },
+        {
+          "text": "having",
+          "start": 6.28,
+          "end": 6.5
+        },
+        {
+          "text": "won",
+          "start": 6.5,
+          "end": 6.72
+        },
+        {
+          "text": "a",
+          "start": 6.72,
+          "end": 6.86
+        },
+        {
+          "text": "rouble.",
+          "start": 6.86,
+          "end": 7.02
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 14
+      },
+      "match_ratio": 0.8235294117647058,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3823195621371269
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1ab350eee02ee271406e28fbd5d7528517ed4b20dc7da75277db88f7d710ca64",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

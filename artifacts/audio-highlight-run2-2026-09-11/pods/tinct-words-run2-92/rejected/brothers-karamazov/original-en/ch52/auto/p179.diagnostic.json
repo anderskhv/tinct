@@ -1,0 +1,8106 @@
+{
+  "complete": true,
+  "signature": "7824c2f3f1915823c102afe7bab147f111aa8844c67e2b237f56a606055bb5e8",
+  "attempts": [
+    {
+      "asr_seconds": 0.7951737511903048,
+      "alignment_seconds": 0.0016180537641048431,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Seven hundred, seven hundred, not five hundred, at once, this minute, cash down!\" Mitya added, feeling something wrong. \"What's the matter, _panie_? Don't you trust me? I can't give you the whole three thousand straight off. If I give it, you may come back to her to-morrow.... Besides, I haven't the three thousand with me. I've got it at home in the town,\" faltered Mitya, his spirit sinking at every word he uttered. \"Upon my word, the money's there, hidden.\"",
+        "hotwords": "Mitya, What's, Don't, I, If, Besides, I've, Upon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Seven hundred, seven hundred, not five hundred, at once, this minute, cash down. Mitya added, feeling something wrong.",
+          "start": 0.11,
+          "end": 6.09,
+          "words": [
+            {
+              "text": " Seven",
+              "start": 0.11,
+              "end": 0.67,
+              "probability": 0.0472412109375
+            },
+            {
+              "text": " hundred,",
+              "start": 0.67,
+              "end": 1.01,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " seven",
+              "start": 1.13,
+              "end": 1.27,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " hundred,",
+              "start": 1.27,
+              "end": 1.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 1.79,
+              "end": 1.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " five",
+              "start": 1.87,
+              "end": 2.15,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " hundred,",
+              "start": 2.15,
+              "end": 2.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 2.53,
+              "end": 2.61,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " once,",
+              "start": 2.61,
+              "end": 2.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " this",
+              "start": 2.97,
+              "end": 3.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " minute,",
+              "start": 3.07,
+              "end": 3.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " cash",
+              "start": 3.53,
+              "end": 3.63,
+              "probability": 0.67529296875
+            },
+            {
+              "text": " down.",
+              "start": 3.63,
+              "end": 4.09,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " Mitya",
+              "start": 4.65,
+              "end": 4.83,
+              "probability": 0.4243265787760417
+            },
+            {
+              "text": " added,",
+              "start": 4.83,
+              "end": 5.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " feeling",
+              "start": 5.21,
+              "end": 5.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " something",
+              "start": 5.39,
+              "end": 5.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wrong.",
+              "start": 5.73,
+              "end": 6.09,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " What's the matter, paini? Don't you trust me? I can't give you the whole three thousand straight off. If I give it, you may come back to her to-morrow. Besides, I haven't the three thousand with me. I've got it at home in the town,\" faltered Mitya, his spirit sinking at every word he uttered. Upon my word, the money's there, hidden.",
+          "start": 6.71,
+          "end": 23.39,
+          "words": [
+            {
+              "text": " What's",
+              "start": 6.71,
+              "end": 7.01,
+              "probability": 0.568603515625
+            },
+            {
+              "text": " the",
+              "start": 7.01,
+              "end": 7.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " matter,",
+              "start": 7.11,
+              "end": 7.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " paini?",
+              "start": 7.53,
+              "end": 7.79,
+              "probability": 0.50445556640625
+            },
+            {
+              "text": " Don't",
+              "start": 8.01,
+              "end": 8.15,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " you",
+              "start": 8.15,
+              "end": 8.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " trust",
+              "start": 8.27,
+              "end": 8.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me?",
+              "start": 8.45,
+              "end": 8.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 8.93,
+              "end": 9.11,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " can't",
+              "start": 9.11,
+              "end": 9.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " give",
+              "start": 9.33,
+              "end": 9.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 9.39,
+              "end": 9.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 9.51,
+              "end": 9.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " whole",
+              "start": 9.59,
+              "end": 9.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " three",
+              "start": 9.77,
+              "end": 10.03,
+              "probability": 0.982421875
+            },
+            {
+              "text": " thousand",
+              "start": 10.03,
+              "end": 10.39,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " straight",
+              "start": 10.39,
+              "end": 10.79,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " off.",
+              "start": 10.79,
+              "end": 11.05,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " If",
+              "start": 11.31,
+              "end": 11.41,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " I",
+              "start": 11.41,
+              "end": 11.55,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " give",
+              "start": 11.55,
+              "end": 11.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it,",
+              "start": 11.69,
+              "end": 11.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 11.93,
+              "end": 11.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " may",
+              "start": 11.97,
+              "end": 12.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " come",
+              "start": 12.09,
+              "end": 12.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " back",
+              "start": 12.29,
+              "end": 12.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 12.49,
+              "end": 12.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 12.65,
+              "end": 12.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 12.75,
+              "end": 12.85,
+              "probability": 0.196044921875
+            },
+            {
+              "text": "-morrow.",
+              "start": 12.85,
+              "end": 13.11,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " Besides,",
+              "start": 13.75,
+              "end": 13.99,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " I",
+              "start": 14.21,
+              "end": 14.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " haven't",
+              "start": 14.31,
+              "end": 14.57,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 14.57,
+              "end": 14.69,
+              "probability": 0.9921875
+            },
+            {
+              "text": " three",
+              "start": 14.69,
+              "end": 14.91,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " thousand",
+              "start": 14.91,
+              "end": 15.25,
+              "probability": 0.9921875
+            },
+            {
+              "text": " with",
+              "start": 15.25,
+              "end": 15.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " me.",
+              "start": 15.49,
+              "end": 15.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I've",
+              "start": 16.09,
+              "end": 16.33,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " got",
+              "start": 16.33,
+              "end": 16.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it",
+              "start": 16.45,
+              "end": 16.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 16.53,
+              "end": 16.67,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " home",
+              "start": 16.67,
+              "end": 16.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 16.81,
+              "end": 16.95,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " the",
+              "start": 16.95,
+              "end": 17.05,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " town,\"",
+              "start": 17.05,
+              "end": 17.83,
+              "probability": 0.576171875
+            },
+            {
+              "text": " faltered",
+              "start": 17.83,
+              "end": 18.15,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " Mitya,",
+              "start": 18.15,
+              "end": 18.61,
+              "probability": 0.9806315104166666
+            },
+            {
+              "text": " his",
+              "start": 18.79,
+              "end": 18.89,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " spirit",
+              "start": 18.89,
+              "end": 19.25,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " sinking",
+              "start": 19.25,
+              "end": 19.59,
+              "probability": 0.888671875
+            },
+            {
+              "text": " at",
+              "start": 19.59,
+              "end": 19.85,
+              "probability": 0.990234375
+            },
+            {
+              "text": " every",
+              "start": 19.85,
+              "end": 20.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " word",
+              "start": 20.13,
+              "end": 20.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 20.35,
+              "end": 20.55,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " uttered.",
+              "start": 20.55,
+              "end": 20.77,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Upon",
+              "start": 21.53,
+              "end": 21.77,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " my",
+              "start": 21.77,
+              "end": 22.01,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " word,",
+              "start": 22.01,
+              "end": 22.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 22.41,
+              "end": 22.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " money's",
+              "start": 22.49,
+              "end": 22.85,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " there,",
+              "start": 22.85,
+              "end": 23.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hidden.",
+              "start": 23.23,
+              "end": 23.39,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Seven",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "raw": "hundred,",
+          "start": 0.67,
+          "end": 1.01
+        },
+        {
+          "raw": "seven",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "raw": "hundred,",
+          "start": 1.27,
+          "end": 1.63
+        },
+        {
+          "raw": "not",
+          "start": 1.79,
+          "end": 1.87
+        },
+        {
+          "raw": "five",
+          "start": 1.87,
+          "end": 2.15
+        },
+        {
+          "raw": "hundred,",
+          "start": 2.15,
+          "end": 2.47
+        },
+        {
+          "raw": "at",
+          "start": 2.53,
+          "end": 2.61
+        },
+        {
+          "raw": "once,",
+          "start": 2.61,
+          "end": 2.87
+        },
+        {
+          "raw": "this",
+          "start": 2.97,
+          "end": 3.07
+        },
+        {
+          "raw": "minute,",
+          "start": 3.07,
+          "end": 3.35
+        },
+        {
+          "raw": "cash",
+          "start": 3.53,
+          "end": 3.63
+        },
+        {
+          "raw": "down.",
+          "start": 3.63,
+          "end": 4.09
+        },
+        {
+          "raw": "Mitya",
+          "start": 4.65,
+          "end": 4.83
+        },
+        {
+          "raw": "added,",
+          "start": 4.83,
+          "end": 5.07
+        },
+        {
+          "raw": "feeling",
+          "start": 5.21,
+          "end": 5.39
+        },
+        {
+          "raw": "something",
+          "start": 5.39,
+          "end": 5.73
+        },
+        {
+          "raw": "wrong.",
+          "start": 5.73,
+          "end": 6.09
+        },
+        {
+          "raw": "What's",
+          "start": 6.71,
+          "end": 7.01
+        },
+        {
+          "raw": "the",
+          "start": 7.01,
+          "end": 7.11
+        },
+        {
+          "raw": "matter,",
+          "start": 7.11,
+          "end": 7.37
+        },
+        {
+          "raw": "paini?",
+          "start": 7.53,
+          "end": 7.79
+        },
+        {
+          "raw": "Don't",
+          "start": 8.01,
+          "end": 8.15
+        },
+        {
+          "raw": "you",
+          "start": 8.15,
+          "end": 8.27
+        },
+        {
+          "raw": "trust",
+          "start": 8.27,
+          "end": 8.45
+        },
+        {
+          "raw": "me?",
+          "start": 8.45,
+          "end": 8.69
+        },
+        {
+          "raw": "I",
+          "start": 8.93,
+          "end": 9.11
+        },
+        {
+          "raw": "can't",
+          "start": 9.11,
+          "end": 9.33
+        },
+        {
+          "raw": "give",
+          "start": 9.33,
+          "end": 9.39
+        },
+        {
+          "raw": "you",
+          "start": 9.39,
+          "end": 9.51
+        },
+        {
+          "raw": "the",
+          "start": 9.51,
+          "end": 9.59
+        },
+        {
+          "raw": "whole",
+          "start": 9.59,
+          "end": 9.77
+        },
+        {
+          "raw": "three",
+          "start": 9.77,
+          "end": 10.03
+        },
+        {
+          "raw": "thousand",
+          "start": 10.03,
+          "end": 10.39
+        },
+        {
+          "raw": "straight",
+          "start": 10.39,
+          "end": 10.79
+        },
+        {
+          "raw": "off.",
+          "start": 10.79,
+          "end": 11.05
+        },
+        {
+          "raw": "If",
+          "start": 11.31,
+          "end": 11.41
+        },
+        {
+          "raw": "I",
+          "start": 11.41,
+          "end": 11.55
+        },
+        {
+          "raw": "give",
+          "start": 11.55,
+          "end": 11.69
+        },
+        {
+          "raw": "it,",
+          "start": 11.69,
+          "end": 11.83
+        },
+        {
+          "raw": "you",
+          "start": 11.93,
+          "end": 11.97
+        },
+        {
+          "raw": "may",
+          "start": 11.97,
+          "end": 12.09
+        },
+        {
+          "raw": "come",
+          "start": 12.09,
+          "end": 12.29
+        },
+        {
+          "raw": "back",
+          "start": 12.29,
+          "end": 12.49
+        },
+        {
+          "raw": "to",
+          "start": 12.49,
+          "end": 12.65
+        },
+        {
+          "raw": "her",
+          "start": 12.65,
+          "end": 12.75
+        },
+        {
+          "raw": "to",
+          "start": 12.75,
+          "end": 12.85
+        },
+        {
+          "raw": "-morrow.",
+          "start": 12.85,
+          "end": 13.11
+        },
+        {
+          "raw": "Besides,",
+          "start": 13.75,
+          "end": 13.99
+        },
+        {
+          "raw": "I",
+          "start": 14.21,
+          "end": 14.31
+        },
+        {
+          "raw": "haven't",
+          "start": 14.31,
+          "end": 14.57
+        },
+        {
+          "raw": "the",
+          "start": 14.57,
+          "end": 14.69
+        },
+        {
+          "raw": "three",
+          "start": 14.69,
+          "end": 14.91
+        },
+        {
+          "raw": "thousand",
+          "start": 14.91,
+          "end": 15.25
+        },
+        {
+          "raw": "with",
+          "start": 15.25,
+          "end": 15.49
+        },
+        {
+          "raw": "me.",
+          "start": 15.49,
+          "end": 15.73
+        },
+        {
+          "raw": "I've",
+          "start": 16.09,
+          "end": 16.33
+        },
+        {
+          "raw": "got",
+          "start": 16.33,
+          "end": 16.45
+        },
+        {
+          "raw": "it",
+          "start": 16.45,
+          "end": 16.53
+        },
+        {
+          "raw": "at",
+          "start": 16.53,
+          "end": 16.67
+        },
+        {
+          "raw": "home",
+          "start": 16.67,
+          "end": 16.81
+        },
+        {
+          "raw": "in",
+          "start": 16.81,
+          "end": 16.95
+        },
+        {
+          "raw": "the",
+          "start": 16.95,
+          "end": 17.05
+        },
+        {
+          "raw": "town,\"",
+          "start": 17.05,
+          "end": 17.83
+        },
+        {
+          "raw": "faltered",
+          "start": 17.83,
+          "end": 18.15
+        },
+        {
+          "raw": "Mitya,",
+          "start": 18.15,
+          "end": 18.61
+        },
+        {
+          "raw": "his",
+          "start": 18.79,
+          "end": 18.89
+        },
+        {
+          "raw": "spirit",
+          "start": 18.89,
+          "end": 19.25
+        },
+        {
+          "raw": "sinking",
+          "start": 19.25,
+          "end": 19.59
+        },
+        {
+          "raw": "at",
+          "start": 19.59,
+          "end": 19.85
+        },
+        {
+          "raw": "every",
+          "start": 19.85,
+          "end": 20.13
+        },
+        {
+          "raw": "word",
+          "start": 20.13,
+          "end": 20.35
+        },
+        {
+          "raw": "he",
+          "start": 20.35,
+          "end": 20.55
+        },
+        {
+          "raw": "uttered.",
+          "start": 20.55,
+          "end": 20.77
+        },
+        {
+          "raw": "Upon",
+          "start": 21.53,
+          "end": 21.77
+        },
+        {
+          "raw": "my",
+          "start": 21.77,
+          "end": 22.01
+        },
+        {
+          "raw": "word,",
+          "start": 22.01,
+          "end": 22.27
+        },
+        {
+          "raw": "the",
+          "start": 22.41,
+          "end": 22.49
+        },
+        {
+          "raw": "money's",
+          "start": 22.49,
+          "end": 22.85
+        },
+        {
+          "raw": "there,",
+          "start": 22.85,
+          "end": 23.05
+        },
+        {
+          "raw": "hidden.",
+          "start": 23.23,
+          "end": 23.39
+        }
+      ],
+      "expected_tokens": [
+        "\"Seven",
+        "hundred,",
+        "seven",
+        "hundred,",
+        "not",
+        "five",
+        "hundred,",
+        "at",
+        "once,",
+        "this",
+        "minute,",
+        "cash",
+        "down!\"",
+        "Mitya",
+        "added,",
+        "feeling",
+        "something",
+        "wrong.",
+        "\"What's",
+        "the",
+        "matter,",
+        "_panie_?",
+        "Don't",
+        "you",
+        "trust",
+        "me?",
+        "I",
+        "can't",
+        "give",
+        "you",
+        "the",
+        "whole",
+        "three",
+        "thousand",
+        "straight",
+        "off.",
+        "If",
+        "I",
+        "give",
+        "it,",
+        "you",
+        "may",
+        "come",
+        "back",
+        "to",
+        "her",
+        "to-morrow....",
+        "Besides,",
+        "I",
+        "haven't",
+        "the",
+        "three",
+        "thousand",
+        "with",
+        "me.",
+        "I've",
+        "got",
+        "it",
+        "at",
+        "home",
+        "in",
+        "the",
+        "town,\"",
+        "faltered",
+        "Mitya,",
+        "his",
+        "spirit",
+        "sinking",
+        "at",
+        "every",
+        "word",
+        "he",
+        "uttered.",
+        "\"Upon",
+        "my",
+        "word,",
+        "the",
+        "money's",
+        "there,",
+        "hidden.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ],
+        [
+          "replace",
+          21,
+          22,
+          21,
+          22
+        ],
+        [
+          "equal",
+          22,
+          80,
+          22,
+          80
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          21,
+          22,
+          21,
+          22
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Seven",
+          "start": 0.11,
+          "end": 0.67,
+          "key": "seven",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hundred,",
+          "start": 0.67,
+          "end": 1.01,
+          "key": "hundred",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "seven",
+          "start": 1.13,
+          "end": 1.27,
+          "key": "seven",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hundred,",
+          "start": 1.27,
+          "end": 1.63,
+          "key": "hundred",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.79,
+          "end": 1.87,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "five",
+          "start": 1.87,
+          "end": 2.15,
+          "key": "five",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hundred,",
+          "start": 2.15,
+          "end": 2.47,
+          "key": "hundred",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.53,
+          "end": 2.61,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "once,",
+          "start": 2.61,
+          "end": 2.87,
+          "key": "once",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.97,
+          "end": 3.07,
+          "key": "this",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "minute,",
+          "start": 3.07,
+          "end": 3.35,
+          "key": "minute",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "cash",
+          "start": 3.53,
+          "end": 3.63,
+          "key": "cash",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "down.",
+          "start": 3.63,
+          "end": 4.09,
+          "key": "down",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Mitya",
+          "start": 4.65,
+          "end": 4.83,
+          "key": "mitya",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "added,",
+          "start": 4.83,
+          "end": 5.07,
+          "key": "added",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "feeling",
+          "start": 5.21,
+          "end": 5.39,
+          "key": "feeling",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 5.39,
+          "end": 5.73,
+          "key": "something",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "wrong.",
+          "start": 5.73,
+          "end": 6.09,
+          "key": "wrong",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 6.71,
+          "end": 7.01,
+          "key": "whats",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.01,
+          "end": 7.11,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "matter,",
+          "start": 7.11,
+          "end": 7.37,
+          "key": "matter",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "paini?",
+          "start": 7.53,
+          "end": 7.79,
+          "key": "paini",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Don't",
+          "start": 8.01,
+          "end": 8.15,
+          "key": "dont",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 8.15,
+          "end": 8.27,
+          "key": "you",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "trust",
+          "start": 8.27,
+          "end": 8.45,
+          "key": "trust",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 8.45,
+          "end": 8.69,
+          "key": "me",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 8.93,
+          "end": 9.11,
+          "key": "i",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "can't",
+          "start": 9.11,
+          "end": 9.33,
+          "key": "cant",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 9.33,
+          "end": 9.39,
+          "key": "give",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 9.39,
+          "end": 9.51,
+          "key": "you",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.51,
+          "end": 9.59,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 9.59,
+          "end": 9.77,
+          "key": "whole",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 9.77,
+          "end": 10.03,
+          "key": "three",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 10.03,
+          "end": 10.39,
+          "key": "thousand",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "straight",
+          "start": 10.39,
+          "end": 10.79,
+          "key": "straight",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "off.",
+          "start": 10.79,
+          "end": 11.05,
+          "key": "off",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 11.31,
+          "end": 11.41,
+          "key": "if",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 11.41,
+          "end": 11.55,
+          "key": "i",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 11.55,
+          "end": 11.69,
+          "key": "give",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 11.69,
+          "end": 11.83,
+          "key": "it",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.93,
+          "end": 11.97,
+          "key": "you",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 11.97,
+          "end": 12.09,
+          "key": "may",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 12.09,
+          "end": 12.29,
+          "key": "come",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 12.29,
+          "end": 12.49,
+          "key": "back",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 12.49,
+          "end": 12.65,
+          "key": "to",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 12.65,
+          "end": 12.75,
+          "key": "her",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "to -morrow.",
+          "start": 12.75,
+          "end": 13.11,
+          "key": "tomorrow",
+          "pieces": [
+            46,
+            47
+          ]
+        },
+        {
+          "raw": "Besides,",
+          "start": 13.75,
+          "end": 13.99,
+          "key": "besides",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 14.21,
+          "end": 14.31,
+          "key": "i",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "haven't",
+          "start": 14.31,
+          "end": 14.57,
+          "key": "havent",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.57,
+          "end": 14.69,
+          "key": "the",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 14.69,
+          "end": 14.91,
+          "key": "three",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 14.91,
+          "end": 15.25,
+          "key": "thousand",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 15.25,
+          "end": 15.49,
+          "key": "with",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 15.49,
+          "end": 15.73,
+          "key": "me",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "I've",
+          "start": 16.09,
+          "end": 16.33,
+          "key": "ive",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 16.33,
+          "end": 16.45,
+          "key": "got",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 16.45,
+          "end": 16.53,
+          "key": "it",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 16.53,
+          "end": 16.67,
+          "key": "at",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "home",
+          "start": 16.67,
+          "end": 16.81,
+          "key": "home",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 16.81,
+          "end": 16.95,
+          "key": "in",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.95,
+          "end": 17.05,
+          "key": "the",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "town,\"",
+          "start": 17.05,
+          "end": 17.83,
+          "key": "town",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "faltered",
+          "start": 17.83,
+          "end": 18.15,
+          "key": "faltered",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "Mitya,",
+          "start": 18.15,
+          "end": 18.61,
+          "key": "mitya",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 18.79,
+          "end": 18.89,
+          "key": "his",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "spirit",
+          "start": 18.89,
+          "end": 19.25,
+          "key": "spirit",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "sinking",
+          "start": 19.25,
+          "end": 19.59,
+          "key": "sinking",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 19.59,
+          "end": 19.85,
+          "key": "at",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 19.85,
+          "end": 20.13,
+          "key": "every",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "word",
+          "start": 20.13,
+          "end": 20.35,
+          "key": "word",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 20.35,
+          "end": 20.55,
+          "key": "he",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "uttered.",
+          "start": 20.55,
+          "end": 20.77,
+          "key": "uttered",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "Upon",
+          "start": 21.53,
+          "end": 21.77,
+          "key": "upon",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 21.77,
+          "end": 22.01,
+          "key": "my",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "word,",
+          "start": 22.01,
+          "end": 22.27,
+          "key": "word",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 22.41,
+          "end": 22.49,
+          "key": "the",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "money's",
+          "start": 22.49,
+          "end": 22.85,
+          "key": "moneys",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "there,",
+          "start": 22.85,
+          "end": 23.05,
+          "key": "there",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "hidden.",
+          "start": 23.23,
+          "end": 23.39,
+          "key": "hidden",
+          "pieces": [
+            80
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 46,
+          "text": "to-morrow....",
+          "heard": "to -morrow.",
+          "heard_indexes": [
+            46,
+            47
+          ],
+          "start": 12.75,
+          "end": 13.11
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Seven",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "text": "hundred,",
+          "start": 0.67,
+          "end": 1.01
+        },
+        {
+          "text": "seven",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "text": "hundred,",
+          "start": 1.27,
+          "end": 1.63
+        },
+        {
+          "text": "not",
+          "start": 1.79,
+          "end": 1.87
+        },
+        {
+          "text": "five",
+          "start": 1.87,
+          "end": 2.15
+        },
+        {
+          "text": "hundred,",
+          "start": 2.15,
+          "end": 2.47
+        },
+        {
+          "text": "at",
+          "start": 2.53,
+          "end": 2.61
+        },
+        {
+          "text": "once,",
+          "start": 2.61,
+          "end": 2.87
+        },
+        {
+          "text": "this",
+          "start": 2.97,
+          "end": 3.07
+        },
+        {
+          "text": "minute,",
+          "start": 3.07,
+          "end": 3.35
+        },
+        {
+          "text": "cash",
+          "start": 3.53,
+          "end": 3.63
+        },
+        {
+          "text": "down!\"",
+          "start": 3.63,
+          "end": 4.09
+        },
+        {
+          "text": "Mitya",
+          "start": 4.65,
+          "end": 4.83
+        },
+        {
+          "text": "added,",
+          "start": 4.83,
+          "end": 5.07
+        },
+        {
+          "text": "feeling",
+          "start": 5.21,
+          "end": 5.39
+        },
+        {
+          "text": "something",
+          "start": 5.39,
+          "end": 5.73
+        },
+        {
+          "text": "wrong.",
+          "start": 5.73,
+          "end": 6.09
+        },
+        {
+          "text": "\"What's",
+          "start": 6.71,
+          "end": 7.01
+        },
+        {
+          "text": "the",
+          "start": 7.01,
+          "end": 7.11
+        },
+        {
+          "text": "matter,",
+          "start": 7.11,
+          "end": 7.37
+        },
+        {
+          "text": "_panie_?",
+          "start": 7.37,
+          "end": 7.69
+        },
+        {
+          "text": "Don't",
+          "start": 8.01,
+          "end": 8.15
+        },
+        {
+          "text": "you",
+          "start": 8.15,
+          "end": 8.27
+        },
+        {
+          "text": "trust",
+          "start": 8.27,
+          "end": 8.45
+        },
+        {
+          "text": "me?",
+          "start": 8.45,
+          "end": 8.69
+        },
+        {
+          "text": "I",
+          "start": 8.93,
+          "end": 9.11
+        },
+        {
+          "text": "can't",
+          "start": 9.11,
+          "end": 9.33
+        },
+        {
+          "text": "give",
+          "start": 9.33,
+          "end": 9.39
+        },
+        {
+          "text": "you",
+          "start": 9.39,
+          "end": 9.51
+        },
+        {
+          "text": "the",
+          "start": 9.51,
+          "end": 9.59
+        },
+        {
+          "text": "whole",
+          "start": 9.59,
+          "end": 9.77
+        },
+        {
+          "text": "three",
+          "start": 9.77,
+          "end": 10.03
+        },
+        {
+          "text": "thousand",
+          "start": 10.03,
+          "end": 10.39
+        },
+        {
+          "text": "straight",
+          "start": 10.39,
+          "end": 10.79
+        },
+        {
+          "text": "off.",
+          "start": 10.79,
+          "end": 11.05
+        },
+        {
+          "text": "If",
+          "start": 11.31,
+          "end": 11.41
+        },
+        {
+          "text": "I",
+          "start": 11.41,
+          "end": 11.55
+        },
+        {
+          "text": "give",
+          "start": 11.55,
+          "end": 11.69
+        },
+        {
+          "text": "it,",
+          "start": 11.69,
+          "end": 11.83
+        },
+        {
+          "text": "you",
+          "start": 11.93,
+          "end": 11.97
+        },
+        {
+          "text": "may",
+          "start": 11.97,
+          "end": 12.09
+        },
+        {
+          "text": "come",
+          "start": 12.09,
+          "end": 12.29
+        },
+        {
+          "text": "back",
+          "start": 12.29,
+          "end": 12.49
+        },
+        {
+          "text": "to",
+          "start": 12.49,
+          "end": 12.65
+        },
+        {
+          "text": "her",
+          "start": 12.65,
+          "end": 12.75
+        },
+        {
+          "text": "to-morrow....",
+          "start": 12.75,
+          "end": 13.11
+        },
+        {
+          "text": "Besides,",
+          "start": 13.75,
+          "end": 13.99
+        },
+        {
+          "text": "I",
+          "start": 14.21,
+          "end": 14.31
+        },
+        {
+          "text": "haven't",
+          "start": 14.31,
+          "end": 14.57
+        },
+        {
+          "text": "the",
+          "start": 14.57,
+          "end": 14.69
+        },
+        {
+          "text": "three",
+          "start": 14.69,
+          "end": 14.91
+        },
+        {
+          "text": "thousand",
+          "start": 14.91,
+          "end": 15.25
+        },
+        {
+          "text": "with",
+          "start": 15.25,
+          "end": 15.49
+        },
+        {
+          "text": "me.",
+          "start": 15.49,
+          "end": 15.73
+        },
+        {
+          "text": "I've",
+          "start": 16.09,
+          "end": 16.33
+        },
+        {
+          "text": "got",
+          "start": 16.33,
+          "end": 16.45
+        },
+        {
+          "text": "it",
+          "start": 16.45,
+          "end": 16.53
+        },
+        {
+          "text": "at",
+          "start": 16.53,
+          "end": 16.67
+        },
+        {
+          "text": "home",
+          "start": 16.67,
+          "end": 16.81
+        },
+        {
+          "text": "in",
+          "start": 16.81,
+          "end": 16.95
+        },
+        {
+          "text": "the",
+          "start": 16.95,
+          "end": 17.05
+        },
+        {
+          "text": "town,\"",
+          "start": 17.05,
+          "end": 17.83
+        },
+        {
+          "text": "faltered",
+          "start": 17.83,
+          "end": 18.15
+        },
+        {
+          "text": "Mitya,",
+          "start": 18.15,
+          "end": 18.61
+        },
+        {
+          "text": "his",
+          "start": 18.79,
+          "end": 18.89
+        },
+        {
+          "text": "spirit",
+          "start": 18.89,
+          "end": 19.25
+        },
+        {
+          "text": "sinking",
+          "start": 19.25,
+          "end": 19.59
+        },
+        {
+          "text": "at",
+          "start": 19.59,
+          "end": 19.85
+        },
+        {
+          "text": "every",
+          "start": 19.85,
+          "end": 20.13
+        },
+        {
+          "text": "word",
+          "start": 20.13,
+          "end": 20.35
+        },
+        {
+          "text": "he",
+          "start": 20.35,
+          "end": 20.55
+        },
+        {
+          "text": "uttered.",
+          "start": 20.55,
+          "end": 20.77
+        },
+        {
+          "text": "\"Upon",
+          "start": 21.53,
+          "end": 21.77
+        },
+        {
+          "text": "my",
+          "start": 21.77,
+          "end": 22.01
+        },
+        {
+          "text": "word,",
+          "start": 22.01,
+          "end": 22.27
+        },
+        {
+          "text": "the",
+          "start": 22.41,
+          "end": 22.49
+        },
+        {
+          "text": "money's",
+          "start": 22.49,
+          "end": 22.85
+        },
+        {
+          "text": "there,",
+          "start": 22.85,
+          "end": 23.05
+        },
+        {
+          "text": "hidden.\"",
+          "start": 23.23,
+          "end": 23.39
+        }
+      ],
+      "stats": {
+        "expected_words": 80,
+        "heard_words": 80,
+        "matched_words": 79
+      },
+      "match_ratio": 0.9875,
+      "rejection_reasons": [],
+      "seconds": 0.7973809959366918
+    },
+    {
+      "asr_seconds": 0.9719741260632873,
+      "alignment_seconds": 0.0026725642383098602,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Mitya, What's, Don't, I, If, Besides, I've, Upon"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " 700, 700, not 500, At once, this minute, cashed down. Mitya added, feeling something",
+          "start": 0.11,
+          "end": 5.75,
+          "words": [
+            {
+              "text": " 700,",
+              "start": 0.11,
+              "end": 0.87,
+              "probability": 0.031951904296875
+            },
+            {
+              "text": " 700,",
+              "start": 1.13,
+              "end": 1.43,
+              "probability": 0.9765625
+            },
+            {
+              "text": " not",
+              "start": 1.75,
+              "end": 1.87,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " 500,",
+              "start": 1.87,
+              "end": 2.33,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " At",
+              "start": 2.55,
+              "end": 2.61,
+              "probability": 0.009674072265625
+            },
+            {
+              "text": " once,",
+              "start": 2.61,
+              "end": 2.87,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " this",
+              "start": 2.97,
+              "end": 3.09,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " minute,",
+              "start": 3.09,
+              "end": 3.33,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " cashed",
+              "start": 3.49,
+              "end": 3.69,
+              "probability": 0.62078857421875
+            },
+            {
+              "text": " down.",
+              "start": 3.69,
+              "end": 4.15,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Mitya",
+              "start": 4.65,
+              "end": 4.83,
+              "probability": 0.4168039957682292
+            },
+            {
+              "text": " added,",
+              "start": 4.83,
+              "end": 5.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " feeling",
+              "start": 5.23,
+              "end": 5.39,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " something",
+              "start": 5.39,
+              "end": 5.75,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " wrong.",
+          "start": 5.75,
+          "end": 6.09,
+          "words": [
+            {
+              "text": " wrong.",
+              "start": 5.75,
+              "end": 6.09,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " What's the matter, Paney? Don't you trust me? I can't give you the whole three thousand",
+          "start": 6.77,
+          "end": 10.39,
+          "words": [
+            {
+              "text": " What's",
+              "start": 6.77,
+              "end": 7.01,
+              "probability": 0.61968994140625
+            },
+            {
+              "text": " the",
+              "start": 7.01,
+              "end": 7.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " matter,",
+              "start": 7.11,
+              "end": 7.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Paney?",
+              "start": 7.53,
+              "end": 7.69,
+              "probability": 0.299072265625
+            },
+            {
+              "text": " Don't",
+              "start": 8.01,
+              "end": 8.15,
+              "probability": 0.992431640625
+            },
+            {
+              "text": " you",
+              "start": 8.15,
+              "end": 8.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " trust",
+              "start": 8.27,
+              "end": 8.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me?",
+              "start": 8.45,
+              "end": 8.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 8.95,
+              "end": 9.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " can't",
+              "start": 9.11,
+              "end": 9.33,
+              "probability": 0.998779296875
+            },
+            {
+              "text": " give",
+              "start": 9.33,
+              "end": 9.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 9.39,
+              "end": 9.53,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 9.53,
+              "end": 9.59,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " whole",
+              "start": 9.59,
+              "end": 9.77,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " three",
+              "start": 9.77,
+              "end": 10.03,
+              "probability": 0.64599609375
+            },
+            {
+              "text": " thousand",
+              "start": 10.03,
+              "end": 10.39,
+              "probability": 0.95556640625
+            }
+          ]
+        },
+        {
+          "text": " straight off. If I give it, you may come back to her tomorrow. Besides, I haven't the three",
+          "start": 10.39,
+          "end": 14.91,
+          "words": [
+            {
+              "text": " straight",
+              "start": 10.39,
+              "end": 10.79,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " off.",
+              "start": 10.79,
+              "end": 11.05,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " If",
+              "start": 11.31,
+              "end": 11.41,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I",
+              "start": 11.41,
+              "end": 11.55,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " give",
+              "start": 11.55,
+              "end": 11.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it,",
+              "start": 11.69,
+              "end": 11.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 11.95,
+              "end": 11.97,
+              "probability": 0.96875
+            },
+            {
+              "text": " may",
+              "start": 11.97,
+              "end": 12.09,
+              "probability": 0.99609375
+            },
+            {
+              "text": " come",
+              "start": 12.09,
+              "end": 12.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " back",
+              "start": 12.29,
+              "end": 12.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 12.49,
+              "end": 12.65,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " her",
+              "start": 12.65,
+              "end": 12.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " tomorrow.",
+              "start": 12.75,
+              "end": 13.05,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " Besides,",
+              "start": 13.75,
+              "end": 13.99,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 14.21,
+              "end": 14.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " haven't",
+              "start": 14.29,
+              "end": 14.57,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " the",
+              "start": 14.57,
+              "end": 14.71,
+              "probability": 0.994140625
+            },
+            {
+              "text": " three",
+              "start": 14.71,
+              "end": 14.91,
+              "probability": 0.97705078125
+            }
+          ]
+        },
+        {
+          "text": " thousand with me. I've got it at home in the town, faltered Mitya, his spirit sinking",
+          "start": 14.91,
+          "end": 19.59,
+          "words": [
+            {
+              "text": " thousand",
+              "start": 14.91,
+              "end": 15.25,
+              "probability": 0.9921875
+            },
+            {
+              "text": " with",
+              "start": 15.25,
+              "end": 15.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me.",
+              "start": 15.51,
+              "end": 15.73,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I've",
+              "start": 16.11,
+              "end": 16.33,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " got",
+              "start": 16.33,
+              "end": 16.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 16.45,
+              "end": 16.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 16.53,
+              "end": 16.67,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " home",
+              "start": 16.67,
+              "end": 16.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 16.81,
+              "end": 16.95,
+              "probability": 0.96484375
+            },
+            {
+              "text": " the",
+              "start": 16.95,
+              "end": 17.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " town,",
+              "start": 17.05,
+              "end": 17.41,
+              "probability": 0.9921875
+            },
+            {
+              "text": " faltered",
+              "start": 17.85,
+              "end": 18.15,
+              "probability": 0.953857421875
+            },
+            {
+              "text": " Mitya,",
+              "start": 18.15,
+              "end": 18.63,
+              "probability": 0.9734700520833334
+            },
+            {
+              "text": " his",
+              "start": 18.81,
+              "end": 18.89,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " spirit",
+              "start": 18.89,
+              "end": 19.25,
+              "probability": 0.978515625
+            },
+            {
+              "text": " sinking",
+              "start": 19.25,
+              "end": 19.59,
+              "probability": 0.927734375
+            }
+          ]
+        },
+        {
+          "text": " at every word he uttered.",
+          "start": 19.59,
+          "end": 20.79,
+          "words": [
+            {
+              "text": " at",
+              "start": 19.59,
+              "end": 19.85,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " every",
+              "start": 19.85,
+              "end": 20.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " word",
+              "start": 20.13,
+              "end": 20.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " he",
+              "start": 20.37,
+              "end": 20.55,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " uttered.",
+              "start": 20.55,
+              "end": 20.79,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " Upon my word, the money's there, hidden.",
+          "start": 21.27,
+          "end": 23.37,
+          "words": [
+            {
+              "text": " Upon",
+              "start": 21.27,
+              "end": 21.75,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " my",
+              "start": 21.75,
+              "end": 22.01,
+              "probability": 0.865234375
+            },
+            {
+              "text": " word,",
+              "start": 22.01,
+              "end": 22.27,
+              "probability": 0.97265625
+            },
+            {
+              "text": " the",
+              "start": 22.43,
+              "end": 22.49,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " money's",
+              "start": 22.49,
+              "end": 22.85,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " there,",
+              "start": 22.85,
+              "end": 23.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hidden.",
+              "start": 23.25,
+              "end": 23.37,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "700,",
+          "start": 0.11,
+          "end": 0.87
+        },
+        {
+          "raw": "700,",
+          "start": 1.13,
+          "end": 1.43
+        },
+        {
+          "raw": "not",
+          "start": 1.75,
+          "end": 1.87
+        },
+        {
+          "raw": "500,",
+          "start": 1.87,
+          "end": 2.33
+        },
+        {
+          "raw": "At",
+          "start": 2.55,
+          "end": 2.61
+        },
+        {
+          "raw": "once,",
+          "start": 2.61,
+          "end": 2.87
+        },
+        {
+          "raw": "this",
+          "start": 2.97,
+          "end": 3.09
+        },
+        {
+          "raw": "minute,",
+          "start": 3.09,
+          "end": 3.33
+        },
+        {
+          "raw": "cashed",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "raw": "down.",
+          "start": 3.69,
+          "end": 4.15
+        },
+        {
+          "raw": "Mitya",
+          "start": 4.65,
+          "end": 4.83
+        },
+        {
+          "raw": "added,",
+          "start": 4.83,
+          "end": 5.09
+        },
+        {
+          "raw": "feeling",
+          "start": 5.23,
+          "end": 5.39
+        },
+        {
+          "raw": "something",
+          "start": 5.39,
+          "end": 5.75
+        },
+        {
+          "raw": "wrong.",
+          "start": 5.75,
+          "end": 6.09
+        },
+        {
+          "raw": "What's",
+          "start": 6.77,
+          "end": 7.01
+        },
+        {
+          "raw": "the",
+          "start": 7.01,
+          "end": 7.11
+        },
+        {
+          "raw": "matter,",
+          "start": 7.11,
+          "end": 7.37
+        },
+        {
+          "raw": "Paney?",
+          "start": 7.53,
+          "end": 7.69
+        },
+        {
+          "raw": "Don't",
+          "start": 8.01,
+          "end": 8.15
+        },
+        {
+          "raw": "you",
+          "start": 8.15,
+          "end": 8.27
+        },
+        {
+          "raw": "trust",
+          "start": 8.27,
+          "end": 8.45
+        },
+        {
+          "raw": "me?",
+          "start": 8.45,
+          "end": 8.69
+        },
+        {
+          "raw": "I",
+          "start": 8.95,
+          "end": 9.11
+        },
+        {
+          "raw": "can't",
+          "start": 9.11,
+          "end": 9.33
+        },
+        {
+          "raw": "give",
+          "start": 9.33,
+          "end": 9.39
+        },
+        {
+          "raw": "you",
+          "start": 9.39,
+          "end": 9.53
+        },
+        {
+          "raw": "the",
+          "start": 9.53,
+          "end": 9.59
+        },
+        {
+          "raw": "whole",
+          "start": 9.59,
+          "end": 9.77
+        },
+        {
+          "raw": "three",
+          "start": 9.77,
+          "end": 10.03
+        },
+        {
+          "raw": "thousand",
+          "start": 10.03,
+          "end": 10.39
+        },
+        {
+          "raw": "straight",
+          "start": 10.39,
+          "end": 10.79
+        },
+        {
+          "raw": "off.",
+          "start": 10.79,
+          "end": 11.05
+        },
+        {
+          "raw": "If",
+          "start": 11.31,
+          "end": 11.41
+        },
+        {
+          "raw": "I",
+          "start": 11.41,
+          "end": 11.55
+        },
+        {
+          "raw": "give",
+          "start": 11.55,
+          "end": 11.69
+        },
+        {
+          "raw": "it,",
+          "start": 11.69,
+          "end": 11.85
+        },
+        {
+          "raw": "you",
+          "start": 11.95,
+          "end": 11.97
+        },
+        {
+          "raw": "may",
+          "start": 11.97,
+          "end": 12.09
+        },
+        {
+          "raw": "come",
+          "start": 12.09,
+          "end": 12.29
+        },
+        {
+          "raw": "back",
+          "start": 12.29,
+          "end": 12.49
+        },
+        {
+          "raw": "to",
+          "start": 12.49,
+          "end": 12.65
+        },
+        {
+          "raw": "her",
+          "start": 12.65,
+          "end": 12.75
+        },
+        {
+          "raw": "tomorrow.",
+          "start": 12.75,
+          "end": 13.05
+        },
+        {
+          "raw": "Besides,",
+          "start": 13.75,
+          "end": 13.99
+        },
+        {
+          "raw": "I",
+          "start": 14.21,
+          "end": 14.29
+        },
+        {
+          "raw": "haven't",
+          "start": 14.29,
+          "end": 14.57
+        },
+        {
+          "raw": "the",
+          "start": 14.57,
+          "end": 14.71
+        },
+        {
+          "raw": "three",
+          "start": 14.71,
+          "end": 14.91
+        },
+        {
+          "raw": "thousand",
+          "start": 14.91,
+          "end": 15.25
+        },
+        {
+          "raw": "with",
+          "start": 15.25,
+          "end": 15.51
+        },
+        {
+          "raw": "me.",
+          "start": 15.51,
+          "end": 15.73
+        },
+        {
+          "raw": "I've",
+          "start": 16.11,
+          "end": 16.33
+        },
+        {
+          "raw": "got",
+          "start": 16.33,
+          "end": 16.45
+        },
+        {
+          "raw": "it",
+          "start": 16.45,
+          "end": 16.53
+        },
+        {
+          "raw": "at",
+          "start": 16.53,
+          "end": 16.67
+        },
+        {
+          "raw": "home",
+          "start": 16.67,
+          "end": 16.81
+        },
+        {
+          "raw": "in",
+          "start": 16.81,
+          "end": 16.95
+        },
+        {
+          "raw": "the",
+          "start": 16.95,
+          "end": 17.05
+        },
+        {
+          "raw": "town,",
+          "start": 17.05,
+          "end": 17.41
+        },
+        {
+          "raw": "faltered",
+          "start": 17.85,
+          "end": 18.15
+        },
+        {
+          "raw": "Mitya,",
+          "start": 18.15,
+          "end": 18.63
+        },
+        {
+          "raw": "his",
+          "start": 18.81,
+          "end": 18.89
+        },
+        {
+          "raw": "spirit",
+          "start": 18.89,
+          "end": 19.25
+        },
+        {
+          "raw": "sinking",
+          "start": 19.25,
+          "end": 19.59
+        },
+        {
+          "raw": "at",
+          "start": 19.59,
+          "end": 19.85
+        },
+        {
+          "raw": "every",
+          "start": 19.85,
+          "end": 20.13
+        },
+        {
+          "raw": "word",
+          "start": 20.13,
+          "end": 20.37
+        },
+        {
+          "raw": "he",
+          "start": 20.37,
+          "end": 20.55
+        },
+        {
+          "raw": "uttered.",
+          "start": 20.55,
+          "end": 20.79
+        },
+        {
+          "raw": "Upon",
+          "start": 21.27,
+          "end": 21.75
+        },
+        {
+          "raw": "my",
+          "start": 21.75,
+          "end": 22.01
+        },
+        {
+          "raw": "word,",
+          "start": 22.01,
+          "end": 22.27
+        },
+        {
+          "raw": "the",
+          "start": 22.43,
+          "end": 22.49
+        },
+        {
+          "raw": "money's",
+          "start": 22.49,
+          "end": 22.85
+        },
+        {
+          "raw": "there,",
+          "start": 22.85,
+          "end": 23.07
+        },
+        {
+          "raw": "hidden.",
+          "start": 23.25,
+          "end": 23.37
+        }
+      ],
+      "expected_tokens": [
+        "\"Seven",
+        "hundred,",
+        "seven",
+        "hundred,",
+        "not",
+        "five",
+        "hundred,",
+        "at",
+        "once,",
+        "this",
+        "minute,",
+        "cash",
+        "down!\"",
+        "Mitya",
+        "added,",
+        "feeling",
+        "something",
+        "wrong.",
+        "\"What's",
+        "the",
+        "matter,",
+        "_panie_?",
+        "Don't",
+        "you",
+        "trust",
+        "me?",
+        "I",
+        "can't",
+        "give",
+        "you",
+        "the",
+        "whole",
+        "three",
+        "thousand",
+        "straight",
+        "off.",
+        "If",
+        "I",
+        "give",
+        "it,",
+        "you",
+        "may",
+        "come",
+        "back",
+        "to",
+        "her",
+        "to-morrow....",
+        "Besides,",
+        "I",
+        "haven't",
+        "the",
+        "three",
+        "thousand",
+        "with",
+        "me.",
+        "I've",
+        "got",
+        "it",
+        "at",
+        "home",
+        "in",
+        "the",
+        "town,\"",
+        "faltered",
+        "Mitya,",
+        "his",
+        "spirit",
+        "sinking",
+        "at",
+        "every",
+        "word",
+        "he",
+        "uttered.",
+        "\"Upon",
+        "my",
+        "word,",
+        "the",
+        "money's",
+        "there,",
+        "hidden.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          2
+        ],
+        [
+          "equal",
+          4,
+          5,
+          2,
+          3
+        ],
+        [
+          "replace",
+          5,
+          7,
+          3,
+          4
+        ],
+        [
+          "equal",
+          7,
+          11,
+          4,
+          8
+        ],
+        [
+          "replace",
+          11,
+          12,
+          8,
+          9
+        ],
+        [
+          "equal",
+          12,
+          21,
+          9,
+          18
+        ],
+        [
+          "replace",
+          21,
+          22,
+          18,
+          19
+        ],
+        [
+          "equal",
+          22,
+          80,
+          19,
+          77
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 76
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          2
+        ],
+        [
+          "replace",
+          5,
+          7,
+          3,
+          4
+        ],
+        [
+          "replace",
+          11,
+          12,
+          8,
+          9
+        ],
+        [
+          "replace",
+          21,
+          22,
+          18,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "700,",
+          "start": 0.11,
+          "end": 0.87,
+          "key": "700",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "700,",
+          "start": 1.13,
+          "end": 1.43,
+          "key": "700",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.75,
+          "end": 1.87,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "500,",
+          "start": 1.87,
+          "end": 2.33,
+          "key": "500",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "At",
+          "start": 2.55,
+          "end": 2.61,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "once,",
+          "start": 2.61,
+          "end": 2.87,
+          "key": "once",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.97,
+          "end": 3.09,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "minute,",
+          "start": 3.09,
+          "end": 3.33,
+          "key": "minute",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "cashed",
+          "start": 3.49,
+          "end": 3.69,
+          "key": "cashed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "down.",
+          "start": 3.69,
+          "end": 4.15,
+          "key": "down",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Mitya",
+          "start": 4.65,
+          "end": 4.83,
+          "key": "mitya",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "added,",
+          "start": 4.83,
+          "end": 5.09,
+          "key": "added",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "feeling",
+          "start": 5.23,
+          "end": 5.39,
+          "key": "feeling",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 5.39,
+          "end": 5.75,
+          "key": "something",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "wrong.",
+          "start": 5.75,
+          "end": 6.09,
+          "key": "wrong",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 6.77,
+          "end": 7.01,
+          "key": "whats",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.01,
+          "end": 7.11,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "matter,",
+          "start": 7.11,
+          "end": 7.37,
+          "key": "matter",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Paney?",
+          "start": 7.53,
+          "end": 7.69,
+          "key": "paney",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Don't",
+          "start": 8.01,
+          "end": 8.15,
+          "key": "dont",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 8.15,
+          "end": 8.27,
+          "key": "you",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "trust",
+          "start": 8.27,
+          "end": 8.45,
+          "key": "trust",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 8.45,
+          "end": 8.69,
+          "key": "me",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 8.95,
+          "end": 9.11,
+          "key": "i",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "can't",
+          "start": 9.11,
+          "end": 9.33,
+          "key": "cant",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 9.33,
+          "end": 9.39,
+          "key": "give",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 9.39,
+          "end": 9.53,
+          "key": "you",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.53,
+          "end": 9.59,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 9.59,
+          "end": 9.77,
+          "key": "whole",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 9.77,
+          "end": 10.03,
+          "key": "three",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 10.03,
+          "end": 10.39,
+          "key": "thousand",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "straight",
+          "start": 10.39,
+          "end": 10.79,
+          "key": "straight",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "off.",
+          "start": 10.79,
+          "end": 11.05,
+          "key": "off",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 11.31,
+          "end": 11.41,
+          "key": "if",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 11.41,
+          "end": 11.55,
+          "key": "i",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 11.55,
+          "end": 11.69,
+          "key": "give",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 11.69,
+          "end": 11.85,
+          "key": "it",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.95,
+          "end": 11.97,
+          "key": "you",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 11.97,
+          "end": 12.09,
+          "key": "may",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 12.09,
+          "end": 12.29,
+          "key": "come",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 12.29,
+          "end": 12.49,
+          "key": "back",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 12.49,
+          "end": 12.65,
+          "key": "to",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 12.65,
+          "end": 12.75,
+          "key": "her",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "tomorrow.",
+          "start": 12.75,
+          "end": 13.05,
+          "key": "tomorrow",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Besides,",
+          "start": 13.75,
+          "end": 13.99,
+          "key": "besides",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 14.21,
+          "end": 14.29,
+          "key": "i",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "haven't",
+          "start": 14.29,
+          "end": 14.57,
+          "key": "havent",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.57,
+          "end": 14.71,
+          "key": "the",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 14.71,
+          "end": 14.91,
+          "key": "three",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 14.91,
+          "end": 15.25,
+          "key": "thousand",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 15.25,
+          "end": 15.51,
+          "key": "with",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 15.51,
+          "end": 15.73,
+          "key": "me",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "I've",
+          "start": 16.11,
+          "end": 16.33,
+          "key": "ive",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 16.33,
+          "end": 16.45,
+          "key": "got",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 16.45,
+          "end": 16.53,
+          "key": "it",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 16.53,
+          "end": 16.67,
+          "key": "at",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "home",
+          "start": 16.67,
+          "end": 16.81,
+          "key": "home",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 16.81,
+          "end": 16.95,
+          "key": "in",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.95,
+          "end": 17.05,
+          "key": "the",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "town,",
+          "start": 17.05,
+          "end": 17.41,
+          "key": "town",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "faltered",
+          "start": 17.85,
+          "end": 18.15,
+          "key": "faltered",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "Mitya,",
+          "start": 18.15,
+          "end": 18.63,
+          "key": "mitya",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 18.81,
+          "end": 18.89,
+          "key": "his",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "spirit",
+          "start": 18.89,
+          "end": 19.25,
+          "key": "spirit",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "sinking",
+          "start": 19.25,
+          "end": 19.59,
+          "key": "sinking",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 19.59,
+          "end": 19.85,
+          "key": "at",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 19.85,
+          "end": 20.13,
+          "key": "every",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "word",
+          "start": 20.13,
+          "end": 20.37,
+          "key": "word",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 20.37,
+          "end": 20.55,
+          "key": "he",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "uttered.",
+          "start": 20.55,
+          "end": 20.79,
+          "key": "uttered",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "Upon",
+          "start": 21.27,
+          "end": 21.75,
+          "key": "upon",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 21.75,
+          "end": 22.01,
+          "key": "my",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "word,",
+          "start": 22.01,
+          "end": 22.27,
+          "key": "word",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 22.43,
+          "end": 22.49,
+          "key": "the",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "money's",
+          "start": 22.49,
+          "end": 22.85,
+          "key": "moneys",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "there,",
+          "start": 22.85,
+          "end": 23.07,
+          "key": "there",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "hidden.",
+          "start": 23.25,
+          "end": 23.37,
+          "key": "hidden",
+          "pieces": [
+            76
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Seven",
+          "start": 0.0,
+          "end": 0.875
+        },
+        {
+          "text": "hundred,",
+          "start": 0.875,
+          "end": 1.312
+        },
+        {
+          "text": "seven",
+          "start": 1.312,
+          "end": 1.531
+        },
+        {
+          "text": "hundred,",
+          "start": 1.531,
+          "end": 1.64
+        },
+        {
+          "text": "not",
+          "start": 1.75,
+          "end": 1.87
+        },
+        {
+          "text": "five",
+          "start": 1.87,
+          "end": 2.21
+        },
+        {
+          "text": "hundred,",
+          "start": 2.21,
+          "end": 2.38
+        },
+        {
+          "text": "at",
+          "start": 2.55,
+          "end": 2.61
+        },
+        {
+          "text": "once,",
+          "start": 2.61,
+          "end": 2.87
+        },
+        {
+          "text": "this",
+          "start": 2.97,
+          "end": 3.09
+        },
+        {
+          "text": "minute,",
+          "start": 3.09,
+          "end": 3.33
+        },
+        {
+          "text": "cash",
+          "start": 3.33,
+          "end": 3.51
+        },
+        {
+          "text": "down!\"",
+          "start": 3.69,
+          "end": 4.15
+        },
+        {
+          "text": "Mitya",
+          "start": 4.65,
+          "end": 4.83
+        },
+        {
+          "text": "added,",
+          "start": 4.83,
+          "end": 5.09
+        },
+        {
+          "text": "feeling",
+          "start": 5.23,
+          "end": 5.39
+        },
+        {
+          "text": "something",
+          "start": 5.39,
+          "end": 5.75
+        },
+        {
+          "text": "wrong.",
+          "start": 5.75,
+          "end": 6.09
+        },
+        {
+          "text": "\"What's",
+          "start": 6.77,
+          "end": 7.01
+        },
+        {
+          "text": "the",
+          "start": 7.01,
+          "end": 7.11
+        },
+        {
+          "text": "matter,",
+          "start": 7.11,
+          "end": 7.37
+        },
+        {
+          "text": "_panie_?",
+          "start": 7.37,
+          "end": 7.69
+        },
+        {
+          "text": "Don't",
+          "start": 8.01,
+          "end": 8.15
+        },
+        {
+          "text": "you",
+          "start": 8.15,
+          "end": 8.27
+        },
+        {
+          "text": "trust",
+          "start": 8.27,
+          "end": 8.45
+        },
+        {
+          "text": "me?",
+          "start": 8.45,
+          "end": 8.69
+        },
+        {
+          "text": "I",
+          "start": 8.95,
+          "end": 9.11
+        },
+        {
+          "text": "can't",
+          "start": 9.11,
+          "end": 9.33
+        },
+        {
+          "text": "give",
+          "start": 9.33,
+          "end": 9.39
+        },
+        {
+          "text": "you",
+          "start": 9.39,
+          "end": 9.53
+        },
+        {
+          "text": "the",
+          "start": 9.53,
+          "end": 9.59
+        },
+        {
+          "text": "whole",
+          "start": 9.59,
+          "end": 9.77
+        },
+        {
+          "text": "three",
+          "start": 9.77,
+          "end": 10.03
+        },
+        {
+          "text": "thousand",
+          "start": 10.03,
+          "end": 10.39
+        },
+        {
+          "text": "straight",
+          "start": 10.39,
+          "end": 10.79
+        },
+        {
+          "text": "off.",
+          "start": 10.79,
+          "end": 11.05
+        },
+        {
+          "text": "If",
+          "start": 11.31,
+          "end": 11.41
+        },
+        {
+          "text": "I",
+          "start": 11.41,
+          "end": 11.55
+        },
+        {
+          "text": "give",
+          "start": 11.55,
+          "end": 11.69
+        },
+        {
+          "text": "it,",
+          "start": 11.69,
+          "end": 11.85
+        },
+        {
+          "text": "you",
+          "start": 11.95,
+          "end": 11.97
+        },
+        {
+          "text": "may",
+          "start": 11.97,
+          "end": 12.09
+        },
+        {
+          "text": "come",
+          "start": 12.09,
+          "end": 12.29
+        },
+        {
+          "text": "back",
+          "start": 12.29,
+          "end": 12.49
+        },
+        {
+          "text": "to",
+          "start": 12.49,
+          "end": 12.65
+        },
+        {
+          "text": "her",
+          "start": 12.65,
+          "end": 12.75
+        },
+        {
+          "text": "to-morrow....",
+          "start": 12.75,
+          "end": 13.05
+        },
+        {
+          "text": "Besides,",
+          "start": 13.75,
+          "end": 13.99
+        },
+        {
+          "text": "I",
+          "start": 14.21,
+          "end": 14.29
+        },
+        {
+          "text": "haven't",
+          "start": 14.29,
+          "end": 14.57
+        },
+        {
+          "text": "the",
+          "start": 14.57,
+          "end": 14.71
+        },
+        {
+          "text": "three",
+          "start": 14.71,
+          "end": 14.91
+        },
+        {
+          "text": "thousand",
+          "start": 14.91,
+          "end": 15.25
+        },
+        {
+          "text": "with",
+          "start": 15.25,
+          "end": 15.51
+        },
+        {
+          "text": "me.",
+          "start": 15.51,
+          "end": 15.73
+        },
+        {
+          "text": "I've",
+          "start": 16.11,
+          "end": 16.33
+        },
+        {
+          "text": "got",
+          "start": 16.33,
+          "end": 16.45
+        },
+        {
+          "text": "it",
+          "start": 16.45,
+          "end": 16.53
+        },
+        {
+          "text": "at",
+          "start": 16.53,
+          "end": 16.67
+        },
+        {
+          "text": "home",
+          "start": 16.67,
+          "end": 16.81
+        },
+        {
+          "text": "in",
+          "start": 16.81,
+          "end": 16.95
+        },
+        {
+          "text": "the",
+          "start": 16.95,
+          "end": 17.05
+        },
+        {
+          "text": "town,\"",
+          "start": 17.05,
+          "end": 17.41
+        },
+        {
+          "text": "faltered",
+          "start": 17.85,
+          "end": 18.15
+        },
+        {
+          "text": "Mitya,",
+          "start": 18.15,
+          "end": 18.63
+        },
+        {
+          "text": "his",
+          "start": 18.81,
+          "end": 18.89
+        },
+        {
+          "text": "spirit",
+          "start": 18.89,
+          "end": 19.25
+        },
+        {
+          "text": "sinking",
+          "start": 19.25,
+          "end": 19.59
+        },
+        {
+          "text": "at",
+          "start": 19.59,
+          "end": 19.85
+        },
+        {
+          "text": "every",
+          "start": 19.85,
+          "end": 20.13
+        },
+        {
+          "text": "word",
+          "start": 20.13,
+          "end": 20.37
+        },
+        {
+          "text": "he",
+          "start": 20.37,
+          "end": 20.55
+        },
+        {
+          "text": "uttered.",
+          "start": 20.55,
+          "end": 20.79
+        },
+        {
+          "text": "\"Upon",
+          "start": 21.27,
+          "end": 21.75
+        },
+        {
+          "text": "my",
+          "start": 21.75,
+          "end": 22.01
+        },
+        {
+          "text": "word,",
+          "start": 22.01,
+          "end": 22.27
+        },
+        {
+          "text": "the",
+          "start": 22.43,
+          "end": 22.49
+        },
+        {
+          "text": "money's",
+          "start": 22.49,
+          "end": 22.85
+        },
+        {
+          "text": "there,",
+          "start": 22.85,
+          "end": 23.07
+        },
+        {
+          "text": "hidden.\"",
+          "start": 23.25,
+          "end": 23.37
+        }
+      ],
+      "stats": {
+        "expected_words": 80,
+        "heard_words": 77,
+        "matched_words": 72
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.9758502347394824
+    },
+    {
+      "asr_seconds": 1.1146943047642708,
+      "alignment_seconds": 0.0026957830414175987,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Seven hundred, seven hundred, not five hundred, at once, this minute, cashed down.",
+          "start": 0.11,
+          "end": 4.15,
+          "words": [
+            {
+              "text": " Seven",
+              "start": 0.11,
+              "end": 0.67,
+              "probability": 0.0472412109375
+            },
+            {
+              "text": " hundred,",
+              "start": 0.67,
+              "end": 1.01,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " seven",
+              "start": 1.13,
+              "end": 1.27,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " hundred,",
+              "start": 1.27,
+              "end": 1.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 1.79,
+              "end": 1.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " five",
+              "start": 1.87,
+              "end": 2.15,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " hundred,",
+              "start": 2.15,
+              "end": 2.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 2.53,
+              "end": 2.61,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " once,",
+              "start": 2.61,
+              "end": 2.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " this",
+              "start": 2.97,
+              "end": 3.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " minute,",
+              "start": 3.07,
+              "end": 3.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " cashed",
+              "start": 3.53,
+              "end": 3.69,
+              "probability": 0.626220703125
+            },
+            {
+              "text": " down.",
+              "start": 3.69,
+              "end": 4.15,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Midia added, feeling something wrong.",
+          "start": 4.65,
+          "end": 6.09,
+          "words": [
+            {
+              "text": " Midia",
+              "start": 4.65,
+              "end": 4.81,
+              "probability": 0.67626953125
+            },
+            {
+              "text": " added,",
+              "start": 4.81,
+              "end": 5.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " feeling",
+              "start": 5.19,
+              "end": 5.39,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " something",
+              "start": 5.39,
+              "end": 5.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wrong.",
+              "start": 5.73,
+              "end": 6.09,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " What's the matter, Paney?",
+          "start": 6.71,
+          "end": 7.67,
+          "words": [
+            {
+              "text": " What's",
+              "start": 6.71,
+              "end": 7.01,
+              "probability": 0.54486083984375
+            },
+            {
+              "text": " the",
+              "start": 7.01,
+              "end": 7.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " matter,",
+              "start": 7.11,
+              "end": 7.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Paney?",
+              "start": 7.53,
+              "end": 7.67,
+              "probability": 0.332763671875
+            }
+          ]
+        },
+        {
+          "text": " Don't you trust me?",
+          "start": 7.99,
+          "end": 8.69,
+          "words": [
+            {
+              "text": " Don't",
+              "start": 7.99,
+              "end": 8.15,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 8.15,
+              "end": 8.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " trust",
+              "start": 8.27,
+              "end": 8.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me?",
+              "start": 8.45,
+              "end": 8.69,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " I can't give you the whole three thousand straight off.",
+          "start": 8.93,
+          "end": 11.05,
+          "words": [
+            {
+              "text": " I",
+              "start": 8.93,
+              "end": 9.11,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " can't",
+              "start": 9.11,
+              "end": 9.33,
+              "probability": 0.998779296875
+            },
+            {
+              "text": " give",
+              "start": 9.33,
+              "end": 9.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 9.39,
+              "end": 9.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 9.51,
+              "end": 9.59,
+              "probability": 0.99609375
+            },
+            {
+              "text": " whole",
+              "start": 9.59,
+              "end": 9.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " three",
+              "start": 9.77,
+              "end": 10.03,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " thousand",
+              "start": 10.03,
+              "end": 10.39,
+              "probability": 0.982421875
+            },
+            {
+              "text": " straight",
+              "start": 10.39,
+              "end": 10.79,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " off.",
+              "start": 10.79,
+              "end": 11.05,
+              "probability": 0.9814453125
+            }
+          ]
+        },
+        {
+          "text": " If I give it, you may come back to her tomorrow.",
+          "start": 11.31,
+          "end": 13.05,
+          "words": [
+            {
+              "text": " If",
+              "start": 11.31,
+              "end": 11.41,
+              "probability": 0.9921875
+            },
+            {
+              "text": " I",
+              "start": 11.41,
+              "end": 11.55,
+              "probability": 0.99609375
+            },
+            {
+              "text": " give",
+              "start": 11.55,
+              "end": 11.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it,",
+              "start": 11.69,
+              "end": 11.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 11.91,
+              "end": 11.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " may",
+              "start": 11.97,
+              "end": 12.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " come",
+              "start": 12.09,
+              "end": 12.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " back",
+              "start": 12.29,
+              "end": 12.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 12.49,
+              "end": 12.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 12.65,
+              "end": 12.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " tomorrow.",
+              "start": 12.75,
+              "end": 13.05,
+              "probability": 0.8447265625
+            }
+          ]
+        },
+        {
+          "text": " Besides, I haven't the three thousand with me.",
+          "start": 13.75,
+          "end": 15.73,
+          "words": [
+            {
+              "text": " Besides,",
+              "start": 13.75,
+              "end": 14.01,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I",
+              "start": 14.21,
+              "end": 14.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " haven't",
+              "start": 14.31,
+              "end": 14.57,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " the",
+              "start": 14.57,
+              "end": 14.71,
+              "probability": 0.994140625
+            },
+            {
+              "text": " three",
+              "start": 14.71,
+              "end": 14.91,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " thousand",
+              "start": 14.91,
+              "end": 15.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 15.25,
+              "end": 15.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me.",
+              "start": 15.49,
+              "end": 15.73,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " I've got it at home in the town, faltered Midia, his spirit sinking at every word he",
+          "start": 16.09,
+          "end": 20.55,
+          "words": [
+            {
+              "text": " I've",
+              "start": 16.09,
+              "end": 16.33,
+              "probability": 0.973388671875
+            },
+            {
+              "text": " got",
+              "start": 16.33,
+              "end": 16.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 16.45,
+              "end": 16.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 16.53,
+              "end": 16.67,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " home",
+              "start": 16.67,
+              "end": 16.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 16.81,
+              "end": 16.95,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " the",
+              "start": 16.95,
+              "end": 17.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " town,",
+              "start": 17.05,
+              "end": 17.41,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " faltered",
+              "start": 17.81,
+              "end": 18.17,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " Midia,",
+              "start": 18.17,
+              "end": 18.55,
+              "probability": 0.987060546875
+            },
+            {
+              "text": " his",
+              "start": 18.79,
+              "end": 18.89,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " spirit",
+              "start": 18.89,
+              "end": 19.25,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " sinking",
+              "start": 19.25,
+              "end": 19.59,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " at",
+              "start": 19.59,
+              "end": 19.85,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " every",
+              "start": 19.85,
+              "end": 20.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " word",
+              "start": 20.13,
+              "end": 20.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " he",
+              "start": 20.35,
+              "end": 20.55,
+              "probability": 0.9853515625
+            }
+          ]
+        },
+        {
+          "text": " uttered.",
+          "start": 20.55,
+          "end": 20.77,
+          "words": [
+            {
+              "text": " uttered.",
+              "start": 20.55,
+              "end": 20.77,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Upon my word, the money's there, hidden.",
+          "start": 21.27,
+          "end": 23.37,
+          "words": [
+            {
+              "text": " Upon",
+              "start": 21.27,
+              "end": 21.75,
+              "probability": 0.931640625
+            },
+            {
+              "text": " my",
+              "start": 21.75,
+              "end": 22.01,
+              "probability": 0.892578125
+            },
+            {
+              "text": " word,",
+              "start": 22.01,
+              "end": 22.27,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " the",
+              "start": 22.43,
+              "end": 22.49,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " money's",
+              "start": 22.49,
+              "end": 22.85,
+              "probability": 0.84765625
+            },
+            {
+              "text": " there,",
+              "start": 22.85,
+              "end": 23.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hidden.",
+              "start": 23.23,
+              "end": 23.37,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Seven",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "raw": "hundred,",
+          "start": 0.67,
+          "end": 1.01
+        },
+        {
+          "raw": "seven",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "raw": "hundred,",
+          "start": 1.27,
+          "end": 1.63
+        },
+        {
+          "raw": "not",
+          "start": 1.79,
+          "end": 1.87
+        },
+        {
+          "raw": "five",
+          "start": 1.87,
+          "end": 2.15
+        },
+        {
+          "raw": "hundred,",
+          "start": 2.15,
+          "end": 2.47
+        },
+        {
+          "raw": "at",
+          "start": 2.53,
+          "end": 2.61
+        },
+        {
+          "raw": "once,",
+          "start": 2.61,
+          "end": 2.87
+        },
+        {
+          "raw": "this",
+          "start": 2.97,
+          "end": 3.07
+        },
+        {
+          "raw": "minute,",
+          "start": 3.07,
+          "end": 3.35
+        },
+        {
+          "raw": "cashed",
+          "start": 3.53,
+          "end": 3.69
+        },
+        {
+          "raw": "down.",
+          "start": 3.69,
+          "end": 4.15
+        },
+        {
+          "raw": "Midia",
+          "start": 4.65,
+          "end": 4.81
+        },
+        {
+          "raw": "added,",
+          "start": 4.81,
+          "end": 5.07
+        },
+        {
+          "raw": "feeling",
+          "start": 5.19,
+          "end": 5.39
+        },
+        {
+          "raw": "something",
+          "start": 5.39,
+          "end": 5.73
+        },
+        {
+          "raw": "wrong.",
+          "start": 5.73,
+          "end": 6.09
+        },
+        {
+          "raw": "What's",
+          "start": 6.71,
+          "end": 7.01
+        },
+        {
+          "raw": "the",
+          "start": 7.01,
+          "end": 7.11
+        },
+        {
+          "raw": "matter,",
+          "start": 7.11,
+          "end": 7.37
+        },
+        {
+          "raw": "Paney?",
+          "start": 7.53,
+          "end": 7.67
+        },
+        {
+          "raw": "Don't",
+          "start": 7.99,
+          "end": 8.15
+        },
+        {
+          "raw": "you",
+          "start": 8.15,
+          "end": 8.27
+        },
+        {
+          "raw": "trust",
+          "start": 8.27,
+          "end": 8.45
+        },
+        {
+          "raw": "me?",
+          "start": 8.45,
+          "end": 8.69
+        },
+        {
+          "raw": "I",
+          "start": 8.93,
+          "end": 9.11
+        },
+        {
+          "raw": "can't",
+          "start": 9.11,
+          "end": 9.33
+        },
+        {
+          "raw": "give",
+          "start": 9.33,
+          "end": 9.39
+        },
+        {
+          "raw": "you",
+          "start": 9.39,
+          "end": 9.51
+        },
+        {
+          "raw": "the",
+          "start": 9.51,
+          "end": 9.59
+        },
+        {
+          "raw": "whole",
+          "start": 9.59,
+          "end": 9.77
+        },
+        {
+          "raw": "three",
+          "start": 9.77,
+          "end": 10.03
+        },
+        {
+          "raw": "thousand",
+          "start": 10.03,
+          "end": 10.39
+        },
+        {
+          "raw": "straight",
+          "start": 10.39,
+          "end": 10.79
+        },
+        {
+          "raw": "off.",
+          "start": 10.79,
+          "end": 11.05
+        },
+        {
+          "raw": "If",
+          "start": 11.31,
+          "end": 11.41
+        },
+        {
+          "raw": "I",
+          "start": 11.41,
+          "end": 11.55
+        },
+        {
+          "raw": "give",
+          "start": 11.55,
+          "end": 11.69
+        },
+        {
+          "raw": "it,",
+          "start": 11.69,
+          "end": 11.85
+        },
+        {
+          "raw": "you",
+          "start": 11.91,
+          "end": 11.97
+        },
+        {
+          "raw": "may",
+          "start": 11.97,
+          "end": 12.09
+        },
+        {
+          "raw": "come",
+          "start": 12.09,
+          "end": 12.29
+        },
+        {
+          "raw": "back",
+          "start": 12.29,
+          "end": 12.49
+        },
+        {
+          "raw": "to",
+          "start": 12.49,
+          "end": 12.65
+        },
+        {
+          "raw": "her",
+          "start": 12.65,
+          "end": 12.75
+        },
+        {
+          "raw": "tomorrow.",
+          "start": 12.75,
+          "end": 13.05
+        },
+        {
+          "raw": "Besides,",
+          "start": 13.75,
+          "end": 14.01
+        },
+        {
+          "raw": "I",
+          "start": 14.21,
+          "end": 14.31
+        },
+        {
+          "raw": "haven't",
+          "start": 14.31,
+          "end": 14.57
+        },
+        {
+          "raw": "the",
+          "start": 14.57,
+          "end": 14.71
+        },
+        {
+          "raw": "three",
+          "start": 14.71,
+          "end": 14.91
+        },
+        {
+          "raw": "thousand",
+          "start": 14.91,
+          "end": 15.25
+        },
+        {
+          "raw": "with",
+          "start": 15.25,
+          "end": 15.49
+        },
+        {
+          "raw": "me.",
+          "start": 15.49,
+          "end": 15.73
+        },
+        {
+          "raw": "I've",
+          "start": 16.09,
+          "end": 16.33
+        },
+        {
+          "raw": "got",
+          "start": 16.33,
+          "end": 16.45
+        },
+        {
+          "raw": "it",
+          "start": 16.45,
+          "end": 16.53
+        },
+        {
+          "raw": "at",
+          "start": 16.53,
+          "end": 16.67
+        },
+        {
+          "raw": "home",
+          "start": 16.67,
+          "end": 16.81
+        },
+        {
+          "raw": "in",
+          "start": 16.81,
+          "end": 16.95
+        },
+        {
+          "raw": "the",
+          "start": 16.95,
+          "end": 17.05
+        },
+        {
+          "raw": "town,",
+          "start": 17.05,
+          "end": 17.41
+        },
+        {
+          "raw": "faltered",
+          "start": 17.81,
+          "end": 18.17
+        },
+        {
+          "raw": "Midia,",
+          "start": 18.17,
+          "end": 18.55
+        },
+        {
+          "raw": "his",
+          "start": 18.79,
+          "end": 18.89
+        },
+        {
+          "raw": "spirit",
+          "start": 18.89,
+          "end": 19.25
+        },
+        {
+          "raw": "sinking",
+          "start": 19.25,
+          "end": 19.59
+        },
+        {
+          "raw": "at",
+          "start": 19.59,
+          "end": 19.85
+        },
+        {
+          "raw": "every",
+          "start": 19.85,
+          "end": 20.13
+        },
+        {
+          "raw": "word",
+          "start": 20.13,
+          "end": 20.35
+        },
+        {
+          "raw": "he",
+          "start": 20.35,
+          "end": 20.55
+        },
+        {
+          "raw": "uttered.",
+          "start": 20.55,
+          "end": 20.77
+        },
+        {
+          "raw": "Upon",
+          "start": 21.27,
+          "end": 21.75
+        },
+        {
+          "raw": "my",
+          "start": 21.75,
+          "end": 22.01
+        },
+        {
+          "raw": "word,",
+          "start": 22.01,
+          "end": 22.27
+        },
+        {
+          "raw": "the",
+          "start": 22.43,
+          "end": 22.49
+        },
+        {
+          "raw": "money's",
+          "start": 22.49,
+          "end": 22.85
+        },
+        {
+          "raw": "there,",
+          "start": 22.85,
+          "end": 23.07
+        },
+        {
+          "raw": "hidden.",
+          "start": 23.23,
+          "end": 23.37
+        }
+      ],
+      "expected_tokens": [
+        "\"Seven",
+        "hundred,",
+        "seven",
+        "hundred,",
+        "not",
+        "five",
+        "hundred,",
+        "at",
+        "once,",
+        "this",
+        "minute,",
+        "cash",
+        "down!\"",
+        "Mitya",
+        "added,",
+        "feeling",
+        "something",
+        "wrong.",
+        "\"What's",
+        "the",
+        "matter,",
+        "_panie_?",
+        "Don't",
+        "you",
+        "trust",
+        "me?",
+        "I",
+        "can't",
+        "give",
+        "you",
+        "the",
+        "whole",
+        "three",
+        "thousand",
+        "straight",
+        "off.",
+        "If",
+        "I",
+        "give",
+        "it,",
+        "you",
+        "may",
+        "come",
+        "back",
+        "to",
+        "her",
+        "to-morrow....",
+        "Besides,",
+        "I",
+        "haven't",
+        "the",
+        "three",
+        "thousand",
+        "with",
+        "me.",
+        "I've",
+        "got",
+        "it",
+        "at",
+        "home",
+        "in",
+        "the",
+        "town,\"",
+        "faltered",
+        "Mitya,",
+        "his",
+        "spirit",
+        "sinking",
+        "at",
+        "every",
+        "word",
+        "he",
+        "uttered.",
+        "\"Upon",
+        "my",
+        "word,",
+        "the",
+        "money's",
+        "there,",
+        "hidden.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "equal",
+          14,
+          21,
+          14,
+          21
+        ],
+        [
+          "replace",
+          21,
+          22,
+          21,
+          22
+        ],
+        [
+          "equal",
+          22,
+          64,
+          22,
+          64
+        ],
+        [
+          "replace",
+          64,
+          65,
+          64,
+          65
+        ],
+        [
+          "equal",
+          65,
+          80,
+          65,
+          80
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "replace",
+          21,
+          22,
+          21,
+          22
+        ],
+        [
+          "replace",
+          64,
+          65,
+          64,
+          65
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Seven",
+          "start": 0.11,
+          "end": 0.67,
+          "key": "seven",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hundred,",
+          "start": 0.67,
+          "end": 1.01,
+          "key": "hundred",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "seven",
+          "start": 1.13,
+          "end": 1.27,
+          "key": "seven",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hundred,",
+          "start": 1.27,
+          "end": 1.63,
+          "key": "hundred",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.79,
+          "end": 1.87,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "five",
+          "start": 1.87,
+          "end": 2.15,
+          "key": "five",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hundred,",
+          "start": 2.15,
+          "end": 2.47,
+          "key": "hundred",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.53,
+          "end": 2.61,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "once,",
+          "start": 2.61,
+          "end": 2.87,
+          "key": "once",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.97,
+          "end": 3.07,
+          "key": "this",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "minute,",
+          "start": 3.07,
+          "end": 3.35,
+          "key": "minute",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "cashed",
+          "start": 3.53,
+          "end": 3.69,
+          "key": "cashed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "down.",
+          "start": 3.69,
+          "end": 4.15,
+          "key": "down",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Midia",
+          "start": 4.65,
+          "end": 4.81,
+          "key": "midia",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "added,",
+          "start": 4.81,
+          "end": 5.07,
+          "key": "added",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "feeling",
+          "start": 5.19,
+          "end": 5.39,
+          "key": "feeling",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 5.39,
+          "end": 5.73,
+          "key": "something",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "wrong.",
+          "start": 5.73,
+          "end": 6.09,
+          "key": "wrong",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 6.71,
+          "end": 7.01,
+          "key": "whats",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.01,
+          "end": 7.11,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "matter,",
+          "start": 7.11,
+          "end": 7.37,
+          "key": "matter",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Paney?",
+          "start": 7.53,
+          "end": 7.67,
+          "key": "paney",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Don't",
+          "start": 7.99,
+          "end": 8.15,
+          "key": "dont",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 8.15,
+          "end": 8.27,
+          "key": "you",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "trust",
+          "start": 8.27,
+          "end": 8.45,
+          "key": "trust",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 8.45,
+          "end": 8.69,
+          "key": "me",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 8.93,
+          "end": 9.11,
+          "key": "i",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "can't",
+          "start": 9.11,
+          "end": 9.33,
+          "key": "cant",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 9.33,
+          "end": 9.39,
+          "key": "give",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 9.39,
+          "end": 9.51,
+          "key": "you",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.51,
+          "end": 9.59,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 9.59,
+          "end": 9.77,
+          "key": "whole",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 9.77,
+          "end": 10.03,
+          "key": "three",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 10.03,
+          "end": 10.39,
+          "key": "thousand",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "straight",
+          "start": 10.39,
+          "end": 10.79,
+          "key": "straight",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "off.",
+          "start": 10.79,
+          "end": 11.05,
+          "key": "off",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 11.31,
+          "end": 11.41,
+          "key": "if",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 11.41,
+          "end": 11.55,
+          "key": "i",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 11.55,
+          "end": 11.69,
+          "key": "give",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 11.69,
+          "end": 11.85,
+          "key": "it",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.91,
+          "end": 11.97,
+          "key": "you",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 11.97,
+          "end": 12.09,
+          "key": "may",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 12.09,
+          "end": 12.29,
+          "key": "come",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 12.29,
+          "end": 12.49,
+          "key": "back",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 12.49,
+          "end": 12.65,
+          "key": "to",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 12.65,
+          "end": 12.75,
+          "key": "her",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "tomorrow.",
+          "start": 12.75,
+          "end": 13.05,
+          "key": "tomorrow",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Besides,",
+          "start": 13.75,
+          "end": 14.01,
+          "key": "besides",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 14.21,
+          "end": 14.31,
+          "key": "i",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "haven't",
+          "start": 14.31,
+          "end": 14.57,
+          "key": "havent",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.57,
+          "end": 14.71,
+          "key": "the",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 14.71,
+          "end": 14.91,
+          "key": "three",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 14.91,
+          "end": 15.25,
+          "key": "thousand",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 15.25,
+          "end": 15.49,
+          "key": "with",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 15.49,
+          "end": 15.73,
+          "key": "me",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "I've",
+          "start": 16.09,
+          "end": 16.33,
+          "key": "ive",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 16.33,
+          "end": 16.45,
+          "key": "got",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 16.45,
+          "end": 16.53,
+          "key": "it",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 16.53,
+          "end": 16.67,
+          "key": "at",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "home",
+          "start": 16.67,
+          "end": 16.81,
+          "key": "home",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 16.81,
+          "end": 16.95,
+          "key": "in",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.95,
+          "end": 17.05,
+          "key": "the",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "town,",
+          "start": 17.05,
+          "end": 17.41,
+          "key": "town",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "faltered",
+          "start": 17.81,
+          "end": 18.17,
+          "key": "faltered",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "Midia,",
+          "start": 18.17,
+          "end": 18.55,
+          "key": "midia",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 18.79,
+          "end": 18.89,
+          "key": "his",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "spirit",
+          "start": 18.89,
+          "end": 19.25,
+          "key": "spirit",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "sinking",
+          "start": 19.25,
+          "end": 19.59,
+          "key": "sinking",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 19.59,
+          "end": 19.85,
+          "key": "at",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 19.85,
+          "end": 20.13,
+          "key": "every",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "word",
+          "start": 20.13,
+          "end": 20.35,
+          "key": "word",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 20.35,
+          "end": 20.55,
+          "key": "he",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "uttered.",
+          "start": 20.55,
+          "end": 20.77,
+          "key": "uttered",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "Upon",
+          "start": 21.27,
+          "end": 21.75,
+          "key": "upon",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 21.75,
+          "end": 22.01,
+          "key": "my",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "word,",
+          "start": 22.01,
+          "end": 22.27,
+          "key": "word",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 22.43,
+          "end": 22.49,
+          "key": "the",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "money's",
+          "start": 22.49,
+          "end": 22.85,
+          "key": "moneys",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "there,",
+          "start": 22.85,
+          "end": 23.07,
+          "key": "there",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "hidden.",
+          "start": 23.23,
+          "end": 23.37,
+          "key": "hidden",
+          "pieces": [
+            79
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Seven",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "text": "hundred,",
+          "start": 0.67,
+          "end": 1.01
+        },
+        {
+          "text": "seven",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "text": "hundred,",
+          "start": 1.27,
+          "end": 1.63
+        },
+        {
+          "text": "not",
+          "start": 1.79,
+          "end": 1.87
+        },
+        {
+          "text": "five",
+          "start": 1.87,
+          "end": 2.15
+        },
+        {
+          "text": "hundred,",
+          "start": 2.15,
+          "end": 2.47
+        },
+        {
+          "text": "at",
+          "start": 2.53,
+          "end": 2.61
+        },
+        {
+          "text": "once,",
+          "start": 2.61,
+          "end": 2.87
+        },
+        {
+          "text": "this",
+          "start": 2.97,
+          "end": 3.07
+        },
+        {
+          "text": "minute,",
+          "start": 3.07,
+          "end": 3.35
+        },
+        {
+          "text": "cash",
+          "start": 3.35,
+          "end": 3.52
+        },
+        {
+          "text": "down!\"",
+          "start": 3.69,
+          "end": 4.15
+        },
+        {
+          "text": "Mitya",
+          "start": 4.15,
+          "end": 4.48
+        },
+        {
+          "text": "added,",
+          "start": 4.81,
+          "end": 5.07
+        },
+        {
+          "text": "feeling",
+          "start": 5.19,
+          "end": 5.39
+        },
+        {
+          "text": "something",
+          "start": 5.39,
+          "end": 5.73
+        },
+        {
+          "text": "wrong.",
+          "start": 5.73,
+          "end": 6.09
+        },
+        {
+          "text": "\"What's",
+          "start": 6.71,
+          "end": 7.01
+        },
+        {
+          "text": "the",
+          "start": 7.01,
+          "end": 7.11
+        },
+        {
+          "text": "matter,",
+          "start": 7.11,
+          "end": 7.37
+        },
+        {
+          "text": "_panie_?",
+          "start": 7.37,
+          "end": 7.68
+        },
+        {
+          "text": "Don't",
+          "start": 7.99,
+          "end": 8.15
+        },
+        {
+          "text": "you",
+          "start": 8.15,
+          "end": 8.27
+        },
+        {
+          "text": "trust",
+          "start": 8.27,
+          "end": 8.45
+        },
+        {
+          "text": "me?",
+          "start": 8.45,
+          "end": 8.69
+        },
+        {
+          "text": "I",
+          "start": 8.93,
+          "end": 9.11
+        },
+        {
+          "text": "can't",
+          "start": 9.11,
+          "end": 9.33
+        },
+        {
+          "text": "give",
+          "start": 9.33,
+          "end": 9.39
+        },
+        {
+          "text": "you",
+          "start": 9.39,
+          "end": 9.51
+        },
+        {
+          "text": "the",
+          "start": 9.51,
+          "end": 9.59
+        },
+        {
+          "text": "whole",
+          "start": 9.59,
+          "end": 9.77
+        },
+        {
+          "text": "three",
+          "start": 9.77,
+          "end": 10.03
+        },
+        {
+          "text": "thousand",
+          "start": 10.03,
+          "end": 10.39
+        },
+        {
+          "text": "straight",
+          "start": 10.39,
+          "end": 10.79
+        },
+        {
+          "text": "off.",
+          "start": 10.79,
+          "end": 11.05
+        },
+        {
+          "text": "If",
+          "start": 11.31,
+          "end": 11.41
+        },
+        {
+          "text": "I",
+          "start": 11.41,
+          "end": 11.55
+        },
+        {
+          "text": "give",
+          "start": 11.55,
+          "end": 11.69
+        },
+        {
+          "text": "it,",
+          "start": 11.69,
+          "end": 11.85
+        },
+        {
+          "text": "you",
+          "start": 11.91,
+          "end": 11.97
+        },
+        {
+          "text": "may",
+          "start": 11.97,
+          "end": 12.09
+        },
+        {
+          "text": "come",
+          "start": 12.09,
+          "end": 12.29
+        },
+        {
+          "text": "back",
+          "start": 12.29,
+          "end": 12.49
+        },
+        {
+          "text": "to",
+          "start": 12.49,
+          "end": 12.65
+        },
+        {
+          "text": "her",
+          "start": 12.65,
+          "end": 12.75
+        },
+        {
+          "text": "to-morrow....",
+          "start": 12.75,
+          "end": 13.05
+        },
+        {
+          "text": "Besides,",
+          "start": 13.75,
+          "end": 14.01
+        },
+        {
+          "text": "I",
+          "start": 14.21,
+          "end": 14.31
+        },
+        {
+          "text": "haven't",
+          "start": 14.31,
+          "end": 14.57
+        },
+        {
+          "text": "the",
+          "start": 14.57,
+          "end": 14.71
+        },
+        {
+          "text": "three",
+          "start": 14.71,
+          "end": 14.91
+        },
+        {
+          "text": "thousand",
+          "start": 14.91,
+          "end": 15.25
+        },
+        {
+          "text": "with",
+          "start": 15.25,
+          "end": 15.49
+        },
+        {
+          "text": "me.",
+          "start": 15.49,
+          "end": 15.73
+        },
+        {
+          "text": "I've",
+          "start": 16.09,
+          "end": 16.33
+        },
+        {
+          "text": "got",
+          "start": 16.33,
+          "end": 16.45
+        },
+        {
+          "text": "it",
+          "start": 16.45,
+          "end": 16.53
+        },
+        {
+          "text": "at",
+          "start": 16.53,
+          "end": 16.67
+        },
+        {
+          "text": "home",
+          "start": 16.67,
+          "end": 16.81
+        },
+        {
+          "text": "in",
+          "start": 16.81,
+          "end": 16.95
+        },
+        {
+          "text": "the",
+          "start": 16.95,
+          "end": 17.05
+        },
+        {
+          "text": "town,\"",
+          "start": 17.05,
+          "end": 17.41
+        },
+        {
+          "text": "faltered",
+          "start": 17.81,
+          "end": 18.17
+        },
+        {
+          "text": "Mitya,",
+          "start": 18.17,
+          "end": 18.48
+        },
+        {
+          "text": "his",
+          "start": 18.79,
+          "end": 18.89
+        },
+        {
+          "text": "spirit",
+          "start": 18.89,
+          "end": 19.25
+        },
+        {
+          "text": "sinking",
+          "start": 19.25,
+          "end": 19.59
+        },
+        {
+          "text": "at",
+          "start": 19.59,
+          "end": 19.85
+        },
+        {
+          "text": "every",
+          "start": 19.85,
+          "end": 20.13
+        },
+        {
+          "text": "word",
+          "start": 20.13,
+          "end": 20.35
+        },
+        {
+          "text": "he",
+          "start": 20.35,
+          "end": 20.55
+        },
+        {
+          "text": "uttered.",
+          "start": 20.55,
+          "end": 20.77
+        },
+        {
+          "text": "\"Upon",
+          "start": 21.27,
+          "end": 21.75
+        },
+        {
+          "text": "my",
+          "start": 21.75,
+          "end": 22.01
+        },
+        {
+          "text": "word,",
+          "start": 22.01,
+          "end": 22.27
+        },
+        {
+          "text": "the",
+          "start": 22.43,
+          "end": 22.49
+        },
+        {
+          "text": "money's",
+          "start": 22.49,
+          "end": 22.85
+        },
+        {
+          "text": "there,",
+          "start": 22.85,
+          "end": 23.07
+        },
+        {
+          "text": "hidden.\"",
+          "start": 23.23,
+          "end": 23.37
+        }
+      ],
+      "stats": {
+        "expected_words": 80,
+        "heard_words": 80,
+        "matched_words": 76
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 1.1186227910220623
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e0420af0b908b590d3df4a39c072fcdb92901c69ee2869c59f7541611b18f36f",
+  "selected_reasons": []
+}

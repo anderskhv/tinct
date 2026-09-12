@@ -1,0 +1,1383 @@
+{
+  "complete": true,
+  "signature": "515e6e5d627ea15ad20f7c45524b5756aa948f51db837b4cbc887a7f163d9f8b",
+  "attempts": [
+    {
+      "asr_seconds": 0.31340153981000185,
+      "alignment_seconds": 0.0006257928907871246,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Are you joking, _panie_?\" said the short man, looking severely at Kalganov.",
+        "hotwords": "Are, Kalganov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Are you joking, paini? said the short man, looking severely at Kalganov.",
+          "start": 0.05,
+          "end": 4.49,
+          "words": [
+            {
+              "text": " Are",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.150634765625
+            },
+            {
+              "text": " you",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " joking,",
+              "start": 0.65,
+              "end": 1.03,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " paini?",
+              "start": 1.23,
+              "end": 1.95,
+              "probability": 0.370635986328125
+            },
+            {
+              "text": " said",
+              "start": 1.95,
+              "end": 2.07,
+              "probability": 0.583984375
+            },
+            {
+              "text": " the",
+              "start": 2.07,
+              "end": 2.19,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " short",
+              "start": 2.19,
+              "end": 2.39,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " man,",
+              "start": 2.39,
+              "end": 2.75,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " looking",
+              "start": 3.03,
+              "end": 3.21,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " severely",
+              "start": 3.21,
+              "end": 3.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 3.69,
+              "end": 3.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Kalganov.",
+              "start": 3.91,
+              "end": 4.49,
+              "probability": 0.8069661458333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Are",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "joking,",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "raw": "paini?",
+          "start": 1.23,
+          "end": 1.95
+        },
+        {
+          "raw": "said",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "raw": "the",
+          "start": 2.07,
+          "end": 2.19
+        },
+        {
+          "raw": "short",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "raw": "man,",
+          "start": 2.39,
+          "end": 2.75
+        },
+        {
+          "raw": "looking",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "raw": "severely",
+          "start": 3.21,
+          "end": 3.69
+        },
+        {
+          "raw": "at",
+          "start": 3.69,
+          "end": 3.91
+        },
+        {
+          "raw": "Kalganov.",
+          "start": 3.91,
+          "end": 4.49
+        }
+      ],
+      "expected_tokens": [
+        "\"Are",
+        "you",
+        "joking,",
+        "_panie_?\"",
+        "said",
+        "the",
+        "short",
+        "man,",
+        "looking",
+        "severely",
+        "at",
+        "Kalganov."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          12,
+          4,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Are",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "are",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "joking,",
+          "start": 0.65,
+          "end": 1.03,
+          "key": "joking",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "paini?",
+          "start": 1.23,
+          "end": 1.95,
+          "key": "paini",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.95,
+          "end": 2.07,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.07,
+          "end": 2.19,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "short",
+          "start": 2.19,
+          "end": 2.39,
+          "key": "short",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 2.39,
+          "end": 2.75,
+          "key": "man",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 3.03,
+          "end": 3.21,
+          "key": "looking",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "severely",
+          "start": 3.21,
+          "end": 3.69,
+          "key": "severely",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.69,
+          "end": 3.91,
+          "key": "at",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Kalganov.",
+          "start": 3.91,
+          "end": 4.49,
+          "key": "kalganov",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Are",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "you",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "joking,",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "text": "_panie_?\"",
+          "start": 1.03,
+          "end": 1.49
+        },
+        {
+          "text": "said",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "text": "the",
+          "start": 2.07,
+          "end": 2.19
+        },
+        {
+          "text": "short",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "text": "man,",
+          "start": 2.39,
+          "end": 2.75
+        },
+        {
+          "text": "looking",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "text": "severely",
+          "start": 3.21,
+          "end": 3.69
+        },
+        {
+          "text": "at",
+          "start": 3.69,
+          "end": 3.91
+        },
+        {
+          "text": "Kalganov.",
+          "start": 3.91,
+          "end": 4.49
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.3142713624984026
+    },
+    {
+      "asr_seconds": 0.27376315277069807,
+      "alignment_seconds": 0.000639086589217186,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Are, Kalganov"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Are you joking, Paney? Said the short man, looking severely at Kalganov.",
+          "start": 0.05,
+          "end": 4.49,
+          "words": [
+            {
+              "text": " Are",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.150634765625
+            },
+            {
+              "text": " you",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " joking,",
+              "start": 0.65,
+              "end": 1.03,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Paney?",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.4046630859375
+            },
+            {
+              "text": " Said",
+              "start": 1.93,
+              "end": 2.07,
+              "probability": 0.47216796875
+            },
+            {
+              "text": " the",
+              "start": 2.07,
+              "end": 2.21,
+              "probability": 0.994140625
+            },
+            {
+              "text": " short",
+              "start": 2.21,
+              "end": 2.39,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " man,",
+              "start": 2.39,
+              "end": 2.75,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " looking",
+              "start": 3.03,
+              "end": 3.21,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " severely",
+              "start": 3.21,
+              "end": 3.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 3.69,
+              "end": 3.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Kalganov.",
+              "start": 3.91,
+              "end": 4.49,
+              "probability": 0.8076171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Are",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "joking,",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "raw": "Paney?",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "Said",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "raw": "the",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "raw": "short",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "raw": "man,",
+          "start": 2.39,
+          "end": 2.75
+        },
+        {
+          "raw": "looking",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "raw": "severely",
+          "start": 3.21,
+          "end": 3.69
+        },
+        {
+          "raw": "at",
+          "start": 3.69,
+          "end": 3.91
+        },
+        {
+          "raw": "Kalganov.",
+          "start": 3.91,
+          "end": 4.49
+        }
+      ],
+      "expected_tokens": [
+        "\"Are",
+        "you",
+        "joking,",
+        "_panie_?\"",
+        "said",
+        "the",
+        "short",
+        "man,",
+        "looking",
+        "severely",
+        "at",
+        "Kalganov."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          12,
+          4,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Are",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "are",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "joking,",
+          "start": 0.65,
+          "end": 1.03,
+          "key": "joking",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Paney?",
+          "start": 1.23,
+          "end": 1.43,
+          "key": "paney",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Said",
+          "start": 1.93,
+          "end": 2.07,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.07,
+          "end": 2.21,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "short",
+          "start": 2.21,
+          "end": 2.39,
+          "key": "short",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 2.39,
+          "end": 2.75,
+          "key": "man",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 3.03,
+          "end": 3.21,
+          "key": "looking",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "severely",
+          "start": 3.21,
+          "end": 3.69,
+          "key": "severely",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.69,
+          "end": 3.91,
+          "key": "at",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Kalganov.",
+          "start": 3.91,
+          "end": 4.49,
+          "key": "kalganov",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Are",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "you",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "joking,",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "text": "_panie_?\"",
+          "start": 1.03,
+          "end": 1.48
+        },
+        {
+          "text": "said",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "text": "the",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "text": "short",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "text": "man,",
+          "start": 2.39,
+          "end": 2.75
+        },
+        {
+          "text": "looking",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "text": "severely",
+          "start": 3.21,
+          "end": 3.69
+        },
+        {
+          "text": "at",
+          "start": 3.69,
+          "end": 3.91
+        },
+        {
+          "text": "Kalganov.",
+          "start": 3.91,
+          "end": 4.49
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.27462784480303526
+    },
+    {
+      "asr_seconds": 0.28455654811114073,
+      "alignment_seconds": 0.0006422000005841255,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Are you joking, Paney?\" said the short man, looking severely at Kalganov.",
+          "start": 0.05,
+          "end": 4.47,
+          "words": [
+            {
+              "text": " Are",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.150634765625
+            },
+            {
+              "text": " you",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " joking,",
+              "start": 0.65,
+              "end": 1.03,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Paney?\"",
+              "start": 1.25,
+              "end": 1.87,
+              "probability": 0.3926595052083333
+            },
+            {
+              "text": " said",
+              "start": 1.87,
+              "end": 2.07,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " the",
+              "start": 2.07,
+              "end": 2.21,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " short",
+              "start": 2.21,
+              "end": 2.39,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " man,",
+              "start": 2.39,
+              "end": 2.75,
+              "probability": 0.994140625
+            },
+            {
+              "text": " looking",
+              "start": 3.03,
+              "end": 3.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " severely",
+              "start": 3.21,
+              "end": 3.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 3.67,
+              "end": 3.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Kalganov.",
+              "start": 3.91,
+              "end": 4.47,
+              "probability": 0.7986653645833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Are",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "joking,",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "raw": "Paney?\"",
+          "start": 1.25,
+          "end": 1.87
+        },
+        {
+          "raw": "said",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "raw": "the",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "raw": "short",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "raw": "man,",
+          "start": 2.39,
+          "end": 2.75
+        },
+        {
+          "raw": "looking",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "raw": "severely",
+          "start": 3.21,
+          "end": 3.67
+        },
+        {
+          "raw": "at",
+          "start": 3.67,
+          "end": 3.91
+        },
+        {
+          "raw": "Kalganov.",
+          "start": 3.91,
+          "end": 4.47
+        }
+      ],
+      "expected_tokens": [
+        "\"Are",
+        "you",
+        "joking,",
+        "_panie_?\"",
+        "said",
+        "the",
+        "short",
+        "man,",
+        "looking",
+        "severely",
+        "at",
+        "Kalganov."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          12,
+          4,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Are",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "are",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "joking,",
+          "start": 0.65,
+          "end": 1.03,
+          "key": "joking",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Paney?\"",
+          "start": 1.25,
+          "end": 1.87,
+          "key": "paney",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.87,
+          "end": 2.07,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.07,
+          "end": 2.21,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "short",
+          "start": 2.21,
+          "end": 2.39,
+          "key": "short",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 2.39,
+          "end": 2.75,
+          "key": "man",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 3.03,
+          "end": 3.21,
+          "key": "looking",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "severely",
+          "start": 3.21,
+          "end": 3.67,
+          "key": "severely",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.67,
+          "end": 3.91,
+          "key": "at",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Kalganov.",
+          "start": 3.91,
+          "end": 4.47,
+          "key": "kalganov",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Are",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "you",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "joking,",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "text": "_panie_?\"",
+          "start": 1.03,
+          "end": 1.45
+        },
+        {
+          "text": "said",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "text": "the",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "text": "short",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "text": "man,",
+          "start": 2.39,
+          "end": 2.75
+        },
+        {
+          "text": "looking",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "text": "severely",
+          "start": 3.21,
+          "end": 3.67
+        },
+        {
+          "text": "at",
+          "start": 3.67,
+          "end": 3.91
+        },
+        {
+          "text": "Kalganov.",
+          "start": 3.91,
+          "end": 4.47
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.2854281896725297
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "aac23c8dd810d0024c4f295ab40bdb95f284acb09e099d34a2c7d0cb826627f6",
+  "selected_reasons": []
+}

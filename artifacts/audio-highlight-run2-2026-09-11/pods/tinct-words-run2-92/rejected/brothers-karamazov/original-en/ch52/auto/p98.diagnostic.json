@@ -1,0 +1,584 @@
+{
+  "complete": true,
+  "signature": "60614722c96551a3a33722a094ffabdc2a9aa7853af63074a715f4bbd2f4501c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2883491534739733,
+      "alignment_seconds": 0.0005966294556856155,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Come, that's better!\" cried the other Pole, and they both emptied their glasses at once.",
+        "hotwords": "Come, Pole"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Come, that's better!\" cried the other Pole, and they both emptied their glasses at once.",
+          "start": 0.08,
+          "end": 4.84,
+          "words": [
+            {
+              "text": " Come,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.05743408203125
+            },
+            {
+              "text": " that's",
+              "start": 0.84,
+              "end": 1.1,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " better",
+              "start": 1.1,
+              "end": 1.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": "!\"",
+              "start": 1.4,
+              "end": 2.04,
+              "probability": 0.25341796875
+            },
+            {
+              "text": " cried",
+              "start": 2.04,
+              "end": 2.08,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " the",
+              "start": 2.08,
+              "end": 2.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " other",
+              "start": 2.24,
+              "end": 2.38,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Pole,",
+              "start": 2.38,
+              "end": 2.64,
+              "probability": 0.7490234375
+            },
+            {
+              "text": " and",
+              "start": 2.92,
+              "end": 2.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " they",
+              "start": 2.98,
+              "end": 3.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " both",
+              "start": 3.12,
+              "end": 3.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " emptied",
+              "start": 3.32,
+              "end": 3.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " their",
+              "start": 3.72,
+              "end": 3.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " glasses",
+              "start": 3.9,
+              "end": 4.26,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " at",
+              "start": 4.26,
+              "end": 4.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " once.",
+              "start": 4.5,
+              "end": 4.84,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Come,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "that's",
+          "start": 0.84,
+          "end": 1.1
+        },
+        {
+          "raw": "better",
+          "start": 1.1,
+          "end": 1.4
+        },
+        {
+          "raw": "!\"",
+          "start": 1.4,
+          "end": 2.04
+        },
+        {
+          "raw": "cried",
+          "start": 2.04,
+          "end": 2.08
+        },
+        {
+          "raw": "the",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "raw": "other",
+          "start": 2.24,
+          "end": 2.38
+        },
+        {
+          "raw": "Pole,",
+          "start": 2.38,
+          "end": 2.64
+        },
+        {
+          "raw": "and",
+          "start": 2.92,
+          "end": 2.98
+        },
+        {
+          "raw": "they",
+          "start": 2.98,
+          "end": 3.12
+        },
+        {
+          "raw": "both",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "raw": "emptied",
+          "start": 3.32,
+          "end": 3.72
+        },
+        {
+          "raw": "their",
+          "start": 3.72,
+          "end": 3.9
+        },
+        {
+          "raw": "glasses",
+          "start": 3.9,
+          "end": 4.26
+        },
+        {
+          "raw": "at",
+          "start": 4.26,
+          "end": 4.5
+        },
+        {
+          "raw": "once.",
+          "start": 4.5,
+          "end": 4.84
+        }
+      ],
+      "expected_tokens": [
+        "\"Come,",
+        "that's",
+        "better!\"",
+        "cried",
+        "the",
+        "other",
+        "Pole,",
+        "and",
+        "they",
+        "both",
+        "emptied",
+        "their",
+        "glasses",
+        "at",
+        "once."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ],
+        [
+          "equal",
+          3,
+          15,
+          4,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Come,",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "come",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 0.84,
+          "end": 1.1,
+          "key": "thats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 1.1,
+          "end": 1.4,
+          "key": "better",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.4,
+          "end": 2.04,
+          "key": "",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 2.04,
+          "end": 2.08,
+          "key": "cried",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.08,
+          "end": 2.24,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 2.24,
+          "end": 2.38,
+          "key": "other",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Pole,",
+          "start": 2.38,
+          "end": 2.64,
+          "key": "pole",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.92,
+          "end": 2.98,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 2.98,
+          "end": 3.12,
+          "key": "they",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 3.12,
+          "end": 3.32,
+          "key": "both",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "emptied",
+          "start": 3.32,
+          "end": 3.72,
+          "key": "emptied",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 3.72,
+          "end": 3.9,
+          "key": "their",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "glasses",
+          "start": 3.9,
+          "end": 4.26,
+          "key": "glasses",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.26,
+          "end": 4.5,
+          "key": "at",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "once.",
+          "start": 4.5,
+          "end": 4.84,
+          "key": "once",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Come,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "that's",
+          "start": 0.84,
+          "end": 1.1
+        },
+        {
+          "text": "better!\"",
+          "start": 1.1,
+          "end": 1.4
+        },
+        {
+          "text": "cried",
+          "start": 2.04,
+          "end": 2.08
+        },
+        {
+          "text": "the",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "text": "other",
+          "start": 2.24,
+          "end": 2.38
+        },
+        {
+          "text": "Pole,",
+          "start": 2.38,
+          "end": 2.64
+        },
+        {
+          "text": "and",
+          "start": 2.92,
+          "end": 2.98
+        },
+        {
+          "text": "they",
+          "start": 2.98,
+          "end": 3.12
+        },
+        {
+          "text": "both",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "text": "emptied",
+          "start": 3.32,
+          "end": 3.72
+        },
+        {
+          "text": "their",
+          "start": 3.72,
+          "end": 3.9
+        },
+        {
+          "text": "glasses",
+          "start": 3.9,
+          "end": 4.26
+        },
+        {
+          "text": "at",
+          "start": 4.26,
+          "end": 4.5
+        },
+        {
+          "text": "once.",
+          "start": 4.5,
+          "end": 4.84
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2891917685046792
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "568c727c5d9ea7f7e8e15ff36a077cad10a8863292ff7b323a45c01912313dc9",
+  "selected_reasons": []
+}

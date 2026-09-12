@@ -1,0 +1,1076 @@
+{
+  "complete": true,
+  "signature": "0b0e1bda2e1c9c0c008c7dd6545126d5c201659a85bc88c5312616bc323a19a0",
+  "attempts": [
+    {
+      "asr_seconds": 0.30686153937131166,
+      "alignment_seconds": 0.0007002661004662514,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"It's not that they thrashed me exactly, but what I mean is—\" put in Maximov.",
+        "hotwords": "It's, I, Maximov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It's not that they thrashed me exactly, but what I mean is—\"put in Maximov.\"",
+          "start": 0.05,
+          "end": 5.41,
+          "words": [
+            {
+              "text": " It's",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.941162109375
+            },
+            {
+              "text": " not",
+              "start": 0.61,
+              "end": 0.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 0.77,
+              "end": 0.93,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " they",
+              "start": 0.93,
+              "end": 1.11,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " thrashed",
+              "start": 1.11,
+              "end": 1.49,
+              "probability": 0.968994140625
+            },
+            {
+              "text": " me",
+              "start": 1.49,
+              "end": 1.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " exactly,",
+              "start": 1.67,
+              "end": 2.05,
+              "probability": 0.984375
+            },
+            {
+              "text": " but",
+              "start": 2.53,
+              "end": 2.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " what",
+              "start": 2.61,
+              "end": 2.73,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 2.73,
+              "end": 2.87,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " mean",
+              "start": 2.87,
+              "end": 3.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is—\"put",
+              "start": 3.07,
+              "end": 4.05,
+              "probability": 0.5355006456375122
+            },
+            {
+              "text": " in",
+              "start": 4.05,
+              "end": 4.21,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Maximov.\"",
+              "start": 4.21,
+              "end": 5.41,
+              "probability": 0.85986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It's",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "not",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "raw": "that",
+          "start": 0.77,
+          "end": 0.93
+        },
+        {
+          "raw": "they",
+          "start": 0.93,
+          "end": 1.11
+        },
+        {
+          "raw": "thrashed",
+          "start": 1.11,
+          "end": 1.49
+        },
+        {
+          "raw": "me",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "raw": "exactly,",
+          "start": 1.67,
+          "end": 2.05
+        },
+        {
+          "raw": "but",
+          "start": 2.53,
+          "end": 2.61
+        },
+        {
+          "raw": "what",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "raw": "I",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "raw": "mean",
+          "start": 2.87,
+          "end": 3.07
+        },
+        {
+          "raw": "is—\"put",
+          "start": 3.07,
+          "end": 4.05
+        },
+        {
+          "raw": "in",
+          "start": 4.05,
+          "end": 4.21
+        },
+        {
+          "raw": "Maximov.\"",
+          "start": 4.21,
+          "end": 5.41
+        }
+      ],
+      "expected_tokens": [
+        "\"It's",
+        "not",
+        "that",
+        "they",
+        "thrashed",
+        "me",
+        "exactly,",
+        "but",
+        "what",
+        "I",
+        "mean",
+        "is—\"",
+        "put",
+        "in",
+        "Maximov."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          13,
+          11,
+          12
+        ],
+        [
+          "equal",
+          13,
+          15,
+          12,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          13,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It's",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "its",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.61,
+          "end": 0.77,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.77,
+          "end": 0.93,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.93,
+          "end": 1.11,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thrashed",
+          "start": 1.11,
+          "end": 1.49,
+          "key": "thrashed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.49,
+          "end": 1.67,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "exactly,",
+          "start": 1.67,
+          "end": 2.05,
+          "key": "exactly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.53,
+          "end": 2.61,
+          "key": "but",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.61,
+          "end": 2.73,
+          "key": "what",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.73,
+          "end": 2.87,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 2.87,
+          "end": 3.07,
+          "key": "mean",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is—\"put",
+          "start": 3.07,
+          "end": 4.05,
+          "key": "isput",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.05,
+          "end": 4.21,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Maximov.\"",
+          "start": 4.21,
+          "end": 5.41,
+          "key": "maximov",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"It's",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "not",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "text": "that",
+          "start": 0.77,
+          "end": 0.93
+        },
+        {
+          "text": "they",
+          "start": 0.93,
+          "end": 1.11
+        },
+        {
+          "text": "thrashed",
+          "start": 1.11,
+          "end": 1.49
+        },
+        {
+          "text": "me",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "text": "exactly,",
+          "start": 1.67,
+          "end": 2.05
+        },
+        {
+          "text": "but",
+          "start": 2.53,
+          "end": 2.61
+        },
+        {
+          "text": "what",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "text": "I",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "text": "mean",
+          "start": 2.87,
+          "end": 3.07
+        },
+        {
+          "text": "is—\"",
+          "start": 3.07,
+          "end": 3.56
+        },
+        {
+          "text": "put",
+          "start": 3.56,
+          "end": 3.805
+        },
+        {
+          "text": "in",
+          "start": 4.05,
+          "end": 4.21
+        },
+        {
+          "text": "Maximov.",
+          "start": 4.21,
+          "end": 5.41
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.30779455602169037
+    },
+    {
+      "asr_seconds": 0.3181652380153537,
+      "alignment_seconds": 0.000656559132039547,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "It's, I, Maximov"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " It's not that they thrashed me exactly, but what I mean is, put in Maximov",
+          "start": 0.05,
+          "end": 4.85,
+          "words": [
+            {
+              "text": " It's",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.941162109375
+            },
+            {
+              "text": " not",
+              "start": 0.61,
+              "end": 0.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 0.77,
+              "end": 0.93,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " they",
+              "start": 0.93,
+              "end": 1.11,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " thrashed",
+              "start": 1.11,
+              "end": 1.49,
+              "probability": 0.968994140625
+            },
+            {
+              "text": " me",
+              "start": 1.49,
+              "end": 1.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " exactly,",
+              "start": 1.67,
+              "end": 2.05,
+              "probability": 0.984375
+            },
+            {
+              "text": " but",
+              "start": 2.53,
+              "end": 2.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " what",
+              "start": 2.61,
+              "end": 2.73,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 2.73,
+              "end": 2.87,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " mean",
+              "start": 2.87,
+              "end": 3.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is,",
+              "start": 3.07,
+              "end": 3.43,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " put",
+              "start": 3.93,
+              "end": 4.05,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " in",
+              "start": 4.05,
+              "end": 4.21,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Maximov",
+              "start": 4.21,
+              "end": 4.85,
+              "probability": 0.944580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It's",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "not",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "raw": "that",
+          "start": 0.77,
+          "end": 0.93
+        },
+        {
+          "raw": "they",
+          "start": 0.93,
+          "end": 1.11
+        },
+        {
+          "raw": "thrashed",
+          "start": 1.11,
+          "end": 1.49
+        },
+        {
+          "raw": "me",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "raw": "exactly,",
+          "start": 1.67,
+          "end": 2.05
+        },
+        {
+          "raw": "but",
+          "start": 2.53,
+          "end": 2.61
+        },
+        {
+          "raw": "what",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "raw": "I",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "raw": "mean",
+          "start": 2.87,
+          "end": 3.07
+        },
+        {
+          "raw": "is,",
+          "start": 3.07,
+          "end": 3.43
+        },
+        {
+          "raw": "put",
+          "start": 3.93,
+          "end": 4.05
+        },
+        {
+          "raw": "in",
+          "start": 4.05,
+          "end": 4.21
+        },
+        {
+          "raw": "Maximov",
+          "start": 4.21,
+          "end": 4.85
+        }
+      ],
+      "expected_tokens": [
+        "\"It's",
+        "not",
+        "that",
+        "they",
+        "thrashed",
+        "me",
+        "exactly,",
+        "but",
+        "what",
+        "I",
+        "mean",
+        "is—\"",
+        "put",
+        "in",
+        "Maximov."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It's",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "its",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.61,
+          "end": 0.77,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.77,
+          "end": 0.93,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.93,
+          "end": 1.11,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thrashed",
+          "start": 1.11,
+          "end": 1.49,
+          "key": "thrashed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.49,
+          "end": 1.67,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "exactly,",
+          "start": 1.67,
+          "end": 2.05,
+          "key": "exactly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.53,
+          "end": 2.61,
+          "key": "but",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.61,
+          "end": 2.73,
+          "key": "what",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.73,
+          "end": 2.87,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 2.87,
+          "end": 3.07,
+          "key": "mean",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is,",
+          "start": 3.07,
+          "end": 3.43,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 3.93,
+          "end": 4.05,
+          "key": "put",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.05,
+          "end": 4.21,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Maximov",
+          "start": 4.21,
+          "end": 4.85,
+          "key": "maximov",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"It's",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "not",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "text": "that",
+          "start": 0.77,
+          "end": 0.93
+        },
+        {
+          "text": "they",
+          "start": 0.93,
+          "end": 1.11
+        },
+        {
+          "text": "thrashed",
+          "start": 1.11,
+          "end": 1.49
+        },
+        {
+          "text": "me",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "text": "exactly,",
+          "start": 1.67,
+          "end": 2.05
+        },
+        {
+          "text": "but",
+          "start": 2.53,
+          "end": 2.61
+        },
+        {
+          "text": "what",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "text": "I",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "text": "mean",
+          "start": 2.87,
+          "end": 3.07
+        },
+        {
+          "text": "is—\"",
+          "start": 3.07,
+          "end": 3.43
+        },
+        {
+          "text": "put",
+          "start": 3.93,
+          "end": 4.05
+        },
+        {
+          "text": "in",
+          "start": 4.05,
+          "end": 4.21
+        },
+        {
+          "text": "Maximov.",
+          "start": 4.21,
+          "end": 4.85
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31909755896776915
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "014ff66182f7b7c2ec8ec98e74d76ebeca184bb6c80a15da70bab944296e7ec8",
+  "selected_reasons": []
+}

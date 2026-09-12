@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "0640ea88848d86f138bc1c392ffe5b0de7170dbaf8786631f89b820a0e1c7ad1",
+  "attempts": [
+    {
+      "asr_seconds": 0.15079266671091318,
+      "alignment_seconds": 0.0004082703962922096,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But what for? What for?",
+          "start": 0.05,
+          "end": 1.53,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.794921875
+            },
+            {
+              "text": " what",
+              "start": 0.51,
+              "end": 0.69,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " for?",
+              "start": 0.69,
+              "end": 0.93,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " What",
+              "start": 1.19,
+              "end": 1.27,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " for?",
+              "start": 1.27,
+              "end": 1.53,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "what",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "raw": "for?",
+          "start": 0.69,
+          "end": 0.93
+        },
+        {
+          "raw": "What",
+          "start": 1.19,
+          "end": 1.27
+        },
+        {
+          "raw": "for?",
+          "start": 1.27,
+          "end": 1.53
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "what",
+        "for?",
+        "What",
+        "for?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.51,
+          "end": 0.69,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "for?",
+          "start": 0.69,
+          "end": 0.93,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.19,
+          "end": 1.27,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for?",
+          "start": 1.27,
+          "end": 1.53,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "what",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "text": "for?",
+          "start": 0.69,
+          "end": 0.93
+        },
+        {
+          "text": "What",
+          "start": 1.19,
+          "end": 1.27
+        },
+        {
+          "text": "for?\"",
+          "start": 1.27,
+          "end": 1.53
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1513310531154275
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b29c69286789f31f1386b38c1747f28e2ca1bb16ee81f53610a1decaf657f7b4",
+  "selected_reasons": []
+}

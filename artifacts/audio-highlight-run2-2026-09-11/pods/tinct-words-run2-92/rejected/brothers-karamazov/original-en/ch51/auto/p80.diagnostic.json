@@ -1,0 +1,573 @@
+{
+  "complete": true,
+  "signature": "b8ce3e2eb8a3eea58a3e53415f8a9c9df5952bfb0ffb7f58ad0abeb6c92e3407",
+  "attempts": [
+    {
+      "asr_seconds": 0.21804631687700748,
+      "alignment_seconds": 0.0006587663665413857,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And he pulled out his roll of notes, and held them up before the innkeeper's nose."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And he pulled out his roll of notes, and held them up before the innkeeper's nose.",
+          "start": 0.05,
+          "end": 4.35,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.5380859375
+            },
+            {
+              "text": " he",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.990234375
+            },
+            {
+              "text": " pulled",
+              "start": 0.65,
+              "end": 0.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " out",
+              "start": 0.87,
+              "end": 1.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 1.05,
+              "end": 1.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " roll",
+              "start": 1.21,
+              "end": 1.47,
+              "probability": 0.970703125
+            },
+            {
+              "text": " of",
+              "start": 1.47,
+              "end": 1.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " notes,",
+              "start": 1.67,
+              "end": 2.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 2.39,
+              "end": 2.57,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " held",
+              "start": 2.57,
+              "end": 2.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them",
+              "start": 2.75,
+              "end": 2.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " up",
+              "start": 2.93,
+              "end": 3.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " before",
+              "start": 3.11,
+              "end": 3.39,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 3.39,
+              "end": 3.53,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " innkeeper's",
+              "start": 3.53,
+              "end": 4.11,
+              "probability": 0.9710286458333334
+            },
+            {
+              "text": " nose.",
+              "start": 4.11,
+              "end": 4.35,
+              "probability": 0.95849609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "he",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "pulled",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "raw": "out",
+          "start": 0.87,
+          "end": 1.05
+        },
+        {
+          "raw": "his",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "raw": "roll",
+          "start": 1.21,
+          "end": 1.47
+        },
+        {
+          "raw": "of",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "raw": "notes,",
+          "start": 1.67,
+          "end": 2.01
+        },
+        {
+          "raw": "and",
+          "start": 2.39,
+          "end": 2.57
+        },
+        {
+          "raw": "held",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "raw": "them",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "raw": "up",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "raw": "before",
+          "start": 3.11,
+          "end": 3.39
+        },
+        {
+          "raw": "the",
+          "start": 3.39,
+          "end": 3.53
+        },
+        {
+          "raw": "innkeeper's",
+          "start": 3.53,
+          "end": 4.11
+        },
+        {
+          "raw": "nose.",
+          "start": 4.11,
+          "end": 4.35
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "he",
+        "pulled",
+        "out",
+        "his",
+        "roll",
+        "of",
+        "notes,",
+        "and",
+        "held",
+        "them",
+        "up",
+        "before",
+        "the",
+        "innkeeper's",
+        "nose."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pulled",
+          "start": 0.65,
+          "end": 0.87,
+          "key": "pulled",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 0.87,
+          "end": 1.05,
+          "key": "out",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.05,
+          "end": 1.21,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "roll",
+          "start": 1.21,
+          "end": 1.47,
+          "key": "roll",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.47,
+          "end": 1.67,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "notes,",
+          "start": 1.67,
+          "end": 2.01,
+          "key": "notes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.39,
+          "end": 2.57,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "held",
+          "start": 2.57,
+          "end": 2.75,
+          "key": "held",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 2.75,
+          "end": 2.93,
+          "key": "them",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.93,
+          "end": 3.11,
+          "key": "up",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 3.11,
+          "end": 3.39,
+          "key": "before",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.39,
+          "end": 3.53,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "innkeeper's",
+          "start": 3.53,
+          "end": 4.11,
+          "key": "innkeepers",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "nose.",
+          "start": 4.11,
+          "end": 4.35,
+          "key": "nose",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "he",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "pulled",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "text": "out",
+          "start": 0.87,
+          "end": 1.05
+        },
+        {
+          "text": "his",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "text": "roll",
+          "start": 1.21,
+          "end": 1.47
+        },
+        {
+          "text": "of",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "text": "notes,",
+          "start": 1.67,
+          "end": 2.01
+        },
+        {
+          "text": "and",
+          "start": 2.39,
+          "end": 2.57
+        },
+        {
+          "text": "held",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "text": "them",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "text": "up",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "text": "before",
+          "start": 3.11,
+          "end": 3.39
+        },
+        {
+          "text": "the",
+          "start": 3.39,
+          "end": 3.53
+        },
+        {
+          "text": "innkeeper's",
+          "start": 3.53,
+          "end": 4.11
+        },
+        {
+          "text": "nose.",
+          "start": 4.11,
+          "end": 4.35
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2189792152494192
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ca2955ee76082f3451dd1d365ae192c368955d84f9a864eff95b6aa9188f411b",
+  "selected_reasons": []
+}

@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "f77467d05c1aa3059c04f48a7df4b7282eeb07f2ad89d0ee77d39ce1a2aaaa4d",
+  "attempts": [
+    {
+      "asr_seconds": 0.25478696171194315,
+      "alignment_seconds": 0.0005832845345139503,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Light, what do you mean by light? asked Grashenka.",
+          "start": 0.05,
+          "end": 3.17,
+          "words": [
+            {
+              "text": " Light,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.06036376953125
+            },
+            {
+              "text": " what",
+              "start": 0.95,
+              "end": 1.03,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " do",
+              "start": 1.03,
+              "end": 1.11,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you",
+              "start": 1.11,
+              "end": 1.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mean",
+              "start": 1.21,
+              "end": 1.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " by",
+              "start": 1.35,
+              "end": 1.59,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " light?",
+              "start": 1.59,
+              "end": 1.97,
+              "probability": 0.947265625
+            },
+            {
+              "text": " asked",
+              "start": 2.59,
+              "end": 2.59,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " Grashenka.",
+              "start": 2.59,
+              "end": 3.17,
+              "probability": 0.6219482421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Light,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "what",
+          "start": 0.95,
+          "end": 1.03
+        },
+        {
+          "raw": "do",
+          "start": 1.03,
+          "end": 1.11
+        },
+        {
+          "raw": "you",
+          "start": 1.11,
+          "end": 1.21
+        },
+        {
+          "raw": "mean",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "raw": "by",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "raw": "light?",
+          "start": 1.59,
+          "end": 1.97
+        },
+        {
+          "raw": "asked",
+          "start": 2.59,
+          "end": 2.59
+        },
+        {
+          "raw": "Grashenka.",
+          "start": 2.59,
+          "end": 3.17
+        }
+      ],
+      "expected_tokens": [
+        "\"Lite?",
+        "What",
+        "do",
+        "you",
+        "mean",
+        "by",
+        "'lite'?\"",
+        "asked",
+        "Grushenka."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Light,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "light",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.95,
+          "end": 1.03,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.03,
+          "end": 1.11,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.11,
+          "end": 1.21,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 1.21,
+          "end": 1.35,
+          "key": "mean",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.35,
+          "end": 1.59,
+          "key": "by",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "light?",
+          "start": 1.59,
+          "end": 1.97,
+          "key": "light",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 2.59,
+          "end": 2.59,
+          "key": "asked",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Grashenka.",
+          "start": 2.59,
+          "end": 3.17,
+          "key": "grashenka",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Lite?",
+          "start": 0.0,
+          "end": 0.475
+        },
+        {
+          "text": "What",
+          "start": 0.95,
+          "end": 1.03
+        },
+        {
+          "text": "do",
+          "start": 1.03,
+          "end": 1.11
+        },
+        {
+          "text": "you",
+          "start": 1.11,
+          "end": 1.21
+        },
+        {
+          "text": "mean",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "text": "by",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "text": "'lite'?\"",
+          "start": 1.59,
+          "end": 2.09
+        },
+        {
+          "text": "asked",
+          "start": 2.59,
+          "end": 2.59
+        },
+        {
+          "text": "Grushenka.",
+          "start": 2.59,
+          "end": 2.88
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 6
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2555567007511854
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f85db570c363fb5854864a710d9d670e80f7cb11aff3f074ea860f2be3c1c55d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

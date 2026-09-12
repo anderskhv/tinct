@@ -1,0 +1,473 @@
+{
+  "complete": true,
+  "signature": "95da4df45cafe8582083c61447120420e1b6030c4bc92b0dd10ef212b5ccea6c",
+  "attempts": [
+    {
+      "asr_seconds": 0.3244065372273326,
+      "alignment_seconds": 0.0005669258534908295,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Let's play Pharaoh again, as we did just now.",
+          "start": 0.02,
+          "end": 2.76,
+          "words": [
+            {
+              "text": " Let's",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.788818359375
+            },
+            {
+              "text": " play",
+              "start": 0.68,
+              "end": 0.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Pharaoh",
+              "start": 0.86,
+              "end": 1.16,
+              "probability": 0.55322265625
+            },
+            {
+              "text": " again,",
+              "start": 1.16,
+              "end": 1.52,
+              "probability": 0.994140625
+            },
+            {
+              "text": " as",
+              "start": 1.86,
+              "end": 1.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " we",
+              "start": 1.92,
+              "end": 2.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " did",
+              "start": 2.08,
+              "end": 2.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " just",
+              "start": 2.2,
+              "end": 2.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " now.",
+              "start": 2.38,
+              "end": 2.76,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Maximov tittered suddenly.",
+          "start": 3.4,
+          "end": 4.54,
+          "words": [
+            {
+              "text": " Maximov",
+              "start": 3.4,
+              "end": 3.84,
+              "probability": 0.852783203125
+            },
+            {
+              "text": " tittered",
+              "start": 3.84,
+              "end": 4.14,
+              "probability": 0.931396484375
+            },
+            {
+              "text": " suddenly.",
+              "start": 4.14,
+              "end": 4.54,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Let's",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "play",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "raw": "Pharaoh",
+          "start": 0.86,
+          "end": 1.16
+        },
+        {
+          "raw": "again,",
+          "start": 1.16,
+          "end": 1.52
+        },
+        {
+          "raw": "as",
+          "start": 1.86,
+          "end": 1.92
+        },
+        {
+          "raw": "we",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "raw": "did",
+          "start": 2.08,
+          "end": 2.2
+        },
+        {
+          "raw": "just",
+          "start": 2.2,
+          "end": 2.38
+        },
+        {
+          "raw": "now.",
+          "start": 2.38,
+          "end": 2.76
+        },
+        {
+          "raw": "Maximov",
+          "start": 3.4,
+          "end": 3.84
+        },
+        {
+          "raw": "tittered",
+          "start": 3.84,
+          "end": 4.14
+        },
+        {
+          "raw": "suddenly.",
+          "start": 4.14,
+          "end": 4.54
+        }
+      ],
+      "expected_tokens": [
+        "\"Let's",
+        "play",
+        "faro",
+        "again,",
+        "as",
+        "we",
+        "did",
+        "just",
+        "now,\"",
+        "Maximov",
+        "tittered",
+        "suddenly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          12,
+          3,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Let's",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "lets",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "play",
+          "start": 0.68,
+          "end": 0.86,
+          "key": "play",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Pharaoh",
+          "start": 0.86,
+          "end": 1.16,
+          "key": "pharaoh",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "again,",
+          "start": 1.16,
+          "end": 1.52,
+          "key": "again",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.86,
+          "end": 1.92,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.92,
+          "end": 2.08,
+          "key": "we",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 2.08,
+          "end": 2.2,
+          "key": "did",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 2.2,
+          "end": 2.38,
+          "key": "just",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 2.38,
+          "end": 2.76,
+          "key": "now",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Maximov",
+          "start": 3.4,
+          "end": 3.84,
+          "key": "maximov",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "tittered",
+          "start": 3.84,
+          "end": 4.14,
+          "key": "tittered",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "suddenly.",
+          "start": 4.14,
+          "end": 4.54,
+          "key": "suddenly",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Let's",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "play",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "text": "faro",
+          "start": 0.86,
+          "end": 1.01
+        },
+        {
+          "text": "again,",
+          "start": 1.16,
+          "end": 1.52
+        },
+        {
+          "text": "as",
+          "start": 1.86,
+          "end": 1.92
+        },
+        {
+          "text": "we",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "text": "did",
+          "start": 2.08,
+          "end": 2.2
+        },
+        {
+          "text": "just",
+          "start": 2.2,
+          "end": 2.38
+        },
+        {
+          "text": "now,\"",
+          "start": 2.38,
+          "end": 2.76
+        },
+        {
+          "text": "Maximov",
+          "start": 3.4,
+          "end": 3.84
+        },
+        {
+          "text": "tittered",
+          "start": 3.84,
+          "end": 4.14
+        },
+        {
+          "text": "suddenly.",
+          "start": 4.14,
+          "end": 4.54
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.3251739991828799
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "10a51e1ed894c62a84f5c7f1b0e61031c975f070291a8ed3928bf0b11d5a0c66",
+  "selected_reasons": []
+}

@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "1b733df859afa871933971dbfcae04e718c2e812f16f22b512b1df910f3e5bab",
+  "attempts": [
+    {
+      "asr_seconds": 0.28687865659594536,
+      "alignment_seconds": 0.00036002323031425476,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I see: he heard I had money, and came here to marry me!\"",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I see. He heard I had money, and came here to marry me.",
+          "start": 0.08,
+          "end": 3.32,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.431884765625
+            },
+            {
+              "text": " see.",
+              "start": 0.52,
+              "end": 0.8,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " He",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.990234375
+            },
+            {
+              "text": " heard",
+              "start": 1.36,
+              "end": 1.54,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I",
+              "start": 1.54,
+              "end": 1.7,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " had",
+              "start": 1.7,
+              "end": 1.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " money,",
+              "start": 1.8,
+              "end": 2.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 2.24,
+              "end": 2.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " came",
+              "start": 2.36,
+              "end": 2.52,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " here",
+              "start": 2.52,
+              "end": 2.72,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 2.72,
+              "end": 2.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " marry",
+              "start": 2.86,
+              "end": 3.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me.",
+              "start": 3.06,
+              "end": 3.32,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "see.",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "raw": "He",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "heard",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "raw": "I",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "raw": "had",
+          "start": 1.7,
+          "end": 1.8
+        },
+        {
+          "raw": "money,",
+          "start": 1.8,
+          "end": 2.04
+        },
+        {
+          "raw": "and",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "raw": "came",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "raw": "here",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "raw": "to",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "raw": "marry",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "raw": "me.",
+          "start": 3.06,
+          "end": 3.32
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "see:",
+        "he",
+        "heard",
+        "I",
+        "had",
+        "money,",
+        "and",
+        "came",
+        "here",
+        "to",
+        "marry",
+        "me!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "see.",
+          "start": 0.52,
+          "end": 0.8,
+          "key": "see",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 1.36,
+          "end": 1.54,
+          "key": "heard",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.54,
+          "end": 1.7,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.7,
+          "end": 1.8,
+          "key": "had",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "money,",
+          "start": 1.8,
+          "end": 2.04,
+          "key": "money",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.24,
+          "end": 2.36,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 2.36,
+          "end": 2.52,
+          "key": "came",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 2.52,
+          "end": 2.72,
+          "key": "here",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.72,
+          "end": 2.86,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "marry",
+          "start": 2.86,
+          "end": 3.06,
+          "key": "marry",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 3.06,
+          "end": 3.32,
+          "key": "me",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "see:",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "text": "he",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "heard",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "text": "I",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "text": "had",
+          "start": 1.7,
+          "end": 1.8
+        },
+        {
+          "text": "money,",
+          "start": 1.8,
+          "end": 2.04
+        },
+        {
+          "text": "and",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "text": "came",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "text": "here",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "text": "to",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "text": "marry",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "text": "me!\"",
+          "start": 3.06,
+          "end": 3.32
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28739914670586586
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9d4164bfcba940e6afde541f89bc87972699edd3f0a533d9ccf7aecd1fe1a031",
+  "selected_reasons": []
+}

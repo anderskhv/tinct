@@ -1,0 +1,453 @@
+{
+  "complete": true,
+  "signature": "b26149df6615984a095d6ba870403b4dd01d35e3e322d7c3517e949a4b7601db",
+  "attempts": [
+    {
+      "asr_seconds": 0.2528629982843995,
+      "alignment_seconds": 0.0005154861137270927,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And I would, too, to Russia the old grandmother,",
+          "start": 0.11,
+          "end": 2.81,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.11,
+              "end": 0.51,
+              "probability": 0.5205078125
+            },
+            {
+              "text": " I",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " would,",
+              "start": 0.63,
+              "end": 0.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " too,",
+              "start": 0.97,
+              "end": 1.15,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 1.53,
+              "end": 1.63,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Russia",
+              "start": 1.63,
+              "end": 1.89,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " the",
+              "start": 1.89,
+              "end": 2.09,
+              "probability": 0.5478515625
+            },
+            {
+              "text": " old",
+              "start": 2.09,
+              "end": 2.35,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " grandmother,",
+              "start": 2.35,
+              "end": 2.81,
+              "probability": 0.94580078125
+            }
+          ]
+        },
+        {
+          "text": " tittered Maximov.",
+          "start": 3.47,
+          "end": 4.31,
+          "words": [
+            {
+              "text": " tittered",
+              "start": 3.47,
+              "end": 3.61,
+              "probability": 0.75537109375
+            },
+            {
+              "text": " Maximov.",
+              "start": 3.61,
+              "end": 4.31,
+              "probability": 0.9619140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.11,
+          "end": 0.51
+        },
+        {
+          "raw": "I",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "would,",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "raw": "too,",
+          "start": 0.97,
+          "end": 1.15
+        },
+        {
+          "raw": "to",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "raw": "Russia",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "raw": "the",
+          "start": 1.89,
+          "end": 2.09
+        },
+        {
+          "raw": "old",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "raw": "grandmother,",
+          "start": 2.35,
+          "end": 2.81
+        },
+        {
+          "raw": "tittered",
+          "start": 3.47,
+          "end": 3.61
+        },
+        {
+          "raw": "Maximov.",
+          "start": 3.61,
+          "end": 4.31
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "I",
+        "would,",
+        "too",
+        "...",
+        "to",
+        "Russia,",
+        "the",
+        "old",
+        "grandmother!\"",
+        "tittered",
+        "Maximov."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "delete",
+          4,
+          5,
+          4,
+          4
+        ],
+        [
+          "equal",
+          5,
+          12,
+          4,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          4,
+          5,
+          4,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.11,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "would,",
+          "start": 0.63,
+          "end": 0.81,
+          "key": "would",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 0.97,
+          "end": 1.15,
+          "key": "too",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.53,
+          "end": 1.63,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Russia",
+          "start": 1.63,
+          "end": 1.89,
+          "key": "russia",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.89,
+          "end": 2.09,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 2.09,
+          "end": 2.35,
+          "key": "old",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "grandmother,",
+          "start": 2.35,
+          "end": 2.81,
+          "key": "grandmother",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tittered",
+          "start": 3.47,
+          "end": 3.61,
+          "key": "tittered",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Maximov.",
+          "start": 3.61,
+          "end": 4.31,
+          "key": "maximov",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.11,
+          "end": 0.51
+        },
+        {
+          "text": "I",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "would,",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "text": "too",
+          "start": 0.97,
+          "end": 1.15
+        },
+        {
+          "text": "...",
+          "start": 1.15,
+          "end": 1.34
+        },
+        {
+          "text": "to",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "text": "Russia,",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "text": "the",
+          "start": 1.89,
+          "end": 2.09
+        },
+        {
+          "text": "old",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "text": "grandmother!\"",
+          "start": 2.35,
+          "end": 2.81
+        },
+        {
+          "text": "tittered",
+          "start": 3.47,
+          "end": 3.61
+        },
+        {
+          "text": "Maximov.",
+          "start": 3.61,
+          "end": 4.31
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.25355357956141233
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "780cef0ff7b56b8e2a5c83055bc96b92f4cfae7f19ff743f17c24002ab6a6b87",
+  "selected_reasons": []
+}

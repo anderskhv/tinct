@@ -1,0 +1,401 @@
+{
+  "complete": true,
+  "signature": "125c1cb2a7068dcd92f395a70d13d9418c4dba59d9993e083faccfcceaf13f45",
+  "attempts": [
+    {
+      "asr_seconds": 0.28660118021070957,
+      "alignment_seconds": 0.00044142361730337143,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " All, all, cried Medea.",
+          "start": 0.18,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " All,",
+              "start": 0.18,
+              "end": 0.64,
+              "probability": 0.11669921875
+            },
+            {
+              "text": " all,",
+              "start": 1.04,
+              "end": 1.04,
+              "probability": 0.9375
+            },
+            {
+              "text": " cried",
+              "start": 1.22,
+              "end": 1.5,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Medea.",
+              "start": 1.5,
+              "end": 1.98,
+              "probability": 0.4573974609375
+            }
+          ]
+        },
+        {
+          "text": " Try fun Borisovich some more bottles.",
+          "start": 2.58,
+          "end": 4.14,
+          "words": [
+            {
+              "text": " Try",
+              "start": 2.58,
+              "end": 2.6,
+              "probability": 0.56201171875
+            },
+            {
+              "text": " fun",
+              "start": 2.6,
+              "end": 2.86,
+              "probability": 0.7177734375
+            },
+            {
+              "text": " Borisovich",
+              "start": 2.86,
+              "end": 3.38,
+              "probability": 0.439697265625
+            },
+            {
+              "text": " some",
+              "start": 3.38,
+              "end": 3.64,
+              "probability": 0.6162109375
+            },
+            {
+              "text": " more",
+              "start": 3.64,
+              "end": 3.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " bottles.",
+              "start": 3.82,
+              "end": 4.14,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All,",
+          "start": 0.18,
+          "end": 0.64
+        },
+        {
+          "raw": "all,",
+          "start": 1.04,
+          "end": 1.04
+        },
+        {
+          "raw": "cried",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "raw": "Medea.",
+          "start": 1.5,
+          "end": 1.98
+        },
+        {
+          "raw": "Try",
+          "start": 2.58,
+          "end": 2.6
+        },
+        {
+          "raw": "fun",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "raw": "Borisovich",
+          "start": 2.86,
+          "end": 3.38
+        },
+        {
+          "raw": "some",
+          "start": 3.38,
+          "end": 3.64
+        },
+        {
+          "raw": "more",
+          "start": 3.64,
+          "end": 3.82
+        },
+        {
+          "raw": "bottles.",
+          "start": 3.82,
+          "end": 4.14
+        }
+      ],
+      "expected_tokens": [
+        "\"All!",
+        "All!\"",
+        "cried",
+        "Mitya.",
+        "\"Trifon",
+        "Borissovitch,",
+        "some",
+        "more",
+        "bottles!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          6,
+          3,
+          7
+        ],
+        [
+          "equal",
+          6,
+          9,
+          7,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          6,
+          3,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All,",
+          "start": 0.18,
+          "end": 0.64,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all,",
+          "start": 1.04,
+          "end": 1.04,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 1.22,
+          "end": 1.5,
+          "key": "cried",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Medea.",
+          "start": 1.5,
+          "end": 1.98,
+          "key": "medea",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Try",
+          "start": 2.58,
+          "end": 2.6,
+          "key": "try",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fun",
+          "start": 2.6,
+          "end": 2.86,
+          "key": "fun",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Borisovich",
+          "start": 2.86,
+          "end": 3.38,
+          "key": "borisovich",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 3.38,
+          "end": 3.64,
+          "key": "some",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 3.64,
+          "end": 3.82,
+          "key": "more",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "bottles.",
+          "start": 3.82,
+          "end": 4.14,
+          "key": "bottles",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"All!",
+          "start": 0.18,
+          "end": 0.64
+        },
+        {
+          "text": "All!\"",
+          "start": 1.04,
+          "end": 1.04
+        },
+        {
+          "text": "cried",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "text": "Mitya.",
+          "start": 1.5,
+          "end": 2.44
+        },
+        {
+          "text": "\"Trifon",
+          "start": 2.44,
+          "end": 2.91
+        },
+        {
+          "text": "Borissovitch,",
+          "start": 2.91,
+          "end": 3.145
+        },
+        {
+          "text": "some",
+          "start": 3.38,
+          "end": 3.64
+        },
+        {
+          "text": "more",
+          "start": 3.64,
+          "end": 3.82
+        },
+        {
+          "text": "bottles!\"",
+          "start": 3.82,
+          "end": 4.14
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 6
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2871915474534035
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1da09503dd182bce512ba20bc20c89677b97b182fb5db2e62738c6020f05289c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

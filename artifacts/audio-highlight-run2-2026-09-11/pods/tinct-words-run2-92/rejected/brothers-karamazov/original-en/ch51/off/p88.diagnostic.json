@@ -1,0 +1,356 @@
+{
+  "complete": true,
+  "signature": "dd4c5eec07df317ccb47435e8f4a066dec4abd2089ab268e6fda165b87b1799f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2144969841465354,
+      "alignment_seconds": 0.0004844609647989273,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aya shrieked Grashenka the first to notice him",
+          "start": 0.05,
+          "end": 3.23,
+          "words": [
+            {
+              "text": " Aya",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.365325927734375
+            },
+            {
+              "text": " shrieked",
+              "start": 0.83,
+              "end": 1.53,
+              "probability": 0.81005859375
+            },
+            {
+              "text": " Grashenka",
+              "start": 1.53,
+              "end": 2.03,
+              "probability": 0.7113037109375
+            },
+            {
+              "text": " the",
+              "start": 2.03,
+              "end": 2.27,
+              "probability": 0.52197265625
+            },
+            {
+              "text": " first",
+              "start": 2.27,
+              "end": 2.49,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " to",
+              "start": 2.49,
+              "end": 2.69,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " notice",
+              "start": 2.69,
+              "end": 2.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him",
+              "start": 2.91,
+              "end": 3.23,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aya",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "shrieked",
+          "start": 0.83,
+          "end": 1.53
+        },
+        {
+          "raw": "Grashenka",
+          "start": 1.53,
+          "end": 2.03
+        },
+        {
+          "raw": "the",
+          "start": 2.03,
+          "end": 2.27
+        },
+        {
+          "raw": "first",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "raw": "to",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "raw": "notice",
+          "start": 2.69,
+          "end": 2.91
+        },
+        {
+          "raw": "him",
+          "start": 2.91,
+          "end": 3.23
+        }
+      ],
+      "expected_tokens": [
+        "\"Aie!\"",
+        "shrieked",
+        "Grushenka,",
+        "the",
+        "first",
+        "to",
+        "notice",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          8,
+          3,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aya",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "aya",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shrieked",
+          "start": 0.83,
+          "end": 1.53,
+          "key": "shrieked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Grashenka",
+          "start": 1.53,
+          "end": 2.03,
+          "key": "grashenka",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.03,
+          "end": 2.27,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 2.27,
+          "end": 2.49,
+          "key": "first",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.49,
+          "end": 2.69,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "notice",
+          "start": 2.69,
+          "end": 2.91,
+          "key": "notice",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.91,
+          "end": 3.23,
+          "key": "him",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Aie!\"",
+          "start": 0.0,
+          "end": 0.415
+        },
+        {
+          "text": "shrieked",
+          "start": 0.83,
+          "end": 1.53
+        },
+        {
+          "text": "Grushenka,",
+          "start": 1.53,
+          "end": 1.78
+        },
+        {
+          "text": "the",
+          "start": 2.03,
+          "end": 2.27
+        },
+        {
+          "text": "first",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "text": "to",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "text": "notice",
+          "start": 2.69,
+          "end": 2.91
+        },
+        {
+          "text": "him.",
+          "start": 2.91,
+          "end": 3.23
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2151371967047453
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "686b560620f295b03373a761ef3f62a517f84d6e00bf9fc0c7476dbecfdeb5dc",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

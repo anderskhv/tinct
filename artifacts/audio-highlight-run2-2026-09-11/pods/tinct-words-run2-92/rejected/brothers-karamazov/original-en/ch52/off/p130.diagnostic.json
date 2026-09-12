@@ -1,0 +1,620 @@
+{
+  "complete": true,
+  "signature": "189c60997f3c4f714b83d86903b5f8d8e31b3017d9ad4e1c5fd0e8407279ff43",
+  "attempts": [
+    {
+      "asr_seconds": 0.409733853302896,
+      "alignment_seconds": 0.0007761958986520767,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That's a courting, pain-y. Maybe a hundred, maybe two hundred, as much as you will steak.",
+          "start": 0.02,
+          "end": 5.1,
+          "words": [
+            {
+              "text": " That's",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.965576171875
+            },
+            {
+              "text": " a",
+              "start": 0.74,
+              "end": 0.78,
+              "probability": 0.255615234375
+            },
+            {
+              "text": " courting,",
+              "start": 0.78,
+              "end": 1.22,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " pain",
+              "start": 1.48,
+              "end": 1.6,
+              "probability": 0.7685546875
+            },
+            {
+              "text": "-y.",
+              "start": 1.6,
+              "end": 1.9,
+              "probability": 0.64599609375
+            },
+            {
+              "text": " Maybe",
+              "start": 2.24,
+              "end": 2.36,
+              "probability": 0.982421875
+            },
+            {
+              "text": " a",
+              "start": 2.36,
+              "end": 2.52,
+              "probability": 0.748046875
+            },
+            {
+              "text": " hundred,",
+              "start": 2.52,
+              "end": 2.86,
+              "probability": 0.947265625
+            },
+            {
+              "text": " maybe",
+              "start": 3.14,
+              "end": 3.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " two",
+              "start": 3.2,
+              "end": 3.5,
+              "probability": 0.7666015625
+            },
+            {
+              "text": " hundred,",
+              "start": 3.5,
+              "end": 3.84,
+              "probability": 0.955078125
+            },
+            {
+              "text": " as",
+              "start": 4.12,
+              "end": 4.26,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " much",
+              "start": 4.26,
+              "end": 4.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 4.42,
+              "end": 4.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 4.58,
+              "end": 4.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " will",
+              "start": 4.68,
+              "end": 4.8,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " steak.",
+              "start": 4.8,
+              "end": 5.1,
+              "probability": 0.68212890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That's",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "a",
+          "start": 0.74,
+          "end": 0.78
+        },
+        {
+          "raw": "courting,",
+          "start": 0.78,
+          "end": 1.22
+        },
+        {
+          "raw": "pain",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "raw": "-y.",
+          "start": 1.6,
+          "end": 1.9
+        },
+        {
+          "raw": "Maybe",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "raw": "a",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "raw": "hundred,",
+          "start": 2.52,
+          "end": 2.86
+        },
+        {
+          "raw": "maybe",
+          "start": 3.14,
+          "end": 3.2
+        },
+        {
+          "raw": "two",
+          "start": 3.2,
+          "end": 3.5
+        },
+        {
+          "raw": "hundred,",
+          "start": 3.5,
+          "end": 3.84
+        },
+        {
+          "raw": "as",
+          "start": 4.12,
+          "end": 4.26
+        },
+        {
+          "raw": "much",
+          "start": 4.26,
+          "end": 4.42
+        },
+        {
+          "raw": "as",
+          "start": 4.42,
+          "end": 4.58
+        },
+        {
+          "raw": "you",
+          "start": 4.58,
+          "end": 4.68
+        },
+        {
+          "raw": "will",
+          "start": 4.68,
+          "end": 4.8
+        },
+        {
+          "raw": "steak.",
+          "start": 4.8,
+          "end": 5.1
+        }
+      ],
+      "expected_tokens": [
+        "\"That's",
+        "according,",
+        "_panie_,",
+        "maybe",
+        "a",
+        "hundred,",
+        "maybe",
+        "two",
+        "hundred,",
+        "as",
+        "much",
+        "as",
+        "you",
+        "will",
+        "stake.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          5
+        ],
+        [
+          "equal",
+          3,
+          14,
+          5,
+          16
+        ],
+        [
+          "replace",
+          14,
+          15,
+          16,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          5
+        ],
+        [
+          "replace",
+          14,
+          15,
+          16,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That's",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "thats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.74,
+          "end": 0.78,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "courting,",
+          "start": 0.78,
+          "end": 1.22,
+          "key": "courting",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "pain",
+          "start": 1.48,
+          "end": 1.6,
+          "key": "pain",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "-y.",
+          "start": 1.6,
+          "end": 1.9,
+          "key": "y",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Maybe",
+          "start": 2.24,
+          "end": 2.36,
+          "key": "maybe",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.36,
+          "end": 2.52,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hundred,",
+          "start": 2.52,
+          "end": 2.86,
+          "key": "hundred",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "maybe",
+          "start": 3.14,
+          "end": 3.2,
+          "key": "maybe",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 3.2,
+          "end": 3.5,
+          "key": "two",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "hundred,",
+          "start": 3.5,
+          "end": 3.84,
+          "key": "hundred",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.12,
+          "end": 4.26,
+          "key": "as",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 4.26,
+          "end": 4.42,
+          "key": "much",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.42,
+          "end": 4.58,
+          "key": "as",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.58,
+          "end": 4.68,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.68,
+          "end": 4.8,
+          "key": "will",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "steak.",
+          "start": 4.8,
+          "end": 5.1,
+          "key": "steak",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That's",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "according,",
+          "start": 0.74,
+          "end": 1.49
+        },
+        {
+          "text": "_panie_,",
+          "start": 1.49,
+          "end": 1.865
+        },
+        {
+          "text": "maybe",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "text": "a",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "text": "hundred,",
+          "start": 2.52,
+          "end": 2.86
+        },
+        {
+          "text": "maybe",
+          "start": 3.14,
+          "end": 3.2
+        },
+        {
+          "text": "two",
+          "start": 3.2,
+          "end": 3.5
+        },
+        {
+          "text": "hundred,",
+          "start": 3.5,
+          "end": 3.84
+        },
+        {
+          "text": "as",
+          "start": 4.12,
+          "end": 4.26
+        },
+        {
+          "text": "much",
+          "start": 4.26,
+          "end": 4.42
+        },
+        {
+          "text": "as",
+          "start": 4.42,
+          "end": 4.58
+        },
+        {
+          "text": "you",
+          "start": 4.58,
+          "end": 4.68
+        },
+        {
+          "text": "will",
+          "start": 4.68,
+          "end": 4.8
+        },
+        {
+          "text": "stake.\"",
+          "start": 4.8,
+          "end": 4.95
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 17,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.41080927569419146
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b8cfbb60045b8c6337b14b35031933385440c3ed5eb0f76153fe85bd07ad0cca",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

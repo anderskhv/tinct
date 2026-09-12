@@ -1,0 +1,739 @@
+{
+  "complete": true,
+  "signature": "0632e83e6cc57df0460250d4ad7a1ce69e9605b8e53e32c2776a93a941121681",
+  "attempts": [
+    {
+      "asr_seconds": 0.4021513815969229,
+      "alignment_seconds": 0.0006058588624000549,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, Sappho and Phaon are we, but one grief is weighing on me.",
+          "start": 0.05,
+          "end": 4.11,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.69140625
+            },
+            {
+              "text": " Sappho",
+              "start": 1.05,
+              "end": 1.23,
+              "probability": 0.7470703125
+            },
+            {
+              "text": " and",
+              "start": 1.23,
+              "end": 1.41,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Phaon",
+              "start": 1.41,
+              "end": 1.81,
+              "probability": 0.7589518229166666
+            },
+            {
+              "text": " are",
+              "start": 1.81,
+              "end": 1.97,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " we,",
+              "start": 1.97,
+              "end": 2.19,
+              "probability": 0.89453125
+            },
+            {
+              "text": " but",
+              "start": 2.61,
+              "end": 2.77,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " one",
+              "start": 2.77,
+              "end": 2.97,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " grief",
+              "start": 2.97,
+              "end": 3.23,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " is",
+              "start": 3.23,
+              "end": 3.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " weighing",
+              "start": 3.43,
+              "end": 3.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " on",
+              "start": 3.69,
+              "end": 3.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me.",
+              "start": 3.93,
+              "end": 4.11,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " You don't know your way to the sea.",
+          "start": 4.53,
+          "end": 5.65,
+          "words": [
+            {
+              "text": " You",
+              "start": 4.53,
+              "end": 4.61,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " don't",
+              "start": 4.61,
+              "end": 4.77,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " know",
+              "start": 4.77,
+              "end": 4.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " your",
+              "start": 4.87,
+              "end": 5.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " way",
+              "start": 5.03,
+              "end": 5.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 5.17,
+              "end": 5.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 5.31,
+              "end": 5.43,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " sea.",
+              "start": 5.43,
+              "end": 5.65,
+              "probability": 0.9794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Sappho",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "raw": "and",
+          "start": 1.23,
+          "end": 1.41
+        },
+        {
+          "raw": "Phaon",
+          "start": 1.41,
+          "end": 1.81
+        },
+        {
+          "raw": "are",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "raw": "we,",
+          "start": 1.97,
+          "end": 2.19
+        },
+        {
+          "raw": "but",
+          "start": 2.61,
+          "end": 2.77
+        },
+        {
+          "raw": "one",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "raw": "grief",
+          "start": 2.97,
+          "end": 3.23
+        },
+        {
+          "raw": "is",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "raw": "weighing",
+          "start": 3.43,
+          "end": 3.69
+        },
+        {
+          "raw": "on",
+          "start": 3.69,
+          "end": 3.93
+        },
+        {
+          "raw": "me.",
+          "start": 3.93,
+          "end": 4.11
+        },
+        {
+          "raw": "You",
+          "start": 4.53,
+          "end": 4.61
+        },
+        {
+          "raw": "don't",
+          "start": 4.61,
+          "end": 4.77
+        },
+        {
+          "raw": "know",
+          "start": 4.77,
+          "end": 4.87
+        },
+        {
+          "raw": "your",
+          "start": 4.87,
+          "end": 5.03
+        },
+        {
+          "raw": "way",
+          "start": 5.03,
+          "end": 5.17
+        },
+        {
+          "raw": "to",
+          "start": 5.17,
+          "end": 5.31
+        },
+        {
+          "raw": "the",
+          "start": 5.31,
+          "end": 5.43
+        },
+        {
+          "raw": "sea.",
+          "start": 5.43,
+          "end": 5.65
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "Sappho",
+        "and",
+        "Phaon",
+        "are",
+        "we!",
+        "But",
+        "one",
+        "grief",
+        "is",
+        "weighing",
+        "on",
+        "me.",
+        "You",
+        "don't",
+        "know",
+        "your",
+        "way",
+        "to",
+        "the",
+        "sea!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sappho",
+          "start": 1.05,
+          "end": 1.23,
+          "key": "sappho",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.23,
+          "end": 1.41,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Phaon",
+          "start": 1.41,
+          "end": 1.81,
+          "key": "phaon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.81,
+          "end": 1.97,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "we,",
+          "start": 1.97,
+          "end": 2.19,
+          "key": "we",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.61,
+          "end": 2.77,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.77,
+          "end": 2.97,
+          "key": "one",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "grief",
+          "start": 2.97,
+          "end": 3.23,
+          "key": "grief",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.23,
+          "end": 3.43,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "weighing",
+          "start": 3.43,
+          "end": 3.69,
+          "key": "weighing",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.69,
+          "end": 3.93,
+          "key": "on",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 3.93,
+          "end": 4.11,
+          "key": "me",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 4.53,
+          "end": 4.61,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 4.61,
+          "end": 4.77,
+          "key": "dont",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 4.77,
+          "end": 4.87,
+          "key": "know",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.87,
+          "end": 5.03,
+          "key": "your",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 5.03,
+          "end": 5.17,
+          "key": "way",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.17,
+          "end": 5.31,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.31,
+          "end": 5.43,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "sea.",
+          "start": 5.43,
+          "end": 5.65,
+          "key": "sea",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Sappho",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "text": "and",
+          "start": 1.23,
+          "end": 1.41
+        },
+        {
+          "text": "Phaon",
+          "start": 1.41,
+          "end": 1.81
+        },
+        {
+          "text": "are",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "text": "we!",
+          "start": 1.97,
+          "end": 2.19
+        },
+        {
+          "text": "But",
+          "start": 2.61,
+          "end": 2.77
+        },
+        {
+          "text": "one",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "text": "grief",
+          "start": 2.97,
+          "end": 3.23
+        },
+        {
+          "text": "is",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "text": "weighing",
+          "start": 3.43,
+          "end": 3.69
+        },
+        {
+          "text": "on",
+          "start": 3.69,
+          "end": 3.93
+        },
+        {
+          "text": "me.",
+          "start": 3.93,
+          "end": 4.11
+        },
+        {
+          "text": "You",
+          "start": 4.53,
+          "end": 4.61
+        },
+        {
+          "text": "don't",
+          "start": 4.61,
+          "end": 4.77
+        },
+        {
+          "text": "know",
+          "start": 4.77,
+          "end": 4.87
+        },
+        {
+          "text": "your",
+          "start": 4.87,
+          "end": 5.03
+        },
+        {
+          "text": "way",
+          "start": 5.03,
+          "end": 5.17
+        },
+        {
+          "text": "to",
+          "start": 5.17,
+          "end": 5.31
+        },
+        {
+          "text": "the",
+          "start": 5.31,
+          "end": 5.43
+        },
+        {
+          "text": "sea!",
+          "start": 5.43,
+          "end": 5.65
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4030179912224412
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8e7cca4d2b5fba7b86a06db5002217f09053043871be6a7dceddfe385b1e2c2e",
+  "selected_reasons": []
+}

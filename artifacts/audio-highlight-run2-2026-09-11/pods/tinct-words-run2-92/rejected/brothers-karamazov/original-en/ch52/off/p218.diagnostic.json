@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "64e42d761846e9875dad727dfb9b77458993d361a5c14a4da1bb311212429621",
+  "attempts": [
+    {
+      "asr_seconds": 0.24167563766241074,
+      "alignment_seconds": 0.00036667846143245697,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I don't want my 50 rubles back,\" Kalganov declared suddenly.",
+          "start": 0.08,
+          "end": 3.8,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.178466796875
+            },
+            {
+              "text": " don't",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " want",
+              "start": 0.68,
+              "end": 0.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 0.78,
+              "end": 0.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " 50",
+              "start": 0.94,
+              "end": 1.24,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " rubles",
+              "start": 1.24,
+              "end": 1.6,
+              "probability": 0.816162109375
+            },
+            {
+              "text": " back,\"",
+              "start": 1.6,
+              "end": 2.64,
+              "probability": 0.62744140625
+            },
+            {
+              "text": " Kalganov",
+              "start": 2.64,
+              "end": 2.96,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " declared",
+              "start": 2.96,
+              "end": 3.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " suddenly.",
+              "start": 3.32,
+              "end": 3.8,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "don't",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "want",
+          "start": 0.68,
+          "end": 0.78
+        },
+        {
+          "raw": "my",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "raw": "50",
+          "start": 0.94,
+          "end": 1.24
+        },
+        {
+          "raw": "rubles",
+          "start": 1.24,
+          "end": 1.6
+        },
+        {
+          "raw": "back,\"",
+          "start": 1.6,
+          "end": 2.64
+        },
+        {
+          "raw": "Kalganov",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "raw": "declared",
+          "start": 2.96,
+          "end": 3.32
+        },
+        {
+          "raw": "suddenly.",
+          "start": 3.32,
+          "end": 3.8
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "don't",
+        "want",
+        "my",
+        "fifty",
+        "roubles",
+        "back,\"",
+        "Kalganov",
+        "declared",
+        "suddenly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          10,
+          6,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "dont",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 0.68,
+          "end": 0.78,
+          "key": "want",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.78,
+          "end": 0.94,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "50",
+          "start": 0.94,
+          "end": 1.24,
+          "key": "fifty",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "rubles",
+          "start": 1.24,
+          "end": 1.6,
+          "key": "rubles",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "back,\"",
+          "start": 1.6,
+          "end": 2.64,
+          "key": "back",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Kalganov",
+          "start": 2.64,
+          "end": 2.96,
+          "key": "kalganov",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "declared",
+          "start": 2.96,
+          "end": 3.32,
+          "key": "declared",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "suddenly.",
+          "start": 3.32,
+          "end": 3.8,
+          "key": "suddenly",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "don't",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "want",
+          "start": 0.68,
+          "end": 0.78
+        },
+        {
+          "text": "my",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "text": "fifty",
+          "start": 0.94,
+          "end": 1.24
+        },
+        {
+          "text": "roubles",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "text": "back,\"",
+          "start": 1.6,
+          "end": 2.64
+        },
+        {
+          "text": "Kalganov",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "text": "declared",
+          "start": 2.96,
+          "end": 3.32
+        },
+        {
+          "text": "suddenly.",
+          "start": 3.32,
+          "end": 3.8
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.24218915030360222
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a1bc34d2a327ae9d0c554ecd37c8258aa6beccf1fb2be636e37d643f3963a092",
+  "selected_reasons": []
+}

@@ -1,0 +1,223 @@
+{
+  "complete": true,
+  "signature": "fd51fa19cdfb08819964ec6d99fbc29d242050a6f7c472e17e1d1f72bdb3f46a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1603603158146143,
+      "alignment_seconds": 0.0003242297098040581,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What part of a sot ski?",
+          "start": 0.02,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.7509765625
+            },
+            {
+              "text": " part",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.13427734375
+            },
+            {
+              "text": " of",
+              "start": 0.7,
+              "end": 0.82,
+              "probability": 0.5546875
+            },
+            {
+              "text": " a",
+              "start": 0.82,
+              "end": 0.88,
+              "probability": 0.3564453125
+            },
+            {
+              "text": " sot",
+              "start": 0.88,
+              "end": 1.12,
+              "probability": 0.4293212890625
+            },
+            {
+              "text": " ski?",
+              "start": 1.12,
+              "end": 1.32,
+              "probability": 0.88134765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "part",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "of",
+          "start": 0.7,
+          "end": 0.82
+        },
+        {
+          "raw": "a",
+          "start": 0.82,
+          "end": 0.88
+        },
+        {
+          "raw": "sot",
+          "start": 0.88,
+          "end": 1.12
+        },
+        {
+          "raw": "ski?",
+          "start": 1.12,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "Podvysotsky?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "part",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "part",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.7,
+          "end": 0.82,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.82,
+          "end": 0.88,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sot",
+          "start": 0.88,
+          "end": 1.12,
+          "key": "sot",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ski?",
+          "start": 1.12,
+          "end": 1.32,
+          "key": "ski",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "Podvysotsky?\"",
+          "start": 0.52,
+          "end": 0.92
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 6,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16084434557706118
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "50fb2730dd30d2e17eec6dd1a40f1822f943d2616c8918481182a57c305cee9b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}
