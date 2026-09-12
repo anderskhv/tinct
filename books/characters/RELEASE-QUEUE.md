@@ -1440,3 +1440,122 @@ on the fetched asset:
 
 Report live evidence back to the package `status.json` and the generated
 inventory only after those checks pass. Validated is not deployed.
+
+## Lane A automation batch 10: A Vindication of the Rights of Woman
+
+Authored on branch `claude/tinct-character-content-1n5iqq` by the Lane A
+automated author per `AUTOMATION-QUEUE.md`. Queued, not production
+verified; this lane never sets `appStatus`.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---:|---:|---|
+| A Vindication of the Rights of Woman | 9ac25ce64 | 71 / 71 | build_vindication_rights_of_woman.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| A Vindication of the Rights of Woman | 3e168f00ba7901f8a31cc36902f0046e9555d6fd5245566c437b029331e91aac | 4e7e6143670a4ca29fa6f004587578e56102ac7b2f1b00814ddefb303084ba63 |
+
+183 exact mentions in original-en, 183 in modern-en, across all 15
+chapters and 778 paragraphs per edition. No omitted entities on either
+side. Commands: `python3 books/characters/build_vindication_rights_of_woman.py
+--check`, then `python3 -m unittest discover -s books/characters -p
+'test_*.py'`. Shared dependencies: `build_reviewed.py` and
+`reviewed_aliases.py`; neither was changed.
+
+### Release review points
+
+Per editorial policy's guidance for treatises ("cited thinkers normally
+remain references," "without inventing a fictional cast or calling the
+author a protagonist"), **all 71 bound entries are Reference.** No
+Central or Major entry: this polemical essay has no narrative or staged
+dialogue of its own, only quotations of other authors' fictional
+dialogue (Rousseau's Emile). Rousseau himself receives by far the
+longest engagement in the book -- chapter 7/"Chapter 5" section 5.1,
+roughly 60 paragraphs, quotes and rebuts Emile point by point -- but
+stays Reference per policy's explicit instruction not to except
+heavily-cited thinkers. The author is never named in the running text
+(the Dedication is signed only "M. W.") and gets no entry.
+
+One genuine namesake collision: **"Eloisa"** names two different women.
+At (4, 51) it is unambiguously Julie, Rousseau's fictional heroine (the
+surrounding "Rousseau" and "St. Preux" settle it). At (6, 85), the
+identical spelling appears in a list of real historical women "who,
+from having received a masculine education, have acquired courage and
+resolution" -- a context only the real medieval Heloise (Abelard's
+pupil and correspondent) fits, confirmed by a third occurrence at (9,
+21) under the alternate spelling "Heloisa," describing "a woman [who]
+gives up all the world, deliberately, for love" (Heloise's own most
+famous words on record). Because the same string is shared by both
+referents, **neither `eloisa-julie` nor `heloise-historical` carries a
+global alias for it**; both are bound only by a location-scoped custom
+`bind()` match -- the same pattern Walden used for its own Cato
+collision.
+
+Two real people are named only by title in bindable prose, never by
+personal name, and are bound accordingly rather than left unbound:
+**Talleyrand**, the book's own dedicatee, appears in running text only
+as "the late bishop of Autun" / "The Bishop of Autun" (his name is in
+the chapter-1 TITLE metadata only, not bindable paragraph text); and
+**Catherine the Great**, named once via "the Empress of Russia" in the
+same list of exceptional women discussed above.
+
+### Common-word hazard, resolved by location
+
+**"Day"** (Thomas Day, author of "Sandford and Merton," quoted at length
+in a footnote) is an ordinary English word throughout this book, so it
+carries no global alias -- bound only at its one confirmed prose
+location, (5, 9), the same treatment Walden gave "Say" and this book's
+own Bishop-of-Autun/Empress-of-Russia title references.
+
+### Edition terminology divergences, not defects
+
+- **Louis XIV's name**: original-en's topic sentence spells it "Lewis
+  the XIVth" (6, 14); modern-en modernizes it to "Louis XIV." Both
+  editions use the older spelling "Lewis XIV" in the (6, 22) block
+  quotation from Adam Smith, since that passage is quoted verbatim in
+  both. Aliased `Lewis|Louis` to cover both spellings.
+- **Mahomet's coffin's apostrophe**: original-en uses a straight
+  apostrophe, modern-en a typographic one (U+2019) -- the same
+  apostrophe-style mismatch Walden's "Chaucer's nun" had. Both forms
+  aliased.
+
+No divergence was found in which edition names or omits a person
+outright: every one of the 71 entities binds in both editions with the
+same mention count, 183 and 183.
+
+### Full suite note
+
+This book's own focused test suite (10 tests) passed cleanly in 1.5s and
+`--check` is clean. A full `python3 -m unittest discover` run was
+started but did not complete within a reasonable session time budget
+(3.5+ minutes against this session's established ~65-70s baseline), the
+same environmental instability documented for Walden and The Imitation
+of Christ in this session (concurrent sessions' packages, particularly
+the-histories, have grown the shared test tree substantially). This
+package was committed on the strength of its own focused suite, a clean
+`--check`, and exhaustive manual verification (full paragraph-by-
+paragraph read of both editions, a systematic candidate-frequency
+cross-check, and a 12-mentions-per-edition random spot-read) rather than
+an independently confirmed full-suite pass. Re-run the full suite before
+production integration.
+
+### Required production checks
+
+Register both English editions, version the immutable asset URL, run the
+normal app gates and deploy, then open the production reader and confirm
+on the fetched asset:
+
+1. A first-encounter card in original-en and modern-en alike.
+2. That (4, 51) "Eloisa" resolves to Rousseau's fictional Julie, and
+   that (6, 85) "Eloisa" and (9, 21) "Heloisa" both resolve to the real
+   historical Heloise -- three occurrences of similar-looking names,
+   two different cards.
+3. That (14, 42) "bishop of Autun" and (14, 54) "Bishop of Autun" both
+   resolve to the Talleyrand card, and (6, 85) "Empress of Russia"
+   resolves to Catherine the Great -- neither is named by personal name
+   anywhere bindable.
+4. That "Day" only ever shows a card at (5, 9), never at any other
+   occurrence of the ordinary word "day" elsewhere in the book.
+
+Report live evidence back to the package `status.json` and the generated
+inventory only after those checks pass. Validated is not deployed.
