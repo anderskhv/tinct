@@ -87,3 +87,13 @@ fix is doing its job.
 Wave 2 continues under `dispatch.py` (83 batches pending at this point). No
 manual step is needed: the dispatcher launches, orchestrate.py harvests and
 terminates, harvest_daemon.py publishes and pushes per pod.
+
+## 07:54Z — second dispatcher round
+The first round stopped itself at 36 batches remaining because its
+POD_PROJECTION ($0.45/pod) was far above what a run-2 pod actually costs
+($0.17-0.22 measured over 60 pods). Recalibrated to $0.22 with BUDGET_STOP
+$17.00 and restarted; worst case (12 pods each running the full 44 min from the
+moment of the stop) lands near $18.9, and runpod_guard.py still hard-stops
+everything at $20.
+
+Spend at restart: $12.56. Published at restart: 574 chapters.
