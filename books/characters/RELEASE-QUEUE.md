@@ -644,6 +644,88 @@ the fetched asset:
 Report live evidence back to the package `status.json` and the generated
 inventory only after those checks pass. Validated is not deployed.
 
+## Lane A automation batch 4: Beyond Good and Evil
+
+Authored on branch `claude/tinct-character-content-1n5iqq` by the Lane A
+automated author per `AUTOMATION-QUEUE.md` (queue item 4 of 15). Queued, not
+production verified; this lane never sets `appStatus`.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---:|---:|---|
+| Beyond Good and Evil | f8637ad0b | 119 / 119 | build_beyond_good_and_evil.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| Beyond Good and Evil | a906a663863727ff37c8e40b5561165088d6835111f736210604dbf95f484e43 | 5b14eaa83a4b695afc10e74b203001ac33490f732a1fb42c141749687859d08a |
+
+287 exact mentions in the original, 284 in the modern, across all 11
+sections (Preface, nine numbered chapters, and the closing poem) and 325
+paragraphs per edition. Zero omitted entities on either side. Commands:
+`python3 books/characters/build_beyond_good_and_evil.py --check`, then
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Shared
+dependencies: `build_reviewed.py` and `reviewed_aliases.py`; neither was
+changed.
+
+### Release review points
+
+An aphoristic philosophical work naming more real historical, mythological
+and literary figures than any prior Lane A book, exactly as flagged in the
+automation queue ("Nietzsche's philosophers, composers and nations"): 111 of
+119 entries are Reference. Eight are Major for sustained, repeated
+engagement across multiple chapters rather than a single citation:
+**Plato** and **Socrates** (the "morality as error" argument running
+Preface-Chapter 6), **Kant** (Chapter 1's critique of synthetic judgments a
+priori, revisited in Chapters 6-7), **Pascal** (the Religious Mood chapter's
+central case study), **Napoleon** and **Goethe** (paired repeatedly as "good
+Europeans," Chapters 6-9), **Wagner** (Chapters 3, 8-9), and **Schopenhauer**
+(Chapters 1, 3, 4, 6, 7, 9).
+
+Two genuine namesake collisions, both resolved by location-scoped binding
+rather than a shared alias, verified against every mention in the book, not
+a sample: **"Frederick"** names Frederick II of Hohenstaufen (6:14) and
+Frederick the Great of Prussia (7:5); **"Sand"** names the novelist George
+Sand (8:19) and Karl Ludwig Sand, Kotzebue's assassin (9:4) — the aphorism
+about Kotzebue "knowing his Germans" is a dark joke about that
+assassination. A third near-collision, original-en's "Caesar Borgia"
+containing the bare word "Caesar," is excluded from the Julius Caesar alias
+at that one location in the build script rather than left to chance;
+modern-en's "Cesare Borgia" never collides at all. One false-positive was
+caught and fixed: original-en's "Pascal-like" is an adjective (the hyphen
+let the word-boundary matcher through), not a citation — modern-en's own
+"Pascalian" there correctly never matches.
+
+Left deliberately unbound, all cases where the text itself supplies no name
+or only a borrowed nickname: "the great Chinaman of Konigsberg" (7:6, Kant,
+unnamed at that spot), the unnamed father of Frederick the Great (7:5) and
+unnamed mother of Napoleon (8:24), and "ce senateur Pococurante" (8:14,
+Galiani's borrowed-from-Voltaire nickname for Helvetius, not a reference to
+an actual Pococurante in this book).
+
+### Source defects, none blocking enablement
+
+The poem's final paragraph (11:30) is Project Gutenberg's own end-of-text
+credit line, left over from incomplete boilerplate stripping in both
+editions — left as printed, not treated as a mention of Nietzsche himself.
+original-en carries several bracketed footnotes (citing Schiller's *William
+Tell*, Horace's *Epistles*, and the English translator of Schopenhauer's
+*Grundprobleme der Ethik*) that modern-en folds into the main sentence or
+drops outright; these account for every mention-count difference between
+editions, none of them a missing or invented character.
+
+### Required production checks
+
+Register both English editions, version the immutable asset URL, run the
+normal app gates and deploy, then open the production reader and confirm on
+the fetched asset:
+
+1. A first-encounter card in each edition (1:0, "Plato").
+2. That the two Fredericks (6:14, 7:5) and two Sands (8:19, 9:4) each show
+   their own distinct, correctly identified card.
+3. That "the great Chinaman of Konigsberg" (7:6) shows no card.
+
+Report live evidence back to the package `status.json` and the generated
+inventory only after those checks pass. Validated is not deployed.
+
 ## Opus batch 5: The Aeneid
 
 Authored on branch `claude/tinct-character-content-1n5iqq`. Queued, not production verified.
