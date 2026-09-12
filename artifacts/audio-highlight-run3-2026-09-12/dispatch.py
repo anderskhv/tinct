@@ -14,8 +14,13 @@ sys.path.insert(0, str(ROOT / "tools/audio-highlight/gpu"))
 from orchestrate import api  # noqa: E402
 
 COMMIT = os.environ.get("TINCT_RUN3_COMMIT") or (A / "commit.txt").read_text().strip()
-MAX_PODS = 10
-BUDGET_STOP = 16.0          # stop launching; harvest and close out below $20
+def max_pods():
+    """Concurrency, re-read every loop so it can be raised without a restart."""
+    try:
+        return int((A / "max_pods.txt").read_text().strip())
+    except Exception:
+        return 10
+BUDGET_STOP = 17.0          # stop launching; harvest and close out below $20
 POD_PROJECTION = 0.22       # $ a fresh pod adds, measured over 85 run-2 pods
 
 
@@ -67,7 +72,7 @@ def main():
         if projected + POD_PROJECTION > BUDGET_STOP:
             log(f"budget stop: spent {spent():.2f} + {len(running)} running projects {projected:.2f}")
             break
-        if len(running) >= MAX_PODS:
+        if len(running) >= max_pods():
             time.sleep(60)
             continue
         batch = pending[0]
@@ -77,9 +82,12 @@ def main():
                "--name", name, "--batch", str(A / f"batch-{batch}.json"),
                "--commit", COMMIT, "--artifacts", str(A), "--cloud", "SECURE",
                "--helper", "v3"]
+        gpus = (A / "gpus.txt")
+        if gpus.exists():
+            cmd += ["--gpus"] + [line for line in gpus.read_text().split("\n") if line.strip()]
         out = open(A / f"launch-{n}.log", "w")
         proc = subprocess.Popen(cmd, stdout=out, stderr=subprocess.STDOUT)
-        time.sleep(45)
+        time.sleep(20)
         if proc.poll() is not None and proc.returncode != 0:
             tail = (A / f"launch-{n}.log").read_text()[-300:]
             if "no instances currently available" in tail or "no capacity" in tail:

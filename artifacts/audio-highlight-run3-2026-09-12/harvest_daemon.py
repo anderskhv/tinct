@@ -46,7 +46,7 @@ def main():
             subprocess.run(["python3", str(A / "recompute_spent.py")], capture_output=True)
             did = True
         idle = 0 if did else idle + 1
-        time.sleep(30)
+        time.sleep(10)
 
 
 if __name__ == "__main__":
