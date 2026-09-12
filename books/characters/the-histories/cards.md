@@ -2397,3 +2397,975 @@ Tyrant of Chios, in the same roll, and still in place two invasions later.
 ## Laodamas · reference
 
 Tyrant of Phocaea, in the same roll.
+
+## Artobazanes · supporting
+
+Darius’s eldest son by the daughter of Gobryas, who argued that the throne was his by age and lost it to Xerxes, born to Atossa after Darius was already king.
+
+## Achaemenes · reference
+
+The man at the head of the Persian royal descent, from whom Cyrus’s line is traced. Not Xerxes’s brother of the same name.
+
+## Onomacritus · major
+
+The Athenian oracle-monger the sons of Peisistratus brought to Susa. He had been caught by Lasus inserting a forged prophecy into the works of Musaeus; at court he recited only the oracles that promised the Persian success, including the one that said a Persian was fated to bridge the Hellespont.
+
+## Musaeus · supporting
+
+The seer whose collected oracles Onomacritus arranged — and doctored.
+
+## Lasus · reference
+
+Of Hermione, who caught Onomacritus at the forgery.
+
+## The Aleuadae · supporting
+
+The kings of Thessaly, the first Greeks to invite Xerxes in and the first to give themselves to him. Their countrymen sent to the Isthmus to say they had had no part in it.
+
+## Aleuas · reference
+
+The Aleuadae are his sons.
+
+## Artabanus · major
+
+Hystaspes’s son and Darius’s brother, who had told Darius not to march against the Scythians and now told Xerxes not to march against Greece: the land and the sea are your two enemies, and god cuts short whatever stands above the rest. Made to sleep in the king’s bed and clothes, he saw the same dream, changed his mind, and was sent back to Susa to keep the kingdom.
+
+## Ariaramnes · reference
+
+Arsames’s father in the royal descent Xerxes recites.
+
+## Teispes · reference
+
+Named twice in the same descent, once as Ariaramnes’s father and once as Cambyses’s.
+
+## Arsames · reference
+
+Hystaspes’s father, Darius’s grandfather.
+
+## Arsames · supporting
+
+Darius’s son by Artystone, commander of the Arabians and of the Ethiopians above Egypt.
+
+## Pythius · major
+
+The Lydian of Celaenae, the richest man alive after the king, who entertained the whole army and offered his whole fortune for the war — and then asked for one of his five sons back. Xerxes had the eldest cut in half and the army marched between the pieces.
+
+## Atys · reference
+
+Pythius’s father. A third man of the name, after Croesus’s son and the ancient king.
+
+## Marsyas · reference
+
+The Silenus whose flayed skin hangs in the marketplace of Celaenae; the Phrygians say Apollo hung it there.
+
+## Patiramphes · reference
+
+Xerxes’s charioteer.
+
+## The nations of the lists · major
+
+The peoples Herodotus names only inside his catalogues — Croesus’s subject list, Darius’s tribute roll, and above all the muster at Doriscus, where forty-odd nations pass in review with their dress, their weapons and their Persian commanders: Cissians, Hyrcanians, Gandarians, Sarangae, Utii, Myci, Moschi, Tibareni, Macrones, Mossynoeci, Mares, Alarodians, Mariandyni, Milyans, Lasonians, Pactyes and the rest. He tells you nothing else about most of them. They are bound to this one card rather than to forty that would each read the same.
+
+## Otanes · supporting
+
+Commander of the Persian contingent and father of Xerxes’s wife Amestris. Herodotus does not say whether he is the Otanes of the seven.
+
+## Amestris · major
+
+Xerxes’s wife, who in her old age buried twice seven children of noble Persians alive as a thank-offering for her own life.
+
+## Cepheus · reference
+
+Belus’s son, whose daughter Perseus married; he had no son, and the Persian race is named from his grandson.
+
+## Andromeda · reference
+
+Cepheus’s daughter, whom Perseus married.
+
+## Perses · supporting
+
+Perseus and Andromeda’s son, left behind with his grandfather, from whom the Persians take their name — and the ground of Xerxes’s claim to be the Argives’ kinsman.
+
+## Tigranes · supporting
+
+An Achaemenid, commander of the Medes, and one of the generals left in Asia at the end.
+
+## Anaphes · reference
+
+Son of Otanes, commander of the Cissians.
+
+## Megapanus · reference
+
+Commander of the Hyrcanians, afterwards governor of Babylon.
+
+## Otaspes · reference
+
+Son of Artachaees, commander of the Assyrians.
+
+## Artachaees · major
+
+The Achaemenid who ran the digging of the Athos channel, the tallest Persian alive and the loudest-voiced; he died of sickness at Acanthus, and Xerxes buried him under a mound raised by the whole army. Acanthus sacrifices to him as a hero.
+
+## Artachaees · reference
+
+Otaspes’s father, named once in the catalogue.
+
+## Artaeus · reference
+
+Named twice in the catalogue as a father — of Artachaees who dug the channel, and of Azanes who commanded the Sogdians. Herodotus does not say whether these are one man.
+
+## Hystaspes · supporting
+
+Darius’s son by Atossa, commander of the Bactrians and the Sacae. Named for his great-grandfather.
+
+## Pharnazathres · reference
+
+Son of Artabates, commander of the Indians.
+
+## Artabates · reference
+
+Pharnazathres’s father.
+
+## Sisamnes · reference
+
+Commander of the Arians. Not the judge whose skin Cambyses had stretched over a chair.
+
+## Artabazus · major
+
+Son of Pharnaces, commander of the Parthians and Chorasmians, and afterwards the general who brought the remnant of the army home.
+
+## Pharnaces · reference
+
+Artabazus’s father.
+
+## Azanes · reference
+
+Son of Artaeus, commander of the Sogdians.
+
+## Artyphius · reference
+
+Son of Artabanus, commander of the Gandarians and Dadicae.
+
+## Ariomardus · reference
+
+Artyphius’s brother, commander of the Caspians.
+
+## Ariomardus · reference
+
+Darius’s son by Parmys, Smerdis’s daughter, commander of the Moschi and Tibareni.
+
+## Pherendates · reference
+
+Son of Megabazus, commander of the Sarangae.
+
+## Artayntes · reference
+
+Son of Ithamitres, commander of the Pactyes.
+
+## Ithamitres · reference
+
+Artayntes’s father, and a commander in the fleet of the last two books.
+
+## Arsamenes · reference
+
+Darius’s son, commander of the Utii and Myci.
+
+## Siromitres · reference
+
+Son of Oeobazus, commander of the Paricanii; named again in the catalogue as Masistius’s father.
+
+## Oeobazus · reference
+
+Siromitres’s father.
+
+## Massages · reference
+
+Son of Oarizus, commander of the Libyans.
+
+## Oarizus · reference
+
+Massages’s father.
+
+## Dotus · reference
+
+Son of Megasidrus, commander of the Paphlagonians and Matieni.
+
+## Megasidrus · reference
+
+Dotus’s father.
+
+## Gobryas · reference
+
+Darius’s son by Artystone, commander of the Mariandyni, Ligyes and Syrians.
+
+## Artochmes · reference
+
+Married to a daughter of Darius, commander of the Phrygians and Armenians.
+
+## Bassakes · reference
+
+Son of Artabanus, commander of the Thracians of Asia.
+
+## Badres · reference
+
+Son of Hystanes, commander of the Lasonians and Milyans.
+
+## Hystanes · reference
+
+Badres’s father.
+
+## Artayctes · major
+
+Son of Cherasmis, commander of the Macrones and Mossynoeci and governor of Sestos — the man who used to take women into the shrine of Protesilaus, and whom the Athenians nailed alive to a plank.
+
+## Cherasmis · reference
+
+Artayctes’s father.
+
+## Pharandates · reference
+
+Son of Teaspis, commander of the Mares and Colchians.
+
+## Masistius · supporting
+
+Son of Siromitres, commander of the Alarodians and Saspires, and afterwards the cavalry commander whose death before Plataea the Persians mourned.
+
+## Mardontes · supporting
+
+Son of Bagaeus, commander of the island contingents, killed the next year at Mycale.
+
+## Tritantaechmes · supporting
+
+Son of the Artabanus who argued against the war, and one of the six generals over the whole infantry.
+
+## Smerdomenes · supporting
+
+Son of Otanes, a cousin of Xerxes and one of the six generals of the infantry.
+
+## Masistes · major
+
+Darius’s son by Atossa, one of the six generals of the infantry, and the brother whose family Amestris destroyed.
+
+## Gergis · reference
+
+Son of Ariazus, one of the six generals of the infantry.
+
+## Ariazus · reference
+
+Gergis’s father.
+
+## Megabyzus · supporting
+
+Son of the Zopyrus who took Babylon by mutilating himself, and one of the six generals of the infantry. His grandfather of the same name was one of the seven.
+
+## Otanes · reference
+
+Smerdomenes’s father and a brother of Darius. Neither the conspirator of the seven nor Sisamnes’s son.
+
+## Hydarnes · major
+
+Son of the Hydarnes of the seven, and the Hydarnes of this campaign: commander of the ten thousand Immortals, host to the two Spartans on their way to Susa, and the man Xerxes sent over the mountain path to take the pass from behind.
+
+## The Immortals · major
+
+The ten thousand picked Persians, so called because whenever one of them died or fell sick another was chosen, and they were never more or fewer. They took over at Thermopylae when the Medes had been roughly handled, and did no better.
+
+## The Sagartians · supporting
+
+Persian in race and language, eight thousand horsemen who carried no bronze or iron but a plaited leather noose, and dragged whatever they caught — horse or man — to themselves.
+
+## Harmamithras · reference
+
+A son of Datis, and one of the three commanders of the cavalry.
+
+## Tithaeus · reference
+
+Datis’s other son, cavalry commander with his brother.
+
+## Pharnouches · supporting
+
+The third cavalry commander, left sick at Sardis when a dog ran under his horse and the fall brought on consumption. His servants took the horse back to the spot and cut its legs off at the knees.
+
+## Ariabignes · supporting
+
+Darius’s son by the daughter of Gobryas, commander of the Ionian and Carian ships, killed at Salamis.
+
+## Prexaspes · supporting
+
+Son of Aspathines of the seven, one of the four commanders of the fleet. Not the Prexaspes who killed Smerdis for Cambyses.
+
+## Megabazus · reference
+
+Son of Megabates, one of the four commanders of the fleet.
+
+## Tetramnestus · reference
+
+Son of Anysus, of Sidon, the most notable man in the fleet after the commanders.
+
+## Anysus · reference
+
+Tetramnestus’s father.
+
+## Matten · reference
+
+Son of Siromus, of Tyre.
+
+## Siromus · reference
+
+Matten’s father, of Tyre. Not the Cyprian Siromus, Chersis’s father.
+
+## Merbalus · reference
+
+Son of Agbalus, of Aradus.
+
+## Agbalus · reference
+
+Merbalus’s father.
+
+## Oromedon · reference
+
+Father of the Syennesis who commanded the Cilician ships.
+
+## Cyberniscus · reference
+
+Son of Sicas, of Lycia.
+
+## Sicas · reference
+
+Cyberniscus’s father.
+
+## Timonax · reference
+
+Son of Timagoras, one of the two Cyprian captains of note.
+
+## Timagoras · reference
+
+Timonax’s father.
+
+## Histiaeus · supporting
+
+Son of Tymnes, tyrant of Termera in Caria, seized by Aristagoras with the other Carian tyrants and sailing with Xerxes twenty years later. Not Histiaeus of Miletus.
+
+## Tymnes · reference
+
+Histiaeus of Termera’s father. Not the Scythian steward of the same name.
+
+## Pigres · reference
+
+Son of Hysseldomus, a Carian captain. Not the Paeonian who showed Darius his sister carrying water.
+
+## Hysseldomus · reference
+
+Pigres of Caria’s father.
+
+## Damasithymus · supporting
+
+Son of Candaules, a Carian captain — and the king of the Calyndians whose ship Artemisia rammed and sank to save herself.
+
+## Candaules · reference
+
+Damasithymus’s father. Not the Lydian king who had his wife looked at.
+
+## Artemisia · central
+
+Lygdamis’s daughter and ruler of Halicarnassus, Cos, Nisyrus and Calydna, who went on the expedition after her husband’s death though she had a grown son and no compulsion. Her five ships were reckoned the best in the fleet after Sidon’s, and of all the king’s allies she gave him the best advice.
+
+## Lygdamis · reference
+
+Artemisia’s father, Halicarnassian on his side and Cretan on his wife’s. Not the Naxian who helped Peisistratus.
+
+## Mascames · supporting
+
+Son of Megadostes and governor at Doriscus, the one governor in Thrace or on the Hellespont the Greeks never took. Every Persian king since has sent gifts to his descendants.
+
+## Megadostes · reference
+
+Mascames’s father.
+
+## Boges · major
+
+Governor at Eion, who could have come out under truce and would not, for fear the king would think it cowardice. He cut the throats of his children, his wife, his concubines and his servants, threw them on a pyre, scattered the city’s gold and silver into the Strymon, and threw himself into the fire.
+
+## The Satrae · supporting
+
+The only Thracians who have never submitted to anyone: they live in high forested mountains under snow, are highly skilled in war, and hold the oracle of Dionysus.
+
+## The Bessi · reference
+
+The Satrae who interpret the shrine; a prophetess utters the oracles, as at Delphi.
+
+## Antipater · reference
+
+Son of Orgeus, appointed by the Thasians to feed Xerxes’s army — four hundred talents of silver for one dinner.
+
+## Orgeus · reference
+
+Antipater’s father.
+
+## Megacreon · supporting
+
+Of Abdera, who told his city to go to the temples in a body and thank the gods that Xerxes did not eat twice a day.
+
+## Talthybius · supporting
+
+Agamemnon’s herald, whose anger fell on Sparta for the heralds thrown down a well, and whose temple and descendants are in the city.
+
+## The Talthybiads · reference
+
+Talthybius’s descendants, who hold the right to carry every herald’s message out of Sparta.
+
+## Sperthias · major
+
+Son of Aneristus, who with Bulis volunteered to go to Xerxes and be killed for the heralds Sparta had murdered. Told by Hydarnes that he might rule a Greek country as the king’s gift, he answered that a man who has only tasted slavery cannot advise about freedom. Xerxes sent them home.
+
+## Aneristus · supporting
+
+Sperthias’s father — and Sperthias’s son of the same name, put to death by the Athenians a generation later, so that the anger of Talthybius came round again.
+
+## Bulis · major
+
+Son of Nicolaus, Sperthias’s companion in the offer.
+
+## Nicolaus · supporting
+
+Bulis’s father — and Bulis’s son of the same name, killed with Aneristus in Attica.
+
+## Teres · reference
+
+Sitalces’s father, at the head of the Thracian kings.
+
+## Nymphodorus · reference
+
+Son of Pythes, of Abdera, who with Sitalces betrayed the Spartan envoys on the Hellespont.
+
+## Pythes · reference
+
+Nymphodorus’s father.
+
+## Aristeas · reference
+
+Son of Adeimantus of Corinth, put to death by the Athenians with the two Spartan envoys. Not Aristeas of Proconnesus, who kept turning up after his death.
+
+## Adeimantus · reference
+
+Aristeas of Corinth’s father.
+
+## Aristonice · supporting
+
+The Pythian priestess who told the Athenians to flee to the ends of the earth, since neither head nor body nor anything between was left to them.
+
+## Timon · supporting
+
+Son of Androboulus, a Delphian of the first rank, who told the Athenians to go back into the shrine as suppliants with boughs in their hands and ask again — which got them the wooden wall.
+
+## Androboulus · reference
+
+Timon’s father.
+
+## Themistocles · central
+
+Neocles’s son, lately come forward among the leading Athenians, who read the wooden wall as the ships and Salamis the divine as an oracle against the enemy — and who had already persuaded Athens to spend the silver of Laurium on two hundred ships instead of dividing it ten drachmas a man.
+
+## Neocles · reference
+
+Themistocles’s father.
+
+## Gorgo · major
+
+Cleomenes’s daughter and Leonidas’s wife: at eight or nine she told her father to get up and go before Aristagoras corrupted him, and years later she was the one who worked out that the blank tablet from Susa had writing under the wax.
+
+## Euaenetus · supporting
+
+Son of Carenus, chosen from the polemarchs to command the Greek force sent to hold the pass at Tempe; not of the royal house.
+
+## Carenus · reference
+
+Euaenetus’s father.
+
+## Thyia · reference
+
+Cephisus’s daughter, in whose precinct the Delphians built their altar to the Winds.
+
+## Cephisus · reference
+
+Thyia’s father.
+
+## Gelon · central
+
+Tyrant of Syracuse and the greatest power in the Greek world, who offered the alliance two hundred ships and an army and grain for the whole war on condition that he command it — and when Sparta and Athens both refused him, told them the spring had been taken out of their year. He sent money to Delphi instead, to be given to whichever side won.
+
+## Dinomenes · reference
+
+Gelon’s father.
+
+## Telines · supporting
+
+Gelon’s ancestor, who brought the exiles back to Gela with no force of arms but only the rites of the chthonic goddesses, and won the priesthood of the mysteries for his descendants. Herodotus cannot see how so faint-hearted a man did it.
+
+## Cleander · supporting
+
+Son of Pantares, tyrant of Gela for seven years, killed by a man of the city; Hippocrates his brother succeeded him.
+
+## Pantares · reference
+
+Cleander of Gela’s father.
+
+## Sabyllus · reference
+
+The man of Gela who killed Cleander.
+
+## Aenesidemus · reference
+
+Son of Pataecus, a spear-bearer of Hippocrates with Gelon — and the father of Theron of Acragas.
+
+## Pataecus · reference
+
+Aenesidemus’s father.
+
+## Euclides · reference
+
+One of Hippocrates’s two sons, whom Gelon pretended to defend and then stripped of power.
+
+## Cleander · reference
+
+Hippocrates’s other son, named after his uncle and dispossessed with his brother.
+
+## Hieron · reference
+
+Gelon’s brother, given Gela when Gelon took Syracuse.
+
+## Syagrus · supporting
+
+The Lacedaemonian envoy to Gelon, who said that Agamemnon would groan to hear that the Spartans had had the leadership taken from them by Syracusans.
+
+## Cadmus · major
+
+Son of Scythes, who inherited the government of Cos in good order and handed it to the people for no reason but uprightness. Gelon picked him to carry the money to Delphi, and he brought every coin of it back.
+
+## Terillus · supporting
+
+Son of Crinippus and tyrant of Himera, driven out by Theron, who brought the Carthaginians into Sicily to get his city back.
+
+## Crinippus · reference
+
+Terillus’s father.
+
+## Theron · supporting
+
+Son of Aenesidemus and ruler of Acragas, who drove Terillus out and beat Hamilcar with Gelon.
+
+## Hamilcar · major
+
+Son of Hanno, king of the Carthaginians, who brought three hundred thousand men into Sicily and disappeared on the day of the battle — sacrificing on a great pyre, he saw his army break and threw himself into the fire. The Carthaginians sacrifice to him and set up memorials to him in every colony.
+
+## Hanno · reference
+
+Hamilcar’s father.
+
+## Cretines · reference
+
+Anaxilaus of Rhegium’s father.
+
+## Cretines · reference
+
+Ameinocles the Magnesian’s father.
+
+## Cydippe · reference
+
+Terillus’s daughter, married to Anaxilaus of Rhegium — which is why Anaxilaus worked to bring the Carthaginians in.
+
+## Micythus · supporting
+
+Anaxilaus’s servant, left in charge of Rhegium, who forced its citizens to help the Tarentines and lost three thousand of them; expelled, he settled at Tegea and dedicated the statues at Olympia.
+
+## Choerus · reference
+
+Micythus’s father.
+
+## The Cyllyrians · reference
+
+The slaves of Syracuse, who with the common people drove the landholders out — and whom Gelon undid by bringing the landholders back.
+
+## The Acragantines · reference
+
+Theron’s people, who held Camicus in Herodotus’s day.
+
+## The Messapians · reference
+
+What the shipwrecked Cretans of Iapygia became — mainlanders instead of islanders.
+
+## Daedalus · reference
+
+Whom Minos followed to Sicania, and died there.
+
+## The Iberians · reference
+
+One of the seven nations in Hamilcar’s army.
+
+## The Ligurians · reference
+
+In Hamilcar’s army, and in the account of the far west of Europe.
+
+## The Elisycans · reference
+
+In Hamilcar’s army.
+
+## The Sardinians · reference
+
+In Hamilcar’s army.
+
+## The Corsicans · reference
+
+In Hamilcar’s army.
+
+## Cilix · reference
+
+Agenor’s son, the Phoenician the Cilicians are named after.
+
+## Agenor · reference
+
+Cadmus’s father, and Cilix’s.
+
+## Amphilochus · reference
+
+With Calchas, scattered from Troy; the Pamphylians are descended from his people.
+
+## Calchas · reference
+
+Scattered from Troy with Amphilochus.
+
+## Xuthus · reference
+
+Ion’s father, who came to the Peloponnese with Danaus.
+
+## Ion · reference
+
+Xuthus’s son, from whom the Pelasgians of the coast were renamed Ionians.
+
+## Prexinos · reference
+
+Commander of the Troezenian ship taken first of the three on watch off Sciathos.
+
+## Leon · supporting
+
+The handsomest of the fighting men on the Troezenian ship, whose throat the Persians cut over the prow for a good omen. Herodotus wonders whether his name — Lion — had something to do with it.
+
+## Asonides · reference
+
+Commander of the Aeginetan ship.
+
+## Pytheas · major
+
+Son of Ischenous, the Aeginetan marine who fought on until he was hacked to pieces and still would not die. The Persians dressed his wounds with myrrh and fine linen and showed him off to the whole army.
+
+## Ischenous · reference
+
+Pytheas’s father.
+
+## Phormos · reference
+
+The Athenian whose ship ran aground at the mouth of the Peneios; the crew walked home through Thessaly.
+
+## Pammon · reference
+
+Of Skyros, who told the Persians where the reef of Myrmex lay.
+
+## Boreas · major
+
+The north wind, whom the Athenians called on as their brother-in-law because his wife is from Attica. Four hundred ships were lost off Sepias, and the Athenians built him a temple by the Ilissos.
+
+## Oreithuia · supporting
+
+Erechtheus’s daughter and Boreas’s wife — the Attic marriage that made the north wind a relative.
+
+## Erechtheus · supporting
+
+Oreithuia’s father, and the king whose shrine stands on the Athenian acropolis.
+
+## Ameinocles · supporting
+
+A Magnesian with land around Sepias, made rich by the wreck — gold cups, silver cups, Persian treasure-chests — and unlucky in everything else: he was tormented by the killing of a child.
+
+## Thetis · supporting
+
+Carried off from Sepias by Peleus, according to the Ionians; the Magi sacrificed to her and to the Nereids to stop the storm.
+
+## The Nereids · reference
+
+Whose headland Sepias is, with Thetis.
+
+## Peleus · reference
+
+Who carried Thetis off from that shore.
+
+## Sandokes · supporting
+
+Son of Thamasios and governor of Cyme, once crucified by Darius as a royal judge who sold a verdict and taken down again when Darius reckoned up his services. He escaped the king; sailing late into Artemisium with fifteen ships, he did not escape the Greeks.
+
+## Thamasios · reference
+
+Sandokes’s father.
+
+## Aridolis · reference
+
+Tyrant of Alabanda in Caria, taken in one of the fifteen ships.
+
+## Penthylos · reference
+
+Son of Demonoös, the Paphian commander who brought twelve ships, lost eleven in the storm and was captured in the twelfth.
+
+## Demonoös · reference
+
+Penthylos’s father.
+
+## Athamas · supporting
+
+Aeolus’s son, who plotted Phrixus’s death with Ino — and was nearly sacrificed for it himself. His eldest descendants may not enter the Hall of the People at Alos, and Xerxes would not go into the grove.
+
+## Aeolus · reference
+
+Athamas’s father.
+
+## Phrixus · reference
+
+Whose death Athamas plotted, and whose son came back from Colchis to save him.
+
+## Ino · reference
+
+Athamas’s partner in the plot.
+
+## Kytissoros · supporting
+
+Phrixus’s son, who arrived from Colchis and rescued Athamas from the altar — and brought the wrath of the gods on his own descendants for it.
+
+## Amphictyon · reference
+
+Whose temple stands at Anthela beside the seats of the Amphictyonic council.
+
+## The Amphictyons · supporting
+
+The council that met at Anthela, priced Epialtes’s life and set up the memorials at Thermopylae.
+
+## Eurycratides · reference
+
+Leon’s father in the Agiad descent Herodotus recites for Leonidas.
+
+## Anaxander · reference
+
+Eurycratides’s father.
+
+## Eurycrates · reference
+
+Anaxander’s father.
+
+## Polydorus · reference
+
+Eurycrates’s father.
+
+## Alcamenes · reference
+
+Polydorus’s father.
+
+## Teleclos · reference
+
+Alcamenes’s father.
+
+## Archelaus · reference
+
+Teleclos’s father.
+
+## Hegesilaus · reference
+
+Archelaus’s father in the Agiad line.
+
+## Doryssus · reference
+
+Hegesilaus’s father.
+
+## Leobotes · reference
+
+Doryssus’s father — the king Lycurgus was guardian to.
+
+## Echestratus · reference
+
+Leobotes’s father, Agis’s son.
+
+## Leontiades · supporting
+
+Son of Eurymachus and commander of the four hundred Thebans Leonidas took with him as hostages. He went over to the Persians at the end and was branded with the royal marks for his pains.
+
+## Eurymachus · reference
+
+Leontiades’s father — and Leontiades’s son of the same name, who seized Plataea and was killed by the Plataeans.
+
+## Epialtes · major
+
+Son of Eurydemus, a Malian, who told Xerxes about the mountain path for a reward and destroyed the Greeks at the pass. The Amphictyons put a price on his head; he was killed years later at Antikyra by Athenades, for another reason entirely, and the Lacedaemonians honoured Athenades for it anyway.
+
+## Eurydemus · reference
+
+Epialtes’s father.
+
+## Athenades · reference
+
+The man of Trachis who killed Epialtes.
+
+## Onetes · supporting
+
+Son of Phanagoras, of Carystos, named by some as the man who showed the Persians the path. Herodotus will not have it: the Amphictyons priced Epialtes, not him, and Epialtes went into exile for the charge.
+
+## Phanagoras · reference
+
+Onetes’s father.
+
+## Corydallus · reference
+
+Of Antikyra, named with Onetes in the account Herodotus rejects.
+
+## Megistias · major
+
+The Acarnanian soothsayer, said to be descended from Melampus, who read the victims and told the Greeks at dawn what was coming. Leonidas tried to send him away; he sent his only son instead and stayed. Simonides wrote his epitaph out of guest-friendship.
+
+## Demophilus · supporting
+
+Son of Diadromes, commander of the seven hundred Thespians who stayed of their own will and died with Leonidas.
+
+## Diadromes · reference
+
+Demophilus’s father.
+
+## Abrocomes · supporting
+
+A son of Darius by Phratagune, killed over the body of Leonidas.
+
+## Hyperanthes · supporting
+
+Abrocomes’s brother, killed in the same fight.
+
+## Phratagune · reference
+
+Artanes’s only child, married to Darius with her father’s whole fortune, and mother of the two brothers who died at the pass.
+
+## Artanes · reference
+
+Darius’s brother and Phratagune’s father.
+
+## Dienekes · major
+
+The Spartan reckoned the best man of all, who on being told that the Persian arrows would darken the sun said that their guest from Trachis brought good news — the battle would be fought in the shade.
+
+## Alpheus · supporting
+
+With his brother Maron, the bravest of the Lacedaemonians after Dienekes.
+
+## Maron · supporting
+
+Alpheus’s brother.
+
+## Orsiphantus · reference
+
+Father of Alpheus and Maron.
+
+## Dithyrambus · supporting
+
+Son of Harmatides, the Thespian who gained most honour.
+
+## Harmatides · reference
+
+Dithyrambus’s father.
+
+## Simonides · supporting
+
+Son of Leoprepes, who wrote the soothsayer’s epitaph — and whom Herodotus quotes once before this.
+
+## Eurystus · major
+
+One of two of the three hundred sent out of the camp with eye disease. Told that the Persians had gone round, he called for his armour, had a Helot lead him to the fighting, and died in it.
+
+## Aristodemus · major
+
+The other man with the eye disease, who stayed behind fainting and came home. No Spartan would give him fire or speak to him, and he was called Aristodemus the Coward — until Plataea, where he made it good.
+
+## Pantites · supporting
+
+The other survivor of the three hundred, sent as a messenger to Thessaly, who came home to dishonour and hanged himself.
+
+## The Thespians · major
+
+Seven hundred of them at the pass, who stayed of their own will when the allies were dismissed and died with the Spartans; and the one Boeotian people, with Plataea, that never gave earth and water.
+
+## The Phocians · major
+
+A thousand of them, who had offered to hold the mountain path and were on it when the Persians came up through the oak leaves at dawn; they ran for the summit, and the Persians walked past them.
+
+## The Locrians · supporting
+
+The Opuntian Locrians, called up in full force to Trachis.
+
+## The Malians · supporting
+
+In whose land Thermopylae lies; they gave the king earth and water, and it was Malians who had found the mountain path long before and shown it to the Thessalians.
+
+## The Trachinians · supporting
+
+The people of Trachis, who told the Greeks about the path only after they had arrived at the pass.
+
+## The Oetaeans · reference
+
+Whose mountains stood on the Persians’ right as they went round by night.
+
+## The Perrhaebians · reference
+
+Through whose country the upper road into Thessaly runs — the road Xerxes took.
+
+## The Magnesians · reference
+
+Of Thessaly, who gave earth and water; Herodotus also names Magnesians in Asia in the tribute list.
+
+## The Dolopians · reference
+
+Who gave earth and water, and marched with the king.
+
+## The Enianians · reference
+
+Out of whose land the Spercheios flows; they gave earth and water.
+
+## The Mantineians · reference
+
+Five hundred of them at the pass with the Tegeans.
+
+## Leoprepes · reference
+
+Simonides the poet’s father. Not the Spartan Leoprepes, Theasides’s father.
+
+## The Royal Judges · supporting
+
+The Persian judges chosen for life, who interpret the ancestral laws and decide every case referred to them. Cambyses had Sisamnes flayed for selling a verdict; Darius crucified Sandokes for the same offence and then took him down again.
+
+## The Royal Secretaries · reference
+
+The king’s clerks, who read his letters aloud to the governors — which is how Bagaeus destroyed Oroetes with a sealed packet.
+
+## Scythes · reference
+
+Cadmus’s father, who held Cos before him and left it in good order.
+
+## Agis · reference
+
+Echestratus’s father and Eurysthenes’s son, at the head of the Agiad kings. Not Leotychides’s grandfather.
+
+## The Winds · major
+
+The powers Delphi told the Delphians to pray to, saying they would be great allies of Greece. The Delphians built them an altar at Thyia and sacrifice to them still; four hundred Persian ships were lost off Sepias.
+
+## The Troezenians · supporting
+
+Who put one of the three ships on watch off Sciathos, and from whom the people of Halicarnassus are descended.
+
+## Artabazus · reference
+
+Father of the Tritantaechmes who held Babylon. Not the general of this war.
+
+## Tritantaechmes · reference
+
+Satrap of Babylon, whose province was the best of all the governments: an artaba of silver a day, and eight hundred stallions besides the mares. Not Artabanus’s son.

@@ -1,15 +1,15 @@
 # The Histories character package — IN PROGRESS
 
-**Books 1–6 (sections 1–1026) are authored. Books 7–9 are not.** Status stays
+**Books 1–7 (sections 1–1260) are authored. Books 8–9 are not.** Status stays
 `in-progress` and the package must not be integrated until all nine books are
 covered.
 
-Current state: 595 entities authored, 592 bound in the older translation and all
-595 in the modern edition, 10,024 and 9,989 exact mentions. The mention counts are
+Current state: 838 entities authored, 835 bound in the older translation and all
+838 in the modern edition, 10,773 and 10,766 exact mentions. The mention counts are
 by a wide margin the highest in the library, because the nations Herodotus names —
 Persians, Hellenes, Athenians, Lacedaemonians — recur through all nine books and
 are bound wherever they appear, not only where they were first cast. Content
-revision 2026-09-12.2.
+revision 2026-09-12.3.
 
 ## Why this is the hardest book in the queue
 
@@ -113,17 +113,20 @@ Lynkeus, Linos, Dioscuroi, Samothrakians, Keltoi, Kilikians, and the Hephaistos
 | The chapter titles number sections **continuously for Books 1–3** ("Book 2 — Euterpe, Chapter 216") and **restart at 1 for Books 4–9** ("Book 4 — Melpomene, Chapter 1"). The underlying chapter numbers are continuous throughout. | Reader-facing labels are inconsistent between the first three books and the last six. No effect on offsets or on this package; worth fixing in the edition metadata. |
 | Stray editorial section numbers survive inside the running text of the older translation — e.g. "against the Medes, 15 and he drove the Kimmerians", "to Egypt, not agreeing therein with the Hellenes, 3" | Cosmetic in the reader; **do not strip them**, since removing them would move every UTF-16 offset in the file and invalidate this package's hashes. |
 | The modern edition inserts a translator's parenthetical at section 936 — *(The Greek word krios also means "ram.")* — where the older translation carries the same information as a footnote. | The word *Greek* there means the language, and the package-wide alias binds it to the Hellenes. One mention in one edition; not repaired, because editing it would move every offset after 936. |
+| Both editions print **Erechththeus** for Erechtheus at section 1211, though both spell him correctly at 843, 1304 and 1315. | Carried as an alias rather than repaired; editing it would move every offset after 1211. |
 
 No edition byte was touched.
 
 ## Remaining work
 
-- Books 7–9 (sections 1027–1525): Thermopylae, Salamis and Plataea. Several
-  hundred more people and nations, and the largest concentration of Persian
-  commanders in the work — where the fourth, fifth and sixth men called Otanes
-  turn up, all of them still unbound.
+- Books 8–9 (sections 1261–1525): Salamis, Plataea and Mycale. Most of their
+  principals are already bound forward out of Book 7 — Xerxes, Mardonius,
+  Artabazus, Artemisia, Themistocles, Leonidas's survivors, the Immortals — so
+  what remains is the Greek commanders of the two battles, the Persian
+  commanders who first appear there, and the long tail of Aeginetan, Corinthian
+  and Tegean names in the aristeia lists.
 
-  Books 1 to 6 are done. Books 7–9 remain.
+  Books 1 to 7 are done. Books 8–9 remain.
 
 - The namesake tables extended as each book is authored, and the `None` defaults
   replaced only where the later man is actually carded.
@@ -371,8 +374,152 @@ binds it to the Hellenes, where it means the language. Recorded below rather tha
 special-cased, since the same alias is doing correct work in two thousand other
 places.
 
+## Book 7: the catalogue, and what to do with four hundred names
+
+Polymnia is the longest book in the work and the largest single cast in the
+library: **243 new entities**, and 3,354 mentions inside its own sections across
+the two editions. Most of the new names come from one place — the muster at
+Doriscus, where Herodotus walks down forty-odd nations giving each one its dress,
+its weapons and its Persian commander, and then never mentions most of them
+again.
+
+### Two decisions about the catalogue
+
+**The commanders are cast; the nations are not, one by one.** Every named
+commander gets a card, however little the text says about him, because a reader
+meeting *Pherendates son of Megabazus* wants to know he is the commander of the
+Sarangae and nothing more is known. The nations that appear **only** inside
+Herodotus's lists are bound instead to a single card, **The nations of the
+lists** — Cissians, Hyrcanians, Gandarians, Sarangae, Utii, Myci, Moschi,
+Tibareni, Macrones, Mossynoeci, Mares, Alarodians, Mariandyni, Milyans,
+Lasonians, Pactyes and the rest. Forty cards each reading "one of the nations of
+the army list" would be noise; this is the same reasoning that gives the Divine
+Comedy package one card for the thirty Florentine houses. Peoples that do
+anything in the narrative keep their own cards, and Book 7 adds four of them:
+**the Immortals**, **the Sagartians** with their leather nooses, **the Satrae**
+who have never submitted to anyone, and **the Bessi** who interpret their oracle.
+
+**The old names are folded into the peoples they belong to.** Herodotus keeps
+saying what a nation used to be called, and each of those names is now an alias
+on the people itself rather than a card of its own: **Artaeans** and **Cephenes**
+for the Persians, **Medonians** and **Maeonians** for the Lydians, **Briges** for
+the Phrygians, **Hypachaeans** for the Cilicians, **Termilae** for the Lycians,
+**Bithynians** for the Thracians of Asia, **Olympieni** for the Mysians.
+
+### Namesakes
+
+The catalogue reuses names without troubling to distinguish them, and eight of
+its men share a name with somebody cast from an earlier book:
+
+| Entity | Where | Against |
+|---|---|---|
+| `arsames-son-of-darius` | 1092, 1093 | Darius's grandfather Arsames |
+| `artachaees-father-of-otaspes` | 1087 | the Artachaees who dug the Athos channel |
+| `hystaspes-son-of-darius` | 1088 | Darius's father |
+| `sisamnes-son-of-hydarnes` | 1090 | the judge Cambyses had flayed |
+| `ariomardus-caspians` / `ariomardus-son-of-darius` | 1090 / 1100 | each other |
+| `gobryas-son-of-darius` | 1095 | Gobryas of the seven |
+| `prexaspes-son-of-aspathines` | 1119 | the Prexaspes who killed Smerdis |
+| `megabyzus-son-of-zopyrus` | 1104, 1143 | his grandfather, of the seven |
+| `megabazus-son-of-megabates` | 1119 | the conqueror of Thrace |
+
+**Section 1105 names two men in three words.** "Hydarnes son of Hydarnes" is the
+commander of the Immortals and the conspirator of Book 3, in that order; from
+that point on every Hydarnes of this campaign is the son — the host who tells the
+two Spartans they have never tasted freedom, and the man sent over the mountain
+path. The patronymic at 1090 could be either and carries no card.
+
+**Section 1120, the roll of ship captains, is worse than the catalogue**: it has
+a Histiaeus, a Tymnes, a Pigres, a Candaules and a Siromus, and not one of them
+is the man of that name already cast. Herodotus's Carian captains have nothing to
+do with Histiaeus of Miletus, the Scythian steward Tymnes, the Paeonian Pigres,
+the Lydian king Candaules or the Cyprian Siromus. Each earlier entity lost its
+bare alias so a position table could own both.
+
+Also here: **two men called Cadmus** (the Phoenician, and the man of Cos who
+carried Gelon's money to Delphi and brought every coin back), **two called
+Cleander** in one sentence at 1177 (the tyrant of Gela and his nephew), **two
+called Cretines**, **two called Achaemenes** (the ancestor at the head of the
+line, and Xerxes's brother), **two called Aristeas**, **two called Leoprepes**
+(Theasides's father and Simonides's), **a third Atys** and **a third Otanes,
+fourth, and fifth**.
+
+### It corrects five things in the books already done
+
+The adjacency sweep and the namesake work turned up four mis-bindings and one
+gap in Books 1 to 5:
+
+- **"Achaemenes" at 472** — where Prexaspes traces Cyrus's descent from the head
+  of the line — was bound to Xerxes's brother, who was not born for two
+  generations.
+- **"Tymnes" at 798**, Histiaeus of Termera's father, was bound to Ariapeithes's
+  Scythian steward.
+- **The river Lycus at 632 and 679** was bound to Lycus son of Pandion. Rivers
+  are not cast.
+- **"Royal" was an alias of the Royal Scythians**, so the king's **Royal
+  Judges** (411, 428, 786, 1216) and his **Royal Secretaries** (525) were being
+  bound to a Scythian tribe. Both are now cards of their own — the judges are a
+  named body Herodotus stops to explain — and the tribe answers to *Royal
+  Scythians*.
+- **Artabanus**, who talks Darius out of nothing in Book 4 (639, 699) and argues
+  against the whole war here, had no card at all; neither did **Gorgo**, who at
+  eight told her father to get up and leave before Aristagoras corrupted him and
+  years later read the blank tablet from Susa.
+
+### Deliberately unbound
+
+- **Two Otaneses in the catalogue** — Patiramphes's father (1064) and Anaphes's
+  (1086). There are at least five men of the name in the work and the text does
+  not say which of them these are.
+- **Hydarnes at 1090**, as above, and **Callias son of Hipponicus at 1173**, who
+  is the grandson of the Callias of Book 6 and belongs to a later generation.
+- **The rivers Lycus, Marsyas and Kephisos**, against the Silenus whose skin
+  hangs at Celaenae, Thyia's father, and Lycus son of Pandion.
+- **The Ariaramnes of Book 8** (1349), a Persian who died at Salamis, against the
+  ancestor in Xerxes's genealogy.
+- **The Etesian winds and the compass winds** (1061, 1190, and the Etesians of
+  Book 6), against the Winds the Delphians built an altar to.
+- **The Artayntes, Adeimantus, Aristodemus, Archidamus, Anaxilaus, Agis,
+  Hegesilaus and Polydorus of Books 8 and 9**, which are other men of the same
+  names and belong to books not yet authored.
+
+Two dynastic names are left on one card each and flagged rather than split:
+**Teaspis** (Sataspes's father in Book 4, Pharandates's here) and **Syennesis**
+(Cilician kings of Book 1, Book 5 and Book 7). Herodotus gives no basis for
+separating them, and no basis for joining them either; the cards say so.
+
+### Judgement calls
+
+- **The Winds** are cast as the power Delphi told the Delphians to pray to, and
+  **Boreas** with his Attic wife Oreithuia as the one of them the Athenians
+  claimed as a relative. **Thetis and the Nereids**, whom the Magi sacrificed to
+  at Sepias, are cast for the same reason.
+- **The Royal Judges** and **the Royal Secretaries** are cast as named bodies,
+  like the Ephors and the Pythians of Book 6.
+- **Talthybius** is cast as the hero whose anger fell on Sparta, and his
+  descendants the **Talthybiads** separately, because the text treats them as two
+  things.
+- **Perses**, the son of Perseus and Andromeda from whom the Persians take their
+  name, is cast: Xerxes's claim of kinship with Argos turns on him.
+
+### An edition divergence inside an oracle
+
+The Spartans' oracle at 1241 says their city will be sacked by **"the children of
+Perses"** in Macaulay and by **"the sons of Perseus"** in the modern edition.
+Each edition is bound to the figure it prints — Perses in the one, Perseus in the
+other — and a test pins both. It is the only place in the package where the two
+texts name different people in the same line.
+
+### Spot-read and sweep
+
+Twenty mentions drawn at random, ten per edition: all correct. The adjacency
+sweep over every Book 7 mention whose matched text abuts a capitalised word
+turned up the **"Royal Judges"** mis-binding described above, which had been
+sitting in Books 3 and 5 since those books were authored. That is the third time
+the sweep has found something no coverage test could.
+
 ## Validation
 
 `python3 books/characters/build_the_histories.py --check`, then
-`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Forty-one
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Fifty-two
 focused tests so far. No edition changes, no network generation.

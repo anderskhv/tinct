@@ -1,5 +1,5 @@
-"""Focused checks for the Histories. AUTHORING IN PROGRESS: Books 1-6
-(sections 1-1026) are authored; Books 7-9 are not."""
+"""Focused checks for the Histories. AUTHORING IN PROGRESS: Books 1-7
+(sections 1-1260) are authored; Books 8-9 are not."""
 import unittest
 from build_the_histories import compile_package
 
@@ -18,7 +18,9 @@ class TheHistories(unittest.TestCase):
         # Croesus's son, and the ancient king the Lydians are named after.
         for ed in ['original-en','modern-en']:
             self.assertEqual(set(where(ed,'atys-son-of-croesus')),{(34,0)},ed)
-            self.assertEqual(sorted(set(where(ed,'atys-son-of-manes'))),[(7,0),(93,0)],ed)
+            self.assertEqual(sorted(set(where(ed,'atys-son-of-manes'))),
+                             [(7,0),(93,0),(1097,0)],ed)
+            self.assertEqual(where(ed,'atys-father-of-pythius'),[(1053,0)],ed)
 
     def test_the_two_men_called_lycurgus(self):
         # The Athenian faction leader, then the Spartan lawgiver.
@@ -29,7 +31,9 @@ class TheHistories(unittest.TestCase):
     def test_the_two_men_called_cambyses(self):
         # Cyrus's father, and Cyrus's son at the handover.
         for ed in ['original-en','modern-en']:
-            self.assertEqual(where(ed,'cambyses-ii'),[(207,0)],ed)
+            # Book 7 names him again for Egypt and for the Ethiopian campaign.
+            self.assertEqual(sorted({c for c,_ in where(ed,'cambyses-ii')}),
+                             [207,1027,1034,1044],ed)
             self.assertTrue(all(c!=207 for c,_ in where(ed,'cambyses-i')),ed)
 
     def test_alexander_son_of_priam_is_not_alexander_of_macedon(self):
@@ -177,7 +181,8 @@ class TheHistories(unittest.TestCase):
         # neither reaches into the other's territory.
         for ed in ['original-en','modern-en']:
             self.assertTrue(all(c<400 for c,_ in where(ed,'alexander-paris')),ed)
-            self.assertTrue(all(778<=c<=783 for c,_ in where(ed,'alexander-macedon')),ed)
+            self.assertTrue(all(c>=778 for c,_ in where(ed,'alexander-macedon')),ed)
+            self.assertIn((1195,0),where(ed,'alexander-macedon'),ed)
 
     def test_not_every_aristagoras_is_the_milesian(self):
         # The tyrant of Cyzicus in Darius's fleet, and the Samian father of
@@ -400,6 +405,142 @@ class TheHistories(unittest.TestCase):
                 self.assertEqual(ss[1]['availableAt']['chapterNumber'],ch,(cid,ed))
                 first=[c for c in ASSET['editions'][ed]['characters'] if c['id']==cid][0]['firstMention']
                 self.assertLess(first['chapterNumber'],ch,(cid,ed))
+
+    # ------------------------------------------------------- BOOK 7 (POLYMNIA)
+    def test_the_namesakes_of_the_army_catalogue(self):
+        # The muster at Doriscus reuses names without distinguishing them.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(sorted(set(where(ed,'arsames'))),[(208,0),(1037,0),(1245,0)],ed)
+            self.assertEqual(sorted(set(where(ed,'arsames-son-of-darius'))),
+                             [(1092,0),(1093,0)],ed)
+            self.assertEqual(sorted(set(where(ed,'artachaees'))),
+                             [(1048,0),(1139,0),(1140,0)],ed)
+            self.assertEqual(where(ed,'artachaees-father-of-otaspes'),[(1087,0)],ed)
+            self.assertEqual(where(ed,'hystaspes-son-of-darius'),[(1088,0)],ed)
+            self.assertTrue(all(c!=1088 for c,_ in where(ed,'hystaspes')),ed)
+            self.assertEqual(where(ed,'sisamnes-son-of-hydarnes'),[(1090,0)],ed)
+            self.assertEqual(set(where(ed,'sisamnes')),{(786,0)},ed)
+            self.assertEqual(where(ed,'ariomardus-caspians'),[(1090,0)],ed)
+            self.assertEqual(where(ed,'ariomardus-son-of-darius'),[(1100,0)],ed)
+            self.assertEqual(where(ed,'gobryas-son-of-darius'),[(1095,0)],ed)
+            self.assertTrue(all(c!=1095 for c,_ in where(ed,'gobryas')),ed)
+            self.assertEqual(where(ed,'prexaspes-son-of-aspathines'),[(1119,0)],ed)
+            self.assertTrue(all(c!=1119 for c,_ in where(ed,'prexaspes')),ed)
+            self.assertEqual(sorted(set(where(ed,'megabyzus-son-of-zopyrus'))),
+                             [(1104,0),(1143,0)],ed)
+            self.assertEqual(where(ed,'megabazus-son-of-megabates'),[(1119,0)],ed)
+
+    def test_the_two_men_called_hydarnes_in_one_phrase(self):
+        # "Hydarnes son of Hydarnes": the son commands the Immortals, and the
+        # father is the conspirator of Book 3. Everything in this campaign is
+        # the son; the patronymic at 1090 is left unbound.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([i for i in ids(ed,1105) if i.startswith('hydarnes')],
+                             ['hydarnes-son','hydarnes'],ed)
+            self.assertEqual(where(ed,'hydarnes'),[(467,0),(1105,0)],ed)
+            for ch in (1157,1233,1237,1239):
+                self.assertIn('hydarnes-son',ids(ed,ch),ed)
+            self.assertNotIn('hydarnes',ids(ed,1090),ed)
+            self.assertNotIn('hydarnes-son',ids(ed,1090),ed)
+
+    def test_the_ancestor_achaemenes_is_not_xerxes_brother(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(sorted(set(where(ed,'achaemenes-ancestor'))),
+                             [(472,0),(1037,0)],ed)
+            self.assertEqual(sorted(set(where(ed,'achaimenes'))),
+                             [(409,0),(1033,0),(1119,0),(1257,0),(1258,0)],ed)
+
+    def test_the_carian_captains_are_not_their_namesakes(self):
+        # Section 1120 has a Histiaeus, a Tymnes, a Pigres, a Candaules and a
+        # Siromus, and not one of them is the man of that name cast before.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'histiaeus-termera'),[(1120,0)],ed)
+            self.assertTrue(all(c!=1120 for c,_ in where(ed,'histiaeus')),ed)
+            self.assertEqual(sorted(set(where(ed,'tymnes-termera'))),[(798,0),(1120,0)],ed)
+            self.assertEqual(where(ed,'tymnes'),[(632,0)],ed)
+            self.assertEqual(where(ed,'pigres-caria'),[(1120,0)],ed)
+            self.assertEqual(where(ed,'pigres'),[(773,0)],ed)
+            self.assertEqual(where(ed,'candaules-caria'),[(1120,0)],ed)
+            self.assertTrue(all(c<20 for c,_ in where(ed,'candaules')),ed)
+            self.assertEqual(where(ed,'siromus-tyre'),[(1120,0)],ed)
+            self.assertEqual(where(ed,'siromus'),[(865,0)],ed)
+            self.assertEqual(where(ed,'lygdamis-halicarnassus'),[(1121,0)],ed)
+            self.assertEqual(sorted(set(where(ed,'lygdamis'))),[(60,0),(63,0)],ed)
+
+    def test_the_two_men_called_cadmus_and_the_two_called_cleander(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(sorted(set(where(ed,'cadmus-cos'))),[(1185,0),(1186,0)],ed)
+            self.assertTrue(all(c<1100 for c,_ in where(ed,'cadmus')),ed)
+            self.assertEqual(where(ed,'scythes-cos'),[(1185,0)],ed)
+            # "helping Hippocrates's sons Euclides and Cleander" — the uncle
+            # first, then the nephew, in one sentence.
+            self.assertEqual([i for i in ids(ed,1177) if i.startswith('cleander')],
+                             ['cleander-gela','cleander-son-of-hippocrates'],ed)
+            self.assertEqual(where(ed,'cleander'),[(969,0)],ed)
+
+    def test_the_survivor_of_thermopylae_is_not_the_heraclid(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(sorted({c for c,_ in where(ed,'aristodemus-thermopylae')}),
+                             [1250,1251,1252,1474],ed)
+            self.assertEqual(sorted({c for c,_ in where(ed,'aristodemus')}),
+                             [703,938,1226,1390],ed)
+            # The Agiad king-list of 1226 is one line of reference cards.
+            for cid in ['eurycratides','anaxander','eurycrates','polydorus-sparta',
+                        'alcamenes','teleclos','archelaos','hegesilaus','doryssos',
+                        'leobotes','echestratos','agis-agiad']:
+                self.assertIn((1226,0),where(ed,cid),(cid,ed))
+
+    def test_names_left_unbound_in_book_seven(self):
+        # Two men called Otanes in the catalogue whom the text does not place,
+        # the later Callias, the river Lycus, the Ariaramnes of Book 8 and the
+        # Kephisos of Phocis all carry no card.
+        for ed in ['original-en','modern-en']:
+            self.assertNotIn('otanes',ids(ed,1064),ed)
+            self.assertNotIn('otanes',ids(ed,1086),ed)
+            self.assertEqual(where(ed,'otanes-father-of-amestris'),[(1085,0)],ed)
+            self.assertEqual(where(ed,'otanes-brother-of-darius'),[(1104,0)],ed)
+            self.assertNotIn('callias',ids(ed,1173),ed)
+            self.assertNotIn('callias-athens',ids(ed,1173),ed)
+            self.assertEqual(sorted(set(where(ed,'lycos'))),[(172,0),(1114,0)],ed)
+            self.assertEqual(where(ed,'ariaramnes'),[(1037,0)],ed)
+            self.assertEqual(where(ed,'cephisus'),[(1200,0)],ed)
+            self.assertEqual(where(ed,'marsyas'),[(1052,0)],ed)
+
+    def test_the_forty_nations_of_the_lists_share_one_card(self):
+        for ed in ['original-en','modern-en']:
+            self.assertGreater(len(where(ed,'catalogue-nations')),35,ed)
+            cat={c for c,_ in where(ed,'catalogue-nations')}
+            self.assertTrue({1090,1100,1101}<=cat,ed)
+            # The peoples with cards of their own keep them.
+            self.assertIn((1088,0),where(ed,'sacae'),ed)
+            self.assertIn((1107,0),where(ed,'sagartians'),ed)
+            self.assertEqual(sorted(set(where(ed,'immortals'))),
+                             [(1105,0),(1233,0),(1372,0)],ed)
+
+    def test_the_royal_judges_are_not_the_royal_scythians(self):
+        # The bare alias "Royal" had been binding the king's judges and his
+        # secretaries to the Scythian tribe.
+        for ed in ['original-en','modern-en']:
+            self.assertNotIn('royal-scythians',ids(ed,1216),ed)
+            self.assertNotIn('royal-scythians',ids(ed,411),ed)
+            self.assertIn('royal-judges',ids(ed,1216),ed)
+            self.assertIn('royal-judges',ids(ed,428),ed)
+            self.assertIn('royal-secretaries',ids(ed,525),ed)
+            self.assertTrue(all(c in (576,578,612,613,615,627)
+                                for c,_ in where(ed,'royal-scythians')),ed)
+
+    def test_the_two_editions_name_different_figures_in_one_oracle(self):
+        # The Spartans' oracle: Macaulay's "children of Perses" against the
+        # modern "sons of Perseus". Each edition binds what it prints.
+        self.assertIn((1241,1),where('original-en','perses'))
+        self.assertNotIn((1241,1),where('modern-en','perses'))
+        self.assertIn((1241,1),where('modern-en','perseus'))
+
+    def test_the_winds_are_a_power_and_not_a_direction(self):
+        for ed in ['original-en','modern-en']:
+            self.assertTrue(where(ed,'the-winds'),ed)
+            self.assertTrue(all(c in (1200,1201) for c,_ in where(ed,'the-winds')),ed)
+            self.assertNotIn('the-winds',ids(ed,1061),ed)
 
     def test_no_entity_is_missing_from_both_editions(self):
         o=set(REPORT['editions']['original-en']['omittedEntities'])

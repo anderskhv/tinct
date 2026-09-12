@@ -2156,9 +2156,9 @@ Beginning with the trading station of the Borysthenites,—for of the parts alon
 
 The Greeks of the trading station at the Borysthenes, who call themselves Milesians and among whom Skyles kept a house.
 
-## original-en · royal-scythians · 411:0
+## original-en · royal-scythians · 576:0
 
-On the tenth day after that on which he received the surrender of the fortress of Memphis, Cambyses set the king of the Egyptians Psammenitos, who had been king for six months, to sit in the suburb of the city, to do him dishonour,—him I say with other Egyptians he set there, and he proceeded to make trial of his spirit as follows:—having arrayed his daughter in the clothing of a slave, he sent her forth with a pitcher to fetch water, and with her he sent also other maidens chosen from the daughters of the chief men, arrayed as was the daughter of the king: and as the maidens were passing by their fathers with cries and lamentation, the other men all began to cry out and lament aloud, 16 seeing that their children had been evilly entreated, but Psammenitos when he saw it before his eyes and perceived it bent himself down to the earth. Then when the water-bearers had passed by, next Cambyses sent his son with two thousand Egyptians besides who were of the same age, with ropes bound round their necks and bits placed in their mouths; and these were being led away to execution to avenge the death of the Mytilenians who had been destroyed at Memphis with their ship: for the Royal Judges 17 had decided that for each man ten of the noblest Egyptians should lose their lives in retaliation. He then, when he saw them passing out by him and perceived that his son was leading the way 18 to die, did the same as he had done with respect to his daughter, while the other Egyptians who sat round him were lamenting and showing signs of grief. When these also had passed by, it chanced that a man of his table companions, advanced in years, who had been deprived of all his possessions and had nothing except such things as a beggar possesses, and was asking alms from the soldiers, passed by Psammenitos the son of Amasis and the Egyptians who were sitting in the suburb of the city: and when Psammenitos saw him he uttered a great cry of lamentation, and he called his companion by name and beat himself upon the head. Now there was, it seems, men set to watch him, who made known to Cambyses all that he did on the occasion of each going forth: and Cambyses marvelled at that which he did, and he sent a messenger and asked him thus: "Psammenitos, thy master Cambyses asks thee for what reason, when thou sawest thy daughter evilly entreated and thy son going to death, thou didst not cry aloud nor lament for them, whereas thou didst honour with these signs of grief the beggar who, as he hears from others, is not in any way related to thee?" Thus he asked, and the other answered as follows: "O son of Cyrus, my own troubles were too great for me to lament them aloud, but the trouble of my companion was such as called for tears, seeing that he has been deprived of great wealth, and has come to beggary upon the threshold of old age." When this saying was reported by the messenger, it seemed to them 19 that it was well spoken; and, as is reported by the Egyptians, Croesus shed tears (for he also, as fortune would have it, had accompanied Cambyses to Egypt) and the Persians who were present shed tears also; and there entered some pity into Cambyses himself, and forthwith he bade them save the life of the son of Psammenitos from among those who were being put to death, and also he bade them raise Psammenitos himself from his place in the suburb of the city and bring him into his own presence.
+Then on the other side of the Gerros we have those parts which are called the "Royal" lands and those Scythians who are the bravest and most numerous and who esteem the other Scythians their slaves. These reach Southwards to the Tauric land, and Eastwards to the trench which those who were begotten of the blind slaves dug, and to the trading station which is called Cremnoi 28 upon the Maiotian lake; and some parts of their country reach to the river Tanaïs. Beyond the Royal Scythians towards the North Wind dwell the Melanchlainoi, 29 of a different race and not Scythian. The region beyond the Melanchlainoi is marshy and not inhabited by any, so far as we know.
 
 The bravest and most numerous Scythians, who hold the rest for slaves, and whose kings are buried at Gerros with a strangled concubine, a cup-bearer, a cook and a horse.
 
@@ -3554,6 +3554,1464 @@ Now these were they who gave the vote between the two opinions, and were men of 
 
 Tyrant of Phocaea, in the same roll.
 
+## original-en · artobazanes · 1028:0
+
+While Dareios was thus preparing to set out against Egypt and against Athens, there arose a great strife among his sons about the supreme power; and they said that he must not make his expeditions until he had designated one of them to be king, according to the custom of the Persians. For to Dareios already before he became king three sons had been born of his former wife the daughter of Gobryas, and after he became king four other sons of Atossa the daughter of Cyrus: of the first the eldest was Artobazanes, and of those who had been born later, Xerxes. These being not of the same mother were at strife with one another, Artobazanes contending that he was the eldest of all the sons, and that it was a custom maintained by all men that the eldest should have the rule, and Xerxes arguing that he was the son of Atossa the daughter of Cyrus, and that Cyrus was he who had won for the Persians their freedom.
+
+Darius’s eldest son by the daughter of Gobryas, who argued that the throne was his by age and lost it to Xerxes, born to Atossa after Darius was already king.
+
+## original-en · achaemenes-ancestor · 472:0
+
+When Prexaspes said that he was ready to do this also, the Magians having called together the Persians caused him to go up upon a tower and bade him address them. Then he chose to forget those things which they asked of him, and beginning with Achaimenes he traced the descent of Cyrus on the father's side, and then, when he came down to Cyrus, he related at last what great benefits he had conferred upon the Persians; and having gone through this recital he proceeded to declare the truth, saying that formerly he kept it secret, since it was not safe for him to tell of that which had been done, but at the present time he was compelled to make it known. He proceeded to say how he had himself slain Smerdis the son of Cyrus, being compelled by Cambyses, and that it was the Magians who were now ruling. Then he made imprecation of many evils on the Persians, if they did not win back again the power and take vengeance upon the Magians, and upon that he let himself fall down from the tower head foremost. Thus Prexaspes ended his life, having been throughout his time a man of repute.
+
+The man at the head of the Persian royal descent, from whom Cyrus’s line is traced. Not Xerxes’s brother of the same name.
+
+## original-en · onomacritus · 1032:0
+
+These things he was wont to say, since he was one who had a desire for perilous enterprise and wished to be himself the governor of Hellas under the king. So in time he prevailed upon Xerxes and persuaded him to do this; for other things also assisted him and proved helpful to him in persuading Xerxes. In the first place there had come from Thessaly messengers sent by the Aleuadai, who were inviting the king to come against Hellas and were showing great zeal in his cause, (now these Aleuadai were kings of Thessaly): and then secondly those of the sons of Peisistratos who had come up to Susa were inviting him also, holding to the same arguments as the Aleuadai; and moreover they offered him yet more inducement in addition to these; for there was one Onomacritos an Athenian, who both uttered oracles and also had collected and arranged the oracles of Musaios; 4 and with this man they had come up, after they had first reconciled the enmity between them. For Onomacritos had been driven forth from Athens by Hipparchos the son of Peisistratos, having been caught by Lasos of Hermion interpolating in the works of Musaios an oracle to the effect that the islands which lie off Lemnos should disappear 5 under the sea. For this reason Hipparchos drove him forth, having before this time been very much wont to consult him. Now however he had gone up with them; and when he had come into the presence of the king, the sons of Peisistratos spoke of him in magnificent terms, and he repeated some of the oracles; and if there was in them anything which imported disaster to the Barbarians, of this he said nothing; but choosing out of them the most fortunate things he told how it was destined that the Hellespont should be yoked with a bridge by a Persian, and he set forth the manner of the march. He then thus urged Xerxes with oracles, while the sons of Peisistratos and the Aleuadai pressed him with their advice.
+
+The Athenian oracle-monger the sons of Peisistratus brought to Susa. He had been caught by Lasus inserting a forged prophecy into the works of Musaeus; at court he recited only the oracles that promised the Persian success, including the one that said a Persian was fated to bridge the Hellespont.
+
+## original-en · musaeus · 1032:0
+
+These things he was wont to say, since he was one who had a desire for perilous enterprise and wished to be himself the governor of Hellas under the king. So in time he prevailed upon Xerxes and persuaded him to do this; for other things also assisted him and proved helpful to him in persuading Xerxes. In the first place there had come from Thessaly messengers sent by the Aleuadai, who were inviting the king to come against Hellas and were showing great zeal in his cause, (now these Aleuadai were kings of Thessaly): and then secondly those of the sons of Peisistratos who had come up to Susa were inviting him also, holding to the same arguments as the Aleuadai; and moreover they offered him yet more inducement in addition to these; for there was one Onomacritos an Athenian, who both uttered oracles and also had collected and arranged the oracles of Musaios; 4 and with this man they had come up, after they had first reconciled the enmity between them. For Onomacritos had been driven forth from Athens by Hipparchos the son of Peisistratos, having been caught by Lasos of Hermion interpolating in the works of Musaios an oracle to the effect that the islands which lie off Lemnos should disappear 5 under the sea. For this reason Hipparchos drove him forth, having before this time been very much wont to consult him. Now however he had gone up with them; and when he had come into the presence of the king, the sons of Peisistratos spoke of him in magnificent terms, and he repeated some of the oracles; and if there was in them anything which imported disaster to the Barbarians, of this he said nothing; but choosing out of them the most fortunate things he told how it was destined that the Hellespont should be yoked with a bridge by a Persian, and he set forth the manner of the march. He then thus urged Xerxes with oracles, while the sons of Peisistratos and the Aleuadai pressed him with their advice.
+
+The seer whose collected oracles Onomacritus arranged — and doctored.
+
+## original-en · lasus · 1032:0
+
+These things he was wont to say, since he was one who had a desire for perilous enterprise and wished to be himself the governor of Hellas under the king. So in time he prevailed upon Xerxes and persuaded him to do this; for other things also assisted him and proved helpful to him in persuading Xerxes. In the first place there had come from Thessaly messengers sent by the Aleuadai, who were inviting the king to come against Hellas and were showing great zeal in his cause, (now these Aleuadai were kings of Thessaly): and then secondly those of the sons of Peisistratos who had come up to Susa were inviting him also, holding to the same arguments as the Aleuadai; and moreover they offered him yet more inducement in addition to these; for there was one Onomacritos an Athenian, who both uttered oracles and also had collected and arranged the oracles of Musaios; 4 and with this man they had come up, after they had first reconciled the enmity between them. For Onomacritos had been driven forth from Athens by Hipparchos the son of Peisistratos, having been caught by Lasos of Hermion interpolating in the works of Musaios an oracle to the effect that the islands which lie off Lemnos should disappear 5 under the sea. For this reason Hipparchos drove him forth, having before this time been very much wont to consult him. Now however he had gone up with them; and when he had come into the presence of the king, the sons of Peisistratos spoke of him in magnificent terms, and he repeated some of the oracles; and if there was in them anything which imported disaster to the Barbarians, of this he said nothing; but choosing out of them the most fortunate things he told how it was destined that the Hellespont should be yoked with a bridge by a Persian, and he set forth the manner of the march. He then thus urged Xerxes with oracles, while the sons of Peisistratos and the Aleuadai pressed him with their advice.
+
+Of Hermione, who caught Onomacritus at the forgery.
+
+## original-en · aleuadae · 1032:0
+
+These things he was wont to say, since he was one who had a desire for perilous enterprise and wished to be himself the governor of Hellas under the king. So in time he prevailed upon Xerxes and persuaded him to do this; for other things also assisted him and proved helpful to him in persuading Xerxes. In the first place there had come from Thessaly messengers sent by the Aleuadai, who were inviting the king to come against Hellas and were showing great zeal in his cause, (now these Aleuadai were kings of Thessaly): and then secondly those of the sons of Peisistratos who had come up to Susa were inviting him also, holding to the same arguments as the Aleuadai; and moreover they offered him yet more inducement in addition to these; for there was one Onomacritos an Athenian, who both uttered oracles and also had collected and arranged the oracles of Musaios; 4 and with this man they had come up, after they had first reconciled the enmity between them. For Onomacritos had been driven forth from Athens by Hipparchos the son of Peisistratos, having been caught by Lasos of Hermion interpolating in the works of Musaios an oracle to the effect that the islands which lie off Lemnos should disappear 5 under the sea. For this reason Hipparchos drove him forth, having before this time been very much wont to consult him. Now however he had gone up with them; and when he had come into the presence of the king, the sons of Peisistratos spoke of him in magnificent terms, and he repeated some of the oracles; and if there was in them anything which imported disaster to the Barbarians, of this he said nothing; but choosing out of them the most fortunate things he told how it was destined that the Hellespont should be yoked with a bridge by a Persian, and he set forth the manner of the march. He then thus urged Xerxes with oracles, while the sons of Peisistratos and the Aleuadai pressed him with their advice.
+
+The kings of Thessaly, the first Greeks to invite Xerxes in and the first to give themselves to him. Their countrymen sent to the Isthmus to say they had had no part in it.
+
+## original-en · aleuas · 1152:0
+
+So the guides, when Xerxes asked whether there was any other possible outlet to the sea for the Peneios, said with exact knowledge of the truth: "O king, for this river there is no other outgoing which extends to the sea, but this alone; for all Thessaly is circled about with mountains as with a crown." To this Xerxes is said to have replied: "The Thessalians then are prudent men. This it appears was that which they desired to guard against in good time 111 when they changed their counsel, 112 reflecting on this especially besides other things, namely that they had a country which, it appears, is easy to conquer and may quickly be taken: for it would have been necessary only to let the river flow over their land by making an embankment to keep it from going through the narrow channel and so diverting the course by which now it flows, in order to put all Thessaly under water except the mountains." This he said in reference to the sons of Aleuas, because they, being Thessalians, were the first of the Hellenes who gave themselves over to the king; for Xerxes thought that they offered him friendship on behalf of their whole nation. Having said thus and having looked at the place, he sailed back to Therma.
+
+The Aleuadae are his sons.
+
+## original-en · artabanus · 639:0
+
+While Dareios was preparing to go against the Scythians and was sending messengers to appoint to some the furnishing of a land-army, to others that of ships, and to others the bridging over of the Thracian Bosphorus, Artabanos, the son of Hystaspes and brother of Dareios, urged him by no means to make the march against the Scythians, telling him how difficult the Scythians were to deal with. Since however he did not persuade him, though he gave him good counsel, he ceased to urge; and Dareios, when all his preparations had been made, began to march his army forth from Susa.
+
+Hystaspes’s son and Darius’s brother, who had told Darius not to march against the Scythians and now told Xerxes not to march against Greece: the land and the sea are your two enemies, and god cuts short whatever stands above the rest. Made to sleep in the king’s bed and clothes, he saw the same dream, changed his mind, and was sent back to Susa to keep the kingdom.
+
+## original-en · ariaramnes · 1037:0
+
+Artabanos thus spoke; and Xerxes enraged by it made answer as follows: "Artabanos, thou art my father's brother, and this shall save thee from receiving any recompense such as thy foolish words deserve. Yet I attach to thee this dishonour, seeing that thou art a coward and spiritless, namely that thou do not march with me against Hellas, but remain here together with the women; and I, even without thy help, will accomplish all the things which I said: for I would I might not be descended from Dareios, the son of Hystaspes, the son of Arsames, the son of Ariaramnes, the son of Teïspes, or from Cyrus, 12 the son of Cambyses, the son of Teïspes, the son of Achaimenes, if I take not vengeance on the Athenians; since I know well that if we shall keep quiet, yet they will not do so, but will again 13 march against our land, if we may judge by the deeds which have been done by them to begin with, since they both set fire to Sardis and marched upon Asia. It is not possible therefore that either side should retire from the quarrel, but the question before us is whether we shall do or whether we shall suffer; whether all these regions shall come to be under the Hellenes or all those under the Persians: for in our hostility there is no middle course. It follows then now that it is well for us, having suffered wrong first, to take revenge, that I may find out also what is this terrible thing which I shall suffer if I lead an army against these men,--men whom Pelops the Phrygian, who was the slave of my forefathers, so subdued that even to the present day both the men themselves and their land are called after the name of him who subdued them."
+
+Arsames’s father in the royal descent Xerxes recites.
+
+## original-en · teispes · 1037:0
+
+Artabanos thus spoke; and Xerxes enraged by it made answer as follows: "Artabanos, thou art my father's brother, and this shall save thee from receiving any recompense such as thy foolish words deserve. Yet I attach to thee this dishonour, seeing that thou art a coward and spiritless, namely that thou do not march with me against Hellas, but remain here together with the women; and I, even without thy help, will accomplish all the things which I said: for I would I might not be descended from Dareios, the son of Hystaspes, the son of Arsames, the son of Ariaramnes, the son of Teïspes, or from Cyrus, 12 the son of Cambyses, the son of Teïspes, the son of Achaimenes, if I take not vengeance on the Athenians; since I know well that if we shall keep quiet, yet they will not do so, but will again 13 march against our land, if we may judge by the deeds which have been done by them to begin with, since they both set fire to Sardis and marched upon Asia. It is not possible therefore that either side should retire from the quarrel, but the question before us is whether we shall do or whether we shall suffer; whether all these regions shall come to be under the Hellenes or all those under the Persians: for in our hostility there is no middle course. It follows then now that it is well for us, having suffered wrong first, to take revenge, that I may find out also what is this terrible thing which I shall suffer if I lead an army against these men,--men whom Pelops the Phrygian, who was the slave of my forefathers, so subdued that even to the present day both the men themselves and their land are called after the name of him who subdued them."
+
+Named twice in the same descent, once as Ariaramnes’s father and once as Cambyses’s.
+
+## original-en · arsames · 208:0
+
+And when he had passed over the Araxes, night having come on he saw a vision in his sleep in the land of the Massagetai, as follows:—in his sleep it seemed to Cyrus that he saw the eldest of the sons of Hystaspes having upon his shoulders wings, and that with the one of these he overshadowed Asia and with the other Europe. Now of Hystaspes the son of Arsames, who was a man of the Achaimenid clan, the eldest son was Dareios, who was then, I suppose, a youth of about twenty years of age, and he had been left behind in the land of the Persians, for he was not yet of full age to go out to the wars. So then when Cyrus awoke he considered with himself concerning the vision: and as the vision seemed to him to be of great import, he called Hystaspes, and having taken him apart by himself he said: "Hystaspes, thy son has been found plotting against me and against my throne: and how I know this for certain I will declare to thee:—The gods have a care of me and show me beforehand all the evils that threaten me. So in the night that is past while sleeping I saw the eldest of thy sons having upon his shoulders wings, and with the one of these he overshadowed Asia and with the other Europe. To judge by this vision then, it cannot be but that he is plotting against me. Do thou therefore go by the quickest way back to Persia and take care that, when I thither after having subdued these regions, thou set thy son before me to be examined."
+
+Hystaspes’s father, Darius’s grandfather.
+
+## original-en · arsames-son-of-darius · 1092:0
+
+The Arabians wore loose mantles 68 girt up, and they carried at their right side bows that bent backward 69 of great length. The Ethiopians had skins of leopards and lions tied upon them, and bows made of a slip 70 of palm-wood, which were of great length, not less than four cubits, and for them small arrows of reed with a sharpened stone at the head instead of iron, the same stone with which they engrave seals: in addition to this they had spears, and on them was the sharpened horn of a gazelle by way of a spear-head, and they had also clubs with knobs upon them. Of their body they used to smear over half with white, 71 when they went into battle, and the other half with red. 72 Of the Arabians and the Ethiopians who dwelt above Egypt the commander was Arsames, the son of Dareios and of Artystone, the daughter of Cyrus, whom Dareios loved most of all his wives, and had an image made of her of beaten gold.
+
+Darius’s son by Artystone, commander of the Arabians and of the Ethiopians above Egypt.
+
+## original-en · pythius · 1053:0
+
+In this city Pythios the son of Atys, a Lydian, was waiting for the king and entertained his whole army, as well as Xerxes himself, with the most magnificent hospitality: moreover he professed himself ready to supply money for the war. So when Pythios offered money, Xerxes asked those of the Persians who were present, who Pythios was and how much money he possessed, that he made this offer. They said: "O king, this is he who presented thy father Dareios with the golden plane-tree and the golden vine; and even now he is in wealth the first of all men of whom we know, excepting thee only."
+
+The Lydian of Celaenae, the richest man alive after the king, who entertained the whole army and offered his whole fortune for the war — and then asked for one of his five sons back. Xerxes had the eldest cut in half and the army marched between the pieces.
+
+## original-en · atys-father-of-pythius · 1053:0
+
+In this city Pythios the son of Atys, a Lydian, was waiting for the king and entertained his whole army, as well as Xerxes himself, with the most magnificent hospitality: moreover he professed himself ready to supply money for the war. So when Pythios offered money, Xerxes asked those of the Persians who were present, who Pythios was and how much money he possessed, that he made this offer. They said: "O king, this is he who presented thy father Dareios with the golden plane-tree and the golden vine; and even now he is in wealth the first of all men of whom we know, excepting thee only."
+
+Pythius’s father. A third man of the name, after Croesus’s son and the ancient king.
+
+## original-en · marsyas · 1052:0
+
+During the time that these were working at the task which had been proposed to them, the whole land-army had been assembled together and was marching with Xerxes to Sardis, setting forth from Critalla in Cappadokia; for there it had been ordered that the whole army should assemble, which was to go with Xerxes himself by the land: but which of the governors of provinces brought the best equipped force and received from the king the gifts proposed, I am not able to say, for I do not know that they even came to a competition in this matter. Then after they had crossed the river Halys and had entered Phrygia, marching through this land they came to Kelainai, where the springs of the river Maiander come up, and also those of another river not less than the Maiander, whose name is Catarractes; 28 this rises in the market-place itself of Kelainai and runs into the Maiander: and here also is hanging up in the city the skin of Marsyas the Silenos, which is said by the Phrygians to have been flayed off and hung up by Apollo.
+
+The Silenus whose flayed skin hangs in the marketplace of Celaenae; the Phrygians say Apollo hung it there.
+
+## original-en · patiramphes · 1064:0
+
+When these had so done, the army proceeded to pass between; and first the baggage-bearers led the way together with their horses, and after these the host composed of all kinds of nations mingled together without distinction: and when more than the half had gone by, an interval was left and these were separated from the king. For before him went first a thousand horsemen, chosen out of all the Persians; and after them a thousand spearmen chosen also from all the Persians, having the points of their spears turned down to the ground; and then ten sacred horses, called "Nesaian," 41 with the fairest possible trappings. Now the horses are called Nesaian for this reason:--there is a wide plain in the land of Media which is called the Nesaian plain, and this plain produces the great horses of which I speak. Behind these ten horses the sacred chariot of Zeus was appointed to go, which was drawn by eight white horses; and behind the horses again followed on foot a charioteer holding the reins, for no human creature mounts upon the seat of that chariot. Then behind this came Xerxes himself in a chariot drawn by Nesaian horses, and by the side of him rode a charioteer, whose name was Patiramphes, son of Otanes a Persian.
+
+Xerxes’s charioteer.
+
+## original-en · catalogue-nations · 28:0
+
+As time went on, when nearly all those dwelling on this side the river Halys had been subdued, (for except the Kilikians and Lykians Croesus subdued and kept under his rule all the nations, that is to say Lydians, Phrygians, Mysians, Mariandynoi, Chalybians, Paphlagonians, Thracians both Thynian and Bithynian, Carians, Ionians, Dorians, Aiolians, and Pamphylians), 24
+
+The peoples Herodotus names only inside his catalogues — Croesus’s subject list, Darius’s tribute roll, and above all the muster at Doriscus, where forty-odd nations pass in review with their dress, their weapons and their Persian commanders: Cissians, Hyrcanians, Gandarians, Sarangae, Utii, Myci, Moschi, Tibareni, Macrones, Mossynoeci, Mares, Alarodians, Mariandyni, Milyans, Lasonians, Pactyes and the rest. He tells you nothing else about most of them. They are bound to this one card rather than to forty that would each read the same.
+
+## original-en · otanes-father-of-amestris · 1085:0
+
+Now those who served were as follows:--The Persians with this equipment:--about their heads they had soft 55 felt caps called tiaras, and about their body tunics of various colours with sleeves, presenting the appearance of iron scales like those of a fish, 56 and about the legs trousers; and instead of the ordinary shields they had shields of wicker-work, 57 under which hung quivers; and they had short spears and large bows and arrows of reed, and moreover daggers hanging by the right thigh from the girdle: and they acknowledged as their commander Otanes the father of Amestris the wife of Xerxes. Now these were called by the Hellenes in ancient time Kephenes; by themselves however and by their neighbours they were called Artaians: but when Perseus, the son of Danae and Zeus, came to Kepheus the son of Belos 58 and took to wife his daughter Andromeda, there was born to them a son to whom he gave the name Perses, and this son he left behind there, for it chanced that Kepheus had no male offspring: after him therefore this race was named.
+
+Commander of the Persian contingent and father of Xerxes’s wife Amestris. Herodotus does not say whether he is the Otanes of the seven.
+
+## original-en · amestris · 1085:0
+
+Now those who served were as follows:--The Persians with this equipment:--about their heads they had soft 55 felt caps called tiaras, and about their body tunics of various colours with sleeves, presenting the appearance of iron scales like those of a fish, 56 and about the legs trousers; and instead of the ordinary shields they had shields of wicker-work, 57 under which hung quivers; and they had short spears and large bows and arrows of reed, and moreover daggers hanging by the right thigh from the girdle: and they acknowledged as their commander Otanes the father of Amestris the wife of Xerxes. Now these were called by the Hellenes in ancient time Kephenes; by themselves however and by their neighbours they were called Artaians: but when Perseus, the son of Danae and Zeus, came to Kepheus the son of Belos 58 and took to wife his daughter Andromeda, there was born to them a son to whom he gave the name Perses, and this son he left behind there, for it chanced that Kepheus had no male offspring: after him therefore this race was named.
+
+Xerxes’s wife, who in her old age buried twice seven children of noble Persians alive as a thank-offering for her own life.
+
+## original-en · cepheus · 1085:0
+
+Now those who served were as follows:--The Persians with this equipment:--about their heads they had soft 55 felt caps called tiaras, and about their body tunics of various colours with sleeves, presenting the appearance of iron scales like those of a fish, 56 and about the legs trousers; and instead of the ordinary shields they had shields of wicker-work, 57 under which hung quivers; and they had short spears and large bows and arrows of reed, and moreover daggers hanging by the right thigh from the girdle: and they acknowledged as their commander Otanes the father of Amestris the wife of Xerxes. Now these were called by the Hellenes in ancient time Kephenes; by themselves however and by their neighbours they were called Artaians: but when Perseus, the son of Danae and Zeus, came to Kepheus the son of Belos 58 and took to wife his daughter Andromeda, there was born to them a son to whom he gave the name Perses, and this son he left behind there, for it chanced that Kepheus had no male offspring: after him therefore this race was named.
+
+Belus’s son, whose daughter Perseus married; he had no son, and the Persian race is named from his grandson.
+
+## original-en · andromeda · 1085:0
+
+Now those who served were as follows:--The Persians with this equipment:--about their heads they had soft 55 felt caps called tiaras, and about their body tunics of various colours with sleeves, presenting the appearance of iron scales like those of a fish, 56 and about the legs trousers; and instead of the ordinary shields they had shields of wicker-work, 57 under which hung quivers; and they had short spears and large bows and arrows of reed, and moreover daggers hanging by the right thigh from the girdle: and they acknowledged as their commander Otanes the father of Amestris the wife of Xerxes. Now these were called by the Hellenes in ancient time Kephenes; by themselves however and by their neighbours they were called Artaians: but when Perseus, the son of Danae and Zeus, came to Kepheus the son of Belos 58 and took to wife his daughter Andromeda, there was born to them a son to whom he gave the name Perses, and this son he left behind there, for it chanced that Kepheus had no male offspring: after him therefore this race was named.
+
+Cepheus’s daughter, whom Perseus married.
+
+## original-en · perses · 1085:0
+
+Now those who served were as follows:--The Persians with this equipment:--about their heads they had soft 55 felt caps called tiaras, and about their body tunics of various colours with sleeves, presenting the appearance of iron scales like those of a fish, 56 and about the legs trousers; and instead of the ordinary shields they had shields of wicker-work, 57 under which hung quivers; and they had short spears and large bows and arrows of reed, and moreover daggers hanging by the right thigh from the girdle: and they acknowledged as their commander Otanes the father of Amestris the wife of Xerxes. Now these were called by the Hellenes in ancient time Kephenes; by themselves however and by their neighbours they were called Artaians: but when Perseus, the son of Danae and Zeus, came to Kepheus the son of Belos 58 and took to wife his daughter Andromeda, there was born to them a son to whom he gave the name Perses, and this son he left behind there, for it chanced that Kepheus had no male offspring: after him therefore this race was named.
+
+Perseus and Andromeda’s son, left behind with his grandfather, from whom the Persians take their name — and the ground of Xerxes’s claim to be the Argives’ kinsman.
+
+## original-en · tigranes · 1086:0
+
+The Medes served in the expedition equipped in precisely the same manner; for this equipment is in fact Median and not Persian: and the Medes acknowledged as their commander Tigranes an Achaimenid. These in ancient time used to be generally called Arians; but when Medea the Colchian came from Athens to these Arians, they also changed their name. Thus the Medes themselves report about themselves. The Kissians served with equipment in other respects like that of the Persians, but instead of the felt caps they wore fillets: 59and of the Kissians Anaphes the son of Otanes was commander. The Hyrcanians were armed like the Persians, acknowledging as their leader Megapanos, the same who after these events became governor of Babylon.
+
+An Achaemenid, commander of the Medes, and one of the generals left in Asia at the end.
+
+## original-en · anaphes · 1086:0
+
+The Medes served in the expedition equipped in precisely the same manner; for this equipment is in fact Median and not Persian: and the Medes acknowledged as their commander Tigranes an Achaimenid. These in ancient time used to be generally called Arians; but when Medea the Colchian came from Athens to these Arians, they also changed their name. Thus the Medes themselves report about themselves. The Kissians served with equipment in other respects like that of the Persians, but instead of the felt caps they wore fillets: 59and of the Kissians Anaphes the son of Otanes was commander. The Hyrcanians were armed like the Persians, acknowledging as their leader Megapanos, the same who after these events became governor of Babylon.
+
+Son of Otanes, commander of the Cissians.
+
+## original-en · megapanus · 1086:0
+
+The Medes served in the expedition equipped in precisely the same manner; for this equipment is in fact Median and not Persian: and the Medes acknowledged as their commander Tigranes an Achaimenid. These in ancient time used to be generally called Arians; but when Medea the Colchian came from Athens to these Arians, they also changed their name. Thus the Medes themselves report about themselves. The Kissians served with equipment in other respects like that of the Persians, but instead of the felt caps they wore fillets: 59and of the Kissians Anaphes the son of Otanes was commander. The Hyrcanians were armed like the Persians, acknowledging as their leader Megapanos, the same who after these events became governor of Babylon.
+
+Commander of the Hyrcanians, afterwards governor of Babylon.
+
+## original-en · otaspes · 1087:0
+
+The Assyrians served with helmets about their heads made of bronze or plaited in a Barbarian style which it is not easy to describe; and they had shields and spears, and daggers like the Egyptian knives, 60 and moreover they had wooden clubs with knobs of iron, and corslets of linen. These are by the Hellenes called Syrians, but by the Barbarians they have been called always 61 Assyrians: [among these were the Chaldeans]: 62 and the commander of them was Otaspes the son of Artachaies.
+
+Son of Artachaees, commander of the Assyrians.
+
+## original-en · artachaees · 1048:0
+
+Then in the first place, since the former fleet had suffered disaster in sailing round Athos, preparations had been going on for about three years past with regard to Athos: for triremes lay at anchor at Elaius in the Chersonese, and with this for their starting point men of all nations belonging to the army worked at digging, compelled by the lash; and the men went to the work regularly in succession: moreover those who dwelt round about Athos worked also at the digging: and Bubares the son of Megabazos and Artachaies the son of Artaios, Persians both, were set over the work. Now Athos is a mountain great and famous, running down to the sea and inhabited by men: and where the mountain ends on the side of the mainland the place is like a peninsula with an isthmus about twelve furlongs 24 across. Here it is plain land or hills of no great size, extending from the sea of the Acanthians to that which lies off Torone; and on this isthmus, where Athos ends, is situated a Hellenic city called Sane: moreover there are others beyond Sane 25 and within the peninsula of Athos, all which at this time the Persian had resolved to make into cities of an island and no longer of the mainland; these are, Dion, Olophyxos, Acrothoon, Thyssos, Cleonai.
+
+The Achaemenid who ran the digging of the Athos channel, the tallest Persian alive and the loudest-voiced; he died of sickness at Acanthus, and Xerxes buried him under a mound raised by the whole army. Acanthus sacrifices to him as a hero.
+
+## original-en · artachaees-father-of-otaspes · 1087:0
+
+The Assyrians served with helmets about their heads made of bronze or plaited in a Barbarian style which it is not easy to describe; and they had shields and spears, and daggers like the Egyptian knives, 60 and moreover they had wooden clubs with knobs of iron, and corslets of linen. These are by the Hellenes called Syrians, but by the Barbarians they have been called always 61 Assyrians: [among these were the Chaldeans]: 62 and the commander of them was Otaspes the son of Artachaies.
+
+Otaspes’s father, named once in the catalogue.
+
+## original-en · artaeus · 1048:0
+
+Then in the first place, since the former fleet had suffered disaster in sailing round Athos, preparations had been going on for about three years past with regard to Athos: for triremes lay at anchor at Elaius in the Chersonese, and with this for their starting point men of all nations belonging to the army worked at digging, compelled by the lash; and the men went to the work regularly in succession: moreover those who dwelt round about Athos worked also at the digging: and Bubares the son of Megabazos and Artachaies the son of Artaios, Persians both, were set over the work. Now Athos is a mountain great and famous, running down to the sea and inhabited by men: and where the mountain ends on the side of the mainland the place is like a peninsula with an isthmus about twelve furlongs 24 across. Here it is plain land or hills of no great size, extending from the sea of the Acanthians to that which lies off Torone; and on this isthmus, where Athos ends, is situated a Hellenic city called Sane: moreover there are others beyond Sane 25 and within the peninsula of Athos, all which at this time the Persian had resolved to make into cities of an island and no longer of the mainland; these are, Dion, Olophyxos, Acrothoon, Thyssos, Cleonai.
+
+Named twice in the catalogue as a father — of Artachaees who dug the channel, and of Azanes who commanded the Sogdians. Herodotus does not say whether these are one man.
+
+## original-en · hystaspes-son-of-darius · 1088:0
+
+The Bactrians served wearing about their heads nearly the same covering as the Medes, and having native bows of reed and short spears. The Scaran Scythians had about their heads caps 63 which were carried up to a point and set upright and stiff; and they wore trousers, and carried native bows and daggers, and besides this axes of the kind called sagaris. These were called Amyrgian Sacans, being in fact Scythians; for the Persians call all the Scythians Sacans: and of the Bactrians and Sacans the commander was Hystaspes, the son of Dareios and of Atossa the daughter of Cyrus.
+
+Darius’s son by Atossa, commander of the Bactrians and the Sacae. Named for his great-grandfather.
+
+## original-en · pharnazathres · 1089:0
+
+The Indians wore garments made of tree-wool, and they had bows of reed and arrows of reed with iron points. Thus were the Indians equipped; and serving with the rest they had been assigned to Pharnazathres the son of Artabates.
+
+Son of Artabates, commander of the Indians.
+
+## original-en · artabates · 1089:0
+
+The Indians wore garments made of tree-wool, and they had bows of reed and arrows of reed with iron points. Thus were the Indians equipped; and serving with the rest they had been assigned to Pharnazathres the son of Artabates.
+
+Pharnazathres’s father.
+
+## original-en · sisamnes-son-of-hydarnes · 1090:0
+
+The Arians 64 were equipped with Median bows, and in other respects like the Bactrians: and of the Arians Sisamnes the son of Hydarnes was in command. The Parthians and Chorasmians and Sogdians and Gandarians and Dadicans served with the same equipment as the Bactrians. Of these the commanders were, Artabazos the son of Pharnakes of the Parthians and Chorasmians, Azanes the son of Artaios of the Sogdians, and Artyphios the son of Artabanos of the Gandarians and Dadicans. The Caspians served wearing coats of skin 65 and having native bows of reed and short swords: 66 thus were these equipped; and they acknowledged as their leader Ariomardos the brother of Artyphios. The Sarangians were conspicuous among the rest by wearing dyed garments; and they had boots reaching up to the knee, and Median bows and spears: of these the commander was Pherendates the son of Megabazos. The Pactyans were wearers of skin coats 67 and had native bows and daggers: these acknowledged as their commander Artaÿntes the son of Ithamitres.
+
+Commander of the Arians. Not the judge whose skin Cambyses had stretched over a chair.
+
+## original-en · artabazus · 1090:0
+
+The Arians 64 were equipped with Median bows, and in other respects like the Bactrians: and of the Arians Sisamnes the son of Hydarnes was in command. The Parthians and Chorasmians and Sogdians and Gandarians and Dadicans served with the same equipment as the Bactrians. Of these the commanders were, Artabazos the son of Pharnakes of the Parthians and Chorasmians, Azanes the son of Artaios of the Sogdians, and Artyphios the son of Artabanos of the Gandarians and Dadicans. The Caspians served wearing coats of skin 65 and having native bows of reed and short swords: 66 thus were these equipped; and they acknowledged as their leader Ariomardos the brother of Artyphios. The Sarangians were conspicuous among the rest by wearing dyed garments; and they had boots reaching up to the knee, and Median bows and spears: of these the commander was Pherendates the son of Megabazos. The Pactyans were wearers of skin coats 67 and had native bows and daggers: these acknowledged as their commander Artaÿntes the son of Ithamitres.
+
+Son of Pharnaces, commander of the Parthians and Chorasmians, and afterwards the general who brought the remnant of the army home.
+
+## original-en · pharnaces · 1090:0
+
+The Arians 64 were equipped with Median bows, and in other respects like the Bactrians: and of the Arians Sisamnes the son of Hydarnes was in command. The Parthians and Chorasmians and Sogdians and Gandarians and Dadicans served with the same equipment as the Bactrians. Of these the commanders were, Artabazos the son of Pharnakes of the Parthians and Chorasmians, Azanes the son of Artaios of the Sogdians, and Artyphios the son of Artabanos of the Gandarians and Dadicans. The Caspians served wearing coats of skin 65 and having native bows of reed and short swords: 66 thus were these equipped; and they acknowledged as their leader Ariomardos the brother of Artyphios. The Sarangians were conspicuous among the rest by wearing dyed garments; and they had boots reaching up to the knee, and Median bows and spears: of these the commander was Pherendates the son of Megabazos. The Pactyans were wearers of skin coats 67 and had native bows and daggers: these acknowledged as their commander Artaÿntes the son of Ithamitres.
+
+Artabazus’s father.
+
+## original-en · azanes · 1090:0
+
+The Arians 64 were equipped with Median bows, and in other respects like the Bactrians: and of the Arians Sisamnes the son of Hydarnes was in command. The Parthians and Chorasmians and Sogdians and Gandarians and Dadicans served with the same equipment as the Bactrians. Of these the commanders were, Artabazos the son of Pharnakes of the Parthians and Chorasmians, Azanes the son of Artaios of the Sogdians, and Artyphios the son of Artabanos of the Gandarians and Dadicans. The Caspians served wearing coats of skin 65 and having native bows of reed and short swords: 66 thus were these equipped; and they acknowledged as their leader Ariomardos the brother of Artyphios. The Sarangians were conspicuous among the rest by wearing dyed garments; and they had boots reaching up to the knee, and Median bows and spears: of these the commander was Pherendates the son of Megabazos. The Pactyans were wearers of skin coats 67 and had native bows and daggers: these acknowledged as their commander Artaÿntes the son of Ithamitres.
+
+Son of Artaeus, commander of the Sogdians.
+
+## original-en · artyphius · 1090:0
+
+The Arians 64 were equipped with Median bows, and in other respects like the Bactrians: and of the Arians Sisamnes the son of Hydarnes was in command. The Parthians and Chorasmians and Sogdians and Gandarians and Dadicans served with the same equipment as the Bactrians. Of these the commanders were, Artabazos the son of Pharnakes of the Parthians and Chorasmians, Azanes the son of Artaios of the Sogdians, and Artyphios the son of Artabanos of the Gandarians and Dadicans. The Caspians served wearing coats of skin 65 and having native bows of reed and short swords: 66 thus were these equipped; and they acknowledged as their leader Ariomardos the brother of Artyphios. The Sarangians were conspicuous among the rest by wearing dyed garments; and they had boots reaching up to the knee, and Median bows and spears: of these the commander was Pherendates the son of Megabazos. The Pactyans were wearers of skin coats 67 and had native bows and daggers: these acknowledged as their commander Artaÿntes the son of Ithamitres.
+
+Son of Artabanus, commander of the Gandarians and Dadicae.
+
+## original-en · ariomardus-caspians · 1090:0
+
+The Arians 64 were equipped with Median bows, and in other respects like the Bactrians: and of the Arians Sisamnes the son of Hydarnes was in command. The Parthians and Chorasmians and Sogdians and Gandarians and Dadicans served with the same equipment as the Bactrians. Of these the commanders were, Artabazos the son of Pharnakes of the Parthians and Chorasmians, Azanes the son of Artaios of the Sogdians, and Artyphios the son of Artabanos of the Gandarians and Dadicans. The Caspians served wearing coats of skin 65 and having native bows of reed and short swords: 66 thus were these equipped; and they acknowledged as their leader Ariomardos the brother of Artyphios. The Sarangians were conspicuous among the rest by wearing dyed garments; and they had boots reaching up to the knee, and Median bows and spears: of these the commander was Pherendates the son of Megabazos. The Pactyans were wearers of skin coats 67 and had native bows and daggers: these acknowledged as their commander Artaÿntes the son of Ithamitres.
+
+Artyphius’s brother, commander of the Caspians.
+
+## original-en · ariomardus-son-of-darius · 1100:0
+
+The Moschoi had wooden caps upon their heads, and shields and small spears, on which long points were set. The Tibarenians and Macronians and Mossynoicoi served with equipment like that of the Moschoi, and these were arrayed together under the following commanders,--the Moschoi and Tibarenians under Ariomardos, who was the son of Dareios and of Parmys, the daughter of Smerdis son of Cyrus; the Macronians and Mossynoicoi under Artaÿctes the son of Cherasmis, who was governor of Sestos on the Hellespont.
+
+Darius’s son by Parmys, Smerdis’s daughter, commander of the Moschi and Tibareni.
+
+## original-en · pherendates · 1090:0
+
+The Arians 64 were equipped with Median bows, and in other respects like the Bactrians: and of the Arians Sisamnes the son of Hydarnes was in command. The Parthians and Chorasmians and Sogdians and Gandarians and Dadicans served with the same equipment as the Bactrians. Of these the commanders were, Artabazos the son of Pharnakes of the Parthians and Chorasmians, Azanes the son of Artaios of the Sogdians, and Artyphios the son of Artabanos of the Gandarians and Dadicans. The Caspians served wearing coats of skin 65 and having native bows of reed and short swords: 66 thus were these equipped; and they acknowledged as their leader Ariomardos the brother of Artyphios. The Sarangians were conspicuous among the rest by wearing dyed garments; and they had boots reaching up to the knee, and Median bows and spears: of these the commander was Pherendates the son of Megabazos. The Pactyans were wearers of skin coats 67 and had native bows and daggers: these acknowledged as their commander Artaÿntes the son of Ithamitres.
+
+Son of Megabazus, commander of the Sarangae.
+
+## original-en · artayntes · 1090:0
+
+The Arians 64 were equipped with Median bows, and in other respects like the Bactrians: and of the Arians Sisamnes the son of Hydarnes was in command. The Parthians and Chorasmians and Sogdians and Gandarians and Dadicans served with the same equipment as the Bactrians. Of these the commanders were, Artabazos the son of Pharnakes of the Parthians and Chorasmians, Azanes the son of Artaios of the Sogdians, and Artyphios the son of Artabanos of the Gandarians and Dadicans. The Caspians served wearing coats of skin 65 and having native bows of reed and short swords: 66 thus were these equipped; and they acknowledged as their leader Ariomardos the brother of Artyphios. The Sarangians were conspicuous among the rest by wearing dyed garments; and they had boots reaching up to the knee, and Median bows and spears: of these the commander was Pherendates the son of Megabazos. The Pactyans were wearers of skin coats 67 and had native bows and daggers: these acknowledged as their commander Artaÿntes the son of Ithamitres.
+
+Son of Ithamitres, commander of the Pactyes.
+
+## original-en · ithamitres · 1090:0
+
+The Arians 64 were equipped with Median bows, and in other respects like the Bactrians: and of the Arians Sisamnes the son of Hydarnes was in command. The Parthians and Chorasmians and Sogdians and Gandarians and Dadicans served with the same equipment as the Bactrians. Of these the commanders were, Artabazos the son of Pharnakes of the Parthians and Chorasmians, Azanes the son of Artaios of the Sogdians, and Artyphios the son of Artabanos of the Gandarians and Dadicans. The Caspians served wearing coats of skin 65 and having native bows of reed and short swords: 66 thus were these equipped; and they acknowledged as their leader Ariomardos the brother of Artyphios. The Sarangians were conspicuous among the rest by wearing dyed garments; and they had boots reaching up to the knee, and Median bows and spears: of these the commander was Pherendates the son of Megabazos. The Pactyans were wearers of skin coats 67 and had native bows and daggers: these acknowledged as their commander Artaÿntes the son of Ithamitres.
+
+Artayntes’s father, and a commander in the fleet of the last two books.
+
+## original-en · arsamenes · 1091:0
+
+The Utians and Mycans and Paricanians were equipped like the Pactyans: of these the commanders were, Arsamenes the son of Dareios of the Utians and Mycans, and of the Paricanians Siromitres the son of Oiobazos.
+
+Darius’s son, commander of the Utii and Myci.
+
+## original-en · siromitres · 1091:0
+
+The Utians and Mycans and Paricanians were equipped like the Pactyans: of these the commanders were, Arsamenes the son of Dareios of the Utians and Mycans, and of the Paricanians Siromitres the son of Oiobazos.
+
+Son of Oeobazus, commander of the Paricanii; named again in the catalogue as Masistius’s father.
+
+## original-en · oeobazus · 1091:0
+
+The Utians and Mycans and Paricanians were equipped like the Pactyans: of these the commanders were, Arsamenes the son of Dareios of the Utians and Mycans, and of the Paricanians Siromitres the son of Oiobazos.
+
+Siromitres’s father.
+
+## original-en · massages · 1094:0
+
+The Libyans went with equipments of leather, and they used javelins burnt at the point. These acknowledged as their commander Massages the son of Oarizos.
+
+Son of Oarizus, commander of the Libyans.
+
+## original-en · oarizus · 1094:0
+
+The Libyans went with equipments of leather, and they used javelins burnt at the point. These acknowledged as their commander Massages the son of Oarizos.
+
+Massages’s father.
+
+## original-en · dotus · 1095:0
+
+The Paphlagonians served with plaited helmets upon their heads, small shields, and spears of no great size, and also javelins and daggers; and about their feet native boots reaching up to the middle of the shin. The Ligyans and Matienians and Mariandynoi and Syrians served with the same equipment as the Paphlagonians: these Syrians are called by the Persians Cappadokians. Of the Paphlagonians and Matienians the commander was Dotos the son of Megasidros, and of the Mariandynoi and Lygians and Syrians, Gobryas, who was the son of Dareios and Artystone.
+
+Son of Megasidrus, commander of the Paphlagonians and Matieni.
+
+## original-en · megasidrus · 1095:0
+
+The Paphlagonians served with plaited helmets upon their heads, small shields, and spears of no great size, and also javelins and daggers; and about their feet native boots reaching up to the middle of the shin. The Ligyans and Matienians and Mariandynoi and Syrians served with the same equipment as the Paphlagonians: these Syrians are called by the Persians Cappadokians. Of the Paphlagonians and Matienians the commander was Dotos the son of Megasidros, and of the Mariandynoi and Lygians and Syrians, Gobryas, who was the son of Dareios and Artystone.
+
+Dotus’s father.
+
+## original-en · gobryas-son-of-darius · 1095:0
+
+The Paphlagonians served with plaited helmets upon their heads, small shields, and spears of no great size, and also javelins and daggers; and about their feet native boots reaching up to the middle of the shin. The Ligyans and Matienians and Mariandynoi and Syrians served with the same equipment as the Paphlagonians: these Syrians are called by the Persians Cappadokians. Of the Paphlagonians and Matienians the commander was Dotos the son of Megasidros, and of the Mariandynoi and Lygians and Syrians, Gobryas, who was the son of Dareios and Artystone.
+
+Darius’s son by Artystone, commander of the Mariandyni, Ligyes and Syrians.
+
+## original-en · artochmes · 1096:0
+
+The Phrygians had an equipment very like that of the Paphlagonians with some slight difference. Now the Phrygians, as the Macedonians say, used to be called Brigians during the time that they were natives of Europe and dwelt with the Macedonians; but after they had changed into Asia, with their country they changed also their name and were called Phrygians. The Armenians were armed just like the Phrygians, being settlers from the Phrygians. Of these two together the commander was Artochmes, who was married to a daughter of Dareios.
+
+Married to a daughter of Darius, commander of the Phrygians and Armenians.
+
+## original-en · bassakes · 1098:0
+
+The Thracians served having fox-skins upon their heads and tunics about their body, with loose mantles of various colours thrown round over them; and about their feet and lower part of the leg they wore boots of deer-skin; and besides this they had javelins and round bucklers and small daggers. These when they had crossed over into Asia came to be called Bithynians, but formerly they were called, as they themselves report, Strymonians, since they dwelt upon the river Strymon; and they say that they were driven out of their abode by the Teucrians and Mysians. Of the Thracians who lived in Asia the commander was Bassakes the son of Artabanos.
+
+Son of Artabanus, commander of the Thracians of Asia.
+
+## original-en · badres · 1099:0
+
+The Meonian Cabelians, who are called Lasonians, had the same equipment as the Kilikians, and what this was I shall explain when in the course of the catalogue I come to the array of the Kilikians. The Milyans had short spears, and their garments were fastened on with buckles; some of them had Lykian bows, and about their heads they had caps made of leather. Of all these Badres the son of Hystanes was in command.
+
+Son of Hystanes, commander of the Lasonians and Milyans.
+
+## original-en · hystanes · 1099:0
+
+The Meonian Cabelians, who are called Lasonians, had the same equipment as the Kilikians, and what this was I shall explain when in the course of the catalogue I come to the array of the Kilikians. The Milyans had short spears, and their garments were fastened on with buckles; some of them had Lykian bows, and about their heads they had caps made of leather. Of all these Badres the son of Hystanes was in command.
+
+Badres’s father.
+
+## original-en · artayctes · 1059:0
+
+After this he made his preparations intending to march to Abydos: and meanwhile they were bridging over the Hellespont from Asia to Europe. Now there is in the Chersonese of the Hellespont between the city of Sestos and Madytos, a broad foreland 32 running down into the sea right opposite Abydos; this is the place where no long time afterwards the Athenians under the command of Xanthippos the son of Ariphron, having taken Artaÿctes a Persian, who was the governor of Sestos, nailed him alive to a board with hands and feet extended (he was the man who was wont to take women with him to the temple of Protesilaos at Elaius and to do things there which are not lawful).
+
+Son of Cherasmis, commander of the Macrones and Mossynoeci and governor of Sestos — the man who used to take women into the shrine of Protesilaus, and whom the Athenians nailed alive to a plank.
+
+## original-en · cherasmis · 1100:0
+
+The Moschoi had wooden caps upon their heads, and shields and small spears, on which long points were set. The Tibarenians and Macronians and Mossynoicoi served with equipment like that of the Moschoi, and these were arrayed together under the following commanders,--the Moschoi and Tibarenians under Ariomardos, who was the son of Dareios and of Parmys, the daughter of Smerdis son of Cyrus; the Macronians and Mossynoicoi under Artaÿctes the son of Cherasmis, who was governor of Sestos on the Hellespont.
+
+Artayctes’s father.
+
+## original-en · pharandates · 1101:0
+
+The Mares wore on their heads native helmets of plaited work, and had small shields of hide and javelins; and the Colchians wore wooden helmets about their heads, and had small shields of raw ox-hide and short spears, and also knives. Of the Mares and Colchians the commander was Pharandates the son of Teaspis. The Alarodians and Saspeirians served armed like the Colchians; and of these the commander was Masistios the son of Siromitres.
+
+Son of Teaspis, commander of the Mares and Colchians.
+
+## original-en · masistius · 1101:0
+
+The Mares wore on their heads native helmets of plaited work, and had small shields of hide and javelins; and the Colchians wore wooden helmets about their heads, and had small shields of raw ox-hide and short spears, and also knives. Of the Mares and Colchians the commander was Pharandates the son of Teaspis. The Alarodians and Saspeirians served armed like the Colchians; and of these the commander was Masistios the son of Siromitres.
+
+Son of Siromitres, commander of the Alarodians and Saspires, and afterwards the cavalry commander whose death before Plataea the Persians mourned.
+
+## original-en · mardontes · 1102:0
+
+The island tribes which came with the army from the Erythraian Sea, belonging to the islands in which the king settles those who are called the "Removed," 75 had clothing and arms very like those of the Medes. Of these islanders the commander was Mardontes the son of Bagaios, who in the year after these events was a commander of the army at Mykale and lost his life in the battle.
+
+Son of Bagaeus, commander of the island contingents, killed the next year at Mycale.
+
+## original-en · tritantaechmes · 1104:0
+
+These, I say, who have been mentioned were commanders of the army; and over these and over the whole army together that went on foot there were in command Mardonios the son of Gobryas, Tritantaichmes the son of that Artabanos who gave the opinion that they should not make the march against Hellas, Smerdomenes the son of Otanes (both these being sons of brothers of Dareios and so cousins of Xerxes), 76 Masistes the son of Dareios and Atossa, Gergis the son of Ariazos, and Megabyzos the son of Zopyros.
+
+Son of the Artabanus who argued against the war, and one of the six generals over the whole infantry.
+
+## original-en · smerdomenes · 1104:0
+
+These, I say, who have been mentioned were commanders of the army; and over these and over the whole army together that went on foot there were in command Mardonios the son of Gobryas, Tritantaichmes the son of that Artabanos who gave the opinion that they should not make the march against Hellas, Smerdomenes the son of Otanes (both these being sons of brothers of Dareios and so cousins of Xerxes), 76 Masistes the son of Dareios and Atossa, Gergis the son of Ariazos, and Megabyzos the son of Zopyros.
+
+Son of Otanes, a cousin of Xerxes and one of the six generals of the infantry.
+
+## original-en · masistes · 1104:0
+
+These, I say, who have been mentioned were commanders of the army; and over these and over the whole army together that went on foot there were in command Mardonios the son of Gobryas, Tritantaichmes the son of that Artabanos who gave the opinion that they should not make the march against Hellas, Smerdomenes the son of Otanes (both these being sons of brothers of Dareios and so cousins of Xerxes), 76 Masistes the son of Dareios and Atossa, Gergis the son of Ariazos, and Megabyzos the son of Zopyros.
+
+Darius’s son by Atossa, one of the six generals of the infantry, and the brother whose family Amestris destroyed.
+
+## original-en · gergis · 1104:0
+
+These, I say, who have been mentioned were commanders of the army; and over these and over the whole army together that went on foot there were in command Mardonios the son of Gobryas, Tritantaichmes the son of that Artabanos who gave the opinion that they should not make the march against Hellas, Smerdomenes the son of Otanes (both these being sons of brothers of Dareios and so cousins of Xerxes), 76 Masistes the son of Dareios and Atossa, Gergis the son of Ariazos, and Megabyzos the son of Zopyros.
+
+Son of Ariazus, one of the six generals of the infantry.
+
+## original-en · ariazus · 1104:0
+
+These, I say, who have been mentioned were commanders of the army; and over these and over the whole army together that went on foot there were in command Mardonios the son of Gobryas, Tritantaichmes the son of that Artabanos who gave the opinion that they should not make the march against Hellas, Smerdomenes the son of Otanes (both these being sons of brothers of Dareios and so cousins of Xerxes), 76 Masistes the son of Dareios and Atossa, Gergis the son of Ariazos, and Megabyzos the son of Zopyros.
+
+Gergis’s father.
+
+## original-en · megabyzus-son-of-zopyrus · 1104:0
+
+These, I say, who have been mentioned were commanders of the army; and over these and over the whole army together that went on foot there were in command Mardonios the son of Gobryas, Tritantaichmes the son of that Artabanos who gave the opinion that they should not make the march against Hellas, Smerdomenes the son of Otanes (both these being sons of brothers of Dareios and so cousins of Xerxes), 76 Masistes the son of Dareios and Atossa, Gergis the son of Ariazos, and Megabyzos the son of Zopyros.
+
+Son of the Zopyrus who took Babylon by mutilating himself, and one of the six generals of the infantry. His grandfather of the same name was one of the seven.
+
+## original-en · otanes-brother-of-darius · 1104:0
+
+These, I say, who have been mentioned were commanders of the army; and over these and over the whole army together that went on foot there were in command Mardonios the son of Gobryas, Tritantaichmes the son of that Artabanos who gave the opinion that they should not make the march against Hellas, Smerdomenes the son of Otanes (both these being sons of brothers of Dareios and so cousins of Xerxes), 76 Masistes the son of Dareios and Atossa, Gergis the son of Ariazos, and Megabyzos the son of Zopyros.
+
+Smerdomenes’s father and a brother of Darius. Neither the conspirator of the seven nor Sisamnes’s son.
+
+## original-en · hydarnes-son · 1105:0
+
+These were generals of the whole together that went on foot, excepting the ten thousand; and of these ten thousand chosen Persians the general was Hydarnes the son of Hydarnes; and these Persians were called "Immortals," because, if any one of them made the number incomplete, being overcome either by death or disease, another man was chosen to his place, and they were never either more or fewer than ten thousand. Now of all the nations, the Persians showed the greatest splendour of ornament and were themselves the best men. They had equipment such as has been mentioned, and besides this they were conspicuous among the rest for great quantity of gold freely used; and they took with them carriages, and in them concubines and a multitude of attendants well furnished; and provisions for them apart from the soldiers were borne by camels and beasts of burden.
+
+Son of the Hydarnes of the seven, and the Hydarnes of this campaign: commander of the ten thousand Immortals, host to the two Spartans on their way to Susa, and the man Xerxes sent over the mountain path to take the pass from behind.
+
+## original-en · immortals · 1105:0
+
+These were generals of the whole together that went on foot, excepting the ten thousand; and of these ten thousand chosen Persians the general was Hydarnes the son of Hydarnes; and these Persians were called "Immortals," because, if any one of them made the number incomplete, being overcome either by death or disease, another man was chosen to his place, and they were never either more or fewer than ten thousand. Now of all the nations, the Persians showed the greatest splendour of ornament and were themselves the best men. They had equipment such as has been mentioned, and besides this they were conspicuous among the rest for great quantity of gold freely used; and they took with them carriages, and in them concubines and a multitude of attendants well furnished; and provisions for them apart from the soldiers were borne by camels and beasts of burden.
+
+The ten thousand picked Persians, so called because whenever one of them died or fell sick another was chosen, and they were never more or fewer. They took over at Thermopylae when the Medes had been roughly handled, and did no better.
+
+## original-en · sagartians · 124:0
+
+Cyrus having heard this began to consider in what manner he might most skilfully persuade the Persians to revolt, and on consideration he found that this was the most convenient way, and so in fact he did:—He wrote first on a paper that which he desired to write, and he made an assembly of the Persians. Then he unfolded the paper and reading from it said that Astyages appointed him commander of the Persians; "and now, O Persians," he continued, "I give you command to come to me each one with a reaping-hook." Cyrus then proclaimed this command. (Now there are of the Persians many tribes, and some of them Cyrus gathered together and persuaded to revolt from the Medes, namely those, upon which all the other Persians depend, the Pasargadai, the Maraphians and the Maspians, and of these the Pasargadai are the most noble, of whom also the Achaimenidai are a clan, whence are sprung the Perseïd 134 kings. But other Persian tribes there are, as follows:—the Panthaliaians, the Derusiaians and the Germanians, these are all tillers of the soil; and the rest are nomad tribes, namely the Daoi, Mardians, Dropicans and Sagartians.)
+
+Persian in race and language, eight thousand horsemen who carried no bronze or iron but a plaited leather noose, and dragged whatever they caught — horse or man — to themselves.
+
+## original-en · harmamithras · 1110:0
+
+The commanders of the cavalry were Harmamithras and Tithaios sons of Datis, but the third, Pharnuches, who was in command of the horse with them, had been left behind at Sardis sick: for as they were setting forth from Sardis, an accident befell him of an unwished-for kind,--as he was riding, a dog ran up under his horse's feet, and the horse not having seen it beforehand was frightened, and rearing up he threw Pharnuches off his back, who falling vomited blood, and his sickness turned to a consumption. To the horse however they forthwith at the first did as he commanded, that is to say, the servants led him away to the place where he had thrown his master and cut off his legs at the knees. Thus was Pharnuches removed from his command.
+
+A son of Datis, and one of the three commanders of the cavalry.
+
+## original-en · tithaeus · 1110:0
+
+The commanders of the cavalry were Harmamithras and Tithaios sons of Datis, but the third, Pharnuches, who was in command of the horse with them, had been left behind at Sardis sick: for as they were setting forth from Sardis, an accident befell him of an unwished-for kind,--as he was riding, a dog ran up under his horse's feet, and the horse not having seen it beforehand was frightened, and rearing up he threw Pharnuches off his back, who falling vomited blood, and his sickness turned to a consumption. To the horse however they forthwith at the first did as he commanded, that is to say, the servants led him away to the place where he had thrown his master and cut off his legs at the knees. Thus was Pharnuches removed from his command.
+
+Datis’s other son, cavalry commander with his brother.
+
+## original-en · pharnouches · 1110:0
+
+The commanders of the cavalry were Harmamithras and Tithaios sons of Datis, but the third, Pharnuches, who was in command of the horse with them, had been left behind at Sardis sick: for as they were setting forth from Sardis, an accident befell him of an unwished-for kind,--as he was riding, a dog ran up under his horse's feet, and the horse not having seen it beforehand was frightened, and rearing up he threw Pharnuches off his back, who falling vomited blood, and his sickness turned to a consumption. To the horse however they forthwith at the first did as he commanded, that is to say, the servants led him away to the place where he had thrown his master and cut off his legs at the knees. Thus was Pharnuches removed from his command.
+
+The third cavalry commander, left sick at Sardis when a dog ran under his horse and the fall brought on consumption. His servants took the horse back to the spot and cut its legs off at the knees.
+
+## original-en · ariabignes · 1119:0
+
+Of the naval force the following were commanders,--Ariabignes the son of Dareios, Prexaspes the son of Aspathines, Megabazos the son of Megabates, and Achaimenes the son of Dareios; that is to say, of the Ionian and Carian force Ariabignes, who was the son of Dareios and of the daughter of Gobryas; of the Egyptians Achaimenes was commander, being brother of Xerxes by both parents; and of the rest of the armament the other two were in command: and galleys of thirty oars and of fifty oars, and light vessels, 90 and long 91 ships to carry horses had been assembled together, as it proved, to the number of three thousand.
+
+Darius’s son by the daughter of Gobryas, commander of the Ionian and Carian ships, killed at Salamis.
+
+## original-en · prexaspes-son-of-aspathines · 1119:0
+
+Of the naval force the following were commanders,--Ariabignes the son of Dareios, Prexaspes the son of Aspathines, Megabazos the son of Megabates, and Achaimenes the son of Dareios; that is to say, of the Ionian and Carian force Ariabignes, who was the son of Dareios and of the daughter of Gobryas; of the Egyptians Achaimenes was commander, being brother of Xerxes by both parents; and of the rest of the armament the other two were in command: and galleys of thirty oars and of fifty oars, and light vessels, 90 and long 91 ships to carry horses had been assembled together, as it proved, to the number of three thousand.
+
+Son of Aspathines of the seven, one of the four commanders of the fleet. Not the Prexaspes who killed Smerdis for Cambyses.
+
+## original-en · megabazus-son-of-megabates · 1119:0
+
+Of the naval force the following were commanders,--Ariabignes the son of Dareios, Prexaspes the son of Aspathines, Megabazos the son of Megabates, and Achaimenes the son of Dareios; that is to say, of the Ionian and Carian force Ariabignes, who was the son of Dareios and of the daughter of Gobryas; of the Egyptians Achaimenes was commander, being brother of Xerxes by both parents; and of the rest of the armament the other two were in command: and galleys of thirty oars and of fifty oars, and light vessels, 90 and long 91 ships to carry horses had been assembled together, as it proved, to the number of three thousand.
+
+Son of Megabates, one of the four commanders of the fleet.
+
+## original-en · tetramnestus · 1120:0
+
+Of those who sailed in the ships the men of most note after the commanders were these,--of Sidon, Tetramnestos son of Anysos; of Tyre, Matten 92 son of Siromos; or Arados, Merbalos son of Agbalos; of Kilikia, Syennesis son of Oromedon; of Lykia, Kyberniscos son of Sicas; of Cyprus, Gorgos son of Chersis and Timonax son of Timagoras; of Caria, Histiaios son of Tymnes, Pigres son of Hysseldomos, 93 and Damasithymos son of Candaules.
+
+Son of Anysus, of Sidon, the most notable man in the fleet after the commanders.
+
+## original-en · anysus · 1120:0
+
+Of those who sailed in the ships the men of most note after the commanders were these,--of Sidon, Tetramnestos son of Anysos; of Tyre, Matten 92 son of Siromos; or Arados, Merbalos son of Agbalos; of Kilikia, Syennesis son of Oromedon; of Lykia, Kyberniscos son of Sicas; of Cyprus, Gorgos son of Chersis and Timonax son of Timagoras; of Caria, Histiaios son of Tymnes, Pigres son of Hysseldomos, 93 and Damasithymos son of Candaules.
+
+Tetramnestus’s father.
+
+## original-en · matten · 1120:0
+
+Of those who sailed in the ships the men of most note after the commanders were these,--of Sidon, Tetramnestos son of Anysos; of Tyre, Matten 92 son of Siromos; or Arados, Merbalos son of Agbalos; of Kilikia, Syennesis son of Oromedon; of Lykia, Kyberniscos son of Sicas; of Cyprus, Gorgos son of Chersis and Timonax son of Timagoras; of Caria, Histiaios son of Tymnes, Pigres son of Hysseldomos, 93 and Damasithymos son of Candaules.
+
+Son of Siromus, of Tyre.
+
+## original-en · siromus-tyre · 1120:0
+
+Of those who sailed in the ships the men of most note after the commanders were these,--of Sidon, Tetramnestos son of Anysos; of Tyre, Matten 92 son of Siromos; or Arados, Merbalos son of Agbalos; of Kilikia, Syennesis son of Oromedon; of Lykia, Kyberniscos son of Sicas; of Cyprus, Gorgos son of Chersis and Timonax son of Timagoras; of Caria, Histiaios son of Tymnes, Pigres son of Hysseldomos, 93 and Damasithymos son of Candaules.
+
+Matten’s father, of Tyre. Not the Cyprian Siromus, Chersis’s father.
+
+## original-en · merbalus · 1120:0
+
+Of those who sailed in the ships the men of most note after the commanders were these,--of Sidon, Tetramnestos son of Anysos; of Tyre, Matten 92 son of Siromos; or Arados, Merbalos son of Agbalos; of Kilikia, Syennesis son of Oromedon; of Lykia, Kyberniscos son of Sicas; of Cyprus, Gorgos son of Chersis and Timonax son of Timagoras; of Caria, Histiaios son of Tymnes, Pigres son of Hysseldomos, 93 and Damasithymos son of Candaules.
+
+Son of Agbalus, of Aradus.
+
+## original-en · agbalus · 1120:0
+
+Of those who sailed in the ships the men of most note after the commanders were these,--of Sidon, Tetramnestos son of Anysos; of Tyre, Matten 92 son of Siromos; or Arados, Merbalos son of Agbalos; of Kilikia, Syennesis son of Oromedon; of Lykia, Kyberniscos son of Sicas; of Cyprus, Gorgos son of Chersis and Timonax son of Timagoras; of Caria, Histiaios son of Tymnes, Pigres son of Hysseldomos, 93 and Damasithymos son of Candaules.
+
+Merbalus’s father.
+
+## original-en · oromedon · 1120:0
+
+Of those who sailed in the ships the men of most note after the commanders were these,--of Sidon, Tetramnestos son of Anysos; of Tyre, Matten 92 son of Siromos; or Arados, Merbalos son of Agbalos; of Kilikia, Syennesis son of Oromedon; of Lykia, Kyberniscos son of Sicas; of Cyprus, Gorgos son of Chersis and Timonax son of Timagoras; of Caria, Histiaios son of Tymnes, Pigres son of Hysseldomos, 93 and Damasithymos son of Candaules.
+
+Father of the Syennesis who commanded the Cilician ships.
+
+## original-en · cyberniscus · 1120:0
+
+Of those who sailed in the ships the men of most note after the commanders were these,--of Sidon, Tetramnestos son of Anysos; of Tyre, Matten 92 son of Siromos; or Arados, Merbalos son of Agbalos; of Kilikia, Syennesis son of Oromedon; of Lykia, Kyberniscos son of Sicas; of Cyprus, Gorgos son of Chersis and Timonax son of Timagoras; of Caria, Histiaios son of Tymnes, Pigres son of Hysseldomos, 93 and Damasithymos son of Candaules.
+
+Son of Sicas, of Lycia.
+
+## original-en · sicas · 1120:0
+
+Of those who sailed in the ships the men of most note after the commanders were these,--of Sidon, Tetramnestos son of Anysos; of Tyre, Matten 92 son of Siromos; or Arados, Merbalos son of Agbalos; of Kilikia, Syennesis son of Oromedon; of Lykia, Kyberniscos son of Sicas; of Cyprus, Gorgos son of Chersis and Timonax son of Timagoras; of Caria, Histiaios son of Tymnes, Pigres son of Hysseldomos, 93 and Damasithymos son of Candaules.
+
+Cyberniscus’s father.
+
+## original-en · timonax · 1120:0
+
+Of those who sailed in the ships the men of most note after the commanders were these,--of Sidon, Tetramnestos son of Anysos; of Tyre, Matten 92 son of Siromos; or Arados, Merbalos son of Agbalos; of Kilikia, Syennesis son of Oromedon; of Lykia, Kyberniscos son of Sicas; of Cyprus, Gorgos son of Chersis and Timonax son of Timagoras; of Caria, Histiaios son of Tymnes, Pigres son of Hysseldomos, 93 and Damasithymos son of Candaules.
+
+Son of Timagoras, one of the two Cyprian captains of note.
+
+## original-en · timagoras · 1120:0
+
+Of those who sailed in the ships the men of most note after the commanders were these,--of Sidon, Tetramnestos son of Anysos; of Tyre, Matten 92 son of Siromos; or Arados, Merbalos son of Agbalos; of Kilikia, Syennesis son of Oromedon; of Lykia, Kyberniscos son of Sicas; of Cyprus, Gorgos son of Chersis and Timonax son of Timagoras; of Caria, Histiaios son of Tymnes, Pigres son of Hysseldomos, 93 and Damasithymos son of Candaules.
+
+Timonax’s father.
+
+## original-en · histiaeus-termera · 1120:0
+
+Of those who sailed in the ships the men of most note after the commanders were these,--of Sidon, Tetramnestos son of Anysos; of Tyre, Matten 92 son of Siromos; or Arados, Merbalos son of Agbalos; of Kilikia, Syennesis son of Oromedon; of Lykia, Kyberniscos son of Sicas; of Cyprus, Gorgos son of Chersis and Timonax son of Timagoras; of Caria, Histiaios son of Tymnes, Pigres son of Hysseldomos, 93 and Damasithymos son of Candaules.
+
+Son of Tymnes, tyrant of Termera in Caria, seized by Aristagoras with the other Carian tyrants and sailing with Xerxes twenty years later. Not Histiaeus of Miletus.
+
+## original-en · tymnes-termera · 798:0
+
+So Iatragoras was sent for this purpose and seized by craft Oliatos the son of Ibanollis of Mylasa, and Histiaios the son of Tymnes of Termera, and Coës the son of Erxander, to whom Dareios had given Mytilene as a gift, and Aristagoras the son of Heracleides of Kyme, and many others; and then Aristagoras openly made revolt and devised all that he could to the hurt of Dareios. And first he pretended to resign the despotic power and give to Miletos equality, 23 in order that the Milesians might be willing to revolt with him: then afterwards he proceeded to do this same thing in the rest of Ionia also; and some of the despots he drove out, but those whom he had taken from the ships which had sailed with him to Naxis, these he surrendered, because he desired to do a pleasure to their cities, delivering them over severally to that city from which each one came.
+
+Histiaeus of Termera’s father. Not the Scythian steward of the same name.
+
+## original-en · pigres-caria · 1120:0
+
+Of those who sailed in the ships the men of most note after the commanders were these,--of Sidon, Tetramnestos son of Anysos; of Tyre, Matten 92 son of Siromos; or Arados, Merbalos son of Agbalos; of Kilikia, Syennesis son of Oromedon; of Lykia, Kyberniscos son of Sicas; of Cyprus, Gorgos son of Chersis and Timonax son of Timagoras; of Caria, Histiaios son of Tymnes, Pigres son of Hysseldomos, 93 and Damasithymos son of Candaules.
+
+Son of Hysseldomus, a Carian captain. Not the Paeonian who showed Darius his sister carrying water.
+
+## original-en · hysseldomus · 1120:0
+
+Of those who sailed in the ships the men of most note after the commanders were these,--of Sidon, Tetramnestos son of Anysos; of Tyre, Matten 92 son of Siromos; or Arados, Merbalos son of Agbalos; of Kilikia, Syennesis son of Oromedon; of Lykia, Kyberniscos son of Sicas; of Cyprus, Gorgos son of Chersis and Timonax son of Timagoras; of Caria, Histiaios son of Tymnes, Pigres son of Hysseldomos, 93 and Damasithymos son of Candaules.
+
+Pigres of Caria’s father.
+
+## original-en · damasithymus · 1120:0
+
+Of those who sailed in the ships the men of most note after the commanders were these,--of Sidon, Tetramnestos son of Anysos; of Tyre, Matten 92 son of Siromos; or Arados, Merbalos son of Agbalos; of Kilikia, Syennesis son of Oromedon; of Lykia, Kyberniscos son of Sicas; of Cyprus, Gorgos son of Chersis and Timonax son of Timagoras; of Caria, Histiaios son of Tymnes, Pigres son of Hysseldomos, 93 and Damasithymos son of Candaules.
+
+Son of Candaules, a Carian captain — and the king of the Calyndians whose ship Artemisia rammed and sank to save herself.
+
+## original-en · candaules-caria · 1120:0
+
+Of those who sailed in the ships the men of most note after the commanders were these,--of Sidon, Tetramnestos son of Anysos; of Tyre, Matten 92 son of Siromos; or Arados, Merbalos son of Agbalos; of Kilikia, Syennesis son of Oromedon; of Lykia, Kyberniscos son of Sicas; of Cyprus, Gorgos son of Chersis and Timonax son of Timagoras; of Caria, Histiaios son of Tymnes, Pigres son of Hysseldomos, 93 and Damasithymos son of Candaules.
+
+Damasithymus’s father. Not the Lydian king who had his wife looked at.
+
+## original-en · artemisia · 1121:0
+
+Of the rest of the officers I make no mention by the way (since I am not bound to do so), but only of Artemisia, at whom I marvel most that she joined the expedition against Hellas, being a woman; for after her husband died, she holding the power herself, although she had a son who was a young man, went on the expedition impelled by high spirit and manly courage, no necessity being laid upon her. Now her name, as I said, was Artemisia and she was the daughter of Lygdamis, and by descent she was of Halicarnassos on the side of her father, but of Crete by her mother. She was ruler of the men of Halicarnassos and Cos and Nisyros and Calydna, furnishing five ships; and she furnished ships which were of all the fleet reputed the best after those of the Sidonians, and of all his allies she set forth the best counsels to the king. Of the States of which I said that she was leader I declare the people to be all of Dorian race, those of Halicarnassos being Troizenians, and the rest Epidaurians. So far then I have spoken of the naval force.
+
+Lygdamis’s daughter and ruler of Halicarnassus, Cos, Nisyrus and Calydna, who went on the expedition after her husband’s death though she had a grown son and no compulsion. Her five ships were reckoned the best in the fleet after Sidon’s, and of all the king’s allies she gave him the best advice.
+
+## original-en · lygdamis-halicarnassus · 1121:0
+
+Of the rest of the officers I make no mention by the way (since I am not bound to do so), but only of Artemisia, at whom I marvel most that she joined the expedition against Hellas, being a woman; for after her husband died, she holding the power herself, although she had a son who was a young man, went on the expedition impelled by high spirit and manly courage, no necessity being laid upon her. Now her name, as I said, was Artemisia and she was the daughter of Lygdamis, and by descent she was of Halicarnassos on the side of her father, but of Crete by her mother. She was ruler of the men of Halicarnassos and Cos and Nisyros and Calydna, furnishing five ships; and she furnished ships which were of all the fleet reputed the best after those of the Sidonians, and of all his allies she set forth the best counsels to the king. Of the States of which I said that she was leader I declare the people to be all of Dorian race, those of Halicarnassos being Troizenians, and the rest Epidaurians. So far then I have spoken of the naval force.
+
+Artemisia’s father, Halicarnassian on his side and Cretan on his wife’s. Not the Naxian who helped Peisistratus.
+
+## original-en · mascames · 1127:0
+
+He thus made answer, and Xerxes turned the matter to laughter and felt no anger, but dismissed him with kindness. Then after he had conversed with him, and had appointed Mascames son of Megadostes to be governor at this place Doriscos, removing the governor who had been appointed by Dareios, Xerxes marched forth his army through Thrace to invade Hellas.
+
+Son of Megadostes and governor at Doriscus, the one governor in Thrace or on the Hellespont the Greeks never took. Every Persian king since has sent gifts to his descendants.
+
+## original-en · megadostes · 1127:0
+
+He thus made answer, and Xerxes turned the matter to laughter and felt no anger, but dismissed him with kindness. Then after he had conversed with him, and had appointed Mascames son of Megadostes to be governor at this place Doriscos, removing the governor who had been appointed by Dareios, Xerxes marched forth his army through Thrace to invade Hellas.
+
+Mascames’s father.
+
+## original-en · boges · 1129:0
+
+Of those however who were conquered by the Hellenes Xerxes did not consider any to be a good man except only Boges, who was at Eïon: him he never ceased commending, and he honoured very highly his children who survived him in the land of Persia. For in truth Boges proved himself worthy of great commendation, seeing that when he was besieged by the Athenians under Kimon the son of Miltiades, though he might have gone forth under a truce and so returned home to Asia, he preferred not to do this, for fear that the king should that it was by cowardice that he survived; and he continued to hold out till the last. Then when there was no longer any supply of provisions within the wall, he heaped together a great pyre, and he cut the throats of his children, his wife, his concubines and his servants, and threw them into the fire; and after this he scattered all the gold and silver in the city from the wall into the river Strymon, and having so done he threw himself into the fire. Thus he is justly commended even to this present time by the Persians.
+
+Governor at Eion, who could have come out under truce and would not, for fear the king would think it cowardice. He cut the throats of his children, his wife, his concubines and his servants, threw them on a pyre, scattered the city’s gold and silver into the Strymon, and threw himself into the fire.
+
+## original-en · satrae · 1132:0
+
+These cities, I say, lying by the sea coast and belonging to Hellenes, he passed by, leaving them on the left hand; and the tribes of Thracians through whose country he marched were as follows, namely the Paitians, Kikonians, Bistonians, Sapaians, Dersaians, Edonians, Satrians. Of these they who were settled along the sea coast accompanied him with their ships, and those of them who dwelt inland and have been enumerated by me, were compelled to accompany him on land, except the Satrians:
+
+The only Thracians who have never submitted to anyone: they live in high forested mountains under snow, are highly skilled in war, and hold the oracle of Dionysus.
+
+## original-en · bessi · 1133:0
+
+the Satrians however never yet became obedient to any man, so far as we know, but they remain up to my time still free, alone of all the Thracians; for they dwell in lofty mountains, which are covered with forest of all kinds and with snow, and also they are very skilful in war. These are they who possess the Oracle of Dionysos; which Oracle is on their most lofty mountains. Of the Satrians those who act as prophets 103 of the temple are the Bessians; it is a prophetess 104 who utters the oracles, as at Delphi; and beyond this there is nothing further of a remarkable character. 105
+
+The Satrae who interpret the shrine; a prophetess utters the oracles, as at Delphi.
+
+## original-en · antipater · 1140:0
+
+King Xerxes, I say, was greatly grieved at the loss of Artachaies: and meanwhile the Hellenes who were entertaining his army and providing Xerxes with dinners had been brought to utter ruin, so that they were being driven from house and home; seeing that when the Thasians, for example, entertained the army of Xerxes and provided him with a dinner on behalf of their towns upon the mainland, Antipater the son of Orgeus, who had been appointed for this purpose, a man of repute among the citizens equal to the best, reported that four hundred talents of silver had been spent upon the dinner.
+
+Son of Orgeus, appointed by the Thasians to feed Xerxes’s army — four hundred talents of silver for one dinner.
+
+## original-en · orgeus · 1140:0
+
+King Xerxes, I say, was greatly grieved at the loss of Artachaies: and meanwhile the Hellenes who were entertaining his army and providing Xerxes with dinners had been brought to utter ruin, so that they were being driven from house and home; seeing that when the Thasians, for example, entertained the army of Xerxes and provided him with a dinner on behalf of their towns upon the mainland, Antipater the son of Orgeus, who had been appointed for this purpose, a man of repute among the citizens equal to the best, reported that four hundred talents of silver had been spent upon the dinner.
+
+Antipater’s father.
+
+## original-en · megacreon · 1142:0
+
+Then was uttered a word well spoken by Megacreon, a man of Abdera, who advised those of Abdera to go in a body, both themselves and their wives, to their temples, and to sit down as suppliants of the gods, entreating them that for the future also they would ward off from them the half of the evils which threatened; and he bade them feel great thankfulness to the gods for the past events, because king Xerxes had not thought good to take food twice in each day; for if it had been ordered to them beforehand to prepare breakfast also in like manner as the dinner, it would have remained for the men of Abdera either not to await the coming of Xerxes, or if they stayed, to be crushed by misfortune more than any other men upon the Earth.
+
+Of Abdera, who told his city to go to the temples in a body and thank the gods that Xerxes did not eat twice a day.
+
+## original-en · talthybius · 1156:0
+
+on the Lacedemonians however the wrath fell of Talthybios, the herald of Agamemnon; for in Sparta there is a temple of Talthybios, and there are also descendants of Talthybios called Talthybiads, to whom have been given as a right all the missions of heralds which go from Sparta; and after this event it was not possible for the Spartans when they sacrificed to obtain favourable omens. This was the case with them for a long time; and as the Lacedemonians were grieved and regarded it as a great misfortune, and general assemblies were repeatedly gathered together and proclamation made, asking if any one of the Lacedemonians was willing to die for Sparta, at length Sperthias the son of Aneristos and Bulis the son of Nicolaos, Spartans of noble birth and in wealth attaining to the first rank, voluntarily submitted to pay the penalty to Xerxes for the heralds of Dareios which had perished at Sparta. Thus the Spartans sent these to the Medes to be put to death.
+
+Agamemnon’s herald, whose anger fell on Sparta for the heralds thrown down a well, and whose temple and descendants are in the city.
+
+## original-en · talthybiads · 1156:0
+
+on the Lacedemonians however the wrath fell of Talthybios, the herald of Agamemnon; for in Sparta there is a temple of Talthybios, and there are also descendants of Talthybios called Talthybiads, to whom have been given as a right all the missions of heralds which go from Sparta; and after this event it was not possible for the Spartans when they sacrificed to obtain favourable omens. This was the case with them for a long time; and as the Lacedemonians were grieved and regarded it as a great misfortune, and general assemblies were repeatedly gathered together and proclamation made, asking if any one of the Lacedemonians was willing to die for Sparta, at length Sperthias the son of Aneristos and Bulis the son of Nicolaos, Spartans of noble birth and in wealth attaining to the first rank, voluntarily submitted to pay the penalty to Xerxes for the heralds of Dareios which had perished at Sparta. Thus the Spartans sent these to the Medes to be put to death.
+
+Talthybius’s descendants, who hold the right to carry every herald’s message out of Sparta.
+
+## original-en · sperthias · 1156:0
+
+on the Lacedemonians however the wrath fell of Talthybios, the herald of Agamemnon; for in Sparta there is a temple of Talthybios, and there are also descendants of Talthybios called Talthybiads, to whom have been given as a right all the missions of heralds which go from Sparta; and after this event it was not possible for the Spartans when they sacrificed to obtain favourable omens. This was the case with them for a long time; and as the Lacedemonians were grieved and regarded it as a great misfortune, and general assemblies were repeatedly gathered together and proclamation made, asking if any one of the Lacedemonians was willing to die for Sparta, at length Sperthias the son of Aneristos and Bulis the son of Nicolaos, Spartans of noble birth and in wealth attaining to the first rank, voluntarily submitted to pay the penalty to Xerxes for the heralds of Dareios which had perished at Sparta. Thus the Spartans sent these to the Medes to be put to death.
+
+Son of Aneristus, who with Bulis volunteered to go to Xerxes and be killed for the heralds Sparta had murdered. Told by Hydarnes that he might rule a Greek country as the king’s gift, he answered that a man who has only tasted slavery cannot advise about freedom. Xerxes sent them home.
+
+## original-en · aneristus · 1156:0
+
+on the Lacedemonians however the wrath fell of Talthybios, the herald of Agamemnon; for in Sparta there is a temple of Talthybios, and there are also descendants of Talthybios called Talthybiads, to whom have been given as a right all the missions of heralds which go from Sparta; and after this event it was not possible for the Spartans when they sacrificed to obtain favourable omens. This was the case with them for a long time; and as the Lacedemonians were grieved and regarded it as a great misfortune, and general assemblies were repeatedly gathered together and proclamation made, asking if any one of the Lacedemonians was willing to die for Sparta, at length Sperthias the son of Aneristos and Bulis the son of Nicolaos, Spartans of noble birth and in wealth attaining to the first rank, voluntarily submitted to pay the penalty to Xerxes for the heralds of Dareios which had perished at Sparta. Thus the Spartans sent these to the Medes to be put to death.
+
+Sperthias’s father — and Sperthias’s son of the same name, put to death by the Athenians a generation later, so that the anger of Talthybius came round again.
+
+## original-en · bulis · 1156:0
+
+on the Lacedemonians however the wrath fell of Talthybios, the herald of Agamemnon; for in Sparta there is a temple of Talthybios, and there are also descendants of Talthybios called Talthybiads, to whom have been given as a right all the missions of heralds which go from Sparta; and after this event it was not possible for the Spartans when they sacrificed to obtain favourable omens. This was the case with them for a long time; and as the Lacedemonians were grieved and regarded it as a great misfortune, and general assemblies were repeatedly gathered together and proclamation made, asking if any one of the Lacedemonians was willing to die for Sparta, at length Sperthias the son of Aneristos and Bulis the son of Nicolaos, Spartans of noble birth and in wealth attaining to the first rank, voluntarily submitted to pay the penalty to Xerxes for the heralds of Dareios which had perished at Sparta. Thus the Spartans sent these to the Medes to be put to death.
+
+Son of Nicolaus, Sperthias’s companion in the offer.
+
+## original-en · nicolaus · 1156:0
+
+on the Lacedemonians however the wrath fell of Talthybios, the herald of Agamemnon; for in Sparta there is a temple of Talthybios, and there are also descendants of Talthybios called Talthybiads, to whom have been given as a right all the missions of heralds which go from Sparta; and after this event it was not possible for the Spartans when they sacrificed to obtain favourable omens. This was the case with them for a long time; and as the Lacedemonians were grieved and regarded it as a great misfortune, and general assemblies were repeatedly gathered together and proclamation made, asking if any one of the Lacedemonians was willing to die for Sparta, at length Sperthias the son of Aneristos and Bulis the son of Nicolaos, Spartans of noble birth and in wealth attaining to the first rank, voluntarily submitted to pay the penalty to Xerxes for the heralds of Dareios which had perished at Sparta. Thus the Spartans sent these to the Medes to be put to death.
+
+Bulis’s father — and Bulis’s son of the same name, killed with Aneristus in Attica.
+
+## original-en · teres · 636:0
+
+After this when Skyles was riding out again to his own abode, the Scythians took his brother Octamasades for their leader, who was a son of the daughter of Teres, and made insurrection against Skyles. He then when he perceived that which was being done to his hurt and for what reason it was being done, fled for refuge to Thrace; and Octamasades being informed of this, proceeded to march upon Thrace. So when he had arrived at the river Ister, the Thracians met him; and as they were about to engage battle, Sitalkes sent a messenger to Octamasades and said: "Why must we make trial of one another in fight? Thou art my sister's son and thou hast in thy power my brother. Do thou give him back to me, and I will deliver to thee thy brother Skyles: and let us not either of us set our armies in peril, either thou or I." Thus Sitalkes proposed to him by a herald; for there was with Octamasades a brother of Sitalkes, who had gone into exile for fear of him. And Octamasades agreed to this, and by giving up his own mother's brother to Sitalkes he received his brother Skyles in exchange: and Sitalkes when he received his brother led him away as a prisoner, but Octamasades cut off the head of Skyles there upon the spot. Thus do the Scythians carefully guard their own customary observances, and such are the penalties which they inflict upon those who acquire foreign customs besides their own.
+
+Sitalces’s father, at the head of the Thracian kings.
+
+## original-en · nymphodorus · 1159:0
+
+Thus the wrath of Talthybios ceased for the time being, even though the Spartans had done no more than this and although Sperthias and Bulis returned back to Sparta; but a long time after this it was roused again during the war between the Peloponnesians and Athenians, as the Lacedemonians report. This I perceive to have been most evidently the act of the Deity: for in that the wrath of Talthybios fell upon messengers and did not cease until it had been fully satisfied, so much was but in accordance with justice; but that it happened to come upon the sons of these men who went up to the king on account of the wrath, namely upon Nicolaos the son of Bulis and Aneristos the son of Sperthias (the same who conquered the men of Halieis, who came from Tiryns, by sailing into their harbour with a merchant ship filled with fighting men),--by this it is evident to me that the matter came to pass by the act of the Deity caused by this wrath. For these men, sent by the Lacedemonians as envoys to Asia, having been betrayed by Sitalkes the son of Teres king of the Thracians and by Nymphodoros the son of Pythes a man of Abdera, were captured at Bisanthe on the Hellespont; and then having been carried away to Attica they were put to death by the Athenians, and with them also Aristeas the son of Adeimantos the Corinthian. These things happened many years after the expedition of the king; and I return now to the former narrative.
+
+Son of Pythes, of Abdera, who with Sitalces betrayed the Spartan envoys on the Hellespont.
+
+## original-en · pythes · 1159:0
+
+Thus the wrath of Talthybios ceased for the time being, even though the Spartans had done no more than this and although Sperthias and Bulis returned back to Sparta; but a long time after this it was roused again during the war between the Peloponnesians and Athenians, as the Lacedemonians report. This I perceive to have been most evidently the act of the Deity: for in that the wrath of Talthybios fell upon messengers and did not cease until it had been fully satisfied, so much was but in accordance with justice; but that it happened to come upon the sons of these men who went up to the king on account of the wrath, namely upon Nicolaos the son of Bulis and Aneristos the son of Sperthias (the same who conquered the men of Halieis, who came from Tiryns, by sailing into their harbour with a merchant ship filled with fighting men),--by this it is evident to me that the matter came to pass by the act of the Deity caused by this wrath. For these men, sent by the Lacedemonians as envoys to Asia, having been betrayed by Sitalkes the son of Teres king of the Thracians and by Nymphodoros the son of Pythes a man of Abdera, were captured at Bisanthe on the Hellespont; and then having been carried away to Attica they were put to death by the Athenians, and with them also Aristeas the son of Adeimantos the Corinthian. These things happened many years after the expedition of the king; and I return now to the former narrative.
+
+Nymphodorus’s father.
+
+## original-en · aristeas-corinth · 1159:0
+
+Thus the wrath of Talthybios ceased for the time being, even though the Spartans had done no more than this and although Sperthias and Bulis returned back to Sparta; but a long time after this it was roused again during the war between the Peloponnesians and Athenians, as the Lacedemonians report. This I perceive to have been most evidently the act of the Deity: for in that the wrath of Talthybios fell upon messengers and did not cease until it had been fully satisfied, so much was but in accordance with justice; but that it happened to come upon the sons of these men who went up to the king on account of the wrath, namely upon Nicolaos the son of Bulis and Aneristos the son of Sperthias (the same who conquered the men of Halieis, who came from Tiryns, by sailing into their harbour with a merchant ship filled with fighting men),--by this it is evident to me that the matter came to pass by the act of the Deity caused by this wrath. For these men, sent by the Lacedemonians as envoys to Asia, having been betrayed by Sitalkes the son of Teres king of the Thracians and by Nymphodoros the son of Pythes a man of Abdera, were captured at Bisanthe on the Hellespont; and then having been carried away to Attica they were put to death by the Athenians, and with them also Aristeas the son of Adeimantos the Corinthian. These things happened many years after the expedition of the king; and I return now to the former narrative.
+
+Son of Adeimantus of Corinth, put to death by the Athenians with the two Spartan envoys. Not Aristeas of Proconnesus, who kept turning up after his death.
+
+## original-en · adeimantus · 1159:0
+
+Thus the wrath of Talthybios ceased for the time being, even though the Spartans had done no more than this and although Sperthias and Bulis returned back to Sparta; but a long time after this it was roused again during the war between the Peloponnesians and Athenians, as the Lacedemonians report. This I perceive to have been most evidently the act of the Deity: for in that the wrath of Talthybios fell upon messengers and did not cease until it had been fully satisfied, so much was but in accordance with justice; but that it happened to come upon the sons of these men who went up to the king on account of the wrath, namely upon Nicolaos the son of Bulis and Aneristos the son of Sperthias (the same who conquered the men of Halieis, who came from Tiryns, by sailing into their harbour with a merchant ship filled with fighting men),--by this it is evident to me that the matter came to pass by the act of the Deity caused by this wrath. For these men, sent by the Lacedemonians as envoys to Asia, having been betrayed by Sitalkes the son of Teres king of the Thracians and by Nymphodoros the son of Pythes a man of Abdera, were captured at Bisanthe on the Hellespont; and then having been carried away to Attica they were put to death by the Athenians, and with them also Aristeas the son of Adeimantos the Corinthian. These things happened many years after the expedition of the king; and I return now to the former narrative.
+
+Aristeas of Corinth’s father.
+
+## original-en · aristonice · 1162:0
+
+For the Athenians had sent men to Delphi to inquire and were preparing to consult the Oracle; and after these had performed the usual rites in the sacred precincts, when they had entered the sanctuary 120 and were sitting down there, the Pythian prophetess, whose name was Aristonike, uttered to them this oracle:
+
+The Pythian priestess who told the Athenians to flee to the ends of the earth, since neither head nor body nor anything between was left to them.
+
+## original-en · timon · 1163:0
+
+Hearing this the men who had been sent by the Athenians to consult the Oracle were very greatly distressed; and as they were despairing by reason of the evil which had been prophesied to them, Timon the son of Androbulos, a man of the Delphians in reputation equal to the first, counselled them to take a suppliant's bough and to approach the second time and consult the Oracle as suppliants. The Athenians did as he advised and said: "Lord, 127 we pray thee utter to us some better oracle about our native land, having respect to these suppliant boughs which we have come to thee bearing; otherwise surely we will not depart away from the sanctuary, but will remain here where we are now, even until we bring our lives to an end." When they spoke these words, the prophetess gave them a second oracle as follows:
+
+Son of Androboulus, a Delphian of the first rank, who told the Athenians to go back into the shrine as suppliants with boughs in their hands and ask again — which got them the wooden wall.
+
+## original-en · androboulus · 1163:0
+
+Hearing this the men who had been sent by the Athenians to consult the Oracle were very greatly distressed; and as they were despairing by reason of the evil which had been prophesied to them, Timon the son of Androbulos, a man of the Delphians in reputation equal to the first, counselled them to take a suppliant's bough and to approach the second time and consult the Oracle as suppliants. The Athenians did as he advised and said: "Lord, 127 we pray thee utter to us some better oracle about our native land, having respect to these suppliant boughs which we have come to thee bearing; otherwise surely we will not depart away from the sanctuary, but will remain here where we are now, even until we bring our lives to an end." When they spoke these words, the prophetess gave them a second oracle as follows:
+
+Timon’s father.
+
+## original-en · themistocles · 1165:0
+
+Now there was one man of the Athenians who had lately been coming forward to take a place among the first, whose name was Themistocles, called son of Neocles. This man said that the interpreters of oracles did not make right conjecture of the whole, and he spoke as follows, saying that if these words that had been uttered referred really to the Athenians, he did not think it would have been so mildly expressed in the oracle, but rather thus, "Salamis, thou the merciless," instead of "Salamis, thou the divine," at least if its settlers were destined to perish round about it: but in truth the oracle had been spoken by the god with reference to the enemy, if one understood it rightly, and not to the Athenians: therefore he counselled them to get ready to fight a battle by sea, for in this was their bulwark of wood. When Themistocles declared his opinion thus, the Athenians judged that this was to be preferred by them rather than the advice of the interpreters of oracles, who bade them not make ready for a sea-fight, nor in short raise their hands at all in opposition, but leave the land of Attica and settle in some other.
+
+Neocles’s son, lately come forward among the leading Athenians, who read the wooden wall as the ships and Salamis the divine as an oracle against the enemy — and who had already persuaded Athens to spend the silver of Laurium on two hundred ships instead of dividing it ten drachmas a man.
+
+## original-en · neocles · 1165:0
+
+Now there was one man of the Athenians who had lately been coming forward to take a place among the first, whose name was Themistocles, called son of Neocles. This man said that the interpreters of oracles did not make right conjecture of the whole, and he spoke as follows, saying that if these words that had been uttered referred really to the Athenians, he did not think it would have been so mildly expressed in the oracle, but rather thus, "Salamis, thou the merciless," instead of "Salamis, thou the divine," at least if its settlers were destined to perish round about it: but in truth the oracle had been spoken by the god with reference to the enemy, if one understood it rightly, and not to the Athenians: therefore he counselled them to get ready to fight a battle by sea, for in this was their bulwark of wood. When Themistocles declared his opinion thus, the Athenians judged that this was to be preferred by them rather than the advice of the interpreters of oracles, who bade them not make ready for a sea-fight, nor in short raise their hands at all in opposition, but leave the land of Attica and settle in some other.
+
+Themistocles’s father.
+
+## original-en · gorgo · 809:0
+
+In this manner Dorieos ended his life: but if he had endured to be a subject of Cleomenes and had remained in Sparta, he would have been king of Lacedemon; for Cleomenes reigned no very long time, and died leaving no son to succeed him but a daughter only, whose name was Gorgo.
+
+Cleomenes’s daughter and Leonidas’s wife: at eight or nine she told her father to get up and go before Aristagoras corrupted him, and years later she was the one who worked out that the blank tablet from Susa had writing under the wax.
+
+## original-en · euaenetus · 1195:0
+
+Thus spoke the Thessalians; and the Hellenes upon this resolved to send to Thessaly by sea an army of men on foot to guard the pass: and when the army was assembled it set sail through Euripos, and having come to Alos in the Achaian land, it disembarked there and marched into Thessaly leaving the ships behind at Alos, and arrived at Tempe, the pass which leads from lower Macedonia into Thessaly by the river Peneios, going between the mountains of Olympos and Ossa. There the Hellenes encamped, being assembled to the number of about ten thousand hoplites, and to them was added the cavalry of the Thessalians; and the commander of the Lacedemonians was Euainetos the son of Carenos, who had been chosen from the polemarchs, 165 not being of the royal house, and of the Athenians Themistocles the son of Neocles. They remained however but few days here, for envoys came from Alexander the son of Amyntas the Macedonian, who advised them to depart thence and not to remain in the pass and be trodden under foot by the invading host, signifying to them at the same time both the great numbers of the army and the ships which they had. When these gave them this counsel, they followed the advice, for they thought that the counsel was good, and the Macedonian was evidently well-disposed towards them. Also, as I think, it was fear that persuaded them to it, when they were informed that there was another pass besides this to the Thessalian land by upper Macedonia through the Perraibians and by the city of Gonnos, the way by which the army of Xerxes did in fact make its entrance. So the Hellenes went down to their ships again and made their way back to the Isthmus.
+
+Son of Carenus, chosen from the polemarchs to command the Greek force sent to hold the pass at Tempe; not of the royal house.
+
+## original-en · carenus · 1195:0
+
+Thus spoke the Thessalians; and the Hellenes upon this resolved to send to Thessaly by sea an army of men on foot to guard the pass: and when the army was assembled it set sail through Euripos, and having come to Alos in the Achaian land, it disembarked there and marched into Thessaly leaving the ships behind at Alos, and arrived at Tempe, the pass which leads from lower Macedonia into Thessaly by the river Peneios, going between the mountains of Olympos and Ossa. There the Hellenes encamped, being assembled to the number of about ten thousand hoplites, and to them was added the cavalry of the Thessalians; and the commander of the Lacedemonians was Euainetos the son of Carenos, who had been chosen from the polemarchs, 165 not being of the royal house, and of the Athenians Themistocles the son of Neocles. They remained however but few days here, for envoys came from Alexander the son of Amyntas the Macedonian, who advised them to depart thence and not to remain in the pass and be trodden under foot by the invading host, signifying to them at the same time both the great numbers of the army and the ships which they had. When these gave them this counsel, they followed the advice, for they thought that the counsel was good, and the Macedonian was evidently well-disposed towards them. Also, as I think, it was fear that persuaded them to it, when they were informed that there was another pass besides this to the Thessalian land by upper Macedonia through the Perraibians and by the city of Gonnos, the way by which the army of Xerxes did in fact make its entrance. So the Hellenes went down to their ships again and made their way back to the Isthmus.
+
+Euaenetus’s father.
+
+## original-en · thyia · 1200:0
+
+The Hellenes, I say, were coming to the rescue with speed, having been appointed to their several places: and meanwhile the men of Delphi consulted the Oracle of the god on behalf of themselves and on behalf of Hellas, being struck with dread; and a reply was given them that they should pray to the Winds, for these would be powerful helpers of Hellas in fight. So the Delphians, having accepted the oracle, first reported the answer which had been given them to those of the Hellenes who desired to be free; and having reported this to them at a time when they were in great dread of the Barbarian, they laid up for themselves an immortal store of gratitude: then after this the men of Delphi established an altar for the Winds in Thuia, where is the sacred enclosure of Thuia the daughter of Kephisos, after whom moreover this place has its name; and also they approached them with sacrifices.
+
+Cephisus’s daughter, in whose precinct the Delphians built their altar to the Winds.
+
+## original-en · cephisus · 1200:0
+
+The Hellenes, I say, were coming to the rescue with speed, having been appointed to their several places: and meanwhile the men of Delphi consulted the Oracle of the god on behalf of themselves and on behalf of Hellas, being struck with dread; and a reply was given them that they should pray to the Winds, for these would be powerful helpers of Hellas in fight. So the Delphians, having accepted the oracle, first reported the answer which had been given them to those of the Hellenes who desired to be free; and having reported this to them at a time when they were in great dread of the Barbarian, they laid up for themselves an immortal store of gratitude: then after this the men of Delphi established an altar for the Winds in Thuia, where is the sacred enclosure of Thuia the daughter of Kephisos, after whom moreover this place has its name; and also they approached them with sacrifices.
+
+Thyia’s father.
+
+## original-en · gelon · 1167:0
+
+These oracles had been given before to the Athenians: and when those Hellenes who had the better mind about Hellas 131 came together to one place, and considered their affairs and interchanged assurances with one another, then deliberating together they thought it well first of all things to reconcile the enmities and bring to an end the wars which they had with one another. Now there were wars engaged 132 between others also, and especially between the Athenians and the Eginetans. After this, being informed that Xerxes was with his army at Sardis, they determined to send spies to Asia to make observation of the power of the king; and moreover they resolved to send envoys to Argos to form an alliance against the Persian, and to send others to Sicily to Gelon the son of Deinomenes and also to Corcyra, to urge them to come to the assistance of Hellas, and others again to Crete; for they made it their aim that if possible the Hellenic race might unite in one, and that they might join all together and act towards the same end, since dangers were threatening all the Hellenes equally. Now the power of Gelon was said to be great, far greater than any other Hellenic power.
+
+Tyrant of Syracuse and the greatest power in the Greek world, who offered the alliance two hundred ships and an army and grain for the whole war on condition that he command it — and when Sparta and Athens both refused him, told them the spring had been taken out of their year. He sent money to Delphi instead, to be given to whichever side won.
+
+## original-en · dinomenes · 1167:0
+
+These oracles had been given before to the Athenians: and when those Hellenes who had the better mind about Hellas 131 came together to one place, and considered their affairs and interchanged assurances with one another, then deliberating together they thought it well first of all things to reconcile the enmities and bring to an end the wars which they had with one another. Now there were wars engaged 132 between others also, and especially between the Athenians and the Eginetans. After this, being informed that Xerxes was with his army at Sardis, they determined to send spies to Asia to make observation of the power of the king; and moreover they resolved to send envoys to Argos to form an alliance against the Persian, and to send others to Sicily to Gelon the son of Deinomenes and also to Corcyra, to urge them to come to the assistance of Hellas, and others again to Crete; for they made it their aim that if possible the Hellenic race might unite in one, and that they might join all together and act towards the same end, since dangers were threatening all the Hellenes equally. Now the power of Gelon was said to be great, far greater than any other Hellenic power.
+
+Gelon’s father.
+
+## original-en · telines · 1175:0
+
+That which concerns the Argives has now been said: and meanwhile envoys had come to Sicily from the allies, to confer with Gelon, among whom was also Syagros from the Lacedemonians. Now the ancestor of this Gelon, he who was at Gela as a settler, 140 was a native of the island of Telos, which lies off Triopion; and when Gela was founded by the Lindians of Rhodes and by Antiphemos, he was not left behind. Then in course of time his descendants became and continued to be priests of the mysteries of the Earth goddesses, 141 an office which was acquired by Telines one of their ancestors in the following manner:--certain of the men of Gela, being worsted in a party struggle, had fled to Mactorion, the city which stands above Gela: these men Telines brought back to Gela from exile with no force of men but only with the sacred rites of these goddesses; but from whom he received them, or whether he obtained them for himself, 142 this I am not able to say; trusting in these however, he brought the men back from exile, on the condition that his descendants should be priests of the mysteries of the goddesses. To me it has caused wonder also that Telines should have been able to perform so great a deed, considering that which I am told; for such deeds, I think, are not apt to proceed from every man, but from one who has a brave spirit and manly vigour, whereas Telines is said by the dwellers in Sicily to have been on the contrary a man of effeminate character and rather poor spirit.
+
+Gelon’s ancestor, who brought the exiles back to Gela with no force of arms but only the rites of the chthonic goddesses, and won the priesthood of the mysteries for his descendants. Herodotus cannot see how so faint-hearted a man did it.
+
+## original-en · cleander-gela · 1176:0
+
+He then had thus obtained the privilege of which I speak: and when Cleander the son of Pantares brought his life to an end, having been despot of Gela for seven years and being killed at last by Sabyllos a man of Gela, then Hippocrates succeeded to the monarchy, who was brother of Cleander. And while Hippocrates was despot, Gelon, who was a descendant of Telines the priest of the mysteries, was spearman of the guard 143 to Hippocrates with many others and among them Ainesidemos the son of Pataicos. Then after no long time he was appointed by reason of valour to be commander of the whole cavalry; for when Hippocrates besieged successively the cities of Callipolis, Naxos, Zancle, Leontini, and also Syracuse and many towns of the Barbarians, in these wars Gelon showed himself a most brilliant warrior; and of the cities which I just now mentioned, not one except Syracuse escaped being reduced to subjection by Hippocrates: the Syracusans however, after they had been defeated in battle at the river Eloros, were rescued by the Corinthians and Corcyreans; these rescued them and brought the quarrel to a settlement on this condition, namely that the Syracusans should deliver up Camarina to Hippocrates. Now Camarina used in ancient time to belong to the men of Syracuse.
+
+Son of Pantares, tyrant of Gela for seven years, killed by a man of the city; Hippocrates his brother succeeded him.
+
+## original-en · pantares · 1176:0
+
+He then had thus obtained the privilege of which I speak: and when Cleander the son of Pantares brought his life to an end, having been despot of Gela for seven years and being killed at last by Sabyllos a man of Gela, then Hippocrates succeeded to the monarchy, who was brother of Cleander. And while Hippocrates was despot, Gelon, who was a descendant of Telines the priest of the mysteries, was spearman of the guard 143 to Hippocrates with many others and among them Ainesidemos the son of Pataicos. Then after no long time he was appointed by reason of valour to be commander of the whole cavalry; for when Hippocrates besieged successively the cities of Callipolis, Naxos, Zancle, Leontini, and also Syracuse and many towns of the Barbarians, in these wars Gelon showed himself a most brilliant warrior; and of the cities which I just now mentioned, not one except Syracuse escaped being reduced to subjection by Hippocrates: the Syracusans however, after they had been defeated in battle at the river Eloros, were rescued by the Corinthians and Corcyreans; these rescued them and brought the quarrel to a settlement on this condition, namely that the Syracusans should deliver up Camarina to Hippocrates. Now Camarina used in ancient time to belong to the men of Syracuse.
+
+Cleander of Gela’s father.
+
+## original-en · sabyllus · 1176:0
+
+He then had thus obtained the privilege of which I speak: and when Cleander the son of Pantares brought his life to an end, having been despot of Gela for seven years and being killed at last by Sabyllos a man of Gela, then Hippocrates succeeded to the monarchy, who was brother of Cleander. And while Hippocrates was despot, Gelon, who was a descendant of Telines the priest of the mysteries, was spearman of the guard 143 to Hippocrates with many others and among them Ainesidemos the son of Pataicos. Then after no long time he was appointed by reason of valour to be commander of the whole cavalry; for when Hippocrates besieged successively the cities of Callipolis, Naxos, Zancle, Leontini, and also Syracuse and many towns of the Barbarians, in these wars Gelon showed himself a most brilliant warrior; and of the cities which I just now mentioned, not one except Syracuse escaped being reduced to subjection by Hippocrates: the Syracusans however, after they had been defeated in battle at the river Eloros, were rescued by the Corinthians and Corcyreans; these rescued them and brought the quarrel to a settlement on this condition, namely that the Syracusans should deliver up Camarina to Hippocrates. Now Camarina used in ancient time to belong to the men of Syracuse.
+
+The man of Gela who killed Cleander.
+
+## original-en · aenesidemus · 1176:0
+
+He then had thus obtained the privilege of which I speak: and when Cleander the son of Pantares brought his life to an end, having been despot of Gela for seven years and being killed at last by Sabyllos a man of Gela, then Hippocrates succeeded to the monarchy, who was brother of Cleander. And while Hippocrates was despot, Gelon, who was a descendant of Telines the priest of the mysteries, was spearman of the guard 143 to Hippocrates with many others and among them Ainesidemos the son of Pataicos. Then after no long time he was appointed by reason of valour to be commander of the whole cavalry; for when Hippocrates besieged successively the cities of Callipolis, Naxos, Zancle, Leontini, and also Syracuse and many towns of the Barbarians, in these wars Gelon showed himself a most brilliant warrior; and of the cities which I just now mentioned, not one except Syracuse escaped being reduced to subjection by Hippocrates: the Syracusans however, after they had been defeated in battle at the river Eloros, were rescued by the Corinthians and Corcyreans; these rescued them and brought the quarrel to a settlement on this condition, namely that the Syracusans should deliver up Camarina to Hippocrates. Now Camarina used in ancient time to belong to the men of Syracuse.
+
+Son of Pataecus, a spear-bearer of Hippocrates with Gelon — and the father of Theron of Acragas.
+
+## original-en · pataecus · 1176:0
+
+He then had thus obtained the privilege of which I speak: and when Cleander the son of Pantares brought his life to an end, having been despot of Gela for seven years and being killed at last by Sabyllos a man of Gela, then Hippocrates succeeded to the monarchy, who was brother of Cleander. And while Hippocrates was despot, Gelon, who was a descendant of Telines the priest of the mysteries, was spearman of the guard 143 to Hippocrates with many others and among them Ainesidemos the son of Pataicos. Then after no long time he was appointed by reason of valour to be commander of the whole cavalry; for when Hippocrates besieged successively the cities of Callipolis, Naxos, Zancle, Leontini, and also Syracuse and many towns of the Barbarians, in these wars Gelon showed himself a most brilliant warrior; and of the cities which I just now mentioned, not one except Syracuse escaped being reduced to subjection by Hippocrates: the Syracusans however, after they had been defeated in battle at the river Eloros, were rescued by the Corinthians and Corcyreans; these rescued them and brought the quarrel to a settlement on this condition, namely that the Syracusans should deliver up Camarina to Hippocrates. Now Camarina used in ancient time to belong to the men of Syracuse.
+
+Aenesidemus’s father.
+
+## original-en · euclides · 1177:0
+
+Then when it was the fate of Hippocrates also, after having been despot for the same number of years as his brother Cleander, to be killed at the city of Hybla, whither he had gone on an expedition against the Sikelians, then Gelon made a pretence of helping the sons of Hippocrates, Eucleides and Cleander, when the citizens were no longer willing to submit; but actually, when he had been victorious in a battle over the men of Gela, he robbed the sons of Hippocrates of the power and was ruler himself. After this stroke of fortune Gelon restored those of the Syracusans who were called "land-holders," 144 after they had been driven into exile by the common people and by their own slaves, who were called Kyllyrians, 145 these, I say, he restored from the city of Casmene to Syracuse, and so got possession of this last city also, for the common people of Syracuse, when Gelon came against them, delivered up to him their city and themselves.
+
+One of Hippocrates’s two sons, whom Gelon pretended to defend and then stripped of power.
+
+## original-en · cleander-son-of-hippocrates · 1177:0
+
+Then when it was the fate of Hippocrates also, after having been despot for the same number of years as his brother Cleander, to be killed at the city of Hybla, whither he had gone on an expedition against the Sikelians, then Gelon made a pretence of helping the sons of Hippocrates, Eucleides and Cleander, when the citizens were no longer willing to submit; but actually, when he had been victorious in a battle over the men of Gela, he robbed the sons of Hippocrates of the power and was ruler himself. After this stroke of fortune Gelon restored those of the Syracusans who were called "land-holders," 144 after they had been driven into exile by the common people and by their own slaves, who were called Kyllyrians, 145 these, I say, he restored from the city of Casmene to Syracuse, and so got possession of this last city also, for the common people of Syracuse, when Gelon came against them, delivered up to him their city and themselves.
+
+Hippocrates’s other son, named after his uncle and dispossessed with his brother.
+
+## original-en · hieron · 1178:0
+
+So after he had received Syracuse into his power, he made less account of Gela, of which he was ruler also in addition, and he gave it in charge to Hieron his brother, while he proceeded to strengthen Syracuse. So forthwith that city rose and shot up to prosperity; for in the first place he brought all those of Camarina to Syracuse and made them citizens, and razed to the ground the city of Camarina; then secondly he did the same to more than half of the men of Gela, as he had done to those of Camarina: and as regards the Megarians of Sicily, when they were besieged and had surrendered by capitulation, the well-to-do men 146 of them, though they had stirred up war with him and expected to be put to death for this reason, he brought to Syracuse and made them citizens, but the common people of the Megarians, who had no share in the guilt of this war and did not expect that they would suffer any evil, these also he brought to Syracuse and sold them as slaves to be carried away from Sicily: and the same thing he did moreover to the men of Euboia in Sicily, making a distinction between them: and he dealt thus with these two cities because he thought that a body of commons was a most unpleasant element in the State.
+
+Gelon’s brother, given Gela when Gelon took Syracuse.
+
+## original-en · syagrus · 1175:0
+
+That which concerns the Argives has now been said: and meanwhile envoys had come to Sicily from the allies, to confer with Gelon, among whom was also Syagros from the Lacedemonians. Now the ancestor of this Gelon, he who was at Gela as a settler, 140 was a native of the island of Telos, which lies off Triopion; and when Gela was founded by the Lindians of Rhodes and by Antiphemos, he was not left behind. Then in course of time his descendants became and continued to be priests of the mysteries of the Earth goddesses, 141 an office which was acquired by Telines one of their ancestors in the following manner:--certain of the men of Gela, being worsted in a party struggle, had fled to Mactorion, the city which stands above Gela: these men Telines brought back to Gela from exile with no force of men but only with the sacred rites of these goddesses; but from whom he received them, or whether he obtained them for himself, 142 this I am not able to say; trusting in these however, he brought the men back from exile, on the condition that his descendants should be priests of the mysteries of the goddesses. To me it has caused wonder also that Telines should have been able to perform so great a deed, considering that which I am told; for such deeds, I think, are not apt to proceed from every man, but from one who has a brave spirit and manly vigour, whereas Telines is said by the dwellers in Sicily to have been on the contrary a man of effeminate character and rather poor spirit.
+
+The Lacedaemonian envoy to Gelon, who said that Agamemnon would groan to hear that the Spartans had had the leadership taken from them by Syracusans.
+
+## original-en · cadmus-cos · 1185:0
+
+The envoys of the Hellenes, having thus had conference with Gelon, sailed away; and Gelon upon this, fearing on the one hand about the Hellenes, lest they should not be able to overcome the Barbarian, and on the other hand considering it monstrous and not to be endured that he should come to Peloponnesus and be under the command of the Lacedemonians, seeing that he was despot of Sicily, gave up the thought of this way and followed another: for so soon as he was informed that the Persian had crossed over the Hellespont, he sent Cadmos the son of Skythes, a man of Cos, with three fifty-oared galleys to Delphi, bearing large sums of money and friendly proposals, to wait there and see how the battle would fall out: and if the Barbarian should be victorious, he was to give him the money and also to offer him earth and water from those over whom Gelon had rule; but if the Hellenes should be victorious, he was bidden to bring it back.
+
+Son of Scythes, who inherited the government of Cos in good order and handed it to the people for no reason but uprightness. Gelon picked him to carry the money to Delphi, and he brought every coin of it back.
+
+## original-en · terillus · 1187:0
+
+The story which here follows is also reported by those who dwell in Sicily, namely that, even though he was to be under the command of the Lacedemonians, Gelon would have come to the assistance of the Hellenes, but that Terillos, the son of Crinippos and despot of Himera, having been driven out of Himera by Theron the son of Ainesidemos 156 the ruler of the Agrigentines, was just at this very time bringing in an army of Phenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians and Corsicans, to the number of thirty myriads, 157 with Amilcas the son of Annon king of the Carthaginians as their commander, whom Terillos had persuaded partly by reason of his own guest-friendship, and especially by the zealous assistance of Anaxilaos the son of Cretines, who was despot of Rhegion, and who to help his father-in-law endeavoured to bring in Amilcas to Sicily, and had given him his sons as hostages; for Anaxilaos was married to the daughter of Terillos, whose name was Kydippe. Thus it was, they say, that Gelon was not able to come to the assistance of the Hellenes, and sent therefore the money to Delphi.
+
+Son of Crinippus and tyrant of Himera, driven out by Theron, who brought the Carthaginians into Sicily to get his city back.
+
+## original-en · crinippus · 1187:0
+
+The story which here follows is also reported by those who dwell in Sicily, namely that, even though he was to be under the command of the Lacedemonians, Gelon would have come to the assistance of the Hellenes, but that Terillos, the son of Crinippos and despot of Himera, having been driven out of Himera by Theron the son of Ainesidemos 156 the ruler of the Agrigentines, was just at this very time bringing in an army of Phenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians and Corsicans, to the number of thirty myriads, 157 with Amilcas the son of Annon king of the Carthaginians as their commander, whom Terillos had persuaded partly by reason of his own guest-friendship, and especially by the zealous assistance of Anaxilaos the son of Cretines, who was despot of Rhegion, and who to help his father-in-law endeavoured to bring in Amilcas to Sicily, and had given him his sons as hostages; for Anaxilaos was married to the daughter of Terillos, whose name was Kydippe. Thus it was, they say, that Gelon was not able to come to the assistance of the Hellenes, and sent therefore the money to Delphi.
+
+Terillus’s father.
+
+## original-en · theron · 1187:0
+
+The story which here follows is also reported by those who dwell in Sicily, namely that, even though he was to be under the command of the Lacedemonians, Gelon would have come to the assistance of the Hellenes, but that Terillos, the son of Crinippos and despot of Himera, having been driven out of Himera by Theron the son of Ainesidemos 156 the ruler of the Agrigentines, was just at this very time bringing in an army of Phenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians and Corsicans, to the number of thirty myriads, 157 with Amilcas the son of Annon king of the Carthaginians as their commander, whom Terillos had persuaded partly by reason of his own guest-friendship, and especially by the zealous assistance of Anaxilaos the son of Cretines, who was despot of Rhegion, and who to help his father-in-law endeavoured to bring in Amilcas to Sicily, and had given him his sons as hostages; for Anaxilaos was married to the daughter of Terillos, whose name was Kydippe. Thus it was, they say, that Gelon was not able to come to the assistance of the Hellenes, and sent therefore the money to Delphi.
+
+Son of Aenesidemus and ruler of Acragas, who drove Terillus out and beat Hamilcar with Gelon.
+
+## original-en · hamilcar · 1187:0
+
+The story which here follows is also reported by those who dwell in Sicily, namely that, even though he was to be under the command of the Lacedemonians, Gelon would have come to the assistance of the Hellenes, but that Terillos, the son of Crinippos and despot of Himera, having been driven out of Himera by Theron the son of Ainesidemos 156 the ruler of the Agrigentines, was just at this very time bringing in an army of Phenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians and Corsicans, to the number of thirty myriads, 157 with Amilcas the son of Annon king of the Carthaginians as their commander, whom Terillos had persuaded partly by reason of his own guest-friendship, and especially by the zealous assistance of Anaxilaos the son of Cretines, who was despot of Rhegion, and who to help his father-in-law endeavoured to bring in Amilcas to Sicily, and had given him his sons as hostages; for Anaxilaos was married to the daughter of Terillos, whose name was Kydippe. Thus it was, they say, that Gelon was not able to come to the assistance of the Hellenes, and sent therefore the money to Delphi.
+
+Son of Hanno, king of the Carthaginians, who brought three hundred thousand men into Sicily and disappeared on the day of the battle — sacrificing on a great pyre, he saw his army break and threw himself into the fire. The Carthaginians sacrifice to him and set up memorials to him in every colony.
+
+## original-en · hanno · 1187:0
+
+The story which here follows is also reported by those who dwell in Sicily, namely that, even though he was to be under the command of the Lacedemonians, Gelon would have come to the assistance of the Hellenes, but that Terillos, the son of Crinippos and despot of Himera, having been driven out of Himera by Theron the son of Ainesidemos 156 the ruler of the Agrigentines, was just at this very time bringing in an army of Phenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians and Corsicans, to the number of thirty myriads, 157 with Amilcas the son of Annon king of the Carthaginians as their commander, whom Terillos had persuaded partly by reason of his own guest-friendship, and especially by the zealous assistance of Anaxilaos the son of Cretines, who was despot of Rhegion, and who to help his father-in-law endeavoured to bring in Amilcas to Sicily, and had given him his sons as hostages; for Anaxilaos was married to the daughter of Terillos, whose name was Kydippe. Thus it was, they say, that Gelon was not able to come to the assistance of the Hellenes, and sent therefore the money to Delphi.
+
+Hamilcar’s father.
+
+## original-en · cretines-rhegium · 1187:0
+
+The story which here follows is also reported by those who dwell in Sicily, namely that, even though he was to be under the command of the Lacedemonians, Gelon would have come to the assistance of the Hellenes, but that Terillos, the son of Crinippos and despot of Himera, having been driven out of Himera by Theron the son of Ainesidemos 156 the ruler of the Agrigentines, was just at this very time bringing in an army of Phenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians and Corsicans, to the number of thirty myriads, 157 with Amilcas the son of Annon king of the Carthaginians as their commander, whom Terillos had persuaded partly by reason of his own guest-friendship, and especially by the zealous assistance of Anaxilaos the son of Cretines, who was despot of Rhegion, and who to help his father-in-law endeavoured to bring in Amilcas to Sicily, and had given him his sons as hostages; for Anaxilaos was married to the daughter of Terillos, whose name was Kydippe. Thus it was, they say, that Gelon was not able to come to the assistance of the Hellenes, and sent therefore the money to Delphi.
+
+Anaxilaus of Rhegium’s father.
+
+## original-en · cretines-magnesia · 1212:0
+
+In this disaster the number of the ships which were lost was not less than four hundred, according to the report of those who state the number which is lowest, with men innumerable and an immense quantity of valuable things; insomuch that to Ameinocles the son of Cretines, a Magnesian who held lands about Sepias, this shipwreck proved very gainful; for he picked up many cups of gold which were thrown up afterwards on the shore, and many also of silver, and found treasure-chests 195 which had belonged to the Persians, and made acquisition of other things of gold 196 more than can be described. This man however, though he became very wealthy by the things which he found, yet in other respects was not fortunate; for he too suffered misfortune, being troubled by the slaying of a child. 197
+
+Ameinocles the Magnesian’s father.
+
+## original-en · cydippe · 1187:0
+
+The story which here follows is also reported by those who dwell in Sicily, namely that, even though he was to be under the command of the Lacedemonians, Gelon would have come to the assistance of the Hellenes, but that Terillos, the son of Crinippos and despot of Himera, having been driven out of Himera by Theron the son of Ainesidemos 156 the ruler of the Agrigentines, was just at this very time bringing in an army of Phenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians and Corsicans, to the number of thirty myriads, 157 with Amilcas the son of Annon king of the Carthaginians as their commander, whom Terillos had persuaded partly by reason of his own guest-friendship, and especially by the zealous assistance of Anaxilaos the son of Cretines, who was despot of Rhegion, and who to help his father-in-law endeavoured to bring in Amilcas to Sicily, and had given him his sons as hostages; for Anaxilaos was married to the daughter of Terillos, whose name was Kydippe. Thus it was, they say, that Gelon was not able to come to the assistance of the Hellenes, and sent therefore the money to Delphi.
+
+Terillus’s daughter, married to Anaxilaus of Rhegium — which is why Anaxilaus worked to bring the Carthaginians in.
+
+## original-en · micythus · 1192:0
+
+For the story goes that Minos, having come to Sicania, which is now called Sicily, in search of Daidalos, died there by a violent death; and after a time the Cretans, urged thereto by a god, all except the men of Polichne and Praisos, came with a great armament to Sicania and besieged for seven years the city of Camicos, which in my time was occupied by the Agrigentines; and at last not being able either to capture it or to remain before it, because they were hard pressed by famine, they departed and went away. And when, as they sailed, they came to be off the coast of Iapygia, a great storm seized them and cast them away upon the coast; and their vessels being dashed to pieces, they, since they saw no longer any way of coming to Crete, founded there the city of Hyria; and there they stayed and were changed so that they became instead of Cretans, Messapians of Iapygia, and instead of islanders, dwellers on the mainland: then from the city of Hyria they founded those other settlements which the Tarentines long afterwards endeavoured to destroy and suffer great disaster in that enterprise, so that this in fact proved to be the greatest slaughter of Hellenes that is known to us, and not only of the Tarentines themselves but of those citizens of Rhegion who were compelled by Mikythos the son of Choiros to go to the assistance of the Tarentines, and of whom there were slain in this manner three thousand men: of the Tarentines themselves however, who were slain there, there was no numbering made. This Mikythos, who was a servant of Anaxilaos, had been left by him in charge of Rhegion; and he it was who after being driven out of Rhegion took up his abode at Tegea of the Arcadians and dedicated those many statues at Olympia.
+
+Anaxilaus’s servant, left in charge of Rhegium, who forced its citizens to help the Tarentines and lost three thousand of them; expelled, he settled at Tegea and dedicated the statues at Olympia.
+
+## original-en · choerus · 1192:0
+
+For the story goes that Minos, having come to Sicania, which is now called Sicily, in search of Daidalos, died there by a violent death; and after a time the Cretans, urged thereto by a god, all except the men of Polichne and Praisos, came with a great armament to Sicania and besieged for seven years the city of Camicos, which in my time was occupied by the Agrigentines; and at last not being able either to capture it or to remain before it, because they were hard pressed by famine, they departed and went away. And when, as they sailed, they came to be off the coast of Iapygia, a great storm seized them and cast them away upon the coast; and their vessels being dashed to pieces, they, since they saw no longer any way of coming to Crete, founded there the city of Hyria; and there they stayed and were changed so that they became instead of Cretans, Messapians of Iapygia, and instead of islanders, dwellers on the mainland: then from the city of Hyria they founded those other settlements which the Tarentines long afterwards endeavoured to destroy and suffer great disaster in that enterprise, so that this in fact proved to be the greatest slaughter of Hellenes that is known to us, and not only of the Tarentines themselves but of those citizens of Rhegion who were compelled by Mikythos the son of Choiros to go to the assistance of the Tarentines, and of whom there were slain in this manner three thousand men: of the Tarentines themselves however, who were slain there, there was no numbering made. This Mikythos, who was a servant of Anaxilaos, had been left by him in charge of Rhegion; and he it was who after being driven out of Rhegion took up his abode at Tegea of the Arcadians and dedicated those many statues at Olympia.
+
+Micythus’s father.
+
+## original-en · cyllyrians · 1177:0
+
+Then when it was the fate of Hippocrates also, after having been despot for the same number of years as his brother Cleander, to be killed at the city of Hybla, whither he had gone on an expedition against the Sikelians, then Gelon made a pretence of helping the sons of Hippocrates, Eucleides and Cleander, when the citizens were no longer willing to submit; but actually, when he had been victorious in a battle over the men of Gela, he robbed the sons of Hippocrates of the power and was ruler himself. After this stroke of fortune Gelon restored those of the Syracusans who were called "land-holders," 144 after they had been driven into exile by the common people and by their own slaves, who were called Kyllyrians, 145 these, I say, he restored from the city of Casmene to Syracuse, and so got possession of this last city also, for the common people of Syracuse, when Gelon came against them, delivered up to him their city and themselves.
+
+The slaves of Syracuse, who with the common people drove the landholders out — and whom Gelon undid by bringing the landholders back.
+
+## original-en · acragantines · 1187:0
+
+The story which here follows is also reported by those who dwell in Sicily, namely that, even though he was to be under the command of the Lacedemonians, Gelon would have come to the assistance of the Hellenes, but that Terillos, the son of Crinippos and despot of Himera, having been driven out of Himera by Theron the son of Ainesidemos 156 the ruler of the Agrigentines, was just at this very time bringing in an army of Phenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians and Corsicans, to the number of thirty myriads, 157 with Amilcas the son of Annon king of the Carthaginians as their commander, whom Terillos had persuaded partly by reason of his own guest-friendship, and especially by the zealous assistance of Anaxilaos the son of Cretines, who was despot of Rhegion, and who to help his father-in-law endeavoured to bring in Amilcas to Sicily, and had given him his sons as hostages; for Anaxilaos was married to the daughter of Terillos, whose name was Kydippe. Thus it was, they say, that Gelon was not able to come to the assistance of the Hellenes, and sent therefore the money to Delphi.
+
+Theron’s people, who held Camicus in Herodotus’s day.
+
+## original-en · messapians · 1192:0
+
+For the story goes that Minos, having come to Sicania, which is now called Sicily, in search of Daidalos, died there by a violent death; and after a time the Cretans, urged thereto by a god, all except the men of Polichne and Praisos, came with a great armament to Sicania and besieged for seven years the city of Camicos, which in my time was occupied by the Agrigentines; and at last not being able either to capture it or to remain before it, because they were hard pressed by famine, they departed and went away. And when, as they sailed, they came to be off the coast of Iapygia, a great storm seized them and cast them away upon the coast; and their vessels being dashed to pieces, they, since they saw no longer any way of coming to Crete, founded there the city of Hyria; and there they stayed and were changed so that they became instead of Cretans, Messapians of Iapygia, and instead of islanders, dwellers on the mainland: then from the city of Hyria they founded those other settlements which the Tarentines long afterwards endeavoured to destroy and suffer great disaster in that enterprise, so that this in fact proved to be the greatest slaughter of Hellenes that is known to us, and not only of the Tarentines themselves but of those citizens of Rhegion who were compelled by Mikythos the son of Choiros to go to the assistance of the Tarentines, and of whom there were slain in this manner three thousand men: of the Tarentines themselves however, who were slain there, there was no numbering made. This Mikythos, who was a servant of Anaxilaos, had been left by him in charge of Rhegion; and he it was who after being driven out of Rhegion took up his abode at Tegea of the Arcadians and dedicated those many statues at Olympia.
+
+What the shipwrecked Cretans of Iapygia became — mainlanders instead of islanders.
+
+## original-en · daedalus · 1192:0
+
+For the story goes that Minos, having come to Sicania, which is now called Sicily, in search of Daidalos, died there by a violent death; and after a time the Cretans, urged thereto by a god, all except the men of Polichne and Praisos, came with a great armament to Sicania and besieged for seven years the city of Camicos, which in my time was occupied by the Agrigentines; and at last not being able either to capture it or to remain before it, because they were hard pressed by famine, they departed and went away. And when, as they sailed, they came to be off the coast of Iapygia, a great storm seized them and cast them away upon the coast; and their vessels being dashed to pieces, they, since they saw no longer any way of coming to Crete, founded there the city of Hyria; and there they stayed and were changed so that they became instead of Cretans, Messapians of Iapygia, and instead of islanders, dwellers on the mainland: then from the city of Hyria they founded those other settlements which the Tarentines long afterwards endeavoured to destroy and suffer great disaster in that enterprise, so that this in fact proved to be the greatest slaughter of Hellenes that is known to us, and not only of the Tarentines themselves but of those citizens of Rhegion who were compelled by Mikythos the son of Choiros to go to the assistance of the Tarentines, and of whom there were slain in this manner three thousand men: of the Tarentines themselves however, who were slain there, there was no numbering made. This Mikythos, who was a servant of Anaxilaos, had been left by him in charge of Rhegion; and he it was who after being driven out of Rhegion took up his abode at Tegea of the Arcadians and dedicated those many statues at Olympia.
+
+Whom Minos followed to Sicania, and died there.
+
+## original-en · iberians · 1187:0
+
+The story which here follows is also reported by those who dwell in Sicily, namely that, even though he was to be under the command of the Lacedemonians, Gelon would have come to the assistance of the Hellenes, but that Terillos, the son of Crinippos and despot of Himera, having been driven out of Himera by Theron the son of Ainesidemos 156 the ruler of the Agrigentines, was just at this very time bringing in an army of Phenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians and Corsicans, to the number of thirty myriads, 157 with Amilcas the son of Annon king of the Carthaginians as their commander, whom Terillos had persuaded partly by reason of his own guest-friendship, and especially by the zealous assistance of Anaxilaos the son of Cretines, who was despot of Rhegion, and who to help his father-in-law endeavoured to bring in Amilcas to Sicily, and had given him his sons as hostages; for Anaxilaos was married to the daughter of Terillos, whose name was Kydippe. Thus it was, they say, that Gelon was not able to come to the assistance of the Hellenes, and sent therefore the money to Delphi.
+
+One of the seven nations in Hamilcar’s army.
+
+## original-en · ligurians · 770:0
+
+Of the region lying further on towards the North of this country no one can declare accurately who the men are who dwell in it; but the parts which lie immediately beyond the Ister are known to be uninhabited and vast in extent. The only men of whom I can hear who dwell beyond the Ister are those who are said to be called Sigynnai, and who use the Median fashion of dress. Their horses, it is said, have shaggy hair all over their bodies, as much as five fingers long; and these are small and flat-nosed and too weak to carry men, but when yoked in chariots they are very high-spirited; therefore the natives of the country drive chariots. The boundaries of this people extend, it is said, to the parts near the Enetoi, who live on the Adriatic; and people say that they are colonists from the Medes. In what way however these have come to be colonists from the Medes I am not able for my part to conceive, but everything is possible in the long course of ages. However that may be, the Ligurians who dwell in the region inland above Massalia call traders sigynnai, and the men of Cyprus give the same name to spears.
+
+In Hamilcar’s army, and in the account of the far west of Europe.
+
+## original-en · elisycans · 1187:0
+
+The story which here follows is also reported by those who dwell in Sicily, namely that, even though he was to be under the command of the Lacedemonians, Gelon would have come to the assistance of the Hellenes, but that Terillos, the son of Crinippos and despot of Himera, having been driven out of Himera by Theron the son of Ainesidemos 156 the ruler of the Agrigentines, was just at this very time bringing in an army of Phenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians and Corsicans, to the number of thirty myriads, 157 with Amilcas the son of Annon king of the Carthaginians as their commander, whom Terillos had persuaded partly by reason of his own guest-friendship, and especially by the zealous assistance of Anaxilaos the son of Cretines, who was despot of Rhegion, and who to help his father-in-law endeavoured to bring in Amilcas to Sicily, and had given him his sons as hostages; for Anaxilaos was married to the daughter of Terillos, whose name was Kydippe. Thus it was, they say, that Gelon was not able to come to the assistance of the Hellenes, and sent therefore the money to Delphi.
+
+In Hamilcar’s army.
+
+## original-en · sardinians · 1187:0
+
+The story which here follows is also reported by those who dwell in Sicily, namely that, even though he was to be under the command of the Lacedemonians, Gelon would have come to the assistance of the Hellenes, but that Terillos, the son of Crinippos and despot of Himera, having been driven out of Himera by Theron the son of Ainesidemos 156 the ruler of the Agrigentines, was just at this very time bringing in an army of Phenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians and Corsicans, to the number of thirty myriads, 157 with Amilcas the son of Annon king of the Carthaginians as their commander, whom Terillos had persuaded partly by reason of his own guest-friendship, and especially by the zealous assistance of Anaxilaos the son of Cretines, who was despot of Rhegion, and who to help his father-in-law endeavoured to bring in Amilcas to Sicily, and had given him his sons as hostages; for Anaxilaos was married to the daughter of Terillos, whose name was Kydippe. Thus it was, they say, that Gelon was not able to come to the assistance of the Hellenes, and sent therefore the money to Delphi.
+
+In Hamilcar’s army.
+
+## original-en · corsicans · 1187:0
+
+The story which here follows is also reported by those who dwell in Sicily, namely that, even though he was to be under the command of the Lacedemonians, Gelon would have come to the assistance of the Hellenes, but that Terillos, the son of Crinippos and despot of Himera, having been driven out of Himera by Theron the son of Ainesidemos 156 the ruler of the Agrigentines, was just at this very time bringing in an army of Phenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians and Corsicans, to the number of thirty myriads, 157 with Amilcas the son of Annon king of the Carthaginians as their commander, whom Terillos had persuaded partly by reason of his own guest-friendship, and especially by the zealous assistance of Anaxilaos the son of Cretines, who was despot of Rhegion, and who to help his father-in-law endeavoured to bring in Amilcas to Sicily, and had given him his sons as hostages; for Anaxilaos was married to the daughter of Terillos, whose name was Kydippe. Thus it was, they say, that Gelon was not able to come to the assistance of the Hellenes, and sent therefore the money to Delphi.
+
+In Hamilcar’s army.
+
+## original-en · cilix · 1113:0
+
+The Kilikians furnished a hundred ships; and these again had about their heads native helmets, and for shields they carried targets made of raw ox-hide: they wore tunics 86 of wool and each man had two javelins and a sword, this last being made very like the Egyptian knives. These in old time were called Hypachaians, and they got their later name from Kilix the son of Agenor, a Phenician. The Pamphylians furnished thirty ships and were equipped in Hellenic arms. These Pamphylians are of those who were dispersed from Troy together with Amphilochos and Calchas.
+
+Agenor’s son, the Phoenician the Cilicians are named after.
+
+## original-en · agenor · 703:0
+
+Now at this very same time Theras the son of Autesion, the son of Tisamenos, the son of Thersander, the son of Polyneikes, was preparing to set forth from Lacedemon to found a settlement. This Theras, who was of the race of Cadmos, was mother's brother to the sons of Aristodemos, Eurysthenes and Procles; and while these sons were yet children, Theras as their guardian held the royal power in Sparta. When however his nephews were grown and had taken the power into their hands, then Theras, being grieved that he should be ruled by others after he had tasted of rule himself, said that he would not remain in Lacedemon, but would sail away to his kinsmen. Now there were in the island which is now called Thera, but formerly was called Callista, descendants of Membliaros the son of Poikiles, a Phenician: for Cadmos the son of Agenor in his search for Europa put in to land at the island which is now called Thera; and, whether it was that the country pleased him when he had put to land, or whether he chose to do so for any other reason, he left in this island, besides other Phenicians, Membliaros also, of his own kinsmen. These occupied the island called Callista for eight generations of men, before Theras came from Lacedemon.
+
+Cadmus’s father, and Cilix’s.
+
+## original-en · amphilochus · 488:0
+
+From that division which begins with the city of Posideion, founded by Amphilochos the son of Amphiaraos on the borders of the Kilikians and the Syrians, and extends as far as Egypt, not including the territory of the Arabians (for this was free from payment), the amount was three hundred and fifty talents; and in this division are the whole of Phenicia and Syria which is called Palestine and Cyprus: this is the fifth division. From Egypt and the Libyans bordering upon Egypt, and from Kyrene and Barca, for these were so ordered as to belong to the Egyptian division, there came in seven hundred talents, without reckoning the money produced by the lake of Moiris, that is to say from the fish; 7701 without reckoning this, I say, or the corn which was contributed in addition by measure, there came in seven hundred talents; for as regards the corn, they contribute by measure one hundred and twenty thousand 78 bushels for the use of those Persians who are established in the "White Fortress" at Memphis, and for their foreign mercenaries: this is the sixth division. The Sattagydai and Gandarians and Dadicans and Aparytai, being joined together, brought in one hundred and seventy talents: this is the seventh division. From Susa and the rest of the land of the Kissians there came in three hundred: this is the eighth division.
+
+With Calchas, scattered from Troy; the Pamphylians are descended from his people.
+
+## original-en · calchas · 1113:0
+
+The Kilikians furnished a hundred ships; and these again had about their heads native helmets, and for shields they carried targets made of raw ox-hide: they wore tunics 86 of wool and each man had two javelins and a sword, this last being made very like the Egyptian knives. These in old time were called Hypachaians, and they got their later name from Kilix the son of Agenor, a Phenician. The Pamphylians furnished thirty ships and were equipped in Hellenic arms. These Pamphylians are of those who were dispersed from Troy together with Amphilochos and Calchas.
+
+Scattered from Troy with Amphilochus.
+
+## original-en · xuthus · 1116:0
+
+The Ionians furnished a hundred ships, and were equipped like Hellenes. Now the Ionians, so long time as they dwelt in the Peloponnese, in the land which is now called Achaia, and before the time when Danaos and Xuthos came to the Peloponnese, were called, as the Hellenes report, Pelasgians of the Coast-land, 89 and then Ionians after Ion the son of Xuthos.
+
+Ion’s father, who came to the Peloponnese with Danaus.
+
+## original-en · ion · 827:0
+
+Athens, which even before that time was great, then, after having been freed from despots, became gradually yet greater; and in it two men exercised power, namely Cleisthenes a descendant of Alcmaion, the same who is reported to have bribed the Pythian prophetess, and Isagoras, the son of Tisander, of a family which was highly reputed, but of his original descent I am not able to declare; his kinsmen however offer sacrifices to the Carian Zeus. These men came to party strife for power; and then Cleisthenes was being worsted in the struggle, he made common cause with the people. After this he caused the Athenians to be in ten tribes, who were formerly in four; and he changed the names by which they were called after the sons of Ion, namely Geleon, Aigicoreus, Argades, and Hoples, and invented for them names taken from other heroes, all native Athenians except Ajax, whom he added as a neighbour and ally, although he was no Athenian.
+
+Xuthus’s son, from whom the Pelasgians of the coast were renamed Ionians.
+
+## original-en · prexinos · 1202:0
+
+and the ship of Troizen, of which Prexinos was in command, was pursued and captured at once by the Barbarians; who upon that took the man who was most distinguished by beauty among the fighting-men on board of her, 169 and cut his throat at the prow of the ship, making a good omen for themselves of the first of the Hellenes whom they had captured who was pre-eminent for beauty. The name of this man who was sacrificed was Leon, and perhaps he had also his name to thank in some degree for what befell him.
+
+Commander of the Troezenian ship taken first of the three on watch off Sciathos.
+
+## original-en · leon-troezen · 1202:0
+
+and the ship of Troizen, of which Prexinos was in command, was pursued and captured at once by the Barbarians; who upon that took the man who was most distinguished by beauty among the fighting-men on board of her, 169 and cut his throat at the prow of the ship, making a good omen for themselves of the first of the Hellenes whom they had captured who was pre-eminent for beauty. The name of this man who was sacrificed was Leon, and perhaps he had also his name to thank in some degree for what befell him.
+
+The handsomest of the fighting men on the Troezenian ship, whose throat the Persians cut over the prow for a good omen. Herodotus wonders whether his name — Lion — had something to do with it.
+
+## original-en · asonides · 1203:0
+
+The ship of Egina however, of which Asonides was master, even gave them some trouble to capture it, seeing that Pytheas the son of Ischenoös served as a fighting-man on board of her, who proved himself a most valiant man on this day; for when the ship was being taken, he held out fighting until he was hacked all to pieces: and as when he had fallen he did not die, but had still breath in him, the Persians who served as fighting-men on board the ships, because of his valour used all diligence to save his life, both applying unguents of myrrh to heal his wounds and also wrapping him up in bands of the finest linen; and when they came back to their own main body, they showed him to all the army, making a marvel of him and giving him good treatment; but the rest whom they had taken in this ship they treated as slaves.
+
+Commander of the Aeginetan ship.
+
+## original-en · pytheas · 1203:0
+
+The ship of Egina however, of which Asonides was master, even gave them some trouble to capture it, seeing that Pytheas the son of Ischenoös served as a fighting-man on board of her, who proved himself a most valiant man on this day; for when the ship was being taken, he held out fighting until he was hacked all to pieces: and as when he had fallen he did not die, but had still breath in him, the Persians who served as fighting-men on board the ships, because of his valour used all diligence to save his life, both applying unguents of myrrh to heal his wounds and also wrapping him up in bands of the finest linen; and when they came back to their own main body, they showed him to all the army, making a marvel of him and giving him good treatment; but the rest whom they had taken in this ship they treated as slaves.
+
+Son of Ischenous, the Aeginetan marine who fought on until he was hacked to pieces and still would not die. The Persians dressed his wounds with myrrh and fine linen and showed him off to the whole army.
+
+## original-en · ischenous · 1203:0
+
+The ship of Egina however, of which Asonides was master, even gave them some trouble to capture it, seeing that Pytheas the son of Ischenoös served as a fighting-man on board of her, who proved himself a most valiant man on this day; for when the ship was being taken, he held out fighting until he was hacked all to pieces: and as when he had fallen he did not die, but had still breath in him, the Persians who served as fighting-men on board the ships, because of his valour used all diligence to save his life, both applying unguents of myrrh to heal his wounds and also wrapping him up in bands of the finest linen; and when they came back to their own main body, they showed him to all the army, making a marvel of him and giving him good treatment; but the rest whom they had taken in this ship they treated as slaves.
+
+Pytheas’s father.
+
+## original-en · phormos · 1204:0
+
+Two of the three ships, I say, were captured thus; but the third, of which Phormos an Athenian was master, ran ashore in its flight at the mouth of the river Peneios; and the Barbarians got possession of the vessel but not of the crew; for so soon as the Athenians had run the ship ashore, they leapt out of her, and passing through Thessaly made their way to Athens.
+
+The Athenian whose ship ran aground at the mouth of the Peneios; the crew walked home through Thessaly.
+
+## original-en · pammon · 1205:0
+
+Of these things the Hellenes who were stationed at Artemision were informed by fire-signals from Skiathos; and being informed of them and being struck with fear, they removed their place of anchorage from Atermision to Chalkis, intending to guard the Euripos, but leaving at the same time watchers by day 170 on the heights of Euboea. Of the ten ships of the Barbarians three sailed up to the reef called Myrmex, 171 which lies between Skiathos and Magnesia; and when the Barbarians had there erected a stone pillar, which for that purpose they brought to the reef, they set forth with their main body 172 from Therma, the difficulties of the passage having now been cleared away, and sailed thither with all their ships, having let eleven days go by since the king set forth on his march from Therma. Now of this reef lying exactly in the middle of the fairway they were informed by Pammon of Skyros. Sailing then throughout the day the Barbarians accomplished the voyage to Sepias in Magnesia and to the sea-beach which is between the city of Casthanaia and the headland of Sepias.
+
+Of Skyros, who told the Persians where the reef of Myrmex lay.
+
+## original-en · boreas · 1211:0
+
+There is a story reported that the Athenians had called upon Boreas to aid them, by suggestion of an oracle, because there had come to them another utterance of the god bidding them call upon their brother by marriage to be their helper. Now according to the story of the Hellenes Boreas has a wife who is of Attica, Oreithuia the daughter of Erechththeus. By reason of this affinity, I say, the Athenians, according to the tale which has gone abroad, conjectured that their "brother by marriage" was Boreas, and when they perceived the wind rising, as they lay with their ships at Chalkis in Euboea, or even before that, they offered sacrifices and called upon Boreas and Oreithuia to assist them and to destroy the ships of the Barbarians, as they had done before round about mount Athos. Whether it was for this reason that the wind Boreas fell upon the Barbarians while they lay at anchor, I am not able to say; but however that may be, the Athenians report that Boreas had come to their help in former times, and that at this time he accomplished those things for them of which I speak; and when they had returned home they set up a temple dedicated to Boreas by the river Ilissos.
+
+The north wind, whom the Athenians called on as their brother-in-law because his wife is from Attica. Four hundred ships were lost off Sepias, and the Athenians built him a temple by the Ilissos.
+
+## original-en · oreithuia · 1211:0
+
+There is a story reported that the Athenians had called upon Boreas to aid them, by suggestion of an oracle, because there had come to them another utterance of the god bidding them call upon their brother by marriage to be their helper. Now according to the story of the Hellenes Boreas has a wife who is of Attica, Oreithuia the daughter of Erechththeus. By reason of this affinity, I say, the Athenians, according to the tale which has gone abroad, conjectured that their "brother by marriage" was Boreas, and when they perceived the wind rising, as they lay with their ships at Chalkis in Euboea, or even before that, they offered sacrifices and called upon Boreas and Oreithuia to assist them and to destroy the ships of the Barbarians, as they had done before round about mount Athos. Whether it was for this reason that the wind Boreas fell upon the Barbarians while they lay at anchor, I am not able to say; but however that may be, the Athenians report that Boreas had come to their help in former times, and that at this time he accomplished those things for them of which I speak; and when they had returned home they set up a temple dedicated to Boreas by the river Ilissos.
+
+Erechtheus’s daughter and Boreas’s wife — the Attic marriage that made the north wind a relative.
+
+## original-en · erechtheus · 843:0
+
+Now the grudge which was due beforehand from the Eginetans to the Athenians came about from a beginning which was as follows:--The land of the Epidaurians yielded to its inhabitants no fruit; and accordingly with reference to this calamity the Epidaurians went to inquire at Delphi, and the Pythian prophetess bade them set up images of Damia and Auxesia, and said that when they had set up these, they would meet with better fortune. The Epidaurians then asked further whether they should make images of bronze or of stone; and the prophetess bade them not use either of these, but make them of the wood of a cultivated olive-tree. The Epidaurians therefore asked the Athenians to allow them to cut for themselves an olive-tree, since they thought that their olives were the most sacred; nay some say that at that time there were no olives in any part of the earth except at Athens. The Athenians said that they would allow them on condition that they should every year bring due offerings to Athene Polias 70 and to Erechtheus. The Epidaurians, then, having agreed to these terms, obtained that which they asked, and they made images out of these olive-trees and set them up: and their land bore fruit and they continued to fulfil towards the Athenians that which they had agreed to do.
+
+Oreithuia’s father, and the king whose shrine stands on the Athenian acropolis.
+
+## original-en · ameinocles · 1212:0
+
+In this disaster the number of the ships which were lost was not less than four hundred, according to the report of those who state the number which is lowest, with men innumerable and an immense quantity of valuable things; insomuch that to Ameinocles the son of Cretines, a Magnesian who held lands about Sepias, this shipwreck proved very gainful; for he picked up many cups of gold which were thrown up afterwards on the shore, and many also of silver, and found treasure-chests 195 which had belonged to the Persians, and made acquisition of other things of gold 196 more than can be described. This man however, though he became very wealthy by the things which he found, yet in other respects was not fortunate; for he too suffered misfortune, being troubled by the slaying of a child. 197
+
+A Magnesian with land around Sepias, made rich by the wreck — gold cups, silver cups, Persian treasure-chests — and unlucky in everything else: he was tormented by the killing of a child.
+
+## original-en · thetis · 1213:0
+
+Of the corn-transports and other vessels which perished there was no numbering made; and so great was the loss that the commanders of the fleet, being struck with fear lest the Thessalians should attack them now that they had been brought into an evil plight, threw round their camp a lofty palisade built of the fragments of wreck. For the storm continued during three days; but at last the Magians, making sacrifice of victims and singing incantations to appease the Wind by enchantments, 198 and in addition to this, offering to Thetis and the Nereïds, caused it to cease on the fourth day, or else for some other reason it abated of its own will. Now they offered sacrifice to Thetis, being informed by the Ionians of the story that she was carried off from the place by Peleus, and that the whole headland of Sepias belonged to her and to the other Nereïds.
+
+Carried off from Sepias by Peleus, according to the Ionians; the Magi sacrificed to her and to the Nereids to stop the storm.
+
+## original-en · nereids · 265:0
+
+Moreover the naming 51 of almost all the gods has come to Hellas from Egypt: for that it has come from the Barbarians I find by inquiry is true, and I am of opinion that most probably it has come from Egypt, because, except in the case of Poseidon and the Dioscuroi (in accordance with that which I have said before), and also of Hera and Hestia and Themis and the Charites and Nereïds, the Egyptians have had the names of all the other gods in their country for all time. What I say here is that which the Egyptians think themselves: but as for the gods whose names they profess that they do not know, these I think received their naming from the Pelasgians, except Poseidon; but about this god the Hellenes learnt from the Libyans, for no people except the Libyans have had the name of Poseidon from the first and have paid honour to this god always. Nor, it may be added, have the Egyptians any custom of worshipping heroes.
+
+Whose headland Sepias is, with Thetis.
+
+## original-en · peleus · 1213:0
+
+Of the corn-transports and other vessels which perished there was no numbering made; and so great was the loss that the commanders of the fleet, being struck with fear lest the Thessalians should attack them now that they had been brought into an evil plight, threw round their camp a lofty palisade built of the fragments of wreck. For the storm continued during three days; but at last the Magians, making sacrifice of victims and singing incantations to appease the Wind by enchantments, 198 and in addition to this, offering to Thetis and the Nereïds, caused it to cease on the fourth day, or else for some other reason it abated of its own will. Now they offered sacrifice to Thetis, being informed by the Ionians of the story that she was carried off from the place by Peleus, and that the whole headland of Sepias belonged to her and to the other Nereïds.
+
+Who carried Thetis off from that shore.
+
+## original-en · sandokes · 1216:0
+
+Now it chanced that fifteen of these ships put out to sea a good deal later than the rest, and they happened to catch sight of the ships of the Hellenes at Artemision. These ships the Barbarians supposed to be their own, and they sailed thither accordingly and fell among the enemy. Of these the commander was Sandokes the son of Thamasios, the governor of Kyme in Aiolia, whom before this time king Dareios had taken and crucified (he being one of the Royal Judges) for this reason, 19901 namely that Sandokes had pronounced judgment unjustly for money. So then after he was hung up, Dareios reckoned and found that more good services had been done by him to the royal house than were equal to his offences; and having found this, and perceived that he had himself acted with more haste than wisdom, he let him go. Thus he escaped from king Dareios, and did not perish but survived; now, however, when he sailed in toward the Hellenes, he was destined not to escape the second time; for when the Hellenes saw them sailing up, perceiving the mistake which was being made they put out against them and captured them without difficulty.
+
+Son of Thamasios and governor of Cyme, once crucified by Darius as a royal judge who sold a verdict and taken down again when Darius reckoned up his services. He escaped the king; sailing late into Artemisium with fifteen ships, he did not escape the Greeks.
+
+## original-en · thamasios · 1216:0
+
+Now it chanced that fifteen of these ships put out to sea a good deal later than the rest, and they happened to catch sight of the ships of the Hellenes at Artemision. These ships the Barbarians supposed to be their own, and they sailed thither accordingly and fell among the enemy. Of these the commander was Sandokes the son of Thamasios, the governor of Kyme in Aiolia, whom before this time king Dareios had taken and crucified (he being one of the Royal Judges) for this reason, 19901 namely that Sandokes had pronounced judgment unjustly for money. So then after he was hung up, Dareios reckoned and found that more good services had been done by him to the royal house than were equal to his offences; and having found this, and perceived that he had himself acted with more haste than wisdom, he let him go. Thus he escaped from king Dareios, and did not perish but survived; now, however, when he sailed in toward the Hellenes, he was destined not to escape the second time; for when the Hellenes saw them sailing up, perceiving the mistake which was being made they put out against them and captured them without difficulty.
+
+Sandokes’s father.
+
+## original-en · aridolis · 1217:0
+
+Sailing in one of these ships Aridolis was captured, the despot of Alabanda in Caria, and in another the Paphian commander Penthylos son of Demonoös, who brought twelve ships from Paphos, but had lost eleven of them in the storm which had come on by Sepias, and now was captured sailing in towards Artemision with the one which had escaped. These men the Hellenes sent away in bonds to the Isthmus of the Corinthians, after having inquired of them that which they desired to learn of the army of Xerxes.
+
+Tyrant of Alabanda in Caria, taken in one of the fifteen ships.
+
+## original-en · penthylos · 1217:0
+
+Sailing in one of these ships Aridolis was captured, the despot of Alabanda in Caria, and in another the Paphian commander Penthylos son of Demonoös, who brought twelve ships from Paphos, but had lost eleven of them in the storm which had come on by Sepias, and now was captured sailing in towards Artemision with the one which had escaped. These men the Hellenes sent away in bonds to the Isthmus of the Corinthians, after having inquired of them that which they desired to learn of the army of Xerxes.
+
+Son of Demonoös, the Paphian commander who brought twelve ships, lost eleven in the storm and was captured in the twelfth.
+
+## original-en · demonoos · 1217:0
+
+Sailing in one of these ships Aridolis was captured, the despot of Alabanda in Caria, and in another the Paphian commander Penthylos son of Demonoös, who brought twelve ships from Paphos, but had lost eleven of them in the storm which had come on by Sepias, and now was captured sailing in towards Artemision with the one which had escaped. These men the Hellenes sent away in bonds to the Isthmus of the Corinthians, after having inquired of them that which they desired to learn of the army of Xerxes.
+
+Penthylos’s father.
+
+## original-en · athamas · 1082:0
+
+The fleet meanwhile was sailing out of the Hellespont and coasting along, going in the opposite direction to the land-army; for the fleet was sailing towards the West, making for the promontory of Sarpedon, to which it had been ordered beforehand to go, and there wait for the army; but the land-army meanwhile was making its march towards the East and the sunrising, through the Chersonese, keeping on its right the tomb of Helle the daughter of Athamas, and on its left the city of Cardia, and marching through the midst of a town the name of which is Agora. 52 Thence bending round the gulf called Melas and having crossed over the river Melas, the stream of which did not suffice at this time for the army but failed,--having crossed, I say, this river, from which the gulf also has its name, it went on Westwards, passing by Ainos a city of the Aiolians, and by the lake Stentoris, until at last it came to Doriscos.
+
+Aeolus’s son, who plotted Phrixus’s death with Ino — and was nearly sacrificed for it himself. His eldest descendants may not enter the Hall of the People at Alos, and Xerxes would not go into the grove.
+
+## original-en · aiolos · 1219:0
+
+When Xerxes had reached Alos of Achaia, the guides who gave him information of the way, wishing to inform him fully of everything, reported to him a legend of the place, the things, namely, which have to do with the temple of Zeus Laphystios; 201 how Athamas the son of Aiolos contrived death for Phrixos, having taken counsel with Ino, and after this how by command of an oracle the Achaians propose to his descendants the following tasks to be performed:--whosoever is the eldest of this race, on him they lay an injunction that he is forbidden to enter the City Hall, 202 and they themselves keep watch; now the City Hall is called by the Achaians the "Hall of the People"; 203 and if he enter it, it may not be that he shall come forth until he is about to be sacrificed. They related moreover in addition to this, that many of these who were about to be sacrificed had before now run away and departed to another land, because they were afraid; and if afterwards in course of time they returned to their own land and were caught, they were placed 204 in the City Hall: and they told how the man is sacrificed all thickly covered with wreaths, and with what form of procession he is brought forth to the sacrifice. This is done to the descendants of Kytissoros the son of Phrixos, because, when the Achaians were making of Athamas the son of Aiolos a victim to purge the sins of the land according to the command of an oracle, and were just about to sacrifice him, this Kytissoros coming from Aia of the Colchians rescued him; and having done so he brought the wrath of the gods upon his own descendants. Having heard these things, Xerxes, when he came to the sacred grove, both abstained from entering it himself, and gave the command to his whole army to so likewise; and he paid reverence both to the house and to the sacred enclosure of the descendants of Athamas.
+
+Athamas’s father.
+
+## original-en · phrixos · 1219:0
+
+When Xerxes had reached Alos of Achaia, the guides who gave him information of the way, wishing to inform him fully of everything, reported to him a legend of the place, the things, namely, which have to do with the temple of Zeus Laphystios; 201 how Athamas the son of Aiolos contrived death for Phrixos, having taken counsel with Ino, and after this how by command of an oracle the Achaians propose to his descendants the following tasks to be performed:--whosoever is the eldest of this race, on him they lay an injunction that he is forbidden to enter the City Hall, 202 and they themselves keep watch; now the City Hall is called by the Achaians the "Hall of the People"; 203 and if he enter it, it may not be that he shall come forth until he is about to be sacrificed. They related moreover in addition to this, that many of these who were about to be sacrificed had before now run away and departed to another land, because they were afraid; and if afterwards in course of time they returned to their own land and were caught, they were placed 204 in the City Hall: and they told how the man is sacrificed all thickly covered with wreaths, and with what form of procession he is brought forth to the sacrifice. This is done to the descendants of Kytissoros the son of Phrixos, because, when the Achaians were making of Athamas the son of Aiolos a victim to purge the sins of the land according to the command of an oracle, and were just about to sacrifice him, this Kytissoros coming from Aia of the Colchians rescued him; and having done so he brought the wrath of the gods upon his own descendants. Having heard these things, Xerxes, when he came to the sacred grove, both abstained from entering it himself, and gave the command to his whole army to so likewise; and he paid reverence both to the house and to the sacred enclosure of the descendants of Athamas.
+
+Whose death Athamas plotted, and whose son came back from Colchis to save him.
+
+## original-en · ino · 1219:0
+
+When Xerxes had reached Alos of Achaia, the guides who gave him information of the way, wishing to inform him fully of everything, reported to him a legend of the place, the things, namely, which have to do with the temple of Zeus Laphystios; 201 how Athamas the son of Aiolos contrived death for Phrixos, having taken counsel with Ino, and after this how by command of an oracle the Achaians propose to his descendants the following tasks to be performed:--whosoever is the eldest of this race, on him they lay an injunction that he is forbidden to enter the City Hall, 202 and they themselves keep watch; now the City Hall is called by the Achaians the "Hall of the People"; 203 and if he enter it, it may not be that he shall come forth until he is about to be sacrificed. They related moreover in addition to this, that many of these who were about to be sacrificed had before now run away and departed to another land, because they were afraid; and if afterwards in course of time they returned to their own land and were caught, they were placed 204 in the City Hall: and they told how the man is sacrificed all thickly covered with wreaths, and with what form of procession he is brought forth to the sacrifice. This is done to the descendants of Kytissoros the son of Phrixos, because, when the Achaians were making of Athamas the son of Aiolos a victim to purge the sins of the land according to the command of an oracle, and were just about to sacrifice him, this Kytissoros coming from Aia of the Colchians rescued him; and having done so he brought the wrath of the gods upon his own descendants. Having heard these things, Xerxes, when he came to the sacred grove, both abstained from entering it himself, and gave the command to his whole army to so likewise; and he paid reverence both to the house and to the sacred enclosure of the descendants of Athamas.
+
+Athamas’s partner in the plot.
+
+## original-en · kytissoros · 1219:0
+
+When Xerxes had reached Alos of Achaia, the guides who gave him information of the way, wishing to inform him fully of everything, reported to him a legend of the place, the things, namely, which have to do with the temple of Zeus Laphystios; 201 how Athamas the son of Aiolos contrived death for Phrixos, having taken counsel with Ino, and after this how by command of an oracle the Achaians propose to his descendants the following tasks to be performed:--whosoever is the eldest of this race, on him they lay an injunction that he is forbidden to enter the City Hall, 202 and they themselves keep watch; now the City Hall is called by the Achaians the "Hall of the People"; 203 and if he enter it, it may not be that he shall come forth until he is about to be sacrificed. They related moreover in addition to this, that many of these who were about to be sacrificed had before now run away and departed to another land, because they were afraid; and if afterwards in course of time they returned to their own land and were caught, they were placed 204 in the City Hall: and they told how the man is sacrificed all thickly covered with wreaths, and with what form of procession he is brought forth to the sacrifice. This is done to the descendants of Kytissoros the son of Phrixos, because, when the Achaians were making of Athamas the son of Aiolos a victim to purge the sins of the land according to the command of an oracle, and were just about to sacrifice him, this Kytissoros coming from Aia of the Colchians rescued him; and having done so he brought the wrath of the gods upon his own descendants. Having heard these things, Xerxes, when he came to the sacred grove, both abstained from entering it himself, and gave the command to his whole army to so likewise; and he paid reverence both to the house and to the sacred enclosure of the descendants of Athamas.
+
+Phrixus’s son, who arrived from Colchis and rescued Athamas from the altar — and brought the wrath of the gods on his own descendants for it.
+
+## original-en · amphictyon · 1222:0
+
+There is also another river called Phoinix, to the South of the Asopos, of no great size, which flowing from these mountains runs out into the Asopos; and at the river Phoinix is the narrowest place, for here has been constructed a road with a single wheel-track only. Then from the river Phoinix it is a distance of fifteen furlongs to Thermopylai; and in the space between the river Phoinix and Thermopylai there is a village called Anthela, by which the river Asopos flows, and so runs out into the sea; and about this village there is a wide space in which is set up a temple dedicated to Demeter of the Amphictyons, and there are seats for the Amphictyonic councillors and a temple dedicated to Amphictyon himself.
+
+Whose temple stands at Anthela beside the seats of the Amphictyonic council.
+
+## original-en · amphictyons · 395:0
+
+Moreover when the Amphictyons had let out the contract for building the temple which now exists at Delphi, agreeing to pay a sum of three hundred talents, (for the temple which formerly stood there had been burnt down of itself), it fell to the share of the people of Delphi to provide the fourth part of the payment; and accordingly the Delphians went about to various cities and collected contributions. And when they did this they got from Egypt as much as from any place, for Amasis gave them a thousand talents' weight of alum, while the Hellenes who dwelt in Egypt gave them twenty pounds of silver. 153
+
+The council that met at Anthela, priced Epialtes’s life and set up the memorials at Thermopylae.
+
+## original-en · eurycratides · 1226:0
+
+Of these troops, although there were other commanders also according to the State to which each belonged, yet he who was most held in regard and who was leader of the whole army was the Lacedemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles; who had obtained the kingdom of Sparta contrary to expectation.
+
+Leon’s father in the Agiad descent Herodotus recites for Leonidas.
+
+## original-en · anaxander · 1226:0
+
+Of these troops, although there were other commanders also according to the State to which each belonged, yet he who was most held in regard and who was leader of the whole army was the Lacedemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles; who had obtained the kingdom of Sparta contrary to expectation.
+
+Eurycratides’s father.
+
+## original-en · eurycrates · 1226:0
+
+Of these troops, although there were other commanders also according to the State to which each belonged, yet he who was most held in regard and who was leader of the whole army was the Lacedemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles; who had obtained the kingdom of Sparta contrary to expectation.
+
+Anaxander’s father.
+
+## original-en · polydorus-sparta · 1226:0
+
+Of these troops, although there were other commanders also according to the State to which each belonged, yet he who was most held in regard and who was leader of the whole army was the Lacedemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles; who had obtained the kingdom of Sparta contrary to expectation.
+
+Eurycrates’s father.
+
+## original-en · alcamenes · 1226:0
+
+Of these troops, although there were other commanders also according to the State to which each belonged, yet he who was most held in regard and who was leader of the whole army was the Lacedemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles; who had obtained the kingdom of Sparta contrary to expectation.
+
+Polydorus’s father.
+
+## original-en · teleclos · 1226:0
+
+Of these troops, although there were other commanders also according to the State to which each belonged, yet he who was most held in regard and who was leader of the whole army was the Lacedemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles; who had obtained the kingdom of Sparta contrary to expectation.
+
+Alcamenes’s father.
+
+## original-en · archelaos · 1226:0
+
+Of these troops, although there were other commanders also according to the State to which each belonged, yet he who was most held in regard and who was leader of the whole army was the Lacedemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles; who had obtained the kingdom of Sparta contrary to expectation.
+
+Teleclos’s father.
+
+## original-en · hegesilaus · 1226:0
+
+Of these troops, although there were other commanders also according to the State to which each belonged, yet he who was most held in regard and who was leader of the whole army was the Lacedemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles; who had obtained the kingdom of Sparta contrary to expectation.
+
+Archelaus’s father in the Agiad line.
+
+## original-en · doryssos · 1226:0
+
+Of these troops, although there were other commanders also according to the State to which each belonged, yet he who was most held in regard and who was leader of the whole army was the Lacedemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles; who had obtained the kingdom of Sparta contrary to expectation.
+
+Hegesilaus’s father.
+
+## original-en · leobotes · 65:0
+
+Some say in addition to this that the Pythian prophetess also set forth to him the order of things which is now established for the Spartans; but the Lacedemonians themselves say that Lycurgos having become guardian of Leobotes his brother's son, who was king of the Spartans, brought in these things from Crete. For as soon as he became guardian, he changed all the prevailing laws, and took measures that they should not transgress his institutions: and after this Lycurgos established that which appertained to war, namely Enomoties and Triecads and Common Meals, 7701 and in addition to this the Ephors and the Senate. Having changed thus, the Spartans had good laws; and to Lycurgos after he was dead they erected a temple, and they pay him great worship. So then, as might be supposed, with a fertile land and with no small number of men dwelling in it, they straightway shot up and became prosperous: and it was no longer sufficient for them to keep still; but presuming that they were superior in strength to the Arcadians, they consulted the Oracle at Delphi respecting conquest of the whole of Arcadia; and the Pythian prophetess gave answer thus:
+
+Doryssus’s father — the king Lycurgus was guardian to.
+
+## original-en · echestratos · 1226:0
+
+Of these troops, although there were other commanders also according to the State to which each belonged, yet he who was most held in regard and who was leader of the whole army was the Lacedemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles; who had obtained the kingdom of Sparta contrary to expectation.
+
+Leobotes’s father, Agis’s son.
+
+## original-en · leontiades · 1227:0
+
+For as he had two brothers each older than himself, namely Cleomenes and Dorieos, he had been far removed from the thought of becoming king. Since however Cleomenes had died without male child, and Dorieos was then no longer alive, but he also had brought his life to an end in Sicily, 210 thus the kingdom came to Leonidas, both because was of elder birth than Cleombrotos (for Cleombrotos was the youngest of the sons of Anaxandrides) and also because he had in marriage the daughter of Cleomenes. He then at this time went to Thermopylai, having chosen the three hundred who were appointed by law 211 and men who chanced to have sons; and he took with him besides, before he arrived, those Thebans whom I mentioned when I reckoned them in the number of the troops, of whom the commander was Leontiades the son of Eurymachos: and for this reason Leonidas was anxious to take up these with him of all the Hellenes, namely because accusations had been strongly brought against them that they were taking the side of the Medes; therefore he summoned them to the war, desiring to know whether they would send troops with them or whether they would openly renounce the alliance of the Hellenes; and they sent men, having other thoughts in their mind the while.
+
+Son of Eurymachus and commander of the four hundred Thebans Leonidas took with him as hostages. He went over to the Persians at the end and was branded with the royal marks for his pains.
+
+## original-en · eurymachos · 1227:0
+
+For as he had two brothers each older than himself, namely Cleomenes and Dorieos, he had been far removed from the thought of becoming king. Since however Cleomenes had died without male child, and Dorieos was then no longer alive, but he also had brought his life to an end in Sicily, 210 thus the kingdom came to Leonidas, both because was of elder birth than Cleombrotos (for Cleombrotos was the youngest of the sons of Anaxandrides) and also because he had in marriage the daughter of Cleomenes. He then at this time went to Thermopylai, having chosen the three hundred who were appointed by law 211 and men who chanced to have sons; and he took with him besides, before he arrived, those Thebans whom I mentioned when I reckoned them in the number of the troops, of whom the commander was Leontiades the son of Eurymachos: and for this reason Leonidas was anxious to take up these with him of all the Hellenes, namely because accusations had been strongly brought against them that they were taking the side of the Medes; therefore he summoned them to the war, desiring to know whether they would send troops with them or whether they would openly renounce the alliance of the Hellenes; and they sent men, having other thoughts in their mind the while.
+
+Leontiades’s father — and Leontiades’s son of the same name, who seized Plataea and was killed by the Plataeans.
+
+## original-en · epialtes · 1235:0
+
+Then when the king was in a strait as to what he should do in the matter before him, Epialtes the son of Eurydemos, a Malian, came to speech with him, supposing that he would win a very great reward from the king; and this man told him of the path which leads over the mountain to Thermopylai, and brought about the destruction of those Hellenes who remained in that place. Afterwards from fear of the Lacedemonians he fled to Thessaly, and when he had fled, a price was proclaimed for his life by the Deputies, 212 when the Amphictyons met for their assembly at Pylai. 213 Then some time afterwards having returned to Antikyra he was slain by Athenades a man of Trachis. Now this Athenades killed Epialtes for another cause, which I shall set forth in the following part of the history, 214 but he was honoured for it none the less by the Lacedemonians.
+
+Son of Eurydemus, a Malian, who told Xerxes about the mountain path for a reward and destroyed the Greeks at the pass. The Amphictyons put a price on his head; he was killed years later at Antikyra by Athenades, for another reason entirely, and the Lacedaemonians honoured Athenades for it anyway.
+
+## original-en · eurydemos · 1235:0
+
+Then when the king was in a strait as to what he should do in the matter before him, Epialtes the son of Eurydemos, a Malian, came to speech with him, supposing that he would win a very great reward from the king; and this man told him of the path which leads over the mountain to Thermopylai, and brought about the destruction of those Hellenes who remained in that place. Afterwards from fear of the Lacedemonians he fled to Thessaly, and when he had fled, a price was proclaimed for his life by the Deputies, 212 when the Amphictyons met for their assembly at Pylai. 213 Then some time afterwards having returned to Antikyra he was slain by Athenades a man of Trachis. Now this Athenades killed Epialtes for another cause, which I shall set forth in the following part of the history, 214 but he was honoured for it none the less by the Lacedemonians.
+
+Epialtes’s father.
+
+## original-en · athenades · 1235:0
+
+Then when the king was in a strait as to what he should do in the matter before him, Epialtes the son of Eurydemos, a Malian, came to speech with him, supposing that he would win a very great reward from the king; and this man told him of the path which leads over the mountain to Thermopylai, and brought about the destruction of those Hellenes who remained in that place. Afterwards from fear of the Lacedemonians he fled to Thessaly, and when he had fled, a price was proclaimed for his life by the Deputies, 212 when the Amphictyons met for their assembly at Pylai. 213 Then some time afterwards having returned to Antikyra he was slain by Athenades a man of Trachis. Now this Athenades killed Epialtes for another cause, which I shall set forth in the following part of the history, 214 but he was honoured for it none the less by the Lacedemonians.
+
+The man of Trachis who killed Epialtes.
+
+## original-en · onetes · 1236:0
+
+Thus Epialtes after these events was slain: there is however another tale told, that Onetes the son of Phanagoras, a man of Carystos, and Corydallos of Antikyra were those who showed the Persians the way round the mountain; but this I can by no means accept: for first we must judge by this fact, namely that the Deputies of the Hellenes did not proclaim a price for the lives of Onetes and Corydallos, but for that of Epialtes the Trachinian, having surely obtained the most exact information of the matter; and secondly we know that Epialtes was an exile from his country to avoid this charge. True it is indeed that Onetes might know of this path, even though he were not a Malian, if he had had much intercourse with the country; but Epialtes it was who led them round the mountain by the path, and him therefore I write down as the guilty man.
+
+Son of Phanagoras, of Carystos, named by some as the man who showed the Persians the path. Herodotus will not have it: the Amphictyons priced Epialtes, not him, and Epialtes went into exile for the charge.
+
+## original-en · phanagoras · 1236:0
+
+Thus Epialtes after these events was slain: there is however another tale told, that Onetes the son of Phanagoras, a man of Carystos, and Corydallos of Antikyra were those who showed the Persians the way round the mountain; but this I can by no means accept: for first we must judge by this fact, namely that the Deputies of the Hellenes did not proclaim a price for the lives of Onetes and Corydallos, but for that of Epialtes the Trachinian, having surely obtained the most exact information of the matter; and secondly we know that Epialtes was an exile from his country to avoid this charge. True it is indeed that Onetes might know of this path, even though he were not a Malian, if he had had much intercourse with the country; but Epialtes it was who led them round the mountain by the path, and him therefore I write down as the guilty man.
+
+Onetes’s father.
+
+## original-en · corydallos · 1236:0
+
+Thus Epialtes after these events was slain: there is however another tale told, that Onetes the son of Phanagoras, a man of Carystos, and Corydallos of Antikyra were those who showed the Persians the way round the mountain; but this I can by no means accept: for first we must judge by this fact, namely that the Deputies of the Hellenes did not proclaim a price for the lives of Onetes and Corydallos, but for that of Epialtes the Trachinian, having surely obtained the most exact information of the matter; and secondly we know that Epialtes was an exile from his country to avoid this charge. True it is indeed that Onetes might know of this path, even though he were not a Malian, if he had had much intercourse with the country; but Epialtes it was who led them round the mountain by the path, and him therefore I write down as the guilty man.
+
+Of Antikyra, named with Onetes in the account Herodotus rejects.
+
+## original-en · megistias · 1240:0
+
+To the Hellenes who were in Thermopylai first the soothsayer Megistias, after looking into the victims which were sacrificed, declared the death which was to come to them at dawn of day; and afterwards deserters brought the report 219 of the Persians having gone round. These signified it to them while it was yet night, and thirdly came the day-watchers, who had run down from the heights when day was already dawning. Then the Hellenes deliberated, and their opinions were divided; for some urged that they should not desert their post, while others opposed this counsel. After this they departed from their assembly, 220 and some went away and dispersed each to their several cities, while others of them were ready to remain there together with Leonidas.
+
+The Acarnanian soothsayer, said to be descended from Melampus, who read the victims and told the Greeks at dawn what was coming. Leonidas tried to send him away; he sent his only son instead and stayed. Simonides wrote his epitaph out of guest-friendship.
+
+## original-en · demophilos · 1243:0
+
+The allies then who were dismissed departed and went away, obeying the word of Leonidas, and only the Thespians and the Thebans remained behind with the Lacedemonians. Of these the Thebans stayed against their will and not because they desired it, for Leonidas kept them, counting them as hostages; but the Thespians very willingly, for they said that they would not depart and leave Leonidas and those with him, but they stayed behind and died with them. The commander of these was Demophilos the son of Diadromes.
+
+Son of Diadromes, commander of the seven hundred Thespians who stayed of their own will and died with Leonidas.
+
+## original-en · diadromes · 1243:0
+
+The allies then who were dismissed departed and went away, obeying the word of Leonidas, and only the Thespians and the Thebans remained behind with the Lacedemonians. Of these the Thebans stayed against their will and not because they desired it, for Leonidas kept them, counting them as hostages; but the Thespians very willingly, for they said that they would not depart and leave Leonidas and those with him, but they stayed behind and died with them. The commander of these was Demophilos the son of Diadromes.
+
+Demophilus’s father.
+
+## original-en · abrocomes · 1245:0
+
+Now by this time the spears of the greater number of them were broken, so it chanced, in this combat, and they were slaying the Persians with their swords; and in this fighting fell Leonidas, having proved himself a very good man, and others also of the Spartans with him, men of note, of whose names I was informed as of men who had proved themselves worthy, and indeed I was told also the names of all the three hundred. Moreover of the Persians there fell here, besides many others of note, especially two sons of Dareios, Abrocomes and Hyperanthes, born to Dareios of Phratagune the daughter of Artanes: now Artanes was the brother of king Dareios and the son of Hystaspes, the son of Arsames; and he in giving his daughter in marriage to Dareios gave also with her all his substance, because she was his only child.
+
+A son of Darius by Phratagune, killed over the body of Leonidas.
+
+## original-en · hyperanthes · 1245:0
+
+Now by this time the spears of the greater number of them were broken, so it chanced, in this combat, and they were slaying the Persians with their swords; and in this fighting fell Leonidas, having proved himself a very good man, and others also of the Spartans with him, men of note, of whose names I was informed as of men who had proved themselves worthy, and indeed I was told also the names of all the three hundred. Moreover of the Persians there fell here, besides many others of note, especially two sons of Dareios, Abrocomes and Hyperanthes, born to Dareios of Phratagune the daughter of Artanes: now Artanes was the brother of king Dareios and the son of Hystaspes, the son of Arsames; and he in giving his daughter in marriage to Dareios gave also with her all his substance, because she was his only child.
+
+Abrocomes’s brother, killed in the same fight.
+
+## original-en · phratagune · 1245:0
+
+Now by this time the spears of the greater number of them were broken, so it chanced, in this combat, and they were slaying the Persians with their swords; and in this fighting fell Leonidas, having proved himself a very good man, and others also of the Spartans with him, men of note, of whose names I was informed as of men who had proved themselves worthy, and indeed I was told also the names of all the three hundred. Moreover of the Persians there fell here, besides many others of note, especially two sons of Dareios, Abrocomes and Hyperanthes, born to Dareios of Phratagune the daughter of Artanes: now Artanes was the brother of king Dareios and the son of Hystaspes, the son of Arsames; and he in giving his daughter in marriage to Dareios gave also with her all his substance, because she was his only child.
+
+Artanes’s only child, married to Darius with her father’s whole fortune, and mother of the two brothers who died at the pass.
+
+## original-en · artanes · 1245:0
+
+Now by this time the spears of the greater number of them were broken, so it chanced, in this combat, and they were slaying the Persians with their swords; and in this fighting fell Leonidas, having proved himself a very good man, and others also of the Spartans with him, men of note, of whose names I was informed as of men who had proved themselves worthy, and indeed I was told also the names of all the three hundred. Moreover of the Persians there fell here, besides many others of note, especially two sons of Dareios, Abrocomes and Hyperanthes, born to Dareios of Phratagune the daughter of Artanes: now Artanes was the brother of king Dareios and the son of Hystaspes, the son of Arsames; and he in giving his daughter in marriage to Dareios gave also with her all his substance, because she was his only child.
+
+Darius’s brother and Phratagune’s father.
+
+## original-en · dienekes · 1247:0
+
+Such were the proofs of valour given by the Lacedemonians and Thespians; yet the Spartan Dienekes is said to have proved himself the best man of all, the same who, as they report, uttered this saying before they engaged battle with the Medes:--being informed by one of the men of Trachis that when the Barbarians discharged their arrows they obscured the light of the sun by the multitude of the arrows, so great was the number of their host, he was not dismayed by this, but making small account of the number of the Medes, he said that their guest from Trachis brought them very good news, for if the Medes obscured the light of the sun, the battle against them would be in the shade and not in the sun.
+
+The Spartan reckoned the best man of all, who on being told that the Persian arrows would darken the sun said that their guest from Trachis brought good news — the battle would be fought in the shade.
+
+## original-en · alpheos · 1248:0
+
+This and other sayings of this kind they report that Dienekes the Lacedemonian left as memorials of himself; and after him the bravest they say of the Lacedemonians were two brothers Alpheos and Maron, sons of Orsiphantos. Of the Thespians the man who gained most honour was named Dithyrambos son of Harmatides.
+
+With his brother Maron, the bravest of the Lacedaemonians after Dienekes.
+
+## original-en · maron · 1248:0
+
+This and other sayings of this kind they report that Dienekes the Lacedemonian left as memorials of himself; and after him the bravest they say of the Lacedemonians were two brothers Alpheos and Maron, sons of Orsiphantos. Of the Thespians the man who gained most honour was named Dithyrambos son of Harmatides.
+
+Alpheus’s brother.
+
+## original-en · orsiphantos · 1248:0
+
+This and other sayings of this kind they report that Dienekes the Lacedemonian left as memorials of himself; and after him the bravest they say of the Lacedemonians were two brothers Alpheos and Maron, sons of Orsiphantos. Of the Thespians the man who gained most honour was named Dithyrambos son of Harmatides.
+
+Father of Alpheus and Maron.
+
+## original-en · dithyrambos · 1248:0
+
+This and other sayings of this kind they report that Dienekes the Lacedemonian left as memorials of himself; and after him the bravest they say of the Lacedemonians were two brothers Alpheos and Maron, sons of Orsiphantos. Of the Thespians the man who gained most honour was named Dithyrambos son of Harmatides.
+
+Son of Harmatides, the Thespian who gained most honour.
+
+## original-en · harmatides · 1248:0
+
+This and other sayings of this kind they report that Dienekes the Lacedemonian left as memorials of himself; and after him the bravest they say of the Lacedemonians were two brothers Alpheos and Maron, sons of Orsiphantos. Of the Thespians the man who gained most honour was named Dithyrambos son of Harmatides.
+
+Dithyrambus’s father.
+
+## original-en · simonides · 863:0
+
+Sardis was then destroyed by fire, and in it also the temple of the native goddess Hybebe; which the Persians alleged afterwards as a reason for setting on fire in return the temples in the land of the Hellenes. However at the time of which I speak the Persians who occupied districts within the river Halys, informed beforehand of this movement, were gathering together and coming to the help of the Lydians; and, as it chanced, they found when they came that the Ionians no longer were in Sardis; but they followed closely in their track and came up with them at Ephesos: and the Ionians stood indeed against them in array, but when they joined battle they had very much the worse; and besides other persons of note whom the Persians slaughtered, there fell also Eualkides commander of the Eretrians, a man who had won wreaths in contests of the games and who was much celebrated by Simonides of Keos: and those of them who survived the battle dispersed to their various cities.
+
+Son of Leoprepes, who wrote the soothsayer’s epitaph — and whom Herodotus quotes once before this.
+
+## original-en · eurystus · 1250:0
+
+Two of these three hundred, it is said, namely Eurystos and Aristodemos, who, if they had made agreement with one another, might either have come safe home to Sparta together (seeing that they had been dismissed from the camp by Leonidas and were lying at Alpenoi with disease of the eyes, suffering extremely), or again, if they had not wished to return home, they might have been slain together with the rest,--when they might, I say, have done either one of these two things, would not agree together; but the two being divided in opinion, Eurystos, it is said, when he was informed that the Persians had gone round, asked for his arms and having put them on ordered his Helot to lead him to those who were fighting; and after he had led him thither, the man who had led him ran away and departed, but Eurystos plunged into the thick of the fighting, and so lost his life: but Aristodemos was left behind fainting. 230 Now if either Aristodemos had been ill 231 alone, and so had returned home to Sparta, or the men had both of them come back together, I do not suppose that the Spartans would have displayed any anger against them; but in this case, as the one of them had lost his life and the other, clinging to an excuse which the first also might have used, 232 had not been willing to die, it necessarily happened that the Spartans had great indignation against Aristodemos.
+
+One of two of the three hundred sent out of the camp with eye disease. Told that the Persians had gone round, he called for his armour, had a Helot lead him to the fighting, and died in it.
+
+## original-en · aristodemus-thermopylae · 1250:0
+
+Two of these three hundred, it is said, namely Eurystos and Aristodemos, who, if they had made agreement with one another, might either have come safe home to Sparta together (seeing that they had been dismissed from the camp by Leonidas and were lying at Alpenoi with disease of the eyes, suffering extremely), or again, if they had not wished to return home, they might have been slain together with the rest,--when they might, I say, have done either one of these two things, would not agree together; but the two being divided in opinion, Eurystos, it is said, when he was informed that the Persians had gone round, asked for his arms and having put them on ordered his Helot to lead him to those who were fighting; and after he had led him thither, the man who had led him ran away and departed, but Eurystos plunged into the thick of the fighting, and so lost his life: but Aristodemos was left behind fainting. 230 Now if either Aristodemos had been ill 231 alone, and so had returned home to Sparta, or the men had both of them come back together, I do not suppose that the Spartans would have displayed any anger against them; but in this case, as the one of them had lost his life and the other, clinging to an excuse which the first also might have used, 232 had not been willing to die, it necessarily happened that the Spartans had great indignation against Aristodemos.
+
+The other man with the eye disease, who stayed behind fainting and came home. No Spartan would give him fire or speak to him, and he was called Aristodemus the Coward — until Plataea, where he made it good.
+
+## original-en · pantites · 1253:0
+
+He however in the battle at Plataia repaired all the guilt that was charged against him: but it is reported that another man also survived of these three hundred, whose name was Pantites, having been sent as a messenger to Thessaly, and this man, when he returned back to Sparta and found himself dishonoured, is said to have strangled himself.
+
+The other survivor of the three hundred, sent as a messenger to Thessaly, who came home to dishonour and hanged himself.
+
+## original-en · thespians · 1154:0
+
+And among those who gave that which was demanded were the following, namely the Thessalians, Dolopians, Enianians, 113 Perraibians, Locrians, Megnesians, Malians, Achaians of Phthiotis, and Thebans, with the rest of the Boeotians also excepting the Thespians and Plataians. Against these the Hellenes who took up war with the Barbarian made an oath; and the oath was this,--that whosoever being Hellenes had given themselves over to the Persian, not being compelled, these, if their own affairs should come to a good conclusion, they would dedicate as an offering 114 to the god at Delphi.
+
+Seven hundred of them at the pass, who stayed of their own will when the allies were dismissed and died with the Spartans; and the one Boeotian people, with Plataea, that never gave earth and water.
+
+## original-en · phocians · 45:1
+
+So having formed this design he began forthwith to make trial of the Oracles, both those of the Hellenes and that in Libya, sending messengers some to one place and some to another, some to go to Delphi, others to Abai of the Phokians, and others to Dodona; and some were sent to the shrine of Amphiaraos and to that of Trophonios, others to Branchidai in the land of Miletos: these are the Oracles of the Hellenes to which Croesus sent messengers to seek divination; and others he sent to the shrine of Ammon in Libya to inquire there. Now he was sending the messengers abroad to the end that he might try the Oracles and find out what knowledge they had, so that if they should be found to have knowledge of the truth, he might send and ask them secondly whether he should attempt to march against the Persians.
+
+A thousand of them, who had offered to hold the mountain path and were on it when the Persians came up through the oak leaves at dawn; they ran for the summit, and the Persians walked past them.
+
+## original-en · locrians · 1154:0
+
+And among those who gave that which was demanded were the following, namely the Thessalians, Dolopians, Enianians, 113 Perraibians, Locrians, Megnesians, Malians, Achaians of Phthiotis, and Thebans, with the rest of the Boeotians also excepting the Thespians and Plataians. Against these the Hellenes who took up war with the Barbarian made an oath; and the oath was this,--that whosoever being Hellenes had given themselves over to the Persian, not being compelled, these, if their own affairs should come to a good conclusion, they would dedicate as an offering 114 to the god at Delphi.
+
+The Opuntian Locrians, called up in full force to Trachis.
+
+## original-en · malians · 589:0
+
+But much more about them is reported by the people of Delos than by any others. For these say that sacred offerings bound up in wheat straw are carried from the land of the Hyperboreans and come to the Scythians, and then from the Scythians the neighbouring nations in succession receive them and convey them Westwards, finally as far as the Adriatic: thence they are sent forward towards the South, and the people of Dodona receive them first of all the Hellenes, and from these they come down to the Malian gulf and are passed over to Euboea, where city sends them on to city till they come to Carystos. After this Andros is left out, for the Carystians are those who bring them to Tenos, and the Tenians to Delos. Thus they say that these sacred offerings come to Delos; but at first, they say, the Hyperboreans sent two maidens bearing the sacred offerings, whose names, say the Delians, were Hyperoche and Laodike, and with them for their protection the Hyperboreans sent five men of their nation to attend them, those namely who are now called Perphereës and have great honours paid to them in Delos. Since however the Hyperboreans found that those who were sent away did not return back, they were troubled to think that it would always befall them to send out and not to receive back; and so they bore the offerings to the borders of their land bound up in wheat straw, and laid a charge upon their neighbours, bidding them send these forward from themselves to another nation. These things then, they say, come to Delos being thus sent forward; and I know of my own knowledge that a thing is done which has resemblance to these offerings, namely that the women of Thrace and Paionia, when they sacrifice to Artemis "the Queen," do not make their offerings without wheat straw.
+
+In whose land Thermopylae lies; they gave the king earth and water, and it was Malians who had found the mountain path long before and shown it to the Thessalians.
+
+## original-en · trachinians · 1238:0
+
+By this path thus situated the Persians after crossing over the Asopos proceeded all through the night, having on their right hand the mountains of the Oitaians and on the left those of the Trachinians: and when dawn appeared, they had reached the summit of the mountain. In this part of the mountain there were, as I have before shown, a thousand hoplites of the Phokians keeping guard, to protect their own country and to keep the path: for while the pass below was guarded by those whom I have mentioned, the path over the mountain was guarded by the Phokians, who had undertaken the business for Leonidas by their own offer.
+
+The people of Trachis, who told the Greeks about the path only after they had arrived at the pass.
+
+## original-en · oitaians · 1238:0
+
+By this path thus situated the Persians after crossing over the Asopos proceeded all through the night, having on their right hand the mountains of the Oitaians and on the left those of the Trachinians: and when dawn appeared, they had reached the summit of the mountain. In this part of the mountain there were, as I have before shown, a thousand hoplites of the Phokians keeping guard, to protect their own country and to keep the path: for while the pass below was guarded by those whom I have mentioned, the path over the mountain was guarded by the Phokians, who had undertaken the business for Leonidas by their own offer.
+
+Whose mountains stood on the Persians’ right as they went round by night.
+
+## original-en · perrhaebians · 1150:0
+
+Then Xerxes seeing from Therma the mountains of Thessaly, Olympos and Ossa, that they were of very great height, and being informed that in the midst between them there was a narrow channel, through which flows the Peneios, and hearing also that by this way there was a good road leading to Thessaly, formed a desire to sail thither and look at the outlet of the Peneios, because he was meaning to march by the upper road, through the land of the Macedonians who dwell inland, until he came to the Perraibians, passing by the city of Gonnos; for by this way he was informed that it was safest to go. And having formed this desire, so also he proceeded to do; that is, he embarked in a Sidonian ship, the same in which he used always to embark when he wished to do anything of this kind, and he displayed a signal for the others to put out to sea also, leaving there the land-army. Then when Xerxes had looked at the outlet of the Peneios, he was possessed by great wonder, and summoning his guides he asked them whether it was possible to turn the river aside and bring it out to the sea by another way.
+
+Through whose country the upper road into Thessaly runs — the road Xerxes took.
+
+## original-en · magnesians · 487:0
+
+From the Ionians and the Magnesians who dwell in Asia and the Aiolians, Carians, Lykians, Milyans and Pamphylians (for one single sum was appointed by him as tribute for all these) there came in four hundred talents of silver. This was appointed by him to be the first division. 75 From the Mysians and Lydians and Lasonians and Cabalians and Hytennians 76 there came in five hundred talents: this is the second division. From the Hellespontians who dwell on the right as one sails in and the Phrygians and the Thracians who dwell in Asia and the Paphlagonians and Mariandynoi and Syrians 77 the tribute was three hundred and sixty talents: this is the third division. From the Kilikians, besides three hundred and sixty white horses, one for every day in the year, there came also five hundred talents of silver; of these one hundred and forty talents were spent upon the horsemen which served as a guard to the Kilikian land, and the remaining three hundred and sixty came in year by year to Dareios: this is the fourth division.
+
+Of Thessaly, who gave earth and water; Herodotus also names Magnesians in Asia in the tribute list.
+
+## original-en · dolopians · 1154:0
+
+And among those who gave that which was demanded were the following, namely the Thessalians, Dolopians, Enianians, 113 Perraibians, Locrians, Megnesians, Malians, Achaians of Phthiotis, and Thebans, with the rest of the Boeotians also excepting the Thespians and Plataians. Against these the Hellenes who took up war with the Barbarian made an oath; and the oath was this,--that whosoever being Hellenes had given themselves over to the Persian, not being compelled, these, if their own affairs should come to a good conclusion, they would dedicate as an offering 114 to the god at Delphi.
+
+Who gave earth and water, and marched with the king.
+
+## original-en · enianians · 1154:0
+
+And among those who gave that which was demanded were the following, namely the Thessalians, Dolopians, Enianians, 113 Perraibians, Locrians, Megnesians, Malians, Achaians of Phthiotis, and Thebans, with the rest of the Boeotians also excepting the Thespians and Plataians. Against these the Hellenes who took up war with the Barbarian made an oath; and the oath was this,--that whosoever being Hellenes had given themselves over to the Persian, not being compelled, these, if their own affairs should come to a good conclusion, they would dedicate as an offering 114 to the god at Delphi.
+
+Out of whose land the Spercheios flows; they gave earth and water.
+
+## original-en · mantineians · 1438:0
+
+Just so the Spartans also, being very much in need of Tisamenos, agreed with him on any terms which he desired: and when the Spartans had agreed to this demand also, then Tisamenos the Eleian, having become a Spartan, had part with them in winning five of the greatest contests as their diviner: and these were the only men who ever were made fellow-citizens of the Spartans. Now the five contests were these: one and the first of them was this at Plataia; and after this the contest at Tegea, which took place with the Tegeans and the Argives; then that at Dipaieis against all the Arcadians except the Mantineians; after that the contest with the Messenians at Ithome; 44 and last of all that which took place at Tanagra against the Athenians and Argives. This, I say, was accomplished last of the five contests.
+
+Five hundred of them at the pass with the Tegeans.
+
+## original-en · leoprepes-ceos · 1249:6
+
+The Amphictyons it was who honoured them with inscriptions and memorial pillars, excepting only in the case of the inscription to the soothsayer; but that of the soothsayer Megistias was inscribed by Simonides the son of Leoprepes on account of guest-friendship.
+
+Simonides the poet’s father. Not the Spartan Leoprepes, Theasides’s father.
+
+## original-en · royal-judges · 411:0
+
+On the tenth day after that on which he received the surrender of the fortress of Memphis, Cambyses set the king of the Egyptians Psammenitos, who had been king for six months, to sit in the suburb of the city, to do him dishonour,—him I say with other Egyptians he set there, and he proceeded to make trial of his spirit as follows:—having arrayed his daughter in the clothing of a slave, he sent her forth with a pitcher to fetch water, and with her he sent also other maidens chosen from the daughters of the chief men, arrayed as was the daughter of the king: and as the maidens were passing by their fathers with cries and lamentation, the other men all began to cry out and lament aloud, 16 seeing that their children had been evilly entreated, but Psammenitos when he saw it before his eyes and perceived it bent himself down to the earth. Then when the water-bearers had passed by, next Cambyses sent his son with two thousand Egyptians besides who were of the same age, with ropes bound round their necks and bits placed in their mouths; and these were being led away to execution to avenge the death of the Mytilenians who had been destroyed at Memphis with their ship: for the Royal Judges 17 had decided that for each man ten of the noblest Egyptians should lose their lives in retaliation. He then, when he saw them passing out by him and perceived that his son was leading the way 18 to die, did the same as he had done with respect to his daughter, while the other Egyptians who sat round him were lamenting and showing signs of grief. When these also had passed by, it chanced that a man of his table companions, advanced in years, who had been deprived of all his possessions and had nothing except such things as a beggar possesses, and was asking alms from the soldiers, passed by Psammenitos the son of Amasis and the Egyptians who were sitting in the suburb of the city: and when Psammenitos saw him he uttered a great cry of lamentation, and he called his companion by name and beat himself upon the head. Now there was, it seems, men set to watch him, who made known to Cambyses all that he did on the occasion of each going forth: and Cambyses marvelled at that which he did, and he sent a messenger and asked him thus: "Psammenitos, thy master Cambyses asks thee for what reason, when thou sawest thy daughter evilly entreated and thy son going to death, thou didst not cry aloud nor lament for them, whereas thou didst honour with these signs of grief the beggar who, as he hears from others, is not in any way related to thee?" Thus he asked, and the other answered as follows: "O son of Cyrus, my own troubles were too great for me to lament them aloud, but the trouble of my companion was such as called for tears, seeing that he has been deprived of great wealth, and has come to beggary upon the threshold of old age." When this saying was reported by the messenger, it seemed to them 19 that it was well spoken; and, as is reported by the Egyptians, Croesus shed tears (for he also, as fortune would have it, had accompanied Cambyses to Egypt) and the Persians who were present shed tears also; and there entered some pity into Cambyses himself, and forthwith he bade them save the life of the son of Psammenitos from among those who were being put to death, and also he bade them raise Psammenitos himself from his place in the suburb of the city and bring him into his own presence.
+
+The Persian judges chosen for life, who interpret the ancestral laws and decide every case referred to them. Cambyses had Sisamnes flayed for selling a verdict; Darius crucified Sandokes for the same offence and then took him down again.
+
+## original-en · royal-secretaries · 525:0
+
+Thus Dareios asked, and thirty men undertook the matter, each one separately desiring to do it himself; and Dareios stopped their contention and bade them cast lots: so when they cast lots, Bagaios the son of Artontes obtained the lot from among them all. Bagaios accordingly, having obtained the lot, did thus:—he wrote many papers dealing with various matters and on them set the seal of Dareios, and with them he went to Sardis. When he arrived there and came into the presence of Oroites, he took the covers off the papers one after another and gave them to the Royal Secretary to read; for all the governors of provinces have Royal Secretaries. Now Bagaios thus gave the papers in order to make trial of the spearmen of the guard, whether they would accept the motion to revolt from Oroites; and seeing that they paid great reverence to the papers and still more to the words which were recited from them, he gave another paper in which were contained these words: "Persians, king Dareios forbids you to serve as guards to Oroites": and they hearing this lowered to him the points of their spears. Then Bagaios, seeing that in this they were obedient to the paper, took courage upon that and gave the last of the papers to the secretary; and in it was written: "King Dareios commands the Persians who are in Sardis to slay Oroites." So the spearmen of the guard, when they heard this, drew their swords and slew him forthwith. Thus did retribution for the murder of Polycrates the Samian overtake Oroites.
+
+The king’s clerks, who read his letters aloud to the governors — which is how Bagaeus destroyed Oroetes with a sealed packet.
+
+## original-en · scythes-cos · 1185:0
+
+The envoys of the Hellenes, having thus had conference with Gelon, sailed away; and Gelon upon this, fearing on the one hand about the Hellenes, lest they should not be able to overcome the Barbarian, and on the other hand considering it monstrous and not to be endured that he should come to Peloponnesus and be under the command of the Lacedemonians, seeing that he was despot of Sicily, gave up the thought of this way and followed another: for so soon as he was informed that the Persian had crossed over the Hellespont, he sent Cadmos the son of Skythes, a man of Cos, with three fifty-oared galleys to Delphi, bearing large sums of money and friendly proposals, to wait there and see how the battle would fall out: and if the Barbarian should be victorious, he was to give him the money and also to offer him earth and water from those over whom Gelon had rule; but if the Hellenes should be victorious, he was bidden to bring it back.
+
+Cadmus’s father, who held Cos before him and left it in good order.
+
+## original-en · agis-agiad · 1226:0
+
+Of these troops, although there were other commanders also according to the State to which each belonged, yet he who was most held in regard and who was leader of the whole army was the Lacedemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles; who had obtained the kingdom of Sparta contrary to expectation.
+
+Echestratus’s father and Eurysthenes’s son, at the head of the Agiad kings. Not Leotychides’s grandfather.
+
+## original-en · the-winds · 1200:0
+
+The Hellenes, I say, were coming to the rescue with speed, having been appointed to their several places: and meanwhile the men of Delphi consulted the Oracle of the god on behalf of themselves and on behalf of Hellas, being struck with dread; and a reply was given them that they should pray to the Winds, for these would be powerful helpers of Hellas in fight. So the Delphians, having accepted the oracle, first reported the answer which had been given them to those of the Hellenes who desired to be free; and having reported this to them at a time when they were in great dread of the Barbarian, they laid up for themselves an immortal store of gratitude: then after this the men of Delphi established an altar for the Winds in Thuia, where is the sacred enclosure of Thuia the daughter of Kephisos, after whom moreover this place has its name; and also they approached them with sacrifices.
+
+The powers Delphi told the Delphians to pray to, saying they would be great allies of Greece. The Delphians built them an altar at Thyia and sacrifice to them still; four hundred Persian ships were lost off Sepias.
+
+## original-en · troezenians · 456:0
+
+Then from the men of Hermion they received by payment of money the island of Hydrea, which is near the coast of Peloponnese, and they gave it in charge to the Troizenians, but they themselves settled at Kydonia which is in Crete, not sailing thither for that purpose but in order to drive the Zakynthians out of the island. Here they remained and were prosperous for five years, so much so that they were the builders of the temples which are now existing in Kydonia, and also of the house of Dictyna. 51 In the sixth year however the Eginetans together with the Cretans conquered them in a sea-fight and brought them to slavery; and they cut off the prows of their ships, which were shaped like boars, and dedicated them in the temple of Athene in Egina. This the Eginetans did because they had a grudge against the Samians; for the Samians had first made expedition against Egina, when Amphicrates was king in Samos, and had done much hurt to the Eginetans and suffered much hurt also from them. Such was the cause of this event:
+
+Who put one of the three ships on watch off Sciathos, and from whom the people of Halicarnassus are descended.
+
+## original-en · artabazus-babylon · 191:0
+
+and as to the resources of the Babylonians how great they are, I shall show by many other proofs and among them also by this:—For the support of the great king and his army, apart from the regular tribute the whole land of which he is ruler has been distributed into portions. Now whereas twelve months go to make up the year, for four of these he has his support from the territory of Babylon, and for the remaining eight months from the whole of the rest of Asia; thus the Assyrian land is in regard to resources the third part of all Asia: and the government, or satrapy as it is called by the Persians, of this territory is of all the governments by far the best; seeing that when Tritantaichmes son of Artabazos had this province from the king, there came in to him every day an artab full of silver coin (now the artab is a Persian measure and holds more than the medimnos of Attica 197 by three Attic choinikes); and of horses he had in this province as his private property, apart from the horses for use in war, eight hundred stallions and sixteen thousand mares, for each of these stallions served twenty mares: of Indian hounds moreover such a vast number were kept that four large villages in the plain, being free from other contributions, had been appointed to provide food for the hounds.
+
+Father of the Tritantaechmes who held Babylon. Not the general of this war.
+
+## original-en · tritantaechmes-babylon · 191:0
+
+and as to the resources of the Babylonians how great they are, I shall show by many other proofs and among them also by this:—For the support of the great king and his army, apart from the regular tribute the whole land of which he is ruler has been distributed into portions. Now whereas twelve months go to make up the year, for four of these he has his support from the territory of Babylon, and for the remaining eight months from the whole of the rest of Asia; thus the Assyrian land is in regard to resources the third part of all Asia: and the government, or satrapy as it is called by the Persians, of this territory is of all the governments by far the best; seeing that when Tritantaichmes son of Artabazos had this province from the king, there came in to him every day an artab full of silver coin (now the artab is a Persian measure and holds more than the medimnos of Attica 197 by three Attic choinikes); and of horses he had in this province as his private property, apart from the horses for use in war, eight hundred stallions and sixteen thousand mares, for each of these stallions served twenty mares: of Indian hounds moreover such a vast number were kept that four large villages in the plain, being free from other contributions, had been appointed to provide food for the hounds.
+
+Satrap of Babylon, whose province was the best of all the governments: an artaba of silver a day, and eight hundred stallions besides the mares. Not Artabanus’s son.
+
 ## modern-en · croesus · 6:0
 
 Croesus was a Lydian by race, the son of Alyattes, and ruler of the nations that live this side of the river Halys — the river that flows from the south between the Syrians and the Paphlagonians and runs out northward into the sea called the Euxine. This Croesus was the first of the barbarians we know of to subdue certain Hellenes and force them to pay tribute, while others he won over as friends. Those he subdued were the Ionians, Aeolians, and Dorians who live in Asia; those he made his friends were the Lacedaemonians. Before the reign of Croesus, all the Hellenes had been free, for the Cimmerian invasion of Ionia, which came before his time, had not been a conquest of the cities but only a raid for plunder.
@@ -4340,9 +5798,9 @@ Babylon, then, was walled in this manner; and there are two divisions of the cit
 
 From whose mountains the Halys and the Tigris come down.
 
-## modern-en · matienians · 187:0
+## modern-en · matienians · 71:0
 
-On his march toward Babylon, Cyrus reached the river Gyndes. This river rises in the mountains of the Matienians, flows through Dardanian territory, and empties into the Tigris, which passes the city of Opis and flows into the Red Sea. As Cyrus attempted to cross the Gyndes, which was deep enough to be navigable, one of his sacred white horses charged into the river and tried to swim across. The current swept the horse under and carried it away. Cyrus was furious at the river for this outrage. He swore he would make it so weak that women could cross it without getting their knees wet. He suspended his march on Babylon, divided his army in two, and had them dig one hundred and eighty channels on each side of the river—three hundred and sixty in all—fanning out in every direction. This vast project took the entire summer.
+Now the Cappadocians are called Syrians by the Greeks, and these Syrians, before the Persians came to power, were subjects of the Medes, but at this time they were subjects of Cyrus. For the boundary between the Median empire and the Lydian was the river Halys, which flows from the mountain-land of Armenia through Cilicia, and afterwards, as it flows, has the Matieni on the right hand and the Phrygians on the other side. Then, passing by these and flowing up toward the North, it bounds on the one side the Cappadocian Syrians and on the left the Paphlagonians. Thus the river Halys cuts off from the rest almost all the lower parts of Asia by a line extending from the sea opposite Cyprus to the Euxine. This tract is the neck of the whole peninsula, the distance of the journey being such that five days are spent on the way by a man without baggage.
 
 From whose mountains the Gyndes rises — the river Cyrus punished by splitting it into three hundred and sixty channels.
 
@@ -5720,9 +7178,9 @@ Beginning with the trading station of the Borysthenites—for of all the places 
 
 The Greeks of the trading station at the Borysthenes, who call themselves Milesians and among whom Skyles kept a house.
 
-## modern-en · royal-scythians · 411:0
+## modern-en · royal-scythians · 576:0
 
-On the tenth day after he received the surrender of the fortress of Memphis, Cambyses set the king of the Egyptians Psammenitos, who had been king for six months, to sit in the suburb of the city, in order to humiliate him. Him, along with other Egyptians, he placed there, and proceeded to test his spirit as follows. Having dressed his daughter in the clothing of a slave, he sent her out with a pitcher to fetch water, and with her he sent other maidens also, chosen from the daughters of the leading men, dressed just as the king's daughter was. As the maidens passed by their fathers with cries and lamentation, the rest of the men began to cry out and lament aloud, seeing their children being ill-used. But Psammenitos, when he saw it before his eyes and perceived what was happening, bent himself down to the earth. Then, after the water-bearers had passed by, Cambyses next sent his son together with two thousand other Egyptians of the same age, with ropes around their necks and bits placed in their mouths; and these were being led away to execution to avenge the death of the Mytilenians who had been destroyed at Memphis with their ship — for the Royal Judges had decided that for each man, ten of the noblest Egyptians should lose their lives in retaliation. When Psammenitos saw them passing by him and perceived that his son was leading the way to death, he did the same as he had done for his daughter, while the other Egyptians sitting around him lamented and showed signs of grief. When these too had passed by, it happened that a man of his table companions, advanced in years, who had been stripped of all his possessions and had nothing beyond what a beggar owns, and was asking alms from the soldiers, passed by Psammenitos son of Amasis and the Egyptians sitting in the suburb of the city. When Psammenitos saw him, he uttered a great cry of lamentation, called his companion by name, and beat himself on the head. Now there were, it seems, men set to watch him, who reported to Cambyses everything he did on each occasion as they passed. Cambyses marveled at what he had done and sent a messenger to ask him: “Psammenitos, your master Cambyses asks you why, when you saw your daughter mistreated and your son going to his death, you did not cry out or lament for them, whereas you honored with these signs of grief the beggar who, as he hears from others, is in no way related to you?” Thus he asked, and the other answered: “O son of Cyrus, my own troubles were too great to lament aloud, but my companion's trouble called for tears, seeing that he has been stripped of great wealth and has come to beggary on the threshold of old age.” When this saying was reported by the messenger, it seemed to them well spoken. And, as the Egyptians report, Croesus shed tears — for he too, as fortune would have it, had accompanied Cambyses to Egypt — and the Persians present shed tears also, and some pity entered into Cambyses himself. He ordered that the life of Psammenitos's son be spared from among those being put to death, and he also ordered that Psammenitos himself be raised from his place in the suburb of the city and brought into his presence.
+Then, on the other side of the Gerros, we come to the parts called the Royal lands, and to those Scythians who are the bravest and most numerous, who count the other Scythians as their slaves. Their territory reaches southwards to the Tauric land, eastwards to the trench dug by those born of the blind slaves, and to the trading station called Cremnoi on the Maeotian lake; some parts of their country reach the river Tanaïs. Beyond the Royal Scythians, towards the north wind, dwell the Melanchlainoi, of a different race, not Scythian. The region beyond the Melanchlainoi is marshy and uninhabited, as far as we know.
 
 The bravest and most numerous Scythians, who hold the rest for slaves, and whose kings are buried at Gerros with a strangled concubine, a cup-bearer, a cook and a horse.
 
@@ -7123,3 +8581,1461 @@ Tyrant of Chios, in the same roll, and still in place two invasions later.
 Those who voted between the two opinions, and who were men of consequence in the king's eyes, were: first, the despots of the Hellespontians—Daphnis of Abydos, Hippoclos of Lampsacos, Herophantos of Parion, Metrodoros of Proconnesos, Aristagoras of Kyzicos, and Ariston of Byzantion—these were those from the Hellespont. From Ionia, Strattis of Chios, Aiakes of Samos, Laodamas of Phocaia, and Histiaios of Miletos, whose opinion had been proposed against Miltiades'. Of the Aeolians, the only man of consequence present was Aristagoras of Kyme.
 
 Tyrant of Phocaea, in the same roll.
+
+## modern-en · artobazanes · 1028:0
+
+While Darius was preparing to set out against Egypt and Athens, a great quarrel arose among his sons over the succession; they said that he must not undertake his campaigns until he had designated one of them as king, according to Persian custom. Three sons had been born to Darius before he became king, by his former wife, the daughter of Gobryas; and after he became king, four more had been born to him by Atossa, daughter of Cyrus. The eldest of the first set was Artobazanes; the eldest of those born later was Xerxes. Not being sons of the same mother, they were at odds with each other: Artobazanes argued that he was the eldest of all the sons and that it was a custom held by all men that the eldest should have the rule; Xerxes argued that he was the son of Atossa daughter of Cyrus, and that it was Cyrus who had won the Persians their freedom.
+
+Darius’s eldest son by the daughter of Gobryas, who argued that the throne was his by age and lost it to Xerxes, born to Atossa after Darius was already king.
+
+## modern-en · achaemenes-ancestor · 472:0
+
+When Prexaspes said he was ready to do this as well, the Magians summoned the Persians, had him go up on a tower, and bade him address them. Then he chose to forget what they had asked of him. Beginning with Achaemenes, he traced the descent of Cyrus on the father's side, and then, when he came down to Cyrus, at last he recounted what great benefits he had conferred on the Persians. Having gone through this recital, he went on to declare the truth: he said that previously he had kept it secret, since it had not been safe for him to tell what had been done, but at the present moment he was compelled to make it known. He went on to say how he had himself killed Smerdis son of Cyrus, forced to do so by Cambyses, and that it was the Magians who were now ruling. Then he called down many curses on the Persians if they did not win back the power and take vengeance on the Magians, and with that he let himself fall headlong from the tower. Thus Prexaspes ended his life, having been throughout his career a man of repute.
+
+The man at the head of the Persian royal descent, from whom Cyrus’s line is traced. Not Xerxes’s brother of the same name.
+
+## modern-en · onomacritus · 1032:0
+
+This was the kind of thing he kept saying — for he was a man who had an appetite for bold enterprise and wanted to be governor of Greece himself under the king. In time he won Xerxes over and persuaded him to undertake it, for other things also helped Mardonius in his persuasion. First of all, envoys had come from Thessaly, sent by the Aleuadae, inviting the king to attack Greece and showing great zeal for his cause (these Aleuadae were kings of Thessaly); and secondly, those of Pisistratus's sons who had come up to Susa were likewise urging him on, pressing the same arguments as the Aleuadae, and they offered him an additional inducement besides. For there was a certain Onomacritus, an Athenian, who both uttered oracles and had collected and arranged the oracles of Musaeus; they had brought him up with them, having first made up their old quarrel. Onomacritus had been banished from Athens by Hipparchus son of Pisistratus when he was caught by Lasus of Hermione inserting into the works of Musaeus an oracle to the effect that the islands lying off Lemnos would disappear beneath the sea. For that reason Hipparchus drove him out, though before this he had used him frequently as a consultant. But now he had gone up with them, and when he came into the king's presence, the sons of Pisistratus spoke of him in glowing terms, and he recited some of the oracles. Anything in them that foretold disaster for the barbarians he said nothing about, but picked out the most favorable passages, including one that said it was fated that a Persian should yoke the Hellespont with a bridge, and he set forth the manner of the march. So he pressed Xerxes with oracles, while the sons of Pisistratus and the Aleuadae pressed him with their advice.
+
+The Athenian oracle-monger the sons of Peisistratus brought to Susa. He had been caught by Lasus inserting a forged prophecy into the works of Musaeus; at court he recited only the oracles that promised the Persian success, including the one that said a Persian was fated to bridge the Hellespont.
+
+## modern-en · musaeus · 1032:0
+
+This was the kind of thing he kept saying — for he was a man who had an appetite for bold enterprise and wanted to be governor of Greece himself under the king. In time he won Xerxes over and persuaded him to undertake it, for other things also helped Mardonius in his persuasion. First of all, envoys had come from Thessaly, sent by the Aleuadae, inviting the king to attack Greece and showing great zeal for his cause (these Aleuadae were kings of Thessaly); and secondly, those of Pisistratus's sons who had come up to Susa were likewise urging him on, pressing the same arguments as the Aleuadae, and they offered him an additional inducement besides. For there was a certain Onomacritus, an Athenian, who both uttered oracles and had collected and arranged the oracles of Musaeus; they had brought him up with them, having first made up their old quarrel. Onomacritus had been banished from Athens by Hipparchus son of Pisistratus when he was caught by Lasus of Hermione inserting into the works of Musaeus an oracle to the effect that the islands lying off Lemnos would disappear beneath the sea. For that reason Hipparchus drove him out, though before this he had used him frequently as a consultant. But now he had gone up with them, and when he came into the king's presence, the sons of Pisistratus spoke of him in glowing terms, and he recited some of the oracles. Anything in them that foretold disaster for the barbarians he said nothing about, but picked out the most favorable passages, including one that said it was fated that a Persian should yoke the Hellespont with a bridge, and he set forth the manner of the march. So he pressed Xerxes with oracles, while the sons of Pisistratus and the Aleuadae pressed him with their advice.
+
+The seer whose collected oracles Onomacritus arranged — and doctored.
+
+## modern-en · lasus · 1032:0
+
+This was the kind of thing he kept saying — for he was a man who had an appetite for bold enterprise and wanted to be governor of Greece himself under the king. In time he won Xerxes over and persuaded him to undertake it, for other things also helped Mardonius in his persuasion. First of all, envoys had come from Thessaly, sent by the Aleuadae, inviting the king to attack Greece and showing great zeal for his cause (these Aleuadae were kings of Thessaly); and secondly, those of Pisistratus's sons who had come up to Susa were likewise urging him on, pressing the same arguments as the Aleuadae, and they offered him an additional inducement besides. For there was a certain Onomacritus, an Athenian, who both uttered oracles and had collected and arranged the oracles of Musaeus; they had brought him up with them, having first made up their old quarrel. Onomacritus had been banished from Athens by Hipparchus son of Pisistratus when he was caught by Lasus of Hermione inserting into the works of Musaeus an oracle to the effect that the islands lying off Lemnos would disappear beneath the sea. For that reason Hipparchus drove him out, though before this he had used him frequently as a consultant. But now he had gone up with them, and when he came into the king's presence, the sons of Pisistratus spoke of him in glowing terms, and he recited some of the oracles. Anything in them that foretold disaster for the barbarians he said nothing about, but picked out the most favorable passages, including one that said it was fated that a Persian should yoke the Hellespont with a bridge, and he set forth the manner of the march. So he pressed Xerxes with oracles, while the sons of Pisistratus and the Aleuadae pressed him with their advice.
+
+Of Hermione, who caught Onomacritus at the forgery.
+
+## modern-en · aleuadae · 1032:0
+
+This was the kind of thing he kept saying — for he was a man who had an appetite for bold enterprise and wanted to be governor of Greece himself under the king. In time he won Xerxes over and persuaded him to undertake it, for other things also helped Mardonius in his persuasion. First of all, envoys had come from Thessaly, sent by the Aleuadae, inviting the king to attack Greece and showing great zeal for his cause (these Aleuadae were kings of Thessaly); and secondly, those of Pisistratus's sons who had come up to Susa were likewise urging him on, pressing the same arguments as the Aleuadae, and they offered him an additional inducement besides. For there was a certain Onomacritus, an Athenian, who both uttered oracles and had collected and arranged the oracles of Musaeus; they had brought him up with them, having first made up their old quarrel. Onomacritus had been banished from Athens by Hipparchus son of Pisistratus when he was caught by Lasus of Hermione inserting into the works of Musaeus an oracle to the effect that the islands lying off Lemnos would disappear beneath the sea. For that reason Hipparchus drove him out, though before this he had used him frequently as a consultant. But now he had gone up with them, and when he came into the king's presence, the sons of Pisistratus spoke of him in glowing terms, and he recited some of the oracles. Anything in them that foretold disaster for the barbarians he said nothing about, but picked out the most favorable passages, including one that said it was fated that a Persian should yoke the Hellespont with a bridge, and he set forth the manner of the march. So he pressed Xerxes with oracles, while the sons of Pisistratus and the Aleuadae pressed him with their advice.
+
+The kings of Thessaly, the first Greeks to invite Xerxes in and the first to give themselves to him. Their countrymen sent to the Isthmus to say they had had no part in it.
+
+## modern-en · aleuas · 1152:0
+
+So when Xerxes asked whether there was any other possible outlet to the sea for the Peneios, the guides answered with exact knowledge of the truth: “O king, for this river there is no other outlet reaching the sea than this one alone; for all Thessaly is encircled by mountains like a crown.” To this Xerxes is said to have replied: “Then the Thessalians are prudent men. This, it seems, was what they wished to guard against in good time when they changed their policy — reflecting, among other things, on this in particular: that they have a country which is, as it seems, easy to conquer and can be taken quickly, for one would only need to let the river flood their land by throwing up an embankment to keep it from going through the narrow channel and diverting its course from the present one, so as to put the whole of Thessaly under water, except the mountains.” He said this with reference to the sons of Aleuas, because they, Thessalians, were the first of the Greeks to give themselves over to the king; and Xerxes believed they were offering him friendship on behalf of their whole nation. Having so spoken, and having looked at the place, he sailed back to Therma.
+
+The Aleuadae are his sons.
+
+## modern-en · artabanus · 639:0
+
+While Darius was preparing to march against the Scythians and sending messengers to assign some of his subjects the furnishing of a land army, others the furnishing of ships, and others the bridging of the Thracian Bosphorus, Artabanos, son of Hystaspes and brother of Darius, urged him by no means to make the march against the Scythians, telling him how difficult the Scythians were to deal with. But since he did not persuade him, though he gave good counsel, he ceased to press. Darius, when all his preparations were complete, began to march his army forth from Susa.
+
+Hystaspes’s son and Darius’s brother, who had told Darius not to march against the Scythians and now told Xerxes not to march against Greece: the land and the sea are your two enemies, and god cuts short whatever stands above the rest. Made to sleep in the king’s bed and clothes, he saw the same dream, changed his mind, and was sent back to Susa to keep the kingdom.
+
+## modern-en · ariaramnes · 1037:0
+
+So spoke Artabanus; and Xerxes, enraged at it, answered him thus: “Artabanus, you are my father's brother, and that will save you from receiving the punishment your foolish words deserve. But I attach this dishonor to you, seeing that you are a coward and spiritless: you shall not march with me against Greece, but shall stay here with the women; and I, without your help, will carry out everything I have said. May I be no descendant of Darius son of Hystaspes, son of Arsames, son of Ariaramnes, son of Teispes, or of Cyrus son of Cambyses, son of Teispes, son of Achaemenes, if I do not take vengeance on the Athenians. For I know well that even if we keep still, they will not — they will march again against our land, if we may judge from the things they have already done, since they set fire to Sardis and marched into Asia. It is therefore not possible for either side to withdraw from this quarrel. The question before us is whether we act or suffer, whether all these regions come under the Greeks or all those under the Persians, for in our enmity there is no middle ground. It follows, then, that since we have been wronged first, it is right for us to take revenge — and that I may find out, too, what this terrible thing is which I am supposed to suffer by leading an army against these men, whom Pelops the Phrygian, who was the slave of my forefathers, so thoroughly subdued that to this very day the men themselves and their land are called by the name of him who subdued them.”
+
+Arsames’s father in the royal descent Xerxes recites.
+
+## modern-en · teispes · 1037:0
+
+So spoke Artabanus; and Xerxes, enraged at it, answered him thus: “Artabanus, you are my father's brother, and that will save you from receiving the punishment your foolish words deserve. But I attach this dishonor to you, seeing that you are a coward and spiritless: you shall not march with me against Greece, but shall stay here with the women; and I, without your help, will carry out everything I have said. May I be no descendant of Darius son of Hystaspes, son of Arsames, son of Ariaramnes, son of Teispes, or of Cyrus son of Cambyses, son of Teispes, son of Achaemenes, if I do not take vengeance on the Athenians. For I know well that even if we keep still, they will not — they will march again against our land, if we may judge from the things they have already done, since they set fire to Sardis and marched into Asia. It is therefore not possible for either side to withdraw from this quarrel. The question before us is whether we act or suffer, whether all these regions come under the Greeks or all those under the Persians, for in our enmity there is no middle ground. It follows, then, that since we have been wronged first, it is right for us to take revenge — and that I may find out, too, what this terrible thing is which I am supposed to suffer by leading an army against these men, whom Pelops the Phrygian, who was the slave of my forefathers, so thoroughly subdued that to this very day the men themselves and their land are called by the name of him who subdued them.”
+
+Named twice in the same descent, once as Ariaramnes’s father and once as Cambyses’s.
+
+## modern-en · arsames · 208:0
+
+When he had passed over the Araxes, night having come on, he saw a vision in his sleep in the land of the Massagetai, as follows. In his sleep it seemed to Cyrus that he saw the eldest of the sons of Hystaspes having wings upon his shoulders, and that with the one of these he overshadowed Asia and with the other Europe. Now of Hystaspes the son of Arsames, who was a man of the Achaimenid clan, the eldest son was Dareios, who was then, I suppose, a youth of about twenty years of age, and he had been left behind in the land of the Persians, for he was not yet of full age to go out to the wars. So when Cyrus awoke, he considered with himself concerning the vision; and as the vision seemed to him to be of great import, he called Hystaspes, and having taken him apart by himself he said: “Hystaspes, your son has been found plotting against me and against my throne; and how I know this for certain, I will declare to you. The gods have a care for me and show me beforehand all the evils that threaten me. So in the night that is past, while sleeping, I saw the eldest of your sons having wings upon his shoulders, and with the one he overshadowed Asia and with the other Europe. To judge by this vision, it cannot be but that he is plotting against me. Therefore, go by the quickest way back to Persia and take care that, when I arrive there after subduing these regions, you set your son before me to be examined.”
+
+Hystaspes’s father, Darius’s grandfather.
+
+## modern-en · arsames-son-of-darius · 1092:0
+
+The Arabians wore loose cloaks belted up, and they carried on their right side long bows that bent backward. The Ethiopians wore leopard-skins and lion-skins tied upon them, and they had bows made of a strip of palm-wood, of great length, no less than four cubits, and for them small reed arrows with a sharpened stone tip instead of iron — the same stone they use for engraving seals. In addition they had spears tipped with a sharpened gazelle horn in place of a spear-head, and knob-studded clubs. Before going into battle they used to smear half their bodies with white and the other half with red. The commander of both the Arabians and of the Ethiopians who lived above Egypt was Arsames, son of Darius and of Artystone, the daughter of Cyrus whom Darius loved most of all his wives and of whom he had an image made in beaten gold.
+
+Darius’s son by Artystone, commander of the Arabians and of the Ethiopians above Egypt.
+
+## modern-en · pythius · 1053:0
+
+In this city Pythius son of Atys, a Lydian, was waiting for the king, and he entertained Xerxes and his whole army with the most magnificent hospitality; he also declared himself ready to supply funds for the war. When Pythius made this offer of money, Xerxes asked the Persians who were with him who Pythius was and how much money he possessed that he could make such an offer. They answered: “O king, this is the man who presented your father Darius with the golden plane-tree and the golden vine; and he is even now, in wealth, the first of all men we know of, excepting you alone.”
+
+The Lydian of Celaenae, the richest man alive after the king, who entertained the whole army and offered his whole fortune for the war — and then asked for one of his five sons back. Xerxes had the eldest cut in half and the army marched between the pieces.
+
+## modern-en · atys-father-of-pythius · 1053:0
+
+In this city Pythius son of Atys, a Lydian, was waiting for the king, and he entertained Xerxes and his whole army with the most magnificent hospitality; he also declared himself ready to supply funds for the war. When Pythius made this offer of money, Xerxes asked the Persians who were with him who Pythius was and how much money he possessed that he could make such an offer. They answered: “O king, this is the man who presented your father Darius with the golden plane-tree and the golden vine; and he is even now, in wealth, the first of all men we know of, excepting you alone.”
+
+Pythius’s father. A third man of the name, after Croesus’s son and the ancient king.
+
+## modern-en · marsyas · 1052:0
+
+While these men were at their appointed tasks, the whole land army had been brought together and was marching with Xerxes to Sardis, setting out from Critalla in Cappadocia — for it had been ordered that the entire army which was to go with Xerxes himself by land should assemble there. Which of the provincial governors brought the best-equipped force and received the gifts from the king I am unable to say, for I do not know that they even came to such a competition. After they had crossed the river Halys and entered Phrygia, they marched through that country to Celaenae, where the springs of the Maeander rise, and also those of another river no smaller than the Maeander, whose name is Catarractes; this one rises in the very marketplace of Celaenae and flows into the Maeander. Here too is hung up in the city the skin of the Silenus Marsyas, which the Phrygians say was flayed off and hung there by Apollo.
+
+The Silenus whose flayed skin hangs in the marketplace of Celaenae; the Phrygians say Apollo hung it there.
+
+## modern-en · patiramphes · 1064:0
+
+When they had done this, the army proceeded to pass between the halves. First the baggage-carriers and their horses led the way, and after them came the host of every kind of nation mixed together without distinction. When more than half had gone by, a gap was left to separate these from the king. Before Xerxes himself went first a thousand horsemen, picked out of all the Persians; and after them a thousand spearmen likewise picked from all the Persians, with the points of their spears turned down toward the ground. Then came ten sacred horses, called “Nesaean,” in the most splendid trappings. These horses are called Nesaean for this reason: there is a broad plain in Media called the Nesaean plain, and this plain produces the great horses of which I speak. Behind these ten came the sacred chariot of Zeus, drawn by eight white horses; and behind the horses came, on foot, a charioteer holding the reins — for no mortal ever mounts the seat of that chariot. Then, behind this, came Xerxes himself in a chariot drawn by Nesaean horses; beside him rode a charioteer named Patiramphes son of Otanes, a Persian.
+
+Xerxes’s charioteer.
+
+## modern-en · catalogue-nations · 172:0
+
+The Lykians, however, have sprung originally from Crete (for in olden times the whole of Crete was possessed by barbarians). When the sons of Europa, Sarpedon and Minos, came to be at variance in Crete about the kingdom, Minos, having got the better in the strife of parties, drove out both Sarpedon himself and those of his party. They, having been expelled, came to the land of Milyas in Asia, for the land which the Lykians now inhabit was anciently called Milyas, and the Milyans were then called Solymoi. While Sarpedon reigned over them, they were called by the name they had when they came there, by which the Lykians are even now called by the neighboring tribes, namely Termilai. But when Lycos the son of Pandion came from Athens to the land of the Termilai and to Sarpedon — having himself been driven out by his brother Aigeus — then by the name taken from Lycos they were after a time called Lykians. The customs they have are partly Cretan and partly Carian; but one custom they have which is peculiar to them and in which they agree with no other people: they call themselves by their mothers and not by their fathers. If one asks his neighbor who he is, he will state his parentage on the mother's side and enumerate his mother's female ancestors. And if a woman who is a citizen marries a slave, the children are accounted of gentle birth; but if a man who is a citizen, though he were the first among them, has a slave for wife or concubine, the children are without civil rights.
+
+The peoples Herodotus names only inside his catalogues — Croesus’s subject list, Darius’s tribute roll, and above all the muster at Doriscus, where forty-odd nations pass in review with their dress, their weapons and their Persian commanders: Cissians, Hyrcanians, Gandarians, Sarangae, Utii, Myci, Moschi, Tibareni, Macrones, Mossynoeci, Mares, Alarodians, Mariandyni, Milyans, Lasonians, Pactyes and the rest. He tells you nothing else about most of them. They are bound to this one card rather than to forty that would each read the same.
+
+## modern-en · otanes-father-of-amestris · 1085:0
+
+Those who served were these. The Persians, with this equipment: upon their heads they wore soft felt caps called tiaras, and on their bodies colorful sleeved tunics that looked like iron scales such as a fish's; around their legs, trousers. Instead of the ordinary shields they carried wicker shields, beneath which hung their quivers; and they carried short spears, large bows, reed arrows, and daggers hanging from the belt by the right thigh. Their commander, whom they acknowledged as such, was Otanes, the father of Xerxes's wife Amestris. These people were called Cephenes by the Greeks of old, but by themselves and by their neighbors they were called Artaeans. When Perseus son of Danaë and Zeus came to Cepheus son of Belus and married his daughter Andromeda, a son was born to them whom he named Perses, and this son he left behind there — for it happened that Cepheus had no male offspring. It is from him that the race was named.
+
+Commander of the Persian contingent and father of Xerxes’s wife Amestris. Herodotus does not say whether he is the Otanes of the seven.
+
+## modern-en · amestris · 1085:0
+
+Those who served were these. The Persians, with this equipment: upon their heads they wore soft felt caps called tiaras, and on their bodies colorful sleeved tunics that looked like iron scales such as a fish's; around their legs, trousers. Instead of the ordinary shields they carried wicker shields, beneath which hung their quivers; and they carried short spears, large bows, reed arrows, and daggers hanging from the belt by the right thigh. Their commander, whom they acknowledged as such, was Otanes, the father of Xerxes's wife Amestris. These people were called Cephenes by the Greeks of old, but by themselves and by their neighbors they were called Artaeans. When Perseus son of Danaë and Zeus came to Cepheus son of Belus and married his daughter Andromeda, a son was born to them whom he named Perses, and this son he left behind there — for it happened that Cepheus had no male offspring. It is from him that the race was named.
+
+Xerxes’s wife, who in her old age buried twice seven children of noble Persians alive as a thank-offering for her own life.
+
+## modern-en · cepheus · 1085:0
+
+Those who served were these. The Persians, with this equipment: upon their heads they wore soft felt caps called tiaras, and on their bodies colorful sleeved tunics that looked like iron scales such as a fish's; around their legs, trousers. Instead of the ordinary shields they carried wicker shields, beneath which hung their quivers; and they carried short spears, large bows, reed arrows, and daggers hanging from the belt by the right thigh. Their commander, whom they acknowledged as such, was Otanes, the father of Xerxes's wife Amestris. These people were called Cephenes by the Greeks of old, but by themselves and by their neighbors they were called Artaeans. When Perseus son of Danaë and Zeus came to Cepheus son of Belus and married his daughter Andromeda, a son was born to them whom he named Perses, and this son he left behind there — for it happened that Cepheus had no male offspring. It is from him that the race was named.
+
+Belus’s son, whose daughter Perseus married; he had no son, and the Persian race is named from his grandson.
+
+## modern-en · andromeda · 1085:0
+
+Those who served were these. The Persians, with this equipment: upon their heads they wore soft felt caps called tiaras, and on their bodies colorful sleeved tunics that looked like iron scales such as a fish's; around their legs, trousers. Instead of the ordinary shields they carried wicker shields, beneath which hung their quivers; and they carried short spears, large bows, reed arrows, and daggers hanging from the belt by the right thigh. Their commander, whom they acknowledged as such, was Otanes, the father of Xerxes's wife Amestris. These people were called Cephenes by the Greeks of old, but by themselves and by their neighbors they were called Artaeans. When Perseus son of Danaë and Zeus came to Cepheus son of Belus and married his daughter Andromeda, a son was born to them whom he named Perses, and this son he left behind there — for it happened that Cepheus had no male offspring. It is from him that the race was named.
+
+Cepheus’s daughter, whom Perseus married.
+
+## modern-en · perses · 1085:0
+
+Those who served were these. The Persians, with this equipment: upon their heads they wore soft felt caps called tiaras, and on their bodies colorful sleeved tunics that looked like iron scales such as a fish's; around their legs, trousers. Instead of the ordinary shields they carried wicker shields, beneath which hung their quivers; and they carried short spears, large bows, reed arrows, and daggers hanging from the belt by the right thigh. Their commander, whom they acknowledged as such, was Otanes, the father of Xerxes's wife Amestris. These people were called Cephenes by the Greeks of old, but by themselves and by their neighbors they were called Artaeans. When Perseus son of Danaë and Zeus came to Cepheus son of Belus and married his daughter Andromeda, a son was born to them whom he named Perses, and this son he left behind there — for it happened that Cepheus had no male offspring. It is from him that the race was named.
+
+Perseus and Andromeda’s son, left behind with his grandfather, from whom the Persians take their name — and the ground of Xerxes’s claim to be the Argives’ kinsman.
+
+## modern-en · tigranes · 1086:0
+
+The Medes served in the expedition equipped in precisely the same way, for this is in fact Median gear, not Persian; the Medes acknowledged as their commander Tigranes, an Achaemenid. In ancient times these people were generally called Arians, but when Medea the Colchian came from Athens to these Arians, they too changed their name. So the Medes themselves say of themselves. The Cissians served with equipment otherwise like that of the Persians, but instead of felt caps they wore turbans; their commander was Anaphes son of Otanes. The Hyrcanians were armed like the Persians, acknowledging as their leader Megapanus, the same man who after these events became governor of Babylon.
+
+An Achaemenid, commander of the Medes, and one of the generals left in Asia at the end.
+
+## modern-en · anaphes · 1086:0
+
+The Medes served in the expedition equipped in precisely the same way, for this is in fact Median gear, not Persian; the Medes acknowledged as their commander Tigranes, an Achaemenid. In ancient times these people were generally called Arians, but when Medea the Colchian came from Athens to these Arians, they too changed their name. So the Medes themselves say of themselves. The Cissians served with equipment otherwise like that of the Persians, but instead of felt caps they wore turbans; their commander was Anaphes son of Otanes. The Hyrcanians were armed like the Persians, acknowledging as their leader Megapanus, the same man who after these events became governor of Babylon.
+
+Son of Otanes, commander of the Cissians.
+
+## modern-en · megapanus · 1086:0
+
+The Medes served in the expedition equipped in precisely the same way, for this is in fact Median gear, not Persian; the Medes acknowledged as their commander Tigranes, an Achaemenid. In ancient times these people were generally called Arians, but when Medea the Colchian came from Athens to these Arians, they too changed their name. So the Medes themselves say of themselves. The Cissians served with equipment otherwise like that of the Persians, but instead of felt caps they wore turbans; their commander was Anaphes son of Otanes. The Hyrcanians were armed like the Persians, acknowledging as their leader Megapanus, the same man who after these events became governor of Babylon.
+
+Commander of the Hyrcanians, afterwards governor of Babylon.
+
+## modern-en · otaspes · 1087:0
+
+The Assyrians served with bronze helmets on their heads, or with helmets plaited in a barbarian style not easily described; they carried shields and spears, and daggers like the Egyptian knives, and also wooden clubs studded with iron knobs, and linen corselets. These are called Syrians by the Greeks, but by the barbarians they have always been called Assyrians; among them were also the Chaldeans. Their commander was Otaspes son of Artachaees.
+
+Son of Artachaees, commander of the Assyrians.
+
+## modern-en · artachaees · 1048:0
+
+In the first place, since the earlier fleet had been ruined in sailing round Athos, preparations had been going on for about three years with regard to Athos: triremes lay at anchor at Elaius in the Chersonese, and using that as a base men of all the nations in the army worked at the digging under the lash, relieving one another in shifts. Those who lived around Athos joined in the digging too. Bubares son of Megabazus and Artachaees son of Artaeus, both Persians, were put in charge of the work. Athos is a great and famous mountain running down to the sea and inhabited by people; where the mountain ends on the mainland side, the ground resembles a peninsula with an isthmus about twelve stades across. Here it is flat or low-hilled country, stretching from the sea off Acanthus to the one off Torone. On this isthmus, where Athos ends, stands a Greek city called Sane; beyond Sane and within the Athos peninsula are others — Dion, Olophyxus, Acrothoön, Thyssus, Cleonae — all of which the Persian had resolved to turn into cities of an island rather than of the mainland.
+
+The Achaemenid who ran the digging of the Athos channel, the tallest Persian alive and the loudest-voiced; he died of sickness at Acanthus, and Xerxes buried him under a mound raised by the whole army. Acanthus sacrifices to him as a hero.
+
+## modern-en · artachaees-father-of-otaspes · 1087:0
+
+The Assyrians served with bronze helmets on their heads, or with helmets plaited in a barbarian style not easily described; they carried shields and spears, and daggers like the Egyptian knives, and also wooden clubs studded with iron knobs, and linen corselets. These are called Syrians by the Greeks, but by the barbarians they have always been called Assyrians; among them were also the Chaldeans. Their commander was Otaspes son of Artachaees.
+
+Otaspes’s father, named once in the catalogue.
+
+## modern-en · artaeus · 1048:0
+
+In the first place, since the earlier fleet had been ruined in sailing round Athos, preparations had been going on for about three years with regard to Athos: triremes lay at anchor at Elaius in the Chersonese, and using that as a base men of all the nations in the army worked at the digging under the lash, relieving one another in shifts. Those who lived around Athos joined in the digging too. Bubares son of Megabazus and Artachaees son of Artaeus, both Persians, were put in charge of the work. Athos is a great and famous mountain running down to the sea and inhabited by people; where the mountain ends on the mainland side, the ground resembles a peninsula with an isthmus about twelve stades across. Here it is flat or low-hilled country, stretching from the sea off Acanthus to the one off Torone. On this isthmus, where Athos ends, stands a Greek city called Sane; beyond Sane and within the Athos peninsula are others — Dion, Olophyxus, Acrothoön, Thyssus, Cleonae — all of which the Persian had resolved to turn into cities of an island rather than of the mainland.
+
+Named twice in the catalogue as a father — of Artachaees who dug the channel, and of Azanes who commanded the Sogdians. Herodotus does not say whether these are one man.
+
+## modern-en · hystaspes-son-of-darius · 1088:0
+
+The Bactrians wore on their heads nearly the same covering as the Medes, and they had native bows of reed and short spears. The Sacae — who are Scythians — wore on their heads caps rising to a point and standing stiff and upright; they wore trousers and carried native bows and daggers, and also axes of the kind called sagaris. These were called the Amyrgian Sacae, though they were in fact Scythians, for the Persians call all Scythians Sacae. The commander of the Bactrians and the Sacae was Hystaspes, son of Darius and of Atossa daughter of Cyrus.
+
+Darius’s son by Atossa, commander of the Bactrians and the Sacae. Named for his great-grandfather.
+
+## modern-en · pharnazathres · 1089:0
+
+The Indians wore garments made of tree-wool (cotton), and they had bows of reed and reed arrows tipped with iron. Such was the equipment of the Indians; they served under the command of Pharnazathres son of Artabates.
+
+Son of Artabates, commander of the Indians.
+
+## modern-en · artabates · 1089:0
+
+The Indians wore garments made of tree-wool (cotton), and they had bows of reed and reed arrows tipped with iron. Such was the equipment of the Indians; they served under the command of Pharnazathres son of Artabates.
+
+Pharnazathres’s father.
+
+## modern-en · sisamnes-son-of-hydarnes · 1090:0
+
+The Arians were equipped with Median bows, and in other respects like the Bactrians; their commander was Sisamnes son of Hydarnes. The Parthians, Chorasmians, Sogdians, Gandarians, and Dadicae served with the same equipment as the Bactrians. Their commanders were Artabazus son of Pharnaces over the Parthians and Chorasmians; Azanes son of Artaeus over the Sogdians; and Artyphius son of Artabanus over the Gandarians and Dadicae. The Caspians served wearing skin coats and carrying native reed bows and short swords; such was their equipment, and they acknowledged as their leader Ariomardus, the brother of Artyphius. The Sarangae were conspicuous among the rest for their brightly dyed garments; they wore boots reaching to the knee and carried Median bows and spears. Their commander was Pherendates son of Megabazus. The Pactyes wore skin coats and carried native bows and daggers; they acknowledged as their commander Artayntes son of Ithamitres.
+
+Commander of the Arians. Not the judge whose skin Cambyses had stretched over a chair.
+
+## modern-en · artabazus · 1090:0
+
+The Arians were equipped with Median bows, and in other respects like the Bactrians; their commander was Sisamnes son of Hydarnes. The Parthians, Chorasmians, Sogdians, Gandarians, and Dadicae served with the same equipment as the Bactrians. Their commanders were Artabazus son of Pharnaces over the Parthians and Chorasmians; Azanes son of Artaeus over the Sogdians; and Artyphius son of Artabanus over the Gandarians and Dadicae. The Caspians served wearing skin coats and carrying native reed bows and short swords; such was their equipment, and they acknowledged as their leader Ariomardus, the brother of Artyphius. The Sarangae were conspicuous among the rest for their brightly dyed garments; they wore boots reaching to the knee and carried Median bows and spears. Their commander was Pherendates son of Megabazus. The Pactyes wore skin coats and carried native bows and daggers; they acknowledged as their commander Artayntes son of Ithamitres.
+
+Son of Pharnaces, commander of the Parthians and Chorasmians, and afterwards the general who brought the remnant of the army home.
+
+## modern-en · pharnaces · 1090:0
+
+The Arians were equipped with Median bows, and in other respects like the Bactrians; their commander was Sisamnes son of Hydarnes. The Parthians, Chorasmians, Sogdians, Gandarians, and Dadicae served with the same equipment as the Bactrians. Their commanders were Artabazus son of Pharnaces over the Parthians and Chorasmians; Azanes son of Artaeus over the Sogdians; and Artyphius son of Artabanus over the Gandarians and Dadicae. The Caspians served wearing skin coats and carrying native reed bows and short swords; such was their equipment, and they acknowledged as their leader Ariomardus, the brother of Artyphius. The Sarangae were conspicuous among the rest for their brightly dyed garments; they wore boots reaching to the knee and carried Median bows and spears. Their commander was Pherendates son of Megabazus. The Pactyes wore skin coats and carried native bows and daggers; they acknowledged as their commander Artayntes son of Ithamitres.
+
+Artabazus’s father.
+
+## modern-en · azanes · 1090:0
+
+The Arians were equipped with Median bows, and in other respects like the Bactrians; their commander was Sisamnes son of Hydarnes. The Parthians, Chorasmians, Sogdians, Gandarians, and Dadicae served with the same equipment as the Bactrians. Their commanders were Artabazus son of Pharnaces over the Parthians and Chorasmians; Azanes son of Artaeus over the Sogdians; and Artyphius son of Artabanus over the Gandarians and Dadicae. The Caspians served wearing skin coats and carrying native reed bows and short swords; such was their equipment, and they acknowledged as their leader Ariomardus, the brother of Artyphius. The Sarangae were conspicuous among the rest for their brightly dyed garments; they wore boots reaching to the knee and carried Median bows and spears. Their commander was Pherendates son of Megabazus. The Pactyes wore skin coats and carried native bows and daggers; they acknowledged as their commander Artayntes son of Ithamitres.
+
+Son of Artaeus, commander of the Sogdians.
+
+## modern-en · artyphius · 1090:0
+
+The Arians were equipped with Median bows, and in other respects like the Bactrians; their commander was Sisamnes son of Hydarnes. The Parthians, Chorasmians, Sogdians, Gandarians, and Dadicae served with the same equipment as the Bactrians. Their commanders were Artabazus son of Pharnaces over the Parthians and Chorasmians; Azanes son of Artaeus over the Sogdians; and Artyphius son of Artabanus over the Gandarians and Dadicae. The Caspians served wearing skin coats and carrying native reed bows and short swords; such was their equipment, and they acknowledged as their leader Ariomardus, the brother of Artyphius. The Sarangae were conspicuous among the rest for their brightly dyed garments; they wore boots reaching to the knee and carried Median bows and spears. Their commander was Pherendates son of Megabazus. The Pactyes wore skin coats and carried native bows and daggers; they acknowledged as their commander Artayntes son of Ithamitres.
+
+Son of Artabanus, commander of the Gandarians and Dadicae.
+
+## modern-en · ariomardus-caspians · 1090:0
+
+The Arians were equipped with Median bows, and in other respects like the Bactrians; their commander was Sisamnes son of Hydarnes. The Parthians, Chorasmians, Sogdians, Gandarians, and Dadicae served with the same equipment as the Bactrians. Their commanders were Artabazus son of Pharnaces over the Parthians and Chorasmians; Azanes son of Artaeus over the Sogdians; and Artyphius son of Artabanus over the Gandarians and Dadicae. The Caspians served wearing skin coats and carrying native reed bows and short swords; such was their equipment, and they acknowledged as their leader Ariomardus, the brother of Artyphius. The Sarangae were conspicuous among the rest for their brightly dyed garments; they wore boots reaching to the knee and carried Median bows and spears. Their commander was Pherendates son of Megabazus. The Pactyes wore skin coats and carried native bows and daggers; they acknowledged as their commander Artayntes son of Ithamitres.
+
+Artyphius’s brother, commander of the Caspians.
+
+## modern-en · ariomardus-son-of-darius · 1100:0
+
+The Moschi wore wooden caps on their heads and carried shields and small spears with long points set on them. The Tibareni, Macrones, and Mossynoeci served with equipment like the Moschi's, and they were arrayed together under the following commanders: the Moschi and Tibareni under Ariomardus, son of Darius and Parmys, daughter of Smerdis son of Cyrus; the Macrones and Mossynoeci under Artayctes son of Cherasmis, the governor of Sestos on the Hellespont.
+
+Darius’s son by Parmys, Smerdis’s daughter, commander of the Moschi and Tibareni.
+
+## modern-en · pherendates · 1090:0
+
+The Arians were equipped with Median bows, and in other respects like the Bactrians; their commander was Sisamnes son of Hydarnes. The Parthians, Chorasmians, Sogdians, Gandarians, and Dadicae served with the same equipment as the Bactrians. Their commanders were Artabazus son of Pharnaces over the Parthians and Chorasmians; Azanes son of Artaeus over the Sogdians; and Artyphius son of Artabanus over the Gandarians and Dadicae. The Caspians served wearing skin coats and carrying native reed bows and short swords; such was their equipment, and they acknowledged as their leader Ariomardus, the brother of Artyphius. The Sarangae were conspicuous among the rest for their brightly dyed garments; they wore boots reaching to the knee and carried Median bows and spears. Their commander was Pherendates son of Megabazus. The Pactyes wore skin coats and carried native bows and daggers; they acknowledged as their commander Artayntes son of Ithamitres.
+
+Son of Megabazus, commander of the Sarangae.
+
+## modern-en · artayntes · 1090:0
+
+The Arians were equipped with Median bows, and in other respects like the Bactrians; their commander was Sisamnes son of Hydarnes. The Parthians, Chorasmians, Sogdians, Gandarians, and Dadicae served with the same equipment as the Bactrians. Their commanders were Artabazus son of Pharnaces over the Parthians and Chorasmians; Azanes son of Artaeus over the Sogdians; and Artyphius son of Artabanus over the Gandarians and Dadicae. The Caspians served wearing skin coats and carrying native reed bows and short swords; such was their equipment, and they acknowledged as their leader Ariomardus, the brother of Artyphius. The Sarangae were conspicuous among the rest for their brightly dyed garments; they wore boots reaching to the knee and carried Median bows and spears. Their commander was Pherendates son of Megabazus. The Pactyes wore skin coats and carried native bows and daggers; they acknowledged as their commander Artayntes son of Ithamitres.
+
+Son of Ithamitres, commander of the Pactyes.
+
+## modern-en · ithamitres · 1090:0
+
+The Arians were equipped with Median bows, and in other respects like the Bactrians; their commander was Sisamnes son of Hydarnes. The Parthians, Chorasmians, Sogdians, Gandarians, and Dadicae served with the same equipment as the Bactrians. Their commanders were Artabazus son of Pharnaces over the Parthians and Chorasmians; Azanes son of Artaeus over the Sogdians; and Artyphius son of Artabanus over the Gandarians and Dadicae. The Caspians served wearing skin coats and carrying native reed bows and short swords; such was their equipment, and they acknowledged as their leader Ariomardus, the brother of Artyphius. The Sarangae were conspicuous among the rest for their brightly dyed garments; they wore boots reaching to the knee and carried Median bows and spears. Their commander was Pherendates son of Megabazus. The Pactyes wore skin coats and carried native bows and daggers; they acknowledged as their commander Artayntes son of Ithamitres.
+
+Artayntes’s father, and a commander in the fleet of the last two books.
+
+## modern-en · arsamenes · 1091:0
+
+The Utii, Myci, and Paricanii were equipped like the Pactyes; their commanders were Arsamenes son of Darius over the Utii and Myci, and Siromitres son of Oeobazus over the Paricanii.
+
+Darius’s son, commander of the Utii and Myci.
+
+## modern-en · siromitres · 1091:0
+
+The Utii, Myci, and Paricanii were equipped like the Pactyes; their commanders were Arsamenes son of Darius over the Utii and Myci, and Siromitres son of Oeobazus over the Paricanii.
+
+Son of Oeobazus, commander of the Paricanii; named again in the catalogue as Masistius’s father.
+
+## modern-en · oeobazus · 1091:0
+
+The Utii, Myci, and Paricanii were equipped like the Pactyes; their commanders were Arsamenes son of Darius over the Utii and Myci, and Siromitres son of Oeobazus over the Paricanii.
+
+Siromitres’s father.
+
+## modern-en · massages · 1094:0
+
+The Libyans marched in leather gear and carried javelins hardened in fire at the point. They acknowledged as their commander Massages son of Oarizus.
+
+Son of Oarizus, commander of the Libyans.
+
+## modern-en · oarizus · 1094:0
+
+The Libyans marched in leather gear and carried javelins hardened in fire at the point. They acknowledged as their commander Massages son of Oarizus.
+
+Massages’s father.
+
+## modern-en · dotus · 1095:0
+
+The Paphlagonians served with plaited helmets on their heads, small shields, spears of no great size, and also javelins and daggers; on their feet they wore native boots reaching halfway up the shin. The Ligyes, Matieni, Mariandyni, and Syrians served with the same equipment as the Paphlagonians; these Syrians are called Cappadocians by the Persians. The commanders were Dotus son of Megasidrus over the Paphlagonians and Matieni, and Gobryas son of Darius and Artystone over the Mariandyni, Ligyes, and Syrians.
+
+Son of Megasidrus, commander of the Paphlagonians and Matieni.
+
+## modern-en · megasidrus · 1095:0
+
+The Paphlagonians served with plaited helmets on their heads, small shields, spears of no great size, and also javelins and daggers; on their feet they wore native boots reaching halfway up the shin. The Ligyes, Matieni, Mariandyni, and Syrians served with the same equipment as the Paphlagonians; these Syrians are called Cappadocians by the Persians. The commanders were Dotus son of Megasidrus over the Paphlagonians and Matieni, and Gobryas son of Darius and Artystone over the Mariandyni, Ligyes, and Syrians.
+
+Dotus’s father.
+
+## modern-en · gobryas-son-of-darius · 1095:0
+
+The Paphlagonians served with plaited helmets on their heads, small shields, spears of no great size, and also javelins and daggers; on their feet they wore native boots reaching halfway up the shin. The Ligyes, Matieni, Mariandyni, and Syrians served with the same equipment as the Paphlagonians; these Syrians are called Cappadocians by the Persians. The commanders were Dotus son of Megasidrus over the Paphlagonians and Matieni, and Gobryas son of Darius and Artystone over the Mariandyni, Ligyes, and Syrians.
+
+Darius’s son by Artystone, commander of the Mariandyni, Ligyes and Syrians.
+
+## modern-en · artochmes · 1096:0
+
+The Phrygians had equipment very much like that of the Paphlagonians, with slight differences. The Phrygians, according to the Macedonians, used to be called Briges during the time when they were natives of Europe and lived among the Macedonians; but after they had migrated to Asia, together with their country they changed their name and came to be called Phrygians. The Armenians were armed just like the Phrygians, being settlers from them. The commander of both together was Artochmes, who was married to a daughter of Darius.
+
+Married to a daughter of Darius, commander of the Phrygians and Armenians.
+
+## modern-en · bassakes · 1098:0
+
+The Thracians served wearing fox-skins on their heads and tunics over their bodies, with multicolored cloaks thrown loosely over them; on their feet and lower legs they wore fawn-skin boots. In addition they had javelins, small round shields, and short daggers. After they had crossed over into Asia, these men came to be called Bithynians; but formerly, as they themselves say, they were called Strymonians, since they had lived by the river Strymon; they say they were driven out of their old homes by the Teucrians and Mysians. The commander of the Thracians who lived in Asia was Bassakes son of Artabanus.
+
+Son of Artabanus, commander of the Thracians of Asia.
+
+## modern-en · badres · 1099:0
+
+The Maeonian Cabalians, who are called Lasonians, had the same equipment as the Cilicians — what that was I shall explain when in the course of my catalogue I come to the Cilician contingent. The Milyans carried short spears, and their garments were fastened with brooches; some of them had Lycian bows, and on their heads they wore leather caps. The commander of all these was Badres son of Hystanes.
+
+Son of Hystanes, commander of the Lasonians and Milyans.
+
+## modern-en · hystanes · 1099:0
+
+The Maeonian Cabalians, who are called Lasonians, had the same equipment as the Cilicians — what that was I shall explain when in the course of my catalogue I come to the Cilician contingent. The Milyans carried short spears, and their garments were fastened with brooches; some of them had Lycian bows, and on their heads they wore leather caps. The commander of all these was Badres son of Hystanes.
+
+Badres’s father.
+
+## modern-en · artayctes · 1059:0
+
+After this he made preparations for marching to Abydos; and in the meantime the Hellespont was being bridged from Asia to Europe. Now in the Chersonese of the Hellespont, between the city of Sestos and Madytus, there is a broad headland running down into the sea directly opposite Abydos. This is the place where, not long afterwards, the Athenians under the command of Xanthippus son of Ariphron, having captured a Persian named Artayctes, the governor of Sestos, nailed him alive to a plank with hands and feet outstretched. He was the man who used to take women with him into the temple of Protesilaus at Elaeus and do unlawful things there.
+
+Son of Cherasmis, commander of the Macrones and Mossynoeci and governor of Sestos — the man who used to take women into the shrine of Protesilaus, and whom the Athenians nailed alive to a plank.
+
+## modern-en · cherasmis · 1100:0
+
+The Moschi wore wooden caps on their heads and carried shields and small spears with long points set on them. The Tibareni, Macrones, and Mossynoeci served with equipment like the Moschi's, and they were arrayed together under the following commanders: the Moschi and Tibareni under Ariomardus, son of Darius and Parmys, daughter of Smerdis son of Cyrus; the Macrones and Mossynoeci under Artayctes son of Cherasmis, the governor of Sestos on the Hellespont.
+
+Artayctes’s father.
+
+## modern-en · pharandates · 1101:0
+
+The Mares wore on their heads native plaited helmets and carried small hide shields and javelins. The Colchians wore wooden helmets, carried small shields of raw oxhide, short spears, and also knives. The commander of the Mares and Colchians was Pharandates son of Teaspis. The Alarodians and Saspires served armed like the Colchians; their commander was Masistius son of Siromitres.
+
+Son of Teaspis, commander of the Mares and Colchians.
+
+## modern-en · masistius · 1101:0
+
+The Mares wore on their heads native plaited helmets and carried small hide shields and javelins. The Colchians wore wooden helmets, carried small shields of raw oxhide, short spears, and also knives. The commander of the Mares and Colchians was Pharandates son of Teaspis. The Alarodians and Saspires served armed like the Colchians; their commander was Masistius son of Siromitres.
+
+Son of Siromitres, commander of the Alarodians and Saspires, and afterwards the cavalry commander whose death before Plataea the Persians mourned.
+
+## modern-en · mardontes · 1102:0
+
+The island tribes who marched with the army from the Erythraean Sea — those who inhabited the islands where the king settles the people called the “Removed” — had clothing and arms very similar to those of the Medes. Their commander was Mardontes son of Bagaeus, who the year after these events was commander of the army at Mycale and lost his life in the battle.
+
+Son of Bagaeus, commander of the island contingents, killed the next year at Mycale.
+
+## modern-en · tritantaechmes · 1104:0
+
+These, I say, who have been mentioned, were the commanders of the army. But over them, and over the whole infantry together, the commanders were Mardonius son of Gobryas, Tritantaechmes son of that Artabanus who had given the opinion that they should not make the march against Greece, Smerdomenes son of Otanes (both of them sons of Darius's brothers, and thus cousins of Xerxes), Masistes son of Darius and Atossa, Gergis son of Ariazus, and Megabyzus son of Zopyrus.
+
+Son of the Artabanus who argued against the war, and one of the six generals over the whole infantry.
+
+## modern-en · smerdomenes · 1104:0
+
+These, I say, who have been mentioned, were the commanders of the army. But over them, and over the whole infantry together, the commanders were Mardonius son of Gobryas, Tritantaechmes son of that Artabanus who had given the opinion that they should not make the march against Greece, Smerdomenes son of Otanes (both of them sons of Darius's brothers, and thus cousins of Xerxes), Masistes son of Darius and Atossa, Gergis son of Ariazus, and Megabyzus son of Zopyrus.
+
+Son of Otanes, a cousin of Xerxes and one of the six generals of the infantry.
+
+## modern-en · masistes · 1104:0
+
+These, I say, who have been mentioned, were the commanders of the army. But over them, and over the whole infantry together, the commanders were Mardonius son of Gobryas, Tritantaechmes son of that Artabanus who had given the opinion that they should not make the march against Greece, Smerdomenes son of Otanes (both of them sons of Darius's brothers, and thus cousins of Xerxes), Masistes son of Darius and Atossa, Gergis son of Ariazus, and Megabyzus son of Zopyrus.
+
+Darius’s son by Atossa, one of the six generals of the infantry, and the brother whose family Amestris destroyed.
+
+## modern-en · gergis · 1104:0
+
+These, I say, who have been mentioned, were the commanders of the army. But over them, and over the whole infantry together, the commanders were Mardonius son of Gobryas, Tritantaechmes son of that Artabanus who had given the opinion that they should not make the march against Greece, Smerdomenes son of Otanes (both of them sons of Darius's brothers, and thus cousins of Xerxes), Masistes son of Darius and Atossa, Gergis son of Ariazus, and Megabyzus son of Zopyrus.
+
+Son of Ariazus, one of the six generals of the infantry.
+
+## modern-en · ariazus · 1104:0
+
+These, I say, who have been mentioned, were the commanders of the army. But over them, and over the whole infantry together, the commanders were Mardonius son of Gobryas, Tritantaechmes son of that Artabanus who had given the opinion that they should not make the march against Greece, Smerdomenes son of Otanes (both of them sons of Darius's brothers, and thus cousins of Xerxes), Masistes son of Darius and Atossa, Gergis son of Ariazus, and Megabyzus son of Zopyrus.
+
+Gergis’s father.
+
+## modern-en · megabyzus-son-of-zopyrus · 1104:0
+
+These, I say, who have been mentioned, were the commanders of the army. But over them, and over the whole infantry together, the commanders were Mardonius son of Gobryas, Tritantaechmes son of that Artabanus who had given the opinion that they should not make the march against Greece, Smerdomenes son of Otanes (both of them sons of Darius's brothers, and thus cousins of Xerxes), Masistes son of Darius and Atossa, Gergis son of Ariazus, and Megabyzus son of Zopyrus.
+
+Son of the Zopyrus who took Babylon by mutilating himself, and one of the six generals of the infantry. His grandfather of the same name was one of the seven.
+
+## modern-en · otanes-brother-of-darius · 1104:0
+
+These, I say, who have been mentioned, were the commanders of the army. But over them, and over the whole infantry together, the commanders were Mardonius son of Gobryas, Tritantaechmes son of that Artabanus who had given the opinion that they should not make the march against Greece, Smerdomenes son of Otanes (both of them sons of Darius's brothers, and thus cousins of Xerxes), Masistes son of Darius and Atossa, Gergis son of Ariazus, and Megabyzus son of Zopyrus.
+
+Smerdomenes’s father and a brother of Darius. Neither the conspirator of the seven nor Sisamnes’s son.
+
+## modern-en · hydarnes-son · 1105:0
+
+These were the generals of the whole infantry apart from the ten thousand; and of these ten thousand picked Persians the general was Hydarnes son of Hydarnes. These Persians were called the “Immortals,” because whenever any one of them made the number incomplete, whether by death or disease, another was chosen in his place, and they were never either more or fewer than ten thousand. Of all the nations, the Persians showed the greatest splendor of ornament and were themselves the best men. Their equipment was as described above, and besides this they were conspicuous among the rest for the lavish amount of gold they wore. They brought with them carriages, and in them concubines and a multitude of well-appointed attendants; and provisions for them, apart from those of the other soldiers, were carried on camels and pack animals.
+
+Son of the Hydarnes of the seven, and the Hydarnes of this campaign: commander of the ten thousand Immortals, host to the two Spartans on their way to Susa, and the man Xerxes sent over the mountain path to take the pass from behind.
+
+## modern-en · immortals · 1105:0
+
+These were the generals of the whole infantry apart from the ten thousand; and of these ten thousand picked Persians the general was Hydarnes son of Hydarnes. These Persians were called the “Immortals,” because whenever any one of them made the number incomplete, whether by death or disease, another was chosen in his place, and they were never either more or fewer than ten thousand. Of all the nations, the Persians showed the greatest splendor of ornament and were themselves the best men. Their equipment was as described above, and besides this they were conspicuous among the rest for the lavish amount of gold they wore. They brought with them carriages, and in them concubines and a multitude of well-appointed attendants; and provisions for them, apart from those of the other soldiers, were carried on camels and pack animals.
+
+The ten thousand picked Persians, so called because whenever one of them died or fell sick another was chosen, and they were never more or fewer. They took over at Thermopylae when the Medes had been roughly handled, and did no better.
+
+## modern-en · sagartians · 124:0
+
+When Cyrus heard this, he began to consider in what manner he might most skillfully persuade the Persians to revolt. On consideration he found that this was the most convenient way, and so in fact he did it: he wrote first on a paper what he wished to write, and he called an assembly of the Persians. Then he unfolded the paper and, reading from it, said that Astyages had appointed him commander of the Persians. “And now, O Persians,” he continued, “I give you command to come to me, each one with a reaping-hook.” This was Cyrus's proclamation. (Now there are many tribes of the Persians, and some of them Cyrus gathered together and persuaded to revolt from the Medes, namely those on whom all the other Persians depend: the Pasargadai, the Maraphians, and the Maspians; of these the Pasargadai are the most noble, and the Achaimenidai are a clan of them, from whom are sprung the Perseid kings. There are other Persian tribes as follows: the Panthaliaians, the Derusiaians, and the Germanians, all of whom are tillers of the soil; and the rest are nomad tribes, namely the Daoi, Mardians, Dropicans, and Sagartians.)
+
+Persian in race and language, eight thousand horsemen who carried no bronze or iron but a plaited leather noose, and dragged whatever they caught — horse or man — to themselves.
+
+## modern-en · harmamithras · 1110:0
+
+The cavalry commanders were Harmamithras and Tithaeus, both sons of Datis. But the third, Pharnouches, who had shared command of the cavalry with them, had been left behind at Sardis sick. For as they were setting out from Sardis, an unwelcome accident happened to him: as he was riding along, a dog darted under his horse's feet, and the horse, not having seen it beforehand, took fright, reared up, and threw Pharnouches off its back. Falling, he vomited blood, and his illness turned into consumption. As for the horse, his servants at once did as he had ordered: they led it away to the spot where it had thrown its master and cut off its legs at the knees. That is how Pharnouches was removed from his command.
+
+A son of Datis, and one of the three commanders of the cavalry.
+
+## modern-en · tithaeus · 1110:0
+
+The cavalry commanders were Harmamithras and Tithaeus, both sons of Datis. But the third, Pharnouches, who had shared command of the cavalry with them, had been left behind at Sardis sick. For as they were setting out from Sardis, an unwelcome accident happened to him: as he was riding along, a dog darted under his horse's feet, and the horse, not having seen it beforehand, took fright, reared up, and threw Pharnouches off its back. Falling, he vomited blood, and his illness turned into consumption. As for the horse, his servants at once did as he had ordered: they led it away to the spot where it had thrown its master and cut off its legs at the knees. That is how Pharnouches was removed from his command.
+
+Datis’s other son, cavalry commander with his brother.
+
+## modern-en · pharnouches · 1110:0
+
+The cavalry commanders were Harmamithras and Tithaeus, both sons of Datis. But the third, Pharnouches, who had shared command of the cavalry with them, had been left behind at Sardis sick. For as they were setting out from Sardis, an unwelcome accident happened to him: as he was riding along, a dog darted under his horse's feet, and the horse, not having seen it beforehand, took fright, reared up, and threw Pharnouches off its back. Falling, he vomited blood, and his illness turned into consumption. As for the horse, his servants at once did as he had ordered: they led it away to the spot where it had thrown its master and cut off its legs at the knees. That is how Pharnouches was removed from his command.
+
+The third cavalry commander, left sick at Sardis when a dog ran under his horse and the fall brought on consumption. His servants took the horse back to the spot and cut its legs off at the knees.
+
+## modern-en · ariabignes · 1119:0
+
+The commanders of the naval force were these: Ariabignes son of Darius, Prexaspes son of Aspathines, Megabazus son of Megabates, and Achaemenes son of Darius. That is, the Ionian and Carian contingent was commanded by Ariabignes, son of Darius and of the daughter of Gobryas; the Egyptians by Achaemenes, full brother of Xerxes; and the rest of the armament by the other two. In all, the thirty-oared and fifty-oared galleys, the light craft, and the long horse-transport vessels had been gathered together, as it turned out, to a total of three thousand.
+
+Darius’s son by the daughter of Gobryas, commander of the Ionian and Carian ships, killed at Salamis.
+
+## modern-en · prexaspes-son-of-aspathines · 1119:0
+
+The commanders of the naval force were these: Ariabignes son of Darius, Prexaspes son of Aspathines, Megabazus son of Megabates, and Achaemenes son of Darius. That is, the Ionian and Carian contingent was commanded by Ariabignes, son of Darius and of the daughter of Gobryas; the Egyptians by Achaemenes, full brother of Xerxes; and the rest of the armament by the other two. In all, the thirty-oared and fifty-oared galleys, the light craft, and the long horse-transport vessels had been gathered together, as it turned out, to a total of three thousand.
+
+Son of Aspathines of the seven, one of the four commanders of the fleet. Not the Prexaspes who killed Smerdis for Cambyses.
+
+## modern-en · megabazus-son-of-megabates · 1119:0
+
+The commanders of the naval force were these: Ariabignes son of Darius, Prexaspes son of Aspathines, Megabazus son of Megabates, and Achaemenes son of Darius. That is, the Ionian and Carian contingent was commanded by Ariabignes, son of Darius and of the daughter of Gobryas; the Egyptians by Achaemenes, full brother of Xerxes; and the rest of the armament by the other two. In all, the thirty-oared and fifty-oared galleys, the light craft, and the long horse-transport vessels had been gathered together, as it turned out, to a total of three thousand.
+
+Son of Megabates, one of the four commanders of the fleet.
+
+## modern-en · tetramnestus · 1120:0
+
+Of those who sailed in the ships, the men of most note after the commanders were these: from Sidon, Tetramnestus son of Anysus; from Tyre, Matten son of Siromus; from Aradus, Merbalus son of Agbalus; from Cilicia, Syennesis son of Oromedon; from Lycia, Cyberniscus son of Sicas; from Cyprus, Gorgus son of Chersis and Timonax son of Timagoras; from Caria, Histiaeus son of Tymnes, Pigres son of Hysseldomus, and Damasithymus son of Candaules.
+
+Son of Anysus, of Sidon, the most notable man in the fleet after the commanders.
+
+## modern-en · anysus · 1120:0
+
+Of those who sailed in the ships, the men of most note after the commanders were these: from Sidon, Tetramnestus son of Anysus; from Tyre, Matten son of Siromus; from Aradus, Merbalus son of Agbalus; from Cilicia, Syennesis son of Oromedon; from Lycia, Cyberniscus son of Sicas; from Cyprus, Gorgus son of Chersis and Timonax son of Timagoras; from Caria, Histiaeus son of Tymnes, Pigres son of Hysseldomus, and Damasithymus son of Candaules.
+
+Tetramnestus’s father.
+
+## modern-en · matten · 1120:0
+
+Of those who sailed in the ships, the men of most note after the commanders were these: from Sidon, Tetramnestus son of Anysus; from Tyre, Matten son of Siromus; from Aradus, Merbalus son of Agbalus; from Cilicia, Syennesis son of Oromedon; from Lycia, Cyberniscus son of Sicas; from Cyprus, Gorgus son of Chersis and Timonax son of Timagoras; from Caria, Histiaeus son of Tymnes, Pigres son of Hysseldomus, and Damasithymus son of Candaules.
+
+Son of Siromus, of Tyre.
+
+## modern-en · siromus-tyre · 1120:0
+
+Of those who sailed in the ships, the men of most note after the commanders were these: from Sidon, Tetramnestus son of Anysus; from Tyre, Matten son of Siromus; from Aradus, Merbalus son of Agbalus; from Cilicia, Syennesis son of Oromedon; from Lycia, Cyberniscus son of Sicas; from Cyprus, Gorgus son of Chersis and Timonax son of Timagoras; from Caria, Histiaeus son of Tymnes, Pigres son of Hysseldomus, and Damasithymus son of Candaules.
+
+Matten’s father, of Tyre. Not the Cyprian Siromus, Chersis’s father.
+
+## modern-en · merbalus · 1120:0
+
+Of those who sailed in the ships, the men of most note after the commanders were these: from Sidon, Tetramnestus son of Anysus; from Tyre, Matten son of Siromus; from Aradus, Merbalus son of Agbalus; from Cilicia, Syennesis son of Oromedon; from Lycia, Cyberniscus son of Sicas; from Cyprus, Gorgus son of Chersis and Timonax son of Timagoras; from Caria, Histiaeus son of Tymnes, Pigres son of Hysseldomus, and Damasithymus son of Candaules.
+
+Son of Agbalus, of Aradus.
+
+## modern-en · agbalus · 1120:0
+
+Of those who sailed in the ships, the men of most note after the commanders were these: from Sidon, Tetramnestus son of Anysus; from Tyre, Matten son of Siromus; from Aradus, Merbalus son of Agbalus; from Cilicia, Syennesis son of Oromedon; from Lycia, Cyberniscus son of Sicas; from Cyprus, Gorgus son of Chersis and Timonax son of Timagoras; from Caria, Histiaeus son of Tymnes, Pigres son of Hysseldomus, and Damasithymus son of Candaules.
+
+Merbalus’s father.
+
+## modern-en · oromedon · 1120:0
+
+Of those who sailed in the ships, the men of most note after the commanders were these: from Sidon, Tetramnestus son of Anysus; from Tyre, Matten son of Siromus; from Aradus, Merbalus son of Agbalus; from Cilicia, Syennesis son of Oromedon; from Lycia, Cyberniscus son of Sicas; from Cyprus, Gorgus son of Chersis and Timonax son of Timagoras; from Caria, Histiaeus son of Tymnes, Pigres son of Hysseldomus, and Damasithymus son of Candaules.
+
+Father of the Syennesis who commanded the Cilician ships.
+
+## modern-en · cyberniscus · 1120:0
+
+Of those who sailed in the ships, the men of most note after the commanders were these: from Sidon, Tetramnestus son of Anysus; from Tyre, Matten son of Siromus; from Aradus, Merbalus son of Agbalus; from Cilicia, Syennesis son of Oromedon; from Lycia, Cyberniscus son of Sicas; from Cyprus, Gorgus son of Chersis and Timonax son of Timagoras; from Caria, Histiaeus son of Tymnes, Pigres son of Hysseldomus, and Damasithymus son of Candaules.
+
+Son of Sicas, of Lycia.
+
+## modern-en · sicas · 1120:0
+
+Of those who sailed in the ships, the men of most note after the commanders were these: from Sidon, Tetramnestus son of Anysus; from Tyre, Matten son of Siromus; from Aradus, Merbalus son of Agbalus; from Cilicia, Syennesis son of Oromedon; from Lycia, Cyberniscus son of Sicas; from Cyprus, Gorgus son of Chersis and Timonax son of Timagoras; from Caria, Histiaeus son of Tymnes, Pigres son of Hysseldomus, and Damasithymus son of Candaules.
+
+Cyberniscus’s father.
+
+## modern-en · timonax · 1120:0
+
+Of those who sailed in the ships, the men of most note after the commanders were these: from Sidon, Tetramnestus son of Anysus; from Tyre, Matten son of Siromus; from Aradus, Merbalus son of Agbalus; from Cilicia, Syennesis son of Oromedon; from Lycia, Cyberniscus son of Sicas; from Cyprus, Gorgus son of Chersis and Timonax son of Timagoras; from Caria, Histiaeus son of Tymnes, Pigres son of Hysseldomus, and Damasithymus son of Candaules.
+
+Son of Timagoras, one of the two Cyprian captains of note.
+
+## modern-en · timagoras · 1120:0
+
+Of those who sailed in the ships, the men of most note after the commanders were these: from Sidon, Tetramnestus son of Anysus; from Tyre, Matten son of Siromus; from Aradus, Merbalus son of Agbalus; from Cilicia, Syennesis son of Oromedon; from Lycia, Cyberniscus son of Sicas; from Cyprus, Gorgus son of Chersis and Timonax son of Timagoras; from Caria, Histiaeus son of Tymnes, Pigres son of Hysseldomus, and Damasithymus son of Candaules.
+
+Timonax’s father.
+
+## modern-en · histiaeus-termera · 1120:0
+
+Of those who sailed in the ships, the men of most note after the commanders were these: from Sidon, Tetramnestus son of Anysus; from Tyre, Matten son of Siromus; from Aradus, Merbalus son of Agbalus; from Cilicia, Syennesis son of Oromedon; from Lycia, Cyberniscus son of Sicas; from Cyprus, Gorgus son of Chersis and Timonax son of Timagoras; from Caria, Histiaeus son of Tymnes, Pigres son of Hysseldomus, and Damasithymus son of Candaules.
+
+Son of Tymnes, tyrant of Termera in Caria, seized by Aristagoras with the other Carian tyrants and sailing with Xerxes twenty years later. Not Histiaeus of Miletus.
+
+## modern-en · tymnes-termera · 798:0
+
+So Iatragoras was sent for this purpose and seized by a trick Oliatus son of Ibanollis of Mylasa, and Histiaeus son of Tymnes of Termera, and Coës son of Erxander—to whom Darius had given Mytilene as a gift—and Aristagoras son of Heracleides of Cyme, and many others. And then Aristagoras openly revolted and devised every means he could to harm Darius. First he pretended to renounce the tyrant's power and gave Miletus political equality, in order that the Milesians might be willing to revolt with him; then he proceeded to do this same thing in the rest of Ionia as well. Some of the tyrants he drove out; but those whom he had taken from the ships that had sailed with him to Naxos he handed over, because he wished to do a favor to their cities, delivering each to the city from which he had come.
+
+Histiaeus of Termera’s father. Not the Scythian steward of the same name.
+
+## modern-en · pigres-caria · 1120:0
+
+Of those who sailed in the ships, the men of most note after the commanders were these: from Sidon, Tetramnestus son of Anysus; from Tyre, Matten son of Siromus; from Aradus, Merbalus son of Agbalus; from Cilicia, Syennesis son of Oromedon; from Lycia, Cyberniscus son of Sicas; from Cyprus, Gorgus son of Chersis and Timonax son of Timagoras; from Caria, Histiaeus son of Tymnes, Pigres son of Hysseldomus, and Damasithymus son of Candaules.
+
+Son of Hysseldomus, a Carian captain. Not the Paeonian who showed Darius his sister carrying water.
+
+## modern-en · hysseldomus · 1120:0
+
+Of those who sailed in the ships, the men of most note after the commanders were these: from Sidon, Tetramnestus son of Anysus; from Tyre, Matten son of Siromus; from Aradus, Merbalus son of Agbalus; from Cilicia, Syennesis son of Oromedon; from Lycia, Cyberniscus son of Sicas; from Cyprus, Gorgus son of Chersis and Timonax son of Timagoras; from Caria, Histiaeus son of Tymnes, Pigres son of Hysseldomus, and Damasithymus son of Candaules.
+
+Pigres of Caria’s father.
+
+## modern-en · damasithymus · 1120:0
+
+Of those who sailed in the ships, the men of most note after the commanders were these: from Sidon, Tetramnestus son of Anysus; from Tyre, Matten son of Siromus; from Aradus, Merbalus son of Agbalus; from Cilicia, Syennesis son of Oromedon; from Lycia, Cyberniscus son of Sicas; from Cyprus, Gorgus son of Chersis and Timonax son of Timagoras; from Caria, Histiaeus son of Tymnes, Pigres son of Hysseldomus, and Damasithymus son of Candaules.
+
+Son of Candaules, a Carian captain — and the king of the Calyndians whose ship Artemisia rammed and sank to save herself.
+
+## modern-en · candaules-caria · 1120:0
+
+Of those who sailed in the ships, the men of most note after the commanders were these: from Sidon, Tetramnestus son of Anysus; from Tyre, Matten son of Siromus; from Aradus, Merbalus son of Agbalus; from Cilicia, Syennesis son of Oromedon; from Lycia, Cyberniscus son of Sicas; from Cyprus, Gorgus son of Chersis and Timonax son of Timagoras; from Caria, Histiaeus son of Tymnes, Pigres son of Hysseldomus, and Damasithymus son of Candaules.
+
+Damasithymus’s father. Not the Lydian king who had his wife looked at.
+
+## modern-en · artemisia · 1121:0
+
+Of the rest of the officers I make no mention in passing (since I am not obliged to), but only of Artemisia, who astonishes me most of all that she should have joined the expedition against Greece, being a woman. After her husband died, she held the power herself; and though she had a son who was a grown young man, she went on the expedition driven by her own high spirit and manly courage, under no compulsion. Her name, as I said, was Artemisia; she was the daughter of Lygdamis, and by descent she was on her father's side of Halicarnassus and on her mother's of Crete. She ruled over the people of Halicarnassus, Cos, Nisyrus, and Calydna, and supplied five ships. Her ships were reputed the best in the whole fleet after those of Sidon, and of all his allies she gave the king the best counsel. The states I say she led, I declare to be all of Dorian race: the people of Halicarnassus are Troezenians, and the rest are Epidaurians. So much, then, for the naval force.
+
+Lygdamis’s daughter and ruler of Halicarnassus, Cos, Nisyrus and Calydna, who went on the expedition after her husband’s death though she had a grown son and no compulsion. Her five ships were reckoned the best in the fleet after Sidon’s, and of all the king’s allies she gave him the best advice.
+
+## modern-en · lygdamis-halicarnassus · 1121:0
+
+Of the rest of the officers I make no mention in passing (since I am not obliged to), but only of Artemisia, who astonishes me most of all that she should have joined the expedition against Greece, being a woman. After her husband died, she held the power herself; and though she had a son who was a grown young man, she went on the expedition driven by her own high spirit and manly courage, under no compulsion. Her name, as I said, was Artemisia; she was the daughter of Lygdamis, and by descent she was on her father's side of Halicarnassus and on her mother's of Crete. She ruled over the people of Halicarnassus, Cos, Nisyrus, and Calydna, and supplied five ships. Her ships were reputed the best in the whole fleet after those of Sidon, and of all his allies she gave the king the best counsel. The states I say she led, I declare to be all of Dorian race: the people of Halicarnassus are Troezenians, and the rest are Epidaurians. So much, then, for the naval force.
+
+Artemisia’s father, Halicarnassian on his side and Cretan on his wife’s. Not the Naxian who helped Peisistratus.
+
+## modern-en · mascames · 1127:0
+
+Such was his reply, and Xerxes turned the matter into laughter and felt no anger, but dismissed him kindly. After their conversation, having appointed Mascames son of Megadostes to be governor at Doriscus, removing the one whom Darius had appointed, Xerxes marched his army on through Thrace to invade Greece.
+
+Son of Megadostes and governor at Doriscus, the one governor in Thrace or on the Hellespont the Greeks never took. Every Persian king since has sent gifts to his descendants.
+
+## modern-en · megadostes · 1127:0
+
+Such was his reply, and Xerxes turned the matter into laughter and felt no anger, but dismissed him kindly. After their conversation, having appointed Mascames son of Megadostes to be governor at Doriscus, removing the one whom Darius had appointed, Xerxes marched his army on through Thrace to invade Greece.
+
+Mascames’s father.
+
+## modern-en · boges · 1129:0
+
+Of those who were conquered by the Greeks, Xerxes reckoned no one a man of worth except Boges, who was at Eion; him he never ceased praising, and he paid very high honor to his children who survived him in Persia. Boges indeed proved worthy of great praise. When he was being besieged by the Athenians under Cimon son of Miltiades, and could have come out under a truce and returned home to Asia, he chose not to do so, for fear the king might think he had survived through cowardice; instead, he held out to the last. When there were no longer any provisions within the wall, he heaped up a great pyre, cut the throats of his children, his wife, his concubines and his servants, and threw them into the fire; after that he scattered all the gold and silver of the city from the wall into the river Strymon, and having done so, he threw himself into the fire. For this reason he is justly praised by the Persians to this day.
+
+Governor at Eion, who could have come out under truce and would not, for fear the king would think it cowardice. He cut the throats of his children, his wife, his concubines and his servants, threw them on a pyre, scattered the city’s gold and silver into the Strymon, and threw himself into the fire.
+
+## modern-en · satrae · 1132:0
+
+These coastal Greek cities, then, he passed, leaving them on his left. The Thracian tribes whose territory he marched through were the following: the Paeti, Cicones, Bistones, Sapaeans, Dersaeans, Edonians, and Satrae. Of these, those who lived along the coast accompanied him with their ships, while those of them who lived inland — the ones I have just listed — were compelled to accompany him on land, except the Satrae.
+
+The only Thracians who have never submitted to anyone: they live in high forested mountains under snow, are highly skilled in war, and hold the oracle of Dionysus.
+
+## modern-en · bessi · 1133:0
+
+The Satrae, so far as we know, have never yet submitted to any man; they remain to my own day still free, alone of all the Thracians. For they live in high mountains, covered with forests of every kind and with snow, and they are also highly skilled in war. These are the people who possess the oracle of Dionysus; that oracle is in their highest mountains. Of the Satrae, those who act as the interpreters of the shrine are the Bessi; a prophetess utters the oracles, as at Delphi; and beyond this there is nothing of a notable character.
+
+The Satrae who interpret the shrine; a prophetess utters the oracles, as at Delphi.
+
+## modern-en · antipater · 1140:0
+
+Xerxes, then, was deeply grieved at the loss of Artachaees. Meanwhile the Greeks who were entertaining his army and providing Xerxes with his dinners had been brought to utter ruin, to the point that they were being driven from house and home. For instance, when the Thasians entertained Xerxes's army and provided him with dinner on behalf of their towns on the mainland, Antipater son of Orgeus, a man of standing among the citizens equal to the best and appointed to this business, reported that four hundred talents of silver had been spent on that single meal.
+
+Son of Orgeus, appointed by the Thasians to feed Xerxes’s army — four hundred talents of silver for one dinner.
+
+## modern-en · orgeus · 1140:0
+
+Xerxes, then, was deeply grieved at the loss of Artachaees. Meanwhile the Greeks who were entertaining his army and providing Xerxes with his dinners had been brought to utter ruin, to the point that they were being driven from house and home. For instance, when the Thasians entertained Xerxes's army and provided him with dinner on behalf of their towns on the mainland, Antipater son of Orgeus, a man of standing among the citizens equal to the best and appointed to this business, reported that four hundred talents of silver had been spent on that single meal.
+
+Antipater’s father.
+
+## modern-en · megacreon · 1142:0
+
+It was then that a saying was well uttered by Megacreon, a man of Abdera, who advised the Abderites to go in a body, themselves and their wives, to their temples, and sit down as suppliants of the gods, begging that for the future too the gods would ward off from them the half of whatever evils threatened. He told them to feel great thankfulness to the gods for the past, since King Xerxes had not seen fit to eat twice a day. For if it had been ordered that breakfast also be provided in the same style as dinner, it would have remained for the Abderites either not to await Xerxes's coming at all, or, if they stayed, to be crushed by misfortune more than any other men on earth.
+
+Of Abdera, who told his city to go to the temples in a body and thank the gods that Xerxes did not eat twice a day.
+
+## modern-en · talthybius · 1156:0
+
+On the Lacedaemonians, however, the wrath of Talthybius, Agamemnon's herald, fell. In Sparta there is a temple of Talthybius, and there are also descendants of his called Talthybiads, to whom the right of carrying out all heralds' missions from Sparta has been given. After this event, the Spartans could not, when sacrificing, obtain favorable omens. This state of things lasted a long time, and the Lacedaemonians were grieved, reckoning it a great misfortune. Assemblies were called repeatedly and a proclamation made asking whether any Lacedaemonian was willing to die for Sparta. At length Sperthias son of Aneristus and Bulis son of Nicolaus, Spartans of noble birth and of the very first rank in wealth, voluntarily offered themselves up to Xerxes to pay the penalty for Darius's heralds who had perished at Sparta. So the Spartans sent these men to the Medes to be put to death.
+
+Agamemnon’s herald, whose anger fell on Sparta for the heralds thrown down a well, and whose temple and descendants are in the city.
+
+## modern-en · talthybiads · 1156:0
+
+On the Lacedaemonians, however, the wrath of Talthybius, Agamemnon's herald, fell. In Sparta there is a temple of Talthybius, and there are also descendants of his called Talthybiads, to whom the right of carrying out all heralds' missions from Sparta has been given. After this event, the Spartans could not, when sacrificing, obtain favorable omens. This state of things lasted a long time, and the Lacedaemonians were grieved, reckoning it a great misfortune. Assemblies were called repeatedly and a proclamation made asking whether any Lacedaemonian was willing to die for Sparta. At length Sperthias son of Aneristus and Bulis son of Nicolaus, Spartans of noble birth and of the very first rank in wealth, voluntarily offered themselves up to Xerxes to pay the penalty for Darius's heralds who had perished at Sparta. So the Spartans sent these men to the Medes to be put to death.
+
+Talthybius’s descendants, who hold the right to carry every herald’s message out of Sparta.
+
+## modern-en · sperthias · 1156:0
+
+On the Lacedaemonians, however, the wrath of Talthybius, Agamemnon's herald, fell. In Sparta there is a temple of Talthybius, and there are also descendants of his called Talthybiads, to whom the right of carrying out all heralds' missions from Sparta has been given. After this event, the Spartans could not, when sacrificing, obtain favorable omens. This state of things lasted a long time, and the Lacedaemonians were grieved, reckoning it a great misfortune. Assemblies were called repeatedly and a proclamation made asking whether any Lacedaemonian was willing to die for Sparta. At length Sperthias son of Aneristus and Bulis son of Nicolaus, Spartans of noble birth and of the very first rank in wealth, voluntarily offered themselves up to Xerxes to pay the penalty for Darius's heralds who had perished at Sparta. So the Spartans sent these men to the Medes to be put to death.
+
+Son of Aneristus, who with Bulis volunteered to go to Xerxes and be killed for the heralds Sparta had murdered. Told by Hydarnes that he might rule a Greek country as the king’s gift, he answered that a man who has only tasted slavery cannot advise about freedom. Xerxes sent them home.
+
+## modern-en · aneristus · 1156:0
+
+On the Lacedaemonians, however, the wrath of Talthybius, Agamemnon's herald, fell. In Sparta there is a temple of Talthybius, and there are also descendants of his called Talthybiads, to whom the right of carrying out all heralds' missions from Sparta has been given. After this event, the Spartans could not, when sacrificing, obtain favorable omens. This state of things lasted a long time, and the Lacedaemonians were grieved, reckoning it a great misfortune. Assemblies were called repeatedly and a proclamation made asking whether any Lacedaemonian was willing to die for Sparta. At length Sperthias son of Aneristus and Bulis son of Nicolaus, Spartans of noble birth and of the very first rank in wealth, voluntarily offered themselves up to Xerxes to pay the penalty for Darius's heralds who had perished at Sparta. So the Spartans sent these men to the Medes to be put to death.
+
+Sperthias’s father — and Sperthias’s son of the same name, put to death by the Athenians a generation later, so that the anger of Talthybius came round again.
+
+## modern-en · bulis · 1156:0
+
+On the Lacedaemonians, however, the wrath of Talthybius, Agamemnon's herald, fell. In Sparta there is a temple of Talthybius, and there are also descendants of his called Talthybiads, to whom the right of carrying out all heralds' missions from Sparta has been given. After this event, the Spartans could not, when sacrificing, obtain favorable omens. This state of things lasted a long time, and the Lacedaemonians were grieved, reckoning it a great misfortune. Assemblies were called repeatedly and a proclamation made asking whether any Lacedaemonian was willing to die for Sparta. At length Sperthias son of Aneristus and Bulis son of Nicolaus, Spartans of noble birth and of the very first rank in wealth, voluntarily offered themselves up to Xerxes to pay the penalty for Darius's heralds who had perished at Sparta. So the Spartans sent these men to the Medes to be put to death.
+
+Son of Nicolaus, Sperthias’s companion in the offer.
+
+## modern-en · nicolaus · 1156:0
+
+On the Lacedaemonians, however, the wrath of Talthybius, Agamemnon's herald, fell. In Sparta there is a temple of Talthybius, and there are also descendants of his called Talthybiads, to whom the right of carrying out all heralds' missions from Sparta has been given. After this event, the Spartans could not, when sacrificing, obtain favorable omens. This state of things lasted a long time, and the Lacedaemonians were grieved, reckoning it a great misfortune. Assemblies were called repeatedly and a proclamation made asking whether any Lacedaemonian was willing to die for Sparta. At length Sperthias son of Aneristus and Bulis son of Nicolaus, Spartans of noble birth and of the very first rank in wealth, voluntarily offered themselves up to Xerxes to pay the penalty for Darius's heralds who had perished at Sparta. So the Spartans sent these men to the Medes to be put to death.
+
+Bulis’s father — and Bulis’s son of the same name, killed with Aneristus in Attica.
+
+## modern-en · teres · 636:0
+
+After this, when Skyles was riding out again to his own abode, the Scythians took his brother Octamasades for their leader—a son of the daughter of Teres—and rose in revolt against Skyles. When he perceived what was being done against him and for what reason, he fled for refuge to Thrace. Octamasades, informed of this, marched upon Thrace. When he had come to the river Ister, the Thracians met him; and as they were about to engage in battle, Sitalkes sent a messenger to Octamasades with this word: “Why must we test one another in fight? You are my sister's son, and you hold my brother in your power. Give him back to me, and I will deliver to you your brother Skyles; and let neither of us put our armies in peril, neither you nor I.” Thus Sitalkes proposed through a herald; for a brother of Sitalkes was with Octamasades, having gone into exile for fear of him. Octamasades agreed; by giving up his own maternal uncle to Sitalkes, he received his brother Skyles in exchange. Sitalkes, when he received his brother, led him away as a prisoner, but Octamasades cut off Skyles' head there on the spot. So carefully do the Scythians guard their own customs, and such are the penalties they inflict on those who take foreign customs besides their own.
+
+Sitalces’s father, at the head of the Thracian kings.
+
+## modern-en · nymphodorus · 1159:0
+
+So, for the moment, the wrath of Talthybius was laid to rest, even though the Spartans had done no more than this, and even though Sperthias and Bulis returned home to Sparta. Long afterwards, however — during the war between the Peloponnesians and the Athenians — it was roused again, as the Lacedaemonians say. In this I see most clearly the hand of Divinity. That the wrath of Talthybius fell upon messengers and did not cease until it had been fully paid out was only just. But that it happened to fall upon the sons of the very men who had gone up to the king because of that wrath — namely Nicolaus son of Bulis and Aneristus son of Sperthias (the same Aneristus who took the town of Halieis, a colony of Tiryns, by sailing into its harbor with a merchant ship full of fighting men) — this makes it clear to me that it came about by divine action caused by the wrath. For these men, sent by the Lacedaemonians as envoys to Asia, were betrayed by Sitalces son of Teres, king of the Thracians, and by Nymphodorus son of Pythes, a man of Abdera, and were captured at Bisanthe on the Hellespont. Brought to Attica, they were put to death by the Athenians, along with Aristeas son of Adeimantus of Corinth. These events took place many years after the king's expedition; but I now return to my earlier narrative.
+
+Son of Pythes, of Abdera, who with Sitalces betrayed the Spartan envoys on the Hellespont.
+
+## modern-en · pythes · 1159:0
+
+So, for the moment, the wrath of Talthybius was laid to rest, even though the Spartans had done no more than this, and even though Sperthias and Bulis returned home to Sparta. Long afterwards, however — during the war between the Peloponnesians and the Athenians — it was roused again, as the Lacedaemonians say. In this I see most clearly the hand of Divinity. That the wrath of Talthybius fell upon messengers and did not cease until it had been fully paid out was only just. But that it happened to fall upon the sons of the very men who had gone up to the king because of that wrath — namely Nicolaus son of Bulis and Aneristus son of Sperthias (the same Aneristus who took the town of Halieis, a colony of Tiryns, by sailing into its harbor with a merchant ship full of fighting men) — this makes it clear to me that it came about by divine action caused by the wrath. For these men, sent by the Lacedaemonians as envoys to Asia, were betrayed by Sitalces son of Teres, king of the Thracians, and by Nymphodorus son of Pythes, a man of Abdera, and were captured at Bisanthe on the Hellespont. Brought to Attica, they were put to death by the Athenians, along with Aristeas son of Adeimantus of Corinth. These events took place many years after the king's expedition; but I now return to my earlier narrative.
+
+Nymphodorus’s father.
+
+## modern-en · aristeas-corinth · 1159:0
+
+So, for the moment, the wrath of Talthybius was laid to rest, even though the Spartans had done no more than this, and even though Sperthias and Bulis returned home to Sparta. Long afterwards, however — during the war between the Peloponnesians and the Athenians — it was roused again, as the Lacedaemonians say. In this I see most clearly the hand of Divinity. That the wrath of Talthybius fell upon messengers and did not cease until it had been fully paid out was only just. But that it happened to fall upon the sons of the very men who had gone up to the king because of that wrath — namely Nicolaus son of Bulis and Aneristus son of Sperthias (the same Aneristus who took the town of Halieis, a colony of Tiryns, by sailing into its harbor with a merchant ship full of fighting men) — this makes it clear to me that it came about by divine action caused by the wrath. For these men, sent by the Lacedaemonians as envoys to Asia, were betrayed by Sitalces son of Teres, king of the Thracians, and by Nymphodorus son of Pythes, a man of Abdera, and were captured at Bisanthe on the Hellespont. Brought to Attica, they were put to death by the Athenians, along with Aristeas son of Adeimantus of Corinth. These events took place many years after the king's expedition; but I now return to my earlier narrative.
+
+Son of Adeimantus of Corinth, put to death by the Athenians with the two Spartan envoys. Not Aristeas of Proconnesus, who kept turning up after his death.
+
+## modern-en · adeimantus · 1159:0
+
+So, for the moment, the wrath of Talthybius was laid to rest, even though the Spartans had done no more than this, and even though Sperthias and Bulis returned home to Sparta. Long afterwards, however — during the war between the Peloponnesians and the Athenians — it was roused again, as the Lacedaemonians say. In this I see most clearly the hand of Divinity. That the wrath of Talthybius fell upon messengers and did not cease until it had been fully paid out was only just. But that it happened to fall upon the sons of the very men who had gone up to the king because of that wrath — namely Nicolaus son of Bulis and Aneristus son of Sperthias (the same Aneristus who took the town of Halieis, a colony of Tiryns, by sailing into its harbor with a merchant ship full of fighting men) — this makes it clear to me that it came about by divine action caused by the wrath. For these men, sent by the Lacedaemonians as envoys to Asia, were betrayed by Sitalces son of Teres, king of the Thracians, and by Nymphodorus son of Pythes, a man of Abdera, and were captured at Bisanthe on the Hellespont. Brought to Attica, they were put to death by the Athenians, along with Aristeas son of Adeimantus of Corinth. These events took place many years after the king's expedition; but I now return to my earlier narrative.
+
+Aristeas of Corinth’s father.
+
+## modern-en · aristonice · 1162:0
+
+The Athenians had sent men to Delphi to consult the oracle. After these had performed the usual rites in the sacred precinct, when they had entered the inner sanctuary and taken their seats, the Pythian priestess — whose name was Aristonice — uttered this oracle to them:
+
+The Pythian priestess who told the Athenians to flee to the ends of the earth, since neither head nor body nor anything between was left to them.
+
+## modern-en · timon · 1163:0
+
+Hearing this, the Athenian envoys were thrown into deep distress. As they were giving themselves over to despair at the evil prophesied to them, Timon son of Androboulus, a Delphian of reputation equal to the first, advised them to take a suppliant's bough and approach the oracle a second time, consulting it as suppliants. The Athenians did as he advised and said: “Lord, we beg you, utter to us some better oracle about our native land, out of respect for these suppliant boughs we have come bearing to you. Otherwise we will certainly not depart from the sanctuary, but will stay here where we are now, even until we bring our lives to an end.” When they had spoken these words, the priestess gave them a second oracle as follows:
+
+Son of Androboulus, a Delphian of the first rank, who told the Athenians to go back into the shrine as suppliants with boughs in their hands and ask again — which got them the wooden wall.
+
+## modern-en · androboulus · 1163:0
+
+Hearing this, the Athenian envoys were thrown into deep distress. As they were giving themselves over to despair at the evil prophesied to them, Timon son of Androboulus, a Delphian of reputation equal to the first, advised them to take a suppliant's bough and approach the oracle a second time, consulting it as suppliants. The Athenians did as he advised and said: “Lord, we beg you, utter to us some better oracle about our native land, out of respect for these suppliant boughs we have come bearing to you. Otherwise we will certainly not depart from the sanctuary, but will stay here where we are now, even until we bring our lives to an end.” When they had spoken these words, the priestess gave them a second oracle as follows:
+
+Timon’s father.
+
+## modern-en · themistocles · 1165:0
+
+Now there was a certain Athenian who had been lately coming forward to take his place among the leading men, whose name was Themistocles, called son of Neocles. This man said that the oracle-interpreters were not making a correct guess at the whole meaning. He argued that if these words really referred to the Athenians, the oracle would not have been worded so mildly but rather thus: “Salamis, thou merciless,” instead of “Salamis, thou divine,” — at least if the inhabitants were destined to perish around it. Properly understood, the oracle had been uttered by the god not against the Athenians but against the enemy. He therefore advised them to prepare for a sea-battle, for in this lay their wall of wood. When Themistocles had thus declared his opinion, the Athenians judged it was to be preferred to the advice of the oracle-interpreters, who had bidden them not to make ready for a sea-fight and in fact not to raise their hands in opposition at all, but to abandon the land of Attica and settle elsewhere.
+
+Neocles’s son, lately come forward among the leading Athenians, who read the wooden wall as the ships and Salamis the divine as an oracle against the enemy — and who had already persuaded Athens to spend the silver of Laurium on two hundred ships instead of dividing it ten drachmas a man.
+
+## modern-en · neocles · 1165:0
+
+Now there was a certain Athenian who had been lately coming forward to take his place among the leading men, whose name was Themistocles, called son of Neocles. This man said that the oracle-interpreters were not making a correct guess at the whole meaning. He argued that if these words really referred to the Athenians, the oracle would not have been worded so mildly but rather thus: “Salamis, thou merciless,” instead of “Salamis, thou divine,” — at least if the inhabitants were destined to perish around it. Properly understood, the oracle had been uttered by the god not against the Athenians but against the enemy. He therefore advised them to prepare for a sea-battle, for in this lay their wall of wood. When Themistocles had thus declared his opinion, the Athenians judged it was to be preferred to the advice of the oracle-interpreters, who had bidden them not to make ready for a sea-fight and in fact not to raise their hands in opposition at all, but to abandon the land of Attica and settle elsewhere.
+
+Themistocles’s father.
+
+## modern-en · gorgo · 809:0
+
+So in this way Dorieus ended his life. But if he had endured to be a subject of Cleomenes and had stayed in Sparta, he would have been king of Lacedaemon; for Cleomenes reigned no very long time, and died leaving no son to succeed him but only a daughter, whose name was Gorgo.
+
+Cleomenes’s daughter and Leonidas’s wife: at eight or nine she told her father to get up and go before Aristagoras corrupted him, and years later she was the one who worked out that the blank tablet from Susa had writing under the wax.
+
+## modern-en · euaenetus · 1195:0
+
+Thus spoke the Thessalians; and the Greeks, hearing them, resolved to send to Thessaly by sea a force of foot soldiers to guard the pass. When the army had been assembled, it sailed through the Euripus and, reaching Alus in Achaea, disembarked there and marched into Thessaly, leaving the ships behind at Alus. They arrived at Tempe, the pass leading from lower Macedonia into Thessaly along the river Peneios, between the mountains of Olympus and Ossa. There the Greeks encamped, assembled to the number of about ten thousand hoplites, and the Thessalian cavalry was added to them. The commander of the Lacedaemonians was Euaenetus son of Carenus, who had been chosen from among the polemarchs and was not of the royal house; and of the Athenians, Themistocles son of Neocles. They remained, however, only a few days there. Envoys came from Alexander son of Amyntas the Macedonian, who advised them to depart and not stay to be trampled underfoot in the pass by the invading host, indicating to them at the same time the great size of the army and the number of the ships. On receiving this counsel, they followed it, for they thought the advice was good, and the Macedonian was plainly well disposed toward them. Also, I think, fear persuaded them, when they learned that there was another pass into Thessaly besides this one — by upper Macedonia through the Perrhaebians and by the city of Gonnos — the way, in fact, by which Xerxes's army did make its entrance. So the Greeks went down to their ships again and returned to the Isthmus.
+
+Son of Carenus, chosen from the polemarchs to command the Greek force sent to hold the pass at Tempe; not of the royal house.
+
+## modern-en · carenus · 1195:0
+
+Thus spoke the Thessalians; and the Greeks, hearing them, resolved to send to Thessaly by sea a force of foot soldiers to guard the pass. When the army had been assembled, it sailed through the Euripus and, reaching Alus in Achaea, disembarked there and marched into Thessaly, leaving the ships behind at Alus. They arrived at Tempe, the pass leading from lower Macedonia into Thessaly along the river Peneios, between the mountains of Olympus and Ossa. There the Greeks encamped, assembled to the number of about ten thousand hoplites, and the Thessalian cavalry was added to them. The commander of the Lacedaemonians was Euaenetus son of Carenus, who had been chosen from among the polemarchs and was not of the royal house; and of the Athenians, Themistocles son of Neocles. They remained, however, only a few days there. Envoys came from Alexander son of Amyntas the Macedonian, who advised them to depart and not stay to be trampled underfoot in the pass by the invading host, indicating to them at the same time the great size of the army and the number of the ships. On receiving this counsel, they followed it, for they thought the advice was good, and the Macedonian was plainly well disposed toward them. Also, I think, fear persuaded them, when they learned that there was another pass into Thessaly besides this one — by upper Macedonia through the Perrhaebians and by the city of Gonnos — the way, in fact, by which Xerxes's army did make its entrance. So the Greeks went down to their ships again and returned to the Isthmus.
+
+Euaenetus’s father.
+
+## modern-en · thyia · 1200:0
+
+The Greeks, I say, were hurrying to the defense, each assigned to his own post. Meanwhile the men of Delphi, struck with dread, consulted the god's oracle on behalf of themselves and on behalf of Greece, and the answer given was that they should pray to the Winds, for these would be powerful helpers of Greece in battle. The Delphians, having accepted the oracle, first reported the answer to those of the Greeks who desired to remain free; and by reporting it at a time when they were in great dread of the barbarian, they laid up for themselves an undying store of gratitude. After this the Delphians set up an altar for the Winds at Thyia, where there is a sacred precinct of Thyia the daughter of Cephisus — from whom the place also takes its name — and they approached the Winds with sacrifices.
+
+Cephisus’s daughter, in whose precinct the Delphians built their altar to the Winds.
+
+## modern-en · cephisus · 1200:0
+
+The Greeks, I say, were hurrying to the defense, each assigned to his own post. Meanwhile the men of Delphi, struck with dread, consulted the god's oracle on behalf of themselves and on behalf of Greece, and the answer given was that they should pray to the Winds, for these would be powerful helpers of Greece in battle. The Delphians, having accepted the oracle, first reported the answer to those of the Greeks who desired to remain free; and by reporting it at a time when they were in great dread of the barbarian, they laid up for themselves an undying store of gratitude. After this the Delphians set up an altar for the Winds at Thyia, where there is a sacred precinct of Thyia the daughter of Cephisus — from whom the place also takes its name — and they approached the Winds with sacrifices.
+
+Thyia’s father.
+
+## modern-en · gelon · 1167:0
+
+These were the oracles that had been given to the Athenians. When those Greeks who had the better mind about Greece met together in one place, considered their affairs and exchanged assurances with one another, they decided that their first step of all should be to reconcile their mutual enmities and bring to an end the wars they were currently waging against one another. Other states had wars on their hands, but especially the Athenians had one with the Aeginetans. After this, having been informed that Xerxes was at Sardis with his army, they resolved to send spies to Asia to observe the king's strength, and to send envoys to Argos to make an alliance against the Persian, and others to Sicily to Gelon son of Dinomenes, and others to Corcyra, urging them to come to the help of Greece, and others again to Crete — with the aim that if possible the Greek race might unite as one and that all might act together toward the same end, since dangers threatened all Greeks equally. Gelon's power was said to be great, far greater than any other Greek state's.
+
+Tyrant of Syracuse and the greatest power in the Greek world, who offered the alliance two hundred ships and an army and grain for the whole war on condition that he command it — and when Sparta and Athens both refused him, told them the spring had been taken out of their year. He sent money to Delphi instead, to be given to whichever side won.
+
+## modern-en · dinomenes · 1167:0
+
+These were the oracles that had been given to the Athenians. When those Greeks who had the better mind about Greece met together in one place, considered their affairs and exchanged assurances with one another, they decided that their first step of all should be to reconcile their mutual enmities and bring to an end the wars they were currently waging against one another. Other states had wars on their hands, but especially the Athenians had one with the Aeginetans. After this, having been informed that Xerxes was at Sardis with his army, they resolved to send spies to Asia to observe the king's strength, and to send envoys to Argos to make an alliance against the Persian, and others to Sicily to Gelon son of Dinomenes, and others to Corcyra, urging them to come to the help of Greece, and others again to Crete — with the aim that if possible the Greek race might unite as one and that all might act together toward the same end, since dangers threatened all Greeks equally. Gelon's power was said to be great, far greater than any other Greek state's.
+
+Gelon’s father.
+
+## modern-en · telines · 1175:0
+
+So much for the Argives. Meanwhile envoys had come from the allies to Sicily to confer with Gelon, among them Syagrus from the Lacedaemonians. The ancestor of this Gelon — the man who came as a settler to Gela — was a native of the island of Telos, which lies off Triopion; and when Gela was being founded by the Lindians of Rhodes and by Antiphemus, he was not left behind. In the course of time his descendants became and continued to be priests of the mysteries of the chthonic goddesses, an office acquired by Telines, one of their ancestors, in the following way. Certain men of Gela, defeated in a factional struggle, had fled to Mactorium, the city above Gela. These men Telines brought back to Gela from exile, with no force of arms, but only with the sacred rites of these goddesses. From whom he received them, or whether he obtained them for himself, I cannot say; but trusting in these rites, he brought the exiles back on the condition that his descendants would be priests of the mysteries of the goddesses. It has made me wonder that Telines could have carried out so great a deed, given what I have been told. Such deeds, to my mind, do not come from any ordinary man, but from one of brave spirit and manly vigor; whereas Telines, according to the inhabitants of Sicily, was on the contrary effeminate in character and rather faint-hearted.
+
+Gelon’s ancestor, who brought the exiles back to Gela with no force of arms but only the rites of the chthonic goddesses, and won the priesthood of the mysteries for his descendants. Herodotus cannot see how so faint-hearted a man did it.
+
+## modern-en · cleander-gela · 1176:0
+
+He, then, had obtained the priesthood I speak of. When Cleander son of Pantares came to the end of his life after having been tyrant of Gela for seven years — finally killed by Sabyllus, a man of Gela — the monarchy passed to his brother Hippocrates. While Hippocrates was tyrant, Gelon, a descendant of Telines the priest of the mysteries, served as a spear-bearer of his bodyguard along with many others, including Aenesidemus son of Pataecus. Before long he was promoted for his valor to command the whole cavalry. For when Hippocrates laid siege in succession to Callipolis, Naxos, Zancle, and Leontini, and also to Syracuse and many towns of the barbarians, Gelon showed himself a most brilliant warrior in these wars; and of the cities just mentioned, not one — except Syracuse — escaped being reduced to subjection by Hippocrates. The Syracusans, however, after being defeated in battle at the river Elorus, were rescued by the Corinthians and Corcyreans, who brought the quarrel to a settlement on the condition that the Syracusans should hand Camarina over to Hippocrates. Camarina had in ancient times belonged to the Syracusans.
+
+Son of Pantares, tyrant of Gela for seven years, killed by a man of the city; Hippocrates his brother succeeded him.
+
+## modern-en · pantares · 1176:0
+
+He, then, had obtained the priesthood I speak of. When Cleander son of Pantares came to the end of his life after having been tyrant of Gela for seven years — finally killed by Sabyllus, a man of Gela — the monarchy passed to his brother Hippocrates. While Hippocrates was tyrant, Gelon, a descendant of Telines the priest of the mysteries, served as a spear-bearer of his bodyguard along with many others, including Aenesidemus son of Pataecus. Before long he was promoted for his valor to command the whole cavalry. For when Hippocrates laid siege in succession to Callipolis, Naxos, Zancle, and Leontini, and also to Syracuse and many towns of the barbarians, Gelon showed himself a most brilliant warrior in these wars; and of the cities just mentioned, not one — except Syracuse — escaped being reduced to subjection by Hippocrates. The Syracusans, however, after being defeated in battle at the river Elorus, were rescued by the Corinthians and Corcyreans, who brought the quarrel to a settlement on the condition that the Syracusans should hand Camarina over to Hippocrates. Camarina had in ancient times belonged to the Syracusans.
+
+Cleander of Gela’s father.
+
+## modern-en · sabyllus · 1176:0
+
+He, then, had obtained the priesthood I speak of. When Cleander son of Pantares came to the end of his life after having been tyrant of Gela for seven years — finally killed by Sabyllus, a man of Gela — the monarchy passed to his brother Hippocrates. While Hippocrates was tyrant, Gelon, a descendant of Telines the priest of the mysteries, served as a spear-bearer of his bodyguard along with many others, including Aenesidemus son of Pataecus. Before long he was promoted for his valor to command the whole cavalry. For when Hippocrates laid siege in succession to Callipolis, Naxos, Zancle, and Leontini, and also to Syracuse and many towns of the barbarians, Gelon showed himself a most brilliant warrior in these wars; and of the cities just mentioned, not one — except Syracuse — escaped being reduced to subjection by Hippocrates. The Syracusans, however, after being defeated in battle at the river Elorus, were rescued by the Corinthians and Corcyreans, who brought the quarrel to a settlement on the condition that the Syracusans should hand Camarina over to Hippocrates. Camarina had in ancient times belonged to the Syracusans.
+
+The man of Gela who killed Cleander.
+
+## modern-en · aenesidemus · 1176:0
+
+He, then, had obtained the priesthood I speak of. When Cleander son of Pantares came to the end of his life after having been tyrant of Gela for seven years — finally killed by Sabyllus, a man of Gela — the monarchy passed to his brother Hippocrates. While Hippocrates was tyrant, Gelon, a descendant of Telines the priest of the mysteries, served as a spear-bearer of his bodyguard along with many others, including Aenesidemus son of Pataecus. Before long he was promoted for his valor to command the whole cavalry. For when Hippocrates laid siege in succession to Callipolis, Naxos, Zancle, and Leontini, and also to Syracuse and many towns of the barbarians, Gelon showed himself a most brilliant warrior in these wars; and of the cities just mentioned, not one — except Syracuse — escaped being reduced to subjection by Hippocrates. The Syracusans, however, after being defeated in battle at the river Elorus, were rescued by the Corinthians and Corcyreans, who brought the quarrel to a settlement on the condition that the Syracusans should hand Camarina over to Hippocrates. Camarina had in ancient times belonged to the Syracusans.
+
+Son of Pataecus, a spear-bearer of Hippocrates with Gelon — and the father of Theron of Acragas.
+
+## modern-en · pataecus · 1176:0
+
+He, then, had obtained the priesthood I speak of. When Cleander son of Pantares came to the end of his life after having been tyrant of Gela for seven years — finally killed by Sabyllus, a man of Gela — the monarchy passed to his brother Hippocrates. While Hippocrates was tyrant, Gelon, a descendant of Telines the priest of the mysteries, served as a spear-bearer of his bodyguard along with many others, including Aenesidemus son of Pataecus. Before long he was promoted for his valor to command the whole cavalry. For when Hippocrates laid siege in succession to Callipolis, Naxos, Zancle, and Leontini, and also to Syracuse and many towns of the barbarians, Gelon showed himself a most brilliant warrior in these wars; and of the cities just mentioned, not one — except Syracuse — escaped being reduced to subjection by Hippocrates. The Syracusans, however, after being defeated in battle at the river Elorus, were rescued by the Corinthians and Corcyreans, who brought the quarrel to a settlement on the condition that the Syracusans should hand Camarina over to Hippocrates. Camarina had in ancient times belonged to the Syracusans.
+
+Aenesidemus’s father.
+
+## modern-en · euclides · 1177:0
+
+When it was Hippocrates's fate, after having been tyrant for the same number of years as his brother Cleander, to be killed at the city of Hybla — where he had gone on an expedition against the Sicels — Gelon, under the pretext of helping Hippocrates's sons Euclides and Cleander, when the citizens were no longer willing to submit, in fact, after winning a battle over the men of Gela, stripped Hippocrates's sons of power and became ruler himself. After this stroke of luck, Gelon restored those Syracusans called the “landholders” who had been driven into exile by the common people and by their own slaves (called Cyllyrians). He brought them from the city of Casmene back to Syracuse, and in this way gained possession of Syracuse too — for the common people of Syracuse, when Gelon marched against them, handed over both the city and themselves to him.
+
+One of Hippocrates’s two sons, whom Gelon pretended to defend and then stripped of power.
+
+## modern-en · cleander-son-of-hippocrates · 1177:0
+
+When it was Hippocrates's fate, after having been tyrant for the same number of years as his brother Cleander, to be killed at the city of Hybla — where he had gone on an expedition against the Sicels — Gelon, under the pretext of helping Hippocrates's sons Euclides and Cleander, when the citizens were no longer willing to submit, in fact, after winning a battle over the men of Gela, stripped Hippocrates's sons of power and became ruler himself. After this stroke of luck, Gelon restored those Syracusans called the “landholders” who had been driven into exile by the common people and by their own slaves (called Cyllyrians). He brought them from the city of Casmene back to Syracuse, and in this way gained possession of Syracuse too — for the common people of Syracuse, when Gelon marched against them, handed over both the city and themselves to him.
+
+Hippocrates’s other son, named after his uncle and dispossessed with his brother.
+
+## modern-en · hieron · 1178:0
+
+Having got Syracuse in his power, he cared less for Gela, of which he was also ruler, and handed it over to his brother Hieron, while he himself set about strengthening Syracuse. At once that city rose and shot up in prosperity. First, he brought all the people of Camarina to Syracuse and made them citizens, then razed Camarina to the ground. Next he did the same to more than half of the people of Gela as he had done to the Camarinans. As for the Megarians of Sicily, when they were besieged and surrendered by capitulation, he took the wealthy among them — who had stirred up the war against him and were expecting to be executed — and brought them to Syracuse and made them citizens; but the common people of Megara, who had no share in the guilt of that war and expected to suffer no evil, these too he brought to Syracuse and sold them as slaves for export out of Sicily. He did the same thing with the Euboeans of Sicily, making the same distinction between them. He dealt thus with both cities because he reckoned a body of common people to be a most unpleasant element in a state.
+
+Gelon’s brother, given Gela when Gelon took Syracuse.
+
+## modern-en · syagrus · 1175:0
+
+So much for the Argives. Meanwhile envoys had come from the allies to Sicily to confer with Gelon, among them Syagrus from the Lacedaemonians. The ancestor of this Gelon — the man who came as a settler to Gela — was a native of the island of Telos, which lies off Triopion; and when Gela was being founded by the Lindians of Rhodes and by Antiphemus, he was not left behind. In the course of time his descendants became and continued to be priests of the mysteries of the chthonic goddesses, an office acquired by Telines, one of their ancestors, in the following way. Certain men of Gela, defeated in a factional struggle, had fled to Mactorium, the city above Gela. These men Telines brought back to Gela from exile, with no force of arms, but only with the sacred rites of these goddesses. From whom he received them, or whether he obtained them for himself, I cannot say; but trusting in these rites, he brought the exiles back on the condition that his descendants would be priests of the mysteries of the goddesses. It has made me wonder that Telines could have carried out so great a deed, given what I have been told. Such deeds, to my mind, do not come from any ordinary man, but from one of brave spirit and manly vigor; whereas Telines, according to the inhabitants of Sicily, was on the contrary effeminate in character and rather faint-hearted.
+
+The Lacedaemonian envoy to Gelon, who said that Agamemnon would groan to hear that the Spartans had had the leadership taken from them by Syracusans.
+
+## modern-en · cadmus-cos · 1185:0
+
+The Greek envoys, having finished their conference with Gelon, sailed away. Gelon for his part, on the one hand fearing for the Greeks that they might not be able to overcome the barbarian, and on the other thinking it intolerable that he, as tyrant of Sicily, should go to the Peloponnese and be under the command of the Lacedaemonians, gave up this plan and followed another. As soon as he was informed that the Persian had crossed the Hellespont, he sent Cadmus son of Scythes, a man of Cos, with three fifty-oared galleys to Delphi, carrying large sums of money and friendly proposals, to wait there and see how the battle would turn out: if the barbarian should win, he was to give him the money and also offer him earth and water from the lands over which Gelon ruled; if the Greeks should win, he was to bring it all back.
+
+Son of Scythes, who inherited the government of Cos in good order and handed it to the people for no reason but uprightness. Gelon picked him to carry the money to Delphi, and he brought every coin of it back.
+
+## modern-en · terillus · 1187:0
+
+The following story is also told by those living in Sicily: that Gelon, even though he would have had to be under the Lacedaemonians' command, would have come to the aid of the Greeks — but that Terillus son of Crinippus, the tyrant of Himera, having been driven out of Himera by Theron son of Aenesidemus, the ruler of the Acragantines, was at this very time bringing in an army of Phoenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians, and Corsicans, to the number of three hundred thousand, with Hamilcar son of Hanno, king of the Carthaginians, as their commander. Terillus had persuaded Hamilcar partly by the guest-friendship between them, but especially by the zealous help of Anaxilaus son of Cretines, the tyrant of Rhegium, who to help his father-in-law tried to bring Hamilcar into Sicily and gave him his own sons as hostages. For Anaxilaus was married to Terillus's daughter, whose name was Cydippe. So, they say, it was for this reason that Gelon could not come to the aid of the Greeks, and therefore sent the money to Delphi.
+
+Son of Crinippus and tyrant of Himera, driven out by Theron, who brought the Carthaginians into Sicily to get his city back.
+
+## modern-en · crinippus · 1187:0
+
+The following story is also told by those living in Sicily: that Gelon, even though he would have had to be under the Lacedaemonians' command, would have come to the aid of the Greeks — but that Terillus son of Crinippus, the tyrant of Himera, having been driven out of Himera by Theron son of Aenesidemus, the ruler of the Acragantines, was at this very time bringing in an army of Phoenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians, and Corsicans, to the number of three hundred thousand, with Hamilcar son of Hanno, king of the Carthaginians, as their commander. Terillus had persuaded Hamilcar partly by the guest-friendship between them, but especially by the zealous help of Anaxilaus son of Cretines, the tyrant of Rhegium, who to help his father-in-law tried to bring Hamilcar into Sicily and gave him his own sons as hostages. For Anaxilaus was married to Terillus's daughter, whose name was Cydippe. So, they say, it was for this reason that Gelon could not come to the aid of the Greeks, and therefore sent the money to Delphi.
+
+Terillus’s father.
+
+## modern-en · theron · 1187:0
+
+The following story is also told by those living in Sicily: that Gelon, even though he would have had to be under the Lacedaemonians' command, would have come to the aid of the Greeks — but that Terillus son of Crinippus, the tyrant of Himera, having been driven out of Himera by Theron son of Aenesidemus, the ruler of the Acragantines, was at this very time bringing in an army of Phoenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians, and Corsicans, to the number of three hundred thousand, with Hamilcar son of Hanno, king of the Carthaginians, as their commander. Terillus had persuaded Hamilcar partly by the guest-friendship between them, but especially by the zealous help of Anaxilaus son of Cretines, the tyrant of Rhegium, who to help his father-in-law tried to bring Hamilcar into Sicily and gave him his own sons as hostages. For Anaxilaus was married to Terillus's daughter, whose name was Cydippe. So, they say, it was for this reason that Gelon could not come to the aid of the Greeks, and therefore sent the money to Delphi.
+
+Son of Aenesidemus and ruler of Acragas, who drove Terillus out and beat Hamilcar with Gelon.
+
+## modern-en · hamilcar · 1187:0
+
+The following story is also told by those living in Sicily: that Gelon, even though he would have had to be under the Lacedaemonians' command, would have come to the aid of the Greeks — but that Terillus son of Crinippus, the tyrant of Himera, having been driven out of Himera by Theron son of Aenesidemus, the ruler of the Acragantines, was at this very time bringing in an army of Phoenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians, and Corsicans, to the number of three hundred thousand, with Hamilcar son of Hanno, king of the Carthaginians, as their commander. Terillus had persuaded Hamilcar partly by the guest-friendship between them, but especially by the zealous help of Anaxilaus son of Cretines, the tyrant of Rhegium, who to help his father-in-law tried to bring Hamilcar into Sicily and gave him his own sons as hostages. For Anaxilaus was married to Terillus's daughter, whose name was Cydippe. So, they say, it was for this reason that Gelon could not come to the aid of the Greeks, and therefore sent the money to Delphi.
+
+Son of Hanno, king of the Carthaginians, who brought three hundred thousand men into Sicily and disappeared on the day of the battle — sacrificing on a great pyre, he saw his army break and threw himself into the fire. The Carthaginians sacrifice to him and set up memorials to him in every colony.
+
+## modern-en · hanno · 1187:0
+
+The following story is also told by those living in Sicily: that Gelon, even though he would have had to be under the Lacedaemonians' command, would have come to the aid of the Greeks — but that Terillus son of Crinippus, the tyrant of Himera, having been driven out of Himera by Theron son of Aenesidemus, the ruler of the Acragantines, was at this very time bringing in an army of Phoenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians, and Corsicans, to the number of three hundred thousand, with Hamilcar son of Hanno, king of the Carthaginians, as their commander. Terillus had persuaded Hamilcar partly by the guest-friendship between them, but especially by the zealous help of Anaxilaus son of Cretines, the tyrant of Rhegium, who to help his father-in-law tried to bring Hamilcar into Sicily and gave him his own sons as hostages. For Anaxilaus was married to Terillus's daughter, whose name was Cydippe. So, they say, it was for this reason that Gelon could not come to the aid of the Greeks, and therefore sent the money to Delphi.
+
+Hamilcar’s father.
+
+## modern-en · cretines-rhegium · 1187:0
+
+The following story is also told by those living in Sicily: that Gelon, even though he would have had to be under the Lacedaemonians' command, would have come to the aid of the Greeks — but that Terillus son of Crinippus, the tyrant of Himera, having been driven out of Himera by Theron son of Aenesidemus, the ruler of the Acragantines, was at this very time bringing in an army of Phoenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians, and Corsicans, to the number of three hundred thousand, with Hamilcar son of Hanno, king of the Carthaginians, as their commander. Terillus had persuaded Hamilcar partly by the guest-friendship between them, but especially by the zealous help of Anaxilaus son of Cretines, the tyrant of Rhegium, who to help his father-in-law tried to bring Hamilcar into Sicily and gave him his own sons as hostages. For Anaxilaus was married to Terillus's daughter, whose name was Cydippe. So, they say, it was for this reason that Gelon could not come to the aid of the Greeks, and therefore sent the money to Delphi.
+
+Anaxilaus of Rhegium’s father.
+
+## modern-en · cretines-magnesia · 1212:0
+
+In this disaster, the number of ships lost was no fewer than 400, according to the lowest estimates — along with men beyond counting and an immense quantity of valuables. Indeed, the shipwreck proved very profitable to Ameinocles son of Cretines, a Magnesian who held lands around Sepias: he picked up many golden cups that washed ashore afterwards, and many silver ones too, and discovered Persian treasure-chests, and acquired other gold objects more than can be described. Yet though this man became very rich from his finds, he was otherwise unfortunate — he too suffered calamity, being tormented by the slaying of a child.
+
+Ameinocles the Magnesian’s father.
+
+## modern-en · cydippe · 1187:0
+
+The following story is also told by those living in Sicily: that Gelon, even though he would have had to be under the Lacedaemonians' command, would have come to the aid of the Greeks — but that Terillus son of Crinippus, the tyrant of Himera, having been driven out of Himera by Theron son of Aenesidemus, the ruler of the Acragantines, was at this very time bringing in an army of Phoenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians, and Corsicans, to the number of three hundred thousand, with Hamilcar son of Hanno, king of the Carthaginians, as their commander. Terillus had persuaded Hamilcar partly by the guest-friendship between them, but especially by the zealous help of Anaxilaus son of Cretines, the tyrant of Rhegium, who to help his father-in-law tried to bring Hamilcar into Sicily and gave him his own sons as hostages. For Anaxilaus was married to Terillus's daughter, whose name was Cydippe. So, they say, it was for this reason that Gelon could not come to the aid of the Greeks, and therefore sent the money to Delphi.
+
+Terillus’s daughter, married to Anaxilaus of Rhegium — which is why Anaxilaus worked to bring the Carthaginians in.
+
+## modern-en · micythus · 1192:0
+
+The story goes that Minos, having come to Sicania (which is now called Sicily) in search of Daedalus, died there a violent death; and after a time the Cretans, prompted by a god — all of them except the men of Polichne and Praesus — came with a great force to Sicania and for seven years besieged the city of Camicus, which in my time was occupied by the Acragantines. At last, unable either to take the city or to remain before it, since they were hard pressed by famine, they broke off the siege and departed. On their way back, when they were off the coast of Iapygia, a great storm caught them and cast them onto the coast; their ships were shattered, and since they no longer saw any means of returning to Crete, they founded there the city of Hyria. There they stayed and were transformed, becoming, instead of Cretans, Messapians of Iapygia, and, instead of islanders, mainlanders. Then from the city of Hyria they founded those other settlements which the Tarentines, long afterwards, tried to destroy and suffered great disaster in the attempt — so great that this proved to be the greatest slaughter of Greeks known to us, not only of the Tarentines themselves but of those citizens of Rhegium whom Micythus son of Choerus compelled to come to the Tarentines' aid: three thousand of them were slain there. Of the Tarentines themselves who fell, there was no counting. This Micythus was a servant of Anaxilaus, left by him in charge of Rhegium; he was the one who, after being expelled from Rhegium, settled at Tegea in Arcadia and dedicated those many statues at Olympia.
+
+Anaxilaus’s servant, left in charge of Rhegium, who forced its citizens to help the Tarentines and lost three thousand of them; expelled, he settled at Tegea and dedicated the statues at Olympia.
+
+## modern-en · choerus · 1192:0
+
+The story goes that Minos, having come to Sicania (which is now called Sicily) in search of Daedalus, died there a violent death; and after a time the Cretans, prompted by a god — all of them except the men of Polichne and Praesus — came with a great force to Sicania and for seven years besieged the city of Camicus, which in my time was occupied by the Acragantines. At last, unable either to take the city or to remain before it, since they were hard pressed by famine, they broke off the siege and departed. On their way back, when they were off the coast of Iapygia, a great storm caught them and cast them onto the coast; their ships were shattered, and since they no longer saw any means of returning to Crete, they founded there the city of Hyria. There they stayed and were transformed, becoming, instead of Cretans, Messapians of Iapygia, and, instead of islanders, mainlanders. Then from the city of Hyria they founded those other settlements which the Tarentines, long afterwards, tried to destroy and suffered great disaster in the attempt — so great that this proved to be the greatest slaughter of Greeks known to us, not only of the Tarentines themselves but of those citizens of Rhegium whom Micythus son of Choerus compelled to come to the Tarentines' aid: three thousand of them were slain there. Of the Tarentines themselves who fell, there was no counting. This Micythus was a servant of Anaxilaus, left by him in charge of Rhegium; he was the one who, after being expelled from Rhegium, settled at Tegea in Arcadia and dedicated those many statues at Olympia.
+
+Micythus’s father.
+
+## modern-en · cyllyrians · 1177:0
+
+When it was Hippocrates's fate, after having been tyrant for the same number of years as his brother Cleander, to be killed at the city of Hybla — where he had gone on an expedition against the Sicels — Gelon, under the pretext of helping Hippocrates's sons Euclides and Cleander, when the citizens were no longer willing to submit, in fact, after winning a battle over the men of Gela, stripped Hippocrates's sons of power and became ruler himself. After this stroke of luck, Gelon restored those Syracusans called the “landholders” who had been driven into exile by the common people and by their own slaves (called Cyllyrians). He brought them from the city of Casmene back to Syracuse, and in this way gained possession of Syracuse too — for the common people of Syracuse, when Gelon marched against them, handed over both the city and themselves to him.
+
+The slaves of Syracuse, who with the common people drove the landholders out — and whom Gelon undid by bringing the landholders back.
+
+## modern-en · acragantines · 1187:0
+
+The following story is also told by those living in Sicily: that Gelon, even though he would have had to be under the Lacedaemonians' command, would have come to the aid of the Greeks — but that Terillus son of Crinippus, the tyrant of Himera, having been driven out of Himera by Theron son of Aenesidemus, the ruler of the Acragantines, was at this very time bringing in an army of Phoenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians, and Corsicans, to the number of three hundred thousand, with Hamilcar son of Hanno, king of the Carthaginians, as their commander. Terillus had persuaded Hamilcar partly by the guest-friendship between them, but especially by the zealous help of Anaxilaus son of Cretines, the tyrant of Rhegium, who to help his father-in-law tried to bring Hamilcar into Sicily and gave him his own sons as hostages. For Anaxilaus was married to Terillus's daughter, whose name was Cydippe. So, they say, it was for this reason that Gelon could not come to the aid of the Greeks, and therefore sent the money to Delphi.
+
+Theron’s people, who held Camicus in Herodotus’s day.
+
+## modern-en · messapians · 1192:0
+
+The story goes that Minos, having come to Sicania (which is now called Sicily) in search of Daedalus, died there a violent death; and after a time the Cretans, prompted by a god — all of them except the men of Polichne and Praesus — came with a great force to Sicania and for seven years besieged the city of Camicus, which in my time was occupied by the Acragantines. At last, unable either to take the city or to remain before it, since they were hard pressed by famine, they broke off the siege and departed. On their way back, when they were off the coast of Iapygia, a great storm caught them and cast them onto the coast; their ships were shattered, and since they no longer saw any means of returning to Crete, they founded there the city of Hyria. There they stayed and were transformed, becoming, instead of Cretans, Messapians of Iapygia, and, instead of islanders, mainlanders. Then from the city of Hyria they founded those other settlements which the Tarentines, long afterwards, tried to destroy and suffered great disaster in the attempt — so great that this proved to be the greatest slaughter of Greeks known to us, not only of the Tarentines themselves but of those citizens of Rhegium whom Micythus son of Choerus compelled to come to the Tarentines' aid: three thousand of them were slain there. Of the Tarentines themselves who fell, there was no counting. This Micythus was a servant of Anaxilaus, left by him in charge of Rhegium; he was the one who, after being expelled from Rhegium, settled at Tegea in Arcadia and dedicated those many statues at Olympia.
+
+What the shipwrecked Cretans of Iapygia became — mainlanders instead of islanders.
+
+## modern-en · daedalus · 1192:0
+
+The story goes that Minos, having come to Sicania (which is now called Sicily) in search of Daedalus, died there a violent death; and after a time the Cretans, prompted by a god — all of them except the men of Polichne and Praesus — came with a great force to Sicania and for seven years besieged the city of Camicus, which in my time was occupied by the Acragantines. At last, unable either to take the city or to remain before it, since they were hard pressed by famine, they broke off the siege and departed. On their way back, when they were off the coast of Iapygia, a great storm caught them and cast them onto the coast; their ships were shattered, and since they no longer saw any means of returning to Crete, they founded there the city of Hyria. There they stayed and were transformed, becoming, instead of Cretans, Messapians of Iapygia, and, instead of islanders, mainlanders. Then from the city of Hyria they founded those other settlements which the Tarentines, long afterwards, tried to destroy and suffered great disaster in the attempt — so great that this proved to be the greatest slaughter of Greeks known to us, not only of the Tarentines themselves but of those citizens of Rhegium whom Micythus son of Choerus compelled to come to the Tarentines' aid: three thousand of them were slain there. Of the Tarentines themselves who fell, there was no counting. This Micythus was a servant of Anaxilaus, left by him in charge of Rhegium; he was the one who, after being expelled from Rhegium, settled at Tegea in Arcadia and dedicated those many statues at Olympia.
+
+Whom Minos followed to Sicania, and died there.
+
+## modern-en · iberians · 1187:0
+
+The following story is also told by those living in Sicily: that Gelon, even though he would have had to be under the Lacedaemonians' command, would have come to the aid of the Greeks — but that Terillus son of Crinippus, the tyrant of Himera, having been driven out of Himera by Theron son of Aenesidemus, the ruler of the Acragantines, was at this very time bringing in an army of Phoenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians, and Corsicans, to the number of three hundred thousand, with Hamilcar son of Hanno, king of the Carthaginians, as their commander. Terillus had persuaded Hamilcar partly by the guest-friendship between them, but especially by the zealous help of Anaxilaus son of Cretines, the tyrant of Rhegium, who to help his father-in-law tried to bring Hamilcar into Sicily and gave him his own sons as hostages. For Anaxilaus was married to Terillus's daughter, whose name was Cydippe. So, they say, it was for this reason that Gelon could not come to the aid of the Greeks, and therefore sent the money to Delphi.
+
+One of the seven nations in Hamilcar’s army.
+
+## modern-en · ligurians · 770:0
+
+Of the region lying further north of this country, no one can say with certainty who the people are that live in it; but the parts immediately beyond the Ister are known to be uninhabited and vast in extent. The only people I can hear of who live beyond the Ister are those said to be called the Sigynnae, who dress in the Median fashion. Their horses, it is said, have shaggy hair all over their bodies, as long as five fingers; and they are small, flat-nosed, and too weak to carry men—but when yoked to chariots they are very spirited, which is why the natives drive chariots. The boundaries of this people extend, it is said, as far as the region near the Eneti, who live on the Adriatic; and people say that they are colonists from the Medes. In what way these came to be colonists from the Medes I for my part cannot conceive, but anything is possible in the long course of ages. However that may be, the Ligurians who live in the region inland above Massalia call traders sigynnae, and the Cypriots give the same name to spears.
+
+In Hamilcar’s army, and in the account of the far west of Europe.
+
+## modern-en · elisycans · 1187:0
+
+The following story is also told by those living in Sicily: that Gelon, even though he would have had to be under the Lacedaemonians' command, would have come to the aid of the Greeks — but that Terillus son of Crinippus, the tyrant of Himera, having been driven out of Himera by Theron son of Aenesidemus, the ruler of the Acragantines, was at this very time bringing in an army of Phoenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians, and Corsicans, to the number of three hundred thousand, with Hamilcar son of Hanno, king of the Carthaginians, as their commander. Terillus had persuaded Hamilcar partly by the guest-friendship between them, but especially by the zealous help of Anaxilaus son of Cretines, the tyrant of Rhegium, who to help his father-in-law tried to bring Hamilcar into Sicily and gave him his own sons as hostages. For Anaxilaus was married to Terillus's daughter, whose name was Cydippe. So, they say, it was for this reason that Gelon could not come to the aid of the Greeks, and therefore sent the money to Delphi.
+
+In Hamilcar’s army.
+
+## modern-en · sardinians · 1187:0
+
+The following story is also told by those living in Sicily: that Gelon, even though he would have had to be under the Lacedaemonians' command, would have come to the aid of the Greeks — but that Terillus son of Crinippus, the tyrant of Himera, having been driven out of Himera by Theron son of Aenesidemus, the ruler of the Acragantines, was at this very time bringing in an army of Phoenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians, and Corsicans, to the number of three hundred thousand, with Hamilcar son of Hanno, king of the Carthaginians, as their commander. Terillus had persuaded Hamilcar partly by the guest-friendship between them, but especially by the zealous help of Anaxilaus son of Cretines, the tyrant of Rhegium, who to help his father-in-law tried to bring Hamilcar into Sicily and gave him his own sons as hostages. For Anaxilaus was married to Terillus's daughter, whose name was Cydippe. So, they say, it was for this reason that Gelon could not come to the aid of the Greeks, and therefore sent the money to Delphi.
+
+In Hamilcar’s army.
+
+## modern-en · corsicans · 1187:0
+
+The following story is also told by those living in Sicily: that Gelon, even though he would have had to be under the Lacedaemonians' command, would have come to the aid of the Greeks — but that Terillus son of Crinippus, the tyrant of Himera, having been driven out of Himera by Theron son of Aenesidemus, the ruler of the Acragantines, was at this very time bringing in an army of Phoenicians, Libyans, Iberians, Ligurians, Elisycans, Sardinians, and Corsicans, to the number of three hundred thousand, with Hamilcar son of Hanno, king of the Carthaginians, as their commander. Terillus had persuaded Hamilcar partly by the guest-friendship between them, but especially by the zealous help of Anaxilaus son of Cretines, the tyrant of Rhegium, who to help his father-in-law tried to bring Hamilcar into Sicily and gave him his own sons as hostages. For Anaxilaus was married to Terillus's daughter, whose name was Cydippe. So, they say, it was for this reason that Gelon could not come to the aid of the Greeks, and therefore sent the money to Delphi.
+
+In Hamilcar’s army.
+
+## modern-en · cilix · 1113:0
+
+The Cilicians furnished a hundred ships; these men too wore native helmets on their heads, and for shields they carried round targets of raw oxhide. They wore woolen tunics, and each man carried two javelins and a sword, the sword very like the Egyptian knife. These people used to be called Hypachaeans in old times, and they took their later name from Cilix son of Agenor, a Phoenician. The Pamphylians furnished thirty ships and were equipped in Greek style. These Pamphylians are descended from those who were scattered from Troy together with Amphilochus and Calchas.
+
+Agenor’s son, the Phoenician the Cilicians are named after.
+
+## modern-en · agenor · 703:0
+
+At that very same time Theras, son of Autesion, son of Tisamenus, son of Thersander, son of Polyneices, was preparing to leave Lacedaemon to found a settlement. This Theras was of the line of Cadmus, and was maternal uncle to the sons of Aristodemus, Eurysthenes and Procles. While these nephews were still children, Theras as their guardian held royal power in Sparta. But once his nephews had grown up and taken power into their own hands, Theras—resenting being ruled by others after he had tasted rule himself—declared that he would not remain in Lacedaemon but would sail away to his kinsmen. On the island now called Thera, formerly called Callista, there were descendants of Membliarus, son of Poikiles, a Phoenician. For Cadmus, son of Agenor, while searching for Europa, had put in at the island now called Thera; and whether because the country pleased him once he landed, or for some other reason, he left on this island, along with other Phoenicians, Membliarus, who was one of his own kinsmen. These men had occupied the island called Callista for eight generations before Theras came from Lacedaemon.
+
+Cadmus’s father, and Cilix’s.
+
+## modern-en · amphilochus · 488:0
+
+From the division that begins at the city of Posideion—founded by Amphilochos son of Amphiaraos on the borders of the Cilicians and Syrians—and extends as far as Egypt, not including the territory of the Arabians (for this was exempt from payment), the amount was three hundred and fifty talents. This division comprises all of Phoenicia, Syria called Palestine, and Cyprus: this is the fifth division. From Egypt and the Libyans bordering on Egypt, and from Cyrene and Barca—these were ordered to belong to the Egyptian division—there came in seven hundred talents, not counting the money produced from the fish of Lake Moeris. Not counting this, I say, nor the grain contributed in addition by measure, seven hundred talents came in. As for the grain, they contribute by measure one hundred and twenty thousand bushels for the use of the Persians garrisoned at the “White Fortress” at Memphis and for their foreign mercenaries: this is the sixth division. The Sattagydai, Gandarians, Dadicans, and Aparytai, joined together, brought in one hundred and seventy talents: this is the seventh division. From Susa and the rest of the land of the Kissians came in three hundred: this is the eighth division.
+
+With Calchas, scattered from Troy; the Pamphylians are descended from his people.
+
+## modern-en · calchas · 1113:0
+
+The Cilicians furnished a hundred ships; these men too wore native helmets on their heads, and for shields they carried round targets of raw oxhide. They wore woolen tunics, and each man carried two javelins and a sword, the sword very like the Egyptian knife. These people used to be called Hypachaeans in old times, and they took their later name from Cilix son of Agenor, a Phoenician. The Pamphylians furnished thirty ships and were equipped in Greek style. These Pamphylians are descended from those who were scattered from Troy together with Amphilochus and Calchas.
+
+Scattered from Troy with Amphilochus.
+
+## modern-en · xuthus · 1116:0
+
+The Ionians furnished a hundred ships and were equipped like Greeks. The Ionians, during the long time they lived in the Peloponnese, in the country now called Achaea, and before Danaus and Xuthus came to the Peloponnese, were called, as the Greeks report, Pelasgians of the Coast, and then were called Ionians after Ion son of Xuthus.
+
+Ion’s father, who came to the Peloponnese with Danaus.
+
+## modern-en · ion · 827:0
+
+Athens, which even before that time was great, then, once it had been freed from tyrants, became gradually greater still; and in it two men exercised power—Cleisthenes, a descendant of Alcmaeon, the same man who is reported to have bribed the Pythian priestess, and Isagoras, son of Tisander, of a family highly reputed, though of his original descent I am unable to say; his kinsmen, however, sacrifice to the Carian Zeus. These men came into party strife over power; and when Cleisthenes was being worsted in the struggle, he made common cause with the people. After this he caused the Athenians to be divided into ten tribes, who were formerly in four; and he changed the names that they had been known by after the sons of Ion—Geleon, Aegicoreus, Argades, and Hoples—and invented for them names taken from other heroes, all native Athenians except Ajax, whom he added as a neighbor and ally, though he was no Athenian.
+
+Xuthus’s son, from whom the Pelasgians of the coast were renamed Ionians.
+
+## modern-en · prexinos · 1202:0
+
+The Troizenian ship, under the command of Prexinos, was pursued and captured at once by the barbarians. They then took the handsomest of her fighting men and cut his throat at the prow of the ship, treating it as a good omen that the first Greek they had captured was preeminent for beauty. The name of this sacrificed man was Leon — and perhaps his name itself played some part in what befell him.
+
+Commander of the Troezenian ship taken first of the three on watch off Sciathos.
+
+## modern-en · leon-troezen · 1202:0
+
+The Troizenian ship, under the command of Prexinos, was pursued and captured at once by the barbarians. They then took the handsomest of her fighting men and cut his throat at the prow of the ship, treating it as a good omen that the first Greek they had captured was preeminent for beauty. The name of this sacrificed man was Leon — and perhaps his name itself played some part in what befell him.
+
+The handsomest of the fighting men on the Troezenian ship, whose throat the Persians cut over the prow for a good omen. Herodotus wonders whether his name — Lion — had something to do with it.
+
+## modern-en · asonides · 1203:0
+
+The Aeginetan ship, commanded by Asonides, gave them more trouble to capture, because Pytheas son of Ischenoös was serving as a fighting man on board. He proved himself an extraordinarily valiant man that day: as the ship was being taken, he held out fighting until he was hacked to pieces. When he fell and still did not die but had breath left in him, the Persians serving as marines on the ships were so impressed by his courage that they did everything they could to save his life — applying myrrh ointments to heal his wounds and wrapping him in bands of the finest linen. When they rejoined their main fleet, they displayed him to the whole army, marveling at him and treating him well. But the rest of the men they had captured from that ship they treated as slaves.
+
+Commander of the Aeginetan ship.
+
+## modern-en · pytheas · 1203:0
+
+The Aeginetan ship, commanded by Asonides, gave them more trouble to capture, because Pytheas son of Ischenoös was serving as a fighting man on board. He proved himself an extraordinarily valiant man that day: as the ship was being taken, he held out fighting until he was hacked to pieces. When he fell and still did not die but had breath left in him, the Persians serving as marines on the ships were so impressed by his courage that they did everything they could to save his life — applying myrrh ointments to heal his wounds and wrapping him in bands of the finest linen. When they rejoined their main fleet, they displayed him to the whole army, marveling at him and treating him well. But the rest of the men they had captured from that ship they treated as slaves.
+
+Son of Ischenous, the Aeginetan marine who fought on until he was hacked to pieces and still would not die. The Persians dressed his wounds with myrrh and fine linen and showed him off to the whole army.
+
+## modern-en · ischenous · 1203:0
+
+The Aeginetan ship, commanded by Asonides, gave them more trouble to capture, because Pytheas son of Ischenoös was serving as a fighting man on board. He proved himself an extraordinarily valiant man that day: as the ship was being taken, he held out fighting until he was hacked to pieces. When he fell and still did not die but had breath left in him, the Persians serving as marines on the ships were so impressed by his courage that they did everything they could to save his life — applying myrrh ointments to heal his wounds and wrapping him in bands of the finest linen. When they rejoined their main fleet, they displayed him to the whole army, marveling at him and treating him well. But the rest of the men they had captured from that ship they treated as slaves.
+
+Pytheas’s father.
+
+## modern-en · phormos · 1204:0
+
+Two of the three ships, then, were captured in this way. But the third, commanded by the Athenian Phormos, ran aground in its flight at the mouth of the river Peneios. The barbarians seized the vessel but not its crew, for as soon as the Athenians had beached the ship, they leapt out and made their way through Thessaly back to Athens.
+
+The Athenian whose ship ran aground at the mouth of the Peneios; the crew walked home through Thessaly.
+
+## modern-en · pammon · 1205:0
+
+The Greeks stationed at Artemisium were informed of these events by fire-signals from Skiathos. Struck with fear at the news, they shifted their anchorage from Artemisium to Chalkis, intending to guard the Euripos, while leaving daylight watchers on the heights of Euboea. Meanwhile, three of the ten barbarian ships sailed up to the reef called Myrmex, which lies between Skiathos and Magnesia. The barbarians had brought a stone pillar with them for this purpose, and they set it up on the reef. Then, with the difficulties of the passage now cleared, they set out from Therma with their main fleet and sailed to this point with all their ships, eleven days having passed since the king began his march from Therma. They were informed about this reef, which lies directly in the middle of the fairway, by Pammon of Skyros. Sailing all day, the barbarians completed the voyage to Sepias in Magnesia and to the beach between the city of Casthanaia and the headland of Sepias.
+
+Of Skyros, who told the Persians where the reef of Myrmex lay.
+
+## modern-en · boreas · 1211:0
+
+There is a story that the Athenians had called upon Boreas for help, at the suggestion of an oracle — for another pronouncement of the god had come to them, bidding them call upon their brother-in-law to be their helper. According to Greek legend, Boreas has a wife from Attica, Oreithuia daughter of Erechththeus. Because of this kinship, the Athenians — so the tale goes — concluded that Boreas was their brother-in-law. When they perceived the wind rising as they lay with their ships at Chalkis in Euboea, or even before then, they offered sacrifices and called upon Boreas and Oreithuia to help them and destroy the ships of the barbarians, as he had done before around Mount Athos. Whether it was for this reason that Boreas fell upon the barbarians as they lay at anchor, I cannot say; but however that may be, the Athenians claim that Boreas had come to their aid in earlier times, and that on this occasion too he accomplished the things I have described. When they returned home, they set up a temple dedicated to Boreas beside the river Ilissos.
+
+The north wind, whom the Athenians called on as their brother-in-law because his wife is from Attica. Four hundred ships were lost off Sepias, and the Athenians built him a temple by the Ilissos.
+
+## modern-en · oreithuia · 1211:0
+
+There is a story that the Athenians had called upon Boreas for help, at the suggestion of an oracle — for another pronouncement of the god had come to them, bidding them call upon their brother-in-law to be their helper. According to Greek legend, Boreas has a wife from Attica, Oreithuia daughter of Erechththeus. Because of this kinship, the Athenians — so the tale goes — concluded that Boreas was their brother-in-law. When they perceived the wind rising as they lay with their ships at Chalkis in Euboea, or even before then, they offered sacrifices and called upon Boreas and Oreithuia to help them and destroy the ships of the barbarians, as he had done before around Mount Athos. Whether it was for this reason that Boreas fell upon the barbarians as they lay at anchor, I cannot say; but however that may be, the Athenians claim that Boreas had come to their aid in earlier times, and that on this occasion too he accomplished the things I have described. When they returned home, they set up a temple dedicated to Boreas beside the river Ilissos.
+
+Erechtheus’s daughter and Boreas’s wife — the Attic marriage that made the north wind a relative.
+
+## modern-en · erechtheus · 843:0
+
+Now the grudge that was already owed by the Aeginetans to the Athenians arose from the following beginning. The land of the Epidaurians was yielding its inhabitants no produce; and concerning this calamity the Epidaurians went to Delphi to inquire, and the Pythian priestess bade them set up images of Damia and Auxesia, saying that when they had set these up, they would meet with better fortune. The Epidaurians then asked further whether they should make the images of bronze or of stone; and the priestess told them to use neither, but to make them of the wood of a cultivated olive-tree. The Epidaurians accordingly asked the Athenians to allow them to cut an olive-tree for themselves, since they thought that Athenian olives were the most sacred—indeed, some say that at that time there were no olives in any part of the earth except at Athens. The Athenians said they would allow it on condition that the Epidaurians should every year bring due offerings to Athena Polias and to Erechtheus. The Epidaurians, having agreed to these terms, obtained what they had asked; they made images out of these olive-trees and set them up, and their land bore fruit, and they continued to fulfill toward the Athenians what they had agreed.
+
+Oreithuia’s father, and the king whose shrine stands on the Athenian acropolis.
+
+## modern-en · ameinocles · 1212:0
+
+In this disaster, the number of ships lost was no fewer than 400, according to the lowest estimates — along with men beyond counting and an immense quantity of valuables. Indeed, the shipwreck proved very profitable to Ameinocles son of Cretines, a Magnesian who held lands around Sepias: he picked up many golden cups that washed ashore afterwards, and many silver ones too, and discovered Persian treasure-chests, and acquired other gold objects more than can be described. Yet though this man became very rich from his finds, he was otherwise unfortunate — he too suffered calamity, being tormented by the slaying of a child.
+
+A Magnesian with land around Sepias, made rich by the wreck — gold cups, silver cups, Persian treasure-chests — and unlucky in everything else: he was tormented by the killing of a child.
+
+## modern-en · thetis · 1213:0
+
+Of the grain-transports and other vessels that perished, no count was made; the loss was so great that the fleet's commanders, struck with fear that the Thessalians might attack them now that they had been brought into such a sorry state, threw a high palisade around their camp built from the wreckage. The storm raged for three days; but at last the Magians, offering sacrifices of victims and singing incantations to the Wind to appease it by enchantments — and, in addition, offering to Thetis and the Nereids — caused it to stop on the fourth day, or else it abated of its own accord for some other reason. They sacrificed to Thetis because the Ionians had told them the story that she was carried off from that place by Peleus, and that the whole headland of Sepias belonged to her and the other Nereids.
+
+Carried off from Sepias by Peleus, according to the Ionians; the Magi sacrificed to her and to the Nereids to stop the storm.
+
+## modern-en · nereids · 265:0
+
+Moreover, the naming of almost all the gods has come to Hellas from Egypt: that it has come from the Barbarians I find by inquiry to be true, and I am of the opinion that most probably it has come from Egypt. For, except in the case of Poseidon and the Dioscuri (in accordance with what I have said before), and also of Hera, Hestia, Themis, the Charites, and the Nereïds, the Egyptians have had the names of all the other gods in their country from time immemorial. What I say here is what the Egyptians themselves think. But as for the gods whose names they profess not to know, these I think received their names from the Pelasgians — except Poseidon; about this god the Hellenes learnt from the Libyans, for no people except the Libyans have had the name of Poseidon from the first and have paid honour to this god always. Nor, it may be added, have the Egyptians any custom of worshipping heroes.
+
+Whose headland Sepias is, with Thetis.
+
+## modern-en · peleus · 1213:0
+
+Of the grain-transports and other vessels that perished, no count was made; the loss was so great that the fleet's commanders, struck with fear that the Thessalians might attack them now that they had been brought into such a sorry state, threw a high palisade around their camp built from the wreckage. The storm raged for three days; but at last the Magians, offering sacrifices of victims and singing incantations to the Wind to appease it by enchantments — and, in addition, offering to Thetis and the Nereids — caused it to stop on the fourth day, or else it abated of its own accord for some other reason. They sacrificed to Thetis because the Ionians had told them the story that she was carried off from that place by Peleus, and that the whole headland of Sepias belonged to her and the other Nereids.
+
+Who carried Thetis off from that shore.
+
+## modern-en · sandokes · 1216:0
+
+It happened that fifteen of these ships put out to sea considerably later than the rest, and they caught sight of the Greek ships at Artemisium. The barbarians assumed these were their own vessels and sailed toward them, only to fall among the enemy. Their commander was Sandokes son of Thamasios, governor of Kyme in Aiolia, whom King Darius had once taken and crucified (he being one of the Royal Judges) for this reason: Sandokes had delivered an unjust verdict for money. After he had been hung up, Darius reconsidered and found that his services to the royal house outweighed his offenses; realizing this, and seeing that he had acted more hastily than wisely, Darius let him go. So he escaped from King Darius and survived; but now, sailing in toward the Greeks, he was not destined to escape a second time. For when the Greeks saw them sailing up, they perceived the mistake, put out against them, and captured them without difficulty.
+
+Son of Thamasios and governor of Cyme, once crucified by Darius as a royal judge who sold a verdict and taken down again when Darius reckoned up his services. He escaped the king; sailing late into Artemisium with fifteen ships, he did not escape the Greeks.
+
+## modern-en · thamasios · 1216:0
+
+It happened that fifteen of these ships put out to sea considerably later than the rest, and they caught sight of the Greek ships at Artemisium. The barbarians assumed these were their own vessels and sailed toward them, only to fall among the enemy. Their commander was Sandokes son of Thamasios, governor of Kyme in Aiolia, whom King Darius had once taken and crucified (he being one of the Royal Judges) for this reason: Sandokes had delivered an unjust verdict for money. After he had been hung up, Darius reconsidered and found that his services to the royal house outweighed his offenses; realizing this, and seeing that he had acted more hastily than wisely, Darius let him go. So he escaped from King Darius and survived; but now, sailing in toward the Greeks, he was not destined to escape a second time. For when the Greeks saw them sailing up, they perceived the mistake, put out against them, and captured them without difficulty.
+
+Sandokes’s father.
+
+## modern-en · aridolis · 1217:0
+
+Aridolis, tyrant of Alabanda in Caria, was captured in one of these ships, and in another the Paphian commander Penthylos son of Demonoös, who had brought twelve ships from Paphos but lost eleven of them in the storm off Sepias, and was now captured sailing in toward Artemisium with the one that had escaped. These men the Greeks sent in chains to the Isthmus of the Corinthians, after questioning them about what they wanted to learn concerning Xerxes's army.
+
+Tyrant of Alabanda in Caria, taken in one of the fifteen ships.
+
+## modern-en · penthylos · 1217:0
+
+Aridolis, tyrant of Alabanda in Caria, was captured in one of these ships, and in another the Paphian commander Penthylos son of Demonoös, who had brought twelve ships from Paphos but lost eleven of them in the storm off Sepias, and was now captured sailing in toward Artemisium with the one that had escaped. These men the Greeks sent in chains to the Isthmus of the Corinthians, after questioning them about what they wanted to learn concerning Xerxes's army.
+
+Son of Demonoös, the Paphian commander who brought twelve ships, lost eleven in the storm and was captured in the twelfth.
+
+## modern-en · demonoos · 1217:0
+
+Aridolis, tyrant of Alabanda in Caria, was captured in one of these ships, and in another the Paphian commander Penthylos son of Demonoös, who had brought twelve ships from Paphos but lost eleven of them in the storm off Sepias, and was now captured sailing in toward Artemisium with the one that had escaped. These men the Greeks sent in chains to the Isthmus of the Corinthians, after questioning them about what they wanted to learn concerning Xerxes's army.
+
+Penthylos’s father.
+
+## modern-en · athamas · 1082:0
+
+Meanwhile the fleet was sailing out of the Hellespont and coasting along in the opposite direction from the land army, for the fleet was making west toward the promontory of Sarpedon, to which it had been previously ordered to go and wait for the army. The land army meanwhile was marching east, toward the sunrise, through the Chersonese, keeping on its right the tomb of Helle the daughter of Athamas, and on its left the city of Cardia, passing through the middle of a town called Agora. From there, bending around the Gulf of Melas and crossing the river Melas (whose stream did not suffice for the army at that time and ran dry), the army — having crossed this river, from which the gulf also takes its name — went westward, passing the Aeolian city of Aenus and the lake Stentoris, until at last it arrived at Doriscus.
+
+Aeolus’s son, who plotted Phrixus’s death with Ino — and was nearly sacrificed for it himself. His eldest descendants may not enter the Hall of the People at Alos, and Xerxes would not go into the grove.
+
+## modern-en · aiolos · 1219:0
+
+When Xerxes reached Alos in Achaia, the guides who were informing him about the route, wishing to tell him everything, reported to him a local legend concerning the temple of Zeus Laphystios: how Athamas son of Aiolos plotted death for Phrixos together with Ino, and how afterwards, by command of an oracle, the Achaians lay the following requirements on his descendants. Whoever is the eldest of this race is forbidden to enter the City Hall, and they themselves keep watch (the City Hall is called by the Achaians the 'Hall of the People'). If he does enter it, he may not come out until he is about to be sacrificed. They added that many who were about to be sacrificed had fled in fear to another country, and if they later returned home and were caught, they were placed in the City Hall. They also told how the victim is sacrificed thickly wreathed in garlands, and with what form of procession he is led to the altar. This is done to the descendants of Kytissoros son of Phrixos, because, when the Achaians were making Athamas son of Aiolos a sacrificial victim to purge the sins of the land by oracular command, and were just about to sacrifice him, this Kytissoros arrived from Aia of the Colchians and rescued him — and by doing so brought the wrath of the gods down upon his own descendants. Having heard these things, Xerxes, when he reached the sacred grove, refrained from entering it himself and commanded his whole army to do the same; and he paid reverence to both the house and the sacred precinct of the descendants of Athamas.
+
+Athamas’s father.
+
+## modern-en · phrixos · 1219:0
+
+When Xerxes reached Alos in Achaia, the guides who were informing him about the route, wishing to tell him everything, reported to him a local legend concerning the temple of Zeus Laphystios: how Athamas son of Aiolos plotted death for Phrixos together with Ino, and how afterwards, by command of an oracle, the Achaians lay the following requirements on his descendants. Whoever is the eldest of this race is forbidden to enter the City Hall, and they themselves keep watch (the City Hall is called by the Achaians the 'Hall of the People'). If he does enter it, he may not come out until he is about to be sacrificed. They added that many who were about to be sacrificed had fled in fear to another country, and if they later returned home and were caught, they were placed in the City Hall. They also told how the victim is sacrificed thickly wreathed in garlands, and with what form of procession he is led to the altar. This is done to the descendants of Kytissoros son of Phrixos, because, when the Achaians were making Athamas son of Aiolos a sacrificial victim to purge the sins of the land by oracular command, and were just about to sacrifice him, this Kytissoros arrived from Aia of the Colchians and rescued him — and by doing so brought the wrath of the gods down upon his own descendants. Having heard these things, Xerxes, when he reached the sacred grove, refrained from entering it himself and commanded his whole army to do the same; and he paid reverence to both the house and the sacred precinct of the descendants of Athamas.
+
+Whose death Athamas plotted, and whose son came back from Colchis to save him.
+
+## modern-en · ino · 1219:0
+
+When Xerxes reached Alos in Achaia, the guides who were informing him about the route, wishing to tell him everything, reported to him a local legend concerning the temple of Zeus Laphystios: how Athamas son of Aiolos plotted death for Phrixos together with Ino, and how afterwards, by command of an oracle, the Achaians lay the following requirements on his descendants. Whoever is the eldest of this race is forbidden to enter the City Hall, and they themselves keep watch (the City Hall is called by the Achaians the 'Hall of the People'). If he does enter it, he may not come out until he is about to be sacrificed. They added that many who were about to be sacrificed had fled in fear to another country, and if they later returned home and were caught, they were placed in the City Hall. They also told how the victim is sacrificed thickly wreathed in garlands, and with what form of procession he is led to the altar. This is done to the descendants of Kytissoros son of Phrixos, because, when the Achaians were making Athamas son of Aiolos a sacrificial victim to purge the sins of the land by oracular command, and were just about to sacrifice him, this Kytissoros arrived from Aia of the Colchians and rescued him — and by doing so brought the wrath of the gods down upon his own descendants. Having heard these things, Xerxes, when he reached the sacred grove, refrained from entering it himself and commanded his whole army to do the same; and he paid reverence to both the house and the sacred precinct of the descendants of Athamas.
+
+Athamas’s partner in the plot.
+
+## modern-en · kytissoros · 1219:0
+
+When Xerxes reached Alos in Achaia, the guides who were informing him about the route, wishing to tell him everything, reported to him a local legend concerning the temple of Zeus Laphystios: how Athamas son of Aiolos plotted death for Phrixos together with Ino, and how afterwards, by command of an oracle, the Achaians lay the following requirements on his descendants. Whoever is the eldest of this race is forbidden to enter the City Hall, and they themselves keep watch (the City Hall is called by the Achaians the 'Hall of the People'). If he does enter it, he may not come out until he is about to be sacrificed. They added that many who were about to be sacrificed had fled in fear to another country, and if they later returned home and were caught, they were placed in the City Hall. They also told how the victim is sacrificed thickly wreathed in garlands, and with what form of procession he is led to the altar. This is done to the descendants of Kytissoros son of Phrixos, because, when the Achaians were making Athamas son of Aiolos a sacrificial victim to purge the sins of the land by oracular command, and were just about to sacrifice him, this Kytissoros arrived from Aia of the Colchians and rescued him — and by doing so brought the wrath of the gods down upon his own descendants. Having heard these things, Xerxes, when he reached the sacred grove, refrained from entering it himself and commanded his whole army to do the same; and he paid reverence to both the house and the sacred precinct of the descendants of Athamas.
+
+Phrixus’s son, who arrived from Colchis and rescued Athamas from the altar — and brought the wrath of the gods on his own descendants for it.
+
+## modern-en · amphictyon · 1222:0
+
+There is also another river called Phoinix, to the south of the Asopos, not large, which flows out of these mountains into the Asopos. At the river Phoinix is the narrowest place, for here a road has been constructed wide enough for only a single wheel-track. From the river Phoinix it is fifteen furlongs to Thermopylae; and in the space between the river Phoinix and Thermopylae there is a village called Anthela, past which the Asopos flows before emptying into the sea. Around this village there is a wide space containing a temple dedicated to Demeter of the Amphictyons, seats for the Amphictyonic councillors, and a temple dedicated to Amphictyon himself.
+
+Whose temple stands at Anthela beside the seats of the Amphictyonic council.
+
+## modern-en · amphictyons · 395:0
+
+Moreover, when the Amphictyons had let out the contract for building the temple which now stands at Delphi, agreeing to pay a sum of three hundred talents — for the temple that formerly stood there had burned down of itself — the people of Delphi had to provide a quarter of the payment. Accordingly the Delphians went round to various cities collecting contributions, and in doing so they got as much from Egypt as from anywhere, for Amasis gave them a thousand talents’ weight of alum, while the Greeks who lived in Egypt gave them twenty pounds of silver.
+
+The council that met at Anthela, priced Epialtes’s life and set up the memorials at Thermopylae.
+
+## modern-en · eurycratides · 1226:0
+
+Although each city had its own commanders, the one most held in regard and leader of the whole army was the Lacedaemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — who had obtained the kingdom of Sparta against expectation.
+
+Leon’s father in the Agiad descent Herodotus recites for Leonidas.
+
+## modern-en · anaxander · 1226:0
+
+Although each city had its own commanders, the one most held in regard and leader of the whole army was the Lacedaemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — who had obtained the kingdom of Sparta against expectation.
+
+Eurycratides’s father.
+
+## modern-en · eurycrates · 1226:0
+
+Although each city had its own commanders, the one most held in regard and leader of the whole army was the Lacedaemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — who had obtained the kingdom of Sparta against expectation.
+
+Anaxander’s father.
+
+## modern-en · polydorus-sparta · 1226:0
+
+Although each city had its own commanders, the one most held in regard and leader of the whole army was the Lacedaemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — who had obtained the kingdom of Sparta against expectation.
+
+Eurycrates’s father.
+
+## modern-en · alcamenes · 1226:0
+
+Although each city had its own commanders, the one most held in regard and leader of the whole army was the Lacedaemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — who had obtained the kingdom of Sparta against expectation.
+
+Polydorus’s father.
+
+## modern-en · teleclos · 1226:0
+
+Although each city had its own commanders, the one most held in regard and leader of the whole army was the Lacedaemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — who had obtained the kingdom of Sparta against expectation.
+
+Alcamenes’s father.
+
+## modern-en · archelaos · 1226:0
+
+Although each city had its own commanders, the one most held in regard and leader of the whole army was the Lacedaemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — who had obtained the kingdom of Sparta against expectation.
+
+Teleclos’s father.
+
+## modern-en · hegesilaus · 1226:0
+
+Although each city had its own commanders, the one most held in regard and leader of the whole army was the Lacedaemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — who had obtained the kingdom of Sparta against expectation.
+
+Archelaus’s father in the Agiad line.
+
+## modern-en · doryssos · 1226:0
+
+Although each city had its own commanders, the one most held in regard and leader of the whole army was the Lacedaemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — who had obtained the kingdom of Sparta against expectation.
+
+Hegesilaus’s father.
+
+## modern-en · leobotes · 65:0
+
+Some say in addition that the Pythian prophetess also set forth to him the order of things that is now established for the Spartans; but the Lacedaemonians themselves say that Lycurgus, having become guardian of Leobotes, his brother’s son, who was king of the Spartans, brought in these things from Crete. For as soon as he became guardian he changed all the prevailing laws and took measures that they should not transgress his institutions. After this Lycurgus established what pertains to war—namely the Enomoties and the Triecades and the Common Meals—and, in addition, the Ephors and the Senate. Having made these changes, the Spartans had good laws; and to Lycurgus, after he was dead, they erected a temple, and they pay him great honor. As might be expected, with a fertile land and no small number of men dwelling in it, they quickly shot up and became prosperous, and it was no longer enough for them to keep still. Presuming that they were superior in strength to the Arcadians, they consulted the Oracle at Delphi about the conquest of the whole of Arcadia. The Pythian prophetess answered them thus:
+
+Doryssus’s father — the king Lycurgus was guardian to.
+
+## modern-en · echestratos · 1226:0
+
+Although each city had its own commanders, the one most held in regard and leader of the whole army was the Lacedaemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — who had obtained the kingdom of Sparta against expectation.
+
+Leobotes’s father, Agis’s son.
+
+## modern-en · leontiades · 1227:0
+
+Having two elder brothers, Cleomenes and Dorieos, Leonidas had been far from expecting to become king. But since Cleomenes had died without a male child, and Dorieos was by then no longer alive either — he too had ended his life in Sicily — the kingdom came to Leonidas, both because he was of greater age than Cleombrotos (who was the youngest son of Anaxandrides) and because he had married the daughter of Cleomenes. At this time he went to Thermopylae, having chosen the three hundred men appointed by law — men who happened to have sons — and he took with him as well, before arriving, those Thebans whom I mentioned when I counted the troops, whose commander was Leontiades son of Eurymachos. The reason Leonidas was eager to take these men of all the Greeks with him was that the Thebans were strongly accused of taking the side of the Medes; so he summoned them to the war to discover whether they would send troops with him or openly renounce the Greek alliance. They sent men — but with other intentions in their hearts.
+
+Son of Eurymachus and commander of the four hundred Thebans Leonidas took with him as hostages. He went over to the Persians at the end and was branded with the royal marks for his pains.
+
+## modern-en · eurymachos · 1227:0
+
+Having two elder brothers, Cleomenes and Dorieos, Leonidas had been far from expecting to become king. But since Cleomenes had died without a male child, and Dorieos was by then no longer alive either — he too had ended his life in Sicily — the kingdom came to Leonidas, both because he was of greater age than Cleombrotos (who was the youngest son of Anaxandrides) and because he had married the daughter of Cleomenes. At this time he went to Thermopylae, having chosen the three hundred men appointed by law — men who happened to have sons — and he took with him as well, before arriving, those Thebans whom I mentioned when I counted the troops, whose commander was Leontiades son of Eurymachos. The reason Leonidas was eager to take these men of all the Greeks with him was that the Thebans were strongly accused of taking the side of the Medes; so he summoned them to the war to discover whether they would send troops with him or openly renounce the Greek alliance. They sent men — but with other intentions in their hearts.
+
+Leontiades’s father — and Leontiades’s son of the same name, who seized Plataea and was killed by the Plataeans.
+
+## modern-en · epialtes · 1235:0
+
+While the king was at a loss as to what to do next, Epialtes son of Eurydemos, a Malian, came to speak with him, supposing he would win a great reward. This man told him of the path leading over the mountain to Thermopylae, and so brought about the destruction of the Greeks remaining there. Afterwards, fearing the Lacedaemonians, he fled to Thessaly; and while he was in exile, the Deputies placed a price on his life when the Amphictyons met for their assembly at Pylai. Some time later, having returned to Antikyra, he was slain by Athenades, a man of Trachis. Now this Athenades killed Epialtes for another reason, which I shall describe later in this history; but for this deed he was honored by the Lacedaemonians nonetheless.
+
+Son of Eurydemus, a Malian, who told Xerxes about the mountain path for a reward and destroyed the Greeks at the pass. The Amphictyons put a price on his head; he was killed years later at Antikyra by Athenades, for another reason entirely, and the Lacedaemonians honoured Athenades for it anyway.
+
+## modern-en · eurydemos · 1235:0
+
+While the king was at a loss as to what to do next, Epialtes son of Eurydemos, a Malian, came to speak with him, supposing he would win a great reward. This man told him of the path leading over the mountain to Thermopylae, and so brought about the destruction of the Greeks remaining there. Afterwards, fearing the Lacedaemonians, he fled to Thessaly; and while he was in exile, the Deputies placed a price on his life when the Amphictyons met for their assembly at Pylai. Some time later, having returned to Antikyra, he was slain by Athenades, a man of Trachis. Now this Athenades killed Epialtes for another reason, which I shall describe later in this history; but for this deed he was honored by the Lacedaemonians nonetheless.
+
+Epialtes’s father.
+
+## modern-en · athenades · 1235:0
+
+While the king was at a loss as to what to do next, Epialtes son of Eurydemos, a Malian, came to speak with him, supposing he would win a great reward. This man told him of the path leading over the mountain to Thermopylae, and so brought about the destruction of the Greeks remaining there. Afterwards, fearing the Lacedaemonians, he fled to Thessaly; and while he was in exile, the Deputies placed a price on his life when the Amphictyons met for their assembly at Pylai. Some time later, having returned to Antikyra, he was slain by Athenades, a man of Trachis. Now this Athenades killed Epialtes for another reason, which I shall describe later in this history; but for this deed he was honored by the Lacedaemonians nonetheless.
+
+The man of Trachis who killed Epialtes.
+
+## modern-en · onetes · 1236:0
+
+Thus, some time after these events, Epialtes was killed. There is, however, another account that says Onetes son of Phanagoras, a man of Carystos, and Corydallos of Antikyra were the ones who showed the Persians the way around the mountain; but I cannot accept this at all. For in the first place we must judge by this fact: that the Deputies of the Greeks did not proclaim a reward for the lives of Onetes and Corydallos, but for Epialtes the Trachinian — they surely having obtained the most exact information. Secondly, we know that Epialtes went into exile from his country to escape this very charge. It is true that Onetes might have known of this path, even if he were not a Malian, had he spent much time in the country; but it was Epialtes who led them around the mountain by the path, and so I record him as the guilty man.
+
+Son of Phanagoras, of Carystos, named by some as the man who showed the Persians the path. Herodotus will not have it: the Amphictyons priced Epialtes, not him, and Epialtes went into exile for the charge.
+
+## modern-en · phanagoras · 1236:0
+
+Thus, some time after these events, Epialtes was killed. There is, however, another account that says Onetes son of Phanagoras, a man of Carystos, and Corydallos of Antikyra were the ones who showed the Persians the way around the mountain; but I cannot accept this at all. For in the first place we must judge by this fact: that the Deputies of the Greeks did not proclaim a reward for the lives of Onetes and Corydallos, but for Epialtes the Trachinian — they surely having obtained the most exact information. Secondly, we know that Epialtes went into exile from his country to escape this very charge. It is true that Onetes might have known of this path, even if he were not a Malian, had he spent much time in the country; but it was Epialtes who led them around the mountain by the path, and so I record him as the guilty man.
+
+Onetes’s father.
+
+## modern-en · corydallos · 1236:0
+
+Thus, some time after these events, Epialtes was killed. There is, however, another account that says Onetes son of Phanagoras, a man of Carystos, and Corydallos of Antikyra were the ones who showed the Persians the way around the mountain; but I cannot accept this at all. For in the first place we must judge by this fact: that the Deputies of the Greeks did not proclaim a reward for the lives of Onetes and Corydallos, but for Epialtes the Trachinian — they surely having obtained the most exact information. Secondly, we know that Epialtes went into exile from his country to escape this very charge. It is true that Onetes might have known of this path, even if he were not a Malian, had he spent much time in the country; but it was Epialtes who led them around the mountain by the path, and so I record him as the guilty man.
+
+Of Antikyra, named with Onetes in the account Herodotus rejects.
+
+## modern-en · megistias · 1240:0
+
+To the Greeks at Thermopylae, first of all the soothsayer Megistias, looking into the sacrificed victims, announced the death that would come to them at dawn. Next, deserters brought word that the Persians had gone around. These men signaled it to them while it was still night. And thirdly came the day-watchers, who had run down from the heights when day was already breaking. Then the Greeks deliberated, and their opinions were divided: some urged that they should not abandon their post, while others opposed this advice. After this, they dispersed from the assembly: some went away, scattering each to their own cities, while others were ready to remain there together with Leonidas.
+
+The Acarnanian soothsayer, said to be descended from Melampus, who read the victims and told the Greeks at dawn what was coming. Leonidas tried to send him away; he sent his only son instead and stayed. Simonides wrote his epitaph out of guest-friendship.
+
+## modern-en · demophilos · 1243:0
+
+The allies who were dismissed, then, departed, obeying the word of Leonidas, and only the Thespians and the Thebans remained behind with the Lacedaemonians. Of these, the Thebans stayed against their will, not because they wished to — Leonidas kept them, counting them as hostages — but the Thespians very willingly, for they said they would not leave Leonidas and those with him, but stayed behind and died with them. Their commander was Demophilos son of Diadromes.
+
+Son of Diadromes, commander of the seven hundred Thespians who stayed of their own will and died with Leonidas.
+
+## modern-en · diadromes · 1243:0
+
+The allies who were dismissed, then, departed, obeying the word of Leonidas, and only the Thespians and the Thebans remained behind with the Lacedaemonians. Of these, the Thebans stayed against their will, not because they wished to — Leonidas kept them, counting them as hostages — but the Thespians very willingly, for they said they would not leave Leonidas and those with him, but stayed behind and died with them. Their commander was Demophilos son of Diadromes.
+
+Demophilus’s father.
+
+## modern-en · abrocomes · 1245:0
+
+By this time, the spears of most of them were broken in the fighting, and they were killing the Persians with their swords. In this combat fell Leonidas, having proved himself a very good man, and with him other notable Spartans, whose names I was told as men who had shown themselves worthy — indeed, I was told the names of all the three hundred. On the Persian side there also fell here, besides many other notables, two sons of Darius — Abrocomes and Hyperanthes — born to Darius by Phratagune the daughter of Artanes. Artanes was the brother of King Darius and the son of Hystaspes, the son of Arsames. In giving his daughter in marriage to Darius, he also gave her his whole fortune with her, because she was his only child.
+
+A son of Darius by Phratagune, killed over the body of Leonidas.
+
+## modern-en · hyperanthes · 1245:0
+
+By this time, the spears of most of them were broken in the fighting, and they were killing the Persians with their swords. In this combat fell Leonidas, having proved himself a very good man, and with him other notable Spartans, whose names I was told as men who had shown themselves worthy — indeed, I was told the names of all the three hundred. On the Persian side there also fell here, besides many other notables, two sons of Darius — Abrocomes and Hyperanthes — born to Darius by Phratagune the daughter of Artanes. Artanes was the brother of King Darius and the son of Hystaspes, the son of Arsames. In giving his daughter in marriage to Darius, he also gave her his whole fortune with her, because she was his only child.
+
+Abrocomes’s brother, killed in the same fight.
+
+## modern-en · phratagune · 1245:0
+
+By this time, the spears of most of them were broken in the fighting, and they were killing the Persians with their swords. In this combat fell Leonidas, having proved himself a very good man, and with him other notable Spartans, whose names I was told as men who had shown themselves worthy — indeed, I was told the names of all the three hundred. On the Persian side there also fell here, besides many other notables, two sons of Darius — Abrocomes and Hyperanthes — born to Darius by Phratagune the daughter of Artanes. Artanes was the brother of King Darius and the son of Hystaspes, the son of Arsames. In giving his daughter in marriage to Darius, he also gave her his whole fortune with her, because she was his only child.
+
+Artanes’s only child, married to Darius with her father’s whole fortune, and mother of the two brothers who died at the pass.
+
+## modern-en · artanes · 1245:0
+
+By this time, the spears of most of them were broken in the fighting, and they were killing the Persians with their swords. In this combat fell Leonidas, having proved himself a very good man, and with him other notable Spartans, whose names I was told as men who had shown themselves worthy — indeed, I was told the names of all the three hundred. On the Persian side there also fell here, besides many other notables, two sons of Darius — Abrocomes and Hyperanthes — born to Darius by Phratagune the daughter of Artanes. Artanes was the brother of King Darius and the son of Hystaspes, the son of Arsames. In giving his daughter in marriage to Darius, he also gave her his whole fortune with her, because she was his only child.
+
+Darius’s brother and Phratagune’s father.
+
+## modern-en · dienekes · 1247:0
+
+Such were the proofs of courage given by the Lacedaemonians and Thespians. Yet the Spartan Dienekes is said to have proved himself the best man of all — the same man who, they report, made this remark before engaging the Medes: when he was told by one of the men of Trachis that when the barbarians shot their arrows they darkened the sun by the sheer number of them, so vast was their host, he was not dismayed but, making light of the Median numbers, replied that their guest from Trachis had brought them very good news — for if the Medes darkened the sun, their battle against them would be fought in the shade, not in the sun.
+
+The Spartan reckoned the best man of all, who on being told that the Persian arrows would darken the sun said that their guest from Trachis brought good news — the battle would be fought in the shade.
+
+## modern-en · alpheos · 1248:0
+
+This and other sayings of the kind, they report, Dienekes the Lacedaemonian left behind as memorials of himself. After him, the bravest of the Lacedaemonians are said to have been two brothers, Alpheos and Maron, sons of Orsiphantos. Of the Thespians, the man who gained the most honor was Dithyrambos son of Harmatides.
+
+With his brother Maron, the bravest of the Lacedaemonians after Dienekes.
+
+## modern-en · maron · 1248:0
+
+This and other sayings of the kind, they report, Dienekes the Lacedaemonian left behind as memorials of himself. After him, the bravest of the Lacedaemonians are said to have been two brothers, Alpheos and Maron, sons of Orsiphantos. Of the Thespians, the man who gained the most honor was Dithyrambos son of Harmatides.
+
+Alpheus’s brother.
+
+## modern-en · orsiphantos · 1248:0
+
+This and other sayings of the kind, they report, Dienekes the Lacedaemonian left behind as memorials of himself. After him, the bravest of the Lacedaemonians are said to have been two brothers, Alpheos and Maron, sons of Orsiphantos. Of the Thespians, the man who gained the most honor was Dithyrambos son of Harmatides.
+
+Father of Alpheus and Maron.
+
+## modern-en · dithyrambos · 1248:0
+
+This and other sayings of the kind, they report, Dienekes the Lacedaemonian left behind as memorials of himself. After him, the bravest of the Lacedaemonians are said to have been two brothers, Alpheos and Maron, sons of Orsiphantos. Of the Thespians, the man who gained the most honor was Dithyrambos son of Harmatides.
+
+Son of Harmatides, the Thespian who gained most honour.
+
+## modern-en · harmatides · 1248:0
+
+This and other sayings of the kind, they report, Dienekes the Lacedaemonian left behind as memorials of himself. After him, the bravest of the Lacedaemonians are said to have been two brothers, Alpheos and Maron, sons of Orsiphantos. Of the Thespians, the man who gained the most honor was Dithyrambos son of Harmatides.
+
+Dithyrambus’s father.
+
+## modern-en · simonides · 863:0
+
+Sardis was then destroyed by fire, and with it the temple of the native goddess Cybebe—which the Persians later gave as a reason for burning, in return, the temples in the land of the Hellenes. At the time in question, however, the Persians who occupied districts within the river Halys, informed beforehand of this movement, were gathering to come to the aid of the Lydians; and as it happened, they found when they arrived that the Ionians were no longer in Sardis. But they followed closely in their tracks and caught up with them at Ephesus; and the Ionians did stand against them in battle order, but when they joined battle they had much the worse of it. Besides other men of note whom the Persians killed, Eualcides also fell, commander of the Eretrians, a man who had won wreaths in athletic contests and was much celebrated by Simonides of Ceos; and those of the Ionians who survived the battle dispersed to their various cities.
+
+Son of Leoprepes, who wrote the soothsayer’s epitaph — and whom Herodotus quotes once before this.
+
+## modern-en · eurystus · 1250:0
+
+Two of these three hundred, it is said — Eurystos and Aristodemos — could, had they agreed together, either have both come safely home to Sparta (since they had been dismissed from the camp by Leonidas and were lying at Alpenoi with severe eye disease), or, if they did not wish to return home, they might have died along with the rest. When they could have done one of these two things, they could not agree; and being divided in opinion, Eurystos, it is said, when informed that the Persians had gone around, asked for his armor, put it on, and ordered his Helot to lead him to the fighting. Once the Helot had led him there, the man ran off and escaped, but Eurystos plunged into the thick of the fighting and so lost his life. Aristodemos, however, was left behind, fainting. Now if Aristodemos alone had been ill and had therefore returned home to Sparta, or if both men had come back together, I do not suppose the Spartans would have shown any anger toward them. But as it was — since one of them had lost his life, and the other, clinging to an excuse the first man could equally have used, had refused to die — it was inevitable that the Spartans felt great indignation against Aristodemos.
+
+One of two of the three hundred sent out of the camp with eye disease. Told that the Persians had gone round, he called for his armour, had a Helot lead him to the fighting, and died in it.
+
+## modern-en · aristodemus-thermopylae · 1250:0
+
+Two of these three hundred, it is said — Eurystos and Aristodemos — could, had they agreed together, either have both come safely home to Sparta (since they had been dismissed from the camp by Leonidas and were lying at Alpenoi with severe eye disease), or, if they did not wish to return home, they might have died along with the rest. When they could have done one of these two things, they could not agree; and being divided in opinion, Eurystos, it is said, when informed that the Persians had gone around, asked for his armor, put it on, and ordered his Helot to lead him to the fighting. Once the Helot had led him there, the man ran off and escaped, but Eurystos plunged into the thick of the fighting and so lost his life. Aristodemos, however, was left behind, fainting. Now if Aristodemos alone had been ill and had therefore returned home to Sparta, or if both men had come back together, I do not suppose the Spartans would have shown any anger toward them. But as it was — since one of them had lost his life, and the other, clinging to an excuse the first man could equally have used, had refused to die — it was inevitable that the Spartans felt great indignation against Aristodemos.
+
+The other man with the eye disease, who stayed behind fainting and came home. No Spartan would give him fire or speak to him, and he was called Aristodemus the Coward — until Plataea, where he made it good.
+
+## modern-en · pantites · 1253:0
+
+He, however, made good all the guilt charged against him at the battle of Plataea. But it is reported that another man also survived of these three hundred, whose name was Pantites, having been sent as a messenger to Thessaly; and when he returned to Sparta and found himself dishonored, he is said to have hanged himself.
+
+The other survivor of the three hundred, sent as a messenger to Thessaly, who came home to dishonour and hanged himself.
+
+## modern-en · thespians · 1154:0
+
+Among those who gave what was demanded were these: the Thessalians, Dolopians, Enienes, Perrhaebians, Locrians, Magnesians, Malians, Achaeans of Phthiotis, and Thebans, along with the rest of the Boeotians except the Thespians and Plataeans. Against these the Greeks who took up war against the barbarian swore an oath: that whatever Greeks had given themselves over to the Persian without being compelled, if the Greeks' own affairs came to a good end, they would dedicate a tithe of them as an offering to the god at Delphi.
+
+Seven hundred of them at the pass, who stayed of their own will when the allies were dismissed and died with the Spartans; and the one Boeotian people, with Plataea, that never gave earth and water.
+
+## modern-en · phocians · 45:1
+
+Having formed this design, he began at once to test the Oracles—both those of the Greeks and the one in Libya—sending messengers, some to one place and some to another: some to go to Delphi, others to Abae of the Phocians, and others to Dodona; and some were sent to the shrine of Amphiaraus and to that of Trophonius, while others went to Branchidae in the land of Miletus. These are the Oracles of the Greeks to which Croesus sent messengers to seek divination. And others he sent to the shrine of Ammon in Libya to inquire there. Now he was sending these messengers abroad in order to test the Oracles and find out what knowledge they had, so that if they should be found to possess knowledge of the truth, he might send a second time and ask them whether he should attempt to march against the Persians.
+
+A thousand of them, who had offered to hold the mountain path and were on it when the Persians came up through the oak leaves at dawn; they ran for the summit, and the Persians walked past them.
+
+## modern-en · locrians · 1154:0
+
+Among those who gave what was demanded were these: the Thessalians, Dolopians, Enienes, Perrhaebians, Locrians, Magnesians, Malians, Achaeans of Phthiotis, and Thebans, along with the rest of the Boeotians except the Thespians and Plataeans. Against these the Greeks who took up war against the barbarian swore an oath: that whatever Greeks had given themselves over to the Persian without being compelled, if the Greeks' own affairs came to a good end, they would dedicate a tithe of them as an offering to the god at Delphi.
+
+The Opuntian Locrians, called up in full force to Trachis.
+
+## modern-en · malians · 589:0
+
+But much more about them is reported by the people of Delos than by any others. They say that sacred offerings bound up in wheat straw are carried from the land of the Hyperboreans and come to the Scythians, and from the Scythians the neighbouring nations in succession receive them and convey them westwards, finally as far as the Adriatic. From there they are sent on towards the south; the people of Dodona receive them first of all the Hellenes, and from these they come down to the Malian gulf and are passed over to Euboea, where city sends them on to city till they reach Carystos. After this Andros is skipped, for the Carystians are the ones who bring them to Tenos, and the Tenians to Delos. Thus, they say, these sacred offerings come to Delos. But at first, they say, the Hyperboreans sent two maidens bearing the sacred offerings, whose names, the Delians say, were Hyperoche and Laodike. With them, for their protection, the Hyperboreans sent five men of their nation to attend them—those who are now called Perphereës and receive great honour on Delos. But since the Hyperboreans found that those sent away did not come back, they were troubled at the thought of always having to send out and never receive back; so they carried the offerings, bound up in wheat straw, to the borders of their land, and laid a charge upon their neighbours, bidding them pass them on to another nation. These, they say, come to Delos by being passed on in this way. And I know of my own knowledge that a thing is done which resembles these offerings: the women of Thrace and Paionia, when they sacrifice to Artemis “the Queen,” never make their offerings without wheat straw.
+
+In whose land Thermopylae lies; they gave the king earth and water, and it was Malians who had found the mountain path long before and shown it to the Thessalians.
+
+## modern-en · trachinians · 1238:0
+
+By this path, so situated, the Persians — having crossed the Asopos — marched all through the night, with the mountains of the Oitaians on their right and those of the Trachinians on their left. When dawn appeared, they had reached the summit of the mountain. At this part of the mountain, as I have already said, a thousand Phokian hoplites were keeping guard, to protect their own country and to watch the path — for while the pass below was being guarded by those I have mentioned, the path over the mountain was being guarded by the Phokians, who had undertaken the task for Leonidas at their own offer.
+
+The people of Trachis, who told the Greeks about the path only after they had arrived at the pass.
+
+## modern-en · oitaians · 1238:0
+
+By this path, so situated, the Persians — having crossed the Asopos — marched all through the night, with the mountains of the Oitaians on their right and those of the Trachinians on their left. When dawn appeared, they had reached the summit of the mountain. At this part of the mountain, as I have already said, a thousand Phokian hoplites were keeping guard, to protect their own country and to watch the path — for while the pass below was being guarded by those I have mentioned, the path over the mountain was being guarded by the Phokians, who had undertaken the task for Leonidas at their own offer.
+
+Whose mountains stood on the Persians’ right as they went round by night.
+
+## modern-en · perrhaebians · 1150:0
+
+Then Xerxes, seeing from Therma the mountains of Thessaly, Olympus and Ossa, and noting that they were very lofty, and being informed that between them lay a narrow channel through which the Peneios flows, and hearing that by this way there was a good road leading into Thessaly, conceived a desire to sail there and look at the outlet of the Peneios — for he was intending to take the inland route, through the land of the upland Macedonians, until he should reach the Perrhaebians, passing by the city of Gonnos; this way, he was told, was safest. Having conceived the wish, he acted on it: he embarked on a Sidonian ship (the one he always used when he wanted to do something of this kind), and he gave the signal for the other ships to put out to sea too, leaving the land army behind. When Xerxes had looked at the outlet of the Peneios, he was struck with great wonder, and summoning his guides he asked them whether it was possible to turn the river aside and bring it out to the sea by another route.
+
+Through whose country the upper road into Thessaly runs — the road Xerxes took.
+
+## modern-en · magnesians · 487:0
+
+From the Ionians, the Magnesians of Asia, the Aiolians, Carians, Lykians, Milyans, and Pamphylians—for he appointed a single sum of tribute for all of these—there came in four hundred talents of silver. This was appointed the first division. From the Mysians, Lydians, Lasonians, Cabalians, and Hytennians there came in five hundred talents: this is the second division. From the Hellespontians who dwell on the right as one sails in, the Phrygians, the Thracians who dwell in Asia, the Paphlagonians, Mariandynoi, and Syrians, the tribute was three hundred and sixty talents: this is the third division. From the Cilicians, besides three hundred and sixty white horses—one for every day in the year—there came also five hundred talents of silver, of which one hundred and forty talents were spent on the cavalry guarding the Cilician land, while the remaining three hundred and sixty came in every year to Darius: this is the fourth division.
+
+Of Thessaly, who gave earth and water; Herodotus also names Magnesians in Asia in the tribute list.
+
+## modern-en · dolopians · 1154:0
+
+Among those who gave what was demanded were these: the Thessalians, Dolopians, Enienes, Perrhaebians, Locrians, Magnesians, Malians, Achaeans of Phthiotis, and Thebans, along with the rest of the Boeotians except the Thespians and Plataeans. Against these the Greeks who took up war against the barbarian swore an oath: that whatever Greeks had given themselves over to the Persian without being compelled, if the Greeks' own affairs came to a good end, they would dedicate a tithe of them as an offering to the god at Delphi.
+
+Who gave earth and water, and marched with the king.
+
+## modern-en · enianians · 1207:0
+
+There is still to be counted, in addition to all this, the force being led from Europe; of this I must give a probable estimate. The Greeks of Thrace and of the islands off the Thracian coast supplied 120 ships, which yields a total of 24,000 men. As for the land-force supplied by the Thracians, Paionians, Eordians, Bottiaians, the race inhabiting Chalkidike, the Brygians, Pierians, Macedonians, Perraibians, Enianians, Dolopians, Magnesians, Achaians, and all those who dwell along the Thracian coast — of these various nations I estimate there were 300,000. These added to those from Asia make a grand total of 2,640,000 fighting men, plus another 1,610.
+
+Out of whose land the Spercheios flows; they gave earth and water.
+
+## modern-en · mantineians · 717:0
+
+Then Battus, son of Arcesilaus, succeeded to the kingdom. He was lame and unsound in his feet. The Cyrenaeans, in view of the misfortune that had befallen them, sent men to Delphi to ask what form of government they should adopt to live as well as possible; and the Pythian priestess told them to fetch a reformer of their constitution from Mantineia of the Arcadians. The Cyrenaeans made the request accordingly, and the Mantineians gave them the most respected man among their citizens, whose name was Demonax. When this Demonax had come to Cyrene and made careful inquiry into everything, he first caused them to form three tribes, distributing them as follows: one division he made of the Theraeans and their dependents, another of the Peloponnesians and Cretans, and a third of all the islanders. Secondly, for King Battus he set aside landed estates and priesthoods, but all the other powers the kings used to hold he assigned as public rights to the people.
+
+Five hundred of them at the pass with the Tegeans.
+
+## modern-en · leoprepes-ceos · 1249:6
+
+It was the Amphictyons who honored them with these inscriptions and memorial pillars, except in the case of the inscription to the soothsayer: that one, for the soothsayer Megistias, was composed by Simonides son of Leoprepes on account of guest-friendship.
+
+Simonides the poet’s father. Not the Spartan Leoprepes, Theasides’s father.
+
+## modern-en · royal-judges · 411:0
+
+On the tenth day after he received the surrender of the fortress of Memphis, Cambyses set the king of the Egyptians Psammenitos, who had been king for six months, to sit in the suburb of the city, in order to humiliate him. Him, along with other Egyptians, he placed there, and proceeded to test his spirit as follows. Having dressed his daughter in the clothing of a slave, he sent her out with a pitcher to fetch water, and with her he sent other maidens also, chosen from the daughters of the leading men, dressed just as the king's daughter was. As the maidens passed by their fathers with cries and lamentation, the rest of the men began to cry out and lament aloud, seeing their children being ill-used. But Psammenitos, when he saw it before his eyes and perceived what was happening, bent himself down to the earth. Then, after the water-bearers had passed by, Cambyses next sent his son together with two thousand other Egyptians of the same age, with ropes around their necks and bits placed in their mouths; and these were being led away to execution to avenge the death of the Mytilenians who had been destroyed at Memphis with their ship — for the Royal Judges had decided that for each man, ten of the noblest Egyptians should lose their lives in retaliation. When Psammenitos saw them passing by him and perceived that his son was leading the way to death, he did the same as he had done for his daughter, while the other Egyptians sitting around him lamented and showed signs of grief. When these too had passed by, it happened that a man of his table companions, advanced in years, who had been stripped of all his possessions and had nothing beyond what a beggar owns, and was asking alms from the soldiers, passed by Psammenitos son of Amasis and the Egyptians sitting in the suburb of the city. When Psammenitos saw him, he uttered a great cry of lamentation, called his companion by name, and beat himself on the head. Now there were, it seems, men set to watch him, who reported to Cambyses everything he did on each occasion as they passed. Cambyses marveled at what he had done and sent a messenger to ask him: “Psammenitos, your master Cambyses asks you why, when you saw your daughter mistreated and your son going to his death, you did not cry out or lament for them, whereas you honored with these signs of grief the beggar who, as he hears from others, is in no way related to you?” Thus he asked, and the other answered: “O son of Cyrus, my own troubles were too great to lament aloud, but my companion's trouble called for tears, seeing that he has been stripped of great wealth and has come to beggary on the threshold of old age.” When this saying was reported by the messenger, it seemed to them well spoken. And, as the Egyptians report, Croesus shed tears — for he too, as fortune would have it, had accompanied Cambyses to Egypt — and the Persians present shed tears also, and some pity entered into Cambyses himself. He ordered that the life of Psammenitos's son be spared from among those being put to death, and he also ordered that Psammenitos himself be raised from his place in the suburb of the city and brought into his presence.
+
+The Persian judges chosen for life, who interpret the ancestral laws and decide every case referred to them. Cambyses had Sisamnes flayed for selling a verdict; Darius crucified Sandokes for the same offence and then took him down again.
+
+## modern-en · royal-secretaries · 525:0
+
+Thus Darius asked, and thirty men undertook the task, each eager to do it himself. Darius stopped their contention and bade them cast lots. When they did so, Bagaios son of Artontes drew the lot out of them all. Having drawn the lot, Bagaios acted as follows: he wrote many papers dealing with various matters and set Darius' seal on them, and with these he went to Sardis. When he arrived there and came into Oroetes' presence, he took the covers off the papers one by one and gave them to the Royal Secretary to read—for all provincial governors have Royal Secretaries. Now Bagaios gave the papers in order to test the spearmen of the guard, to see whether they would accept the idea of revolting from Oroetes. When he saw that they paid great reverence to the papers and still greater reverence to the words read from them, he handed over another paper containing these words: “Persians, King Darius forbids you to serve as guards to Oroetes.” Hearing this, they lowered the points of their spears before him. Then Bagaios, seeing that they were obedient to the paper on this point, took courage and gave the last paper to the secretary. In it was written: “King Darius commands the Persians in Sardis to kill Oroetes.” So the spearmen of the guard, when they heard this, drew their swords and killed him on the spot. Thus retribution for the murder of Polycrates the Samian overtook Oroetes.
+
+The king’s clerks, who read his letters aloud to the governors — which is how Bagaeus destroyed Oroetes with a sealed packet.
+
+## modern-en · scythes-cos · 1185:0
+
+The Greek envoys, having finished their conference with Gelon, sailed away. Gelon for his part, on the one hand fearing for the Greeks that they might not be able to overcome the barbarian, and on the other thinking it intolerable that he, as tyrant of Sicily, should go to the Peloponnese and be under the command of the Lacedaemonians, gave up this plan and followed another. As soon as he was informed that the Persian had crossed the Hellespont, he sent Cadmus son of Scythes, a man of Cos, with three fifty-oared galleys to Delphi, carrying large sums of money and friendly proposals, to wait there and see how the battle would turn out: if the barbarian should win, he was to give him the money and also offer him earth and water from the lands over which Gelon ruled; if the Greeks should win, he was to bring it all back.
+
+Cadmus’s father, who held Cos before him and left it in good order.
+
+## modern-en · agis-agiad · 1226:0
+
+Although each city had its own commanders, the one most held in regard and leader of the whole army was the Lacedaemonian Leonidas son of Anaxandrides, son of Leon, son of Eurycratides, son of Anaxander, son of Eurycrates, son of Polydoros, son of Alcamenes, son of Teleclos, son of Archelaos, son of Hegesilaos, son of Doryssos, son of Leobotes, son of Echestratos, son of Agis, son of Eurysthenes, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — who had obtained the kingdom of Sparta against expectation.
+
+Echestratus’s father and Eurysthenes’s son, at the head of the Agiad kings. Not Leotychides’s grandfather.
+
+## modern-en · the-winds · 1200:0
+
+The Greeks, I say, were hurrying to the defense, each assigned to his own post. Meanwhile the men of Delphi, struck with dread, consulted the god's oracle on behalf of themselves and on behalf of Greece, and the answer given was that they should pray to the Winds, for these would be powerful helpers of Greece in battle. The Delphians, having accepted the oracle, first reported the answer to those of the Greeks who desired to remain free; and by reporting it at a time when they were in great dread of the barbarian, they laid up for themselves an undying store of gratitude. After this the Delphians set up an altar for the Winds at Thyia, where there is a sacred precinct of Thyia the daughter of Cephisus — from whom the place also takes its name — and they approached the Winds with sacrifices.
+
+The powers Delphi told the Delphians to pray to, saying they would be great allies of Greece. The Delphians built them an altar at Thyia and sacrifice to them still; four hundred Persian ships were lost off Sepias.
+
+## modern-en · troezenians · 456:0
+
+Then, by payment of money, they acquired from the men of Hermion the island of Hydrea, which lies near the coast of the Peloponnese, and they entrusted it to the Troezenians while they themselves settled at Kydonia in Crete. They had not sailed there for that purpose, but in order to drive the Zakynthians off the island. They remained there and prospered for five years—so much so that they were the builders of the temples now standing at Kydonia, including the house of Dictyna. In the sixth year, however, the Aeginetans together with the Cretans defeated them in a sea-battle and enslaved them. They cut off the prows of their ships, which were shaped like boars, and dedicated them in the temple of Athena on Aegina. The Aeginetans did this because they had a grudge against the Samians: for the Samians had first campaigned against Aegina in the reign of Amphicrates, and had inflicted much harm on the Aeginetans while suffering much harm in return. Such was the cause of this event.
+
+Who put one of the three ships on watch off Sciathos, and from whom the people of Halicarnassus are descended.
+
+## modern-en · artabazus-babylon · 191:0
+
+As to the resources of the Babylonians — how great they are — I shall show by many other proofs, and among them by this: For the support of the great king and his army, apart from the regular tribute, the whole land of which he is ruler has been distributed into portions. Now whereas twelve months make up the year, for four of these he has his support from the territory of Babylon, and for the remaining eight months from the whole of the rest of Asia. Thus the Assyrian land is, in regard to resources, the third part of all Asia; and the government, or satrapy (as it is called by the Persians), of this territory is by far the best of all the governments. Indeed, when Tritantaichmes son of Artabazos had this province from the king, there came in to him every day an artab full of silver coin (now the artab is a Persian measure and holds more than the medimnos of Attica by three Attic choinikes). And of horses he had in this province as his private property, apart from the horses for use in war, eight hundred stallions and sixteen thousand mares, for each of these stallions served twenty mares. Of Indian hounds, moreover, such a vast number were kept that four large villages in the plain, being free from other contributions, had been appointed to provide food for the hounds.
+
+Father of the Tritantaechmes who held Babylon. Not the general of this war.
+
+## modern-en · tritantaechmes-babylon · 191:0
+
+As to the resources of the Babylonians — how great they are — I shall show by many other proofs, and among them by this: For the support of the great king and his army, apart from the regular tribute, the whole land of which he is ruler has been distributed into portions. Now whereas twelve months make up the year, for four of these he has his support from the territory of Babylon, and for the remaining eight months from the whole of the rest of Asia. Thus the Assyrian land is, in regard to resources, the third part of all Asia; and the government, or satrapy (as it is called by the Persians), of this territory is by far the best of all the governments. Indeed, when Tritantaichmes son of Artabazos had this province from the king, there came in to him every day an artab full of silver coin (now the artab is a Persian measure and holds more than the medimnos of Attica by three Attic choinikes). And of horses he had in this province as his private property, apart from the horses for use in war, eight hundred stallions and sixteen thousand mares, for each of these stallions served twenty mares. Of Indian hounds, moreover, such a vast number were kept that four large villages in the plain, being free from other contributions, had been appointed to provide food for the hounds.
+
+Satrap of Babylon, whose province was the best of all the governments: an artaba of silver a day, and eight hundred stallions besides the mares. Not Artabanus’s son.
