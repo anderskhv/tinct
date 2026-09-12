@@ -37,8 +37,6 @@ SPLIT={
  # the last section of Book 9 and is not yet authored.
  'Artembares':({(113,0):'artembares-mede',(114,0):'artembares-mede',
                 (115,0):'artembares-mede'},None),
- # Paris. The Macedonian Alexander belongs to Books 5 and 7-9.
- 'Alexander':({(3,0):'alexander-paris'},None),
  # The Spartan king of Croesus's day.
  'Ariston': ({(66,0):'ariston-spartan'},None),
  # Leon king of Sparta, Leonidas's grandfather. The Leon sacrificed by the
@@ -48,6 +46,16 @@ SPLIT={
  'Nin(?:us|os)':({(7,0):'ninus'},None),
  # Bias of Priene. The Bias of Book 9 is Melampus's brother at Argos.
  'Bias':    ({(27,0):'bias',(169,0):'bias'},None),
+ # Book 2. The king Moeris, not the lake that carries his name; the lake is a
+ # place and is not cast.
+ 'Mo(?:e|i)ris':({(221,0):'moeris-king',(228,0):'moeris-king',
+                 (316,0):'moeris-king'},None),
+ # Paris again, in Egypt with Helen and the stolen goods.
+ 'Alexander':({(3,0):'alexander-paris',(327,0):'alexander-paris',
+               (328,0):'alexander-paris',(329,0):'alexander-paris',
+               (330,0):'alexander-paris',(331,0):'alexander-paris',
+               (332,0):'alexander-paris',(333,0):'alexander-paris',
+               (334,0):'alexander-paris',(335,0):'alexander-paris'},None),
 }
 
 def bind(edition,ch,pi,text,entities):

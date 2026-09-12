@@ -569,3 +569,299 @@ The interpreters of portents whom Croesus consulted about the snakes in the subu
 ## The Leleges · reference
 
 The name the Carians went by while they were islanders and subjects of Minos.
+
+## Min · supporting
+
+The first man to be king of Egypt, who dammed the Nile away from Memphis and founded the city on the reclaimed ground. The older translation spells him Men.
+
+## Nitocris · supporting
+
+The one queen in the priests’ list of three hundred and thirty kings, who avenged her murdered brother by drowning his killers at a feast and then threw herself into a room full of ashes.
+
+## Moeris · supporting
+
+The king before whose reign the Nile needed only eight cubits to flood Egypt, and whose name the great lake carries. The two editions spell the lake Moeris and Moiris.
+
+## Sesostris · major
+
+The conqueror who set out with a fleet from the Arabian gulf, marched through Asia into Europe, and left carved pillars behind him — with a woman’s parts cut on them where the people gave in without a fight.
+
+## Pheros · supporting
+
+Sesostris’s son, blinded for throwing a spear into the flooding Nile, and cured after ten years by a remedy that cost the lives of a great many women.
+
+## Proteus · major
+
+The king of Memphis who held Helen and the stolen treasure in Egypt for the whole length of the Trojan war, and sent Alexander away — the story Herodotus believes over Homer’s.
+
+## Thonis · supporting
+
+The warden of the Canobic mouth who arrested Alexander’s servants and reported him to Proteus.
+
+## Rhampsinitos · major
+
+The rich king whose treasury a mason’s two sons robbed through a movable stone — the best story in Book 2 — and who ended by marrying his daughter to the thief.
+
+## Cheops · major
+
+The king who shut the temples, set the whole people to work on his pyramid for twenty years, and sold his own daughter’s favours to pay for it.
+
+## Chephren · supporting
+
+Cheops’s brother and successor, who ruled in the same manner for fifty-six years; the Egyptians will not willingly say either brother’s name.
+
+## Mykerinos · major
+
+Cheops’s son, who opened the temples again and gave the people back their lives — and was told by the oracle that he had six years to live because Egypt was meant to suffer a hundred and fifty. He answered by lighting lamps and living the nights as well.
+
+## Asychis · supporting
+
+The king who made a law that a man might borrow on his father’s corpse, and built a pyramid of brick with an inscription telling it not to compare itself with the stone ones.
+
+## Anysis · supporting
+
+The blind king of the city of the same name, who fled into the marshes when the Ethiopians came and hid there fifty years on a floating island of ash and earth.
+
+## Sabacos · supporting
+
+The Ethiopian who ruled Egypt for fifty years without putting anyone to death, and left because of a dream rather than wait for it to come true.
+
+## Sethos · supporting
+
+The priest of Hephaistos who despised the warrior class and was saved from Sennacherib by field-mice that ate the Assyrians’ bowstrings overnight.
+
+## Psammetichos · major
+
+One of the twelve kings, driven out and returned with the bronze men the oracle promised; he reunited Egypt, opened it to Greek traders, and shut two children away with a mute shepherd to find out which language came first. The two editions spell him Psammetichos and Psammetichus.
+
+## Necos · major
+
+Psammetichos’s son, who began the canal to the Red Sea, gave it up when the oracle warned him, and sent Phoenicians to sail round Libya. The older translation spells him Necos; he is also the father Sabacos killed.
+
+## Psammis · supporting
+
+Necos’s son, who reigned six years, invaded Ethiopia, and gave the Eleians the obvious answer about their own games.
+
+## Apries · major
+
+Psammis’s son, the most prosperous king but one until his army went over to Amasis; he was kept alive in his own palace and then handed to the Egyptians, who strangled him.
+
+## Patarbemis · supporting
+
+The man of reputation Apries sent to fetch Amasis back, and whose ears and nose Apries cut off when he came back without him — which lost Apries the rest of his subjects.
+
+## Ladice · supporting
+
+The Cyrenaean woman Amasis married, who prayed to Aphrodite when he could not come to her and afterwards sent the goddess a statue.
+
+## Amyrtaios · reference
+
+The only man in seven hundred years to find the floating island in the marshes where Anysis had hidden.
+
+## Rhodopis · supporting
+
+The Thracian courtesan the Greeks credit with the third pyramid — wrongly, Herodotus says, since she lived generations later. She spent a tenth of her fortune on iron roasting-spits at Delphi.
+
+## Iadmon · reference
+
+The Samian who owned Rhodopis, and Aesop before her.
+
+## Aesop · reference
+
+The fable-maker, named here as Rhodopis’s fellow-slave, for whose killing the Delphians had to pay compensation.
+
+## Charaxos · supporting
+
+The man of Mytilene who bought Rhodopis’s freedom at great expense, and was mocked for it in his sister’s poetry.
+
+## Sappho · reference
+
+Charaxos’s sister, named as the lyric poet who made a song about what her brother had spent his money on.
+
+## Etearchus · supporting
+
+King of the Ammonians, who told the Nasamonians’ story of the five young men who crossed the desert and came to a city of small black men beside a river full of crocodiles.
+
+## Archander · reference
+
+Son-in-law of Danaus, after whom a city in the Delta is named; Herodotus doubts the name is Egyptian at all.
+
+## Hecataeus · supporting
+
+The historian who traced his own descent to a god in the sixteenth generation, and was shown three hundred and forty-five wooden statues at Thebes to correct him.
+
+## Menelaus · supporting
+
+Helen’s husband, who came to Egypt for her after Troy fell, got her back from Proteus, and repaid the Egyptians by sacrificing two of their children for a wind.
+
+## Hector · supporting
+
+Priam’s elder and abler son, whose existence Herodotus uses as the proof that Troy would have given Helen up if it had had her.
+
+## Homer · major
+
+Whom Herodotus supposes to have invented the river Ocean, to have known the Egyptian version of Helen and set it aside as less suitable for poetry, and to have lived four hundred years before his own day.
+
+## Hesiod · supporting
+
+Named with Homer as the pair who made the Greeks their theogony, gave the gods their titles and described their forms.
+
+## Perseus · supporting
+
+Whose watchtower stands on the Egyptian coast and whose sandal turns up at Chemmis; the people there say he was theirs, being descended from Danaus.
+
+## Danaus · supporting
+
+Of Chemmis, from whom the people there trace Perseus; his daughters brought the rite of the Thesmophoria out of Egypt. The two editions spell him Danaus and Danaos.
+
+## Lynceus · reference
+
+Named with Danaus as a man of Chemmis who sailed to Greece.
+
+## Amphitryon · reference
+
+Heracles’s mortal father — of Egyptian descent, the Egyptians say, which is why the Greeks are wrong about which Heracles is older.
+
+## Alcmene · reference
+
+Heracles’s mother, named with Amphitryon in the same argument.
+
+## Melampus · supporting
+
+Son of Amytheon, who Herodotus thinks brought the rite of Dionysus into Greece from Egypt, having learned it from Cadmus and the Phoenicians.
+
+## Amytheon · reference
+
+Melampus’s father.
+
+## Cadmus · supporting
+
+The Phoenician from whom Melampus is supposed to have learned the Egyptian rites. The two editions spell him Cadmus and Cadmos.
+
+## Semele · reference
+
+Cadmus’s daughter, the mother of the Greek Dionysus — sixteen hundred years after the Egyptian one, on Herodotus’s reckoning.
+
+## Penelope · reference
+
+Of whom the Greeks say Pan was born, and Hermes — eight hundred years after the Egyptian Pan.
+
+## Linus · reference
+
+The song the Egyptians call Maneros, sung in Phoenicia and Cyprus under other names, and the one song the Egyptians have.
+
+## Danae · reference
+
+Perseus’s mother, named in the Chemmite genealogy.
+
+## Hephaestus · major
+
+The god the Greeks call Hephaestus and the Egyptians Ptah, whose priests at Memphis are Herodotus’s main informants; his temple is the one every king adds to. The two editions spell him Hephaestus and Hephaistos.
+
+## Isis · major
+
+Whose figure is a woman with cow’s horns, and who is Demeter in Greek. Cows are sacred to her and are never sacrificed.
+
+## Osiris · major
+
+Isis’s fellow — Dionysus in Greek — whose sufferings are represented at Saïs on the night the Egyptians call the Lamps.
+
+## Dionysus · major
+
+Osiris under his Greek name, whose rites Melampus is supposed to have brought to Greece, and who with Demeter rules the world below in the Egyptian account. The two editions spell him Dionysus and Dionysos.
+
+## Demeter · supporting
+
+Isis under her Greek name, ruler with Dionysus of the world below.
+
+## Leto · supporting
+
+Honoured at Buto, where the floating island is and where the oracle spoke; in the Egyptian story she was Apollo’s nurse, not his mother.
+
+## Artemis · supporting
+
+Honoured at Bubastis with the greatest festival in Egypt; in the Egyptian account she is the daughter of Dionysus and Isis.
+
+## Ares · supporting
+
+Honoured at Papremis, where the festival is a real fight with clubs at the temple gate.
+
+## Pan · supporting
+
+One of the eight oldest gods in the Egyptian reckoning, painted and carved with a goat’s face and a he-goat’s legs; the Mendesians will not sacrifice goats because of him.
+
+## Hermes · supporting
+
+Whose images the Greeks make as they do because they learned it from the Pelasgians, not from the Egyptians; and whom the Greeks call Pan’s father.
+
+## Poseidon · reference
+
+A god the Egyptians say they do not know, and who came to the Greeks from the Libyans.
+
+## The Dioscuri · reference
+
+Named with Poseidon among the gods the Egyptians say they have never heard of.
+
+## Ammon · supporting
+
+The god of the oracle in the Libyan desert, whose name is the Egyptian name for Zeus; his image is a ram, and that is why the Thebans will not sacrifice sheep.
+
+## Helios · reference
+
+The Sun, honoured at Heliopolis; the Egyptians say he once rose where he now sets, twice over, within written memory.
+
+## Typhon · reference
+
+Set under his Greek name, whom Horus deposed to become the last divine king of Egypt.
+
+## The Ethiopians · major
+
+Egypt’s neighbours up the Nile, whose king Sabacos held Egypt for fifty years, and among whom the Deserters settled beyond Meroe.
+
+## The Libyans · supporting
+
+Whose land runs west from Egypt; the Marea and Apis people claimed to be Libyans and not Egyptians so as to eat cow’s flesh, and were told by the oracle that all the Nile waters is Egypt.
+
+## The Colchians · supporting
+
+Whom Herodotus judges to be Egyptian by descent on three grounds — their skin, their hair, and the fact that they circumcise.
+
+## The Nasamonians · supporting
+
+The Libyan people of the Syrtis whose five adventurous young men crossed the desert and found a city of small dark men by a great river running east.
+
+## The Ammonians · reference
+
+Etearchus’s people, at the oracle of Ammon; colonists, Herodotus says, from both Egypt and Ethiopia.
+
+## The Mendesians · reference
+
+Who count Pan among the eight oldest gods, keep goats sacred, and have the story about the he-goat that is not to be repeated.
+
+## The Samothracians · reference
+
+Who perform the mysteries of the Cabeiri, learned from the Pelasgians who used to live on the island.
+
+## The Eleians · reference
+
+Who came to Psammis boasting that their arrangement of the Olympic games was the justest in the world, and were told to let strangers compete if they meant it.
+
+## The Calasirians · reference
+
+One of the two Egyptian warrior classes, with their own districts and their twelve aruras of tax-free land.
+
+## The Hermotybians · reference
+
+The other Egyptian warrior class, named with the Calasirians.
+
+## The Celts · reference
+
+Beyond the Pillars of Heracles, at whose country the Ister begins.
+
+## The Trojans · supporting
+
+Who, Herodotus argues, would have given Helen back if they had had her, since they were losing their lives for her by the day.
+
+## The Cilicians · reference
+
+Named as the people whose land Cilicia is, in the argument about what makes a country.

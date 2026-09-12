@@ -1,11 +1,11 @@
 # The Histories character package — IN PROGRESS
 
-**Book 1 (Clio, sections 1–215) is authored. Books 2–9 are not.** Status stays
-`in-progress` and the package must not be integrated until all nine books are
-covered.
+**Books 1–2 (Clio and Euterpe, sections 1–397) are authored. Books 3–9 are
+not.** Status stays `in-progress` and the package must not be integrated until
+all nine books are covered.
 
-Current state: 142 entities authored, 140 bound in the older translation and all
-142 in the modern edition, 6,367 and 6,289 exact mentions. The mention counts are
+Current state: 216 entities authored, 214 bound in the older translation and all
+216 in the modern edition, 7,037 and 6,954 exact mentions. The mention counts are
 already the highest in the library, because the nations Herodotus names —
 Persians, Hellenes, Athenians, Lacedaemonians — recur through all nine books and
 are bound wherever they appear, not only in Book 1. Content revision 2026-09-12.1.
@@ -52,7 +52,7 @@ entity: **Heracleidai / Heraclids**, **Mermnadai**, **Alcaios**, **Ninos**,
 **Lacedemonians**, **Aiolians**, **Lykians**, **Phocaians**, **Massagetae**. A
 test pins eleven of them.
 
-## Editorial checks — Book 1
+## Editorial checks — Books 1 and 2
 
 **1. Namesakes.** The four resolved above (Atys, Lycurgus, Cambyses, Alexander),
 plus Leon, Ninus and Bias against their later namesakes, plus **Artembares** the
@@ -84,15 +84,24 @@ name in the text; the **Persian who nearly kills Croesus at Sardis**, likewise
 unnamed; and every name in Books 2–9 that belongs to a person this pass has not
 authored.
 
-**5. Spot-read.** Twenty-four mentions drawn at random from Book 1, twelve per
-edition, read back against their paragraphs. All twenty-four correct after the
-three fixes above; before them, the Leon of 1202 was carrying the Spartan king's
-card.
+**5. Spot-read.** Forty-eight mentions drawn at random, twelve per edition per
+book, read back against their paragraphs. All correct after the three fixes
+above; before them, the Leon of 1202 was carrying the Spartan king's card.
+
+**Book 2 adds its own namesake and its own place-versus-person case.**
+**Alexander** is Paris again in the long Egyptian passage of sections 327-335,
+where Herodotus argues that Helen never reached Troy at all — so Paris is bound
+there as well as in section 3, and the Macedonian of Books 5 and 7-9 still is
+not. **Moeris** is a king in sections 221, 228 and 316 and a lake everywhere
+else; only the king is cast, and a test pins it.
 
 **6. Both editions independently.** Two entities are missing from the older
 translation — the **Smyrnaeans** and the **Cymeans**, where Macaulay writes only
 "the men of Smyrna" and "the men of Kyme" — and none from the modern. **No entity
-is missing from both.**
+is missing from both.** Book 2 added another twelve transliteration divergences,
+all of them closed with aliases: Ladike, Esop, Etearchos, Hecataios, Menelaos,
+Lynkeus, Linos, Dioscuroi, Samothrakians, Keltoi, Kilikians, and the Hephaistos
+/ Hephaestus and Dionysos / Dionysus pairs that alternate within both editions.
 
 ## Source defects — recorded, not repaired
 
@@ -105,9 +114,9 @@ No edition byte was touched.
 
 ## Remaining work
 
-- Books 2–9 (sections 216–1525): Egypt and its kings, Cambyses and the Magian,
-  Darius and the seven, the Scythian campaign, the Ionian revolt, Marathon,
-  Thermopylae, Salamis and Plataea. Several hundred more people and nations.
+- Books 3–9 (sections 398–1525): Cambyses and the Magian, Darius and the seven,
+  the Scythian campaign, the Ionian revolt, Marathon, Thermopylae, Salamis and
+  Plataea. Several hundred more people and nations.
 - The namesake tables extended as each book is authored, and the `None` defaults
   replaced only where the later man is actually carded.
 - The six editorial checks re-run over the whole work, and a fresh spot-read.
@@ -115,5 +124,5 @@ No edition byte was touched.
 ## Validation
 
 `python3 books/characters/build_the_histories.py --check`, then
-`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Eleven focused
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Fourteen focused
 tests so far. No edition changes, no network generation.

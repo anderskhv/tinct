@@ -186,8 +186,100 @@ for row in [
 ('leleges','The Leleges','The name the Carians went by while they were islanders and subjects of Minos.','Leleges','reference','group'),
 ]:add(*row)
 
-print(len(entities),'entities after Book 1')
+# ================================================ BOOK 2 — EUTERPE (216-397)
+# ------------------------------------------------------------ the kings of Egypt
+for row in [
+('min','Min','The first man to be king of Egypt, who dammed the Nile away from Memphis and founded the city on the reclaimed ground. The older translation spells him Men.','Min|Men','supporting'),
+('nitocris','Nitocris','The one queen in the priests’ list of three hundred and thirty kings, who avenged her murdered brother by drowning his killers at a feast and then threw herself into a room full of ashes.','Nitocris','supporting'),
+('moeris-king','Moeris','The king before whose reign the Nile needed only eight cubits to flood Egypt, and whose name the great lake carries. The two editions spell the lake Moeris and Moiris.','','supporting'),
+('sesostris','Sesostris','The conqueror who set out with a fleet from the Arabian gulf, marched through Asia into Europe, and left carved pillars behind him — with a woman’s parts cut on them where the people gave in without a fight.','Sesostris','major'),
+('pheros','Pheros','Sesostris’s son, blinded for throwing a spear into the flooding Nile, and cured after ten years by a remedy that cost the lives of a great many women.','Pheros','supporting'),
+('proteus-egypt','Proteus','The king of Memphis who held Helen and the stolen treasure in Egypt for the whole length of the Trojan war, and sent Alexander away — the story Herodotus believes over Homer’s.','Proteus','major'),
+('thonis','Thonis','The warden of the Canobic mouth who arrested Alexander’s servants and reported him to Proteus.','Thonis','supporting'),
+('rhampsinitos','Rhampsinitos','The rich king whose treasury a mason’s two sons robbed through a movable stone — the best story in Book 2 — and who ended by marrying his daughter to the thief.','Rhampsinitos','major'),
+('cheops','Cheops','The king who shut the temples, set the whole people to work on his pyramid for twenty years, and sold his own daughter’s favours to pay for it.','Cheops','major'),
+('chephren','Chephren','Cheops’s brother and successor, who ruled in the same manner for fifty-six years; the Egyptians will not willingly say either brother’s name.','Chephren','supporting'),
+('mykerinos','Mykerinos','Cheops’s son, who opened the temples again and gave the people back their lives — and was told by the oracle that he had six years to live because Egypt was meant to suffer a hundred and fifty. He answered by lighting lamps and living the nights as well.','Mykerinos','major'),
+('asychis','Asychis','The king who made a law that a man might borrow on his father’s corpse, and built a pyramid of brick with an inscription telling it not to compare itself with the stone ones.','Asychis','supporting'),
+('anysis','Anysis','The blind king of the city of the same name, who fled into the marshes when the Ethiopians came and hid there fifty years on a floating island of ash and earth.','Anysis','supporting'),
+('sabacos','Sabacos','The Ethiopian who ruled Egypt for fifty years without putting anyone to death, and left because of a dream rather than wait for it to come true.','Sabacos','supporting'),
+('sethos','Sethos','The priest of Hephaistos who despised the warrior class and was saved from Sennacherib by field-mice that ate the Assyrians’ bowstrings overnight.','Sethos','supporting'),
+('psammetichos','Psammetichos','One of the twelve kings, driven out and returned with the bronze men the oracle promised; he reunited Egypt, opened it to Greek traders, and shut two children away with a mute shepherd to find out which language came first. The two editions spell him Psammetichos and Psammetichus.','Psammetichos|Psammetichus','major'),
+('necos','Necos','Psammetichos’s son, who began the canal to the Red Sea, gave it up when the oracle warned him, and sent Phoenicians to sail round Libya. The older translation spells him Necos; he is also the father Sabacos killed.','Necos','major'),
+('psammis','Psammis','Necos’s son, who reigned six years, invaded Ethiopia, and gave the Eleians the obvious answer about their own games.','Psammis','supporting'),
+('apries','Apries','Psammis’s son, the most prosperous king but one until his army went over to Amasis; he was kept alive in his own palace and then handed to the Egyptians, who strangled him.','Apries','major'),
+('patarbemis','Patarbemis','The man of reputation Apries sent to fetch Amasis back, and whose ears and nose Apries cut off when he came back without him — which lost Apries the rest of his subjects.','Patarbemis','supporting'),
+('ladice','Ladice','The Cyrenaean woman Amasis married, who prayed to Aphrodite when he could not come to her and afterwards sent the goddess a statue.','Ladice|Ladike','supporting'),
+('amyrtaios','Amyrtaios','The only man in seven hundred years to find the floating island in the marshes where Anysis had hidden.','Amyrtaios','reference'),
+('rhodopis','Rhodopis','The Thracian courtesan the Greeks credit with the third pyramid — wrongly, Herodotus says, since she lived generations later. She spent a tenth of her fortune on iron roasting-spits at Delphi.','Rhodopis','supporting'),
+('iadmon','Iadmon','The Samian who owned Rhodopis, and Aesop before her.','Iadmon','reference'),
+('aesop','Aesop','The fable-maker, named here as Rhodopis’s fellow-slave, for whose killing the Delphians had to pay compensation.','Aesop|Esop','reference'),
+('charaxos','Charaxos','The man of Mytilene who bought Rhodopis’s freedom at great expense, and was mocked for it in his sister’s poetry.','Charaxos','supporting'),
+('sappho','Sappho','Charaxos’s sister, named as the lyric poet who made a song about what her brother had spent his money on.','Sappho','reference'),
+('etearchus','Etearchus','King of the Ammonians, who told the Nasamonians’ story of the five young men who crossed the desert and came to a city of small black men beside a river full of crocodiles.','Etearchus|Etearchos','supporting'),
+('archander','Archander','Son-in-law of Danaus, after whom a city in the Delta is named; Herodotus doubts the name is Egyptian at all.','Archander','reference'),
+('hecataeus','Hecataeus','The historian who traced his own descent to a god in the sixteenth generation, and was shown three hundred and forty-five wooden statues at Thebes to correct him.','Hecataeus|Hecataios','supporting'),
+]:add(*row)
+
+# ------------------------------------------------------------- the Greek references
+for row in [
+('menelaus','Menelaus','Helen’s husband, who came to Egypt for her after Troy fell, got her back from Proteus, and repaid the Egyptians by sacrificing two of their children for a wind.','Menelaus|Menelaos','supporting','mythological-figure'),
+('hector','Hector','Priam’s elder and abler son, whose existence Herodotus uses as the proof that Troy would have given Helen up if it had had her.','Hector','supporting','mythological-figure'),
+('homer','Homer','Whom Herodotus supposes to have invented the river Ocean, to have known the Egyptian version of Helen and set it aside as less suitable for poetry, and to have lived four hundred years before his own day.','Homer','major','literary-figure'),
+('hesiod','Hesiod','Named with Homer as the pair who made the Greeks their theogony, gave the gods their titles and described their forms.','Hesiod','supporting','literary-figure'),
+('perseus','Perseus','Whose watchtower stands on the Egyptian coast and whose sandal turns up at Chemmis; the people there say he was theirs, being descended from Danaus.','Perseus','supporting','mythological-figure'),
+('danaus','Danaus','Of Chemmis, from whom the people there trace Perseus; his daughters brought the rite of the Thesmophoria out of Egypt. The two editions spell him Danaus and Danaos.','Danaus|Danaos','supporting','mythological-figure'),
+('lynceus','Lynceus','Named with Danaus as a man of Chemmis who sailed to Greece.','Lynceus|Lynkeus','reference','mythological-figure'),
+('amphitryon','Amphitryon','Heracles’s mortal father — of Egyptian descent, the Egyptians say, which is why the Greeks are wrong about which Heracles is older.','Amphitryon','reference','mythological-figure'),
+('alcmene','Alcmene','Heracles’s mother, named with Amphitryon in the same argument.','Alcmene','reference','mythological-figure'),
+('melampus','Melampus','Son of Amytheon, who Herodotus thinks brought the rite of Dionysus into Greece from Egypt, having learned it from Cadmus and the Phoenicians.','Melampus','supporting','mythological-figure'),
+('amytheon','Amytheon','Melampus’s father.','Amytheon','reference','mythological-figure'),
+('cadmus','Cadmus','The Phoenician from whom Melampus is supposed to have learned the Egyptian rites. The two editions spell him Cadmus and Cadmos.','Cadmus|Cadmos','supporting','mythological-figure'),
+('semele','Semele','Cadmus’s daughter, the mother of the Greek Dionysus — sixteen hundred years after the Egyptian one, on Herodotus’s reckoning.','Semele','reference','mythological-figure'),
+('penelope','Penelope','Of whom the Greeks say Pan was born, and Hermes — eight hundred years after the Egyptian Pan.','Penelope','reference','mythological-figure'),
+('linus','Linus','The song the Egyptians call Maneros, sung in Phoenicia and Cyprus under other names, and the one song the Egyptians have.','Linus|Linos','reference','mythological-figure'),
+('danae','Danae','Perseus’s mother, named in the Chemmite genealogy.','Danae','reference','mythological-figure'),
+]:add(*row)
+
+# ------------------------------------------------------------- the gods of Egypt
+for row in [
+('hephaestus','Hephaestus','The god the Greeks call Hephaestus and the Egyptians Ptah, whose priests at Memphis are Herodotus’s main informants; his temple is the one every king adds to. The two editions spell him Hephaestus and Hephaistos.','Hephaestus|Hephaistos','major','deity'),
+('isis','Isis','Whose figure is a woman with cow’s horns, and who is Demeter in Greek. Cows are sacred to her and are never sacrificed.','Isis','major','deity'),
+('osiris','Osiris','Isis’s fellow — Dionysus in Greek — whose sufferings are represented at Saïs on the night the Egyptians call the Lamps.','Osiris','major','deity'),
+('dionysus','Dionysus','Osiris under his Greek name, whose rites Melampus is supposed to have brought to Greece, and who with Demeter rules the world below in the Egyptian account. The two editions spell him Dionysus and Dionysos.','Dionysus|Dionysos','major','deity'),
+('demeter','Demeter','Isis under her Greek name, ruler with Dionysus of the world below.','Demeter','supporting','deity'),
+('leto','Leto','Honoured at Buto, where the floating island is and where the oracle spoke; in the Egyptian story she was Apollo’s nurse, not his mother.','Leto','supporting','deity'),
+('artemis','Artemis','Honoured at Bubastis with the greatest festival in Egypt; in the Egyptian account she is the daughter of Dionysus and Isis.','Artemis','supporting','deity'),
+('ares','Ares','Honoured at Papremis, where the festival is a real fight with clubs at the temple gate.','Ares','supporting','deity'),
+('pan','Pan','One of the eight oldest gods in the Egyptian reckoning, painted and carved with a goat’s face and a he-goat’s legs; the Mendesians will not sacrifice goats because of him.','Pan','supporting','deity'),
+('hermes','Hermes','Whose images the Greeks make as they do because they learned it from the Pelasgians, not from the Egyptians; and whom the Greeks call Pan’s father.','Hermes','supporting','deity'),
+('poseidon','Poseidon','A god the Egyptians say they do not know, and who came to the Greeks from the Libyans.','Poseidon','reference','deity'),
+('dioscuri','The Dioscuri','Named with Poseidon among the gods the Egyptians say they have never heard of.','Dioscuri|Dioscuroi','reference','deity'),
+('ammon','Ammon','The god of the oracle in the Libyan desert, whose name is the Egyptian name for Zeus; his image is a ram, and that is why the Thebans will not sacrifice sheep.','Ammon','supporting','deity'),
+('helios','Helios','The Sun, honoured at Heliopolis; the Egyptians say he once rose where he now sets, twice over, within written memory.','Helios','reference','deity'),
+('typhon','Typhon','Set under his Greek name, whom Horus deposed to become the last divine king of Egypt.','Typhon','reference','deity'),
+]:add(*row)
+
+# ------------------------------------------------------------ peoples of Book 2
+for row in [
+('ethiopians','The Ethiopians','Egypt’s neighbours up the Nile, whose king Sabacos held Egypt for fifty years, and among whom the Deserters settled beyond Meroe.','Ethiopians|Ethiopian','major','group'),
+('libyans','The Libyans','Whose land runs west from Egypt; the Marea and Apis people claimed to be Libyans and not Egyptians so as to eat cow’s flesh, and were told by the oracle that all the Nile waters is Egypt.','Libyans','supporting','group'),
+('colchians','The Colchians','Whom Herodotus judges to be Egyptian by descent on three grounds — their skin, their hair, and the fact that they circumcise.','Colchians','supporting','group'),
+('nasamonians','The Nasamonians','The Libyan people of the Syrtis whose five adventurous young men crossed the desert and found a city of small dark men by a great river running east.','Nasamonians','supporting','group'),
+('ammonians','The Ammonians','Etearchus’s people, at the oracle of Ammon; colonists, Herodotus says, from both Egypt and Ethiopia.','Ammonians','reference','group'),
+('mendesians','The Mendesians','Who count Pan among the eight oldest gods, keep goats sacred, and have the story about the he-goat that is not to be repeated.','Mendesians','reference','group'),
+('samothracians','The Samothracians','Who perform the mysteries of the Cabeiri, learned from the Pelasgians who used to live on the island.','Samothracians|Samothrakians','reference','group'),
+('eleians','The Eleians','Who came to Psammis boasting that their arrangement of the Olympic games was the justest in the world, and were told to let strangers compete if they meant it.','Eleians','reference','group'),
+('calasirians','The Calasirians','One of the two Egyptian warrior classes, with their own districts and their twelve aruras of tax-free land.','Calasirians','reference','group'),
+('hermotybians','The Hermotybians','The other Egyptian warrior class, named with the Calasirians.','Hermotybians','reference','group'),
+('celts','The Celts','Beyond the Pillars of Heracles, at whose country the Ister begins.','Celts|Keltoi','reference','group'),
+('trojans','The Trojans','Who, Herodotus argues, would have given Helen back if they had had her, since they were losing their lives for her by the day.','Trojans|Teucrian','supporting','group'),
+('cilicians','The Cilicians','Named as the people whose land Cilicia is, in the argument about what makes a country.','Cilicians|Kilikians','reference','group'),
+]:add(*row)
+
+print(len(entities),'entities after Book 2')
+
 Path(__file__).parent.joinpath('editorial.json').write_text(json.dumps(dict(
  contentVersion='2026-09-12.1',
- coverage='Both full English editions. BOOK 1 (Clio, sections 1-215) is authored; Books 2-9 are in progress. Named people and named peoples. Cities, rivers, mountains, seas and countries are not cast.',
- entities=entities),ensure_ascii=False,indent=2)+'\n')
+ coverage='Both full English editions. BOOKS 1-2 (Clio and Euterpe, sections 1-397) are authored; Books 3-9 are in progress. Named people and named peoples. Cities, rivers, mountains, seas and countries are not cast.',
+ entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')

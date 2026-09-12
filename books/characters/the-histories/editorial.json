@@ -1,6 +1,6 @@
 {
   "contentVersion": "2026-09-12.1",
-  "coverage": "Both full English editions. BOOK 1 (Clio, sections 1-215) is authored; Books 2-9 are in progress. Named people and named peoples. Cities, rivers, mountains, seas and countries are not cast.",
+  "coverage": "Both full English editions. BOOKS 1-2 (Clio and Euterpe, sections 1-397) are authored; Books 3-9 are in progress. Named people and named peoples. Cities, rivers, mountains, seas and countries are not cast.",
   "entities": [
     {
       "id": "croesus",
@@ -1746,6 +1746,911 @@
       "body": "The name the Carians went by while they were islanders and subjects of Minos.",
       "aliases": [
         "Leleges"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "min",
+      "name": "Min",
+      "body": "The first man to be king of Egypt, who dammed the Nile away from Memphis and founded the city on the reclaimed ground. The older translation spells him Men.",
+      "aliases": [
+        "Min",
+        "Men"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nitocris",
+      "name": "Nitocris",
+      "body": "The one queen in the priests’ list of three hundred and thirty kings, who avenged her murdered brother by drowning his killers at a feast and then threw herself into a room full of ashes.",
+      "aliases": [
+        "Nitocris"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "moeris-king",
+      "name": "Moeris",
+      "body": "The king before whose reign the Nile needed only eight cubits to flood Egypt, and whose name the great lake carries. The two editions spell the lake Moeris and Moiris.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sesostris",
+      "name": "Sesostris",
+      "body": "The conqueror who set out with a fleet from the Arabian gulf, marched through Asia into Europe, and left carved pillars behind him — with a woman’s parts cut on them where the people gave in without a fight.",
+      "aliases": [
+        "Sesostris"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pheros",
+      "name": "Pheros",
+      "body": "Sesostris’s son, blinded for throwing a spear into the flooding Nile, and cured after ten years by a remedy that cost the lives of a great many women.",
+      "aliases": [
+        "Pheros"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "proteus-egypt",
+      "name": "Proteus",
+      "body": "The king of Memphis who held Helen and the stolen treasure in Egypt for the whole length of the Trojan war, and sent Alexander away — the story Herodotus believes over Homer’s.",
+      "aliases": [
+        "Proteus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thonis",
+      "name": "Thonis",
+      "body": "The warden of the Canobic mouth who arrested Alexander’s servants and reported him to Proteus.",
+      "aliases": [
+        "Thonis"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rhampsinitos",
+      "name": "Rhampsinitos",
+      "body": "The rich king whose treasury a mason’s two sons robbed through a movable stone — the best story in Book 2 — and who ended by marrying his daughter to the thief.",
+      "aliases": [
+        "Rhampsinitos"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cheops",
+      "name": "Cheops",
+      "body": "The king who shut the temples, set the whole people to work on his pyramid for twenty years, and sold his own daughter’s favours to pay for it.",
+      "aliases": [
+        "Cheops"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "chephren",
+      "name": "Chephren",
+      "body": "Cheops’s brother and successor, who ruled in the same manner for fifty-six years; the Egyptians will not willingly say either brother’s name.",
+      "aliases": [
+        "Chephren"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mykerinos",
+      "name": "Mykerinos",
+      "body": "Cheops’s son, who opened the temples again and gave the people back their lives — and was told by the oracle that he had six years to live because Egypt was meant to suffer a hundred and fifty. He answered by lighting lamps and living the nights as well.",
+      "aliases": [
+        "Mykerinos"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "asychis",
+      "name": "Asychis",
+      "body": "The king who made a law that a man might borrow on his father’s corpse, and built a pyramid of brick with an inscription telling it not to compare itself with the stone ones.",
+      "aliases": [
+        "Asychis"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anysis",
+      "name": "Anysis",
+      "body": "The blind king of the city of the same name, who fled into the marshes when the Ethiopians came and hid there fifty years on a floating island of ash and earth.",
+      "aliases": [
+        "Anysis"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sabacos",
+      "name": "Sabacos",
+      "body": "The Ethiopian who ruled Egypt for fifty years without putting anyone to death, and left because of a dream rather than wait for it to come true.",
+      "aliases": [
+        "Sabacos"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sethos",
+      "name": "Sethos",
+      "body": "The priest of Hephaistos who despised the warrior class and was saved from Sennacherib by field-mice that ate the Assyrians’ bowstrings overnight.",
+      "aliases": [
+        "Sethos"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "psammetichos",
+      "name": "Psammetichos",
+      "body": "One of the twelve kings, driven out and returned with the bronze men the oracle promised; he reunited Egypt, opened it to Greek traders, and shut two children away with a mute shepherd to find out which language came first. The two editions spell him Psammetichos and Psammetichus.",
+      "aliases": [
+        "Psammetichos",
+        "Psammetichus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "necos",
+      "name": "Necos",
+      "body": "Psammetichos’s son, who began the canal to the Red Sea, gave it up when the oracle warned him, and sent Phoenicians to sail round Libya. The older translation spells him Necos; he is also the father Sabacos killed.",
+      "aliases": [
+        "Necos"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "psammis",
+      "name": "Psammis",
+      "body": "Necos’s son, who reigned six years, invaded Ethiopia, and gave the Eleians the obvious answer about their own games.",
+      "aliases": [
+        "Psammis"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "apries",
+      "name": "Apries",
+      "body": "Psammis’s son, the most prosperous king but one until his army went over to Amasis; he was kept alive in his own palace and then handed to the Egyptians, who strangled him.",
+      "aliases": [
+        "Apries"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "patarbemis",
+      "name": "Patarbemis",
+      "body": "The man of reputation Apries sent to fetch Amasis back, and whose ears and nose Apries cut off when he came back without him — which lost Apries the rest of his subjects.",
+      "aliases": [
+        "Patarbemis"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ladice",
+      "name": "Ladice",
+      "body": "The Cyrenaean woman Amasis married, who prayed to Aphrodite when he could not come to her and afterwards sent the goddess a statue.",
+      "aliases": [
+        "Ladice",
+        "Ladike"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amyrtaios",
+      "name": "Amyrtaios",
+      "body": "The only man in seven hundred years to find the floating island in the marshes where Anysis had hidden.",
+      "aliases": [
+        "Amyrtaios"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rhodopis",
+      "name": "Rhodopis",
+      "body": "The Thracian courtesan the Greeks credit with the third pyramid — wrongly, Herodotus says, since she lived generations later. She spent a tenth of her fortune on iron roasting-spits at Delphi.",
+      "aliases": [
+        "Rhodopis"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "iadmon",
+      "name": "Iadmon",
+      "body": "The Samian who owned Rhodopis, and Aesop before her.",
+      "aliases": [
+        "Iadmon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aesop",
+      "name": "Aesop",
+      "body": "The fable-maker, named here as Rhodopis’s fellow-slave, for whose killing the Delphians had to pay compensation.",
+      "aliases": [
+        "Aesop",
+        "Esop"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charaxos",
+      "name": "Charaxos",
+      "body": "The man of Mytilene who bought Rhodopis’s freedom at great expense, and was mocked for it in his sister’s poetry.",
+      "aliases": [
+        "Charaxos"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sappho",
+      "name": "Sappho",
+      "body": "Charaxos’s sister, named as the lyric poet who made a song about what her brother had spent his money on.",
+      "aliases": [
+        "Sappho"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "etearchus",
+      "name": "Etearchus",
+      "body": "King of the Ammonians, who told the Nasamonians’ story of the five young men who crossed the desert and came to a city of small black men beside a river full of crocodiles.",
+      "aliases": [
+        "Etearchus",
+        "Etearchos"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "archander",
+      "name": "Archander",
+      "body": "Son-in-law of Danaus, after whom a city in the Delta is named; Herodotus doubts the name is Egyptian at all.",
+      "aliases": [
+        "Archander"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hecataeus",
+      "name": "Hecataeus",
+      "body": "The historian who traced his own descent to a god in the sixteenth generation, and was shown three hundred and forty-five wooden statues at Thebes to correct him.",
+      "aliases": [
+        "Hecataeus",
+        "Hecataios"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "menelaus",
+      "name": "Menelaus",
+      "body": "Helen’s husband, who came to Egypt for her after Troy fell, got her back from Proteus, and repaid the Egyptians by sacrificing two of their children for a wind.",
+      "aliases": [
+        "Menelaus",
+        "Menelaos"
+      ],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hector",
+      "name": "Hector",
+      "body": "Priam’s elder and abler son, whose existence Herodotus uses as the proof that Troy would have given Helen up if it had had her.",
+      "aliases": [
+        "Hector"
+      ],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "homer",
+      "name": "Homer",
+      "body": "Whom Herodotus supposes to have invented the river Ocean, to have known the Egyptian version of Helen and set it aside as less suitable for poetry, and to have lived four hundred years before his own day.",
+      "aliases": [
+        "Homer"
+      ],
+      "category": "major",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hesiod",
+      "name": "Hesiod",
+      "body": "Named with Homer as the pair who made the Greeks their theogony, gave the gods their titles and described their forms.",
+      "aliases": [
+        "Hesiod"
+      ],
+      "category": "supporting",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "perseus",
+      "name": "Perseus",
+      "body": "Whose watchtower stands on the Egyptian coast and whose sandal turns up at Chemmis; the people there say he was theirs, being descended from Danaus.",
+      "aliases": [
+        "Perseus"
+      ],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "danaus",
+      "name": "Danaus",
+      "body": "Of Chemmis, from whom the people there trace Perseus; his daughters brought the rite of the Thesmophoria out of Egypt. The two editions spell him Danaus and Danaos.",
+      "aliases": [
+        "Danaus",
+        "Danaos"
+      ],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lynceus",
+      "name": "Lynceus",
+      "body": "Named with Danaus as a man of Chemmis who sailed to Greece.",
+      "aliases": [
+        "Lynceus",
+        "Lynkeus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amphitryon",
+      "name": "Amphitryon",
+      "body": "Heracles’s mortal father — of Egyptian descent, the Egyptians say, which is why the Greeks are wrong about which Heracles is older.",
+      "aliases": [
+        "Amphitryon"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alcmene",
+      "name": "Alcmene",
+      "body": "Heracles’s mother, named with Amphitryon in the same argument.",
+      "aliases": [
+        "Alcmene"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "melampus",
+      "name": "Melampus",
+      "body": "Son of Amytheon, who Herodotus thinks brought the rite of Dionysus into Greece from Egypt, having learned it from Cadmus and the Phoenicians.",
+      "aliases": [
+        "Melampus"
+      ],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amytheon",
+      "name": "Amytheon",
+      "body": "Melampus’s father.",
+      "aliases": [
+        "Amytheon"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cadmus",
+      "name": "Cadmus",
+      "body": "The Phoenician from whom Melampus is supposed to have learned the Egyptian rites. The two editions spell him Cadmus and Cadmos.",
+      "aliases": [
+        "Cadmus",
+        "Cadmos"
+      ],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "semele",
+      "name": "Semele",
+      "body": "Cadmus’s daughter, the mother of the Greek Dionysus — sixteen hundred years after the Egyptian one, on Herodotus’s reckoning.",
+      "aliases": [
+        "Semele"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "penelope",
+      "name": "Penelope",
+      "body": "Of whom the Greeks say Pan was born, and Hermes — eight hundred years after the Egyptian Pan.",
+      "aliases": [
+        "Penelope"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "linus",
+      "name": "Linus",
+      "body": "The song the Egyptians call Maneros, sung in Phoenicia and Cyprus under other names, and the one song the Egyptians have.",
+      "aliases": [
+        "Linus",
+        "Linos"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "danae",
+      "name": "Danae",
+      "body": "Perseus’s mother, named in the Chemmite genealogy.",
+      "aliases": [
+        "Danae"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hephaestus",
+      "name": "Hephaestus",
+      "body": "The god the Greeks call Hephaestus and the Egyptians Ptah, whose priests at Memphis are Herodotus’s main informants; his temple is the one every king adds to. The two editions spell him Hephaestus and Hephaistos.",
+      "aliases": [
+        "Hephaestus",
+        "Hephaistos"
+      ],
+      "category": "major",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "isis",
+      "name": "Isis",
+      "body": "Whose figure is a woman with cow’s horns, and who is Demeter in Greek. Cows are sacred to her and are never sacrificed.",
+      "aliases": [
+        "Isis"
+      ],
+      "category": "major",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "osiris",
+      "name": "Osiris",
+      "body": "Isis’s fellow — Dionysus in Greek — whose sufferings are represented at Saïs on the night the Egyptians call the Lamps.",
+      "aliases": [
+        "Osiris"
+      ],
+      "category": "major",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dionysus",
+      "name": "Dionysus",
+      "body": "Osiris under his Greek name, whose rites Melampus is supposed to have brought to Greece, and who with Demeter rules the world below in the Egyptian account. The two editions spell him Dionysus and Dionysos.",
+      "aliases": [
+        "Dionysus",
+        "Dionysos"
+      ],
+      "category": "major",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "demeter",
+      "name": "Demeter",
+      "body": "Isis under her Greek name, ruler with Dionysus of the world below.",
+      "aliases": [
+        "Demeter"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leto",
+      "name": "Leto",
+      "body": "Honoured at Buto, where the floating island is and where the oracle spoke; in the Egyptian story she was Apollo’s nurse, not his mother.",
+      "aliases": [
+        "Leto"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "artemis",
+      "name": "Artemis",
+      "body": "Honoured at Bubastis with the greatest festival in Egypt; in the Egyptian account she is the daughter of Dionysus and Isis.",
+      "aliases": [
+        "Artemis"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ares",
+      "name": "Ares",
+      "body": "Honoured at Papremis, where the festival is a real fight with clubs at the temple gate.",
+      "aliases": [
+        "Ares"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pan",
+      "name": "Pan",
+      "body": "One of the eight oldest gods in the Egyptian reckoning, painted and carved with a goat’s face and a he-goat’s legs; the Mendesians will not sacrifice goats because of him.",
+      "aliases": [
+        "Pan"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hermes",
+      "name": "Hermes",
+      "body": "Whose images the Greeks make as they do because they learned it from the Pelasgians, not from the Egyptians; and whom the Greeks call Pan’s father.",
+      "aliases": [
+        "Hermes"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "poseidon",
+      "name": "Poseidon",
+      "body": "A god the Egyptians say they do not know, and who came to the Greeks from the Libyans.",
+      "aliases": [
+        "Poseidon"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dioscuri",
+      "name": "The Dioscuri",
+      "body": "Named with Poseidon among the gods the Egyptians say they have never heard of.",
+      "aliases": [
+        "Dioscuri",
+        "Dioscuroi"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ammon",
+      "name": "Ammon",
+      "body": "The god of the oracle in the Libyan desert, whose name is the Egyptian name for Zeus; his image is a ram, and that is why the Thebans will not sacrifice sheep.",
+      "aliases": [
+        "Ammon"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "helios",
+      "name": "Helios",
+      "body": "The Sun, honoured at Heliopolis; the Egyptians say he once rose where he now sets, twice over, within written memory.",
+      "aliases": [
+        "Helios"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "typhon",
+      "name": "Typhon",
+      "body": "Set under his Greek name, whom Horus deposed to become the last divine king of Egypt.",
+      "aliases": [
+        "Typhon"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ethiopians",
+      "name": "The Ethiopians",
+      "body": "Egypt’s neighbours up the Nile, whose king Sabacos held Egypt for fifty years, and among whom the Deserters settled beyond Meroe.",
+      "aliases": [
+        "Ethiopians",
+        "Ethiopian"
+      ],
+      "category": "major",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "libyans",
+      "name": "The Libyans",
+      "body": "Whose land runs west from Egypt; the Marea and Apis people claimed to be Libyans and not Egyptians so as to eat cow’s flesh, and were told by the oracle that all the Nile waters is Egypt.",
+      "aliases": [
+        "Libyans"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "colchians",
+      "name": "The Colchians",
+      "body": "Whom Herodotus judges to be Egyptian by descent on three grounds — their skin, their hair, and the fact that they circumcise.",
+      "aliases": [
+        "Colchians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nasamonians",
+      "name": "The Nasamonians",
+      "body": "The Libyan people of the Syrtis whose five adventurous young men crossed the desert and found a city of small dark men by a great river running east.",
+      "aliases": [
+        "Nasamonians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ammonians",
+      "name": "The Ammonians",
+      "body": "Etearchus’s people, at the oracle of Ammon; colonists, Herodotus says, from both Egypt and Ethiopia.",
+      "aliases": [
+        "Ammonians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mendesians",
+      "name": "The Mendesians",
+      "body": "Who count Pan among the eight oldest gods, keep goats sacred, and have the story about the he-goat that is not to be repeated.",
+      "aliases": [
+        "Mendesians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "samothracians",
+      "name": "The Samothracians",
+      "body": "Who perform the mysteries of the Cabeiri, learned from the Pelasgians who used to live on the island.",
+      "aliases": [
+        "Samothracians",
+        "Samothrakians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eleians",
+      "name": "The Eleians",
+      "body": "Who came to Psammis boasting that their arrangement of the Olympic games was the justest in the world, and were told to let strangers compete if they meant it.",
+      "aliases": [
+        "Eleians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "calasirians",
+      "name": "The Calasirians",
+      "body": "One of the two Egyptian warrior classes, with their own districts and their twelve aruras of tax-free land.",
+      "aliases": [
+        "Calasirians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hermotybians",
+      "name": "The Hermotybians",
+      "body": "The other Egyptian warrior class, named with the Calasirians.",
+      "aliases": [
+        "Hermotybians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "celts",
+      "name": "The Celts",
+      "body": "Beyond the Pillars of Heracles, at whose country the Ister begins.",
+      "aliases": [
+        "Celts",
+        "Keltoi"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "trojans",
+      "name": "The Trojans",
+      "body": "Who, Herodotus argues, would have given Helen back if they had had her, since they were losing their lives for her by the day.",
+      "aliases": [
+        "Trojans",
+        "Teucrian"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cilicians",
+      "name": "The Cilicians",
+      "body": "Named as the people whose land Cilicia is, in the argument about what makes a country.",
+      "aliases": [
+        "Cilicians",
+        "Kilikians"
       ],
       "category": "reference",
       "kind": "group",

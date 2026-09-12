@@ -35,7 +35,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Poetics (`poetics`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Moby Dick (`moby-dick`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Great Expectations (`great-expectations`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| The Histories (`the-histories`) | in-progress | Book 1 (Clio, sections 1-215) is authored: 142 entities, 6,367 / 6,289 mentions. Books 2-9 remain. Names in the unauthored books that belong to a different person of the same name are deliberately left unbound rather than defaulted — see the README. Do not integrate until all nine books are covered. |
+| The Histories (`the-histories`) | in-progress | Books 1-2 (Clio and Euterpe, sections 1-397) are authored: 216 entities, 7,037 / 6,954 mentions. Books 3-9 remain. Names in the unauthored books that belong to a different person of the same name are deliberately left unbound rather than defaulted — see the README. Do not integrate until all nine books are covered. |
 | Niels Lyhne (`niels-lyhne`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Imitation of Christ (`imitation-of-christ`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Jerusalem (`jerusalem`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
