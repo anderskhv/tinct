@@ -46,3 +46,39 @@ Offered for confirmation rather than ruling: **"pancratium" is kept untranslated
 ## What not to do
 
 Do not rewrite the candidate. Do not consult other translations for wording (Standard Ebooks' Long is the base-text cross-check only, and was consulted after drafting). Do not propose changes that add interpretation, motive, historical fact or explanatory transition. Do not normalise Long's uneven punctuation for evenness alone — the Book IX round-1 finding 7.1 was declined on exactly that ground. Do not edit `candidate-v1.json`; it is frozen. Write your findings to `book11/review/findings-v1.md` in the format of `book9/review/findings-v1.md` and `book10/review/findings-v1.md`.
+
+---
+
+## Corrections to this brief, made at acceptance (2026-09-12)
+
+The brief is left as the reviewer received it, with two factual claims in it
+corrected in place below rather than silently rewritten. Round 1 is closed; its
+findings are in `review/findings-v1.md` and the answers in
+`changes-v1-to-v2.md` and `ACCEPTANCE.md`.
+
+- **The `[Greek: …]` count.** The brief, with `README.md`, `continuity.md`,
+  `provenance.json` and `../PROVENANCE.md` §4, said **five** `[Greek: …]` spans
+  in the PG range, all inside footnote bodies. There are **seven spans on five
+  lines** (PG 6398 ×1, 6554 ×2, 6555 ×1, 6702 ×1, 6757 ×2); the numeral counted
+  lines and called them spans. Finding **C1**. The material claim — every one of
+  them inside an indented footnote body, and no `(Greek:` anywhere in the staged
+  Book XI — is unchanged and was re-verified.
+- **The scope of the space-before-punctuation rule.** The brief said it fires in
+  **five lines of the translation body**, listing PG 4889 as VII.66. **PG 4889 is
+  inside a Book VII footnote body the build strips**, and VII.66 contains no
+  ellipsis at all in the staged file; scanning the whole PG file also turns up
+  1092, inside Long's introduction. The rule fires on **six lines of PG #15877,
+  four of them in the translation body** (IV.19, V.29, VII.58, XI.18). Finding
+  **C2**. It still changes no word anywhere, and the no-rebuild conclusion is
+  strengthened, not weakened. The rule now also has its own ledger row, **D14**
+  (finding **C3**).
+
+Both counts are asserted against the raw PG file by
+`../scripts/build_book11_v2.py` and by the `README.md` check block, so neither
+numeral can drift from the text it describes again.
+
+**All five flagged decisions and the point offered for confirmation were ruled,
+and the drafter was upheld on every one** (see `changes-v1-to-v2.md`, "The
+reviewer's rulings"). One consequence reaches the ledger: **D13 must not acquire
+a size threshold** — X.23's dropped translator's note is nine words and XI.18's
+folded bracket is nine words, and the test is voice and subject, not length.

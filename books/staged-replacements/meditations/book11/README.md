@@ -1,9 +1,25 @@
-# Meditations, Book XI — package (frozen for independent review)
+# Meditations, Book XI — package (accepted as candidate v2)
 
-Steps 1–3 of `../WORKFLOW.md` are done for Book XI. `candidate-v1.json`
-(sha256 `d0db3918…`) is **frozen**; corrections from the review will go to
-`candidate-v2.json`, never to v1. Step 4 (independent review) is the
-coordinator's reviewer session, not this agent.
+All eight steps of `../WORKFLOW.md` are done for Book XI. The accepted text is
+`candidate-v2.json` (sha256 `1016c038…`), see `ACCEPTANCE.md`.
+`candidate-v1.json` (sha256 `d0db3918…`) stays **frozen** and was never edited.
+Step 4 (independent review) was the coordinator's reviewer session, not this
+agent; its findings are under `review/`: *Accept after corrections*, **0
+substantive**, **8 minor** (1.1, 18.1, 19.1, 21.1, 26.1 and the chapter-level
+C1, C2, C3) and **3 optional preferences** (12.1, 15.1, 34.1), every one of the
+39 paragraphs covered exactly once. "Nothing in the thirty-nine paragraphs is
+missing, added, softened, expanded, mistranslated or imported." **All eight minor
+findings are applied and one of the three optional ones** (15.1); 12.1 and 34.1
+are recorded and left, on routes the reviewer itself proposed. **All five flagged
+decisions and the point offered for confirmation are settled, the drafter upheld
+on every one** — XI.18's "flattering" upheld as "not a close call", XI.18's
+nine-word bracket upheld with the ruling that **D13 must not acquire a size
+threshold**, XI.10's "[things indifferent]" drop upheld, XI.26's "[Ephesians]"
+fold confirmed as a mark of textual doubt, XI.15's disposition upheld with the
+word replaced (finding 15.1), and "pancratium" confirmed. Finding C3 added
+**D14** to `../00-progress-ledger.md` for typographic-only build rules, and the
+**D13** row was amended with the no-size-threshold ruling and with XI.26's
+bracket class.
 
 Step 1 verified the source and **did not rebuild** the staged original. The
 check was **not** a re-run of the build script, and — following the Book X
@@ -39,19 +55,28 @@ reconciling exactly with the eleven openers.** **No flush-left footnote opener**
 none did. **No illustration caption** (the Book IV class). Only **three
 standalone short flush-left lines**, all of them Long's own connectives in XI.6
 ("And again,—", "And,—", "And other things of the same kind."), so no running
-head, page number or catchword. **No Greek in the body**: all five `[Greek: …]`
-spans are inside indented footnote bodies.
+head, page number or catchword. **No Greek in the body**: all **seven** `[Greek: …]`
+spans, on **five** indented footnote lines (PG 6398 ×1, 6554 ×2, 6555 ×1, 6702
+×1, 6757 ×2), are inside footnote bodies, and the staged Book XI contains no
+`(Greek:` at all. *(Corrected at acceptance, finding C1: v1 said "five spans",
+counting lines.)*
 
 **One rule of the build was found undocumented, and is now documented.** The
 first run produced a *fourth* diff, at XI.18, where PG line 6645 prints
 "present ...[A]" and the staged file has "present...". The build has always
-closed up a space before `,` `;` `:` `.` `?` `!`; it fires in exactly **five
-lines in the whole translation body** (IV.19, V.29, VII.58, VII.66, XI.18), all
-at ellipses marking lacunae in Long's Greek, and it **changes no word**. A
-typographic normalisation of the em-dash class, so **no rebuild**: D12's standard
-is not engaged, because no paragraph would change. Recorded in
-`../PROVENANCE.md` §4 and reproduced in the reconstruction, so that it and the
-staged file are compared on the same rules. sha256 still `7798607d…`, 487
+closed up a space before `,` `;` `:` `.` `?` `!`; it fires on **six lines of PG
+#15877, four of them in the translation body** (3156 IV.19, 3779 V.29, 4712
+VII.58, 6645 XI.18), all at ellipses marking lacunae in Long's Greek, **and two
+outside it** — 4889, inside a Book VII footnote body the build strips, and
+1092, inside Long's introduction — and it **changes no word**. A typographic
+normalisation of the em-dash class, so **no rebuild**: D12's standard is not
+engaged, because no paragraph would change. Recorded in `../PROVENANCE.md` §4,
+reproduced in the reconstruction so that it and the staged file are compared on
+the same rules, and given its own ledger row **D14** at acceptance (finding C3),
+worded to generalise to any typographic-only build rule. *(Corrected at
+acceptance, finding C2: v1 listed 4889 as VII.66 and counted five body firings;
+**VII.66 contains no ellipsis at all** in the staged file. Both counts are now
+asserted against the raw PG file by `../scripts/build_book11_v2.py`.)* sha256 still `7798607d…`, 487
 paragraphs, twelve chapters, section profile 17, 17, 16, 51, 36, 59, 75, 61, 42,
 38, **39**, 36, `git status` clean. **No accepted book is reopened.**
 
@@ -75,9 +100,15 @@ fire here, because Book XI contains none.
    `../meditations-original-en.staged.json` by `chapter.number == 11`,
    39 paragraphs, byte-identical to the staged original (Long 1862).
 2. `candidate-v1.json` — the modern-English candidate, 39 paragraphs one-to-one
-   with the source, same schema. **Frozen.**
+   with the source, same schema. **Frozen**, never edited.
 3. `candidate-v1-readable.md` — the same text with `B11-Pnnn` IDs outside the
    prose.
+3a. `candidate-v2.json` / `candidate-v2-readable.md` — **the accepted text**,
+   v1 with the round-1 corrections applied by `../scripts/build_book11_v2.py`.
+3b. `changes-v1-to-v2.md` — every change by paragraph ID against the finding it
+   answers, plus the reviewer's rulings and the step-7 flow read.
+3c. `review/findings-v1.md` — the round-1 independent review.
+3d. `ACCEPTANCE.md` — the step-8 record, with hashes.
 4. `continuity.md` — the step-1 source verification and rule audit class by
    class, the two glossary rows fixed for Book XI, the glossary terms met and how
    they were rendered, the "shall" inventory, paragraph-level decisions,
@@ -176,14 +207,55 @@ added=[i+1 for i,(a,b) in enumerate(zip(src['paragraphs'],cand['paragraphs'])) i
 assert added==[20], added
 # seven paragraphs byte-identical to Long
 assert [i+1 for i,(a,b) in enumerate(zip(src['paragraphs'],cand['paragraphs'])) if a==b]==[14,22,24,25,28,38,39]
+# ---- the accepted v2, and the five round-1 substitutions ----------------
+v2=json.load(open('book11/candidate-v2.json'))
+p2=v2['paragraphs']; assert len(p2)==39
+assert all(p.startswith(f'{i+1}. ') for i,p in enumerate(p2))
+md2=open('book11/candidate-v2-readable.md').read(); assert all(p in md2 for p in p2)
+diff=[i+1 for i,(a,b) in enumerate(zip(cand['paragraphs'],p2)) if a!=b]
+assert diff==[1,15,18,21,26], diff
+assert 'does not differ at all from the reason of justice' in p2[0]      # 1.1
+assert 'beloved instantly reads everything' in p2[14]                    # 15.1
+assert 'deeply resentful or grieved' in p2[17]                           # 18.1
+assert 'same object in life cannot be one and the same' in p2[20]        # 21.1
+assert 'think of one or another of the men of former times' in p2[25]    # 26.1
+for gone in ('differs not at all','beloved at once','greatly resentful',
+             'same object in life, cannot','think of one of the men'):
+    assert not any(gone in p for p in p2), gone
+# left as drafted with the reason recorded (12.1, 34.1); rendering kept (19.1)
+assert 'nor dispersed, nor sinks down' in p2[11]
+assert '"Tomorrow perchance you will die."' in p2[33]
+assert 'the superior faculty' in p2[18]
+# v2 keeps every v1 invariant
+assert not any('[' in p for p in p2)
+assert not any(re.search(r'\((?:i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii)\. ',p) for p in p2)
+assert not any('Epictetus, iii' in p for p in p2)
+assert [i+1 for i,p in enumerate(p2) if re.search(r'\bshall\b',p,re.I)]==[18]
+assert not any(re.search(r'\b(thou|thy|thee|thyself|shalt|hast|dost|wilt|wast|thine)\b',p) for p in p2)
+assert [i+1 for i,(a,b) in enumerate(zip(src['paragraphs'],p2)) if a==b]==[14,22,24,25,28,38,39]
+assert src['paragraphs'][20].count(',')-p2[20].count(',')==2   # XI.21, two commas removed
+for k,s_ in [(7,'not the same mind with it'),(14,'character is, he immediately shows'),
+             (16,'of what it consists, and into what')]:
+    assert s_ in src['paragraphs'][k] and s_ in p2[k], k        # dagger clauses, Long's commas
+# findings C1 and C2, asserted against the raw PG text rather than a numeral
+pg=open('source/pg15877-long-1862.txt').read().split('\n')
+gk=[(i,pg[i-1].count('[Greek:')) for i in range(6376,6817) if '[Greek:' in pg[i-1]]
+assert [i for i,_ in gk]==[6398,6554,6555,6702,6757] and sum(n for _,n in gk)==7   # C1
+assert not any('(Greek:' in p for p in ch['paragraphs'])
+sp=[i for i in range(1,len(pg)+1) if re.search(r'\s[,;:.?!]',pg[i-1])]
+assert sp==[1092,3156,3779,4712,4889,6645]                                        # C2
+assert [i for i in sp if 2129<=i and not pg[i-1].startswith('    ')]==[3156,3779,4712,6645]
+assert '...' not in st['chapters'][6]['paragraphs'][65]        # VII.66 has no ellipsis
 print('OK'); print(hashlib.sha256(open('book11/candidate-v1.json','rb').read()).hexdigest())
+print(hashlib.sha256(open('book11/candidate-v2.json','rb').read()).hexdigest())
 print(hashlib.sha256(open('book11/source-book11.json','rb').read()).hexdigest())
 print(hashlib.sha256(open('meditations-original-en.staged.json','rb').read()).hexdigest())
 PY
 ```
 
-Expected: `d0db3918…` (candidate v1, frozen), `41ff9b07…` (source-book11.json)
-and `7798607d…` (the staged original, unchanged at Book XI step 1).
+Expected: `d0db3918…` (candidate v1, frozen), `1016c038…` (candidate v2, the
+accepted text), `41ff9b07…` (source-book11.json) and `7798607d…` (the staged
+original, unchanged at Book XI step 1).
 
 The step-1 source check is reproducible on its own, and prints its rule audit
 before its diff:
@@ -200,11 +272,5 @@ XI.15, XI.17 — each differing only by the dagger mark.
 
 ## Next action
 
-**Waiting on the coordinator: an independent review of Book XI.** Findings go
-under `book11/review/`. Five decisions are flagged there for an explicit ruling
-(XI.18 "flattering" for PG's "nattering"; XI.18's nine-word bracket folded;
-XI.10's "[things indifferent]" dropped under D11 where the primary word is the
-less transparent of the two; XI.26's "[Ephesians]" folded as a mark of textual
-doubt; XI.15's "at once" for "forthwith" beside the dagger clause) and one is
-offered for confirmation ("pancratium" kept untranslated at XI.2). This agent
-does not review its own draft and has not started Book XII.
+None for Book XI. The thread continues with Book XII (`../book12/`), the last
+book.

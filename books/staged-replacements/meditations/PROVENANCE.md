@@ -227,8 +227,11 @@ reproducible by running the script):
   footnote-consumption rule cannot have swallowed them; **two verse citations in
   the body**, `_Odyssey_, ix. 413.` (PG 6777, indented 26) and `HESIOD, _Works
   and Days_, 184.` (PG 6780, indented 17), kept in the staged original under D5
-  and dropped from the candidate as apparatus; **no Greek in the body** (all five
-  `[Greek: …]` spans are inside indented footnote bodies); and the only three
+  and dropped from the candidate as apparatus; **no Greek in the body** (all **seven**
+  `[Greek: …]` spans, on **five** indented footnote lines — PG 6398 ×1, 6554 ×2,
+  6555 ×1, 6702 ×1, 6757 ×2 — are inside footnote bodies; corrected from "five
+  spans" at Book XI acceptance, finding C1, where the numeral counted lines and
+  called them spans); and the only three
   standalone short flush-left lines are Long's own connectives in XI.6 ("And
   again,—", "And,—", "And other things of the same kind."), not running
   heads, page numbers or catchwords. A flush-left footnote body of the VII.45
@@ -238,6 +241,24 @@ reproducible by running the script):
   file's sha256 is unchanged at `7798607d…`, 487 paragraphs, twelve chapters,
   section profile unchanged with **39** in Book 11, and `git status` is clean, so
   **no accepted book is reopened**.
+  **Upheld at the Book XI round-1 review (2026-09-12) by a reconstruction written
+  from a different angle.** The reviewer did not re-run either script: it wrote
+  its own reconstruction of PG 6376–6816 **before** opening
+  `scripts/verify_book11_source.py`, with a deliberately different footnote rule
+  — classify maximal indented runs by indentation and drop the **four-space**
+  runs, where the build keys on an `[A-D]` opener and then consumes
+  blank-or-indented lines — and obtained **39 paragraphs with exactly three
+  differing from the staged Book XI (XI.8, XI.15, XI.17), each by one `+`**. Two
+  rule sets written from different angles reproducing the staged file to the byte
+  is the strongest form this check takes. It then audited the rules class by class
+  against the raw range and agreed line for line, including the eleventh marker at
+  the end of the indented verse line 6442 and the boundaries at 6375, 6377,
+  6813–6815 and 6817. Two counts in the class-by-class account were corrected —
+  the `[Greek: …]` spans (finding C1) and the scope of the
+  space-before-punctuation rule (finding C2), both above. **The method — an
+  independent reconstruction, ideally derived from a DIFFERENT rule than the
+  build's, whose own rules are then audited class by class against the raw text —
+  is the standard for Book XII.**
 - Long's footnotes removed. The build skipped footnotes by their indented
   `[A]` opener, but three in Book VII are printed flush left in the PG text
   ("See Aristophanes, Acharnenses, v. 661." and "From the Apologia, c. 16."
@@ -262,16 +283,34 @@ reproducible by running the script):
   **Book XI step 1 (2026-09-12)**, where the independent reconstruction
   `scripts/verify_book11_source.py` produced a fourth diff at XI.18 — PG line
   6645 prints "present ...[A]" and the staged file has "present..." — and
-  the rule was found in the build. It fires in exactly **five lines in the whole
-  translation body**: 3156 (IV.19), 3779 (V.29), 4712 (VII.58), 4889 (VII.66)
-  and 6645 (XI.18), every one of them at an ellipsis marking a lacuna in Long's
-  Greek. **It changes no word anywhere**, so it is a typographic normalisation of
-  the same class as the em dashes, and **no rebuild was made**: four of the five
-  are in accepted books, nothing about them is apparatus, and D12's standard
-  (paragraph count unchanged, only the affected paragraphs differing) is not even
-  engaged because no paragraph would change. Documented here instead, and
-  reproduced in the reconstruction so that it and the staged file are compared on
-  the same rules.
+  the rule was found in the build (`re.sub(r'\s+([,;:.?!])', r'\1', t)`, applied
+  after marker and dagger removal and after whitespace collapse). It fires on
+  **six lines of PG #15877, four of them in the translation body**: 3156 (IV.19),
+  3779 (V.29), 4712 (VII.58) and 6645 (XI.18), every one of them at an ellipsis
+  marking a lacuna in Long's Greek — **and two outside it**, 4889 (four-space
+  indented, inside the long Book VII footnote whose body runs 4885–4900) and
+  1092 (inside Long's introduction, which the build does not read: the body
+  starts at line 2129). **It changes no word anywhere**, so it is a typographic
+  normalisation of the same class as the em dashes, and **no rebuild was made**:
+  all four body firings are at ellipses, nothing about them is apparatus, and
+  D12's standard (paragraph count unchanged, only the affected paragraphs
+  differing) is not even engaged because no paragraph would change. Documented
+  here instead, and reproduced in the reconstruction so that it and the staged
+  file are compared on the same rules.
+  *Corrected at Book XI acceptance (2026-09-12), finding C2:* the statement above
+  read "exactly five lines in the whole translation body … 4889 (VII.66)". **PG
+  4889 is not in the translation body** — it is inside a footnote body the build
+  strips — and the consequence is checkable in the staged file, where **VII.66
+  contains no ellipsis at all**. Scanning the whole PG file rather than the body
+  also turns up 1092. This strengthens the "changes no word" conclusion and
+  changes no ruling. Both figures are now asserted against the raw file by
+  `scripts/build_book11_v2.py`.
+  *Given a decision row of its own at the same acceptance (finding C3):* **D14**
+  in `00-progress-ledger.md`, worded to generalise to any build rule that alters
+  only typography — such a rule is documented and **preserved by any future
+  rebuild**, and any reconstruction used to verify the staged original reproduces
+  it. Dropping this one in a rebuild would reintroduce " …" into four places and
+  break the byte-identity guarantee D12 turns on.
 - Indented verse quotations (V.31, V.33, VII.40, VII.41, VII.43, VII.50, VII.51,
   X.34, XI.6, XI.31, XI.32, XII.3) are joined into the section's paragraph with
   spaces; line breaks are not preserved.

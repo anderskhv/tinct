@@ -737,15 +737,22 @@ session. Kept current at every push.
   = eleven, for eleven indented openers; **no flush-left footnote opener** (the
   VII.45 class) and **no illustration caption** (the Book IV class); the only
   three standalone short flush-left lines are Long's own connectives in XI.6,
-  not running heads, page numbers or catchwords; and all five `[Greek: …]` spans
-  are inside footnote bodies, so there is no Greek in the body. **One rule of the
+  not running heads, page numbers or catchwords; and all **seven** `[Greek: …]`
+  spans, on **five** indented lines, are inside footnote bodies, so there is no
+  Greek in the body *(corrected at Book XI acceptance, finding C1; the entry as
+  first written said "all five spans", counting lines)*. **One rule of the
   build was undocumented and is now documented**: a space before `,` `;` `:` `.`
   `?` `!` is closed up, which produced a fourth diff at XI.18 on the first run.
-  It fires in exactly five lines in the whole translation body (IV.19, V.29,
-  VII.58, VII.66, XI.18), every one at an ellipsis marking a lacuna in Long's
-  Greek, and **changes no word anywhere** — a typographic normalisation of the
+  It fires on **six lines of PG #15877, four of them in the translation body**
+  (IV.19, V.29, VII.58, XI.18), every one at an ellipsis marking a lacuna in
+  Long's Greek, **and two outside it** — 4889, inside a Book VII footnote body
+  the build strips, and 1092, inside Long's introduction *(corrected at Book XI
+  acceptance, finding C2; the entry as first written counted five body firings
+  and listed 4889 as VII.66, which has no ellipsis at all in the staged file)* —
+  and it **changes no word anywhere** — a typographic normalisation of the
   em-dash class, so **no rebuild was made** and D12's standard is not engaged;
-  recorded in `PROVENANCE.md` §4 and reproduced in the reconstruction so the two
+  recorded in `PROVENANCE.md` §4, given its own decision row **D14** at Book XI
+  acceptance (finding C3), and reproduced in the reconstruction so the two
   are compared on the same rules. sha256 still `7798607d…`, 487 paragraphs,
   twelve chapters, 39 in Book 11, `git status` clean, **no accepted book
   reopened**.
@@ -811,6 +818,65 @@ session. Kept current at every push.
   assertion. **Stopped for independent review** (step 4). Findings expected under
   `book11/review/`.
 
+- 2026-09-12 — **Book XI accepted** (steps 6–8). Round 1 came back *Accept after
+  corrections*: **0 substantive**, **8 minor** (1.1, 18.1, 19.1, 21.1, 26.1 and
+  the chapter-level C1, C2, C3) and **3 optional** (12.1, 15.1, 34.1), every one
+  of the 39 paragraphs covered exactly once — "nothing in the thirty-nine
+  paragraphs is missing, added, softened, expanded, mistranslated or imported".
+  **All eight minor findings applied and one of the three optional (15.1)**, in
+  `book11/candidate-v2.json` (sha256 `1016c038…`) via
+  `scripts/build_book11_v2.py`: **five substitutions in five paragraphs** — XI.1
+  `differs not at all` → `does not differ at all` (the book's only surviving
+  archaic finite negative, where the identical shape at XI.19 had been
+  modernised); XI.15 `at once` → `instantly` (the reviewer's word, avoiding the
+  *simultaneously* reading before "everything", where X.30's "immediately" was
+  rightly refused because Long's own "immediately" stands nine words earlier
+  inside the dagger clause); XI.18 `greatly resentful` → `deeply resentful`;
+  XI.21's **first** subject–verb comma removed so the paragraph's two identical
+  `He who …` constructions are decided alike (the X.6 / X.20 / X.33 precedent,
+  tally now three); and XI.26 `one of the men` → **`one or another of the men`**,
+  because **the X.36.2 "some one" → "someone" ruling does not reach a partitive**
+  — normalising would give "someone of the men" and deleting "some" made an
+  indefinite definite. 34 paragraphs untouched. **19.1, C1 and C2 are record
+  corrections that change no word**: XI.19's "the superior faculty" is **kept**
+  (not one of the five variants the *hēgemonikon* row collects, and the section's
+  argument is about superiority, not ruling) with the dangling "see the flagged
+  decisions" replaced by the reason in both places; **seven `[Greek: …]` spans on
+  five lines, not five spans** (C1); and the space-before-punctuation rule fires
+  on **four** body lines, not five — PG 4889 is inside a Book VII footnote body
+  the build strips and staged VII.66 has no ellipsis, and a whole-file scan adds
+  1092 in Long's introduction (C2). Both counts are now **asserted against the raw
+  PG file** by the build script and the `README.md` check block. **C3 added D14**
+  above, worded to generalise to any typographic-only build rule, and **D13 was
+  amended**: it must **not** acquire a size threshold — X.23's dropped
+  translator's note is nine words and XI.18's folded bracket is nine words, so the
+  test is voice and subject, not length — and XI.26's "[Ephesians]" is named there
+  as a **third** bracket class, a mark of textual doubt where the mark goes and the
+  word stands, as with Long's daggers. **12.1 and 34.1 left as drafted with the
+  reason recorded**, both on routes the reviewer proposed: XI.12's "nor sinks
+  down" is logged under "Open, not blocking" (repairing it to "nor sunk down"
+  would import a passive agent Long does not have), and XI.34's "perchance" keeps
+  its place with the test for a third case now written out — *is the word inside a
+  quoted utterance whose form is itself the point?*, not *who is speaking*.
+  **All five flagged decisions and the point offered for confirmation were ruled
+  and the drafter upheld on every one**, as were the two further points put to the
+  reviewer with reasons (the four Epictetus references dropped; the seven
+  byte-identical paragraphs). The **step-1 no-rebuild finding was upheld by the
+  stronger method and from a different angle**: the reviewer wrote its own
+  reconstruction of PG 6376–6816 with a **different footnote rule** (classify
+  maximal indented runs by indentation, drop the four-space runs) *before* opening
+  `scripts/verify_book11_source.py`, got the same 39 paragraphs and the same three
+  dagger-only diffs, then audited the rules class by class and agreed line for
+  line. The "shall" audit passed on all eight, D13 confirmed not to fire anywhere
+  in Book XI, and the 0.977 ratio was ruled on paragraph by paragraph (the lowest
+  apparatus-free paragraph is XI.7 at 0.964; "all but two words of the shortfall"
+  is apparatus). Word ratio 0.9772 → **0.9777**. Flow read done, no further change.
+  Acceptance in `book11/ACCEPTANCE.md`; `changes-v1-to-v2.md`, `continuity.md`,
+  `provenance.json`, `manifest.json`, `review-instructions.md` and `README.md`
+  updated; mechanical checks re-run and passing. No glossary rendering row added,
+  extended or reversed, and no voice rule changed — one new ledger row (D14) and
+  one amended (D13).
+
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
@@ -839,40 +905,17 @@ session. Kept current at every push.
 | D10 | In Book I, Long's "undeviating" is kept in all three places (I.8, I.14, I.16), not only in the dagger-marked I.14. | Dagger clauses stand verbatim (Book II rule); rendering the same Long word two ways in one book would be a worse inconsistency than keeping a slightly formal but current word. Pattern for later books: where a dagger clause fixes a word, the unmarked uses of the same word in that book follow it. |
 | D11 | Long's bracketed *alternative renderings* ("[or, practically]", III.6) are apparatus and are dropped; his bracketed *supplements* ("[deity]", "[death]", "[to other things]") are folded into prose as before. | A second translation of one Greek word is Long talking to the reader about his choices, like a cross-reference, not part of Marcus's sentence; folded, it reads as if Marcus named a third kind of good. Raised by the Book III reviewer (finding 6.3). Each drop is listed in the book's `continuity.md`. |
 | D12 | The staged original may be rebuilt to remove PG apparatus that the build missed, provided the paragraph count and every already-accepted chapter are byte-identical before and after, and the hash change is recorded here, in `PROVENANCE.md` §4 and in each affected `provenance.json`. | The staged file is this package's own artefact, and an illustration caption is not Long's text; leaving it would put "[Illustration: …]" into the edition. Chapters 1–3 unchanged, so no acceptance is reopened. |
-| D13 | Long's bracketed **translator's notes** — his remarks in his own voice about his own handling of the Greek, of which "[The three last words are omitted in the translation.]" (X.23) is the first to arise — are apparatus of the cross-reference and footnote kind and are **dropped, not folded**. The test is **whose voice the bracket is in and what it is about**: a bracket that speaks *about the translation* — what Long omitted, supplied, transposed, conjectured or could not render — is Long addressing his reader, not Marcus addressing himself, and folding it would put a comment on a translation into the mouth of a man who did not write one. This is a **third class**, beside D11's bracketed *alternative renderings* (also dropped) and the bracketed *supplements* the glossary folds. **Limit:** where such a bracket is also the only place in the English in which a sense of Marcus's own argument exists, the X.21 "[is wont]" reasoning governs instead and it is folded — the test there is whether dropping it removes a note about Long's choices or deletes the observation the section is made of. Each drop is listed in the book's `continuity.md`. | Raised by the Book X round-1 reviewer (finding 23.1): D11 as worded reaches alternative renderings only, and the glossary's bracket rule reaches supplements, cross-references and verse citations, so this class had no rule at all. A drafter of Books XI–XII reading D11 literally would have folded it, and the natural mistake is the damaging one. |
+| D13 | Long's bracketed **translator's notes** — his remarks in his own voice about his own handling of the Greek, of which "[The three last words are omitted in the translation.]" (X.23) is the first to arise — are apparatus of the cross-reference and footnote kind and are **dropped, not folded**. The test is **whose voice the bracket is in and what it is about**: a bracket that speaks *about the translation* — what Long omitted, supplied, transposed, conjectured or could not render — is Long addressing his reader, not Marcus addressing himself, and folding it would put a comment on a translation into the mouth of a man who did not write one. This is a **third class**, beside D11's bracketed *alternative renderings* (also dropped) and the bracketed *supplements* the glossary folds. **Limit:** where such a bracket is also the only place in the English in which a sense of Marcus's own argument exists, the X.21 "[is wont]" reasoning governs instead and it is folded — the test there is whether dropping it removes a note about Long's choices or deletes the observation the section is made of. Each drop is listed in the book's `continuity.md`. **Amended at Book XI acceptance (2026-09-12), on the round-1 ruling: D13 does NOT acquire a size threshold.** X.23's dropped translator's note is nine words and XI.18's folded supplement "[If any have offended against thee, consider first]" is nine words, and the two are decided opposite ways on their content — the test is **voice and subject, not length**. A drafter meeting a long supplement must not invent a word limit: XI.18's bracket carries the enumeration (it contains the word *first*, and the meditation runs "Second … Ninth" and closes "these nine rules"), so dropping it would leave nine members with eight labels. **A third class, also settled there:** a bracket that marks **textual doubt about the Greek** rather than Long's handling of it — XI.26's "[Ephesians]", where his footnote reports Gataker's conjecture — is neither a D11 alternative rendering nor a D13 translator's note; it is treated as Long's daggers are, **the mark goes and the word stands**. | Raised by the Book X round-1 reviewer (finding 23.1): D11 as worded reaches alternative renderings only, and the glossary's bracket rule reaches supplements, cross-references and verse citations, so this class had no rule at all. A drafter of Books XI–XII reading D11 literally would have folded it, and the natural mistake is the damaging one. |
+| D14 | **A build rule that alters only typography and changes no word of Long's is documented and preserved, not rebuilt out — and any reconstruction written to verify the staged original reproduces it.** The rule that produced this row: the build closes up a space before `,` `;` `:` `.` `?` `!`. It fires on six lines of PG #15877, four of them in the translation body (IV.19, V.29, VII.58, XI.18), every one at an ellipsis marking a lacuna in Long's Greek, and two outside it (4889, inside a Book VII footnote body the build strips; 1092, inside Long's introduction), and it changes no word anywhere. The class it stands for is the one `PROVENANCE.md` §4 already lists: `--`/`---` → em dash, PG italic underscores dropped, `[Greek: …]` → `(Greek: …)`, the verse join. Consequences: **D12's rebuild standard is not engaged**, because no paragraph and no count would change; the rule is recorded in §4 and here and **must be preserved by any future rebuild**; **every reconstruction used to verify the staged original reproduces every such rule**, so the two are compared on the same rules and a normalisation cannot masquerade as a defect; and finding such a rule undocumented is a **documentation defect, not a text defect**. The test is whether any word changes. | Raised by the Book XI round-1 reviewer (finding C3), after the Book XI step-1 reconstruction found this rule undocumented and manufactured a false fourth diff at XI.18 on its first run by not reproducing it. `PROVENANCE.md` §4 is a list of normalisations; the ledger is where a later agent looks for rulings, and every comparable apparatus question got a row (D5, D11, D12, D13). A rebuild that silently dropped this rule would reintroduce " …" into four places in the staged original and break the byte-identity guarantee D12 turns on. Worded for the class rather than the instance because the instance is now documented and it is the next such rule that will bite. |
 | D9 | On a session collision, the first pushed version stands; the later session discards its duplicate, records any residual point here, and stops. | One accepted text per book and one frozen candidate per review round; two hashes for the same step would be unreadable to the coordinator and the reviewer. |
 
 ## Next
 
-**Waiting on the coordinator: independent review of Book XI.**
-`book11/candidate-v1.json` (sha256 `d0db3918…`) is frozen, with thirteen packets,
-`review-instructions.md` and `manifest.json` in place; findings go under
-`book11/review/`. **Five decisions are flagged there for an explicit ruling** —
-XI.18's "flattering" for PG's "nattering", the one departure from PG's letters in
-the book; XI.18's nine-word bracket "[If any have offended against thee, consider
-first]" folded, the largest bracket in the package, with the question whether
-**D13** should be read to cover a bracket that size whatever its content; XI.10's
-"[things indifferent]" dropped under D11, the one drop where the primary word
-Long leaves standing is the *less* transparent of the two; XI.26's "[Ephesians]"
-folded as a mark of textual doubt rather than as a supplement or a second
-rendering; and XI.15's "at once" for Long's "forthwith", chosen over the X.30
-rendering because Long's own "immediately" stands nine words earlier inside the
-dagger clause — **and one is offered for confirmation** ("pancratium" kept
-untranslated at XI.2, on the X.9 "Mimi" ruling). The reviewer is also asked to
-test the step-1 no-rebuild finding **by the stronger method rather than by
-re-running either script**, and to audit the reconstruction's own **rules** as
-the Book X reviewer did, which is the method Book XI's own step 1 used — and
-which is what turned up the one undocumented build rule now recorded in
-`PROVENANCE.md` §4. Two further things are put to the reviewer with reasons:
-whether dropping the four **Epictetus** references is right, given that they
-point outside the Meditations to a source Marcus names in his own text; and
-whether each of the **seven byte-identical paragraphs** is rightly identical.
-This agent does not review its own draft, and **Book XII has not been started**.
-
-Book X is **accepted** (`book10/ACCEPTANCE.md`, `candidate-v2.json` sha256
-`8ba528dc…`). After the Book XI review: Book XI steps 6–8 (candidate v2, changes
-log, flow read, `ACCEPTANCE.md`), then Book XII, the last, with its own review
-round.
+**Book XII — the last book — steps 1–3 in progress.** Book XI is **accepted**
+(`book11/ACCEPTANCE.md`, `candidate-v2.json` sha256 `1016c038…`), with every
+flagged decision ruled and nothing left open. Ten of the twelve books were
+accepted before it; Book XII is the twelfth and final one, after which the whole
+package needs a cross-book pass (see "Open, not blocking").
 
 ## Needs Anders (listed, not waited on)
 
@@ -894,6 +937,17 @@ round.
   `PROVENANCE.md` §4; reviewers should weigh findings there accordingly.
 - II.14 PG reading "that which perish" vs Standard Ebooks "perishes"; kept as
   PG has it in the staged original.
+- **Book XI v2, XI.12**: Long's series shifts from three past participles to a
+  finite present verb — "when it is neither extended towards any object, nor
+  contracted inwards, nor dispersed, **nor sinks down**" — which is loose in
+  modern English. Kept as Long has it, and recorded here rather than repaired
+  (Book XI round-1 finding 12.1, optional; the reviewer offered this route
+  explicitly as the alternative to changing the word). "Nor sunk down" would make
+  a past participle in a series of passives, so the soul's sinking would become
+  something *done to it*, where Long's finite verb is intransitive and the sinking
+  is the soul's own; and the negation can in any case be read as scoping over the
+  whole verb phrase. Same class as the II.5 dangling relative below, and a
+  candidate for a v3 at a later touchpoint.
 - Book II v2, II.5: "You see how few things there are which, if a man lays hold
   of them, he can live a life…" reproduces Long's dangling relative ("the
   which if a man lays hold of, he is able to live"), ungrammatical in modern
