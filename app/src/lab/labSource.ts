@@ -28,6 +28,9 @@ export interface LabChapter {
   title: string
   path?: string
   wordCount?: number
+  /** Bible chapters ship a paragraph count but no word count: 1,189 chapters
+   * are never all loaded, so the book-page estimate weights them by this. */
+  paragraphCount?: number
 }
 
 export interface LabSource {
@@ -279,7 +282,7 @@ async function loadAudioFollowMetadata(
 }
 
 interface BibleManifest {
-  chapters: Array<{ number: number; title: string; path: string; wordCount?: number }>
+  chapters: Array<{ number: number; title: string; path: string; wordCount?: number; paragraphCount?: number }>
   sections?: Section[]
 }
 
@@ -398,6 +401,7 @@ export async function loadLabSource(
       title: item.title,
       path: item.path,
       wordCount: item.wordCount,
+      paragraphCount: item.paragraphCount,
     }))
 
     const supplement = Promise.all([loadAudioFollowMetadata(paragraphs, entry.number, audio), threadsPromise ?? loadThreadsJson().catch(() => ({ characters: [] }))])
@@ -523,6 +527,7 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
       wordCount: chapter.paragraphs.length
         ? chapter.paragraphs.join(' ').trim().split(/\s+/).filter(Boolean).length
         : undefined,
+      paragraphCount: chapter.paragraphs.length,
     })),
     sections: primaryData.sections,
     cast: supporting.cast,
