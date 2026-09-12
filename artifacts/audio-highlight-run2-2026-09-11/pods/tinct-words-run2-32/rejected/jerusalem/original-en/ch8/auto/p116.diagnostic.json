@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "37afe9f729a94958407613256229d2d053c24eaa2e9b8e10371950dec40e1caf",
+  "attempts": [
+    {
+      "asr_seconds": 0.059077147394418716,
+      "alignment_seconds": 9.091943502426147e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What did the schoolmaster say to that?\"",
+        "hotwords": "What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What did the schoolmaster say to that?",
+          "start": 0.02,
+          "end": 2.06,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.935546875
+            },
+            {
+              "text": " did",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 0.64,
+              "end": 0.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " schoolmaster",
+              "start": 0.76,
+              "end": 1.28,
+              "probability": 0.6068115234375
+            },
+            {
+              "text": " say",
+              "start": 1.28,
+              "end": 1.66,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 1.66,
+              "end": 1.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that?",
+              "start": 1.82,
+              "end": 2.06,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "did",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "the",
+          "start": 0.64,
+          "end": 0.76
+        },
+        {
+          "raw": "schoolmaster",
+          "start": 0.76,
+          "end": 1.28
+        },
+        {
+          "raw": "say",
+          "start": 1.28,
+          "end": 1.66
+        },
+        {
+          "raw": "to",
+          "start": 1.66,
+          "end": 1.82
+        },
+        {
+          "raw": "that?",
+          "start": 1.82,
+          "end": 2.06
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "did",
+        "the",
+        "schoolmaster",
+        "say",
+        "to",
+        "that?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.64,
+          "end": 0.76,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "schoolmaster",
+          "start": 0.76,
+          "end": 1.28,
+          "key": "schoolmaster",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.28,
+          "end": 1.66,
+          "key": "say",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.66,
+          "end": 1.82,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 1.82,
+          "end": 2.06,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "did",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "the",
+          "start": 0.64,
+          "end": 0.76
+        },
+        {
+          "text": "schoolmaster",
+          "start": 0.76,
+          "end": 1.28
+        },
+        {
+          "text": "say",
+          "start": 1.28,
+          "end": 1.66
+        },
+        {
+          "text": "to",
+          "start": 1.66,
+          "end": 1.82
+        },
+        {
+          "text": "that?\"",
+          "start": 1.82,
+          "end": 2.06
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.05920364335179329
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c887d18f8274c4c9f0c2343f0f5b0a9bec5c52a8ad022764a434010a59974e94",
+  "selected_reasons": []
+}

@@ -1,0 +1,668 @@
+{
+  "complete": true,
+  "signature": "84cd189258ca83029a593e06d8d367088effc7369abe91d42a922b2e212a87b9",
+  "attempts": [
+    {
+      "asr_seconds": 0.10847402364015579,
+      "alignment_seconds": 0.00012164749205112457,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What are you laughing at? Ingmar demanded his hand on the sluice gate ready to set the sawmill going",
+          "start": 0.02,
+          "end": 5.96,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.1964111328125
+            },
+            {
+              "text": " are",
+              "start": 0.5,
+              "end": 0.58,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " you",
+              "start": 0.58,
+              "end": 0.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " laughing",
+              "start": 0.7,
+              "end": 1.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at?",
+              "start": 1.02,
+              "end": 1.52,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Ingmar",
+              "start": 2.02,
+              "end": 2.32,
+              "probability": 0.882568359375
+            },
+            {
+              "text": " demanded",
+              "start": 2.32,
+              "end": 2.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 2.72,
+              "end": 3.36,
+              "probability": 0.133056640625
+            },
+            {
+              "text": " hand",
+              "start": 3.36,
+              "end": 3.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " on",
+              "start": 3.62,
+              "end": 3.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.78,
+              "end": 3.92,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " sluice",
+              "start": 3.92,
+              "end": 4.3,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " gate",
+              "start": 4.3,
+              "end": 4.46,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " ready",
+              "start": 4.46,
+              "end": 4.66,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " to",
+              "start": 4.66,
+              "end": 4.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " set",
+              "start": 4.86,
+              "end": 5.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 5.04,
+              "end": 5.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sawmill",
+              "start": 5.2,
+              "end": 5.52,
+              "probability": 0.938720703125
+            },
+            {
+              "text": " going",
+              "start": 5.52,
+              "end": 5.96,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "are",
+          "start": 0.5,
+          "end": 0.58
+        },
+        {
+          "raw": "you",
+          "start": 0.58,
+          "end": 0.7
+        },
+        {
+          "raw": "laughing",
+          "start": 0.7,
+          "end": 1.02
+        },
+        {
+          "raw": "at?",
+          "start": 1.02,
+          "end": 1.52
+        },
+        {
+          "raw": "Ingmar",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "raw": "demanded",
+          "start": 2.32,
+          "end": 2.72
+        },
+        {
+          "raw": "his",
+          "start": 2.72,
+          "end": 3.36
+        },
+        {
+          "raw": "hand",
+          "start": 3.36,
+          "end": 3.62
+        },
+        {
+          "raw": "on",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "raw": "the",
+          "start": 3.78,
+          "end": 3.92
+        },
+        {
+          "raw": "sluice",
+          "start": 3.92,
+          "end": 4.3
+        },
+        {
+          "raw": "gate",
+          "start": 4.3,
+          "end": 4.46
+        },
+        {
+          "raw": "ready",
+          "start": 4.46,
+          "end": 4.66
+        },
+        {
+          "raw": "to",
+          "start": 4.66,
+          "end": 4.86
+        },
+        {
+          "raw": "set",
+          "start": 4.86,
+          "end": 5.04
+        },
+        {
+          "raw": "the",
+          "start": 5.04,
+          "end": 5.2
+        },
+        {
+          "raw": "sawmill",
+          "start": 5.2,
+          "end": 5.52
+        },
+        {
+          "raw": "going",
+          "start": 5.52,
+          "end": 5.96
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "are",
+        "you",
+        "laughing",
+        "at?\"",
+        "Ingmar",
+        "demanded,",
+        "his",
+        "hand",
+        "on",
+        "the",
+        "sluice",
+        "gate",
+        "ready",
+        "to",
+        "set",
+        "the",
+        "sawmill",
+        "going."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.5,
+          "end": 0.58,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.58,
+          "end": 0.7,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "laughing",
+          "start": 0.7,
+          "end": 1.02,
+          "key": "laughing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at?",
+          "start": 1.02,
+          "end": 1.52,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Ingmar",
+          "start": 2.02,
+          "end": 2.32,
+          "key": "ingmar",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "demanded",
+          "start": 2.32,
+          "end": 2.72,
+          "key": "demanded",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.72,
+          "end": 3.36,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 3.36,
+          "end": 3.62,
+          "key": "hand",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.62,
+          "end": 3.78,
+          "key": "on",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.78,
+          "end": 3.92,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sluice",
+          "start": 3.92,
+          "end": 4.3,
+          "key": "sluice",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "gate",
+          "start": 4.3,
+          "end": 4.46,
+          "key": "gate",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "ready",
+          "start": 4.46,
+          "end": 4.66,
+          "key": "ready",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.66,
+          "end": 4.86,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 4.86,
+          "end": 5.04,
+          "key": "set",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.04,
+          "end": 5.2,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "sawmill",
+          "start": 5.2,
+          "end": 5.52,
+          "key": "sawmill",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 5.52,
+          "end": 5.96,
+          "key": "going",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "are",
+          "start": 0.5,
+          "end": 0.58
+        },
+        {
+          "text": "you",
+          "start": 0.58,
+          "end": 0.7
+        },
+        {
+          "text": "laughing",
+          "start": 0.7,
+          "end": 1.02
+        },
+        {
+          "text": "at?\"",
+          "start": 1.02,
+          "end": 1.52
+        },
+        {
+          "text": "Ingmar",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "text": "demanded,",
+          "start": 2.32,
+          "end": 2.72
+        },
+        {
+          "text": "his",
+          "start": 2.72,
+          "end": 3.36
+        },
+        {
+          "text": "hand",
+          "start": 3.36,
+          "end": 3.62
+        },
+        {
+          "text": "on",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "text": "the",
+          "start": 3.78,
+          "end": 3.92
+        },
+        {
+          "text": "sluice",
+          "start": 3.92,
+          "end": 4.3
+        },
+        {
+          "text": "gate",
+          "start": 4.3,
+          "end": 4.46
+        },
+        {
+          "text": "ready",
+          "start": 4.46,
+          "end": 4.66
+        },
+        {
+          "text": "to",
+          "start": 4.66,
+          "end": 4.86
+        },
+        {
+          "text": "set",
+          "start": 4.86,
+          "end": 5.04
+        },
+        {
+          "text": "the",
+          "start": 5.04,
+          "end": 5.2
+        },
+        {
+          "text": "sawmill",
+          "start": 5.2,
+          "end": 5.52
+        },
+        {
+          "text": "going.",
+          "start": 5.52,
+          "end": 5.96
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10864248871803284
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "103efb8aea3f942d9b48ba1cfb2c708d236d57f41e927dfdd47ec19f4ab552d7",
+  "selected_reasons": []
+}

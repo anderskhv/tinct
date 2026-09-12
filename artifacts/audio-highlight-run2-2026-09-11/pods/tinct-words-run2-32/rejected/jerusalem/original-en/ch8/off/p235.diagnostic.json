@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "68b56eef02b5d022d5c56ab20722f34d4fa16f24a86cabb377474b1b6576893e",
+  "attempts": [
+    {
+      "asr_seconds": 0.044223835691809654,
+      "alignment_seconds": 5.7755038142204285e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Book three",
+          "start": 0.05,
+          "end": 0.85,
+          "words": [
+            {
+              "text": " Book",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.74755859375
+            },
+            {
+              "text": " three",
+              "start": 0.55,
+              "end": 0.85,
+              "probability": 0.337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Book",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "three",
+          "start": 0.55,
+          "end": 0.85
+        }
+      ],
+      "expected_tokens": [
+        "Book",
+        "Three"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Book",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "book",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 0.55,
+          "end": 0.85,
+          "key": "three",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Book",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Three",
+          "start": 0.55,
+          "end": 0.85
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.044300640001893044
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cc202640fb182c99bf246b3cf08d148114a48fc46bd1f71dbd99ca21cdb59c0d",
+  "selected_reasons": []
+}

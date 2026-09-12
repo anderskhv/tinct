@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "972bd18392117ead6914c17bb94794e3da9e064c779b4bea923b495f0168138c",
+  "attempts": [
+    {
+      "asr_seconds": 0.07025688141584396,
+      "alignment_seconds": 9.27317887544632e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Even so, it's quite difficult enough, but no longer impossible.",
+          "start": 0.05,
+          "end": 3.81,
+          "words": [
+            {
+              "text": " Even",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " so,",
+              "start": 0.63,
+              "end": 0.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it's",
+              "start": 1.31,
+              "end": 1.51,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " quite",
+              "start": 1.51,
+              "end": 1.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " difficult",
+              "start": 1.67,
+              "end": 2.03,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " enough,",
+              "start": 2.03,
+              "end": 2.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 2.67,
+              "end": 2.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " no",
+              "start": 2.75,
+              "end": 2.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " longer",
+              "start": 2.91,
+              "end": 3.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " impossible.",
+              "start": 3.27,
+              "end": 3.81,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Even",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "so,",
+          "start": 0.63,
+          "end": 0.95
+        },
+        {
+          "raw": "it's",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "raw": "quite",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "raw": "difficult",
+          "start": 1.67,
+          "end": 2.03
+        },
+        {
+          "raw": "enough,",
+          "start": 2.03,
+          "end": 2.37
+        },
+        {
+          "raw": "but",
+          "start": 2.67,
+          "end": 2.75
+        },
+        {
+          "raw": "no",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "raw": "longer",
+          "start": 2.91,
+          "end": 3.27
+        },
+        {
+          "raw": "impossible.",
+          "start": 3.27,
+          "end": 3.81
+        }
+      ],
+      "expected_tokens": [
+        "\"Even",
+        "so,",
+        "it's",
+        "quite",
+        "difficult",
+        "enough,",
+        "but",
+        "no",
+        "longer",
+        "impossible.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Even",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "even",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 0.63,
+          "end": 0.95,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 1.31,
+          "end": 1.51,
+          "key": "its",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 1.51,
+          "end": 1.67,
+          "key": "quite",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "difficult",
+          "start": 1.67,
+          "end": 2.03,
+          "key": "difficult",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "enough,",
+          "start": 2.03,
+          "end": 2.37,
+          "key": "enough",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.67,
+          "end": 2.75,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.75,
+          "end": 2.91,
+          "key": "no",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "longer",
+          "start": 2.91,
+          "end": 3.27,
+          "key": "longer",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "impossible.",
+          "start": 3.27,
+          "end": 3.81,
+          "key": "impossible",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Even",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "so,",
+          "start": 0.63,
+          "end": 0.95
+        },
+        {
+          "text": "it's",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "text": "quite",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "text": "difficult",
+          "start": 1.67,
+          "end": 2.03
+        },
+        {
+          "text": "enough,",
+          "start": 2.03,
+          "end": 2.37
+        },
+        {
+          "text": "but",
+          "start": 2.67,
+          "end": 2.75
+        },
+        {
+          "text": "no",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "text": "longer",
+          "start": 2.91,
+          "end": 3.27
+        },
+        {
+          "text": "impossible.\"",
+          "start": 3.27,
+          "end": 3.81
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07038278505206108
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "230ec24bcbb860f3571d9d04c836b56fbc2bab6d5a57b6c8e432c63455c587d5",
+  "selected_reasons": []
+}

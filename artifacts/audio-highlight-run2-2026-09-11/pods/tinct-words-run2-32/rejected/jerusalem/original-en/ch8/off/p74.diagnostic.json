@@ -1,0 +1,668 @@
+{
+  "complete": true,
+  "signature": "6cd5fe17824943cfd49562059fd7fdc6092689bb57279a6a848e575046b916e4",
+  "attempts": [
+    {
+      "asr_seconds": 0.1489049755036831,
+      "alignment_seconds": 0.00016976706683635712,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ingmar's hands dropped. He looked quite worn out, but I don't know who is in the right, he protested",
+          "start": 0.02,
+          "end": 6.2,
+          "words": [
+            {
+              "text": " Ingmar's",
+              "start": 0.02,
+              "end": 1.02,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " hands",
+              "start": 1.02,
+              "end": 1.34,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " dropped.",
+              "start": 1.34,
+              "end": 1.76,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " He",
+              "start": 2.14,
+              "end": 2.22,
+              "probability": 0.994140625
+            },
+            {
+              "text": " looked",
+              "start": 2.22,
+              "end": 2.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " quite",
+              "start": 2.42,
+              "end": 2.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " worn",
+              "start": 2.68,
+              "end": 2.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " out,",
+              "start": 2.96,
+              "end": 3.32,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " but",
+              "start": 3.74,
+              "end": 4.02,
+              "probability": 0.75732421875
+            },
+            {
+              "text": " I",
+              "start": 4.02,
+              "end": 4.12,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " don't",
+              "start": 4.12,
+              "end": 4.3,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " know",
+              "start": 4.3,
+              "end": 4.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " who",
+              "start": 4.42,
+              "end": 4.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " is",
+              "start": 4.6,
+              "end": 4.78,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 4.78,
+              "end": 4.9,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 4.9,
+              "end": 5.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " right,",
+              "start": 5.0,
+              "end": 5.26,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " he",
+              "start": 5.64,
+              "end": 5.74,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " protested",
+              "start": 5.74,
+              "end": 6.2,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ingmar's",
+          "start": 0.02,
+          "end": 1.02
+        },
+        {
+          "raw": "hands",
+          "start": 1.02,
+          "end": 1.34
+        },
+        {
+          "raw": "dropped.",
+          "start": 1.34,
+          "end": 1.76
+        },
+        {
+          "raw": "He",
+          "start": 2.14,
+          "end": 2.22
+        },
+        {
+          "raw": "looked",
+          "start": 2.22,
+          "end": 2.42
+        },
+        {
+          "raw": "quite",
+          "start": 2.42,
+          "end": 2.68
+        },
+        {
+          "raw": "worn",
+          "start": 2.68,
+          "end": 2.96
+        },
+        {
+          "raw": "out,",
+          "start": 2.96,
+          "end": 3.32
+        },
+        {
+          "raw": "but",
+          "start": 3.74,
+          "end": 4.02
+        },
+        {
+          "raw": "I",
+          "start": 4.02,
+          "end": 4.12
+        },
+        {
+          "raw": "don't",
+          "start": 4.12,
+          "end": 4.3
+        },
+        {
+          "raw": "know",
+          "start": 4.3,
+          "end": 4.42
+        },
+        {
+          "raw": "who",
+          "start": 4.42,
+          "end": 4.6
+        },
+        {
+          "raw": "is",
+          "start": 4.6,
+          "end": 4.78
+        },
+        {
+          "raw": "in",
+          "start": 4.78,
+          "end": 4.9
+        },
+        {
+          "raw": "the",
+          "start": 4.9,
+          "end": 5.0
+        },
+        {
+          "raw": "right,",
+          "start": 5.0,
+          "end": 5.26
+        },
+        {
+          "raw": "he",
+          "start": 5.64,
+          "end": 5.74
+        },
+        {
+          "raw": "protested",
+          "start": 5.74,
+          "end": 6.2
+        }
+      ],
+      "expected_tokens": [
+        "Ingmar's",
+        "hands",
+        "dropped;",
+        "he",
+        "looked",
+        "quite",
+        "worn",
+        "out.",
+        "\"But",
+        "I",
+        "don't",
+        "know",
+        "who",
+        "is",
+        "in",
+        "the",
+        "right,\"",
+        "he",
+        "protested."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ingmar's",
+          "start": 0.02,
+          "end": 1.02,
+          "key": "ingmars",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 1.02,
+          "end": 1.34,
+          "key": "hands",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dropped.",
+          "start": 1.34,
+          "end": 1.76,
+          "key": "dropped",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.14,
+          "end": 2.22,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 2.22,
+          "end": 2.42,
+          "key": "looked",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 2.42,
+          "end": 2.68,
+          "key": "quite",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "worn",
+          "start": 2.68,
+          "end": 2.96,
+          "key": "worn",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "out,",
+          "start": 2.96,
+          "end": 3.32,
+          "key": "out",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.74,
+          "end": 4.02,
+          "key": "but",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.02,
+          "end": 4.12,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 4.12,
+          "end": 4.3,
+          "key": "dont",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 4.3,
+          "end": 4.42,
+          "key": "know",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 4.42,
+          "end": 4.6,
+          "key": "who",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.6,
+          "end": 4.78,
+          "key": "is",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.78,
+          "end": 4.9,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.9,
+          "end": 5.0,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "right,",
+          "start": 5.0,
+          "end": 5.26,
+          "key": "right",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.64,
+          "end": 5.74,
+          "key": "he",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "protested",
+          "start": 5.74,
+          "end": 6.2,
+          "key": "protested",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ingmar's",
+          "start": 0.02,
+          "end": 1.02
+        },
+        {
+          "text": "hands",
+          "start": 1.02,
+          "end": 1.34
+        },
+        {
+          "text": "dropped;",
+          "start": 1.34,
+          "end": 1.76
+        },
+        {
+          "text": "he",
+          "start": 2.14,
+          "end": 2.22
+        },
+        {
+          "text": "looked",
+          "start": 2.22,
+          "end": 2.42
+        },
+        {
+          "text": "quite",
+          "start": 2.42,
+          "end": 2.68
+        },
+        {
+          "text": "worn",
+          "start": 2.68,
+          "end": 2.96
+        },
+        {
+          "text": "out.",
+          "start": 2.96,
+          "end": 3.32
+        },
+        {
+          "text": "\"But",
+          "start": 3.74,
+          "end": 4.02
+        },
+        {
+          "text": "I",
+          "start": 4.02,
+          "end": 4.12
+        },
+        {
+          "text": "don't",
+          "start": 4.12,
+          "end": 4.3
+        },
+        {
+          "text": "know",
+          "start": 4.3,
+          "end": 4.42
+        },
+        {
+          "text": "who",
+          "start": 4.42,
+          "end": 4.6
+        },
+        {
+          "text": "is",
+          "start": 4.6,
+          "end": 4.78
+        },
+        {
+          "text": "in",
+          "start": 4.78,
+          "end": 4.9
+        },
+        {
+          "text": "the",
+          "start": 4.9,
+          "end": 5.0
+        },
+        {
+          "text": "right,\"",
+          "start": 5.0,
+          "end": 5.26
+        },
+        {
+          "text": "he",
+          "start": 5.64,
+          "end": 5.74
+        },
+        {
+          "text": "protested.",
+          "start": 5.74,
+          "end": 6.2
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1491501834243536
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "acdc14da909997ac8daa5569b26f10ce81813e50af716da02b03e7d4f27a77ff",
+  "selected_reasons": []
+}

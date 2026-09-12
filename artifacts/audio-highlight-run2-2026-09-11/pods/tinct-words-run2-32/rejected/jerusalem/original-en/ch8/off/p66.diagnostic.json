@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "0375a44d7bf98e35a9df9ce6af742d1aec4f7675901450f086595305d09a9291",
+  "attempts": [
+    {
+      "asr_seconds": 0.05821917951107025,
+      "alignment_seconds": 7.985904812812805e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What did Helgham say to that?",
+          "start": 0.02,
+          "end": 1.64,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.93359375
+            },
+            {
+              "text": " did",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Helgham",
+              "start": 0.64,
+              "end": 0.98,
+              "probability": 0.8037109375
+            },
+            {
+              "text": " say",
+              "start": 0.98,
+              "end": 1.24,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 1.24,
+              "end": 1.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that?",
+              "start": 1.4,
+              "end": 1.64,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "did",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "Helgham",
+          "start": 0.64,
+          "end": 0.98
+        },
+        {
+          "raw": "say",
+          "start": 0.98,
+          "end": 1.24
+        },
+        {
+          "raw": "to",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "raw": "that?",
+          "start": 1.4,
+          "end": 1.64
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "did",
+        "Hellgum",
+        "say",
+        "to",
+        "that?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          6,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Helgham",
+          "start": 0.64,
+          "end": 0.98,
+          "key": "helgham",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 0.98,
+          "end": 1.24,
+          "key": "say",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.24,
+          "end": 1.4,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 1.4,
+          "end": 1.64,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "did",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "Hellgum",
+          "start": 0.64,
+          "end": 0.81
+        },
+        {
+          "text": "say",
+          "start": 0.98,
+          "end": 1.24
+        },
+        {
+          "text": "to",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "text": "that?\"",
+          "start": 1.4,
+          "end": 1.64
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.05832561105489731
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "38b7970581c3addaef5e3168fd137764b7fed0a84564c800c298a252ea7ae260",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

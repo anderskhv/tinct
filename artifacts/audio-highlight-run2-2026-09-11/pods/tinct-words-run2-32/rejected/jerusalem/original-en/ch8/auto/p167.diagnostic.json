@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "ed49d26de23800511f2f414bfc834e734eae4ef4ce3f910156f06604f57c44f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.054583702236413956,
+      "alignment_seconds": 8.842535316944122e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You'll find out before long.\"",
+        "hotwords": "You'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You'll find out before long.",
+          "start": 0.02,
+          "end": 1.58,
+          "words": [
+            {
+              "text": " You'll",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.924560546875
+            },
+            {
+              "text": " find",
+              "start": 0.58,
+              "end": 0.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " out",
+              "start": 0.76,
+              "end": 0.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " before",
+              "start": 0.94,
+              "end": 1.22,
+              "probability": 0.9921875
+            },
+            {
+              "text": " long.",
+              "start": 1.22,
+              "end": 1.58,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You'll",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "find",
+          "start": 0.58,
+          "end": 0.76
+        },
+        {
+          "raw": "out",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "raw": "before",
+          "start": 0.94,
+          "end": 1.22
+        },
+        {
+          "raw": "long.",
+          "start": 1.22,
+          "end": 1.58
+        }
+      ],
+      "expected_tokens": [
+        "\"You'll",
+        "find",
+        "out",
+        "before",
+        "long.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You'll",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "youll",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 0.58,
+          "end": 0.76,
+          "key": "find",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 0.76,
+          "end": 0.94,
+          "key": "out",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 0.94,
+          "end": 1.22,
+          "key": "before",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "long.",
+          "start": 1.22,
+          "end": 1.58,
+          "key": "long",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You'll",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "find",
+          "start": 0.58,
+          "end": 0.76
+        },
+        {
+          "text": "out",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "text": "before",
+          "start": 0.94,
+          "end": 1.22
+        },
+        {
+          "text": "long.\"",
+          "start": 1.22,
+          "end": 1.58
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.05472884327173233
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4184945e15f19d585c95553820769bdd2a96a88a4788d6109ed9ed40d7b0ea81",
+  "selected_reasons": []
+}

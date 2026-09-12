@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "c9e76156328e7a7d19f0522c3b34799d45778f21b03d3fdcb373f490b2a2fb40",
+  "attempts": [
+    {
+      "asr_seconds": 0.05417163856327534,
+      "alignment_seconds": 8.127279579639435e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But what about the Storms?\"",
+        "hotwords": "But, Storms"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But what about the Storms?",
+          "start": 0.05,
+          "end": 1.49,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.869140625
+            },
+            {
+              "text": " what",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " about",
+              "start": 0.63,
+              "end": 0.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 0.79,
+              "end": 0.91,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Storms?",
+              "start": 0.91,
+              "end": 1.49,
+              "probability": 0.4802207946777344
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "what",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "about",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "raw": "the",
+          "start": 0.79,
+          "end": 0.91
+        },
+        {
+          "raw": "Storms?",
+          "start": 0.91,
+          "end": 1.49
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "what",
+        "about",
+        "the",
+        "Storms?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 0.63,
+          "end": 0.79,
+          "key": "about",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.79,
+          "end": 0.91,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Storms?",
+          "start": 0.91,
+          "end": 1.49,
+          "key": "storms",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "what",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "about",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "text": "the",
+          "start": 0.79,
+          "end": 0.91
+        },
+        {
+          "text": "Storms?\"",
+          "start": 0.91,
+          "end": 1.49
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.05428311787545681
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e01765e1a04c7ef8aef0d277310384eba1685fcf7cc4674a8f562dc00c99858f",
+  "selected_reasons": []
+}

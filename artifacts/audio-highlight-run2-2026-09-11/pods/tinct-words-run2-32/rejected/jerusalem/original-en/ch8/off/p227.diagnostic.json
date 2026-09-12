@@ -1,0 +1,759 @@
+{
+  "complete": true,
+  "signature": "0523c0e651fadbf3fb966dcb591efbb4bdc968bcfc454592df90dc54e252426c",
+  "attempts": [
+    {
+      "asr_seconds": 0.12774945609271526,
+      "alignment_seconds": 0.00019292160868644714,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " you never once came back to see me,\" she said reproachfully. It was as if I no longer existed for you.",
+          "start": 0.08,
+          "end": 6.72,
+          "words": [
+            {
+              "text": " you",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.034881591796875
+            },
+            {
+              "text": " never",
+              "start": 0.64,
+              "end": 0.92,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " once",
+              "start": 0.92,
+              "end": 1.24,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " came",
+              "start": 1.24,
+              "end": 1.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " back",
+              "start": 1.48,
+              "end": 1.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 1.76,
+              "end": 1.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " see",
+              "start": 1.94,
+              "end": 2.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me,\"",
+              "start": 2.16,
+              "end": 2.72,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " she",
+              "start": 2.72,
+              "end": 2.94,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " said",
+              "start": 2.94,
+              "end": 3.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " reproachfully.",
+              "start": 3.14,
+              "end": 3.74,
+              "probability": 0.9641927083333334
+            },
+            {
+              "text": " It",
+              "start": 4.38,
+              "end": 4.48,
+              "probability": 0.288330078125
+            },
+            {
+              "text": " was",
+              "start": 4.48,
+              "end": 4.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 4.66,
+              "end": 4.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " if",
+              "start": 4.9,
+              "end": 5.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 5.08,
+              "end": 5.22,
+              "probability": 0.994140625
+            },
+            {
+              "text": " no",
+              "start": 5.22,
+              "end": 5.4,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " longer",
+              "start": 5.4,
+              "end": 5.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " existed",
+              "start": 5.7,
+              "end": 6.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " for",
+              "start": 6.18,
+              "end": 6.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you.",
+              "start": 6.48,
+              "end": 6.72,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "you",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "never",
+          "start": 0.64,
+          "end": 0.92
+        },
+        {
+          "raw": "once",
+          "start": 0.92,
+          "end": 1.24
+        },
+        {
+          "raw": "came",
+          "start": 1.24,
+          "end": 1.48
+        },
+        {
+          "raw": "back",
+          "start": 1.48,
+          "end": 1.76
+        },
+        {
+          "raw": "to",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "raw": "see",
+          "start": 1.94,
+          "end": 2.16
+        },
+        {
+          "raw": "me,\"",
+          "start": 2.16,
+          "end": 2.72
+        },
+        {
+          "raw": "she",
+          "start": 2.72,
+          "end": 2.94
+        },
+        {
+          "raw": "said",
+          "start": 2.94,
+          "end": 3.14
+        },
+        {
+          "raw": "reproachfully.",
+          "start": 3.14,
+          "end": 3.74
+        },
+        {
+          "raw": "It",
+          "start": 4.38,
+          "end": 4.48
+        },
+        {
+          "raw": "was",
+          "start": 4.48,
+          "end": 4.66
+        },
+        {
+          "raw": "as",
+          "start": 4.66,
+          "end": 4.9
+        },
+        {
+          "raw": "if",
+          "start": 4.9,
+          "end": 5.08
+        },
+        {
+          "raw": "I",
+          "start": 5.08,
+          "end": 5.22
+        },
+        {
+          "raw": "no",
+          "start": 5.22,
+          "end": 5.4
+        },
+        {
+          "raw": "longer",
+          "start": 5.4,
+          "end": 5.7
+        },
+        {
+          "raw": "existed",
+          "start": 5.7,
+          "end": 6.18
+        },
+        {
+          "raw": "for",
+          "start": 6.18,
+          "end": 6.48
+        },
+        {
+          "raw": "you.",
+          "start": 6.48,
+          "end": 6.72
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "you",
+        "never",
+        "once",
+        "came",
+        "back",
+        "to",
+        "see",
+        "me,\"",
+        "she",
+        "said",
+        "reproachfully.",
+        "\"It",
+        "was",
+        "as",
+        "if",
+        "I",
+        "no",
+        "longer",
+        "existed",
+        "for",
+        "you.\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          22,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "you",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 0.64,
+          "end": 0.92,
+          "key": "never",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 0.92,
+          "end": 1.24,
+          "key": "once",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 1.24,
+          "end": 1.48,
+          "key": "came",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 1.48,
+          "end": 1.76,
+          "key": "back",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.76,
+          "end": 1.94,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.94,
+          "end": 2.16,
+          "key": "see",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me,\"",
+          "start": 2.16,
+          "end": 2.72,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.72,
+          "end": 2.94,
+          "key": "she",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.94,
+          "end": 3.14,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "reproachfully.",
+          "start": 3.14,
+          "end": 3.74,
+          "key": "reproachfully",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 4.38,
+          "end": 4.48,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 4.48,
+          "end": 4.66,
+          "key": "was",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.66,
+          "end": 4.9,
+          "key": "as",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 4.9,
+          "end": 5.08,
+          "key": "if",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.08,
+          "end": 5.22,
+          "key": "i",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 5.22,
+          "end": 5.4,
+          "key": "no",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "longer",
+          "start": 5.4,
+          "end": 5.7,
+          "key": "longer",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "existed",
+          "start": 5.7,
+          "end": 6.18,
+          "key": "existed",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 6.18,
+          "end": 6.48,
+          "key": "for",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 6.48,
+          "end": 6.72,
+          "key": "you",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.0,
+          "end": 0.04
+        },
+        {
+          "text": "you",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "never",
+          "start": 0.64,
+          "end": 0.92
+        },
+        {
+          "text": "once",
+          "start": 0.92,
+          "end": 1.24
+        },
+        {
+          "text": "came",
+          "start": 1.24,
+          "end": 1.48
+        },
+        {
+          "text": "back",
+          "start": 1.48,
+          "end": 1.76
+        },
+        {
+          "text": "to",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "text": "see",
+          "start": 1.94,
+          "end": 2.16
+        },
+        {
+          "text": "me,\"",
+          "start": 2.16,
+          "end": 2.72
+        },
+        {
+          "text": "she",
+          "start": 2.72,
+          "end": 2.94
+        },
+        {
+          "text": "said",
+          "start": 2.94,
+          "end": 3.14
+        },
+        {
+          "text": "reproachfully.",
+          "start": 3.14,
+          "end": 3.74
+        },
+        {
+          "text": "\"It",
+          "start": 4.38,
+          "end": 4.48
+        },
+        {
+          "text": "was",
+          "start": 4.48,
+          "end": 4.66
+        },
+        {
+          "text": "as",
+          "start": 4.66,
+          "end": 4.9
+        },
+        {
+          "text": "if",
+          "start": 4.9,
+          "end": 5.08
+        },
+        {
+          "text": "I",
+          "start": 5.08,
+          "end": 5.22
+        },
+        {
+          "text": "no",
+          "start": 5.22,
+          "end": 5.4
+        },
+        {
+          "text": "longer",
+          "start": 5.4,
+          "end": 5.7
+        },
+        {
+          "text": "existed",
+          "start": 5.7,
+          "end": 6.18
+        },
+        {
+          "text": "for",
+          "start": 6.18,
+          "end": 6.48
+        },
+        {
+          "text": "you.\"",
+          "start": 6.48,
+          "end": 6.72
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 0.9545454545454546,
+      "rejection_reasons": [],
+      "seconds": 0.12801434472203255
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cf3ce563ecae86481b6c61f007228a26f56b8e7a5c95c409be9dc025c64eeb5c",
+  "selected_reasons": []
+}

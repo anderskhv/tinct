@@ -1,0 +1,459 @@
+{
+  "complete": true,
+  "signature": "92f1e5bda6a202c35164b6af2e66f5717b2777e38d2910a8db7415aeecf5c222",
+  "attempts": [
+    {
+      "asr_seconds": 0.08467074483633041,
+      "alignment_seconds": 0.0001411139965057373,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But he has not taught us how to live rightly,\" said Karan.",
+          "start": 0.08,
+          "end": 3.32,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.3408203125
+            },
+            {
+              "text": " he",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " has",
+              "start": 0.66,
+              "end": 0.78,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " not",
+              "start": 0.78,
+              "end": 1.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " taught",
+              "start": 1.02,
+              "end": 1.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " us",
+              "start": 1.24,
+              "end": 1.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " how",
+              "start": 1.42,
+              "end": 1.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 1.56,
+              "end": 1.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " live",
+              "start": 1.68,
+              "end": 1.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " rightly,\"",
+              "start": 1.82,
+              "end": 2.62,
+              "probability": 0.776611328125
+            },
+            {
+              "text": " said",
+              "start": 2.62,
+              "end": 2.88,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Karan.",
+              "start": 2.88,
+              "end": 3.32,
+              "probability": 0.53533935546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "he",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "has",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "raw": "not",
+          "start": 0.78,
+          "end": 1.02
+        },
+        {
+          "raw": "taught",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "raw": "us",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "raw": "how",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "raw": "to",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "raw": "live",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "raw": "rightly,\"",
+          "start": 1.82,
+          "end": 2.62
+        },
+        {
+          "raw": "said",
+          "start": 2.62,
+          "end": 2.88
+        },
+        {
+          "raw": "Karan.",
+          "start": 2.88,
+          "end": 3.32
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "he",
+        "has",
+        "not",
+        "taught",
+        "us",
+        "how",
+        "to",
+        "live",
+        "rightly,\"",
+        "said",
+        "Karin."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.5,
+          "end": 0.66,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 0.66,
+          "end": 0.78,
+          "key": "has",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.78,
+          "end": 1.02,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "taught",
+          "start": 1.02,
+          "end": 1.24,
+          "key": "taught",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 1.24,
+          "end": 1.42,
+          "key": "us",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.42,
+          "end": 1.56,
+          "key": "how",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.56,
+          "end": 1.68,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 1.68,
+          "end": 1.82,
+          "key": "live",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "rightly,\"",
+          "start": 1.82,
+          "end": 2.62,
+          "key": "rightly",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.62,
+          "end": 2.88,
+          "key": "said",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Karan.",
+          "start": 2.88,
+          "end": 3.32,
+          "key": "karan",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "he",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "has",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "text": "not",
+          "start": 0.78,
+          "end": 1.02
+        },
+        {
+          "text": "taught",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "text": "us",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "text": "how",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "text": "to",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "text": "live",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "text": "rightly,\"",
+          "start": 1.82,
+          "end": 2.62
+        },
+        {
+          "text": "said",
+          "start": 2.62,
+          "end": 2.88
+        },
+        {
+          "text": "Karin.",
+          "start": 2.88,
+          "end": 3.1
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.08486625365912914
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0a8957ffc7920ba661d8ba4ef95721de6fcf2940d35d681d152f5a3c450fed11",
+  "selected_reasons": []
+}

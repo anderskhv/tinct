@@ -1,0 +1,562 @@
+{
+  "complete": true,
+  "signature": "8783c713c55d0a15464c1dc6a18482435f2d7e61ac0f46a9e6640eb9de3e4a4c",
+  "attempts": [
+    {
+      "asr_seconds": 0.13536362163722515,
+      "alignment_seconds": 0.00011721998453140259,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, he answered. These doings of Helgham are driving me mad. They must be stopped.",
+          "start": 0.02,
+          "end": 5.36,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.08892822265625
+            },
+            {
+              "text": " he",
+              "start": 1.06,
+              "end": 1.2,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " answered.",
+              "start": 1.2,
+              "end": 1.56,
+              "probability": 1.0
+            },
+            {
+              "text": " These",
+              "start": 2.14,
+              "end": 2.32,
+              "probability": 0.94140625
+            },
+            {
+              "text": " doings",
+              "start": 2.32,
+              "end": 2.66,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " of",
+              "start": 2.66,
+              "end": 2.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Helgham",
+              "start": 2.8,
+              "end": 3.08,
+              "probability": 0.8390299479166666
+            },
+            {
+              "text": " are",
+              "start": 3.08,
+              "end": 3.24,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " driving",
+              "start": 3.24,
+              "end": 3.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 3.5,
+              "end": 3.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " mad.",
+              "start": 3.72,
+              "end": 4.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " They",
+              "start": 4.52,
+              "end": 4.58,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " must",
+              "start": 4.58,
+              "end": 4.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 4.76,
+              "end": 5.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " stopped.",
+              "start": 5.0,
+              "end": 5.36,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "he",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "raw": "answered.",
+          "start": 1.2,
+          "end": 1.56
+        },
+        {
+          "raw": "These",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "raw": "doings",
+          "start": 2.32,
+          "end": 2.66
+        },
+        {
+          "raw": "of",
+          "start": 2.66,
+          "end": 2.8
+        },
+        {
+          "raw": "Helgham",
+          "start": 2.8,
+          "end": 3.08
+        },
+        {
+          "raw": "are",
+          "start": 3.08,
+          "end": 3.24
+        },
+        {
+          "raw": "driving",
+          "start": 3.24,
+          "end": 3.5
+        },
+        {
+          "raw": "me",
+          "start": 3.5,
+          "end": 3.72
+        },
+        {
+          "raw": "mad.",
+          "start": 3.72,
+          "end": 4.0
+        },
+        {
+          "raw": "They",
+          "start": 4.52,
+          "end": 4.58
+        },
+        {
+          "raw": "must",
+          "start": 4.58,
+          "end": 4.76
+        },
+        {
+          "raw": "be",
+          "start": 4.76,
+          "end": 5.0
+        },
+        {
+          "raw": "stopped.",
+          "start": 5.0,
+          "end": 5.36
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,\"",
+        "he",
+        "answered;",
+        "\"these",
+        "doings",
+        "of",
+        "Hellgum",
+        "are",
+        "driving",
+        "me",
+        "mad.",
+        "They",
+        "must",
+        "be",
+        "stopped!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          15,
+          7,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.06,
+          "end": 1.2,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "answered.",
+          "start": 1.2,
+          "end": 1.56,
+          "key": "answered",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "These",
+          "start": 2.14,
+          "end": 2.32,
+          "key": "these",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "doings",
+          "start": 2.32,
+          "end": 2.66,
+          "key": "doings",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.66,
+          "end": 2.8,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Helgham",
+          "start": 2.8,
+          "end": 3.08,
+          "key": "helgham",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.08,
+          "end": 3.24,
+          "key": "are",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "driving",
+          "start": 3.24,
+          "end": 3.5,
+          "key": "driving",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.5,
+          "end": 3.72,
+          "key": "me",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "mad.",
+          "start": 3.72,
+          "end": 4.0,
+          "key": "mad",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 4.52,
+          "end": 4.58,
+          "key": "they",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 4.58,
+          "end": 4.76,
+          "key": "must",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.76,
+          "end": 5.0,
+          "key": "be",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "stopped.",
+          "start": 5.0,
+          "end": 5.36,
+          "key": "stopped",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,\"",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "he",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "text": "answered;",
+          "start": 1.2,
+          "end": 1.56
+        },
+        {
+          "text": "\"these",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "text": "doings",
+          "start": 2.32,
+          "end": 2.66
+        },
+        {
+          "text": "of",
+          "start": 2.66,
+          "end": 2.8
+        },
+        {
+          "text": "Hellgum",
+          "start": 2.8,
+          "end": 2.94
+        },
+        {
+          "text": "are",
+          "start": 3.08,
+          "end": 3.24
+        },
+        {
+          "text": "driving",
+          "start": 3.24,
+          "end": 3.5
+        },
+        {
+          "text": "me",
+          "start": 3.5,
+          "end": 3.72
+        },
+        {
+          "text": "mad.",
+          "start": 3.72,
+          "end": 4.0
+        },
+        {
+          "text": "They",
+          "start": 4.52,
+          "end": 4.58
+        },
+        {
+          "text": "must",
+          "start": 4.58,
+          "end": 4.76
+        },
+        {
+          "text": "be",
+          "start": 4.76,
+          "end": 5.0
+        },
+        {
+          "text": "stopped!\"",
+          "start": 5.0,
+          "end": 5.36
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.13552433252334595
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "356a324824661a2cb3e38d67936180fd3948034ccadd8833d360d70abd5d7eb4",
+  "selected_reasons": []
+}

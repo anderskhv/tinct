@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "181eb773d137fe5bf8ae8c27f05c88eb02e490c6451d08b54b57aa32034ea4c2",
+  "attempts": [
+    {
+      "asr_seconds": 0.061401572078466415,
+      "alignment_seconds": 8.035264909267426e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ingmar's face was beaming.",
+          "start": 0.05,
+          "end": 1.71,
+          "words": [
+            {
+              "text": " Ingmar's",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.9342447916666666
+            },
+            {
+              "text": " face",
+              "start": 0.91,
+              "end": 1.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " was",
+              "start": 1.07,
+              "end": 1.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " beaming.",
+              "start": 1.29,
+              "end": 1.71,
+              "probability": 0.998291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ingmar's",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "face",
+          "start": 0.91,
+          "end": 1.07
+        },
+        {
+          "raw": "was",
+          "start": 1.07,
+          "end": 1.29
+        },
+        {
+          "raw": "beaming.",
+          "start": 1.29,
+          "end": 1.71
+        }
+      ],
+      "expected_tokens": [
+        "Ingmar's",
+        "face",
+        "was",
+        "beaming."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ingmar's",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "ingmars",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 0.91,
+          "end": 1.07,
+          "key": "face",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.07,
+          "end": 1.29,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "beaming.",
+          "start": 1.29,
+          "end": 1.71,
+          "key": "beaming",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ingmar's",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "face",
+          "start": 0.91,
+          "end": 1.07
+        },
+        {
+          "text": "was",
+          "start": 1.07,
+          "end": 1.29
+        },
+        {
+          "text": "beaming.",
+          "start": 1.29,
+          "end": 1.71
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0615098737180233
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8990efe4d9ecfd43a9774e335d0adc2c79ebd4c99ff9ec7cf1e037b96ad1e0a8",
+  "selected_reasons": []
+}

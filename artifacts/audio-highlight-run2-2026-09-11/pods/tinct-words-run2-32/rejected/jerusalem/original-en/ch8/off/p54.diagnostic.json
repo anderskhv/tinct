@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "378bdec22b576f4a48d35ad0c412d687ee2c6f7065862ce8a10fb95974c50915",
+  "attempts": [
+    {
+      "asr_seconds": 0.05493150092661381,
+      "alignment_seconds": 7.002241909503937e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Did they really?",
+          "start": 0.02,
+          "end": 0.98,
+          "words": [
+            {
+              "text": " Did",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " they",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " really?",
+              "start": 0.68,
+              "end": 0.98,
+              "probability": 0.9755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Did",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "they",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "really?",
+          "start": 0.68,
+          "end": 0.98
+        }
+      ],
+      "expected_tokens": [
+        "\"Did",
+        "they",
+        "really?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Did",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "did",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "really?",
+          "start": 0.68,
+          "end": 0.98,
+          "key": "really",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Did",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "they",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "really?\"",
+          "start": 0.68,
+          "end": 0.98
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.055025650188326836
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c9593b8aa0f79f5ab67572a66d8787514639fd09b76bc7902057911442bed047",
+  "selected_reasons": []
+}

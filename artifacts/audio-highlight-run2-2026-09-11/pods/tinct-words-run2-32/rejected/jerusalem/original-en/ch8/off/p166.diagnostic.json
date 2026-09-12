@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "f710699c9dbac6d8e4bc5156c711b2776e23d89ed5bcebd15401d2583a33e2ef",
+  "attempts": [
+    {
+      "asr_seconds": 0.04975292272865772,
+      "alignment_seconds": 6.080418825149536e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What must be stopped?",
+          "start": 0.02,
+          "end": 1.18,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " must",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " be",
+              "start": 0.66,
+              "end": 0.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " stopped?",
+              "start": 0.82,
+              "end": 1.18,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "must",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "be",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "raw": "stopped?",
+          "start": 0.82,
+          "end": 1.18
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "must",
+        "be",
+        "stopped?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 0.5,
+          "end": 0.66,
+          "key": "must",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.66,
+          "end": 0.82,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stopped?",
+          "start": 0.82,
+          "end": 1.18,
+          "key": "stopped",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "must",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "be",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "text": "stopped?\"",
+          "start": 0.82,
+          "end": 1.18
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.04983258247375488
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f013f9718b079e08d4b66e6d8254f47e69243daed0b07e5e696c0f1d7e00555c",
+  "selected_reasons": []
+}

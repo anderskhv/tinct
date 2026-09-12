@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "c66d2197328d5f8e5473b56dda5236c3b8a39c7fec37de7a93c2bb0b528bb212",
+  "attempts": [
+    {
+      "asr_seconds": 0.07853156700730324,
+      "alignment_seconds": 9.328685700893402e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What's Gertrude got to do with Hellgum?\"",
+        "hotwords": "What's, Gertrude, Hellgum"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What's Gertrude got to do with Hellgum?",
+          "start": 0.02,
+          "end": 2.02,
+          "words": [
+            {
+              "text": " What's",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " Gertrude",
+              "start": 0.76,
+              "end": 1.12,
+              "probability": 0.9732666015625
+            },
+            {
+              "text": " got",
+              "start": 1.12,
+              "end": 1.3,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " to",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " do",
+              "start": 1.42,
+              "end": 1.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 1.54,
+              "end": 1.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Hellgum?",
+              "start": 1.68,
+              "end": 2.02,
+              "probability": 0.5270309448242188
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What's",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "Gertrude",
+          "start": 0.76,
+          "end": 1.12
+        },
+        {
+          "raw": "got",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "raw": "to",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "raw": "do",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "raw": "with",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "raw": "Hellgum?",
+          "start": 1.68,
+          "end": 2.02
+        }
+      ],
+      "expected_tokens": [
+        "\"What's",
+        "Gertrude",
+        "got",
+        "to",
+        "do",
+        "with",
+        "Hellgum?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What's",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "whats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gertrude",
+          "start": 0.76,
+          "end": 1.12,
+          "key": "gertrude",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 1.12,
+          "end": 1.3,
+          "key": "got",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.3,
+          "end": 1.42,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.42,
+          "end": 1.54,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.54,
+          "end": 1.68,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Hellgum?",
+          "start": 1.68,
+          "end": 2.02,
+          "key": "hellgum",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What's",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "Gertrude",
+          "start": 0.76,
+          "end": 1.12
+        },
+        {
+          "text": "got",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "text": "to",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "text": "do",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "text": "with",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "text": "Hellgum?\"",
+          "start": 1.68,
+          "end": 2.02
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07865958660840988
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "30bc773772a4749c77f40f1f3d294c28e4496f0dd10ea96e8a3bbebdd6aa5501",
+  "selected_reasons": []
+}

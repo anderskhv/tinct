@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "a3bad4088c044d383fc05d467d3a43346e4207bf51f02079009f02dc3f974c82",
+  "attempts": [
+    {
+      "asr_seconds": 0.047203827649354935,
+      "alignment_seconds": 8.014030754566193e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What about her?",
+          "start": 0.05,
+          "end": 0.99,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " about",
+              "start": 0.51,
+              "end": 0.73,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " her?",
+              "start": 0.73,
+              "end": 0.99,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "about",
+          "start": 0.51,
+          "end": 0.73
+        },
+        {
+          "raw": "her?",
+          "start": 0.73,
+          "end": 0.99
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "about",
+        "her?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 0.51,
+          "end": 0.73,
+          "key": "about",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "her?",
+          "start": 0.73,
+          "end": 0.99,
+          "key": "her",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "about",
+          "start": 0.51,
+          "end": 0.73
+        },
+        {
+          "text": "her?\"",
+          "start": 0.73,
+          "end": 0.99
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.047310104593634605
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4ecd41b7634d81f012bc8315e5f9f4fb1daee56494ce552b83529f610ae6bf0c",
+  "selected_reasons": []
+}

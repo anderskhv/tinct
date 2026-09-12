@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "d53e40c6350f056e0bbfda95d91f8edbb48f59c4e33448bbe772a69a1724e949",
+  "attempts": [
+    {
+      "asr_seconds": 0.07814231887459755,
+      "alignment_seconds": 9.19438898563385e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I have not seen Gunhild at our house,\" said Ingmar thoughtfully.",
+          "start": 0.08,
+          "end": 3.72,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.212646484375
+            },
+            {
+              "text": " have",
+              "start": 0.52,
+              "end": 0.6,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " not",
+              "start": 0.6,
+              "end": 0.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " seen",
+              "start": 0.74,
+              "end": 1.0,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Gunhild",
+              "start": 1.0,
+              "end": 1.4,
+              "probability": 0.6549479166666666
+            },
+            {
+              "text": " at",
+              "start": 1.4,
+              "end": 1.54,
+              "probability": 0.9921875
+            },
+            {
+              "text": " our",
+              "start": 1.54,
+              "end": 1.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " house,\"",
+              "start": 1.68,
+              "end": 2.62,
+              "probability": 0.790283203125
+            },
+            {
+              "text": " said",
+              "start": 2.62,
+              "end": 2.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Ingmar",
+              "start": 2.68,
+              "end": 3.12,
+              "probability": 0.904296875
+            },
+            {
+              "text": " thoughtfully.",
+              "start": 3.12,
+              "end": 3.72,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "have",
+          "start": 0.52,
+          "end": 0.6
+        },
+        {
+          "raw": "not",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "raw": "seen",
+          "start": 0.74,
+          "end": 1.0
+        },
+        {
+          "raw": "Gunhild",
+          "start": 1.0,
+          "end": 1.4
+        },
+        {
+          "raw": "at",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "raw": "our",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "raw": "house,\"",
+          "start": 1.68,
+          "end": 2.62
+        },
+        {
+          "raw": "said",
+          "start": 2.62,
+          "end": 2.68
+        },
+        {
+          "raw": "Ingmar",
+          "start": 2.68,
+          "end": 3.12
+        },
+        {
+          "raw": "thoughtfully.",
+          "start": 3.12,
+          "end": 3.72
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "have",
+        "not",
+        "seen",
+        "Gunhild",
+        "at",
+        "our",
+        "house,\"",
+        "said",
+        "Ingmar",
+        "thoughtfully."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.52,
+          "end": 0.6,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.6,
+          "end": 0.74,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 0.74,
+          "end": 1.0,
+          "key": "seen",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Gunhild",
+          "start": 1.0,
+          "end": 1.4,
+          "key": "gunhild",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.4,
+          "end": 1.54,
+          "key": "at",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 1.54,
+          "end": 1.68,
+          "key": "our",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "house,\"",
+          "start": 1.68,
+          "end": 2.62,
+          "key": "house",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.62,
+          "end": 2.68,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Ingmar",
+          "start": 2.68,
+          "end": 3.12,
+          "key": "ingmar",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thoughtfully.",
+          "start": 3.12,
+          "end": 3.72,
+          "key": "thoughtfully",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "have",
+          "start": 0.52,
+          "end": 0.6
+        },
+        {
+          "text": "not",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "text": "seen",
+          "start": 0.74,
+          "end": 1.0
+        },
+        {
+          "text": "Gunhild",
+          "start": 1.0,
+          "end": 1.4
+        },
+        {
+          "text": "at",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "text": "our",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "text": "house,\"",
+          "start": 1.68,
+          "end": 2.62
+        },
+        {
+          "text": "said",
+          "start": 2.62,
+          "end": 2.68
+        },
+        {
+          "text": "Ingmar",
+          "start": 2.68,
+          "end": 3.12
+        },
+        {
+          "text": "thoughtfully.",
+          "start": 3.12,
+          "end": 3.72
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07826784439384937
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5238f3d93e31df514b91665372317541bb5c2fabc1ab7bd687e3f3e612913d55",
+  "selected_reasons": []
+}
