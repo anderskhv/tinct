@@ -1,0 +1,26 @@
+BASIS ON EVERY ROW (R-1): all 29 paragraphs
+
+words, Butler → candidate                      3347 → 3365  ratio 1.00538
+retention, aggregate-join (canonical)          0.93943   [published 0.93943]
+retention, per-paragraph (order)               0.93943   [published 0.93943]
+retention, bag (order-blind)                   0.95220   [published 0.95220]
+MOVE-GAP = bag − order (D20)                   0.01277   [published 0.01277]
+  decomposition: substitution+loss = 1 − bag   0.04780
+  and 1 − order must equal their sum           0.06057
+
+semicolons (D19)                               30 → 14   [published 30 → 14]
+
+SENTENCE COUNTS — three splitters, because D17 fixes ONE of them
+splitter                 Butler → cand    raw rate   NORM RATE       
+package (D17)            103 → 129        +25.2%     +7.5% (133 → 143)
+capital-required         103 → 129        +25.2%     +7.5% (133 → 143)
+terminal-only            102 → 128        +25.5%     +7.6% (132 → 142)
+
+sixty-word sentences                           7 → 0   [published 7 → 0]
+
+displaced runs (>= 4 tokens)                   1   [published 1]
+    B07-P013  17 tokens  «with long life and happiness and may they leave their possessions to their children and all the»
+
+candidate sentences of 40+ words               17   [published 17]
+lowest per-paragraph word ratio                0.9756 at B07-P027
+paragraphs byte-identical to Butler            none
