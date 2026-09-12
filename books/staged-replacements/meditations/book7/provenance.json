@@ -23,7 +23,7 @@
  "dagger_marks": "Seven in Book VII of the PG text, in four sections: VII.16 x2 (lines 4433, 4439), VII.31 x2 (lines 4529, 4530), VII.46 x2 (lines 4607, 4609), VII.67 x1 (line 4788). Seven clauses, each named in review-instructions.md. Matches PROVENANCE.md section 4.",
  "generation_setting": "Drafted in-conversation by the content agent (Claude Opus 5 session), whole book read before drafting, glossary (one row added and two extended for Book VII first) and the Book II, I, III, IV, V and VI acceptance records read first. Zero Anthropic API calls; no scripts calling any LLM API; generate-editions.cjs not run.",
  "build_script": "scripts/build_book_package.py 7, from scripts/candidates/book7.py (frozen candidate text)",
- "workflow_step": "Steps 1-3 of WORKFLOW.md complete. Frozen for step 4, the coordinator's independent review. Findings expected under book7/review/.",
+ "workflow_step": "All eight steps of WORKFLOW.md complete. Accepted as candidate-v2.json; see ACCEPTANCE.md.",
  "apparatus": {
   "cross_references_dropped": 7,
   "d11_alternative_renderings_dropped": 6,
@@ -31,11 +31,28 @@
   "verse_citations": "none; the three that had been appended to VII.45 were Long's footnotes, removed from the staged original itself at step 1"
  },
  "flagged_for_reviewer": [
-  "VII.2 [thoughts] folded as an apposition rather than dropped under D11",
-  "VII.13 Long's transliterated Greek (melos / meros) kept",
-  "VII.16 glossary renderings applied inside the dagger-marked clauses",
-  "VII.17 Eudaemonia / a good god within",
-  "VII.50 'unsentient' rendered 'that have no sensation' (the one expansion in the book)",
-  "VII.55 'for both are animal' kept exactly as Long has it"
- ]
+  "VII.2 [thoughts] folded as an apposition rather than dropped under D11 — RULED: fold is right (VI.50 \"[men]\" ruling); settled",
+  "VII.13 Long's transliterated Greek (melos / meros) kept — RULED: kept; glossary exception added at acceptance; settled",
+  "VII.16 glossary renderings applied inside the dagger-marked clauses — RULED: right (daggers mark uncertain Greek, not uncertain English); settled",
+  "VII.17 Eudaemonia / a good god within — RULED: best of the available routes, kept; the \"within\" is the glossary's and not the etymology's, recorded in continuity.md; settled",
+  "VII.50 'unsentient' rendered 'that have no sensation' (the one expansion in the book) — RULED: upheld as the book's one licensed one-off expansion, NOT to be cited as precedent; settled",
+  "VII.55 'for both are animal' kept exactly as Long has it — RULED: rightly kept; settled"
+ ],
+ "frozen": "candidate-v1.json was frozen when the packets were generated from it and has not been edited since; its sha256 is unchanged and was recomputed by the round-1 reviewer. Corrections went to candidate-v2.json.",
+ "candidate_v2_json_sha256": "a80e224d8f5c5948f8831873704e8bb5a42a3094600b06b01c685ecea6ee9c48",
+ "review_round_1": "review/findings-v1.md (independent reviewer session, 2026-09-12): Accept after corrections; 0 substantive, 5 minor (2.1, 9.1 documentation-only, 14.1, 20.1, 66.1) and 1 optional preference (8.1); 69 paragraphs \"No material issue found\". All five findings that propose a change were applied in candidate-v2.json via scripts/build_book7_v2.py (VII.2 continually->continuously; VII.8 carrying->having; VII.14 inserted \"it\" removed; VII.20 should->may; VII.66 that->whether); 9.1 is a documentation change only and both base-text variants are recorded in continuity.md. No flow-read change; see changes-v1-to-v2.md. All six decisions flagged by the drafter (VII.2, VII.13, VII.16, VII.17, VII.50, VII.55) and both base-text defects (VII.5, VII.58) were ruled the drafter's way and are recorded as settled in continuity.md, together with a third base-text slip the reviewer found (VII.54's stray comma). The reviewer also verified the step-1 staged-original rebuild (D12) independently against the pre-rebuild file recovered from git and against the PG text at lines 4600, 4602 and 4604, and found it clean.",
+ "word_counts_v2": {
+  "source": 4357,
+  "candidate": 4333,
+  "ratio": 0.994,
+  "min_paragraph_ratio": 0.7,
+  "note": "screening signal only. Unchanged in character from v1: the five corrections remove two tokens net (VII.14 \"it\" and, at VII.8, no change of count). The single outlier is still VII.12 (0.70), whose whole difference is the dropped cross-reference \"(iii. 5)\"."
+ },
+ "glossary_note_added_at_acceptance": "An explicit exception was written into ../GLOSSARY.md at acceptance, on the round-1 reviewer's recommendation: the note that \"the candidate never uses the Greek\" governs the glossary's own Greek column, and Long's in-text transliterated Greek (VII.13 melos/meros, VII.17 Eudaemonia) is his text and is kept. Written so the question does not reopen at VIII.57, where PG has two more [Greek: ...] spans. Not a rendering row; no term rendering changed.",
+ "accepted": {
+  "file": "candidate-v2.json",
+  "sha256": "a80e224d8f5c5948f8831873704e8bb5a42a3094600b06b01c685ecea6ee9c48",
+  "date": "2026-09-12",
+  "record": "ACCEPTANCE.md"
+ }
 }

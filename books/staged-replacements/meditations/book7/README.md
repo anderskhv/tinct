@@ -1,9 +1,12 @@
-# Meditations, Book VII — package (frozen for independent review)
+# Meditations, Book VII — package (accepted as candidate v2)
 
-Steps 1–3 of `../WORKFLOW.md` are done for Book VII. `candidate-v1.json`
-(sha256 `1823989f…`) is **frozen**; corrections from the review will go to
-`candidate-v2.json`, never to v1. Step 4 (independent review) is the
-coordinator's reviewer session, not this agent.
+All eight steps of `../WORKFLOW.md` are done for Book VII. The accepted text is
+`candidate-v2.json` (sha256 `a80e224d…`), see `ACCEPTANCE.md`. `candidate-v1.json`
+(sha256 `1823989f…`) stays **frozen** and was never edited. Step 4 (independent
+review) was the coordinator's reviewer session, not this agent; its findings are
+under `review/`: *Accept after corrections*, 0 substantive, 5 minor and 1
+optional preference, and all six of the drafter's flagged decisions ruled the
+drafter's way.
 
 Step 1 verified the source and **rebuilt the staged original** (D12): three of
 Long's footnotes are printed flush left in PG #15877 (lines 4600, 4602, 4604 —
@@ -30,19 +33,33 @@ resent now covers his reflexive "vex ourselves at"). Recorded in
 2. `candidate-v1.json` — the modern-English candidate, 75 paragraphs one-to-one
    with the source, same schema. **Frozen.**
 3. `candidate-v1-readable.md` — the same text with `B07-Pnnn` IDs outside the
-   prose.
+   prose. `candidate-v2.json` and `candidate-v2-readable.md` are the accepted
+   text, built from v1 by `../scripts/build_book7_v2.py`;
+   `changes-v1-to-v2.md` lists every change by paragraph ID against the finding
+   it answers, with the findings not applied (none) and the flow read.
 4. `continuity.md` — the glossary rows added and extended for Book VII, the
    glossary terms met and how they were rendered, paragraph-level decisions,
    apparatus folded or dropped (seven cross-references, six D11 drops, nine
-   folds), the six decisions flagged for the reviewer, and unresolved source
-   issues.
-5. `provenance.json` — branch, hashes, source, word ratios, dagger marks,
-   generation setting, apparatus counts, flagged items.
+   folds), and unresolved source issues; updated at acceptance with the five
+   corrections, the reviewer's rulings on all six flagged decisions (now
+   recorded as settled, none left open), the two VII.9 PG/Standard Ebooks
+   variants (finding 9.1), VII.54's stray comma, the note that VII.17's
+   "within" is the glossary's and not the etymology's, and VII.50's expansion
+   recorded as licensed once and **not** to be cited as precedent.
+5. `provenance.json` — branch, hashes (v1 and v2), source, word ratios, dagger
+   marks, generation setting, apparatus counts, the round-1 record, the rulings
+   on the flagged items, and the acceptance.
 6. `review-packets/packet-01.md … packet-25.md` — twenty-five packets of three
    paragraphs (75 = 25×3), each with one paragraph of context before and after
    marked `CONTEXT ONLY`. No self-review verdicts.
 7. `review-instructions.md` — the independent-review instructions, verbatim.
-8. `manifest.json` — packet → paragraph-ID map with a coverage check.
+8. `manifest.json` — packet → paragraph-ID map with a coverage check, plus the
+   v1 and v2 hashes and the accepted file.
+9. `review/findings-v1.md` — the independent review of v1 (0 substantive, 5
+   minor, 1 optional; *Accept after corrections*; rulings on all six flagged
+   decisions and on the base-text defects), with `review/README.md`.
+10. `ACCEPTANCE.md` — the step-8 record: accepted hash, the round applied, the
+    corrections and their verification, the flow read, and what remains open.
 
 ## Mechanical checks
 
@@ -53,7 +70,10 @@ import json, hashlib, re
 src=json.load(open('book7/source-book7.json')); cand=json.load(open('book7/candidate-v1.json'))
 st=json.load(open('meditations-original-en.staged.json'))
 ch=next(c for c in st['chapters'] if c['number']==7)
-assert src['paragraphs']==ch['paragraphs'] and len(cand['paragraphs'])==75
+v2=json.load(open('book7/candidate-v2.json'))
+assert src['paragraphs']==ch['paragraphs'] and len(cand['paragraphs'])==75 and len(v2['paragraphs'])==75
+assert all(p.startswith(f'{i+1}. ') for i,p in enumerate(v2['paragraphs']))
+md2=open('book7/candidate-v2-readable.md').read(); assert all(p in md2 for p in v2['paragraphs'])
 assert all(p.startswith(f'{i+1}. ') for i,p in enumerate(cand['paragraphs']))
 assert not any('[Illustration' in p for c in st['chapters'] for p in c['paragraphs'])
 assert not any(re.search(r'^\[[A-Z]\]|Acharnenses|From the Apologia', p) for c in st['chapters'] for p in c['paragraphs'])
@@ -74,25 +94,30 @@ for k,s,c in [(15,'does not frighten itself or cause itself pain','does not frig
               (45,'a thing to be dismissed from the thoughts:','a thing to be dismissed from the thoughts:'),
               (66,'with the composition of the body','with the composition of the body')]:
     assert s in src['paragraphs'][k], k
-    assert c in cand['paragraphs'][k], k
+    assert c in cand['paragraphs'][k] and c in v2['paragraphs'][k], k
 # VII.45 ends at the corrected place; VII.58 keeps Long's broken ending
 assert src['paragraphs'][44].endswith('deserting his post].')
-assert cand['paragraphs'][44].endswith('deserting his post.')
-assert src['paragraphs'][57].endswith('remember...') and cand['paragraphs'][57].endswith('remember...')
-# no bracket and no cross-reference survives in the candidate; Long's Greek does
-assert not any('[' in p for p in cand['paragraphs'])
-assert not any(re.search(r'\((?:i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii)\. ', p) for p in cand['paragraphs'])
-assert '(melos)' in cand['paragraphs'][12] and '(meros)' in cand['paragraphs'][12]
+for cc in (cand, v2):
+    assert cc['paragraphs'][44].endswith('deserting his post.')
+    assert cc['paragraphs'][57].endswith('remember...')
+    # no bracket and no cross-reference survives in the candidate; Long's Greek does
+    assert not any('[' in p for p in cc['paragraphs'])
+    assert not any(re.search(r'\((?:i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii)\. ', p) for p in cc['paragraphs'])
+    assert '(melos)' in cc['paragraphs'][12] and '(meros)' in cc['paragraphs'][12]
+    assert 'Eudaemonia' in cc['paragraphs'][16]
+assert src['paragraphs'][57].endswith('remember...')
+# the five v2 corrections, and only those paragraphs, differ from v1
+diff=[i+1 for i,(a,b) in enumerate(zip(cand['paragraphs'],v2['paragraphs'])) if a!=b]
+assert diff==[2,8,14,20,66], diff
 print('OK'); print(hashlib.sha256(open('book7/candidate-v1.json','rb').read()).hexdigest())
+print(hashlib.sha256(open('book7/candidate-v2.json','rb').read()).hexdigest())
 print(hashlib.sha256(open('meditations-original-en.staged.json','rb').read()).hexdigest())
 PY
 ```
 
-Expected: `1823989f…` (candidate v1, frozen) and `7798607d…` (the twice-rebuilt
-staged original).
+Expected: `1823989f…` (candidate v1, frozen), `a80e224d…` (candidate v2, the
+accepted text) and `7798607d…` (the twice-rebuilt staged original).
 
 ## Next action
 
-**Waiting on the coordinator: an independent review of Book VII.** Findings go
-under `book7/review/`. This agent does not review its own draft and has not
-started Book VIII.
+None for Book VII. The thread continues with Book VIII (`../book8/`).

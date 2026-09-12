@@ -252,6 +252,47 @@ session. Kept current at every push.
   `scripts/candidates/book7.py`. **Stopped for independent review** (step 4).
   Findings expected under `book7/review/`.
 
+- 2026-09-12 — **Book VII accepted** (steps 4–8). Round-1 independent review
+  (`book7/review/findings-v1.md`): Accept after corrections, 0 substantive + 5
+  minor (2.1, 9.1 documentation-only, 14.1, 20.1, 66.1) + 1 optional preference
+  (8.1), 69 paragraphs with no material issue. **All five findings that propose
+  a change were applied** in `book7/candidate-v2.json` (sha256 `a80e224d…`) via
+  `scripts/build_book7_v2.py` — 2.1 VII.2 "continually" → "continuously"
+  (Long's word; his image is a fire kept alight, not relit), 8.1 VII.8
+  "carrying with you" → "having with you" (the optional item, applied under D8:
+  VII.8 was not in `continuity.md` at all, so no considered reason was on
+  record, and "carrying" added a faint physical image Long does not have), 14.1
+  VII.14 the inserted "it" removed (Long's absolute "parts which have felt";
+  the "it" created a garden path), 20.1 VII.20 "that I should do" → "that I may
+  do" (after a colon "should" reads as obligation and reverses Long's "lest"),
+  66.1 VII.66 "know that Telauges" → "know whether" (Long's "if" is "whether";
+  "that" turns an open question into a challenge). **9.1 is documentation only**
+  and both base-text variants are recorded in `book7/continuity.md`: PG
+  "participate in the reason" and lowercase "one god" against Standard Ebooks'
+  "the same reason" and "God"; the candidate rightly follows PG under D6.
+  Every change listed in `book7/changes-v1-to-v2.md`; no finding declined; the
+  reviewer's "also noted" points left with reasons; changed passages verified
+  by per-paragraph word diff (five tokens in five paragraphs, nothing else in
+  the book); seven dagger clauses (four sections) verbatim; VII.45's corrected
+  ending and VII.58's ellipsis intact. **All six flagged decisions were ruled
+  the drafter's way and are now recorded as settled** in `book7/continuity.md`,
+  none left open: VII.2 "[thoughts]" is a fold (VI.50 "[men]" ruling), VII.13's
+  transliterated Greek is kept, VII.16's glossary renderings inside the dagger
+  clauses are right, VII.17's "Eudaemonia, happiness, is a good god within" is
+  the best available route **with the record that its "within" comes from the
+  glossary row and not from the etymology**, VII.50's "the elements that have
+  no sensation" is **the book's one licensed one-off expansion and must not be
+  cited as precedent**, and VII.55's "for both are animal" is rightly kept. A
+  third base-text slip the reviewer found is recorded (VII.54's stray comma,
+  rightly not reproduced), alongside the two already on record (VII.5
+  "what-soever", VII.58's broken ending), both confirmed. **`GLOSSARY.md` gained
+  an explicit exception** (at the reviewer's suggestion, before VIII.57): the
+  "the candidate never uses the Greek" note governs the glossary's own Greek
+  column, and Long's in-text transliterated Greek is his text and is kept. Flow
+  read done, no further change. Acceptance recorded in `book7/ACCEPTANCE.md`.
+  `continuity.md`, `provenance.json`, `manifest.json` and `README.md` updated.
+  No new glossary rendering row.
+
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
