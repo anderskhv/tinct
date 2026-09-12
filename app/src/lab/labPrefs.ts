@@ -464,6 +464,14 @@ function labPageNumber(value: number): string {
   return Math.max(0, Math.round(value)).toLocaleString('en-US')
 }
 
+/**
+ * How long the progress pill may hold its last measured pair while a new
+ * chapter's page map is being measured. Long enough to cover the measurement
+ * (~1.3s was the worst seen on a phone), short enough that a map which never
+ * arrives cannot freeze the figure.
+ */
+export const LAB_PROGRESS_HOLD_MS = 2000
+
 export function labReaderProgressLabel(input: {
   mode: LabReaderProgressMode
   currentPage: number

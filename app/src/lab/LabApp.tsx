@@ -67,6 +67,7 @@ import {
   labReadingFont,
   labFootProgress,
   labReaderProgressLabel,
+  LAB_PROGRESS_HOLD_MS,
   editionLabelFor,
   readLabPrefs,
   writeLabPrefs,
@@ -2328,8 +2329,33 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     chapterWordCounts: book.chapters,
     wordsPerPage: measuredWordsPerPage,
   }
-  const phoneProgressLabel = labReaderProgressLabel(progressInput)
-  const desktopProgressLabel = labReaderProgressLabel({ ...progressInput, mode: 'book' }).split(' · ').at(-1)
+  // Both of the pill's numbers must come from one measured layout. On a
+  // chapter turn the new chapter's words arrive before its page map has been
+  // measured, and the provisional map divides the book by a page size it only
+  // guessed: crossing Odyssey Book 1 into Book 2 the pill read "68 / 1,891 of
+  // book" until the measurement landed and it settled on "50 / 1,413". So
+  // while the map on screen was not measured for the text on screen, the last
+  // measured label is held and the reader sees no mismatched pair. The hold is
+  // bounded: a measurement that never arrives — audio holds the paginator
+  // still — releases the pill rather than freezing it.
+  const progressMeasured = !measuredPaging || nativeMeasuredContent === readerParagraphs
+  const [progressHoldReleased, setProgressHoldReleased] = useState(false)
+  useEffect(() => {
+    if (progressMeasured) { setProgressHoldReleased(false); return }
+    const timer = window.setTimeout(() => setProgressHoldReleased(true), LAB_PROGRESS_HOLD_MS)
+    return () => window.clearTimeout(timer)
+  }, [progressMeasured])
+  const liveProgressLabels = {
+    phone: labReaderProgressLabel(progressInput),
+    book: labReaderProgressLabel({ ...progressInput, mode: 'book' }).split(' · ').at(-1) ?? '',
+  }
+  const measuredProgressLabelsRef = useRef(liveProgressLabels)
+  if (progressMeasured) measuredProgressLabelsRef.current = liveProgressLabels
+  const shownProgressLabels = progressMeasured || progressHoldReleased
+    ? liveProgressLabels
+    : measuredProgressLabelsRef.current
+  const phoneProgressLabel = shownProgressLabels.phone
+  const desktopProgressLabel = shownProgressLabels.book
   // No figure until the chapter list is real and the place is resolved: the
   // boot list has two chapters and would read "1 / 2 of book" for a moment.
   const footProgressLabel = initialResolving || (book.chaptersProvisional && book.paragraphs.length === 0)
