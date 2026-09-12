@@ -13,7 +13,7 @@ const out = process.argv[3] || '/tmp/tinct-about-qa';
     page.on('pageerror', e => errors.push(e.message));
     page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
     page.on('response', r => { if (r.status() >= 400) errors.push(`${r.status()} ${r.url()}`); });
-    await page.goto(origin + '/about');
+    await page.goto(origin + '/mission');
     await page.waitForTimeout(1500);
     await page.screenshot({ path: path.join(out, `${viewport.width}-opening.png`) });
     for (const [id, progress, name] of [
