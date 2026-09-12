@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "ae8e151f8e9d72eaa47e6edd1208a407e73a1b574b01e77819906a7f8a8858f7",
+  "attempts": [
+    {
+      "asr_seconds": 0.13251488516107202,
+      "alignment_seconds": 0.00024793902412056923,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enobarbus. Sir?",
+        "hotwords": "Enobarbus, Sir"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enobarbus, Sir.",
+          "start": 0.05,
+          "end": 1.23,
+          "words": [
+            {
+              "text": " Enobarbus,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.25637181599934894
+            },
+            {
+              "text": " Sir.",
+              "start": 1.21,
+              "end": 1.23,
+              "probability": 0.142578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enobarbus,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Sir.",
+          "start": 1.21,
+          "end": 1.23
+        }
+      ],
+      "expected_tokens": [
+        "Enobarbus.",
+        "Sir?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enobarbus,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "enobarbus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir.",
+          "start": 1.21,
+          "end": 1.23,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enobarbus.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Sir?",
+          "start": 1.21,
+          "end": 1.23
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1328449551947415
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "569ad8aa08c08637e4d94239630f5d1bfca800efc1c8d00fdadf5b693c8b520e",
+  "selected_reasons": []
+}

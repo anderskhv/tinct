@@ -1,0 +1,518 @@
+{
+  "complete": true,
+  "signature": "e411b56286db47d5d0158cb0005be747e15829a963b5e694b56f47dbfac843e0",
+  "attempts": [
+    {
+      "asr_seconds": 0.2517687091603875,
+      "alignment_seconds": 0.00046451296657323837,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, give me some music music moody food of us that trade in love",
+          "start": 0.59,
+          "end": 5.01,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.59,
+              "end": 1.07,
+              "probability": 0.9488932291666666
+            },
+            {
+              "text": " give",
+              "start": 1.49,
+              "end": 1.73,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " me",
+              "start": 1.73,
+              "end": 1.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " some",
+              "start": 1.85,
+              "end": 1.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " music",
+              "start": 1.99,
+              "end": 2.37,
+              "probability": 0.9921875
+            },
+            {
+              "text": " music",
+              "start": 2.37,
+              "end": 2.87,
+              "probability": 0.58154296875
+            },
+            {
+              "text": " moody",
+              "start": 2.87,
+              "end": 3.55,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " food",
+              "start": 3.55,
+              "end": 3.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 3.75,
+              "end": 3.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " us",
+              "start": 3.89,
+              "end": 4.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 4.05,
+              "end": 4.23,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " trade",
+              "start": 4.23,
+              "end": 4.51,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " in",
+              "start": 4.51,
+              "end": 4.71,
+              "probability": 0.568359375
+            },
+            {
+              "text": " love",
+              "start": 4.71,
+              "end": 5.01,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.59,
+          "end": 1.07
+        },
+        {
+          "raw": "give",
+          "start": 1.49,
+          "end": 1.73
+        },
+        {
+          "raw": "me",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "raw": "some",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "raw": "music",
+          "start": 1.99,
+          "end": 2.37
+        },
+        {
+          "raw": "music",
+          "start": 2.37,
+          "end": 2.87
+        },
+        {
+          "raw": "moody",
+          "start": 2.87,
+          "end": 3.55
+        },
+        {
+          "raw": "food",
+          "start": 3.55,
+          "end": 3.75
+        },
+        {
+          "raw": "of",
+          "start": 3.75,
+          "end": 3.89
+        },
+        {
+          "raw": "us",
+          "start": 3.89,
+          "end": 4.05
+        },
+        {
+          "raw": "that",
+          "start": 4.05,
+          "end": 4.23
+        },
+        {
+          "raw": "trade",
+          "start": 4.23,
+          "end": 4.51
+        },
+        {
+          "raw": "in",
+          "start": 4.51,
+          "end": 4.71
+        },
+        {
+          "raw": "love",
+          "start": 4.71,
+          "end": 5.01
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "Give",
+        "me",
+        "some",
+        "music—music,",
+        "moody",
+        "food",
+        "Of",
+        "us",
+        "that",
+        "trade",
+        "in",
+        "love."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          13,
+          6,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.59,
+          "end": 1.07,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.49,
+          "end": 1.73,
+          "key": "give",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.73,
+          "end": 1.85,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 1.85,
+          "end": 1.99,
+          "key": "some",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "music",
+          "start": 1.99,
+          "end": 2.37,
+          "key": "music",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "music",
+          "start": 2.37,
+          "end": 2.87,
+          "key": "music",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "moody",
+          "start": 2.87,
+          "end": 3.55,
+          "key": "moody",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "food",
+          "start": 3.55,
+          "end": 3.75,
+          "key": "food",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.75,
+          "end": 3.89,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 3.89,
+          "end": 4.05,
+          "key": "us",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.05,
+          "end": 4.23,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "trade",
+          "start": 4.23,
+          "end": 4.51,
+          "key": "trade",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.51,
+          "end": 4.71,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 4.71,
+          "end": 5.01,
+          "key": "love",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.59,
+          "end": 1.07
+        },
+        {
+          "text": "Give",
+          "start": 1.49,
+          "end": 1.73
+        },
+        {
+          "text": "me",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "text": "some",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "text": "music—music,",
+          "start": 1.99,
+          "end": 2.43
+        },
+        {
+          "text": "moody",
+          "start": 2.87,
+          "end": 3.55
+        },
+        {
+          "text": "food",
+          "start": 3.55,
+          "end": 3.75
+        },
+        {
+          "text": "Of",
+          "start": 3.75,
+          "end": 3.89
+        },
+        {
+          "text": "us",
+          "start": 3.89,
+          "end": 4.05
+        },
+        {
+          "text": "that",
+          "start": 4.05,
+          "end": 4.23
+        },
+        {
+          "text": "trade",
+          "start": 4.23,
+          "end": 4.51
+        },
+        {
+          "text": "in",
+          "start": 4.51,
+          "end": 4.71
+        },
+        {
+          "text": "love.",
+          "start": 4.71,
+          "end": 5.01
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.2524149641394615
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f44701c7c61ab4fe2cbed48e0a80ea6ce62f063df94fc302a44cd22798973f3e",
+  "selected_reasons": []
+}

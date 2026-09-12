@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "3c4498e6d9e0802270d06001a3e30a50eaa67dce883f94ff1d10668aded4cb4f",
+  "attempts": [
+    {
+      "asr_seconds": 0.3138396628201008,
+      "alignment_seconds": 0.0006690309382975101,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cleopatra. As well a woman with an eunuch played As with a woman. Come, you'll play with me, sir?",
+        "hotwords": "Cleopatra, As, Come"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, As well a woman with an eunuch played As with a woman. Come, you'll play with me, sir?",
+          "start": 0.68,
+          "end": 5.86,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.68,
+              "end": 1.06,
+              "probability": 0.9039713541666666
+            },
+            {
+              "text": " As",
+              "start": 1.54,
+              "end": 1.72,
+              "probability": 0.1527099609375
+            },
+            {
+              "text": " well",
+              "start": 1.72,
+              "end": 1.9,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " a",
+              "start": 1.9,
+              "end": 2.06,
+              "probability": 0.974609375
+            },
+            {
+              "text": " woman",
+              "start": 2.06,
+              "end": 2.22,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " with",
+              "start": 2.22,
+              "end": 2.44,
+              "probability": 0.6337890625
+            },
+            {
+              "text": " an",
+              "start": 2.44,
+              "end": 2.6,
+              "probability": 0.81298828125
+            },
+            {
+              "text": " eunuch",
+              "start": 2.6,
+              "end": 2.92,
+              "probability": 0.9645182291666666
+            },
+            {
+              "text": " played",
+              "start": 2.92,
+              "end": 3.16,
+              "probability": 0.78125
+            },
+            {
+              "text": " As",
+              "start": 3.16,
+              "end": 3.42,
+              "probability": 0.169677734375
+            },
+            {
+              "text": " with",
+              "start": 3.42,
+              "end": 3.56,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " a",
+              "start": 3.56,
+              "end": 3.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " woman.",
+              "start": 3.68,
+              "end": 3.84,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " Come,",
+              "start": 4.52,
+              "end": 4.74,
+              "probability": 0.958984375
+            },
+            {
+              "text": " you'll",
+              "start": 5.0,
+              "end": 5.12,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " play",
+              "start": 5.12,
+              "end": 5.26,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " with",
+              "start": 5.26,
+              "end": 5.42,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " me,",
+              "start": 5.42,
+              "end": 5.62,
+              "probability": 0.994140625
+            },
+            {
+              "text": " sir?",
+              "start": 5.82,
+              "end": 5.86,
+              "probability": 0.8369140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "raw": "As",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "raw": "well",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "raw": "a",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "raw": "woman",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "raw": "with",
+          "start": 2.22,
+          "end": 2.44
+        },
+        {
+          "raw": "an",
+          "start": 2.44,
+          "end": 2.6
+        },
+        {
+          "raw": "eunuch",
+          "start": 2.6,
+          "end": 2.92
+        },
+        {
+          "raw": "played",
+          "start": 2.92,
+          "end": 3.16
+        },
+        {
+          "raw": "As",
+          "start": 3.16,
+          "end": 3.42
+        },
+        {
+          "raw": "with",
+          "start": 3.42,
+          "end": 3.56
+        },
+        {
+          "raw": "a",
+          "start": 3.56,
+          "end": 3.68
+        },
+        {
+          "raw": "woman.",
+          "start": 3.68,
+          "end": 3.84
+        },
+        {
+          "raw": "Come,",
+          "start": 4.52,
+          "end": 4.74
+        },
+        {
+          "raw": "you'll",
+          "start": 5.0,
+          "end": 5.12
+        },
+        {
+          "raw": "play",
+          "start": 5.12,
+          "end": 5.26
+        },
+        {
+          "raw": "with",
+          "start": 5.26,
+          "end": 5.42
+        },
+        {
+          "raw": "me,",
+          "start": 5.42,
+          "end": 5.62
+        },
+        {
+          "raw": "sir?",
+          "start": 5.82,
+          "end": 5.86
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "As",
+        "well",
+        "a",
+        "woman",
+        "with",
+        "an",
+        "eunuch",
+        "played",
+        "As",
+        "with",
+        "a",
+        "woman.",
+        "Come,",
+        "you'll",
+        "play",
+        "with",
+        "me,",
+        "sir?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.68,
+          "end": 1.06,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 1.54,
+          "end": 1.72,
+          "key": "as",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.72,
+          "end": 1.9,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.9,
+          "end": 2.06,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "woman",
+          "start": 2.06,
+          "end": 2.22,
+          "key": "woman",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.22,
+          "end": 2.44,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.44,
+          "end": 2.6,
+          "key": "an",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "eunuch",
+          "start": 2.6,
+          "end": 2.92,
+          "key": "eunuch",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "played",
+          "start": 2.92,
+          "end": 3.16,
+          "key": "played",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 3.16,
+          "end": 3.42,
+          "key": "as",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.42,
+          "end": 3.56,
+          "key": "with",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.56,
+          "end": 3.68,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "woman.",
+          "start": 3.68,
+          "end": 3.84,
+          "key": "woman",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 4.52,
+          "end": 4.74,
+          "key": "come",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you'll",
+          "start": 5.0,
+          "end": 5.12,
+          "key": "youll",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "play",
+          "start": 5.12,
+          "end": 5.26,
+          "key": "play",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.26,
+          "end": 5.42,
+          "key": "with",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 5.42,
+          "end": 5.62,
+          "key": "me",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 5.82,
+          "end": 5.86,
+          "key": "sir",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "text": "As",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "text": "well",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "text": "a",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "text": "woman",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "text": "with",
+          "start": 2.22,
+          "end": 2.44
+        },
+        {
+          "text": "an",
+          "start": 2.44,
+          "end": 2.6
+        },
+        {
+          "text": "eunuch",
+          "start": 2.6,
+          "end": 2.92
+        },
+        {
+          "text": "played",
+          "start": 2.92,
+          "end": 3.16
+        },
+        {
+          "text": "As",
+          "start": 3.16,
+          "end": 3.42
+        },
+        {
+          "text": "with",
+          "start": 3.42,
+          "end": 3.56
+        },
+        {
+          "text": "a",
+          "start": 3.56,
+          "end": 3.68
+        },
+        {
+          "text": "woman.",
+          "start": 3.68,
+          "end": 3.84
+        },
+        {
+          "text": "Come,",
+          "start": 4.52,
+          "end": 4.74
+        },
+        {
+          "text": "you'll",
+          "start": 5.0,
+          "end": 5.12
+        },
+        {
+          "text": "play",
+          "start": 5.12,
+          "end": 5.26
+        },
+        {
+          "text": "with",
+          "start": 5.26,
+          "end": 5.42
+        },
+        {
+          "text": "me,",
+          "start": 5.42,
+          "end": 5.62
+        },
+        {
+          "text": "sir?",
+          "start": 5.82,
+          "end": 5.86
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3147894060239196
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "13cbc7f2c96c8a666c3448132b77ffdd749d00f08e74e20ccd97cdeae95025e7",
+  "selected_reasons": []
+}

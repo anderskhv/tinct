@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "bb979139f1a743d365007146bb5b29d9f1a830900b7dbc9deda3792601a72a6a",
+  "attempts": [
+    {
+      "asr_seconds": 0.10410177707672119,
+      "alignment_seconds": 0.00018142396584153175,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Ventidius.",
+          "start": 0.08,
+          "end": 1.42,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.947265625
+            },
+            {
+              "text": " Ventidius.",
+              "start": 0.7,
+              "end": 1.42,
+              "probability": 0.6241048177083334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Ventidius.",
+          "start": 0.7,
+          "end": 1.42
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Ventidius."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ventidius.",
+          "start": 0.7,
+          "end": 1.42,
+          "key": "ventidius",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Ventidius.",
+          "start": 0.7,
+          "end": 1.42
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10435633035376668
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a67ad45dad2340fcb351e23e7c26a0434c100bcc1864c4ce663691e5de556133",
+  "selected_reasons": []
+}

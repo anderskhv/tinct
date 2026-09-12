@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "8c8436bee8c2bed7380de7df163b6e5830d4c539aa8365f591f01729453bc11d",
+  "attempts": [
+    {
+      "asr_seconds": 0.19221867015585303,
+      "alignment_seconds": 0.00037541892379522324,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mardian, as well as I can, madam.",
+          "start": 0.05,
+          "end": 2.49,
+          "words": [
+            {
+              "text": " Mardian,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.2870686848958333
+            },
+            {
+              "text": " as",
+              "start": 1.23,
+              "end": 1.41,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " well",
+              "start": 1.41,
+              "end": 1.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 1.55,
+              "end": 1.69,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I",
+              "start": 1.69,
+              "end": 1.79,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " can,",
+              "start": 1.79,
+              "end": 2.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " madam.",
+              "start": 2.21,
+              "end": 2.49,
+              "probability": 0.724609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mardian,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "as",
+          "start": 1.23,
+          "end": 1.41
+        },
+        {
+          "raw": "well",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "raw": "as",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "raw": "I",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "raw": "can,",
+          "start": 1.79,
+          "end": 2.05
+        },
+        {
+          "raw": "madam.",
+          "start": 2.21,
+          "end": 2.49
+        }
+      ],
+      "expected_tokens": [
+        "Mardian.",
+        "As",
+        "well",
+        "as",
+        "I",
+        "can,",
+        "madam."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mardian,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "mardian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.23,
+          "end": 1.41,
+          "key": "as",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.41,
+          "end": 1.55,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.55,
+          "end": 1.69,
+          "key": "as",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.69,
+          "end": 1.79,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "can,",
+          "start": 1.79,
+          "end": 2.05,
+          "key": "can",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "madam.",
+          "start": 2.21,
+          "end": 2.49,
+          "key": "madam",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mardian.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "As",
+          "start": 1.23,
+          "end": 1.41
+        },
+        {
+          "text": "well",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "text": "as",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "text": "I",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "text": "can,",
+          "start": 1.79,
+          "end": 2.05
+        },
+        {
+          "text": "madam.",
+          "start": 2.21,
+          "end": 2.49
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19272791594266891
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d21372bea97a4f763195ee947c2524489e8ef21335e045a8036efad185e278e1",
+  "selected_reasons": []
+}

@@ -1,0 +1,358 @@
+{
+  "complete": true,
+  "signature": "f393703308f69f93a7413f681b768cf227aa7999234ffa79fdc7d27b427cea53",
+  "attempts": [
+    {
+      "asr_seconds": 0.23095827689394355,
+      "alignment_seconds": 0.0004828227683901787,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony, from Sissy and Ho the News, speak there.",
+          "start": 0.14,
+          "end": 3.2,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.14,
+              "end": 0.82,
+              "probability": 0.6700439453125
+            },
+            {
+              "text": " from",
+              "start": 1.18,
+              "end": 1.32,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Sissy",
+              "start": 1.32,
+              "end": 1.56,
+              "probability": 0.689208984375
+            },
+            {
+              "text": " and",
+              "start": 1.56,
+              "end": 1.76,
+              "probability": 0.6337890625
+            },
+            {
+              "text": " Ho",
+              "start": 1.76,
+              "end": 1.9,
+              "probability": 0.7265625
+            },
+            {
+              "text": " the",
+              "start": 1.9,
+              "end": 2.06,
+              "probability": 0.481689453125
+            },
+            {
+              "text": " News,",
+              "start": 2.06,
+              "end": 2.36,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " speak",
+              "start": 2.72,
+              "end": 2.86,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " there.",
+              "start": 2.86,
+              "end": 3.2,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.14,
+          "end": 0.82
+        },
+        {
+          "raw": "from",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "raw": "Sissy",
+          "start": 1.32,
+          "end": 1.56
+        },
+        {
+          "raw": "and",
+          "start": 1.56,
+          "end": 1.76
+        },
+        {
+          "raw": "Ho",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "raw": "the",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "raw": "News,",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "raw": "speak",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "raw": "there.",
+          "start": 2.86,
+          "end": 3.2
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "From",
+        "Sicyon,",
+        "ho,",
+        "the",
+        "news?",
+        "Speak",
+        "there!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          8,
+          4,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.14,
+          "end": 0.82,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.18,
+          "end": 1.32,
+          "key": "from",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sissy",
+          "start": 1.32,
+          "end": 1.56,
+          "key": "sissy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.56,
+          "end": 1.76,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Ho",
+          "start": 1.76,
+          "end": 1.9,
+          "key": "ho",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.9,
+          "end": 2.06,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "News,",
+          "start": 2.06,
+          "end": 2.36,
+          "key": "news",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 2.72,
+          "end": 2.86,
+          "key": "speak",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "there.",
+          "start": 2.86,
+          "end": 3.2,
+          "key": "there",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.14,
+          "end": 0.82
+        },
+        {
+          "text": "From",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "text": "Sicyon,",
+          "start": 1.32,
+          "end": 1.54
+        },
+        {
+          "text": "ho,",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "text": "the",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "text": "news?",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "text": "Speak",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "text": "there!",
+          "start": 2.86,
+          "end": 3.2
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.23162091616541147
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9503462494ef35151ecd9446e7b642040942296cf8e57d3e0904696481c78f53",
+  "selected_reasons": []
+}

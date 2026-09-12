@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "54fde7c6386c12c270c5737d190bad574b2c9ea55c6f2b0f238b442ed03bf994",
+  "attempts": [
+    {
+      "asr_seconds": 0.20916769606992602,
+      "alignment_seconds": 0.00039384979754686356,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Soothsayer. I make not, but foresee.",
+        "hotwords": "Soothsayer, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Soothsayer, I make not, but foresee.",
+          "start": 0.08,
+          "end": 2.14,
+          "words": [
+            {
+              "text": " Soothsayer,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.8094075520833334
+            },
+            {
+              "text": " I",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " make",
+              "start": 1.34,
+              "end": 1.48,
+              "probability": 0.982421875
+            },
+            {
+              "text": " not,",
+              "start": 1.48,
+              "end": 1.7,
+              "probability": 0.638671875
+            },
+            {
+              "text": " but",
+              "start": 1.82,
+              "end": 1.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " foresee.",
+              "start": 1.86,
+              "end": 2.14,
+              "probability": 0.9638671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Soothsayer,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "make",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "raw": "not,",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "raw": "but",
+          "start": 1.82,
+          "end": 1.86
+        },
+        {
+          "raw": "foresee.",
+          "start": 1.86,
+          "end": 2.14
+        }
+      ],
+      "expected_tokens": [
+        "Soothsayer.",
+        "I",
+        "make",
+        "not,",
+        "but",
+        "foresee."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Soothsayer,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "soothsayer",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.34,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 1.34,
+          "end": 1.48,
+          "key": "make",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not,",
+          "start": 1.48,
+          "end": 1.7,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.82,
+          "end": 1.86,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "foresee.",
+          "start": 1.86,
+          "end": 2.14,
+          "key": "foresee",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Soothsayer.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "I",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "text": "make",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "text": "not,",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "text": "but",
+          "start": 1.82,
+          "end": 1.86
+        },
+        {
+          "text": "foresee.",
+          "start": 1.86,
+          "end": 2.14
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2097032107412815
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "97ccf905fdd7ed01b70e2bbf91b91d14cc9a3534b14c8065cf3cc667f2cbf9fd",
+  "selected_reasons": []
+}

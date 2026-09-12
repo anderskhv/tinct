@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "5481f16d9a20b8dbf7f6c4734800e69d87764e5bee5aad6a16ea89459e337e09",
+  "attempts": [
+    {
+      "asr_seconds": 0.1643939376808703,
+      "alignment_seconds": 0.0004294482059776783,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"How so? If you are convinced you ought....\"",
+        "hotwords": "How, If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " How so? If you are convinced you ought....",
+          "start": 0.08,
+          "end": 2.86,
+          "words": [
+            {
+              "text": " How",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " so?",
+              "start": 0.52,
+              "end": 0.78,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " If",
+              "start": 1.1,
+              "end": 1.24,
+              "probability": 0.84375
+            },
+            {
+              "text": " you",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " are",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " convinced",
+              "start": 1.46,
+              "end": 1.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 1.78,
+              "end": 2.0,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " ought....",
+              "start": 2.0,
+              "end": 2.86,
+              "probability": 0.4364447593688965
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "so?",
+          "start": 0.52,
+          "end": 0.78
+        },
+        {
+          "raw": "If",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "raw": "you",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "are",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "convinced",
+          "start": 1.46,
+          "end": 1.78
+        },
+        {
+          "raw": "you",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "raw": "ought....",
+          "start": 2.0,
+          "end": 2.86
+        }
+      ],
+      "expected_tokens": [
+        "\"How",
+        "so?",
+        "If",
+        "you",
+        "are",
+        "convinced",
+        "you",
+        "ought....\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "How",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "how",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so?",
+          "start": 0.52,
+          "end": 0.78,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 1.1,
+          "end": 1.24,
+          "key": "if",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "convinced",
+          "start": 1.46,
+          "end": 1.78,
+          "key": "convinced",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.78,
+          "end": 2.0,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ought....",
+          "start": 2.0,
+          "end": 2.86,
+          "key": "ought",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"How",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "so?",
+          "start": 0.52,
+          "end": 0.78
+        },
+        {
+          "text": "If",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "text": "you",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "are",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "convinced",
+          "start": 1.46,
+          "end": 1.78
+        },
+        {
+          "text": "you",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "text": "ought....\"",
+          "start": 2.0,
+          "end": 2.86
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16497835703194141
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1c4091df34db87e0bc545c6d7a6897699df8066dc1f0b148771263f137b1e321",
+  "selected_reasons": []
+}

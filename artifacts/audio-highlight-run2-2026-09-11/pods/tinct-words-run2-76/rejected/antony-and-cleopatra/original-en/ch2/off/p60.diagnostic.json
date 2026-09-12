@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "97783107c1a05e8b1f2c20dc1f33eb31cafd434bd6764d0ffe3e433a43a439a3",
+  "attempts": [
+    {
+      "asr_seconds": 0.2071863180026412,
+      "alignment_seconds": 0.00037148501724004745,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony, against my brother Lucius.",
+          "start": 0.05,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " against",
+              "start": 1.13,
+              "end": 1.43,
+              "probability": 0.953125
+            },
+            {
+              "text": " my",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " brother",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Lucius.",
+              "start": 1.85,
+              "end": 2.23,
+              "probability": 0.6767578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "against",
+          "start": 1.13,
+          "end": 1.43
+        },
+        {
+          "raw": "my",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "brother",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "Lucius.",
+          "start": 1.85,
+          "end": 2.23
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Against",
+        "my",
+        "brother",
+        "Lucius."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 1.13,
+          "end": 1.43,
+          "key": "against",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "brother",
+          "start": 1.65,
+          "end": 1.85,
+          "key": "brother",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Lucius.",
+          "start": 1.85,
+          "end": 2.23,
+          "key": "lucius",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "Against",
+          "start": 1.13,
+          "end": 1.43
+        },
+        {
+          "text": "my",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "text": "brother",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "Lucius.",
+          "start": 1.85,
+          "end": 2.23
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2076978161931038
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "90f7d83b244522495960ec6ab80a2db2a282b7b4c22e9b88f2c3c31545eb7780",
+  "selected_reasons": []
+}

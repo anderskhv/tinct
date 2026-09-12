@@ -1,0 +1,734 @@
+{
+  "complete": true,
+  "signature": "9faf46b27b412e672770e729e7f6fa7e3622806fc6e24ab1fb67f7c392e60c09",
+  "attempts": [
+    {
+      "asr_seconds": 0.3866633139550686,
+      "alignment_seconds": 0.0007266667671501637,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Alexas. Like to the time o' th' year between the extremes Of hot and cold, he was nor sad nor merry.",
+        "hotwords": "Alexas, Like, Of"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Alexas, Like to the time o' th' year between the extremes Of hot and cold, he was nor sad nor merry.",
+          "start": 0.05,
+          "end": 7.11,
+          "words": [
+            {
+              "text": " Alexas,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.2633209228515625
+            },
+            {
+              "text": " Like",
+              "start": 1.37,
+              "end": 1.53,
+              "probability": 0.0369873046875
+            },
+            {
+              "text": " to",
+              "start": 1.53,
+              "end": 1.65,
+              "probability": 0.970703125
+            },
+            {
+              "text": " the",
+              "start": 1.65,
+              "end": 1.77,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " time",
+              "start": 1.77,
+              "end": 1.99,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " o'",
+              "start": 1.99,
+              "end": 2.23,
+              "probability": 0.046722412109375
+            },
+            {
+              "text": " th'",
+              "start": 2.35,
+              "end": 2.71,
+              "probability": 0.591796875
+            },
+            {
+              "text": " year",
+              "start": 3.03,
+              "end": 3.25,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " between",
+              "start": 3.25,
+              "end": 3.55,
+              "probability": 0.61962890625
+            },
+            {
+              "text": " the",
+              "start": 3.55,
+              "end": 3.75,
+              "probability": 0.861328125
+            },
+            {
+              "text": " extremes",
+              "start": 3.75,
+              "end": 4.11,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " Of",
+              "start": 4.11,
+              "end": 4.41,
+              "probability": 0.10552978515625
+            },
+            {
+              "text": " hot",
+              "start": 4.41,
+              "end": 4.69,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " and",
+              "start": 4.69,
+              "end": 4.91,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " cold,",
+              "start": 4.91,
+              "end": 5.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 5.79,
+              "end": 5.87,
+              "probability": 0.53564453125
+            },
+            {
+              "text": " was",
+              "start": 5.87,
+              "end": 5.99,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " nor",
+              "start": 5.99,
+              "end": 6.13,
+              "probability": 0.81494140625
+            },
+            {
+              "text": " sad",
+              "start": 6.13,
+              "end": 6.51,
+              "probability": 0.986328125
+            },
+            {
+              "text": " nor",
+              "start": 6.51,
+              "end": 6.73,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " merry.",
+              "start": 6.73,
+              "end": 7.11,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alexas,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "Like",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "raw": "to",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "raw": "the",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "raw": "time",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "raw": "o'",
+          "start": 1.99,
+          "end": 2.23
+        },
+        {
+          "raw": "th'",
+          "start": 2.35,
+          "end": 2.71
+        },
+        {
+          "raw": "year",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "raw": "between",
+          "start": 3.25,
+          "end": 3.55
+        },
+        {
+          "raw": "the",
+          "start": 3.55,
+          "end": 3.75
+        },
+        {
+          "raw": "extremes",
+          "start": 3.75,
+          "end": 4.11
+        },
+        {
+          "raw": "Of",
+          "start": 4.11,
+          "end": 4.41
+        },
+        {
+          "raw": "hot",
+          "start": 4.41,
+          "end": 4.69
+        },
+        {
+          "raw": "and",
+          "start": 4.69,
+          "end": 4.91
+        },
+        {
+          "raw": "cold,",
+          "start": 4.91,
+          "end": 5.21
+        },
+        {
+          "raw": "he",
+          "start": 5.79,
+          "end": 5.87
+        },
+        {
+          "raw": "was",
+          "start": 5.87,
+          "end": 5.99
+        },
+        {
+          "raw": "nor",
+          "start": 5.99,
+          "end": 6.13
+        },
+        {
+          "raw": "sad",
+          "start": 6.13,
+          "end": 6.51
+        },
+        {
+          "raw": "nor",
+          "start": 6.51,
+          "end": 6.73
+        },
+        {
+          "raw": "merry.",
+          "start": 6.73,
+          "end": 7.11
+        }
+      ],
+      "expected_tokens": [
+        "Alexas.",
+        "Like",
+        "to",
+        "the",
+        "time",
+        "o'",
+        "th'",
+        "year",
+        "between",
+        "the",
+        "extremes",
+        "Of",
+        "hot",
+        "and",
+        "cold,",
+        "he",
+        "was",
+        "nor",
+        "sad",
+        "nor",
+        "merry."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alexas,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "alexas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Like",
+          "start": 1.37,
+          "end": 1.53,
+          "key": "like",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.53,
+          "end": 1.65,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.65,
+          "end": 1.77,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 1.77,
+          "end": 1.99,
+          "key": "time",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "o'",
+          "start": 1.99,
+          "end": 2.23,
+          "key": "o",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 2.35,
+          "end": 2.71,
+          "key": "th",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "year",
+          "start": 3.03,
+          "end": 3.25,
+          "key": "year",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "between",
+          "start": 3.25,
+          "end": 3.55,
+          "key": "between",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.55,
+          "end": 3.75,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "extremes",
+          "start": 3.75,
+          "end": 4.11,
+          "key": "extremes",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 4.11,
+          "end": 4.41,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "hot",
+          "start": 4.41,
+          "end": 4.69,
+          "key": "hot",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.69,
+          "end": 4.91,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "cold,",
+          "start": 4.91,
+          "end": 5.21,
+          "key": "cold",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.79,
+          "end": 5.87,
+          "key": "he",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.87,
+          "end": 5.99,
+          "key": "was",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 5.99,
+          "end": 6.13,
+          "key": "nor",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "sad",
+          "start": 6.13,
+          "end": 6.51,
+          "key": "sad",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 6.51,
+          "end": 6.73,
+          "key": "nor",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "merry.",
+          "start": 6.73,
+          "end": 7.11,
+          "key": "merry",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alexas.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "Like",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "text": "to",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "text": "the",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "text": "time",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "text": "o'",
+          "start": 1.99,
+          "end": 2.23
+        },
+        {
+          "text": "th'",
+          "start": 2.35,
+          "end": 2.71
+        },
+        {
+          "text": "year",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "text": "between",
+          "start": 3.25,
+          "end": 3.55
+        },
+        {
+          "text": "the",
+          "start": 3.55,
+          "end": 3.75
+        },
+        {
+          "text": "extremes",
+          "start": 3.75,
+          "end": 4.11
+        },
+        {
+          "text": "Of",
+          "start": 4.11,
+          "end": 4.41
+        },
+        {
+          "text": "hot",
+          "start": 4.41,
+          "end": 4.69
+        },
+        {
+          "text": "and",
+          "start": 4.69,
+          "end": 4.91
+        },
+        {
+          "text": "cold,",
+          "start": 4.91,
+          "end": 5.21
+        },
+        {
+          "text": "he",
+          "start": 5.79,
+          "end": 5.87
+        },
+        {
+          "text": "was",
+          "start": 5.87,
+          "end": 5.99
+        },
+        {
+          "text": "nor",
+          "start": 5.99,
+          "end": 6.13
+        },
+        {
+          "text": "sad",
+          "start": 6.13,
+          "end": 6.51
+        },
+        {
+          "text": "nor",
+          "start": 6.51,
+          "end": 6.73
+        },
+        {
+          "text": "merry.",
+          "start": 6.73,
+          "end": 7.11
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.38762698601931334
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "845374fc8b6cfeda40e3a2d4040e1806c3d458cd250e0825b7d318170c33bb64",
+  "selected_reasons": []
+}

@@ -1,0 +1,1214 @@
+{
+  "complete": true,
+  "signature": "916fff455218a92085f33036562824fe5f00be938bba20362c706dee97487794",
+  "attempts": [
+    {
+      "asr_seconds": 0.45818908186629415,
+      "alignment_seconds": 0.0008934908546507359,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Of life. What sort of prophet are you, do you know much about it? Seek and ye shall find. This may be God's means for bringing you to Him. And it's not for ever, the bondage....\"",
+        "hotwords": "What, Seek, This, God's, Him"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Of life. What sort of prophet are you, do you know much about it? Seek and ye shall find. This may be God's means for bringing you to Him. And it's not for ever, the bondage....",
+          "start": 0.05,
+          "end": 10.83,
+          "words": [
+            {
+              "text": " Of",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.4619140625
+            },
+            {
+              "text": " life.",
+              "start": 0.53,
+              "end": 0.81,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " What",
+              "start": 1.33,
+              "end": 1.43,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " sort",
+              "start": 1.43,
+              "end": 1.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 1.59,
+              "end": 1.77,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " prophet",
+              "start": 1.77,
+              "end": 2.03,
+              "probability": 0.67724609375
+            },
+            {
+              "text": " are",
+              "start": 2.03,
+              "end": 2.29,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you,",
+              "start": 2.29,
+              "end": 2.49,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " do",
+              "start": 2.59,
+              "end": 2.65,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " you",
+              "start": 2.65,
+              "end": 2.73,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " know",
+              "start": 2.73,
+              "end": 2.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " much",
+              "start": 2.85,
+              "end": 3.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " about",
+              "start": 3.03,
+              "end": 3.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " it?",
+              "start": 3.29,
+              "end": 3.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Seek",
+              "start": 4.11,
+              "end": 4.23,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " and",
+              "start": 4.23,
+              "end": 4.45,
+              "probability": 0.859375
+            },
+            {
+              "text": " ye",
+              "start": 4.45,
+              "end": 4.59,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " shall",
+              "start": 4.59,
+              "end": 4.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " find.",
+              "start": 4.77,
+              "end": 5.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " This",
+              "start": 5.79,
+              "end": 5.93,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " may",
+              "start": 5.93,
+              "end": 6.15,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 6.15,
+              "end": 6.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " God's",
+              "start": 6.35,
+              "end": 6.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " means",
+              "start": 6.81,
+              "end": 7.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " for",
+              "start": 7.05,
+              "end": 7.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " bringing",
+              "start": 7.35,
+              "end": 7.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 7.55,
+              "end": 7.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 7.83,
+              "end": 7.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Him.",
+              "start": 7.97,
+              "end": 8.21,
+              "probability": 0.69580078125
+            },
+            {
+              "text": " And",
+              "start": 8.67,
+              "end": 8.75,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " it's",
+              "start": 8.75,
+              "end": 8.93,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " not",
+              "start": 8.93,
+              "end": 9.11,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " for",
+              "start": 9.11,
+              "end": 9.27,
+              "probability": 0.238037109375
+            },
+            {
+              "text": " ever,",
+              "start": 9.27,
+              "end": 9.55,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 9.55,
+              "end": 9.75,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " bondage....",
+              "start": 9.75,
+              "end": 10.83,
+              "probability": 0.49816328287124634
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Of",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "life.",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "raw": "What",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "raw": "sort",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "raw": "of",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "raw": "prophet",
+          "start": 1.77,
+          "end": 2.03
+        },
+        {
+          "raw": "are",
+          "start": 2.03,
+          "end": 2.29
+        },
+        {
+          "raw": "you,",
+          "start": 2.29,
+          "end": 2.49
+        },
+        {
+          "raw": "do",
+          "start": 2.59,
+          "end": 2.65
+        },
+        {
+          "raw": "you",
+          "start": 2.65,
+          "end": 2.73
+        },
+        {
+          "raw": "know",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "raw": "much",
+          "start": 2.85,
+          "end": 3.03
+        },
+        {
+          "raw": "about",
+          "start": 3.03,
+          "end": 3.29
+        },
+        {
+          "raw": "it?",
+          "start": 3.29,
+          "end": 3.55
+        },
+        {
+          "raw": "Seek",
+          "start": 4.11,
+          "end": 4.23
+        },
+        {
+          "raw": "and",
+          "start": 4.23,
+          "end": 4.45
+        },
+        {
+          "raw": "ye",
+          "start": 4.45,
+          "end": 4.59
+        },
+        {
+          "raw": "shall",
+          "start": 4.59,
+          "end": 4.77
+        },
+        {
+          "raw": "find.",
+          "start": 4.77,
+          "end": 5.19
+        },
+        {
+          "raw": "This",
+          "start": 5.79,
+          "end": 5.93
+        },
+        {
+          "raw": "may",
+          "start": 5.93,
+          "end": 6.15
+        },
+        {
+          "raw": "be",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "raw": "God's",
+          "start": 6.35,
+          "end": 6.81
+        },
+        {
+          "raw": "means",
+          "start": 6.81,
+          "end": 7.05
+        },
+        {
+          "raw": "for",
+          "start": 7.05,
+          "end": 7.35
+        },
+        {
+          "raw": "bringing",
+          "start": 7.35,
+          "end": 7.55
+        },
+        {
+          "raw": "you",
+          "start": 7.55,
+          "end": 7.83
+        },
+        {
+          "raw": "to",
+          "start": 7.83,
+          "end": 7.97
+        },
+        {
+          "raw": "Him.",
+          "start": 7.97,
+          "end": 8.21
+        },
+        {
+          "raw": "And",
+          "start": 8.67,
+          "end": 8.75
+        },
+        {
+          "raw": "it's",
+          "start": 8.75,
+          "end": 8.93
+        },
+        {
+          "raw": "not",
+          "start": 8.93,
+          "end": 9.11
+        },
+        {
+          "raw": "for",
+          "start": 9.11,
+          "end": 9.27
+        },
+        {
+          "raw": "ever,",
+          "start": 9.27,
+          "end": 9.55
+        },
+        {
+          "raw": "the",
+          "start": 9.55,
+          "end": 9.75
+        },
+        {
+          "raw": "bondage....",
+          "start": 9.75,
+          "end": 10.83
+        }
+      ],
+      "expected_tokens": [
+        "\"Of",
+        "life.",
+        "What",
+        "sort",
+        "of",
+        "prophet",
+        "are",
+        "you,",
+        "do",
+        "you",
+        "know",
+        "much",
+        "about",
+        "it?",
+        "Seek",
+        "and",
+        "ye",
+        "shall",
+        "find.",
+        "This",
+        "may",
+        "be",
+        "God's",
+        "means",
+        "for",
+        "bringing",
+        "you",
+        "to",
+        "Him.",
+        "And",
+        "it's",
+        "not",
+        "for",
+        "ever,",
+        "the",
+        "bondage....\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          36,
+          0,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Of",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "of",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "life.",
+          "start": 0.53,
+          "end": 0.81,
+          "key": "life",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.33,
+          "end": 1.43,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sort",
+          "start": 1.43,
+          "end": 1.59,
+          "key": "sort",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.59,
+          "end": 1.77,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "prophet",
+          "start": 1.77,
+          "end": 2.03,
+          "key": "prophet",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.03,
+          "end": 2.29,
+          "key": "are",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 2.29,
+          "end": 2.49,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.59,
+          "end": 2.65,
+          "key": "do",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.65,
+          "end": 2.73,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 2.73,
+          "end": 2.85,
+          "key": "know",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.85,
+          "end": 3.03,
+          "key": "much",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 3.03,
+          "end": 3.29,
+          "key": "about",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 3.29,
+          "end": 3.55,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Seek",
+          "start": 4.11,
+          "end": 4.23,
+          "key": "seek",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.23,
+          "end": 4.45,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "ye",
+          "start": 4.45,
+          "end": 4.59,
+          "key": "ye",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 4.59,
+          "end": 4.77,
+          "key": "shall",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "find.",
+          "start": 4.77,
+          "end": 5.19,
+          "key": "find",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 5.79,
+          "end": 5.93,
+          "key": "this",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 5.93,
+          "end": 6.15,
+          "key": "may",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 6.15,
+          "end": 6.35,
+          "key": "be",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "God's",
+          "start": 6.35,
+          "end": 6.81,
+          "key": "gods",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "means",
+          "start": 6.81,
+          "end": 7.05,
+          "key": "means",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 7.05,
+          "end": 7.35,
+          "key": "for",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "bringing",
+          "start": 7.35,
+          "end": 7.55,
+          "key": "bringing",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 7.55,
+          "end": 7.83,
+          "key": "you",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.83,
+          "end": 7.97,
+          "key": "to",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Him.",
+          "start": 7.97,
+          "end": 8.21,
+          "key": "him",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 8.67,
+          "end": 8.75,
+          "key": "and",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 8.75,
+          "end": 8.93,
+          "key": "its",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 8.93,
+          "end": 9.11,
+          "key": "not",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 9.11,
+          "end": 9.27,
+          "key": "for",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "ever,",
+          "start": 9.27,
+          "end": 9.55,
+          "key": "ever",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.55,
+          "end": 9.75,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "bondage....",
+          "start": 9.75,
+          "end": 10.83,
+          "key": "bondage",
+          "pieces": [
+            35
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Of",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "life.",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "text": "What",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "text": "sort",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "text": "of",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "text": "prophet",
+          "start": 1.77,
+          "end": 2.03
+        },
+        {
+          "text": "are",
+          "start": 2.03,
+          "end": 2.29
+        },
+        {
+          "text": "you,",
+          "start": 2.29,
+          "end": 2.49
+        },
+        {
+          "text": "do",
+          "start": 2.59,
+          "end": 2.65
+        },
+        {
+          "text": "you",
+          "start": 2.65,
+          "end": 2.73
+        },
+        {
+          "text": "know",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "text": "much",
+          "start": 2.85,
+          "end": 3.03
+        },
+        {
+          "text": "about",
+          "start": 3.03,
+          "end": 3.29
+        },
+        {
+          "text": "it?",
+          "start": 3.29,
+          "end": 3.55
+        },
+        {
+          "text": "Seek",
+          "start": 4.11,
+          "end": 4.23
+        },
+        {
+          "text": "and",
+          "start": 4.23,
+          "end": 4.45
+        },
+        {
+          "text": "ye",
+          "start": 4.45,
+          "end": 4.59
+        },
+        {
+          "text": "shall",
+          "start": 4.59,
+          "end": 4.77
+        },
+        {
+          "text": "find.",
+          "start": 4.77,
+          "end": 5.19
+        },
+        {
+          "text": "This",
+          "start": 5.79,
+          "end": 5.93
+        },
+        {
+          "text": "may",
+          "start": 5.93,
+          "end": 6.15
+        },
+        {
+          "text": "be",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "text": "God's",
+          "start": 6.35,
+          "end": 6.81
+        },
+        {
+          "text": "means",
+          "start": 6.81,
+          "end": 7.05
+        },
+        {
+          "text": "for",
+          "start": 7.05,
+          "end": 7.35
+        },
+        {
+          "text": "bringing",
+          "start": 7.35,
+          "end": 7.55
+        },
+        {
+          "text": "you",
+          "start": 7.55,
+          "end": 7.83
+        },
+        {
+          "text": "to",
+          "start": 7.83,
+          "end": 7.97
+        },
+        {
+          "text": "Him.",
+          "start": 7.97,
+          "end": 8.21
+        },
+        {
+          "text": "And",
+          "start": 8.67,
+          "end": 8.75
+        },
+        {
+          "text": "it's",
+          "start": 8.75,
+          "end": 8.93
+        },
+        {
+          "text": "not",
+          "start": 8.93,
+          "end": 9.11
+        },
+        {
+          "text": "for",
+          "start": 9.11,
+          "end": 9.27
+        },
+        {
+          "text": "ever,",
+          "start": 9.27,
+          "end": 9.55
+        },
+        {
+          "text": "the",
+          "start": 9.55,
+          "end": 9.75
+        },
+        {
+          "text": "bondage....\"",
+          "start": 9.75,
+          "end": 10.83
+        }
+      ],
+      "stats": {
+        "expected_words": 36,
+        "heard_words": 36,
+        "matched_words": 36
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.45948517182841897
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "07d52808a6994fa4e018c3a5c620c7df23f424167f5cd43350e660374f1db9a1",
+  "selected_reasons": []
+}

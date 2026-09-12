@@ -1,0 +1,163 @@
+{
+  "complete": true,
+  "signature": "6d46ced7c6e3c7986c8905c28587b015a7edb8c4a2030e48d0849853eea75af4",
+  "attempts": [
+    {
+      "asr_seconds": 0.16691721975803375,
+      "alignment_seconds": 0.0002840440720319748,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ina Barbus, Fulvia.",
+          "start": 0.05,
+          "end": 1.51,
+          "words": [
+            {
+              "text": " Ina",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.39251708984375
+            },
+            {
+              "text": " Barbus,",
+              "start": 0.65,
+              "end": 1.05,
+              "probability": 0.36669921875
+            },
+            {
+              "text": " Fulvia.",
+              "start": 1.23,
+              "end": 1.51,
+              "probability": 0.7337646484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ina",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Barbus,",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "raw": "Fulvia.",
+          "start": 1.23,
+          "end": 1.51
+        }
+      ],
+      "expected_tokens": [
+        "Enobarbus.",
+        "Fulvia?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          2,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ina",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "ina",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Barbus,",
+          "start": 0.65,
+          "end": 1.05,
+          "key": "barbus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Fulvia.",
+          "start": 1.23,
+          "end": 1.51,
+          "key": "fulvia",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enobarbus.",
+          "start": 0.0,
+          "end": 0.615
+        },
+        {
+          "text": "Fulvia?",
+          "start": 1.23,
+          "end": 1.51
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16732208477333188
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6b1dfc9a3de6ec0f2262fff27d1fe5b24b3fa5b5e254d6750f930041b2ce0475",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

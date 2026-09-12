@@ -1,0 +1,4247 @@
+{
+  "complete": true,
+  "signature": "4c5a218964e9e013746f8fef5b7259c328ca501adf8cb4dc2caa96c84198d0fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.44635577127337456,
+      "alignment_seconds": 0.0008325572125613689,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He ground his teeth and sank into silence again. Again Dounia's image rose before him, just as she was when, after shooting the first time, she had lowered the revolver in terror and gazed blankly at him, so that he might have seized her twice over and she would not have lifted a hand to defend herself if he had not reminded her. He recalled how at that instant he felt almost sorry for her, how he had felt a pang at his heart...",
+        "hotwords": "Dounia's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He recalled how at that instant he felt almost sorry for her, how he had felt a pang at his heart...",
+          "start": 15.39,
+          "end": 25.31,
+          "words": [
+            {
+              "text": " He",
+              "start": 15.39,
+              "end": 15.79,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " recalled",
+              "start": 15.79,
+              "end": 15.87,
+              "probability": 1.7881393432617188e-07
+            },
+            {
+              "text": " how",
+              "start": 15.87,
+              "end": 20.45,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " at",
+              "start": 20.45,
+              "end": 20.57,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " that",
+              "start": 20.57,
+              "end": 20.77,
+              "probability": 0.994140625
+            },
+            {
+              "text": " instant",
+              "start": 20.77,
+              "end": 21.19,
+              "probability": 0.994140625
+            },
+            {
+              "text": " he",
+              "start": 21.19,
+              "end": 21.43,
+              "probability": 0.89453125
+            },
+            {
+              "text": " felt",
+              "start": 21.43,
+              "end": 21.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " almost",
+              "start": 21.61,
+              "end": 22.03,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " sorry",
+              "start": 22.03,
+              "end": 22.43,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " for",
+              "start": 22.43,
+              "end": 22.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her,",
+              "start": 22.69,
+              "end": 22.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " how",
+              "start": 23.27,
+              "end": 23.41,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " he",
+              "start": 23.41,
+              "end": 23.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " had",
+              "start": 23.55,
+              "end": 23.65,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " felt",
+              "start": 23.65,
+              "end": 23.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 23.81,
+              "end": 23.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pang",
+              "start": 23.97,
+              "end": 24.21,
+              "probability": 0.970703125
+            },
+            {
+              "text": " at",
+              "start": 24.21,
+              "end": 24.41,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " his",
+              "start": 24.41,
+              "end": 24.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " heart...",
+              "start": 24.53,
+              "end": 25.31,
+              "probability": 0.5014486312866211
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 15.39,
+          "end": 15.79
+        },
+        {
+          "raw": "recalled",
+          "start": 15.79,
+          "end": 15.87
+        },
+        {
+          "raw": "how",
+          "start": 15.87,
+          "end": 20.45
+        },
+        {
+          "raw": "at",
+          "start": 20.45,
+          "end": 20.57
+        },
+        {
+          "raw": "that",
+          "start": 20.57,
+          "end": 20.77
+        },
+        {
+          "raw": "instant",
+          "start": 20.77,
+          "end": 21.19
+        },
+        {
+          "raw": "he",
+          "start": 21.19,
+          "end": 21.43
+        },
+        {
+          "raw": "felt",
+          "start": 21.43,
+          "end": 21.61
+        },
+        {
+          "raw": "almost",
+          "start": 21.61,
+          "end": 22.03
+        },
+        {
+          "raw": "sorry",
+          "start": 22.03,
+          "end": 22.43
+        },
+        {
+          "raw": "for",
+          "start": 22.43,
+          "end": 22.69
+        },
+        {
+          "raw": "her,",
+          "start": 22.69,
+          "end": 22.87
+        },
+        {
+          "raw": "how",
+          "start": 23.27,
+          "end": 23.41
+        },
+        {
+          "raw": "he",
+          "start": 23.41,
+          "end": 23.55
+        },
+        {
+          "raw": "had",
+          "start": 23.55,
+          "end": 23.65
+        },
+        {
+          "raw": "felt",
+          "start": 23.65,
+          "end": 23.81
+        },
+        {
+          "raw": "a",
+          "start": 23.81,
+          "end": 23.97
+        },
+        {
+          "raw": "pang",
+          "start": 23.97,
+          "end": 24.21
+        },
+        {
+          "raw": "at",
+          "start": 24.21,
+          "end": 24.41
+        },
+        {
+          "raw": "his",
+          "start": 24.41,
+          "end": 24.53
+        },
+        {
+          "raw": "heart...",
+          "start": 24.53,
+          "end": 25.31
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "ground",
+        "his",
+        "teeth",
+        "and",
+        "sank",
+        "into",
+        "silence",
+        "again.",
+        "Again",
+        "Dounia's",
+        "image",
+        "rose",
+        "before",
+        "him,",
+        "just",
+        "as",
+        "she",
+        "was",
+        "when,",
+        "after",
+        "shooting",
+        "the",
+        "first",
+        "time,",
+        "she",
+        "had",
+        "lowered",
+        "the",
+        "revolver",
+        "in",
+        "terror",
+        "and",
+        "gazed",
+        "blankly",
+        "at",
+        "him,",
+        "so",
+        "that",
+        "he",
+        "might",
+        "have",
+        "seized",
+        "her",
+        "twice",
+        "over",
+        "and",
+        "she",
+        "would",
+        "not",
+        "have",
+        "lifted",
+        "a",
+        "hand",
+        "to",
+        "defend",
+        "herself",
+        "if",
+        "he",
+        "had",
+        "not",
+        "reminded",
+        "her.",
+        "He",
+        "recalled",
+        "how",
+        "at",
+        "that",
+        "instant",
+        "he",
+        "felt",
+        "almost",
+        "sorry",
+        "for",
+        "her,",
+        "how",
+        "he",
+        "had",
+        "felt",
+        "a",
+        "pang",
+        "at",
+        "his",
+        "heart..."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          63,
+          0,
+          0
+        ],
+        [
+          "equal",
+          63,
+          84,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          63,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 15.39,
+          "end": 15.79,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "recalled",
+          "start": 15.79,
+          "end": 15.87,
+          "key": "recalled",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 15.87,
+          "end": 20.45,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 20.45,
+          "end": 20.57,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 20.57,
+          "end": 20.77,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "instant",
+          "start": 20.77,
+          "end": 21.19,
+          "key": "instant",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 21.19,
+          "end": 21.43,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "felt",
+          "start": 21.43,
+          "end": 21.61,
+          "key": "felt",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 21.61,
+          "end": 22.03,
+          "key": "almost",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sorry",
+          "start": 22.03,
+          "end": 22.43,
+          "key": "sorry",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 22.43,
+          "end": 22.69,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "her,",
+          "start": 22.69,
+          "end": 22.87,
+          "key": "her",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 23.27,
+          "end": 23.41,
+          "key": "how",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 23.41,
+          "end": 23.55,
+          "key": "he",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 23.55,
+          "end": 23.65,
+          "key": "had",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "felt",
+          "start": 23.65,
+          "end": 23.81,
+          "key": "felt",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 23.81,
+          "end": 23.97,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "pang",
+          "start": 23.97,
+          "end": 24.21,
+          "key": "pang",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 24.21,
+          "end": 24.41,
+          "key": "at",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 24.41,
+          "end": 24.53,
+          "key": "his",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "heart...",
+          "start": 24.53,
+          "end": 25.31,
+          "key": "heart",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.0,
+          "end": 7.695
+        },
+        {
+          "text": "ground",
+          "start": 7.695,
+          "end": 11.543
+        },
+        {
+          "text": "his",
+          "start": 11.543,
+          "end": 13.466
+        },
+        {
+          "text": "teeth",
+          "start": 13.466,
+          "end": 14.428
+        },
+        {
+          "text": "and",
+          "start": 14.428,
+          "end": 14.909
+        },
+        {
+          "text": "sank",
+          "start": 14.909,
+          "end": 15.149
+        },
+        {
+          "text": "into",
+          "start": 15.149,
+          "end": 15.27
+        },
+        {
+          "text": "silence",
+          "start": 15.27,
+          "end": 15.33
+        },
+        {
+          "text": "again.",
+          "start": 15.33,
+          "end": 15.36
+        },
+        {
+          "text": "Again",
+          "start": 15.36,
+          "end": 15.375
+        },
+        {
+          "text": "Dounia's",
+          "start": 15.375,
+          "end": 15.383
+        },
+        {
+          "text": "image",
+          "start": 15.383,
+          "end": 15.386
+        },
+        {
+          "text": "rose",
+          "start": 15.386,
+          "end": 15.388
+        },
+        {
+          "text": "before",
+          "start": 15.388,
+          "end": 15.389
+        },
+        {
+          "text": "him,",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "just",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "as",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "she",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "was",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "when,",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "after",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "shooting",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "the",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "first",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "time,",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "she",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "had",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "lowered",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "the",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "revolver",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "in",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "terror",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "and",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "gazed",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "blankly",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "at",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "him,",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "so",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "that",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "he",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "might",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "have",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "seized",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "her",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "twice",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "over",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "and",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "she",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "would",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "not",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "have",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "lifted",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "a",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "hand",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "to",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "defend",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "herself",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "if",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "he",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "had",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "not",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "reminded",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "her.",
+          "start": 15.389,
+          "end": 15.389
+        },
+        {
+          "text": "He",
+          "start": 15.39,
+          "end": 15.79
+        },
+        {
+          "text": "recalled",
+          "start": 15.79,
+          "end": 15.87
+        },
+        {
+          "text": "how",
+          "start": 15.87,
+          "end": 20.45
+        },
+        {
+          "text": "at",
+          "start": 20.45,
+          "end": 20.57
+        },
+        {
+          "text": "that",
+          "start": 20.57,
+          "end": 20.77
+        },
+        {
+          "text": "instant",
+          "start": 20.77,
+          "end": 21.19
+        },
+        {
+          "text": "he",
+          "start": 21.19,
+          "end": 21.43
+        },
+        {
+          "text": "felt",
+          "start": 21.43,
+          "end": 21.61
+        },
+        {
+          "text": "almost",
+          "start": 21.61,
+          "end": 22.03
+        },
+        {
+          "text": "sorry",
+          "start": 22.03,
+          "end": 22.43
+        },
+        {
+          "text": "for",
+          "start": 22.43,
+          "end": 22.69
+        },
+        {
+          "text": "her,",
+          "start": 22.69,
+          "end": 22.87
+        },
+        {
+          "text": "how",
+          "start": 23.27,
+          "end": 23.41
+        },
+        {
+          "text": "he",
+          "start": 23.41,
+          "end": 23.55
+        },
+        {
+          "text": "had",
+          "start": 23.55,
+          "end": 23.65
+        },
+        {
+          "text": "felt",
+          "start": 23.65,
+          "end": 23.81
+        },
+        {
+          "text": "a",
+          "start": 23.81,
+          "end": 23.97
+        },
+        {
+          "text": "pang",
+          "start": 23.97,
+          "end": 24.21
+        },
+        {
+          "text": "at",
+          "start": 24.21,
+          "end": 24.41
+        },
+        {
+          "text": "his",
+          "start": 24.41,
+          "end": 24.53
+        },
+        {
+          "text": "heart...",
+          "start": 24.53,
+          "end": 25.31
+        }
+      ],
+      "stats": {
+        "expected_words": 84,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 0.25,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.44730892311781645
+    },
+    {
+      "asr_seconds": 0.6650570910423994,
+      "alignment_seconds": 0.0009454027749598026,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Dounia's"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " He ground his teeth and sank into silence again. Again, Dounia's image rose before him, just as she was when, after shooting the first time, she had lowered the revolver in terror and gazed blankly at him, so that he might have seized her twice over, and she would not have lifted a hand to defend herself if he had not reminded her. He recalled how at that instant he felt almost sorry for her, how he had felt a pang at his heart.",
+          "start": 0.05,
+          "end": 24.81,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " ground",
+              "start": 0.49,
+              "end": 0.73,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " his",
+              "start": 0.73,
+              "end": 0.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " teeth",
+              "start": 0.97,
+              "end": 1.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 1.23,
+              "end": 1.53,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " sank",
+              "start": 1.53,
+              "end": 1.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " into",
+              "start": 1.79,
+              "end": 2.05,
+              "probability": 0.9921875
+            },
+            {
+              "text": " silence",
+              "start": 2.05,
+              "end": 2.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " again.",
+              "start": 2.43,
+              "end": 2.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Again,",
+              "start": 3.87,
+              "end": 3.87,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Dounia's",
+              "start": 4.09,
+              "end": 4.43,
+              "probability": 0.669158935546875
+            },
+            {
+              "text": " image",
+              "start": 4.43,
+              "end": 4.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " rose",
+              "start": 4.73,
+              "end": 5.13,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " before",
+              "start": 5.13,
+              "end": 5.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him,",
+              "start": 5.57,
+              "end": 5.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " just",
+              "start": 6.23,
+              "end": 6.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " as",
+              "start": 6.51,
+              "end": 6.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " she",
+              "start": 6.69,
+              "end": 6.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " was",
+              "start": 6.81,
+              "end": 7.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " when,",
+              "start": 7.01,
+              "end": 7.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " after",
+              "start": 7.65,
+              "end": 7.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shooting",
+              "start": 7.97,
+              "end": 8.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 8.25,
+              "end": 8.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " first",
+              "start": 8.45,
+              "end": 8.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " time,",
+              "start": 8.65,
+              "end": 9.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " she",
+              "start": 9.51,
+              "end": 9.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " had",
+              "start": 9.63,
+              "end": 9.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " lowered",
+              "start": 9.77,
+              "end": 10.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 10.05,
+              "end": 10.27,
+              "probability": 0.99609375
+            },
+            {
+              "text": " revolver",
+              "start": 10.27,
+              "end": 10.63,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " in",
+              "start": 10.63,
+              "end": 10.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " terror",
+              "start": 10.99,
+              "end": 11.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 11.29,
+              "end": 11.65,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " gazed",
+              "start": 11.65,
+              "end": 11.97,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " blankly",
+              "start": 11.97,
+              "end": 12.51,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " at",
+              "start": 12.51,
+              "end": 12.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him,",
+              "start": 12.63,
+              "end": 12.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " so",
+              "start": 13.17,
+              "end": 13.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 13.39,
+              "end": 13.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he",
+              "start": 13.49,
+              "end": 13.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " might",
+              "start": 13.63,
+              "end": 13.79,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " have",
+              "start": 13.79,
+              "end": 13.93,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " seized",
+              "start": 13.93,
+              "end": 14.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 14.21,
+              "end": 14.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " twice",
+              "start": 14.43,
+              "end": 14.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " over,",
+              "start": 14.67,
+              "end": 15.09,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 15.49,
+              "end": 15.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " she",
+              "start": 15.61,
+              "end": 15.73,
+              "probability": 0.99609375
+            },
+            {
+              "text": " would",
+              "start": 15.73,
+              "end": 15.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 15.85,
+              "end": 16.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " have",
+              "start": 16.05,
+              "end": 16.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lifted",
+              "start": 16.17,
+              "end": 16.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 16.43,
+              "end": 16.61,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " hand",
+              "start": 16.61,
+              "end": 16.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 16.83,
+              "end": 17.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " defend",
+              "start": 17.03,
+              "end": 17.33,
+              "probability": 1.0
+            },
+            {
+              "text": " herself",
+              "start": 17.33,
+              "end": 17.67,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " if",
+              "start": 17.67,
+              "end": 17.89,
+              "probability": 0.9921875
+            },
+            {
+              "text": " he",
+              "start": 17.89,
+              "end": 18.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " had",
+              "start": 18.01,
+              "end": 18.09,
+              "probability": 0.99609375
+            },
+            {
+              "text": " not",
+              "start": 18.09,
+              "end": 18.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " reminded",
+              "start": 18.29,
+              "end": 18.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her.",
+              "start": 18.73,
+              "end": 19.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " He",
+              "start": 19.69,
+              "end": 19.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " recalled",
+              "start": 19.87,
+              "end": 20.19,
+              "probability": 1.0
+            },
+            {
+              "text": " how",
+              "start": 20.19,
+              "end": 20.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 20.45,
+              "end": 20.59,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " that",
+              "start": 20.59,
+              "end": 20.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " instant",
+              "start": 20.77,
+              "end": 21.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " he",
+              "start": 21.19,
+              "end": 21.43,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " felt",
+              "start": 21.43,
+              "end": 21.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " almost",
+              "start": 21.61,
+              "end": 22.03,
+              "probability": 0.990234375
+            },
+            {
+              "text": " sorry",
+              "start": 22.03,
+              "end": 22.43,
+              "probability": 0.994140625
+            },
+            {
+              "text": " for",
+              "start": 22.43,
+              "end": 22.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " her,",
+              "start": 22.69,
+              "end": 22.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " how",
+              "start": 23.23,
+              "end": 23.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he",
+              "start": 23.41,
+              "end": 23.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " had",
+              "start": 23.55,
+              "end": 23.65,
+              "probability": 0.984375
+            },
+            {
+              "text": " felt",
+              "start": 23.65,
+              "end": 23.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 23.81,
+              "end": 23.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " pang",
+              "start": 23.97,
+              "end": 24.21,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " at",
+              "start": 24.21,
+              "end": 24.39,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " his",
+              "start": 24.39,
+              "end": 24.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " heart.",
+              "start": 24.53,
+              "end": 24.81,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "ground",
+          "start": 0.49,
+          "end": 0.73
+        },
+        {
+          "raw": "his",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "raw": "teeth",
+          "start": 0.97,
+          "end": 1.23
+        },
+        {
+          "raw": "and",
+          "start": 1.23,
+          "end": 1.53
+        },
+        {
+          "raw": "sank",
+          "start": 1.53,
+          "end": 1.79
+        },
+        {
+          "raw": "into",
+          "start": 1.79,
+          "end": 2.05
+        },
+        {
+          "raw": "silence",
+          "start": 2.05,
+          "end": 2.43
+        },
+        {
+          "raw": "again.",
+          "start": 2.43,
+          "end": 2.91
+        },
+        {
+          "raw": "Again,",
+          "start": 3.87,
+          "end": 3.87
+        },
+        {
+          "raw": "Dounia's",
+          "start": 4.09,
+          "end": 4.43
+        },
+        {
+          "raw": "image",
+          "start": 4.43,
+          "end": 4.73
+        },
+        {
+          "raw": "rose",
+          "start": 4.73,
+          "end": 5.13
+        },
+        {
+          "raw": "before",
+          "start": 5.13,
+          "end": 5.57
+        },
+        {
+          "raw": "him,",
+          "start": 5.57,
+          "end": 5.93
+        },
+        {
+          "raw": "just",
+          "start": 6.23,
+          "end": 6.51
+        },
+        {
+          "raw": "as",
+          "start": 6.51,
+          "end": 6.69
+        },
+        {
+          "raw": "she",
+          "start": 6.69,
+          "end": 6.81
+        },
+        {
+          "raw": "was",
+          "start": 6.81,
+          "end": 7.01
+        },
+        {
+          "raw": "when,",
+          "start": 7.01,
+          "end": 7.29
+        },
+        {
+          "raw": "after",
+          "start": 7.65,
+          "end": 7.97
+        },
+        {
+          "raw": "shooting",
+          "start": 7.97,
+          "end": 8.25
+        },
+        {
+          "raw": "the",
+          "start": 8.25,
+          "end": 8.45
+        },
+        {
+          "raw": "first",
+          "start": 8.45,
+          "end": 8.65
+        },
+        {
+          "raw": "time,",
+          "start": 8.65,
+          "end": 9.07
+        },
+        {
+          "raw": "she",
+          "start": 9.51,
+          "end": 9.63
+        },
+        {
+          "raw": "had",
+          "start": 9.63,
+          "end": 9.77
+        },
+        {
+          "raw": "lowered",
+          "start": 9.77,
+          "end": 10.05
+        },
+        {
+          "raw": "the",
+          "start": 10.05,
+          "end": 10.27
+        },
+        {
+          "raw": "revolver",
+          "start": 10.27,
+          "end": 10.63
+        },
+        {
+          "raw": "in",
+          "start": 10.63,
+          "end": 10.99
+        },
+        {
+          "raw": "terror",
+          "start": 10.99,
+          "end": 11.29
+        },
+        {
+          "raw": "and",
+          "start": 11.29,
+          "end": 11.65
+        },
+        {
+          "raw": "gazed",
+          "start": 11.65,
+          "end": 11.97
+        },
+        {
+          "raw": "blankly",
+          "start": 11.97,
+          "end": 12.51
+        },
+        {
+          "raw": "at",
+          "start": 12.51,
+          "end": 12.63
+        },
+        {
+          "raw": "him,",
+          "start": 12.63,
+          "end": 12.83
+        },
+        {
+          "raw": "so",
+          "start": 13.17,
+          "end": 13.39
+        },
+        {
+          "raw": "that",
+          "start": 13.39,
+          "end": 13.49
+        },
+        {
+          "raw": "he",
+          "start": 13.49,
+          "end": 13.63
+        },
+        {
+          "raw": "might",
+          "start": 13.63,
+          "end": 13.79
+        },
+        {
+          "raw": "have",
+          "start": 13.79,
+          "end": 13.93
+        },
+        {
+          "raw": "seized",
+          "start": 13.93,
+          "end": 14.21
+        },
+        {
+          "raw": "her",
+          "start": 14.21,
+          "end": 14.43
+        },
+        {
+          "raw": "twice",
+          "start": 14.43,
+          "end": 14.67
+        },
+        {
+          "raw": "over,",
+          "start": 14.67,
+          "end": 15.09
+        },
+        {
+          "raw": "and",
+          "start": 15.49,
+          "end": 15.61
+        },
+        {
+          "raw": "she",
+          "start": 15.61,
+          "end": 15.73
+        },
+        {
+          "raw": "would",
+          "start": 15.73,
+          "end": 15.85
+        },
+        {
+          "raw": "not",
+          "start": 15.85,
+          "end": 16.05
+        },
+        {
+          "raw": "have",
+          "start": 16.05,
+          "end": 16.17
+        },
+        {
+          "raw": "lifted",
+          "start": 16.17,
+          "end": 16.43
+        },
+        {
+          "raw": "a",
+          "start": 16.43,
+          "end": 16.61
+        },
+        {
+          "raw": "hand",
+          "start": 16.61,
+          "end": 16.83
+        },
+        {
+          "raw": "to",
+          "start": 16.83,
+          "end": 17.03
+        },
+        {
+          "raw": "defend",
+          "start": 17.03,
+          "end": 17.33
+        },
+        {
+          "raw": "herself",
+          "start": 17.33,
+          "end": 17.67
+        },
+        {
+          "raw": "if",
+          "start": 17.67,
+          "end": 17.89
+        },
+        {
+          "raw": "he",
+          "start": 17.89,
+          "end": 18.01
+        },
+        {
+          "raw": "had",
+          "start": 18.01,
+          "end": 18.09
+        },
+        {
+          "raw": "not",
+          "start": 18.09,
+          "end": 18.29
+        },
+        {
+          "raw": "reminded",
+          "start": 18.29,
+          "end": 18.73
+        },
+        {
+          "raw": "her.",
+          "start": 18.73,
+          "end": 19.03
+        },
+        {
+          "raw": "He",
+          "start": 19.69,
+          "end": 19.87
+        },
+        {
+          "raw": "recalled",
+          "start": 19.87,
+          "end": 20.19
+        },
+        {
+          "raw": "how",
+          "start": 20.19,
+          "end": 20.45
+        },
+        {
+          "raw": "at",
+          "start": 20.45,
+          "end": 20.59
+        },
+        {
+          "raw": "that",
+          "start": 20.59,
+          "end": 20.77
+        },
+        {
+          "raw": "instant",
+          "start": 20.77,
+          "end": 21.19
+        },
+        {
+          "raw": "he",
+          "start": 21.19,
+          "end": 21.43
+        },
+        {
+          "raw": "felt",
+          "start": 21.43,
+          "end": 21.61
+        },
+        {
+          "raw": "almost",
+          "start": 21.61,
+          "end": 22.03
+        },
+        {
+          "raw": "sorry",
+          "start": 22.03,
+          "end": 22.43
+        },
+        {
+          "raw": "for",
+          "start": 22.43,
+          "end": 22.69
+        },
+        {
+          "raw": "her,",
+          "start": 22.69,
+          "end": 22.87
+        },
+        {
+          "raw": "how",
+          "start": 23.23,
+          "end": 23.41
+        },
+        {
+          "raw": "he",
+          "start": 23.41,
+          "end": 23.55
+        },
+        {
+          "raw": "had",
+          "start": 23.55,
+          "end": 23.65
+        },
+        {
+          "raw": "felt",
+          "start": 23.65,
+          "end": 23.81
+        },
+        {
+          "raw": "a",
+          "start": 23.81,
+          "end": 23.97
+        },
+        {
+          "raw": "pang",
+          "start": 23.97,
+          "end": 24.21
+        },
+        {
+          "raw": "at",
+          "start": 24.21,
+          "end": 24.39
+        },
+        {
+          "raw": "his",
+          "start": 24.39,
+          "end": 24.53
+        },
+        {
+          "raw": "heart.",
+          "start": 24.53,
+          "end": 24.81
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "ground",
+        "his",
+        "teeth",
+        "and",
+        "sank",
+        "into",
+        "silence",
+        "again.",
+        "Again",
+        "Dounia's",
+        "image",
+        "rose",
+        "before",
+        "him,",
+        "just",
+        "as",
+        "she",
+        "was",
+        "when,",
+        "after",
+        "shooting",
+        "the",
+        "first",
+        "time,",
+        "she",
+        "had",
+        "lowered",
+        "the",
+        "revolver",
+        "in",
+        "terror",
+        "and",
+        "gazed",
+        "blankly",
+        "at",
+        "him,",
+        "so",
+        "that",
+        "he",
+        "might",
+        "have",
+        "seized",
+        "her",
+        "twice",
+        "over",
+        "and",
+        "she",
+        "would",
+        "not",
+        "have",
+        "lifted",
+        "a",
+        "hand",
+        "to",
+        "defend",
+        "herself",
+        "if",
+        "he",
+        "had",
+        "not",
+        "reminded",
+        "her.",
+        "He",
+        "recalled",
+        "how",
+        "at",
+        "that",
+        "instant",
+        "he",
+        "felt",
+        "almost",
+        "sorry",
+        "for",
+        "her,",
+        "how",
+        "he",
+        "had",
+        "felt",
+        "a",
+        "pang",
+        "at",
+        "his",
+        "heart..."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          84,
+          0,
+          84
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ground",
+          "start": 0.49,
+          "end": 0.73,
+          "key": "ground",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.73,
+          "end": 0.97,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "teeth",
+          "start": 0.97,
+          "end": 1.23,
+          "key": "teeth",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.23,
+          "end": 1.53,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sank",
+          "start": 1.53,
+          "end": 1.79,
+          "key": "sank",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 1.79,
+          "end": 2.05,
+          "key": "into",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "silence",
+          "start": 2.05,
+          "end": 2.43,
+          "key": "silence",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 2.43,
+          "end": 2.91,
+          "key": "again",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Again,",
+          "start": 3.87,
+          "end": 3.87,
+          "key": "again",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Dounia's",
+          "start": 4.09,
+          "end": 4.43,
+          "key": "dounias",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "image",
+          "start": 4.43,
+          "end": 4.73,
+          "key": "image",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "rose",
+          "start": 4.73,
+          "end": 5.13,
+          "key": "rose",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 5.13,
+          "end": 5.57,
+          "key": "before",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 5.57,
+          "end": 5.93,
+          "key": "him",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 6.23,
+          "end": 6.51,
+          "key": "just",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 6.51,
+          "end": 6.69,
+          "key": "as",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 6.69,
+          "end": 6.81,
+          "key": "she",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 6.81,
+          "end": 7.01,
+          "key": "was",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "when,",
+          "start": 7.01,
+          "end": 7.29,
+          "key": "when",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 7.65,
+          "end": 7.97,
+          "key": "after",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "shooting",
+          "start": 7.97,
+          "end": 8.25,
+          "key": "shooting",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.25,
+          "end": 8.45,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 8.45,
+          "end": 8.65,
+          "key": "first",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "time,",
+          "start": 8.65,
+          "end": 9.07,
+          "key": "time",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 9.51,
+          "end": 9.63,
+          "key": "she",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 9.63,
+          "end": 9.77,
+          "key": "had",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "lowered",
+          "start": 9.77,
+          "end": 10.05,
+          "key": "lowered",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.05,
+          "end": 10.27,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "revolver",
+          "start": 10.27,
+          "end": 10.63,
+          "key": "revolver",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 10.63,
+          "end": 10.99,
+          "key": "in",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "terror",
+          "start": 10.99,
+          "end": 11.29,
+          "key": "terror",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.29,
+          "end": 11.65,
+          "key": "and",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "gazed",
+          "start": 11.65,
+          "end": 11.97,
+          "key": "gazed",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "blankly",
+          "start": 11.97,
+          "end": 12.51,
+          "key": "blankly",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 12.51,
+          "end": 12.63,
+          "key": "at",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 12.63,
+          "end": 12.83,
+          "key": "him",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 13.17,
+          "end": 13.39,
+          "key": "so",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 13.39,
+          "end": 13.49,
+          "key": "that",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 13.49,
+          "end": 13.63,
+          "key": "he",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 13.63,
+          "end": 13.79,
+          "key": "might",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 13.79,
+          "end": 13.93,
+          "key": "have",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "seized",
+          "start": 13.93,
+          "end": 14.21,
+          "key": "seized",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 14.21,
+          "end": 14.43,
+          "key": "her",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "twice",
+          "start": 14.43,
+          "end": 14.67,
+          "key": "twice",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "over,",
+          "start": 14.67,
+          "end": 15.09,
+          "key": "over",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 15.49,
+          "end": 15.61,
+          "key": "and",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 15.61,
+          "end": 15.73,
+          "key": "she",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 15.73,
+          "end": 15.85,
+          "key": "would",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 15.85,
+          "end": 16.05,
+          "key": "not",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 16.05,
+          "end": 16.17,
+          "key": "have",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "lifted",
+          "start": 16.17,
+          "end": 16.43,
+          "key": "lifted",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 16.43,
+          "end": 16.61,
+          "key": "a",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 16.61,
+          "end": 16.83,
+          "key": "hand",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.83,
+          "end": 17.03,
+          "key": "to",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "defend",
+          "start": 17.03,
+          "end": 17.33,
+          "key": "defend",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "herself",
+          "start": 17.33,
+          "end": 17.67,
+          "key": "herself",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 17.67,
+          "end": 17.89,
+          "key": "if",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 17.89,
+          "end": 18.01,
+          "key": "he",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 18.01,
+          "end": 18.09,
+          "key": "had",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 18.09,
+          "end": 18.29,
+          "key": "not",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "reminded",
+          "start": 18.29,
+          "end": 18.73,
+          "key": "reminded",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 18.73,
+          "end": 19.03,
+          "key": "her",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 19.69,
+          "end": 19.87,
+          "key": "he",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "recalled",
+          "start": 19.87,
+          "end": 20.19,
+          "key": "recalled",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 20.19,
+          "end": 20.45,
+          "key": "how",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 20.45,
+          "end": 20.59,
+          "key": "at",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 20.59,
+          "end": 20.77,
+          "key": "that",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "instant",
+          "start": 20.77,
+          "end": 21.19,
+          "key": "instant",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 21.19,
+          "end": 21.43,
+          "key": "he",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "felt",
+          "start": 21.43,
+          "end": 21.61,
+          "key": "felt",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 21.61,
+          "end": 22.03,
+          "key": "almost",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "sorry",
+          "start": 22.03,
+          "end": 22.43,
+          "key": "sorry",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 22.43,
+          "end": 22.69,
+          "key": "for",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "her,",
+          "start": 22.69,
+          "end": 22.87,
+          "key": "her",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 23.23,
+          "end": 23.41,
+          "key": "how",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 23.41,
+          "end": 23.55,
+          "key": "he",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 23.55,
+          "end": 23.65,
+          "key": "had",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "felt",
+          "start": 23.65,
+          "end": 23.81,
+          "key": "felt",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 23.81,
+          "end": 23.97,
+          "key": "a",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "pang",
+          "start": 23.97,
+          "end": 24.21,
+          "key": "pang",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 24.21,
+          "end": 24.39,
+          "key": "at",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 24.39,
+          "end": 24.53,
+          "key": "his",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "heart.",
+          "start": 24.53,
+          "end": 24.81,
+          "key": "heart",
+          "pieces": [
+            83
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "ground",
+          "start": 0.49,
+          "end": 0.73
+        },
+        {
+          "text": "his",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "text": "teeth",
+          "start": 0.97,
+          "end": 1.23
+        },
+        {
+          "text": "and",
+          "start": 1.23,
+          "end": 1.53
+        },
+        {
+          "text": "sank",
+          "start": 1.53,
+          "end": 1.79
+        },
+        {
+          "text": "into",
+          "start": 1.79,
+          "end": 2.05
+        },
+        {
+          "text": "silence",
+          "start": 2.05,
+          "end": 2.43
+        },
+        {
+          "text": "again.",
+          "start": 2.43,
+          "end": 2.91
+        },
+        {
+          "text": "Again",
+          "start": 3.87,
+          "end": 3.87
+        },
+        {
+          "text": "Dounia's",
+          "start": 4.09,
+          "end": 4.43
+        },
+        {
+          "text": "image",
+          "start": 4.43,
+          "end": 4.73
+        },
+        {
+          "text": "rose",
+          "start": 4.73,
+          "end": 5.13
+        },
+        {
+          "text": "before",
+          "start": 5.13,
+          "end": 5.57
+        },
+        {
+          "text": "him,",
+          "start": 5.57,
+          "end": 5.93
+        },
+        {
+          "text": "just",
+          "start": 6.23,
+          "end": 6.51
+        },
+        {
+          "text": "as",
+          "start": 6.51,
+          "end": 6.69
+        },
+        {
+          "text": "she",
+          "start": 6.69,
+          "end": 6.81
+        },
+        {
+          "text": "was",
+          "start": 6.81,
+          "end": 7.01
+        },
+        {
+          "text": "when,",
+          "start": 7.01,
+          "end": 7.29
+        },
+        {
+          "text": "after",
+          "start": 7.65,
+          "end": 7.97
+        },
+        {
+          "text": "shooting",
+          "start": 7.97,
+          "end": 8.25
+        },
+        {
+          "text": "the",
+          "start": 8.25,
+          "end": 8.45
+        },
+        {
+          "text": "first",
+          "start": 8.45,
+          "end": 8.65
+        },
+        {
+          "text": "time,",
+          "start": 8.65,
+          "end": 9.07
+        },
+        {
+          "text": "she",
+          "start": 9.51,
+          "end": 9.63
+        },
+        {
+          "text": "had",
+          "start": 9.63,
+          "end": 9.77
+        },
+        {
+          "text": "lowered",
+          "start": 9.77,
+          "end": 10.05
+        },
+        {
+          "text": "the",
+          "start": 10.05,
+          "end": 10.27
+        },
+        {
+          "text": "revolver",
+          "start": 10.27,
+          "end": 10.63
+        },
+        {
+          "text": "in",
+          "start": 10.63,
+          "end": 10.99
+        },
+        {
+          "text": "terror",
+          "start": 10.99,
+          "end": 11.29
+        },
+        {
+          "text": "and",
+          "start": 11.29,
+          "end": 11.65
+        },
+        {
+          "text": "gazed",
+          "start": 11.65,
+          "end": 11.97
+        },
+        {
+          "text": "blankly",
+          "start": 11.97,
+          "end": 12.51
+        },
+        {
+          "text": "at",
+          "start": 12.51,
+          "end": 12.63
+        },
+        {
+          "text": "him,",
+          "start": 12.63,
+          "end": 12.83
+        },
+        {
+          "text": "so",
+          "start": 13.17,
+          "end": 13.39
+        },
+        {
+          "text": "that",
+          "start": 13.39,
+          "end": 13.49
+        },
+        {
+          "text": "he",
+          "start": 13.49,
+          "end": 13.63
+        },
+        {
+          "text": "might",
+          "start": 13.63,
+          "end": 13.79
+        },
+        {
+          "text": "have",
+          "start": 13.79,
+          "end": 13.93
+        },
+        {
+          "text": "seized",
+          "start": 13.93,
+          "end": 14.21
+        },
+        {
+          "text": "her",
+          "start": 14.21,
+          "end": 14.43
+        },
+        {
+          "text": "twice",
+          "start": 14.43,
+          "end": 14.67
+        },
+        {
+          "text": "over",
+          "start": 14.67,
+          "end": 15.09
+        },
+        {
+          "text": "and",
+          "start": 15.49,
+          "end": 15.61
+        },
+        {
+          "text": "she",
+          "start": 15.61,
+          "end": 15.73
+        },
+        {
+          "text": "would",
+          "start": 15.73,
+          "end": 15.85
+        },
+        {
+          "text": "not",
+          "start": 15.85,
+          "end": 16.05
+        },
+        {
+          "text": "have",
+          "start": 16.05,
+          "end": 16.17
+        },
+        {
+          "text": "lifted",
+          "start": 16.17,
+          "end": 16.43
+        },
+        {
+          "text": "a",
+          "start": 16.43,
+          "end": 16.61
+        },
+        {
+          "text": "hand",
+          "start": 16.61,
+          "end": 16.83
+        },
+        {
+          "text": "to",
+          "start": 16.83,
+          "end": 17.03
+        },
+        {
+          "text": "defend",
+          "start": 17.03,
+          "end": 17.33
+        },
+        {
+          "text": "herself",
+          "start": 17.33,
+          "end": 17.67
+        },
+        {
+          "text": "if",
+          "start": 17.67,
+          "end": 17.89
+        },
+        {
+          "text": "he",
+          "start": 17.89,
+          "end": 18.01
+        },
+        {
+          "text": "had",
+          "start": 18.01,
+          "end": 18.09
+        },
+        {
+          "text": "not",
+          "start": 18.09,
+          "end": 18.29
+        },
+        {
+          "text": "reminded",
+          "start": 18.29,
+          "end": 18.73
+        },
+        {
+          "text": "her.",
+          "start": 18.73,
+          "end": 19.03
+        },
+        {
+          "text": "He",
+          "start": 19.69,
+          "end": 19.87
+        },
+        {
+          "text": "recalled",
+          "start": 19.87,
+          "end": 20.19
+        },
+        {
+          "text": "how",
+          "start": 20.19,
+          "end": 20.45
+        },
+        {
+          "text": "at",
+          "start": 20.45,
+          "end": 20.59
+        },
+        {
+          "text": "that",
+          "start": 20.59,
+          "end": 20.77
+        },
+        {
+          "text": "instant",
+          "start": 20.77,
+          "end": 21.19
+        },
+        {
+          "text": "he",
+          "start": 21.19,
+          "end": 21.43
+        },
+        {
+          "text": "felt",
+          "start": 21.43,
+          "end": 21.61
+        },
+        {
+          "text": "almost",
+          "start": 21.61,
+          "end": 22.03
+        },
+        {
+          "text": "sorry",
+          "start": 22.03,
+          "end": 22.43
+        },
+        {
+          "text": "for",
+          "start": 22.43,
+          "end": 22.69
+        },
+        {
+          "text": "her,",
+          "start": 22.69,
+          "end": 22.87
+        },
+        {
+          "text": "how",
+          "start": 23.23,
+          "end": 23.41
+        },
+        {
+          "text": "he",
+          "start": 23.41,
+          "end": 23.55
+        },
+        {
+          "text": "had",
+          "start": 23.55,
+          "end": 23.65
+        },
+        {
+          "text": "felt",
+          "start": 23.65,
+          "end": 23.81
+        },
+        {
+          "text": "a",
+          "start": 23.81,
+          "end": 23.97
+        },
+        {
+          "text": "pang",
+          "start": 23.97,
+          "end": 24.21
+        },
+        {
+          "text": "at",
+          "start": 24.21,
+          "end": 24.39
+        },
+        {
+          "text": "his",
+          "start": 24.39,
+          "end": 24.53
+        },
+        {
+          "text": "heart...",
+          "start": 24.53,
+          "end": 24.81
+        }
+      ],
+      "stats": {
+        "expected_words": 84,
+        "heard_words": 84,
+        "matched_words": 84
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6664297110401094
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "6a13e2aa14e8ac143df51f68944077f7ebae419ab6abeefb165c7364d50233a1",
+  "selected_reasons": []
+}

@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "df2e072eec5e0b4ebeb556cfe0f34fb206743b8b9da7c98653a736c140568a1c",
+  "attempts": [
+    {
+      "asr_seconds": 0.18698460841551423,
+      "alignment_seconds": 0.0004609338939189911,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Charmian, I had rather heat my liver with drinking.",
+          "start": 0.02,
+          "end": 2.82,
+          "words": [
+            {
+              "text": " Charmian,",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.720458984375
+            },
+            {
+              "text": " I",
+              "start": 1.2,
+              "end": 1.4,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " had",
+              "start": 1.4,
+              "end": 1.48,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " rather",
+              "start": 1.48,
+              "end": 1.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " heat",
+              "start": 1.64,
+              "end": 1.88,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " my",
+              "start": 1.88,
+              "end": 2.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " liver",
+              "start": 2.04,
+              "end": 2.24,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 2.24,
+              "end": 2.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " drinking.",
+              "start": 2.48,
+              "end": 2.82,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Charmian,",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "I",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "raw": "had",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "raw": "rather",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "raw": "heat",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "raw": "my",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "raw": "liver",
+          "start": 2.04,
+          "end": 2.24
+        },
+        {
+          "raw": "with",
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "raw": "drinking.",
+          "start": 2.48,
+          "end": 2.82
+        }
+      ],
+      "expected_tokens": [
+        "Charmian.",
+        "I",
+        "had",
+        "rather",
+        "heat",
+        "my",
+        "liver",
+        "with",
+        "drinking."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Charmian,",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "charmian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.2,
+          "end": 1.4,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.4,
+          "end": 1.48,
+          "key": "had",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "rather",
+          "start": 1.48,
+          "end": 1.64,
+          "key": "rather",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "heat",
+          "start": 1.64,
+          "end": 1.88,
+          "key": "heat",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.88,
+          "end": 2.04,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "liver",
+          "start": 2.04,
+          "end": 2.24,
+          "key": "liver",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.24,
+          "end": 2.48,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "drinking.",
+          "start": 2.48,
+          "end": 2.82,
+          "key": "drinking",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Charmian.",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "text": "I",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "text": "had",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "text": "rather",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "text": "heat",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "text": "my",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "text": "liver",
+          "start": 2.04,
+          "end": 2.24
+        },
+        {
+          "text": "with",
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "text": "drinking.",
+          "start": 2.48,
+          "end": 2.82
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18763653142377734
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6d72bf8ed41c7774de5729dac341d3ff3dd3d4a05f00b7aa7bf711bf686e418d",
+  "selected_reasons": []
+}

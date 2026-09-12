@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "bc93152babed13c8bc31a4f82d1fc72e8ad6d9c0147433b8bd5f3733e5015907",
+  "attempts": [
+    {
+      "asr_seconds": 0.15647983271628618,
+      "alignment_seconds": 0.00031497469171881676,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antony. Fulvia is dead.",
+        "hotwords": "Antony, Fulvia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antony, Fulvia is dead.",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.818359375
+            },
+            {
+              "text": " Fulvia",
+              "start": 1.29,
+              "end": 1.49,
+              "probability": 0.5875244140625
+            },
+            {
+              "text": " is",
+              "start": 1.49,
+              "end": 1.67,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " dead.",
+              "start": 1.67,
+              "end": 1.93,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Fulvia",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "raw": "is",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "raw": "dead.",
+          "start": 1.67,
+          "end": 1.93
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Fulvia",
+        "is",
+        "dead."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fulvia",
+          "start": 1.29,
+          "end": 1.49,
+          "key": "fulvia",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.49,
+          "end": 1.67,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dead.",
+          "start": 1.67,
+          "end": 1.93,
+          "key": "dead",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Fulvia",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "text": "is",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "text": "dead.",
+          "start": 1.67,
+          "end": 1.93
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1569165699183941
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "46f5904a5cf72d3258aa78ee4d1abe1c014bed20740dad111e77f2365c682d0e",
+  "selected_reasons": []
+}

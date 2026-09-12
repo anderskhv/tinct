@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "fd43f864fdd50d83cd62520f6fcea8ad86e15ac4f575ca2c85f853df08fe374b",
+  "attempts": [
+    {
+      "asr_seconds": 0.11671447567641735,
+      "alignment_seconds": 0.0002736360765993595,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Nothing's nothing.",
+          "start": 0.02,
+          "end": 1.18,
+          "words": [
+            {
+              "text": " Nothing's",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " nothing.",
+              "start": 0.9,
+              "end": 1.18,
+              "probability": 0.97607421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nothing's",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "nothing.",
+          "start": 0.9,
+          "end": 1.18
+        }
+      ],
+      "expected_tokens": [
+        "\"Nothing,",
+        "nothing.\""
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          1,
+          1,
+          2
+        ],
+        [
+          "delete",
+          1,
+          2,
+          2,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          2,
+          2,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nothing's",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "nothings",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nothing.",
+          "start": 0.9,
+          "end": 1.18,
+          "key": "nothing",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Nothing,",
+          "start": 0.9,
+          "end": 1.18
+        },
+        {
+          "text": "nothing.\"",
+          "start": 1.18,
+          "end": 1.18
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11708288500085473
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fa16b4fea20d75a1ae1fe715bd96b78fdabef18bf09cab033d9a373f72d0134e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

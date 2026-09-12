@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "740cef86e81f14b4f6604634205d9501c1ca234a7588590836d48f0cdca54de3",
+  "attempts": [
+    {
+      "asr_seconds": 0.21505605382844806,
+      "alignment_seconds": 0.0003481060266494751,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alexis, Sovereign of Egypt Hail.",
+          "start": 0.05,
+          "end": 2.29,
+          "words": [
+            {
+              "text": " Alexis,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.70751953125
+            },
+            {
+              "text": " Sovereign",
+              "start": 1.51,
+              "end": 1.51,
+              "probability": 0.50146484375
+            },
+            {
+              "text": " of",
+              "start": 1.51,
+              "end": 1.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Egypt",
+              "start": 1.69,
+              "end": 1.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Hail.",
+              "start": 1.95,
+              "end": 2.29,
+              "probability": 0.60400390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alexis,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Sovereign",
+          "start": 1.51,
+          "end": 1.51
+        },
+        {
+          "raw": "of",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "raw": "Egypt",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "raw": "Hail.",
+          "start": 1.95,
+          "end": 2.29
+        }
+      ],
+      "expected_tokens": [
+        "Alexas.",
+        "Sovereign",
+        "of",
+        "Egypt,",
+        "hail!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alexis,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "alexis",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sovereign",
+          "start": 1.51,
+          "end": 1.51,
+          "key": "sovereign",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.51,
+          "end": 1.69,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Egypt",
+          "start": 1.69,
+          "end": 1.95,
+          "key": "egypt",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Hail.",
+          "start": 1.95,
+          "end": 2.29,
+          "key": "hail",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alexas.",
+          "start": 0.0,
+          "end": 0.755
+        },
+        {
+          "text": "Sovereign",
+          "start": 1.51,
+          "end": 1.51
+        },
+        {
+          "text": "of",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "text": "Egypt,",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "text": "hail!",
+          "start": 1.95,
+          "end": 2.29
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21556090284138918
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4da14d01f4430ee563eba88129d8f5a268a81f20ab81b1c201284e4d23841fa4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

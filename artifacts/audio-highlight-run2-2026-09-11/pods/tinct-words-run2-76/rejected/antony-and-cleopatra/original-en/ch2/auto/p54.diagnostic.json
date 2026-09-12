@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "17208be2e4b6987a5842db0c1806203c7f4a45d1f2201ffd636ff64b3d277c8f",
+  "attempts": [
+    {
+      "asr_seconds": 0.20770760299637914,
+      "alignment_seconds": 0.00048776203766465187,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cleopatra. Seek him and bring him hither. Where's Alexas?",
+        "hotwords": "Cleopatra, Seek, Where's, Alexas"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, Seek him and bring him hither. Where's Alexas?",
+          "start": 0.05,
+          "end": 3.49,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.9664713541666666
+            },
+            {
+              "text": " Seek",
+              "start": 1.43,
+              "end": 1.57,
+              "probability": 0.0034046173095703125
+            },
+            {
+              "text": " him",
+              "start": 1.57,
+              "end": 1.75,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " and",
+              "start": 1.75,
+              "end": 1.89,
+              "probability": 0.9453125
+            },
+            {
+              "text": " bring",
+              "start": 1.89,
+              "end": 2.03,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " him",
+              "start": 2.03,
+              "end": 2.19,
+              "probability": 0.9921875
+            },
+            {
+              "text": " hither.",
+              "start": 2.19,
+              "end": 2.43,
+              "probability": 0.955078125
+            },
+            {
+              "text": " Where's",
+              "start": 2.77,
+              "end": 3.05,
+              "probability": 0.876708984375
+            },
+            {
+              "text": " Alexas?",
+              "start": 3.05,
+              "end": 3.49,
+              "probability": 0.1993255615234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "Seek",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "raw": "him",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "raw": "and",
+          "start": 1.75,
+          "end": 1.89
+        },
+        {
+          "raw": "bring",
+          "start": 1.89,
+          "end": 2.03
+        },
+        {
+          "raw": "him",
+          "start": 2.03,
+          "end": 2.19
+        },
+        {
+          "raw": "hither.",
+          "start": 2.19,
+          "end": 2.43
+        },
+        {
+          "raw": "Where's",
+          "start": 2.77,
+          "end": 3.05
+        },
+        {
+          "raw": "Alexas?",
+          "start": 3.05,
+          "end": 3.49
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "Seek",
+        "him",
+        "and",
+        "bring",
+        "him",
+        "hither.",
+        "Where's",
+        "Alexas?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Seek",
+          "start": 1.43,
+          "end": 1.57,
+          "key": "seek",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.57,
+          "end": 1.75,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.75,
+          "end": 1.89,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 1.89,
+          "end": 2.03,
+          "key": "bring",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.03,
+          "end": 2.19,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hither.",
+          "start": 2.19,
+          "end": 2.43,
+          "key": "hither",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Where's",
+          "start": 2.77,
+          "end": 3.05,
+          "key": "wheres",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Alexas?",
+          "start": 3.05,
+          "end": 3.49,
+          "key": "alexas",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "Seek",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "text": "him",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "text": "and",
+          "start": 1.75,
+          "end": 1.89
+        },
+        {
+          "text": "bring",
+          "start": 1.89,
+          "end": 2.03
+        },
+        {
+          "text": "him",
+          "start": 2.03,
+          "end": 2.19
+        },
+        {
+          "text": "hither.",
+          "start": 2.19,
+          "end": 2.43
+        },
+        {
+          "text": "Where's",
+          "start": 2.77,
+          "end": 3.05
+        },
+        {
+          "text": "Alexas?",
+          "start": 3.05,
+          "end": 3.49
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20837463485077024
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "88bd9eece3fe211052380190d3cd25167fc6f1d648dea22a3c2eaaa204a3b178",
+  "selected_reasons": []
+}

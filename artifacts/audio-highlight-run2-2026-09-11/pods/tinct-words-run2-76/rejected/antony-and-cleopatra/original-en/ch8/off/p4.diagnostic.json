@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "ecf1445e377182e98c8495d08fd8f1015966e9fc47e2a31dff7a0990dd2f067f",
+  "attempts": [
+    {
+      "asr_seconds": 0.12060671299695969,
+      "alignment_seconds": 0.00034757237881422043,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Octavia good night, sir",
+          "start": 0.02,
+          "end": 2.18,
+          "words": [
+            {
+              "text": " Octavia",
+              "start": 0.02,
+              "end": 0.96,
+              "probability": 0.976806640625
+            },
+            {
+              "text": " good",
+              "start": 0.96,
+              "end": 1.42,
+              "probability": 0.160888671875
+            },
+            {
+              "text": " night,",
+              "start": 1.42,
+              "end": 1.62,
+              "probability": 0.64306640625
+            },
+            {
+              "text": " sir",
+              "start": 1.62,
+              "end": 2.18,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Octavia",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "raw": "good",
+          "start": 0.96,
+          "end": 1.42
+        },
+        {
+          "raw": "night,",
+          "start": 1.42,
+          "end": 1.62
+        },
+        {
+          "raw": "sir",
+          "start": 1.62,
+          "end": 2.18
+        }
+      ],
+      "expected_tokens": [
+        "Octavia.",
+        "Good",
+        "night,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Octavia",
+          "start": 0.02,
+          "end": 0.96,
+          "key": "octavia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 0.96,
+          "end": 1.42,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "night,",
+          "start": 1.42,
+          "end": 1.62,
+          "key": "night",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir",
+          "start": 1.62,
+          "end": 2.18,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Octavia.",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "text": "Good",
+          "start": 0.96,
+          "end": 1.42
+        },
+        {
+          "text": "night,",
+          "start": 1.42,
+          "end": 1.62
+        },
+        {
+          "text": "sir.",
+          "start": 1.62,
+          "end": 2.18
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12106976564973593
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "58cefc848969a0bf4216f1300ce28c31103031e5491eb785ca4a77d3ce9ec37c",
+  "selected_reasons": []
+}

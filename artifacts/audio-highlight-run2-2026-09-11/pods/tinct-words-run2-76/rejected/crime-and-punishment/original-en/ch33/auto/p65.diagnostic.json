@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "cc9475014175ca9dde6e89848e570a0f518954e6b076a8543f23e53aa3913eb0",
+  "attempts": [
+    {
+      "asr_seconds": 0.10689264070242643,
+      "alignment_seconds": 0.00019434979185461998,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"When do you mean to arrest me?\"",
+        "hotwords": "When"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " When do you mean to arrest me?",
+          "start": 0.02,
+          "end": 1.68,
+          "words": [
+            {
+              "text": " When",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " do",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 0.62,
+              "end": 0.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mean",
+              "start": 0.7,
+              "end": 0.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 0.86,
+              "end": 1.04,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " arrest",
+              "start": 1.04,
+              "end": 1.34,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " me?",
+              "start": 1.34,
+              "end": 1.68,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "When",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "do",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "you",
+          "start": 0.62,
+          "end": 0.7
+        },
+        {
+          "raw": "mean",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "raw": "to",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "raw": "arrest",
+          "start": 1.04,
+          "end": 1.34
+        },
+        {
+          "raw": "me?",
+          "start": 1.34,
+          "end": 1.68
+        }
+      ],
+      "expected_tokens": [
+        "\"When",
+        "do",
+        "you",
+        "mean",
+        "to",
+        "arrest",
+        "me?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "When",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "when",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.62,
+          "end": 0.7,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 0.7,
+          "end": 0.86,
+          "key": "mean",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.86,
+          "end": 1.04,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "arrest",
+          "start": 1.04,
+          "end": 1.34,
+          "key": "arrest",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 1.34,
+          "end": 1.68,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"When",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "do",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "you",
+          "start": 0.62,
+          "end": 0.7
+        },
+        {
+          "text": "mean",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "text": "to",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "text": "arrest",
+          "start": 1.04,
+          "end": 1.34
+        },
+        {
+          "text": "me?\"",
+          "start": 1.34,
+          "end": 1.68
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10716309398412704
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "aafd956bf6a5916e27c9612dd139df797e065b0622ac6aa29ec4edc97d385aa4",
+  "selected_reasons": []
+}

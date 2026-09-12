@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "7e4ca98ce65da3e5483208d0900e8c7e7b68278638acb31cab8d1888584d3efe",
+  "attempts": [
+    {
+      "asr_seconds": 0.18979385774582624,
+      "alignment_seconds": 0.0004176720976829529,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alexis, we'll know all our fortunes.",
+          "start": 0.05,
+          "end": 2.13,
+          "words": [
+            {
+              "text": " Alexis,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.779296875
+            },
+            {
+              "text": " we'll",
+              "start": 1.23,
+              "end": 1.41,
+              "probability": 0.890625
+            },
+            {
+              "text": " know",
+              "start": 1.41,
+              "end": 1.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " all",
+              "start": 1.51,
+              "end": 1.65,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " our",
+              "start": 1.65,
+              "end": 1.79,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " fortunes.",
+              "start": 1.79,
+              "end": 2.13,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alexis,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "we'll",
+          "start": 1.23,
+          "end": 1.41
+        },
+        {
+          "raw": "know",
+          "start": 1.41,
+          "end": 1.51
+        },
+        {
+          "raw": "all",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "raw": "our",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "raw": "fortunes.",
+          "start": 1.79,
+          "end": 2.13
+        }
+      ],
+      "expected_tokens": [
+        "Alexas.",
+        "We'll",
+        "know",
+        "all",
+        "our",
+        "fortunes."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alexis,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "alexis",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "we'll",
+          "start": 1.23,
+          "end": 1.41,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.41,
+          "end": 1.51,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.51,
+          "end": 1.65,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 1.65,
+          "end": 1.79,
+          "key": "our",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fortunes.",
+          "start": 1.79,
+          "end": 2.13,
+          "key": "fortunes",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alexas.",
+          "start": 0.0,
+          "end": 0.615
+        },
+        {
+          "text": "We'll",
+          "start": 1.23,
+          "end": 1.41
+        },
+        {
+          "text": "know",
+          "start": 1.41,
+          "end": 1.51
+        },
+        {
+          "text": "all",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "text": "our",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "text": "fortunes.",
+          "start": 1.79,
+          "end": 2.13
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19035029085353017
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "af1b2d03a22830110f2f5b180adf55467883ea64227faa9a6221ae8c98c3ec6a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

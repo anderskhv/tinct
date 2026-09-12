@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "fd94df1d1cca98083a5c8e41b88404853b1f412c7928020d822b4cdf50776461",
+  "attempts": [
+    {
+      "asr_seconds": 0.3565323478542268,
+      "alignment_seconds": 0.0006042248569428921,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No, it was you, you Rodion Romanovitch, and no one else,\" Porfiry whispered sternly, with conviction.",
+        "hotwords": "Rodion, Romanovitch, Porfiry"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No, it was you, you Rodion Romanovitch, and no one else,\" Porfiry whispered sternly, with conviction.",
+          "start": 0.05,
+          "end": 6.61,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.128173828125
+            },
+            {
+              "text": " it",
+              "start": 0.81,
+              "end": 0.95,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " was",
+              "start": 0.95,
+              "end": 1.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you,",
+              "start": 1.11,
+              "end": 1.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 1.87,
+              "end": 1.93,
+              "probability": 0.2427978515625
+            },
+            {
+              "text": " Rodion",
+              "start": 1.93,
+              "end": 2.33,
+              "probability": 0.168731689453125
+            },
+            {
+              "text": " Romanovitch,",
+              "start": 2.33,
+              "end": 3.01,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " and",
+              "start": 3.15,
+              "end": 3.23,
+              "probability": 0.986328125
+            },
+            {
+              "text": " no",
+              "start": 3.23,
+              "end": 3.39,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " one",
+              "start": 3.39,
+              "end": 3.51,
+              "probability": 0.982421875
+            },
+            {
+              "text": " else,\"",
+              "start": 3.51,
+              "end": 4.45,
+              "probability": 0.669677734375
+            },
+            {
+              "text": " Porfiry",
+              "start": 4.45,
+              "end": 4.79,
+              "probability": 0.3891194661458333
+            },
+            {
+              "text": " whispered",
+              "start": 4.79,
+              "end": 5.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sternly,",
+              "start": 5.13,
+              "end": 5.85,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " with",
+              "start": 6.15,
+              "end": 6.25,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " conviction.",
+              "start": 6.25,
+              "end": 6.61,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "it",
+          "start": 0.81,
+          "end": 0.95
+        },
+        {
+          "raw": "was",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "raw": "you,",
+          "start": 1.11,
+          "end": 1.45
+        },
+        {
+          "raw": "you",
+          "start": 1.87,
+          "end": 1.93
+        },
+        {
+          "raw": "Rodion",
+          "start": 1.93,
+          "end": 2.33
+        },
+        {
+          "raw": "Romanovitch,",
+          "start": 2.33,
+          "end": 3.01
+        },
+        {
+          "raw": "and",
+          "start": 3.15,
+          "end": 3.23
+        },
+        {
+          "raw": "no",
+          "start": 3.23,
+          "end": 3.39
+        },
+        {
+          "raw": "one",
+          "start": 3.39,
+          "end": 3.51
+        },
+        {
+          "raw": "else,\"",
+          "start": 3.51,
+          "end": 4.45
+        },
+        {
+          "raw": "Porfiry",
+          "start": 4.45,
+          "end": 4.79
+        },
+        {
+          "raw": "whispered",
+          "start": 4.79,
+          "end": 5.13
+        },
+        {
+          "raw": "sternly,",
+          "start": 5.13,
+          "end": 5.85
+        },
+        {
+          "raw": "with",
+          "start": 6.15,
+          "end": 6.25
+        },
+        {
+          "raw": "conviction.",
+          "start": 6.25,
+          "end": 6.61
+        }
+      ],
+      "expected_tokens": [
+        "\"No,",
+        "it",
+        "was",
+        "you,",
+        "you",
+        "Rodion",
+        "Romanovitch,",
+        "and",
+        "no",
+        "one",
+        "else,\"",
+        "Porfiry",
+        "whispered",
+        "sternly,",
+        "with",
+        "conviction."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.81,
+          "end": 0.95,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.95,
+          "end": 1.11,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.11,
+          "end": 1.45,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.87,
+          "end": 1.93,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Rodion",
+          "start": 1.93,
+          "end": 2.33,
+          "key": "rodion",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Romanovitch,",
+          "start": 2.33,
+          "end": 3.01,
+          "key": "romanovitch",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.15,
+          "end": 3.23,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.23,
+          "end": 3.39,
+          "key": "no",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 3.39,
+          "end": 3.51,
+          "key": "one",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "else,\"",
+          "start": 3.51,
+          "end": 4.45,
+          "key": "else",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Porfiry",
+          "start": 4.45,
+          "end": 4.79,
+          "key": "porfiry",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "whispered",
+          "start": 4.79,
+          "end": 5.13,
+          "key": "whispered",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "sternly,",
+          "start": 5.13,
+          "end": 5.85,
+          "key": "sternly",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.15,
+          "end": 6.25,
+          "key": "with",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "conviction.",
+          "start": 6.25,
+          "end": 6.61,
+          "key": "conviction",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "it",
+          "start": 0.81,
+          "end": 0.95
+        },
+        {
+          "text": "was",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "text": "you,",
+          "start": 1.11,
+          "end": 1.45
+        },
+        {
+          "text": "you",
+          "start": 1.87,
+          "end": 1.93
+        },
+        {
+          "text": "Rodion",
+          "start": 1.93,
+          "end": 2.33
+        },
+        {
+          "text": "Romanovitch,",
+          "start": 2.33,
+          "end": 3.01
+        },
+        {
+          "text": "and",
+          "start": 3.15,
+          "end": 3.23
+        },
+        {
+          "text": "no",
+          "start": 3.23,
+          "end": 3.39
+        },
+        {
+          "text": "one",
+          "start": 3.39,
+          "end": 3.51
+        },
+        {
+          "text": "else,\"",
+          "start": 3.51,
+          "end": 4.45
+        },
+        {
+          "text": "Porfiry",
+          "start": 4.45,
+          "end": 4.79
+        },
+        {
+          "text": "whispered",
+          "start": 4.79,
+          "end": 5.13
+        },
+        {
+          "text": "sternly,",
+          "start": 5.13,
+          "end": 5.85
+        },
+        {
+          "text": "with",
+          "start": 6.15,
+          "end": 6.25
+        },
+        {
+          "text": "conviction.",
+          "start": 6.25,
+          "end": 6.61
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.35738074174150825
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "de94e0c9e87343ec10ef28a1bc6baef6643fffb9683960445f5203a9674aa8fe",
+  "selected_reasons": []
+}

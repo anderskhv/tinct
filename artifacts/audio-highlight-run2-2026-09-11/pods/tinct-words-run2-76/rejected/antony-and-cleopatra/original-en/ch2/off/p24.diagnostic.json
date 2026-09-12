@@ -1,0 +1,658 @@
+{
+  "complete": true,
+  "signature": "623bde4539275d66732ee3668a886308b068987a8781b3cb4665bc5855827d6b",
+  "attempts": [
+    {
+      "asr_seconds": 0.32239037472754717,
+      "alignment_seconds": 0.000517639797180891,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Charmian, then belike my children shall have no names. Prithy, how many boys and wenches must I have?",
+          "start": 0.02,
+          "end": 6.6,
+          "words": [
+            {
+              "text": " Charmian,",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.662109375
+            },
+            {
+              "text": " then",
+              "start": 1.28,
+              "end": 1.54,
+              "probability": 0.71240234375
+            },
+            {
+              "text": " belike",
+              "start": 1.54,
+              "end": 1.88,
+              "probability": 0.6591796875
+            },
+            {
+              "text": " my",
+              "start": 1.88,
+              "end": 2.08,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " children",
+              "start": 2.08,
+              "end": 2.38,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " shall",
+              "start": 2.38,
+              "end": 2.7,
+              "probability": 0.94921875
+            },
+            {
+              "text": " have",
+              "start": 2.7,
+              "end": 2.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " no",
+              "start": 2.9,
+              "end": 3.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " names.",
+              "start": 3.1,
+              "end": 3.56,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Prithy,",
+              "start": 4.16,
+              "end": 4.4,
+              "probability": 0.6927083333333334
+            },
+            {
+              "text": " how",
+              "start": 4.68,
+              "end": 4.78,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " many",
+              "start": 4.78,
+              "end": 4.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " boys",
+              "start": 4.92,
+              "end": 5.26,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " and",
+              "start": 5.26,
+              "end": 5.48,
+              "probability": 0.9609375
+            },
+            {
+              "text": " wenches",
+              "start": 5.48,
+              "end": 5.8,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " must",
+              "start": 5.8,
+              "end": 6.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 6.04,
+              "end": 6.24,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " have?",
+              "start": 6.24,
+              "end": 6.6,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Charmian,",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "then",
+          "start": 1.28,
+          "end": 1.54
+        },
+        {
+          "raw": "belike",
+          "start": 1.54,
+          "end": 1.88
+        },
+        {
+          "raw": "my",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "raw": "children",
+          "start": 2.08,
+          "end": 2.38
+        },
+        {
+          "raw": "shall",
+          "start": 2.38,
+          "end": 2.7
+        },
+        {
+          "raw": "have",
+          "start": 2.7,
+          "end": 2.9
+        },
+        {
+          "raw": "no",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "raw": "names.",
+          "start": 3.1,
+          "end": 3.56
+        },
+        {
+          "raw": "Prithy,",
+          "start": 4.16,
+          "end": 4.4
+        },
+        {
+          "raw": "how",
+          "start": 4.68,
+          "end": 4.78
+        },
+        {
+          "raw": "many",
+          "start": 4.78,
+          "end": 4.92
+        },
+        {
+          "raw": "boys",
+          "start": 4.92,
+          "end": 5.26
+        },
+        {
+          "raw": "and",
+          "start": 5.26,
+          "end": 5.48
+        },
+        {
+          "raw": "wenches",
+          "start": 5.48,
+          "end": 5.8
+        },
+        {
+          "raw": "must",
+          "start": 5.8,
+          "end": 6.04
+        },
+        {
+          "raw": "I",
+          "start": 6.04,
+          "end": 6.24
+        },
+        {
+          "raw": "have?",
+          "start": 6.24,
+          "end": 6.6
+        }
+      ],
+      "expected_tokens": [
+        "Charmian.",
+        "Then",
+        "belike",
+        "my",
+        "children",
+        "shall",
+        "have",
+        "no",
+        "names.",
+        "Prithee,",
+        "how",
+        "many",
+        "boys",
+        "and",
+        "wenches",
+        "must",
+        "I",
+        "have?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          18,
+          10,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Charmian,",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "charmian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.28,
+          "end": 1.54,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "belike",
+          "start": 1.54,
+          "end": 1.88,
+          "key": "belike",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.88,
+          "end": 2.08,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "children",
+          "start": 2.08,
+          "end": 2.38,
+          "key": "children",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.38,
+          "end": 2.7,
+          "key": "shall",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.7,
+          "end": 2.9,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.9,
+          "end": 3.1,
+          "key": "no",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "names.",
+          "start": 3.1,
+          "end": 3.56,
+          "key": "names",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Prithy,",
+          "start": 4.16,
+          "end": 4.4,
+          "key": "prithy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 4.68,
+          "end": 4.78,
+          "key": "how",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 4.78,
+          "end": 4.92,
+          "key": "many",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "boys",
+          "start": 4.92,
+          "end": 5.26,
+          "key": "boys",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.26,
+          "end": 5.48,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "wenches",
+          "start": 5.48,
+          "end": 5.8,
+          "key": "wenches",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 5.8,
+          "end": 6.04,
+          "key": "must",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.04,
+          "end": 6.24,
+          "key": "i",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "have?",
+          "start": 6.24,
+          "end": 6.6,
+          "key": "have",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Charmian.",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "text": "Then",
+          "start": 1.28,
+          "end": 1.54
+        },
+        {
+          "text": "belike",
+          "start": 1.54,
+          "end": 1.88
+        },
+        {
+          "text": "my",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "text": "children",
+          "start": 2.08,
+          "end": 2.38
+        },
+        {
+          "text": "shall",
+          "start": 2.38,
+          "end": 2.7
+        },
+        {
+          "text": "have",
+          "start": 2.7,
+          "end": 2.9
+        },
+        {
+          "text": "no",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "text": "names.",
+          "start": 3.1,
+          "end": 3.56
+        },
+        {
+          "text": "Prithee,",
+          "start": 3.56,
+          "end": 4.12
+        },
+        {
+          "text": "how",
+          "start": 4.68,
+          "end": 4.78
+        },
+        {
+          "text": "many",
+          "start": 4.78,
+          "end": 4.92
+        },
+        {
+          "text": "boys",
+          "start": 4.92,
+          "end": 5.26
+        },
+        {
+          "text": "and",
+          "start": 5.26,
+          "end": 5.48
+        },
+        {
+          "text": "wenches",
+          "start": 5.48,
+          "end": 5.8
+        },
+        {
+          "text": "must",
+          "start": 5.8,
+          "end": 6.04
+        },
+        {
+          "text": "I",
+          "start": 6.04,
+          "end": 6.24
+        },
+        {
+          "text": "have?",
+          "start": 6.24,
+          "end": 6.6
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.3231517290696502
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2e7daa2e43e942a88b0b3a10ee500c59c0a706714b2cc8dbd3d39bcb18a90ae5",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "004ad85e55082e31ff20476ac9486dcb57ead172be9e6f1efc0d010ca173d7ae",
+  "attempts": [
+    {
+      "asr_seconds": 0.13791315769776702,
+      "alignment_seconds": 0.00029219361022114754,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Octavia. Good night, sir.",
+        "hotwords": "Octavia, Good"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Octavia, Good Night, sir.",
+          "start": 0.52,
+          "end": 1.9,
+          "words": [
+            {
+              "text": " Octavia,",
+              "start": 0.52,
+              "end": 0.96,
+              "probability": 0.976806640625
+            },
+            {
+              "text": " Good",
+              "start": 1.36,
+              "end": 1.44,
+              "probability": 0.056365966796875
+            },
+            {
+              "text": " Night,",
+              "start": 1.44,
+              "end": 1.6,
+              "probability": 0.1397705078125
+            },
+            {
+              "text": " sir.",
+              "start": 1.82,
+              "end": 1.9,
+              "probability": 0.19921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Octavia,",
+          "start": 0.52,
+          "end": 0.96
+        },
+        {
+          "raw": "Good",
+          "start": 1.36,
+          "end": 1.44
+        },
+        {
+          "raw": "Night,",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "raw": "sir.",
+          "start": 1.82,
+          "end": 1.9
+        }
+      ],
+      "expected_tokens": [
+        "Octavia.",
+        "Good",
+        "night,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Octavia,",
+          "start": 0.52,
+          "end": 0.96,
+          "key": "octavia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 1.36,
+          "end": 1.44,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Night,",
+          "start": 1.44,
+          "end": 1.6,
+          "key": "night",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.82,
+          "end": 1.9,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Octavia.",
+          "start": 0.52,
+          "end": 0.96
+        },
+        {
+          "text": "Good",
+          "start": 1.36,
+          "end": 1.44
+        },
+        {
+          "text": "night,",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "text": "sir.",
+          "start": 1.82,
+          "end": 1.9
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13831292698159814
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "58cefc848969a0bf4216f1300ce28c31103031e5491eb785ca4a77d3ce9ec37c",
+  "selected_reasons": []
+}

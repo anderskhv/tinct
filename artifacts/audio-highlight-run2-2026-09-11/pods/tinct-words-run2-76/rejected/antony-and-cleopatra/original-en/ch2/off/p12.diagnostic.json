@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "a670933d0d37a9a9f6f6bf45906e18027ee5dc21eb9bc76c06247be867519637",
+  "attempts": [
+    {
+      "asr_seconds": 0.17241275310516357,
+      "alignment_seconds": 0.00038455892354249954,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Charmeon, he means in flesh.",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Charmeon,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.6475423177083334
+            },
+            {
+              "text": " he",
+              "start": 1.21,
+              "end": 1.31,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " means",
+              "start": 1.31,
+              "end": 1.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 1.49,
+              "end": 1.65,
+              "probability": 0.81201171875
+            },
+            {
+              "text": " flesh.",
+              "start": 1.65,
+              "end": 1.95,
+              "probability": 0.89990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Charmeon,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "he",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "raw": "means",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "raw": "in",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "raw": "flesh.",
+          "start": 1.65,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "Charmian.",
+        "He",
+        "means",
+        "in",
+        "flesh."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Charmeon,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "charmeon",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.21,
+          "end": 1.31,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "means",
+          "start": 1.31,
+          "end": 1.49,
+          "key": "means",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.49,
+          "end": 1.65,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "flesh.",
+          "start": 1.65,
+          "end": 1.95,
+          "key": "flesh",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Charmian.",
+          "start": 0.0,
+          "end": 0.605
+        },
+        {
+          "text": "He",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "text": "means",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "text": "in",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "text": "flesh.",
+          "start": 1.65,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17292515793815255
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "92bdf4c887b58d2eb19548151c50a41f933abbc00770fe5d7ed3b6409aac9cd8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

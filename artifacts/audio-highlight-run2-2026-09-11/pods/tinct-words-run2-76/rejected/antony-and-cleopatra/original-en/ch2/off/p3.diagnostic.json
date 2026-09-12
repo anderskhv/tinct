@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "a7f9bd7c2cee0e4c7c5728b9e46c3fa391f171ead66f8bf9d07a3faaeb1c9fa6",
+  "attempts": [
+    {
+      "asr_seconds": 0.13814090471714735,
+      "alignment_seconds": 0.0003061271272599697,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Soothsayer, your will.",
+          "start": 0.54,
+          "end": 1.4,
+          "words": [
+            {
+              "text": " Soothsayer,",
+              "start": 0.54,
+              "end": 0.94,
+              "probability": 0.8009440104166666
+            },
+            {
+              "text": " your",
+              "start": 1.06,
+              "end": 1.2,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " will.",
+              "start": 1.2,
+              "end": 1.4,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Soothsayer,",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "raw": "your",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "raw": "will.",
+          "start": 1.2,
+          "end": 1.4
+        }
+      ],
+      "expected_tokens": [
+        "Soothsayer.",
+        "Your",
+        "will?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Soothsayer,",
+          "start": 0.54,
+          "end": 0.94,
+          "key": "soothsayer",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.06,
+          "end": 1.2,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will.",
+          "start": 1.2,
+          "end": 1.4,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Soothsayer.",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "text": "Your",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "text": "will?",
+          "start": 1.2,
+          "end": 1.4
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1385545376688242
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "20f7ed3fcef32dd8641b601d09f864c3d9ffebcecc08c5dbf02406e8df05e532",
+  "selected_reasons": []
+}

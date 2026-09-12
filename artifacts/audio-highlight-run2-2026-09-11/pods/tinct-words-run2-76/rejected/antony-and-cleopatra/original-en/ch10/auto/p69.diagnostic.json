@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "8eb49032cfa62837ae6f1d49089cf8235a9a84d2d7e2a829f90b0848307f98e0",
+  "attempts": [
+    {
+      "asr_seconds": 0.4083458660170436,
+      "alignment_seconds": 0.00015234807506203651,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cleopatra. In praising Antony I have dispraised Caesar.",
+        "hotwords": "Cleopatra, In, Antony, I, Caesar"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cleopatra. In praising Antony I have dispraised Caesar.",
+          "start": 0.05,
+          "end": 3.73,
+          "words": [
+            {
+              "text": " Cleopatra.",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.9021809895833334
+            },
+            {
+              "text": " In",
+              "start": 1.57,
+              "end": 1.65,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " praising",
+              "start": 1.65,
+              "end": 1.95,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Antony",
+              "start": 1.95,
+              "end": 2.45,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " I",
+              "start": 2.45,
+              "end": 2.65,
+              "probability": 0.76318359375
+            },
+            {
+              "text": " have",
+              "start": 2.65,
+              "end": 2.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " dispraised",
+              "start": 2.83,
+              "end": 3.41,
+              "probability": 0.3345346450805664
+            },
+            {
+              "text": " Caesar.",
+              "start": 3.41,
+              "end": 3.73,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "In",
+          "start": 1.57,
+          "end": 1.65
+        },
+        {
+          "raw": "praising",
+          "start": 1.65,
+          "end": 1.95
+        },
+        {
+          "raw": "Antony",
+          "start": 1.95,
+          "end": 2.45
+        },
+        {
+          "raw": "I",
+          "start": 2.45,
+          "end": 2.65
+        },
+        {
+          "raw": "have",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "raw": "dispraised",
+          "start": 2.83,
+          "end": 3.41
+        },
+        {
+          "raw": "Caesar.",
+          "start": 3.41,
+          "end": 3.73
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "In",
+        "praising",
+        "Antony",
+        "I",
+        "have",
+        "dispraised",
+        "Caesar."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra.",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 1.57,
+          "end": 1.65,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "praising",
+          "start": 1.65,
+          "end": 1.95,
+          "key": "praising",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Antony",
+          "start": 1.95,
+          "end": 2.45,
+          "key": "antony",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.45,
+          "end": 2.65,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.65,
+          "end": 2.83,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dispraised",
+          "start": 2.83,
+          "end": 3.41,
+          "key": "dispraised",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Caesar.",
+          "start": 3.41,
+          "end": 3.73,
+          "key": "caesar",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "In",
+          "start": 1.57,
+          "end": 1.65
+        },
+        {
+          "text": "praising",
+          "start": 1.65,
+          "end": 1.95
+        },
+        {
+          "text": "Antony",
+          "start": 1.95,
+          "end": 2.45
+        },
+        {
+          "text": "I",
+          "start": 2.45,
+          "end": 2.65
+        },
+        {
+          "text": "have",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "text": "dispraised",
+          "start": 2.83,
+          "end": 3.41
+        },
+        {
+          "text": "Caesar.",
+          "start": 3.41,
+          "end": 3.73
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4085553572513163
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "09d9118ca607011705d09b32d786820ccb35efe8df02819f282d130cd7ec72a9",
+  "selected_reasons": []
+}

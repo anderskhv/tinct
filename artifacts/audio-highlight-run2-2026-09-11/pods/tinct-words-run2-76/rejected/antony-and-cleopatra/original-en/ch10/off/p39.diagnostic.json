@@ -1,0 +1,594 @@
+{
+  "complete": true,
+  "signature": "fd19d48f2da53d3aec3b66acbdea1e2cff8fb66e6a2dd94a5eeaab3b734c800d",
+  "attempts": [
+    {
+      "asr_seconds": 0.3006330942735076,
+      "alignment_seconds": 0.0006120810285210609,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hence horrible villain or I'll spurn then eyes like balls before me. I'll unhair thy head",
+          "start": 0.08,
+          "end": 5.72,
+          "words": [
+            {
+              "text": " Hence",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.8671875
+            },
+            {
+              "text": " horrible",
+              "start": 0.72,
+              "end": 1.22,
+              "probability": 0.3828125
+            },
+            {
+              "text": " villain",
+              "start": 1.22,
+              "end": 1.64,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " or",
+              "start": 1.64,
+              "end": 2.08,
+              "probability": 0.57373046875
+            },
+            {
+              "text": " I'll",
+              "start": 2.08,
+              "end": 2.26,
+              "probability": 0.898193359375
+            },
+            {
+              "text": " spurn",
+              "start": 2.26,
+              "end": 2.56,
+              "probability": 0.955078125
+            },
+            {
+              "text": " then",
+              "start": 2.56,
+              "end": 2.72,
+              "probability": 0.76220703125
+            },
+            {
+              "text": " eyes",
+              "start": 2.72,
+              "end": 3.04,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " like",
+              "start": 3.04,
+              "end": 3.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " balls",
+              "start": 3.28,
+              "end": 3.6,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " before",
+              "start": 3.6,
+              "end": 3.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me.",
+              "start": 3.98,
+              "end": 4.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I'll",
+              "start": 4.6,
+              "end": 4.98,
+              "probability": 0.984130859375
+            },
+            {
+              "text": " unhair",
+              "start": 4.98,
+              "end": 5.24,
+              "probability": 0.708740234375
+            },
+            {
+              "text": " thy",
+              "start": 5.24,
+              "end": 5.42,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " head",
+              "start": 5.42,
+              "end": 5.72,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hence",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "horrible",
+          "start": 0.72,
+          "end": 1.22
+        },
+        {
+          "raw": "villain",
+          "start": 1.22,
+          "end": 1.64
+        },
+        {
+          "raw": "or",
+          "start": 1.64,
+          "end": 2.08
+        },
+        {
+          "raw": "I'll",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "raw": "spurn",
+          "start": 2.26,
+          "end": 2.56
+        },
+        {
+          "raw": "then",
+          "start": 2.56,
+          "end": 2.72
+        },
+        {
+          "raw": "eyes",
+          "start": 2.72,
+          "end": 3.04
+        },
+        {
+          "raw": "like",
+          "start": 3.04,
+          "end": 3.28
+        },
+        {
+          "raw": "balls",
+          "start": 3.28,
+          "end": 3.6
+        },
+        {
+          "raw": "before",
+          "start": 3.6,
+          "end": 3.98
+        },
+        {
+          "raw": "me.",
+          "start": 3.98,
+          "end": 4.48
+        },
+        {
+          "raw": "I'll",
+          "start": 4.6,
+          "end": 4.98
+        },
+        {
+          "raw": "unhair",
+          "start": 4.98,
+          "end": 5.24
+        },
+        {
+          "raw": "thy",
+          "start": 5.24,
+          "end": 5.42
+        },
+        {
+          "raw": "head",
+          "start": 5.42,
+          "end": 5.72
+        }
+      ],
+      "expected_tokens": [
+        "Hence,",
+        "horrible",
+        "villain,",
+        "or",
+        "I'll",
+        "spurn",
+        "thine",
+        "eyes",
+        "Like",
+        "balls",
+        "before",
+        "me!",
+        "I'll",
+        "unhair",
+        "thy",
+        "head!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          16,
+          7,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hence",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "hence",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "horrible",
+          "start": 0.72,
+          "end": 1.22,
+          "key": "horrible",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "villain",
+          "start": 1.22,
+          "end": 1.64,
+          "key": "villain",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 1.64,
+          "end": 2.08,
+          "key": "or",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.08,
+          "end": 2.26,
+          "key": "ill",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "spurn",
+          "start": 2.26,
+          "end": 2.56,
+          "key": "spurn",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 2.56,
+          "end": 2.72,
+          "key": "then",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 2.72,
+          "end": 3.04,
+          "key": "eyes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.04,
+          "end": 3.28,
+          "key": "like",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "balls",
+          "start": 3.28,
+          "end": 3.6,
+          "key": "balls",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 3.6,
+          "end": 3.98,
+          "key": "before",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 3.98,
+          "end": 4.48,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 4.6,
+          "end": 4.98,
+          "key": "ill",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "unhair",
+          "start": 4.98,
+          "end": 5.24,
+          "key": "unhair",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 5.24,
+          "end": 5.42,
+          "key": "thy",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 5.42,
+          "end": 5.72,
+          "key": "head",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hence,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "horrible",
+          "start": 0.72,
+          "end": 1.22
+        },
+        {
+          "text": "villain,",
+          "start": 1.22,
+          "end": 1.64
+        },
+        {
+          "text": "or",
+          "start": 1.64,
+          "end": 2.08
+        },
+        {
+          "text": "I'll",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "text": "spurn",
+          "start": 2.26,
+          "end": 2.56
+        },
+        {
+          "text": "thine",
+          "start": 2.56,
+          "end": 2.64
+        },
+        {
+          "text": "eyes",
+          "start": 2.72,
+          "end": 3.04
+        },
+        {
+          "text": "Like",
+          "start": 3.04,
+          "end": 3.28
+        },
+        {
+          "text": "balls",
+          "start": 3.28,
+          "end": 3.6
+        },
+        {
+          "text": "before",
+          "start": 3.6,
+          "end": 3.98
+        },
+        {
+          "text": "me!",
+          "start": 3.98,
+          "end": 4.48
+        },
+        {
+          "text": "I'll",
+          "start": 4.6,
+          "end": 4.98
+        },
+        {
+          "text": "unhair",
+          "start": 4.98,
+          "end": 5.24
+        },
+        {
+          "text": "thy",
+          "start": 5.24,
+          "end": 5.42
+        },
+        {
+          "text": "head!",
+          "start": 5.42,
+          "end": 5.72
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.30150016909465194
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9900058504b8648cc87f23ce3346f20451c0b1b19a61e20ec6f8cc42d82823b7",
+  "selected_reasons": []
+}

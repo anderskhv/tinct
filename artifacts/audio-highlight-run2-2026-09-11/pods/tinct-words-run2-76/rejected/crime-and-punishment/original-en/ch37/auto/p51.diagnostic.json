@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "1bd71cb0ee9325896d9ae230b13cfc467e4af55d34cac826af272c54e36f51b4",
+  "attempts": [
+    {
+      "asr_seconds": 0.19204311119392514,
+      "alignment_seconds": 0.000357119832187891,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I am going to foreign parts, brother.\"",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I am going to foreign parts, brother.",
+          "start": 0.08,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " am",
+              "start": 0.52,
+              "end": 0.6,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " going",
+              "start": 0.6,
+              "end": 0.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 0.78,
+              "end": 0.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " foreign",
+              "start": 0.94,
+              "end": 1.2,
+              "probability": 0.54931640625
+            },
+            {
+              "text": " parts,",
+              "start": 1.2,
+              "end": 1.6,
+              "probability": 0.9609375
+            },
+            {
+              "text": " brother.",
+              "start": 1.82,
+              "end": 1.86,
+              "probability": 0.91845703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "am",
+          "start": 0.52,
+          "end": 0.6
+        },
+        {
+          "raw": "going",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "raw": "to",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "raw": "foreign",
+          "start": 0.94,
+          "end": 1.2
+        },
+        {
+          "raw": "parts,",
+          "start": 1.2,
+          "end": 1.6
+        },
+        {
+          "raw": "brother.",
+          "start": 1.82,
+          "end": 1.86
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "am",
+        "going",
+        "to",
+        "foreign",
+        "parts,",
+        "brother.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.52,
+          "end": 0.6,
+          "key": "am",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 0.6,
+          "end": 0.78,
+          "key": "going",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.78,
+          "end": 0.94,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "foreign",
+          "start": 0.94,
+          "end": 1.2,
+          "key": "foreign",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "parts,",
+          "start": 1.2,
+          "end": 1.6,
+          "key": "parts",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "brother.",
+          "start": 1.82,
+          "end": 1.86,
+          "key": "brother",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "am",
+          "start": 0.52,
+          "end": 0.6
+        },
+        {
+          "text": "going",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "text": "to",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "text": "foreign",
+          "start": 0.94,
+          "end": 1.2
+        },
+        {
+          "text": "parts,",
+          "start": 1.2,
+          "end": 1.6
+        },
+        {
+          "text": "brother.\"",
+          "start": 1.82,
+          "end": 1.86
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19252182124182582
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "284453d758862f8b7e929358076020cebcf7366cfc850cdf2a814985c226ca82",
+  "selected_reasons": []
+}

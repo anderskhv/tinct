@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "0dd64187a56bb7701e2be068dbc165a00964559f69cc98213f470111e9b0b29d",
+  "attempts": [
+    {
+      "asr_seconds": 0.14371697790920734,
+      "alignment_seconds": 0.0003218320198357105,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cleopatra. What say you?",
+        "hotwords": "Cleopatra, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, What say you?",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " What",
+              "start": 1.25,
+              "end": 1.39,
+              "probability": 0.041168212890625
+            },
+            {
+              "text": " say",
+              "start": 1.39,
+              "end": 1.59,
+              "probability": 0.385986328125
+            },
+            {
+              "text": " you?",
+              "start": 1.59,
+              "end": 1.83,
+              "probability": 0.95263671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "What",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "raw": "say",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "raw": "you?",
+          "start": 1.59,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "What",
+        "say",
+        "you?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.25,
+          "end": 1.39,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.39,
+          "end": 1.59,
+          "key": "say",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 1.59,
+          "end": 1.83,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "What",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "text": "say",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "text": "you?",
+          "start": 1.59,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1441629878245294
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a341a141b2942f95e49c2fd7fcbe7acd53729d82cd2effcbee1d63d90315b4a7",
+  "selected_reasons": []
+}
