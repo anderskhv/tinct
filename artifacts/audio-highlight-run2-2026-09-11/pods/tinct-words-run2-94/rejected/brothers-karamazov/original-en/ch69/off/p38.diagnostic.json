@@ -1,0 +1,761 @@
+{
+  "complete": true,
+  "signature": "4eb4040f2ee90b33bd846e9a1bfc3c932e7d44fc4c42ef12f4171295c7e1f01b",
+  "attempts": [
+    {
+      "asr_seconds": 0.3943361435085535,
+      "alignment_seconds": 0.0007282029837369919,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I will. Oh, how I curse myself for not having come before,\" muttered Kalia, crying, and",
+          "start": 0.02,
+          "end": 6.0,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.2139892578125
+            },
+            {
+              "text": " will.",
+              "start": 0.54,
+              "end": 0.78,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Oh,",
+              "start": 1.22,
+              "end": 1.48,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " how",
+              "start": 1.5,
+              "end": 1.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 1.64,
+              "end": 1.78,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " curse",
+              "start": 1.78,
+              "end": 1.96,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " myself",
+              "start": 1.96,
+              "end": 2.36,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " for",
+              "start": 2.36,
+              "end": 2.54,
+              "probability": 0.994140625
+            },
+            {
+              "text": " not",
+              "start": 2.54,
+              "end": 2.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " having",
+              "start": 2.68,
+              "end": 2.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " come",
+              "start": 2.94,
+              "end": 3.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " before,\"",
+              "start": 3.12,
+              "end": 4.54,
+              "probability": 0.61419677734375
+            },
+            {
+              "text": " muttered",
+              "start": 4.54,
+              "end": 4.54,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Kalia,",
+              "start": 4.54,
+              "end": 4.94,
+              "probability": 0.5538330078125
+            },
+            {
+              "text": " crying,",
+              "start": 5.28,
+              "end": 5.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 5.92,
+              "end": 6.0,
+              "probability": 0.99072265625
+            }
+          ]
+        },
+        {
+          "text": " no longer ashamed of it.",
+          "start": 6.0,
+          "end": 7.2,
+          "words": [
+            {
+              "text": " no",
+              "start": 6.0,
+              "end": 6.16,
+              "probability": 0.99609375
+            },
+            {
+              "text": " longer",
+              "start": 6.16,
+              "end": 6.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ashamed",
+              "start": 6.46,
+              "end": 6.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 6.84,
+              "end": 7.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it.",
+              "start": 7.04,
+              "end": 7.2,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "will.",
+          "start": 0.54,
+          "end": 0.78
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.22,
+          "end": 1.48
+        },
+        {
+          "raw": "how",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "raw": "I",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "raw": "curse",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "raw": "myself",
+          "start": 1.96,
+          "end": 2.36
+        },
+        {
+          "raw": "for",
+          "start": 2.36,
+          "end": 2.54
+        },
+        {
+          "raw": "not",
+          "start": 2.54,
+          "end": 2.68
+        },
+        {
+          "raw": "having",
+          "start": 2.68,
+          "end": 2.94
+        },
+        {
+          "raw": "come",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "raw": "before,\"",
+          "start": 3.12,
+          "end": 4.54
+        },
+        {
+          "raw": "muttered",
+          "start": 4.54,
+          "end": 4.54
+        },
+        {
+          "raw": "Kalia,",
+          "start": 4.54,
+          "end": 4.94
+        },
+        {
+          "raw": "crying,",
+          "start": 5.28,
+          "end": 5.54
+        },
+        {
+          "raw": "and",
+          "start": 5.92,
+          "end": 6.0
+        },
+        {
+          "raw": "no",
+          "start": 6.0,
+          "end": 6.16
+        },
+        {
+          "raw": "longer",
+          "start": 6.16,
+          "end": 6.46
+        },
+        {
+          "raw": "ashamed",
+          "start": 6.46,
+          "end": 6.84
+        },
+        {
+          "raw": "of",
+          "start": 6.84,
+          "end": 7.04
+        },
+        {
+          "raw": "it.",
+          "start": 7.04,
+          "end": 7.2
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "will!",
+        "Oh,",
+        "how",
+        "I",
+        "curse",
+        "myself",
+        "for",
+        "not",
+        "having",
+        "come",
+        "before!\"",
+        "muttered",
+        "Kolya,",
+        "crying,",
+        "and",
+        "no",
+        "longer",
+        "ashamed",
+        "of",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "equal",
+          14,
+          21,
+          14,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will.",
+          "start": 0.54,
+          "end": 0.78,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.22,
+          "end": 1.48,
+          "key": "oh",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.5,
+          "end": 1.64,
+          "key": "how",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.64,
+          "end": 1.78,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "curse",
+          "start": 1.78,
+          "end": 1.96,
+          "key": "curse",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "myself",
+          "start": 1.96,
+          "end": 2.36,
+          "key": "myself",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.36,
+          "end": 2.54,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.54,
+          "end": 2.68,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "having",
+          "start": 2.68,
+          "end": 2.94,
+          "key": "having",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.94,
+          "end": 3.12,
+          "key": "come",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "before,\"",
+          "start": 3.12,
+          "end": 4.54,
+          "key": "before",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "muttered",
+          "start": 4.54,
+          "end": 4.54,
+          "key": "muttered",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Kalia,",
+          "start": 4.54,
+          "end": 4.94,
+          "key": "kalia",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "crying,",
+          "start": 5.28,
+          "end": 5.54,
+          "key": "crying",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.92,
+          "end": 6.0,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 6.0,
+          "end": 6.16,
+          "key": "no",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "longer",
+          "start": 6.16,
+          "end": 6.46,
+          "key": "longer",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "ashamed",
+          "start": 6.46,
+          "end": 6.84,
+          "key": "ashamed",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.84,
+          "end": 7.04,
+          "key": "of",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 7.04,
+          "end": 7.2,
+          "key": "it",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "will!",
+          "start": 0.54,
+          "end": 0.78
+        },
+        {
+          "text": "Oh,",
+          "start": 1.22,
+          "end": 1.48
+        },
+        {
+          "text": "how",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "text": "I",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "text": "curse",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "text": "myself",
+          "start": 1.96,
+          "end": 2.36
+        },
+        {
+          "text": "for",
+          "start": 2.36,
+          "end": 2.54
+        },
+        {
+          "text": "not",
+          "start": 2.54,
+          "end": 2.68
+        },
+        {
+          "text": "having",
+          "start": 2.68,
+          "end": 2.94
+        },
+        {
+          "text": "come",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "text": "before!\"",
+          "start": 3.12,
+          "end": 4.54
+        },
+        {
+          "text": "muttered",
+          "start": 4.54,
+          "end": 4.54
+        },
+        {
+          "text": "Kolya,",
+          "start": 4.54,
+          "end": 4.91
+        },
+        {
+          "text": "crying,",
+          "start": 5.28,
+          "end": 5.54
+        },
+        {
+          "text": "and",
+          "start": 5.92,
+          "end": 6.0
+        },
+        {
+          "text": "no",
+          "start": 6.0,
+          "end": 6.16
+        },
+        {
+          "text": "longer",
+          "start": 6.16,
+          "end": 6.46
+        },
+        {
+          "text": "ashamed",
+          "start": 6.46,
+          "end": 6.84
+        },
+        {
+          "text": "of",
+          "start": 6.84,
+          "end": 7.04
+        },
+        {
+          "text": "it.",
+          "start": 7.04,
+          "end": 7.2
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.395340733230114
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fdfad5aa29bce696466b7221930770f9521670039b66658a4f2fb2c0fda2d116",
+  "selected_reasons": []
+}

@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "f84890025e4f2f870d3ad4fceb86fc84bfd189497755b5b550dd0dcdbcc3897b",
+  "attempts": [
+    {
+      "asr_seconds": 0.22253931872546673,
+      "alignment_seconds": 0.0005378853529691696,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I regard the question as quite a trivial one,\" he rapped out again, proudly.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I regard the question as quite a trivial one, he rapped out again, proudly.",
+          "start": 0.08,
+          "end": 4.4,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.689453125
+            },
+            {
+              "text": " regard",
+              "start": 0.52,
+              "end": 0.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 0.8,
+              "end": 1.0,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " question",
+              "start": 1.0,
+              "end": 1.36,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " as",
+              "start": 1.36,
+              "end": 1.58,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " quite",
+              "start": 1.58,
+              "end": 1.78,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 1.78,
+              "end": 1.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " trivial",
+              "start": 1.92,
+              "end": 2.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " one,",
+              "start": 2.18,
+              "end": 2.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 2.94,
+              "end": 3.14,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " rapped",
+              "start": 3.14,
+              "end": 3.42,
+              "probability": 0.936767578125
+            },
+            {
+              "text": " out",
+              "start": 3.42,
+              "end": 3.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " again,",
+              "start": 3.58,
+              "end": 3.98,
+              "probability": 0.9921875
+            },
+            {
+              "text": " proudly.",
+              "start": 4.1,
+              "end": 4.4,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "regard",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "raw": "the",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "raw": "question",
+          "start": 1.0,
+          "end": 1.36
+        },
+        {
+          "raw": "as",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "raw": "quite",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "raw": "a",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "raw": "trivial",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "raw": "one,",
+          "start": 2.18,
+          "end": 2.58
+        },
+        {
+          "raw": "he",
+          "start": 2.94,
+          "end": 3.14
+        },
+        {
+          "raw": "rapped",
+          "start": 3.14,
+          "end": 3.42
+        },
+        {
+          "raw": "out",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "raw": "again,",
+          "start": 3.58,
+          "end": 3.98
+        },
+        {
+          "raw": "proudly.",
+          "start": 4.1,
+          "end": 4.4
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "regard",
+        "the",
+        "question",
+        "as",
+        "quite",
+        "a",
+        "trivial",
+        "one,\"",
+        "he",
+        "rapped",
+        "out",
+        "again,",
+        "proudly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "regard",
+          "start": 0.52,
+          "end": 0.8,
+          "key": "regard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.8,
+          "end": 1.0,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "question",
+          "start": 1.0,
+          "end": 1.36,
+          "key": "question",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.36,
+          "end": 1.58,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 1.58,
+          "end": 1.78,
+          "key": "quite",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.78,
+          "end": 1.92,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "trivial",
+          "start": 1.92,
+          "end": 2.18,
+          "key": "trivial",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "one,",
+          "start": 2.18,
+          "end": 2.58,
+          "key": "one",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.94,
+          "end": 3.14,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "rapped",
+          "start": 3.14,
+          "end": 3.42,
+          "key": "rapped",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 3.42,
+          "end": 3.58,
+          "key": "out",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "again,",
+          "start": 3.58,
+          "end": 3.98,
+          "key": "again",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "proudly.",
+          "start": 4.1,
+          "end": 4.4,
+          "key": "proudly",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "regard",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "text": "the",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "text": "question",
+          "start": 1.0,
+          "end": 1.36
+        },
+        {
+          "text": "as",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "text": "quite",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "a",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "text": "trivial",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "text": "one,\"",
+          "start": 2.18,
+          "end": 2.58
+        },
+        {
+          "text": "he",
+          "start": 2.94,
+          "end": 3.14
+        },
+        {
+          "text": "rapped",
+          "start": 3.14,
+          "end": 3.42
+        },
+        {
+          "text": "out",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "text": "again,",
+          "start": 3.58,
+          "end": 3.98
+        },
+        {
+          "text": "proudly.",
+          "start": 4.1,
+          "end": 4.4
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22329594008624554
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1f35c2852ed349b9d180573f383a869a721e98d16eb715471319cb16ce549057",
+  "selected_reasons": []
+}

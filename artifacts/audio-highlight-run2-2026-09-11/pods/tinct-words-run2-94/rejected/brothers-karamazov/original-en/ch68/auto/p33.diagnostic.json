@@ -1,0 +1,1566 @@
+{
+  "complete": true,
+  "signature": "2b335972ce316e62f9d99380ac660c6daef41ed1231f750f5be51eb8782167f2",
+  "attempts": [
+    {
+      "asr_seconds": 0.5258271470665932,
+      "alignment_seconds": 0.0008804835379123688,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Do you remember? It's splendid. Why are you laughing? You don't suppose I am fibbing, do you?\" (\"What if he should find out that I've only that one number of _The Bell_ in father's bookcase, and haven't read any more of it?\" Kolya thought with a shudder.)",
+        "hotwords": "It's, Why, I, What, I've, Bell_, Kolya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Do you remember? It's splendid. Why are you laughing? You don't suppose I am fibbing, do you? What if he should find out that I've only that one number of the Bell in father's bookcase, and haven't read any more of it?\" Kolya thought with a shudder.",
+          "start": 0.02,
+          "end": 13.82,
+          "words": [
+            {
+              "text": " Do",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.51611328125
+            },
+            {
+              "text": " you",
+              "start": 0.48,
+              "end": 0.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " remember?",
+              "start": 0.58,
+              "end": 0.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " It's",
+              "start": 1.38,
+              "end": 1.62,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " splendid.",
+              "start": 1.62,
+              "end": 1.92,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Why",
+              "start": 2.64,
+              "end": 2.76,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " are",
+              "start": 2.76,
+              "end": 2.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 2.86,
+              "end": 3.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " laughing?",
+              "start": 3.0,
+              "end": 3.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " You",
+              "start": 3.88,
+              "end": 3.96,
+              "probability": 0.98828125
+            },
+            {
+              "text": " don't",
+              "start": 3.96,
+              "end": 4.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " suppose",
+              "start": 4.14,
+              "end": 4.44,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " I",
+              "start": 4.44,
+              "end": 4.72,
+              "probability": 0.9921875
+            },
+            {
+              "text": " am",
+              "start": 4.72,
+              "end": 4.86,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " fibbing,",
+              "start": 4.86,
+              "end": 5.26,
+              "probability": 0.966064453125
+            },
+            {
+              "text": " do",
+              "start": 5.34,
+              "end": 5.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you?",
+              "start": 5.46,
+              "end": 5.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " What",
+              "start": 6.34,
+              "end": 6.52,
+              "probability": 0.98828125
+            },
+            {
+              "text": " if",
+              "start": 6.52,
+              "end": 6.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 6.64,
+              "end": 6.76,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " should",
+              "start": 6.76,
+              "end": 6.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " find",
+              "start": 6.94,
+              "end": 7.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " out",
+              "start": 7.16,
+              "end": 7.36,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " that",
+              "start": 7.36,
+              "end": 7.54,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I've",
+              "start": 7.54,
+              "end": 7.74,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " only",
+              "start": 7.74,
+              "end": 7.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 7.98,
+              "end": 8.24,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " one",
+              "start": 8.24,
+              "end": 8.52,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " number",
+              "start": 8.52,
+              "end": 8.78,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " of",
+              "start": 8.78,
+              "end": 8.98,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 8.98,
+              "end": 9.12,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Bell",
+              "start": 9.12,
+              "end": 9.32,
+              "probability": 0.1607666015625
+            },
+            {
+              "text": " in",
+              "start": 9.32,
+              "end": 9.56,
+              "probability": 0.921875
+            },
+            {
+              "text": " father's",
+              "start": 9.56,
+              "end": 10.04,
+              "probability": 0.607177734375
+            },
+            {
+              "text": " bookcase,",
+              "start": 10.04,
+              "end": 10.52,
+              "probability": 0.971435546875
+            },
+            {
+              "text": " and",
+              "start": 10.72,
+              "end": 10.8,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " haven't",
+              "start": 10.8,
+              "end": 11.18,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " read",
+              "start": 11.18,
+              "end": 11.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " any",
+              "start": 11.36,
+              "end": 11.6,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " more",
+              "start": 11.6,
+              "end": 11.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 11.82,
+              "end": 11.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it?\"",
+              "start": 11.98,
+              "end": 12.8,
+              "probability": 0.6343994140625
+            },
+            {
+              "text": " Kolya",
+              "start": 12.8,
+              "end": 13.08,
+              "probability": 0.39026610056559247
+            },
+            {
+              "text": " thought",
+              "start": 13.08,
+              "end": 13.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 13.28,
+              "end": 13.48,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " a",
+              "start": 13.48,
+              "end": 13.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shudder.",
+              "start": 13.62,
+              "end": 13.82,
+              "probability": 0.81591796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Do",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "you",
+          "start": 0.48,
+          "end": 0.58
+        },
+        {
+          "raw": "remember?",
+          "start": 0.58,
+          "end": 0.92
+        },
+        {
+          "raw": "It's",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "raw": "splendid.",
+          "start": 1.62,
+          "end": 1.92
+        },
+        {
+          "raw": "Why",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "raw": "are",
+          "start": 2.76,
+          "end": 2.86
+        },
+        {
+          "raw": "you",
+          "start": 2.86,
+          "end": 3.0
+        },
+        {
+          "raw": "laughing?",
+          "start": 3.0,
+          "end": 3.34
+        },
+        {
+          "raw": "You",
+          "start": 3.88,
+          "end": 3.96
+        },
+        {
+          "raw": "don't",
+          "start": 3.96,
+          "end": 4.14
+        },
+        {
+          "raw": "suppose",
+          "start": 4.14,
+          "end": 4.44
+        },
+        {
+          "raw": "I",
+          "start": 4.44,
+          "end": 4.72
+        },
+        {
+          "raw": "am",
+          "start": 4.72,
+          "end": 4.86
+        },
+        {
+          "raw": "fibbing,",
+          "start": 4.86,
+          "end": 5.26
+        },
+        {
+          "raw": "do",
+          "start": 5.34,
+          "end": 5.46
+        },
+        {
+          "raw": "you?",
+          "start": 5.46,
+          "end": 5.74
+        },
+        {
+          "raw": "What",
+          "start": 6.34,
+          "end": 6.52
+        },
+        {
+          "raw": "if",
+          "start": 6.52,
+          "end": 6.64
+        },
+        {
+          "raw": "he",
+          "start": 6.64,
+          "end": 6.76
+        },
+        {
+          "raw": "should",
+          "start": 6.76,
+          "end": 6.94
+        },
+        {
+          "raw": "find",
+          "start": 6.94,
+          "end": 7.16
+        },
+        {
+          "raw": "out",
+          "start": 7.16,
+          "end": 7.36
+        },
+        {
+          "raw": "that",
+          "start": 7.36,
+          "end": 7.54
+        },
+        {
+          "raw": "I've",
+          "start": 7.54,
+          "end": 7.74
+        },
+        {
+          "raw": "only",
+          "start": 7.74,
+          "end": 7.98
+        },
+        {
+          "raw": "that",
+          "start": 7.98,
+          "end": 8.24
+        },
+        {
+          "raw": "one",
+          "start": 8.24,
+          "end": 8.52
+        },
+        {
+          "raw": "number",
+          "start": 8.52,
+          "end": 8.78
+        },
+        {
+          "raw": "of",
+          "start": 8.78,
+          "end": 8.98
+        },
+        {
+          "raw": "the",
+          "start": 8.98,
+          "end": 9.12
+        },
+        {
+          "raw": "Bell",
+          "start": 9.12,
+          "end": 9.32
+        },
+        {
+          "raw": "in",
+          "start": 9.32,
+          "end": 9.56
+        },
+        {
+          "raw": "father's",
+          "start": 9.56,
+          "end": 10.04
+        },
+        {
+          "raw": "bookcase,",
+          "start": 10.04,
+          "end": 10.52
+        },
+        {
+          "raw": "and",
+          "start": 10.72,
+          "end": 10.8
+        },
+        {
+          "raw": "haven't",
+          "start": 10.8,
+          "end": 11.18
+        },
+        {
+          "raw": "read",
+          "start": 11.18,
+          "end": 11.36
+        },
+        {
+          "raw": "any",
+          "start": 11.36,
+          "end": 11.6
+        },
+        {
+          "raw": "more",
+          "start": 11.6,
+          "end": 11.82
+        },
+        {
+          "raw": "of",
+          "start": 11.82,
+          "end": 11.98
+        },
+        {
+          "raw": "it?\"",
+          "start": 11.98,
+          "end": 12.8
+        },
+        {
+          "raw": "Kolya",
+          "start": 12.8,
+          "end": 13.08
+        },
+        {
+          "raw": "thought",
+          "start": 13.08,
+          "end": 13.28
+        },
+        {
+          "raw": "with",
+          "start": 13.28,
+          "end": 13.48
+        },
+        {
+          "raw": "a",
+          "start": 13.48,
+          "end": 13.62
+        },
+        {
+          "raw": "shudder.",
+          "start": 13.62,
+          "end": 13.82
+        }
+      ],
+      "expected_tokens": [
+        "Do",
+        "you",
+        "remember?",
+        "It's",
+        "splendid.",
+        "Why",
+        "are",
+        "you",
+        "laughing?",
+        "You",
+        "don't",
+        "suppose",
+        "I",
+        "am",
+        "fibbing,",
+        "do",
+        "you?\"",
+        "(\"What",
+        "if",
+        "he",
+        "should",
+        "find",
+        "out",
+        "that",
+        "I've",
+        "only",
+        "that",
+        "one",
+        "number",
+        "of",
+        "_The",
+        "Bell_",
+        "in",
+        "father's",
+        "bookcase,",
+        "and",
+        "haven't",
+        "read",
+        "any",
+        "more",
+        "of",
+        "it?\"",
+        "Kolya",
+        "thought",
+        "with",
+        "a",
+        "shudder.)"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          47,
+          0,
+          47
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Do",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.48,
+          "end": 0.58,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "remember?",
+          "start": 0.58,
+          "end": 0.92,
+          "key": "remember",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "It's",
+          "start": 1.38,
+          "end": 1.62,
+          "key": "its",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "splendid.",
+          "start": 1.62,
+          "end": 1.92,
+          "key": "splendid",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 2.64,
+          "end": 2.76,
+          "key": "why",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.76,
+          "end": 2.86,
+          "key": "are",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.86,
+          "end": 3.0,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "laughing?",
+          "start": 3.0,
+          "end": 3.34,
+          "key": "laughing",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 3.88,
+          "end": 3.96,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 3.96,
+          "end": 4.14,
+          "key": "dont",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "suppose",
+          "start": 4.14,
+          "end": 4.44,
+          "key": "suppose",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.44,
+          "end": 4.72,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 4.72,
+          "end": 4.86,
+          "key": "am",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "fibbing,",
+          "start": 4.86,
+          "end": 5.26,
+          "key": "fibbing",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 5.34,
+          "end": 5.46,
+          "key": "do",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 5.46,
+          "end": 5.74,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 6.34,
+          "end": 6.52,
+          "key": "what",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 6.52,
+          "end": 6.64,
+          "key": "if",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 6.64,
+          "end": 6.76,
+          "key": "he",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 6.76,
+          "end": 6.94,
+          "key": "should",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 6.94,
+          "end": 7.16,
+          "key": "find",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 7.16,
+          "end": 7.36,
+          "key": "out",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.36,
+          "end": 7.54,
+          "key": "that",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "I've",
+          "start": 7.54,
+          "end": 7.74,
+          "key": "ive",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 7.74,
+          "end": 7.98,
+          "key": "only",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.98,
+          "end": 8.24,
+          "key": "that",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 8.24,
+          "end": 8.52,
+          "key": "one",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "number",
+          "start": 8.52,
+          "end": 8.78,
+          "key": "number",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.78,
+          "end": 8.98,
+          "key": "of",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.98,
+          "end": 9.12,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Bell",
+          "start": 9.12,
+          "end": 9.32,
+          "key": "bell",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 9.32,
+          "end": 9.56,
+          "key": "in",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "father's",
+          "start": 9.56,
+          "end": 10.04,
+          "key": "fathers",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "bookcase,",
+          "start": 10.04,
+          "end": 10.52,
+          "key": "bookcase",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.72,
+          "end": 10.8,
+          "key": "and",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "haven't",
+          "start": 10.8,
+          "end": 11.18,
+          "key": "havent",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "read",
+          "start": 11.18,
+          "end": 11.36,
+          "key": "read",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 11.36,
+          "end": 11.6,
+          "key": "any",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 11.6,
+          "end": 11.82,
+          "key": "more",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.82,
+          "end": 11.98,
+          "key": "of",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "it?\"",
+          "start": 11.98,
+          "end": 12.8,
+          "key": "it",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Kolya",
+          "start": 12.8,
+          "end": 13.08,
+          "key": "kolya",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 13.08,
+          "end": 13.28,
+          "key": "thought",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 13.28,
+          "end": 13.48,
+          "key": "with",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 13.48,
+          "end": 13.62,
+          "key": "a",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "shudder.",
+          "start": 13.62,
+          "end": 13.82,
+          "key": "shudder",
+          "pieces": [
+            46
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Do",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "you",
+          "start": 0.48,
+          "end": 0.58
+        },
+        {
+          "text": "remember?",
+          "start": 0.58,
+          "end": 0.92
+        },
+        {
+          "text": "It's",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "text": "splendid.",
+          "start": 1.62,
+          "end": 1.92
+        },
+        {
+          "text": "Why",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "text": "are",
+          "start": 2.76,
+          "end": 2.86
+        },
+        {
+          "text": "you",
+          "start": 2.86,
+          "end": 3.0
+        },
+        {
+          "text": "laughing?",
+          "start": 3.0,
+          "end": 3.34
+        },
+        {
+          "text": "You",
+          "start": 3.88,
+          "end": 3.96
+        },
+        {
+          "text": "don't",
+          "start": 3.96,
+          "end": 4.14
+        },
+        {
+          "text": "suppose",
+          "start": 4.14,
+          "end": 4.44
+        },
+        {
+          "text": "I",
+          "start": 4.44,
+          "end": 4.72
+        },
+        {
+          "text": "am",
+          "start": 4.72,
+          "end": 4.86
+        },
+        {
+          "text": "fibbing,",
+          "start": 4.86,
+          "end": 5.26
+        },
+        {
+          "text": "do",
+          "start": 5.34,
+          "end": 5.46
+        },
+        {
+          "text": "you?\"",
+          "start": 5.46,
+          "end": 5.74
+        },
+        {
+          "text": "(\"What",
+          "start": 6.34,
+          "end": 6.52
+        },
+        {
+          "text": "if",
+          "start": 6.52,
+          "end": 6.64
+        },
+        {
+          "text": "he",
+          "start": 6.64,
+          "end": 6.76
+        },
+        {
+          "text": "should",
+          "start": 6.76,
+          "end": 6.94
+        },
+        {
+          "text": "find",
+          "start": 6.94,
+          "end": 7.16
+        },
+        {
+          "text": "out",
+          "start": 7.16,
+          "end": 7.36
+        },
+        {
+          "text": "that",
+          "start": 7.36,
+          "end": 7.54
+        },
+        {
+          "text": "I've",
+          "start": 7.54,
+          "end": 7.74
+        },
+        {
+          "text": "only",
+          "start": 7.74,
+          "end": 7.98
+        },
+        {
+          "text": "that",
+          "start": 7.98,
+          "end": 8.24
+        },
+        {
+          "text": "one",
+          "start": 8.24,
+          "end": 8.52
+        },
+        {
+          "text": "number",
+          "start": 8.52,
+          "end": 8.78
+        },
+        {
+          "text": "of",
+          "start": 8.78,
+          "end": 8.98
+        },
+        {
+          "text": "_The",
+          "start": 8.98,
+          "end": 9.12
+        },
+        {
+          "text": "Bell_",
+          "start": 9.12,
+          "end": 9.32
+        },
+        {
+          "text": "in",
+          "start": 9.32,
+          "end": 9.56
+        },
+        {
+          "text": "father's",
+          "start": 9.56,
+          "end": 10.04
+        },
+        {
+          "text": "bookcase,",
+          "start": 10.04,
+          "end": 10.52
+        },
+        {
+          "text": "and",
+          "start": 10.72,
+          "end": 10.8
+        },
+        {
+          "text": "haven't",
+          "start": 10.8,
+          "end": 11.18
+        },
+        {
+          "text": "read",
+          "start": 11.18,
+          "end": 11.36
+        },
+        {
+          "text": "any",
+          "start": 11.36,
+          "end": 11.6
+        },
+        {
+          "text": "more",
+          "start": 11.6,
+          "end": 11.82
+        },
+        {
+          "text": "of",
+          "start": 11.82,
+          "end": 11.98
+        },
+        {
+          "text": "it?\"",
+          "start": 11.98,
+          "end": 12.8
+        },
+        {
+          "text": "Kolya",
+          "start": 12.8,
+          "end": 13.08
+        },
+        {
+          "text": "thought",
+          "start": 13.08,
+          "end": 13.28
+        },
+        {
+          "text": "with",
+          "start": 13.28,
+          "end": 13.48
+        },
+        {
+          "text": "a",
+          "start": 13.48,
+          "end": 13.62
+        },
+        {
+          "text": "shudder.)",
+          "start": 13.62,
+          "end": 13.82
+        }
+      ],
+      "stats": {
+        "expected_words": 47,
+        "heard_words": 47,
+        "matched_words": 47
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5271437410265207
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "13a88d9bb72f96c2aae9a378c228fde2cbf338329723083330f7b0b15af2a4ac",
+  "selected_reasons": []
+}

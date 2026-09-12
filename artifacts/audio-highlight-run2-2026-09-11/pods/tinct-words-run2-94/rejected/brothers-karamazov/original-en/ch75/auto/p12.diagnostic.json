@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "c9e5a0d8b462226dc0957c1a331b2915ff190f870789ee5645c870664b9de44d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2340939100831747,
+      "alignment_seconds": 0.0005051493644714355,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Why do you sigh? You knew of it all along,\" Ivan blurted out.",
+        "hotwords": "Why, Ivan"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why do you sigh? You knew of it all along, Ivan blurted out.",
+          "start": 0.02,
+          "end": 3.44,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.82763671875
+            },
+            {
+              "text": " do",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.986328125
+            },
+            {
+              "text": " you",
+              "start": 0.62,
+              "end": 0.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sigh?",
+              "start": 0.74,
+              "end": 0.96,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " You",
+              "start": 1.24,
+              "end": 1.42,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " knew",
+              "start": 1.42,
+              "end": 1.54,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 1.54,
+              "end": 1.66,
+              "probability": 0.986328125
+            },
+            {
+              "text": " it",
+              "start": 1.66,
+              "end": 1.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " all",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " along,",
+              "start": 1.86,
+              "end": 2.22,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Ivan",
+              "start": 2.66,
+              "end": 2.74,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " blurted",
+              "start": 2.74,
+              "end": 3.16,
+              "probability": 0.881103515625
+            },
+            {
+              "text": " out.",
+              "start": 3.16,
+              "end": 3.44,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "do",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "you",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "raw": "sigh?",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "raw": "You",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "raw": "knew",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "raw": "of",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "raw": "it",
+          "start": 1.66,
+          "end": 1.72
+        },
+        {
+          "raw": "all",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "along,",
+          "start": 1.86,
+          "end": 2.22
+        },
+        {
+          "raw": "Ivan",
+          "start": 2.66,
+          "end": 2.74
+        },
+        {
+          "raw": "blurted",
+          "start": 2.74,
+          "end": 3.16
+        },
+        {
+          "raw": "out.",
+          "start": 3.16,
+          "end": 3.44
+        }
+      ],
+      "expected_tokens": [
+        "\"Why",
+        "do",
+        "you",
+        "sigh?",
+        "You",
+        "knew",
+        "of",
+        "it",
+        "all",
+        "along,\"",
+        "Ivan",
+        "blurted",
+        "out."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.62,
+          "end": 0.74,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sigh?",
+          "start": 0.74,
+          "end": 0.96,
+          "key": "sigh",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.24,
+          "end": 1.42,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "knew",
+          "start": 1.42,
+          "end": 1.54,
+          "key": "knew",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.54,
+          "end": 1.66,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.66,
+          "end": 1.72,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.72,
+          "end": 1.86,
+          "key": "all",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "along,",
+          "start": 1.86,
+          "end": 2.22,
+          "key": "along",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Ivan",
+          "start": 2.66,
+          "end": 2.74,
+          "key": "ivan",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "blurted",
+          "start": 2.74,
+          "end": 3.16,
+          "key": "blurted",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 3.16,
+          "end": 3.44,
+          "key": "out",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "do",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "you",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "text": "sigh?",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "text": "You",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "text": "knew",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "text": "of",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "text": "it",
+          "start": 1.66,
+          "end": 1.72
+        },
+        {
+          "text": "all",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "text": "along,\"",
+          "start": 1.86,
+          "end": 2.22
+        },
+        {
+          "text": "Ivan",
+          "start": 2.66,
+          "end": 2.74
+        },
+        {
+          "text": "blurted",
+          "start": 2.74,
+          "end": 3.16
+        },
+        {
+          "text": "out.",
+          "start": 3.16,
+          "end": 3.44
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2348176408559084
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "64fbebb334a46228432cb8f2e2b4d84d4a519d1e9463c821c327f6f3ecd2f40c",
+  "selected_reasons": []
+}

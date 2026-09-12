@@ -1,0 +1,523 @@
+{
+  "complete": true,
+  "signature": "d0abdb2013df1e6ca9a0330805796e86f5591aa66bf5eaa765e0bb94fb94b2f4",
+  "attempts": [
+    {
+      "asr_seconds": 0.2992206886410713,
+      "alignment_seconds": 0.0005638059228658676,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He's taken his revenge already said Alyosha. He's written a paragraph about Madame Holikov",
+          "start": 0.05,
+          "end": 5.89,
+          "words": [
+            {
+              "text": " He's",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.719482421875
+            },
+            {
+              "text": " taken",
+              "start": 0.65,
+              "end": 0.89,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " his",
+              "start": 0.89,
+              "end": 1.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " revenge",
+              "start": 1.09,
+              "end": 1.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " already",
+              "start": 1.49,
+              "end": 2.13,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " said",
+              "start": 2.13,
+              "end": 2.59,
+              "probability": 0.418701171875
+            },
+            {
+              "text": " Alyosha.",
+              "start": 2.59,
+              "end": 3.33,
+              "probability": 0.81591796875
+            },
+            {
+              "text": " He's",
+              "start": 3.33,
+              "end": 3.95,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " written",
+              "start": 3.95,
+              "end": 4.11,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 4.11,
+              "end": 4.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " paragraph",
+              "start": 4.25,
+              "end": 4.65,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " about",
+              "start": 4.65,
+              "end": 4.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Madame",
+              "start": 4.89,
+              "end": 5.23,
+              "probability": 0.57568359375
+            },
+            {
+              "text": " Holikov",
+              "start": 5.23,
+              "end": 5.89,
+              "probability": 0.79345703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He's",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "taken",
+          "start": 0.65,
+          "end": 0.89
+        },
+        {
+          "raw": "his",
+          "start": 0.89,
+          "end": 1.09
+        },
+        {
+          "raw": "revenge",
+          "start": 1.09,
+          "end": 1.49
+        },
+        {
+          "raw": "already",
+          "start": 1.49,
+          "end": 2.13
+        },
+        {
+          "raw": "said",
+          "start": 2.13,
+          "end": 2.59
+        },
+        {
+          "raw": "Alyosha.",
+          "start": 2.59,
+          "end": 3.33
+        },
+        {
+          "raw": "He's",
+          "start": 3.33,
+          "end": 3.95
+        },
+        {
+          "raw": "written",
+          "start": 3.95,
+          "end": 4.11
+        },
+        {
+          "raw": "a",
+          "start": 4.11,
+          "end": 4.25
+        },
+        {
+          "raw": "paragraph",
+          "start": 4.25,
+          "end": 4.65
+        },
+        {
+          "raw": "about",
+          "start": 4.65,
+          "end": 4.89
+        },
+        {
+          "raw": "Madame",
+          "start": 4.89,
+          "end": 5.23
+        },
+        {
+          "raw": "Holikov",
+          "start": 5.23,
+          "end": 5.89
+        }
+      ],
+      "expected_tokens": [
+        "\"He's",
+        "taken",
+        "his",
+        "revenge",
+        "already,\"",
+        "said",
+        "Alyosha.",
+        "\"He's",
+        "written",
+        "a",
+        "paragraph",
+        "about",
+        "Madame",
+        "Hohlakov.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He's",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "hes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "taken",
+          "start": 0.65,
+          "end": 0.89,
+          "key": "taken",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.89,
+          "end": 1.09,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "revenge",
+          "start": 1.09,
+          "end": 1.49,
+          "key": "revenge",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "already",
+          "start": 1.49,
+          "end": 2.13,
+          "key": "already",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.13,
+          "end": 2.59,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Alyosha.",
+          "start": 2.59,
+          "end": 3.33,
+          "key": "alyosha",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 3.33,
+          "end": 3.95,
+          "key": "hes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "written",
+          "start": 3.95,
+          "end": 4.11,
+          "key": "written",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.11,
+          "end": 4.25,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "paragraph",
+          "start": 4.25,
+          "end": 4.65,
+          "key": "paragraph",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 4.65,
+          "end": 4.89,
+          "key": "about",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Madame",
+          "start": 4.89,
+          "end": 5.23,
+          "key": "madame",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Holikov",
+          "start": 5.23,
+          "end": 5.89,
+          "key": "holikov",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"He's",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "taken",
+          "start": 0.65,
+          "end": 0.89
+        },
+        {
+          "text": "his",
+          "start": 0.89,
+          "end": 1.09
+        },
+        {
+          "text": "revenge",
+          "start": 1.09,
+          "end": 1.49
+        },
+        {
+          "text": "already,\"",
+          "start": 1.49,
+          "end": 2.13
+        },
+        {
+          "text": "said",
+          "start": 2.13,
+          "end": 2.59
+        },
+        {
+          "text": "Alyosha.",
+          "start": 2.59,
+          "end": 3.33
+        },
+        {
+          "text": "\"He's",
+          "start": 3.33,
+          "end": 3.95
+        },
+        {
+          "text": "written",
+          "start": 3.95,
+          "end": 4.11
+        },
+        {
+          "text": "a",
+          "start": 4.11,
+          "end": 4.25
+        },
+        {
+          "text": "paragraph",
+          "start": 4.25,
+          "end": 4.65
+        },
+        {
+          "text": "about",
+          "start": 4.65,
+          "end": 4.89
+        },
+        {
+          "text": "Madame",
+          "start": 4.89,
+          "end": 5.23
+        },
+        {
+          "text": "Hohlakov.\"",
+          "start": 5.23,
+          "end": 5.56
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.3000049088150263
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c62d4f396fcc8c373c210829d29ca945559a511762146d3316d1462dedf1f485",
+  "selected_reasons": []
+}

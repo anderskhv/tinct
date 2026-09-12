@@ -1,0 +1,3496 @@
+{
+  "complete": true,
+  "signature": "8199f6a20d616a4e310d3611bd822910b918b1ace3ebd736b34c9855a86b562d",
+  "attempts": [
+    {
+      "asr_seconds": 0.6605777330696583,
+      "alignment_seconds": 0.0012290477752685547,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"That's his doing, that's his doing!\" Mitya assented, frowning. \"That's him! These paragraphs ... I know ... the insulting things that have been written about Grushenka, for instance.... And about Katya, too.... H'm!\"",
+        "hotwords": "Mitya, These, I, Grushenka, And, Katya, H'm"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That's his doing, that's his doing! Mitya assented, frowning.",
+          "start": 0.02,
+          "end": 4.08,
+          "words": [
+            {
+              "text": " That's",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.5224761962890625
+            },
+            {
+              "text": " his",
+              "start": 0.74,
+              "end": 0.8,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " doing,",
+              "start": 0.8,
+              "end": 1.14,
+              "probability": 0.990234375
+            },
+            {
+              "text": " that's",
+              "start": 1.4,
+              "end": 1.58,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " his",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " doing!",
+              "start": 1.7,
+              "end": 2.12,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Mitya",
+              "start": 2.64,
+              "end": 2.96,
+              "probability": 0.43438720703125
+            },
+            {
+              "text": " assented,",
+              "start": 2.96,
+              "end": 3.42,
+              "probability": 0.922119140625
+            },
+            {
+              "text": " frowning.",
+              "start": 3.64,
+              "end": 4.08,
+              "probability": 0.995849609375
+            }
+          ]
+        },
+        {
+          "text": " That's him! These paragraphs, I know ... the insulting things that have been written about",
+          "start": 4.08,
+          "end": 9.06,
+          "words": [
+            {
+              "text": " That's",
+              "start": 4.08,
+              "end": 4.82,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " him!",
+              "start": 4.82,
+              "end": 4.98,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " These",
+              "start": 5.28,
+              "end": 5.42,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " paragraphs,",
+              "start": 5.42,
+              "end": 5.96,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 6.36,
+              "end": 6.4,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " know",
+              "start": 6.4,
+              "end": 6.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ...",
+              "start": 6.66,
+              "end": 7.12,
+              "probability": 0.0005908012390136719
+            },
+            {
+              "text": " the",
+              "start": 7.12,
+              "end": 7.2,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " insulting",
+              "start": 7.2,
+              "end": 7.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " things",
+              "start": 7.62,
+              "end": 8.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 8.08,
+              "end": 8.28,
+              "probability": 0.9921875
+            },
+            {
+              "text": " have",
+              "start": 8.28,
+              "end": 8.38,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " been",
+              "start": 8.38,
+              "end": 8.52,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " written",
+              "start": 8.52,
+              "end": 8.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " about",
+              "start": 8.76,
+              "end": 9.06,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " Grushenka, for instance.... And about Katya, too.... H'm.",
+          "start": 9.06,
+          "end": 12.94,
+          "words": [
+            {
+              "text": " Grushenka,",
+              "start": 9.06,
+              "end": 9.6,
+              "probability": 0.64923095703125
+            },
+            {
+              "text": " for",
+              "start": 9.72,
+              "end": 9.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " instance....",
+              "start": 9.8,
+              "end": 10.88,
+              "probability": 0.4999809265136719
+            },
+            {
+              "text": " And",
+              "start": 10.88,
+              "end": 10.94,
+              "probability": 0.424560546875
+            },
+            {
+              "text": " about",
+              "start": 10.94,
+              "end": 11.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Katya,",
+              "start": 11.14,
+              "end": 11.62,
+              "probability": 0.3802490234375
+            },
+            {
+              "text": " too....",
+              "start": 11.9,
+              "end": 12.52,
+              "probability": 0.5166473388671875
+            },
+            {
+              "text": " H'm.",
+              "start": 12.52,
+              "end": 12.94,
+              "probability": 0.09287261962890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That's",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "his",
+          "start": 0.74,
+          "end": 0.8
+        },
+        {
+          "raw": "doing,",
+          "start": 0.8,
+          "end": 1.14
+        },
+        {
+          "raw": "that's",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "raw": "his",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "doing!",
+          "start": 1.7,
+          "end": 2.12
+        },
+        {
+          "raw": "Mitya",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "raw": "assented,",
+          "start": 2.96,
+          "end": 3.42
+        },
+        {
+          "raw": "frowning.",
+          "start": 3.64,
+          "end": 4.08
+        },
+        {
+          "raw": "That's",
+          "start": 4.08,
+          "end": 4.82
+        },
+        {
+          "raw": "him!",
+          "start": 4.82,
+          "end": 4.98
+        },
+        {
+          "raw": "These",
+          "start": 5.28,
+          "end": 5.42
+        },
+        {
+          "raw": "paragraphs,",
+          "start": 5.42,
+          "end": 5.96
+        },
+        {
+          "raw": "I",
+          "start": 6.36,
+          "end": 6.4
+        },
+        {
+          "raw": "know",
+          "start": 6.4,
+          "end": 6.66
+        },
+        {
+          "raw": "...",
+          "start": 6.66,
+          "end": 7.12
+        },
+        {
+          "raw": "the",
+          "start": 7.12,
+          "end": 7.2
+        },
+        {
+          "raw": "insulting",
+          "start": 7.2,
+          "end": 7.62
+        },
+        {
+          "raw": "things",
+          "start": 7.62,
+          "end": 8.08
+        },
+        {
+          "raw": "that",
+          "start": 8.08,
+          "end": 8.28
+        },
+        {
+          "raw": "have",
+          "start": 8.28,
+          "end": 8.38
+        },
+        {
+          "raw": "been",
+          "start": 8.38,
+          "end": 8.52
+        },
+        {
+          "raw": "written",
+          "start": 8.52,
+          "end": 8.76
+        },
+        {
+          "raw": "about",
+          "start": 8.76,
+          "end": 9.06
+        },
+        {
+          "raw": "Grushenka,",
+          "start": 9.06,
+          "end": 9.6
+        },
+        {
+          "raw": "for",
+          "start": 9.72,
+          "end": 9.8
+        },
+        {
+          "raw": "instance....",
+          "start": 9.8,
+          "end": 10.88
+        },
+        {
+          "raw": "And",
+          "start": 10.88,
+          "end": 10.94
+        },
+        {
+          "raw": "about",
+          "start": 10.94,
+          "end": 11.14
+        },
+        {
+          "raw": "Katya,",
+          "start": 11.14,
+          "end": 11.62
+        },
+        {
+          "raw": "too....",
+          "start": 11.9,
+          "end": 12.52
+        },
+        {
+          "raw": "H'm.",
+          "start": 12.52,
+          "end": 12.94
+        }
+      ],
+      "expected_tokens": [
+        "\"That's",
+        "his",
+        "doing,",
+        "that's",
+        "his",
+        "doing!\"",
+        "Mitya",
+        "assented,",
+        "frowning.",
+        "\"That's",
+        "him!",
+        "These",
+        "paragraphs",
+        "...",
+        "I",
+        "know",
+        "...",
+        "the",
+        "insulting",
+        "things",
+        "that",
+        "have",
+        "been",
+        "written",
+        "about",
+        "Grushenka,",
+        "for",
+        "instance....",
+        "And",
+        "about",
+        "Katya,",
+        "too....",
+        "H'm!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "delete",
+          13,
+          14,
+          13,
+          13
+        ],
+        [
+          "equal",
+          14,
+          33,
+          13,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          13,
+          14,
+          13,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That's",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "thats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.74,
+          "end": 0.8,
+          "key": "his",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "doing,",
+          "start": 0.8,
+          "end": 1.14,
+          "key": "doing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 1.4,
+          "end": 1.58,
+          "key": "thats",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.58,
+          "end": 1.7,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "doing!",
+          "start": 1.7,
+          "end": 2.12,
+          "key": "doing",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Mitya",
+          "start": 2.64,
+          "end": 2.96,
+          "key": "mitya",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "assented,",
+          "start": 2.96,
+          "end": 3.42,
+          "key": "assented",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "frowning.",
+          "start": 3.64,
+          "end": 4.08,
+          "key": "frowning",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 4.08,
+          "end": 4.82,
+          "key": "thats",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him!",
+          "start": 4.82,
+          "end": 4.98,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "These",
+          "start": 5.28,
+          "end": 5.42,
+          "key": "these",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "paragraphs,",
+          "start": 5.42,
+          "end": 5.96,
+          "key": "paragraphs",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.36,
+          "end": 6.4,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 6.4,
+          "end": 6.66,
+          "key": "know",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "...",
+          "start": 6.66,
+          "end": 7.12,
+          "key": "",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.12,
+          "end": 7.2,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "insulting",
+          "start": 7.2,
+          "end": 7.62,
+          "key": "insulting",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 7.62,
+          "end": 8.08,
+          "key": "things",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 8.08,
+          "end": 8.28,
+          "key": "that",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 8.28,
+          "end": 8.38,
+          "key": "have",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 8.38,
+          "end": 8.52,
+          "key": "been",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "written",
+          "start": 8.52,
+          "end": 8.76,
+          "key": "written",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 8.76,
+          "end": 9.06,
+          "key": "about",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Grushenka,",
+          "start": 9.06,
+          "end": 9.6,
+          "key": "grushenka",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 9.72,
+          "end": 9.8,
+          "key": "for",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "instance....",
+          "start": 9.8,
+          "end": 10.88,
+          "key": "instance",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 10.88,
+          "end": 10.94,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 10.94,
+          "end": 11.14,
+          "key": "about",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Katya,",
+          "start": 11.14,
+          "end": 11.62,
+          "key": "katya",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "too....",
+          "start": 11.9,
+          "end": 12.52,
+          "key": "too",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "H'm.",
+          "start": 12.52,
+          "end": 12.94,
+          "key": "hm",
+          "pieces": [
+            31
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That's",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "his",
+          "start": 0.74,
+          "end": 0.8
+        },
+        {
+          "text": "doing,",
+          "start": 0.8,
+          "end": 1.14
+        },
+        {
+          "text": "that's",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "text": "his",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "doing!\"",
+          "start": 1.7,
+          "end": 2.12
+        },
+        {
+          "text": "Mitya",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "text": "assented,",
+          "start": 2.96,
+          "end": 3.42
+        },
+        {
+          "text": "frowning.",
+          "start": 3.64,
+          "end": 4.08
+        },
+        {
+          "text": "\"That's",
+          "start": 4.08,
+          "end": 4.82
+        },
+        {
+          "text": "him!",
+          "start": 4.82,
+          "end": 4.98
+        },
+        {
+          "text": "These",
+          "start": 5.28,
+          "end": 5.42
+        },
+        {
+          "text": "paragraphs",
+          "start": 5.42,
+          "end": 5.96
+        },
+        {
+          "text": "...",
+          "start": 5.96,
+          "end": 6.16
+        },
+        {
+          "text": "I",
+          "start": 6.36,
+          "end": 6.4
+        },
+        {
+          "text": "know",
+          "start": 6.4,
+          "end": 6.66
+        },
+        {
+          "text": "...",
+          "start": 6.66,
+          "end": 7.12
+        },
+        {
+          "text": "the",
+          "start": 7.12,
+          "end": 7.2
+        },
+        {
+          "text": "insulting",
+          "start": 7.2,
+          "end": 7.62
+        },
+        {
+          "text": "things",
+          "start": 7.62,
+          "end": 8.08
+        },
+        {
+          "text": "that",
+          "start": 8.08,
+          "end": 8.28
+        },
+        {
+          "text": "have",
+          "start": 8.28,
+          "end": 8.38
+        },
+        {
+          "text": "been",
+          "start": 8.38,
+          "end": 8.52
+        },
+        {
+          "text": "written",
+          "start": 8.52,
+          "end": 8.76
+        },
+        {
+          "text": "about",
+          "start": 8.76,
+          "end": 9.06
+        },
+        {
+          "text": "Grushenka,",
+          "start": 9.06,
+          "end": 9.6
+        },
+        {
+          "text": "for",
+          "start": 9.72,
+          "end": 9.8
+        },
+        {
+          "text": "instance....",
+          "start": 9.8,
+          "end": 10.88
+        },
+        {
+          "text": "And",
+          "start": 10.88,
+          "end": 10.94
+        },
+        {
+          "text": "about",
+          "start": 10.94,
+          "end": 11.14
+        },
+        {
+          "text": "Katya,",
+          "start": 11.14,
+          "end": 11.62
+        },
+        {
+          "text": "too....",
+          "start": 11.9,
+          "end": 12.52
+        },
+        {
+          "text": "H'm!\"",
+          "start": 12.52,
+          "end": 12.94
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 32,
+        "matched_words": 32
+      },
+      "match_ratio": 0.9696969696969697,
+      "rejection_reasons": [],
+      "seconds": 0.6623005233705044
+    },
+    {
+      "asr_seconds": 6.459137724712491,
+      "alignment_seconds": 0.0012798383831977844,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Mitya, These, I, Grushenka, And, Katya, H'm"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " That's his doing, that's his doing, Mitya assented, frowning, That's him, these paragraphs, I know, The insulting things that have been written about Grushenka, for instance, And about Katya, too, H'm",
+          "start": 0.02,
+          "end": 12.94,
+          "words": [
+            {
+              "text": " That's",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.522705078125
+            },
+            {
+              "text": " his",
+              "start": 0.74,
+              "end": 0.8,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " doing,",
+              "start": 0.8,
+              "end": 1.14,
+              "probability": 0.990234375
+            },
+            {
+              "text": " that's",
+              "start": 1.4,
+              "end": 1.58,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " his",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " doing,",
+              "start": 1.7,
+              "end": 2.12,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Mitya",
+              "start": 2.64,
+              "end": 2.96,
+              "probability": 0.4677734375
+            },
+            {
+              "text": " assented,",
+              "start": 2.96,
+              "end": 3.44,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " frowning,",
+              "start": 3.64,
+              "end": 4.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " That's",
+              "start": 4.44,
+              "end": 4.82,
+              "probability": 0.57427978515625
+            },
+            {
+              "text": " him,",
+              "start": 4.82,
+              "end": 4.98,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " these",
+              "start": 5.24,
+              "end": 5.42,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " paragraphs,",
+              "start": 5.42,
+              "end": 5.94,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " I",
+              "start": 6.3,
+              "end": 6.38,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " know,",
+              "start": 6.38,
+              "end": 6.68,
+              "probability": 0.99609375
+            },
+            {
+              "text": " The",
+              "start": 7.1,
+              "end": 7.2,
+              "probability": 0.5185546875
+            },
+            {
+              "text": " insulting",
+              "start": 7.2,
+              "end": 7.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " things",
+              "start": 7.6,
+              "end": 8.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " that",
+              "start": 8.06,
+              "end": 8.28,
+              "probability": 0.978515625
+            },
+            {
+              "text": " have",
+              "start": 8.28,
+              "end": 8.38,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " been",
+              "start": 8.38,
+              "end": 8.52,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " written",
+              "start": 8.52,
+              "end": 8.76,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " about",
+              "start": 8.76,
+              "end": 9.06,
+              "probability": 0.85546875
+            },
+            {
+              "text": " Grushenka,",
+              "start": 9.06,
+              "end": 9.6,
+              "probability": 0.602874755859375
+            },
+            {
+              "text": " for",
+              "start": 9.74,
+              "end": 9.8,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " instance,",
+              "start": 9.8,
+              "end": 10.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " And",
+              "start": 10.86,
+              "end": 10.94,
+              "probability": 0.8173828125
+            },
+            {
+              "text": " about",
+              "start": 10.94,
+              "end": 11.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Katya,",
+              "start": 11.14,
+              "end": 11.62,
+              "probability": 0.363037109375
+            },
+            {
+              "text": " too,",
+              "start": 11.9,
+              "end": 11.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " H'm",
+              "start": 12.6,
+              "end": 12.94,
+              "probability": 0.11864852905273438
+            }
+          ]
+        },
+        {
+          "text": " H'm,",
+          "start": 12.94,
+          "end": 13.48,
+          "words": [
+            {
+              "text": " H'm,",
+              "start": 12.94,
+              "end": 13.48,
+              "probability": 0.0005789995193481445
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That's",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "his",
+          "start": 0.74,
+          "end": 0.8
+        },
+        {
+          "raw": "doing,",
+          "start": 0.8,
+          "end": 1.14
+        },
+        {
+          "raw": "that's",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "raw": "his",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "doing,",
+          "start": 1.7,
+          "end": 2.12
+        },
+        {
+          "raw": "Mitya",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "raw": "assented,",
+          "start": 2.96,
+          "end": 3.44
+        },
+        {
+          "raw": "frowning,",
+          "start": 3.64,
+          "end": 4.08
+        },
+        {
+          "raw": "That's",
+          "start": 4.44,
+          "end": 4.82
+        },
+        {
+          "raw": "him,",
+          "start": 4.82,
+          "end": 4.98
+        },
+        {
+          "raw": "these",
+          "start": 5.24,
+          "end": 5.42
+        },
+        {
+          "raw": "paragraphs,",
+          "start": 5.42,
+          "end": 5.94
+        },
+        {
+          "raw": "I",
+          "start": 6.3,
+          "end": 6.38
+        },
+        {
+          "raw": "know,",
+          "start": 6.38,
+          "end": 6.68
+        },
+        {
+          "raw": "The",
+          "start": 7.1,
+          "end": 7.2
+        },
+        {
+          "raw": "insulting",
+          "start": 7.2,
+          "end": 7.6
+        },
+        {
+          "raw": "things",
+          "start": 7.6,
+          "end": 8.06
+        },
+        {
+          "raw": "that",
+          "start": 8.06,
+          "end": 8.28
+        },
+        {
+          "raw": "have",
+          "start": 8.28,
+          "end": 8.38
+        },
+        {
+          "raw": "been",
+          "start": 8.38,
+          "end": 8.52
+        },
+        {
+          "raw": "written",
+          "start": 8.52,
+          "end": 8.76
+        },
+        {
+          "raw": "about",
+          "start": 8.76,
+          "end": 9.06
+        },
+        {
+          "raw": "Grushenka,",
+          "start": 9.06,
+          "end": 9.6
+        },
+        {
+          "raw": "for",
+          "start": 9.74,
+          "end": 9.8
+        },
+        {
+          "raw": "instance,",
+          "start": 9.8,
+          "end": 10.22
+        },
+        {
+          "raw": "And",
+          "start": 10.86,
+          "end": 10.94
+        },
+        {
+          "raw": "about",
+          "start": 10.94,
+          "end": 11.14
+        },
+        {
+          "raw": "Katya,",
+          "start": 11.14,
+          "end": 11.62
+        },
+        {
+          "raw": "too,",
+          "start": 11.9,
+          "end": 11.92
+        },
+        {
+          "raw": "H'm",
+          "start": 12.6,
+          "end": 12.94
+        },
+        {
+          "raw": "H'm,",
+          "start": 12.94,
+          "end": 13.48
+        }
+      ],
+      "expected_tokens": [
+        "\"That's",
+        "his",
+        "doing,",
+        "that's",
+        "his",
+        "doing!\"",
+        "Mitya",
+        "assented,",
+        "frowning.",
+        "\"That's",
+        "him!",
+        "These",
+        "paragraphs",
+        "...",
+        "I",
+        "know",
+        "...",
+        "the",
+        "insulting",
+        "things",
+        "that",
+        "have",
+        "been",
+        "written",
+        "about",
+        "Grushenka,",
+        "for",
+        "instance....",
+        "And",
+        "about",
+        "Katya,",
+        "too....",
+        "H'm!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "delete",
+          13,
+          14,
+          13,
+          13
+        ],
+        [
+          "equal",
+          14,
+          16,
+          13,
+          15
+        ],
+        [
+          "delete",
+          16,
+          17,
+          15,
+          15
+        ],
+        [
+          "equal",
+          17,
+          33,
+          15,
+          31
+        ],
+        [
+          "insert",
+          33,
+          33,
+          31,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 30
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          13,
+          14,
+          13,
+          13
+        ],
+        [
+          "delete",
+          16,
+          17,
+          15,
+          15
+        ],
+        [
+          "insert",
+          33,
+          33,
+          31,
+          32
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That's",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "thats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.74,
+          "end": 0.8,
+          "key": "his",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "doing,",
+          "start": 0.8,
+          "end": 1.14,
+          "key": "doing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 1.4,
+          "end": 1.58,
+          "key": "thats",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.58,
+          "end": 1.7,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "doing,",
+          "start": 1.7,
+          "end": 2.12,
+          "key": "doing",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Mitya",
+          "start": 2.64,
+          "end": 2.96,
+          "key": "mitya",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "assented,",
+          "start": 2.96,
+          "end": 3.44,
+          "key": "assented",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "frowning,",
+          "start": 3.64,
+          "end": 4.08,
+          "key": "frowning",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 4.44,
+          "end": 4.82,
+          "key": "thats",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 4.82,
+          "end": 4.98,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 5.24,
+          "end": 5.42,
+          "key": "these",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "paragraphs,",
+          "start": 5.42,
+          "end": 5.94,
+          "key": "paragraphs",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.3,
+          "end": 6.38,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "know,",
+          "start": 6.38,
+          "end": 6.68,
+          "key": "know",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 7.1,
+          "end": 7.2,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "insulting",
+          "start": 7.2,
+          "end": 7.6,
+          "key": "insulting",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 7.6,
+          "end": 8.06,
+          "key": "things",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 8.06,
+          "end": 8.28,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 8.28,
+          "end": 8.38,
+          "key": "have",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 8.38,
+          "end": 8.52,
+          "key": "been",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "written",
+          "start": 8.52,
+          "end": 8.76,
+          "key": "written",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 8.76,
+          "end": 9.06,
+          "key": "about",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Grushenka,",
+          "start": 9.06,
+          "end": 9.6,
+          "key": "grushenka",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 9.74,
+          "end": 9.8,
+          "key": "for",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "instance,",
+          "start": 9.8,
+          "end": 10.22,
+          "key": "instance",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 10.86,
+          "end": 10.94,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 10.94,
+          "end": 11.14,
+          "key": "about",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Katya,",
+          "start": 11.14,
+          "end": 11.62,
+          "key": "katya",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 11.9,
+          "end": 11.92,
+          "key": "too",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "H'm",
+          "start": 12.6,
+          "end": 12.94,
+          "key": "hm",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "H'm,",
+          "start": 12.94,
+          "end": 13.48,
+          "key": "hm",
+          "pieces": [
+            31
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That's",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "his",
+          "start": 0.74,
+          "end": 0.8
+        },
+        {
+          "text": "doing,",
+          "start": 0.8,
+          "end": 1.14
+        },
+        {
+          "text": "that's",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "text": "his",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "doing!\"",
+          "start": 1.7,
+          "end": 2.12
+        },
+        {
+          "text": "Mitya",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "text": "assented,",
+          "start": 2.96,
+          "end": 3.44
+        },
+        {
+          "text": "frowning.",
+          "start": 3.64,
+          "end": 4.08
+        },
+        {
+          "text": "\"That's",
+          "start": 4.44,
+          "end": 4.82
+        },
+        {
+          "text": "him!",
+          "start": 4.82,
+          "end": 4.98
+        },
+        {
+          "text": "These",
+          "start": 5.24,
+          "end": 5.42
+        },
+        {
+          "text": "paragraphs",
+          "start": 5.42,
+          "end": 5.94
+        },
+        {
+          "text": "...",
+          "start": 5.94,
+          "end": 6.12
+        },
+        {
+          "text": "I",
+          "start": 6.3,
+          "end": 6.38
+        },
+        {
+          "text": "know",
+          "start": 6.38,
+          "end": 6.68
+        },
+        {
+          "text": "...",
+          "start": 6.68,
+          "end": 6.89
+        },
+        {
+          "text": "the",
+          "start": 7.1,
+          "end": 7.2
+        },
+        {
+          "text": "insulting",
+          "start": 7.2,
+          "end": 7.6
+        },
+        {
+          "text": "things",
+          "start": 7.6,
+          "end": 8.06
+        },
+        {
+          "text": "that",
+          "start": 8.06,
+          "end": 8.28
+        },
+        {
+          "text": "have",
+          "start": 8.28,
+          "end": 8.38
+        },
+        {
+          "text": "been",
+          "start": 8.38,
+          "end": 8.52
+        },
+        {
+          "text": "written",
+          "start": 8.52,
+          "end": 8.76
+        },
+        {
+          "text": "about",
+          "start": 8.76,
+          "end": 9.06
+        },
+        {
+          "text": "Grushenka,",
+          "start": 9.06,
+          "end": 9.6
+        },
+        {
+          "text": "for",
+          "start": 9.74,
+          "end": 9.8
+        },
+        {
+          "text": "instance....",
+          "start": 9.8,
+          "end": 10.22
+        },
+        {
+          "text": "And",
+          "start": 10.86,
+          "end": 10.94
+        },
+        {
+          "text": "about",
+          "start": 10.94,
+          "end": 11.14
+        },
+        {
+          "text": "Katya,",
+          "start": 11.14,
+          "end": 11.62
+        },
+        {
+          "text": "too....",
+          "start": 11.9,
+          "end": 11.92
+        },
+        {
+          "text": "H'm!\"",
+          "start": 12.6,
+          "end": 12.94
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 32,
+        "matched_words": 31
+      },
+      "match_ratio": 0.9393939393939394,
+      "rejection_reasons": [],
+      "seconds": 6.460903041064739
+    },
+    {
+      "asr_seconds": 0.6408614031970501,
+      "alignment_seconds": 0.0013740230351686478,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That's his doing, that's his doing,\" Midia assented, frowning.",
+          "start": 0.02,
+          "end": 4.06,
+          "words": [
+            {
+              "text": " That's",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.522705078125
+            },
+            {
+              "text": " his",
+              "start": 0.74,
+              "end": 0.8,
+              "probability": 0.9140625
+            },
+            {
+              "text": " doing,",
+              "start": 0.8,
+              "end": 1.14,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " that's",
+              "start": 1.4,
+              "end": 1.58,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " his",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " doing,\"",
+              "start": 1.7,
+              "end": 2.7,
+              "probability": 0.692138671875
+            },
+            {
+              "text": " Midia",
+              "start": 2.7,
+              "end": 2.94,
+              "probability": 0.5166015625
+            },
+            {
+              "text": " assented,",
+              "start": 2.94,
+              "end": 3.44,
+              "probability": 0.889404296875
+            },
+            {
+              "text": " frowning.",
+              "start": 3.62,
+              "end": 4.06,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " That's him, these paragraphs, I know, the insulting things that have been written about",
+          "start": 4.46,
+          "end": 9.06,
+          "words": [
+            {
+              "text": " That's",
+              "start": 4.46,
+              "end": 4.82,
+              "probability": 0.5262908935546875
+            },
+            {
+              "text": " him,",
+              "start": 4.82,
+              "end": 4.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " these",
+              "start": 5.22,
+              "end": 5.42,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " paragraphs,",
+              "start": 5.42,
+              "end": 5.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 6.3,
+              "end": 6.38,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " know,",
+              "start": 6.38,
+              "end": 6.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 7.1,
+              "end": 7.2,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " insulting",
+              "start": 7.2,
+              "end": 7.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " things",
+              "start": 7.6,
+              "end": 8.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 8.08,
+              "end": 8.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " have",
+              "start": 8.28,
+              "end": 8.38,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " been",
+              "start": 8.38,
+              "end": 8.52,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " written",
+              "start": 8.52,
+              "end": 8.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " about",
+              "start": 8.76,
+              "end": 9.06,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Grushinka, for instance, and about Katia too.",
+          "start": 9.06,
+          "end": 11.94,
+          "words": [
+            {
+              "text": " Grushinka,",
+              "start": 9.06,
+              "end": 9.54,
+              "probability": 0.55419921875
+            },
+            {
+              "text": " for",
+              "start": 9.72,
+              "end": 9.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " instance,",
+              "start": 9.8,
+              "end": 10.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 10.86,
+              "end": 10.94,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " about",
+              "start": 10.94,
+              "end": 11.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Katia",
+              "start": 11.14,
+              "end": 11.62,
+              "probability": 0.4658203125
+            },
+            {
+              "text": " too.",
+              "start": 11.62,
+              "end": 11.94,
+              "probability": 0.56298828125
+            }
+          ]
+        },
+        {
+          "text": " H.",
+          "start": 12.58,
+          "end": 12.66,
+          "words": [
+            {
+              "text": " H.",
+              "start": 12.58,
+              "end": 12.66,
+              "probability": 0.12176513671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That's",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "his",
+          "start": 0.74,
+          "end": 0.8
+        },
+        {
+          "raw": "doing,",
+          "start": 0.8,
+          "end": 1.14
+        },
+        {
+          "raw": "that's",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "raw": "his",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "doing,\"",
+          "start": 1.7,
+          "end": 2.7
+        },
+        {
+          "raw": "Midia",
+          "start": 2.7,
+          "end": 2.94
+        },
+        {
+          "raw": "assented,",
+          "start": 2.94,
+          "end": 3.44
+        },
+        {
+          "raw": "frowning.",
+          "start": 3.62,
+          "end": 4.06
+        },
+        {
+          "raw": "That's",
+          "start": 4.46,
+          "end": 4.82
+        },
+        {
+          "raw": "him,",
+          "start": 4.82,
+          "end": 4.98
+        },
+        {
+          "raw": "these",
+          "start": 5.22,
+          "end": 5.42
+        },
+        {
+          "raw": "paragraphs,",
+          "start": 5.42,
+          "end": 5.94
+        },
+        {
+          "raw": "I",
+          "start": 6.3,
+          "end": 6.38
+        },
+        {
+          "raw": "know,",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "raw": "the",
+          "start": 7.1,
+          "end": 7.2
+        },
+        {
+          "raw": "insulting",
+          "start": 7.2,
+          "end": 7.6
+        },
+        {
+          "raw": "things",
+          "start": 7.6,
+          "end": 8.08
+        },
+        {
+          "raw": "that",
+          "start": 8.08,
+          "end": 8.28
+        },
+        {
+          "raw": "have",
+          "start": 8.28,
+          "end": 8.38
+        },
+        {
+          "raw": "been",
+          "start": 8.38,
+          "end": 8.52
+        },
+        {
+          "raw": "written",
+          "start": 8.52,
+          "end": 8.76
+        },
+        {
+          "raw": "about",
+          "start": 8.76,
+          "end": 9.06
+        },
+        {
+          "raw": "Grushinka,",
+          "start": 9.06,
+          "end": 9.54
+        },
+        {
+          "raw": "for",
+          "start": 9.72,
+          "end": 9.8
+        },
+        {
+          "raw": "instance,",
+          "start": 9.8,
+          "end": 10.2
+        },
+        {
+          "raw": "and",
+          "start": 10.86,
+          "end": 10.94
+        },
+        {
+          "raw": "about",
+          "start": 10.94,
+          "end": 11.14
+        },
+        {
+          "raw": "Katia",
+          "start": 11.14,
+          "end": 11.62
+        },
+        {
+          "raw": "too.",
+          "start": 11.62,
+          "end": 11.94
+        },
+        {
+          "raw": "H.",
+          "start": 12.58,
+          "end": 12.66
+        }
+      ],
+      "expected_tokens": [
+        "\"That's",
+        "his",
+        "doing,",
+        "that's",
+        "his",
+        "doing!\"",
+        "Mitya",
+        "assented,",
+        "frowning.",
+        "\"That's",
+        "him!",
+        "These",
+        "paragraphs",
+        "...",
+        "I",
+        "know",
+        "...",
+        "the",
+        "insulting",
+        "things",
+        "that",
+        "have",
+        "been",
+        "written",
+        "about",
+        "Grushenka,",
+        "for",
+        "instance....",
+        "And",
+        "about",
+        "Katya,",
+        "too....",
+        "H'm!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          13,
+          7,
+          13
+        ],
+        [
+          "delete",
+          13,
+          14,
+          13,
+          13
+        ],
+        [
+          "equal",
+          14,
+          16,
+          13,
+          15
+        ],
+        [
+          "delete",
+          16,
+          17,
+          15,
+          15
+        ],
+        [
+          "equal",
+          17,
+          25,
+          15,
+          23
+        ],
+        [
+          "replace",
+          25,
+          26,
+          23,
+          24
+        ],
+        [
+          "equal",
+          26,
+          30,
+          24,
+          28
+        ],
+        [
+          "replace",
+          30,
+          31,
+          28,
+          29
+        ],
+        [
+          "equal",
+          31,
+          32,
+          29,
+          30
+        ],
+        [
+          "replace",
+          32,
+          33,
+          30,
+          31
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "delete",
+          13,
+          14,
+          13,
+          13
+        ],
+        [
+          "delete",
+          16,
+          17,
+          15,
+          15
+        ],
+        [
+          "replace",
+          25,
+          26,
+          23,
+          24
+        ],
+        [
+          "replace",
+          30,
+          31,
+          28,
+          29
+        ],
+        [
+          "replace",
+          32,
+          33,
+          30,
+          31
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That's",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "thats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.74,
+          "end": 0.8,
+          "key": "his",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "doing,",
+          "start": 0.8,
+          "end": 1.14,
+          "key": "doing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 1.4,
+          "end": 1.58,
+          "key": "thats",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.58,
+          "end": 1.7,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "doing,\"",
+          "start": 1.7,
+          "end": 2.7,
+          "key": "doing",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Midia",
+          "start": 2.7,
+          "end": 2.94,
+          "key": "midia",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "assented,",
+          "start": 2.94,
+          "end": 3.44,
+          "key": "assented",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "frowning.",
+          "start": 3.62,
+          "end": 4.06,
+          "key": "frowning",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 4.46,
+          "end": 4.82,
+          "key": "thats",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 4.82,
+          "end": 4.98,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 5.22,
+          "end": 5.42,
+          "key": "these",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "paragraphs,",
+          "start": 5.42,
+          "end": 5.94,
+          "key": "paragraphs",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.3,
+          "end": 6.38,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "know,",
+          "start": 6.38,
+          "end": 6.66,
+          "key": "know",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.1,
+          "end": 7.2,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "insulting",
+          "start": 7.2,
+          "end": 7.6,
+          "key": "insulting",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 7.6,
+          "end": 8.08,
+          "key": "things",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 8.08,
+          "end": 8.28,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 8.28,
+          "end": 8.38,
+          "key": "have",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 8.38,
+          "end": 8.52,
+          "key": "been",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "written",
+          "start": 8.52,
+          "end": 8.76,
+          "key": "written",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 8.76,
+          "end": 9.06,
+          "key": "about",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Grushinka,",
+          "start": 9.06,
+          "end": 9.54,
+          "key": "grushinka",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 9.72,
+          "end": 9.8,
+          "key": "for",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "instance,",
+          "start": 9.8,
+          "end": 10.2,
+          "key": "instance",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.86,
+          "end": 10.94,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 10.94,
+          "end": 11.14,
+          "key": "about",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Katia",
+          "start": 11.14,
+          "end": 11.62,
+          "key": "katia",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 11.62,
+          "end": 11.94,
+          "key": "too",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "H.",
+          "start": 12.58,
+          "end": 12.66,
+          "key": "h",
+          "pieces": [
+            30
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That's",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "his",
+          "start": 0.74,
+          "end": 0.8
+        },
+        {
+          "text": "doing,",
+          "start": 0.8,
+          "end": 1.14
+        },
+        {
+          "text": "that's",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "text": "his",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "doing!\"",
+          "start": 1.7,
+          "end": 2.7
+        },
+        {
+          "text": "Mitya",
+          "start": 2.7,
+          "end": 2.82
+        },
+        {
+          "text": "assented,",
+          "start": 2.94,
+          "end": 3.44
+        },
+        {
+          "text": "frowning.",
+          "start": 3.62,
+          "end": 4.06
+        },
+        {
+          "text": "\"That's",
+          "start": 4.46,
+          "end": 4.82
+        },
+        {
+          "text": "him!",
+          "start": 4.82,
+          "end": 4.98
+        },
+        {
+          "text": "These",
+          "start": 5.22,
+          "end": 5.42
+        },
+        {
+          "text": "paragraphs",
+          "start": 5.42,
+          "end": 5.94
+        },
+        {
+          "text": "...",
+          "start": 5.94,
+          "end": 6.12
+        },
+        {
+          "text": "I",
+          "start": 6.3,
+          "end": 6.38
+        },
+        {
+          "text": "know",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "text": "...",
+          "start": 6.66,
+          "end": 6.88
+        },
+        {
+          "text": "the",
+          "start": 7.1,
+          "end": 7.2
+        },
+        {
+          "text": "insulting",
+          "start": 7.2,
+          "end": 7.6
+        },
+        {
+          "text": "things",
+          "start": 7.6,
+          "end": 8.08
+        },
+        {
+          "text": "that",
+          "start": 8.08,
+          "end": 8.28
+        },
+        {
+          "text": "have",
+          "start": 8.28,
+          "end": 8.38
+        },
+        {
+          "text": "been",
+          "start": 8.38,
+          "end": 8.52
+        },
+        {
+          "text": "written",
+          "start": 8.52,
+          "end": 8.76
+        },
+        {
+          "text": "about",
+          "start": 8.76,
+          "end": 9.06
+        },
+        {
+          "text": "Grushenka,",
+          "start": 9.06,
+          "end": 9.39
+        },
+        {
+          "text": "for",
+          "start": 9.72,
+          "end": 9.8
+        },
+        {
+          "text": "instance....",
+          "start": 9.8,
+          "end": 10.2
+        },
+        {
+          "text": "And",
+          "start": 10.86,
+          "end": 10.94
+        },
+        {
+          "text": "about",
+          "start": 10.94,
+          "end": 11.14
+        },
+        {
+          "text": "Katya,",
+          "start": 11.14,
+          "end": 11.38
+        },
+        {
+          "text": "too....",
+          "start": 11.62,
+          "end": 11.94
+        },
+        {
+          "text": "H'm!\"",
+          "start": 11.94,
+          "end": 12.3
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 31,
+        "matched_words": 27
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.6427167635411024
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4cde4a665542234e11fa2ec427547889aaccbf8de6c4cc339d6fc4a36073aa81",
+  "selected_reasons": []
+}

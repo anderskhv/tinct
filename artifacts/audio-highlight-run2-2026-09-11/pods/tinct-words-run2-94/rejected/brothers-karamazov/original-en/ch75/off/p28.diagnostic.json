@@ -1,0 +1,626 @@
+{
+  "complete": true,
+  "signature": "a5685f1b0ba9143cf4d82b2e108ab411aedf333ac788a7b92cb1c7fb42c5a0e1",
+  "attempts": [
+    {
+      "asr_seconds": 0.2975406162440777,
+      "alignment_seconds": 0.0005702842026948929,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What have I to be afraid of let them write down the whole truth Smurdiakov pronounced firmly",
+          "start": 0.02,
+          "end": 5.66,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.1502685546875
+            },
+            {
+              "text": " have",
+              "start": 0.54,
+              "end": 0.74,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " I",
+              "start": 0.74,
+              "end": 0.86,
+              "probability": 0.984375
+            },
+            {
+              "text": " to",
+              "start": 0.86,
+              "end": 0.94,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " be",
+              "start": 0.94,
+              "end": 1.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " afraid",
+              "start": 1.06,
+              "end": 1.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 1.34,
+              "end": 1.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " let",
+              "start": 1.66,
+              "end": 2.16,
+              "probability": 0.51123046875
+            },
+            {
+              "text": " them",
+              "start": 2.16,
+              "end": 2.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " write",
+              "start": 2.3,
+              "end": 2.5,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " down",
+              "start": 2.5,
+              "end": 2.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.72,
+              "end": 2.88,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " whole",
+              "start": 2.88,
+              "end": 3.08,
+              "probability": 0.994140625
+            },
+            {
+              "text": " truth",
+              "start": 3.08,
+              "end": 3.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Smurdiakov",
+              "start": 3.58,
+              "end": 4.72,
+              "probability": 0.4114990234375
+            },
+            {
+              "text": " pronounced",
+              "start": 4.72,
+              "end": 5.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " firmly",
+              "start": 5.1,
+              "end": 5.66,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "have",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "raw": "I",
+          "start": 0.74,
+          "end": 0.86
+        },
+        {
+          "raw": "to",
+          "start": 0.86,
+          "end": 0.94
+        },
+        {
+          "raw": "be",
+          "start": 0.94,
+          "end": 1.06
+        },
+        {
+          "raw": "afraid",
+          "start": 1.06,
+          "end": 1.34
+        },
+        {
+          "raw": "of",
+          "start": 1.34,
+          "end": 1.66
+        },
+        {
+          "raw": "let",
+          "start": 1.66,
+          "end": 2.16
+        },
+        {
+          "raw": "them",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "raw": "write",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "raw": "down",
+          "start": 2.5,
+          "end": 2.72
+        },
+        {
+          "raw": "the",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "raw": "whole",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "raw": "truth",
+          "start": 3.08,
+          "end": 3.58
+        },
+        {
+          "raw": "Smurdiakov",
+          "start": 3.58,
+          "end": 4.72
+        },
+        {
+          "raw": "pronounced",
+          "start": 4.72,
+          "end": 5.1
+        },
+        {
+          "raw": "firmly",
+          "start": 5.1,
+          "end": 5.66
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "have",
+        "I",
+        "to",
+        "be",
+        "afraid",
+        "of?",
+        "Let",
+        "them",
+        "write",
+        "down",
+        "the",
+        "whole",
+        "truth,\"",
+        "Smerdyakov",
+        "pronounced",
+        "firmly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          17,
+          15,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.54,
+          "end": 0.74,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.74,
+          "end": 0.86,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.86,
+          "end": 0.94,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.94,
+          "end": 1.06,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "afraid",
+          "start": 1.06,
+          "end": 1.34,
+          "key": "afraid",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.34,
+          "end": 1.66,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.66,
+          "end": 2.16,
+          "key": "let",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 2.16,
+          "end": 2.3,
+          "key": "them",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "write",
+          "start": 2.3,
+          "end": 2.5,
+          "key": "write",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 2.5,
+          "end": 2.72,
+          "key": "down",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.72,
+          "end": 2.88,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 2.88,
+          "end": 3.08,
+          "key": "whole",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "truth",
+          "start": 3.08,
+          "end": 3.58,
+          "key": "truth",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Smurdiakov",
+          "start": 3.58,
+          "end": 4.72,
+          "key": "smurdiakov",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "pronounced",
+          "start": 4.72,
+          "end": 5.1,
+          "key": "pronounced",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "firmly",
+          "start": 5.1,
+          "end": 5.66,
+          "key": "firmly",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "have",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "text": "I",
+          "start": 0.74,
+          "end": 0.86
+        },
+        {
+          "text": "to",
+          "start": 0.86,
+          "end": 0.94
+        },
+        {
+          "text": "be",
+          "start": 0.94,
+          "end": 1.06
+        },
+        {
+          "text": "afraid",
+          "start": 1.06,
+          "end": 1.34
+        },
+        {
+          "text": "of?",
+          "start": 1.34,
+          "end": 1.66
+        },
+        {
+          "text": "Let",
+          "start": 1.66,
+          "end": 2.16
+        },
+        {
+          "text": "them",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "text": "write",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "text": "down",
+          "start": 2.5,
+          "end": 2.72
+        },
+        {
+          "text": "the",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "text": "whole",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "text": "truth,\"",
+          "start": 3.08,
+          "end": 3.58
+        },
+        {
+          "text": "Smerdyakov",
+          "start": 3.58,
+          "end": 4.15
+        },
+        {
+          "text": "pronounced",
+          "start": 4.72,
+          "end": 5.1
+        },
+        {
+          "text": "firmly.",
+          "start": 5.1,
+          "end": 5.66
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.2983415964990854
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "46387eec70a16a0f03ef76b1e8881b30f3382dd683d5324d369602f070df04ed",
+  "selected_reasons": []
+}

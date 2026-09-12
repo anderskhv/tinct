@@ -1,0 +1,355 @@
+{
+  "complete": true,
+  "signature": "ff88672aade1042e216316057c3b8184a349f0df3446ce4754313953f443148d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2624172493815422,
+      "alignment_seconds": 0.00039694830775260925,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " God will censure you.",
+          "start": 0.02,
+          "end": 1.48,
+          "words": [
+            {
+              "text": " God",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " will",
+              "start": 0.6,
+              "end": 0.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " censure",
+              "start": 0.78,
+              "end": 1.2,
+              "probability": 0.967529296875
+            },
+            {
+              "text": " you.",
+              "start": 1.2,
+              "end": 1.48,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " Alyosha was watching her steadily.",
+          "start": 1.94,
+          "end": 3.36,
+          "words": [
+            {
+              "text": " Alyosha",
+              "start": 1.94,
+              "end": 2.38,
+              "probability": 0.9353841145833334
+            },
+            {
+              "text": " was",
+              "start": 2.38,
+              "end": 2.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " watching",
+              "start": 2.48,
+              "end": 2.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " her",
+              "start": 2.84,
+              "end": 3.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " steadily.",
+              "start": 3.04,
+              "end": 3.36,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "God",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "will",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "raw": "censure",
+          "start": 0.78,
+          "end": 1.2
+        },
+        {
+          "raw": "you.",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "raw": "Alyosha",
+          "start": 1.94,
+          "end": 2.38
+        },
+        {
+          "raw": "was",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "raw": "watching",
+          "start": 2.48,
+          "end": 2.84
+        },
+        {
+          "raw": "her",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "raw": "steadily.",
+          "start": 3.04,
+          "end": 3.36
+        }
+      ],
+      "expected_tokens": [
+        "\"God",
+        "will",
+        "censure",
+        "you.\"",
+        "Alyosha",
+        "was",
+        "watching",
+        "her",
+        "steadily."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "God",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "god",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.6,
+          "end": 0.78,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "censure",
+          "start": 0.78,
+          "end": 1.2,
+          "key": "censure",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.2,
+          "end": 1.48,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Alyosha",
+          "start": 1.94,
+          "end": 2.38,
+          "key": "alyosha",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.38,
+          "end": 2.48,
+          "key": "was",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "watching",
+          "start": 2.48,
+          "end": 2.84,
+          "key": "watching",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.84,
+          "end": 3.04,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "steadily.",
+          "start": 3.04,
+          "end": 3.36,
+          "key": "steadily",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"God",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "will",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "text": "censure",
+          "start": 0.78,
+          "end": 1.2
+        },
+        {
+          "text": "you.\"",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "text": "Alyosha",
+          "start": 1.94,
+          "end": 2.38
+        },
+        {
+          "text": "was",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "text": "watching",
+          "start": 2.48,
+          "end": 2.84
+        },
+        {
+          "text": "her",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "text": "steadily.",
+          "start": 3.04,
+          "end": 3.36
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26295891404151917
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "74591ca9d5e009f5f199a620322a461b76a4b9f5b0a308240f2ee63d9134a912",
+  "selected_reasons": []
+}

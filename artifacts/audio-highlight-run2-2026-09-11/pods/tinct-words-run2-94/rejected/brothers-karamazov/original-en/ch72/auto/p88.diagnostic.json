@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "3127089a16ee8b6bb2e1a7c2a87981f210ef339fa4de85a92a52958d6f7fff92",
+  "attempts": [
+    {
+      "asr_seconds": 0.23639245703816414,
+      "alignment_seconds": 0.000551227480173111,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Not because I won't be your wife, but simply weep for me?\"",
+        "hotwords": "Not, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Not because I won't be your wife, but simply weep for me.",
+          "start": 0.02,
+          "end": 3.26,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.7021484375
+            },
+            {
+              "text": " because",
+              "start": 0.6,
+              "end": 0.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 0.9,
+              "end": 1.06,
+              "probability": 0.9921875
+            },
+            {
+              "text": " won't",
+              "start": 1.06,
+              "end": 1.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 1.26,
+              "end": 1.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wife,",
+              "start": 1.5,
+              "end": 1.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " but",
+              "start": 2.16,
+              "end": 2.32,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " simply",
+              "start": 2.32,
+              "end": 2.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " weep",
+              "start": 2.66,
+              "end": 2.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " for",
+              "start": 2.86,
+              "end": 3.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me.",
+              "start": 3.06,
+              "end": 3.26,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "because",
+          "start": 0.6,
+          "end": 0.9
+        },
+        {
+          "raw": "I",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "raw": "won't",
+          "start": 1.06,
+          "end": 1.26
+        },
+        {
+          "raw": "be",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "raw": "your",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "wife,",
+          "start": 1.5,
+          "end": 1.78
+        },
+        {
+          "raw": "but",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "raw": "simply",
+          "start": 2.32,
+          "end": 2.66
+        },
+        {
+          "raw": "weep",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "raw": "for",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "raw": "me.",
+          "start": 3.06,
+          "end": 3.26
+        }
+      ],
+      "expected_tokens": [
+        "\"Not",
+        "because",
+        "I",
+        "won't",
+        "be",
+        "your",
+        "wife,",
+        "but",
+        "simply",
+        "weep",
+        "for",
+        "me?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Not",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "not",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "because",
+          "start": 0.6,
+          "end": 0.9,
+          "key": "because",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.9,
+          "end": 1.06,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "won't",
+          "start": 1.06,
+          "end": 1.26,
+          "key": "wont",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.26,
+          "end": 1.36,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.36,
+          "end": 1.5,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wife,",
+          "start": 1.5,
+          "end": 1.78,
+          "key": "wife",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.16,
+          "end": 2.32,
+          "key": "but",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "simply",
+          "start": 2.32,
+          "end": 2.66,
+          "key": "simply",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "weep",
+          "start": 2.66,
+          "end": 2.86,
+          "key": "weep",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.86,
+          "end": 3.06,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 3.06,
+          "end": 3.26,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Not",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "because",
+          "start": 0.6,
+          "end": 0.9
+        },
+        {
+          "text": "I",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "text": "won't",
+          "start": 1.06,
+          "end": 1.26
+        },
+        {
+          "text": "be",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "text": "your",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "wife,",
+          "start": 1.5,
+          "end": 1.78
+        },
+        {
+          "text": "but",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "text": "simply",
+          "start": 2.32,
+          "end": 2.66
+        },
+        {
+          "text": "weep",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "text": "for",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "text": "me?\"",
+          "start": 3.06,
+          "end": 3.26
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23717369697988033
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b4e658b9f6d9d1de57f8c22e35c56237098773a3eb09b98bba1adca89283165c",
+  "selected_reasons": []
+}

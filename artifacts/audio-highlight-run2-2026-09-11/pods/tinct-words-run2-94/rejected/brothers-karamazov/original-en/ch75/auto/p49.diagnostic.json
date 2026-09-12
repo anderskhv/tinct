@@ -1,0 +1,1331 @@
+{
+  "complete": true,
+  "signature": "3ee71f46addef59ebaaac5817a15a7adc17583d067d76b2a70dfa17a3ada388d",
+  "attempts": [
+    {
+      "asr_seconds": 0.19338157027959824,
+      "alignment_seconds": 0.0004737917333841324,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You think that every one is as great a coward as yourself?\"",
+        "hotwords": "You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You think that everyone is as great a coward as yourself?",
+          "start": 0.05,
+          "end": 3.23,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " think",
+              "start": 0.55,
+              "end": 0.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 0.79,
+              "end": 1.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " everyone",
+              "start": 1.07,
+              "end": 1.57,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " is",
+              "start": 1.57,
+              "end": 1.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 1.85,
+              "end": 2.01,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " great",
+              "start": 2.01,
+              "end": 2.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 2.23,
+              "end": 2.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " coward",
+              "start": 2.37,
+              "end": 2.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 2.67,
+              "end": 2.89,
+              "probability": 0.994140625
+            },
+            {
+              "text": " yourself?",
+              "start": 2.89,
+              "end": 3.23,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "think",
+          "start": 0.55,
+          "end": 0.79
+        },
+        {
+          "raw": "that",
+          "start": 0.79,
+          "end": 1.07
+        },
+        {
+          "raw": "everyone",
+          "start": 1.07,
+          "end": 1.57
+        },
+        {
+          "raw": "is",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "raw": "as",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "raw": "great",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "raw": "a",
+          "start": 2.23,
+          "end": 2.37
+        },
+        {
+          "raw": "coward",
+          "start": 2.37,
+          "end": 2.67
+        },
+        {
+          "raw": "as",
+          "start": 2.67,
+          "end": 2.89
+        },
+        {
+          "raw": "yourself?",
+          "start": 2.89,
+          "end": 3.23
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "think",
+        "that",
+        "every",
+        "one",
+        "is",
+        "as",
+        "great",
+        "a",
+        "coward",
+        "as",
+        "yourself?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ],
+        [
+          "equal",
+          5,
+          12,
+          4,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 0.55,
+          "end": 0.79,
+          "key": "think",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.79,
+          "end": 1.07,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "everyone",
+          "start": 1.07,
+          "end": 1.57,
+          "key": "everyone",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.57,
+          "end": 1.85,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.85,
+          "end": 2.01,
+          "key": "as",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 2.01,
+          "end": 2.23,
+          "key": "great",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.23,
+          "end": 2.37,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "coward",
+          "start": 2.37,
+          "end": 2.67,
+          "key": "coward",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.67,
+          "end": 2.89,
+          "key": "as",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "yourself?",
+          "start": 2.89,
+          "end": 3.23,
+          "key": "yourself",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "think",
+          "start": 0.55,
+          "end": 0.79
+        },
+        {
+          "text": "that",
+          "start": 0.79,
+          "end": 1.07
+        },
+        {
+          "text": "every",
+          "start": 1.07,
+          "end": 1.32
+        },
+        {
+          "text": "one",
+          "start": 1.32,
+          "end": 1.445
+        },
+        {
+          "text": "is",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "text": "as",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "text": "great",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "text": "a",
+          "start": 2.23,
+          "end": 2.37
+        },
+        {
+          "text": "coward",
+          "start": 2.37,
+          "end": 2.67
+        },
+        {
+          "text": "as",
+          "start": 2.67,
+          "end": 2.89
+        },
+        {
+          "text": "yourself?\"",
+          "start": 2.89,
+          "end": 3.23
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.194027217105031
+    },
+    {
+      "asr_seconds": 0.20156634412705898,
+      "alignment_seconds": 0.0005752034485340118,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "You"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " You think that everyone is as great a coward as yourself",
+          "start": 0.05,
+          "end": 3.23,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " think",
+              "start": 0.55,
+              "end": 0.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 0.79,
+              "end": 1.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " everyone",
+              "start": 1.07,
+              "end": 1.57,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " is",
+              "start": 1.57,
+              "end": 1.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 1.85,
+              "end": 2.01,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " great",
+              "start": 2.01,
+              "end": 2.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 2.23,
+              "end": 2.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " coward",
+              "start": 2.37,
+              "end": 2.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 2.67,
+              "end": 2.89,
+              "probability": 0.994140625
+            },
+            {
+              "text": " yourself",
+              "start": 2.89,
+              "end": 3.23,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "think",
+          "start": 0.55,
+          "end": 0.79
+        },
+        {
+          "raw": "that",
+          "start": 0.79,
+          "end": 1.07
+        },
+        {
+          "raw": "everyone",
+          "start": 1.07,
+          "end": 1.57
+        },
+        {
+          "raw": "is",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "raw": "as",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "raw": "great",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "raw": "a",
+          "start": 2.23,
+          "end": 2.37
+        },
+        {
+          "raw": "coward",
+          "start": 2.37,
+          "end": 2.67
+        },
+        {
+          "raw": "as",
+          "start": 2.67,
+          "end": 2.89
+        },
+        {
+          "raw": "yourself",
+          "start": 2.89,
+          "end": 3.23
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "think",
+        "that",
+        "every",
+        "one",
+        "is",
+        "as",
+        "great",
+        "a",
+        "coward",
+        "as",
+        "yourself?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ],
+        [
+          "equal",
+          5,
+          12,
+          4,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 0.55,
+          "end": 0.79,
+          "key": "think",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.79,
+          "end": 1.07,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "everyone",
+          "start": 1.07,
+          "end": 1.57,
+          "key": "everyone",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.57,
+          "end": 1.85,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.85,
+          "end": 2.01,
+          "key": "as",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 2.01,
+          "end": 2.23,
+          "key": "great",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.23,
+          "end": 2.37,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "coward",
+          "start": 2.37,
+          "end": 2.67,
+          "key": "coward",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.67,
+          "end": 2.89,
+          "key": "as",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "yourself",
+          "start": 2.89,
+          "end": 3.23,
+          "key": "yourself",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "think",
+          "start": 0.55,
+          "end": 0.79
+        },
+        {
+          "text": "that",
+          "start": 0.79,
+          "end": 1.07
+        },
+        {
+          "text": "every",
+          "start": 1.07,
+          "end": 1.32
+        },
+        {
+          "text": "one",
+          "start": 1.32,
+          "end": 1.445
+        },
+        {
+          "text": "is",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "text": "as",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "text": "great",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "text": "a",
+          "start": 2.23,
+          "end": 2.37
+        },
+        {
+          "text": "coward",
+          "start": 2.37,
+          "end": 2.67
+        },
+        {
+          "text": "as",
+          "start": 2.67,
+          "end": 2.89
+        },
+        {
+          "text": "yourself?\"",
+          "start": 2.89,
+          "end": 3.23
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20234926417469978
+    },
+    {
+      "asr_seconds": 0.19432920031249523,
+      "alignment_seconds": 0.00033472850918769836,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You think that everyone is as great a coward as yourself",
+          "start": 0.05,
+          "end": 3.23,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " think",
+              "start": 0.55,
+              "end": 0.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 0.79,
+              "end": 1.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " everyone",
+              "start": 1.07,
+              "end": 1.57,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " is",
+              "start": 1.57,
+              "end": 1.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 1.85,
+              "end": 2.01,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " great",
+              "start": 2.01,
+              "end": 2.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 2.23,
+              "end": 2.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " coward",
+              "start": 2.37,
+              "end": 2.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 2.67,
+              "end": 2.89,
+              "probability": 0.994140625
+            },
+            {
+              "text": " yourself",
+              "start": 2.89,
+              "end": 3.23,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "think",
+          "start": 0.55,
+          "end": 0.79
+        },
+        {
+          "raw": "that",
+          "start": 0.79,
+          "end": 1.07
+        },
+        {
+          "raw": "everyone",
+          "start": 1.07,
+          "end": 1.57
+        },
+        {
+          "raw": "is",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "raw": "as",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "raw": "great",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "raw": "a",
+          "start": 2.23,
+          "end": 2.37
+        },
+        {
+          "raw": "coward",
+          "start": 2.37,
+          "end": 2.67
+        },
+        {
+          "raw": "as",
+          "start": 2.67,
+          "end": 2.89
+        },
+        {
+          "raw": "yourself",
+          "start": 2.89,
+          "end": 3.23
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "think",
+        "that",
+        "every",
+        "one",
+        "is",
+        "as",
+        "great",
+        "a",
+        "coward",
+        "as",
+        "yourself?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ],
+        [
+          "equal",
+          5,
+          12,
+          4,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 0.55,
+          "end": 0.79,
+          "key": "think",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.79,
+          "end": 1.07,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "everyone",
+          "start": 1.07,
+          "end": 1.57,
+          "key": "everyone",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.57,
+          "end": 1.85,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.85,
+          "end": 2.01,
+          "key": "as",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 2.01,
+          "end": 2.23,
+          "key": "great",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.23,
+          "end": 2.37,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "coward",
+          "start": 2.37,
+          "end": 2.67,
+          "key": "coward",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.67,
+          "end": 2.89,
+          "key": "as",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "yourself",
+          "start": 2.89,
+          "end": 3.23,
+          "key": "yourself",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "think",
+          "start": 0.55,
+          "end": 0.79
+        },
+        {
+          "text": "that",
+          "start": 0.79,
+          "end": 1.07
+        },
+        {
+          "text": "every",
+          "start": 1.07,
+          "end": 1.32
+        },
+        {
+          "text": "one",
+          "start": 1.32,
+          "end": 1.445
+        },
+        {
+          "text": "is",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "text": "as",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "text": "great",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "text": "a",
+          "start": 2.23,
+          "end": 2.37
+        },
+        {
+          "text": "coward",
+          "start": 2.37,
+          "end": 2.67
+        },
+        {
+          "text": "as",
+          "start": 2.67,
+          "end": 2.89
+        },
+        {
+          "text": "yourself?\"",
+          "start": 2.89,
+          "end": 3.23
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1948076467961073
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "db2e1efe104aa1506c04a5529187e7d787f7af1e221dc497e95e0b24445bc064",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

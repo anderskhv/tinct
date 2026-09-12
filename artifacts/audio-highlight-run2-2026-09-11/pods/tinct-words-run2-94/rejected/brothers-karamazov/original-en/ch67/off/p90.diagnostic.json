@@ -1,0 +1,324 @@
+{
+  "complete": true,
+  "signature": "f74637c9eb99d719157e08f606be936c4fde4277784f79076df2970c230eeadd",
+  "attempts": [
+    {
+      "asr_seconds": 0.18664675019681454,
+      "alignment_seconds": 0.00044875964522361755,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Elisha looked at Kalia with infinite happiness.",
+          "start": 0.08,
+          "end": 2.74,
+          "words": [
+            {
+              "text": " Elisha",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " looked",
+              "start": 0.86,
+              "end": 1.0,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " at",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Kalia",
+              "start": 1.2,
+              "end": 1.46,
+              "probability": 0.717529296875
+            },
+            {
+              "text": " with",
+              "start": 1.46,
+              "end": 1.84,
+              "probability": 0.66796875
+            },
+            {
+              "text": " infinite",
+              "start": 1.84,
+              "end": 2.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " happiness.",
+              "start": 2.22,
+              "end": 2.74,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Elisha",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "looked",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "raw": "at",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "Kalia",
+          "start": 1.2,
+          "end": 1.46
+        },
+        {
+          "raw": "with",
+          "start": 1.46,
+          "end": 1.84
+        },
+        {
+          "raw": "infinite",
+          "start": 1.84,
+          "end": 2.22
+        },
+        {
+          "raw": "happiness.",
+          "start": 2.22,
+          "end": 2.74
+        }
+      ],
+      "expected_tokens": [
+        "Ilusha",
+        "looked",
+        "at",
+        "Kolya",
+        "with",
+        "infinite",
+        "happiness."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Elisha",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "elisha",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 0.86,
+          "end": 1.0,
+          "key": "looked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.0,
+          "end": 1.2,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Kalia",
+          "start": 1.2,
+          "end": 1.46,
+          "key": "kalia",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.46,
+          "end": 1.84,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "infinite",
+          "start": 1.84,
+          "end": 2.22,
+          "key": "infinite",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "happiness.",
+          "start": 2.22,
+          "end": 2.74,
+          "key": "happiness",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ilusha",
+          "start": 0.0,
+          "end": 0.43
+        },
+        {
+          "text": "looked",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "text": "at",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "Kolya",
+          "start": 1.2,
+          "end": 1.33
+        },
+        {
+          "text": "with",
+          "start": 1.46,
+          "end": 1.84
+        },
+        {
+          "text": "infinite",
+          "start": 1.84,
+          "end": 2.22
+        },
+        {
+          "text": "happiness.",
+          "start": 2.22,
+          "end": 2.74
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18724520690739155
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6de332cbb3231ec89f429d824d1d96dc7225d4c092feef76e123e0551a5acd85",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

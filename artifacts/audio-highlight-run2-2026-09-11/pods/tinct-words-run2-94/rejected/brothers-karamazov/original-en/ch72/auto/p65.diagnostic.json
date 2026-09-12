@@ -1,0 +1,136 @@
+{
+  "complete": true,
+  "signature": "29675c52e263926ce7681dd955200e102f26067dcae26576c08f8008c6671799",
+  "attempts": [
+    {
+      "asr_seconds": 0.16251766495406628,
+      "alignment_seconds": 0.00023382902145385742,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Nice?\"",
+        "hotwords": "Nice"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nice",
+          "start": 0.02,
+          "end": 0.66,
+          "words": [
+            {
+              "text": " Nice",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.7119140625
+            }
+          ]
+        },
+        {
+          "text": " Nice",
+          "start": 0.66,
+          "end": 0.94,
+          "words": [
+            {
+              "text": " Nice",
+              "start": 0.66,
+              "end": 0.94,
+              "probability": 0.0023345947265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nice",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Nice",
+          "start": 0.66,
+          "end": 0.94
+        }
+      ],
+      "expected_tokens": [
+        "\"Nice?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nice",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "nice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nice",
+          "start": 0.66,
+          "end": 0.94,
+          "key": "nice",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Nice?\"",
+          "start": 0.02,
+          "end": 0.66
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16284574382007122
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2272fb0b20e732dee9c0774f0952f31ec2fc2f0f72fa8328a604c8141f2d2b1d",
+  "selected_reasons": []
+}

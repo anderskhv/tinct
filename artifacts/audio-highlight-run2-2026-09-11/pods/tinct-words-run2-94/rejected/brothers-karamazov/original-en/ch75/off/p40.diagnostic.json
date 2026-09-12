@@ -1,0 +1,550 @@
+{
+  "complete": true,
+  "signature": "023dec8f429979bc99937bf4385c71a24a5f1b08864b498b0d7688ad0a064ff8",
+  "attempts": [
+    {
+      "asr_seconds": 0.2224459033459425,
+      "alignment_seconds": 0.0004786048084497452,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You might have guessed from my sending you to teacher Mashnia and not to Moscow",
+          "start": 0.05,
+          "end": 4.25,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " might",
+              "start": 0.55,
+              "end": 0.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " have",
+              "start": 0.71,
+              "end": 0.83,
+              "probability": 0.978515625
+            },
+            {
+              "text": " guessed",
+              "start": 0.83,
+              "end": 1.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " from",
+              "start": 1.03,
+              "end": 1.21,
+              "probability": 0.951171875
+            },
+            {
+              "text": " my",
+              "start": 1.21,
+              "end": 1.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sending",
+              "start": 1.39,
+              "end": 1.65,
+              "probability": 0.982421875
+            },
+            {
+              "text": " you",
+              "start": 1.65,
+              "end": 1.93,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 1.93,
+              "end": 2.09,
+              "probability": 0.9921875
+            },
+            {
+              "text": " teacher",
+              "start": 2.09,
+              "end": 2.41,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " Mashnia",
+              "start": 2.41,
+              "end": 2.95,
+              "probability": 0.27789306640625
+            },
+            {
+              "text": " and",
+              "start": 2.95,
+              "end": 3.49,
+              "probability": 0.650390625
+            },
+            {
+              "text": " not",
+              "start": 3.49,
+              "end": 3.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 3.69,
+              "end": 3.87,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Moscow",
+              "start": 3.87,
+              "end": 4.25,
+              "probability": 0.96435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "might",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "raw": "have",
+          "start": 0.71,
+          "end": 0.83
+        },
+        {
+          "raw": "guessed",
+          "start": 0.83,
+          "end": 1.03
+        },
+        {
+          "raw": "from",
+          "start": 1.03,
+          "end": 1.21
+        },
+        {
+          "raw": "my",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "raw": "sending",
+          "start": 1.39,
+          "end": 1.65
+        },
+        {
+          "raw": "you",
+          "start": 1.65,
+          "end": 1.93
+        },
+        {
+          "raw": "to",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "raw": "teacher",
+          "start": 2.09,
+          "end": 2.41
+        },
+        {
+          "raw": "Mashnia",
+          "start": 2.41,
+          "end": 2.95
+        },
+        {
+          "raw": "and",
+          "start": 2.95,
+          "end": 3.49
+        },
+        {
+          "raw": "not",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "raw": "to",
+          "start": 3.69,
+          "end": 3.87
+        },
+        {
+          "raw": "Moscow",
+          "start": 3.87,
+          "end": 4.25
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "might",
+        "have",
+        "guessed",
+        "from",
+        "my",
+        "sending",
+        "you",
+        "to",
+        "Tchermashnya",
+        "and",
+        "not",
+        "to",
+        "Moscow.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          14,
+          11,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 0.55,
+          "end": 0.71,
+          "key": "might",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.71,
+          "end": 0.83,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "guessed",
+          "start": 0.83,
+          "end": 1.03,
+          "key": "guessed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.03,
+          "end": 1.21,
+          "key": "from",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.21,
+          "end": 1.39,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sending",
+          "start": 1.39,
+          "end": 1.65,
+          "key": "sending",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.65,
+          "end": 1.93,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.93,
+          "end": 2.09,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "teacher",
+          "start": 2.09,
+          "end": 2.41,
+          "key": "teacher",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Mashnia",
+          "start": 2.41,
+          "end": 2.95,
+          "key": "mashnia",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.95,
+          "end": 3.49,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.49,
+          "end": 3.69,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.69,
+          "end": 3.87,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Moscow",
+          "start": 3.87,
+          "end": 4.25,
+          "key": "moscow",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "might",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "text": "have",
+          "start": 0.71,
+          "end": 0.83
+        },
+        {
+          "text": "guessed",
+          "start": 0.83,
+          "end": 1.03
+        },
+        {
+          "text": "from",
+          "start": 1.03,
+          "end": 1.21
+        },
+        {
+          "text": "my",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "text": "sending",
+          "start": 1.39,
+          "end": 1.65
+        },
+        {
+          "text": "you",
+          "start": 1.65,
+          "end": 1.93
+        },
+        {
+          "text": "to",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "text": "Tchermashnya",
+          "start": 2.09,
+          "end": 2.52
+        },
+        {
+          "text": "and",
+          "start": 2.95,
+          "end": 3.49
+        },
+        {
+          "text": "not",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "text": "to",
+          "start": 3.69,
+          "end": 3.87
+        },
+        {
+          "text": "Moscow.\"",
+          "start": 3.87,
+          "end": 4.25
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.22311577945947647
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "489d2a39bb2b772914daee395a0311ce378058b5d7bedbbb49e0267f2492fac2",
+  "selected_reasons": []
+}

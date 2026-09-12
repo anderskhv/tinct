@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "130242103f4340feb6a8a0fc295408ceeee53d20bcc450b578ceb91a9c0bb289",
+  "attempts": [
+    {
+      "asr_seconds": 0.20554354041814804,
+      "alignment_seconds": 0.0004395395517349243,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Forgive me, I thought you were like me.",
+          "start": 0.05,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " Forgive",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.8828125
+            },
+            {
+              "text": " me,",
+              "start": 0.69,
+              "end": 0.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 1.11,
+              "end": 1.35,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " thought",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " you",
+              "start": 1.49,
+              "end": 1.63,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " were",
+              "start": 1.63,
+              "end": 1.75,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " like",
+              "start": 1.75,
+              "end": 1.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " me.",
+              "start": 1.93,
+              "end": 2.23,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Forgive",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "me,",
+          "start": 0.69,
+          "end": 0.95
+        },
+        {
+          "raw": "I",
+          "start": 1.11,
+          "end": 1.35
+        },
+        {
+          "raw": "thought",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "you",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "raw": "were",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "raw": "like",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "raw": "me.",
+          "start": 1.93,
+          "end": 2.23
+        }
+      ],
+      "expected_tokens": [
+        "\"Forgive",
+        "me,",
+        "I",
+        "thought",
+        "you",
+        "were",
+        "like",
+        "me.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Forgive",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "forgive",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 0.69,
+          "end": 0.95,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.11,
+          "end": 1.35,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "thought",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.49,
+          "end": 1.63,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 1.63,
+          "end": 1.75,
+          "key": "were",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.75,
+          "end": 1.93,
+          "key": "like",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 1.93,
+          "end": 2.23,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Forgive",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "me,",
+          "start": 0.69,
+          "end": 0.95
+        },
+        {
+          "text": "I",
+          "start": 1.11,
+          "end": 1.35
+        },
+        {
+          "text": "thought",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "you",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "text": "were",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "text": "like",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "text": "me.\"",
+          "start": 1.93,
+          "end": 2.23
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20614961721003056
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a84ee6677d5cdce2bd940793cf80b7c58248431ddd2eef748453881e4f2be178",
+  "selected_reasons": []
+}

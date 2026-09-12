@@ -1,0 +1,537 @@
+{
+  "complete": true,
+  "signature": "e485800c263f0935e6e9f64fe8804ae1be8f991ccf7bae1c20a3ca0d3ca742fa",
+  "attempts": [
+    {
+      "asr_seconds": 0.2720835190266371,
+      "alignment_seconds": 0.000376921147108078,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I know, I know, how you know it all beforehand.\"",
+          "start": 0.08,
+          "end": 3.32,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.1834716796875
+            },
+            {
+              "text": " know,",
+              "start": 0.54,
+              "end": 0.76,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " I",
+              "start": 0.94,
+              "end": 1.0,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " know,",
+              "start": 1.0,
+              "end": 1.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " how",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " you",
+              "start": 1.52,
+              "end": 1.62,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " know",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " it",
+              "start": 1.74,
+              "end": 1.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " all",
+              "start": 1.82,
+              "end": 1.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " beforehand.\"",
+              "start": 1.96,
+              "end": 3.32,
+              "probability": 0.625
+            }
+          ]
+        },
+        {
+          "text": " Kalia agreed at once.",
+          "start": 3.32,
+          "end": 4.24,
+          "words": [
+            {
+              "text": " Kalia",
+              "start": 3.32,
+              "end": 3.44,
+              "probability": 0.7158203125
+            },
+            {
+              "text": " agreed",
+              "start": 3.44,
+              "end": 3.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " at",
+              "start": 3.76,
+              "end": 3.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " once.",
+              "start": 3.92,
+              "end": 4.24,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "know,",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "raw": "I",
+          "start": 0.94,
+          "end": 1.0
+        },
+        {
+          "raw": "know,",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "raw": "how",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "you",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "raw": "know",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "raw": "it",
+          "start": 1.74,
+          "end": 1.82
+        },
+        {
+          "raw": "all",
+          "start": 1.82,
+          "end": 1.96
+        },
+        {
+          "raw": "beforehand.\"",
+          "start": 1.96,
+          "end": 3.32
+        },
+        {
+          "raw": "Kalia",
+          "start": 3.32,
+          "end": 3.44
+        },
+        {
+          "raw": "agreed",
+          "start": 3.44,
+          "end": 3.76
+        },
+        {
+          "raw": "at",
+          "start": 3.76,
+          "end": 3.92
+        },
+        {
+          "raw": "once.",
+          "start": 3.92,
+          "end": 4.24
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "know,",
+        "I",
+        "know.",
+        "How",
+        "you",
+        "know",
+        "it",
+        "all",
+        "beforehand!\"",
+        "Kolya",
+        "agreed",
+        "at",
+        "once."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          14,
+          11,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "know,",
+          "start": 0.54,
+          "end": 0.76,
+          "key": "know",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.94,
+          "end": 1.0,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "know,",
+          "start": 1.0,
+          "end": 1.16,
+          "key": "know",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.4,
+          "end": 1.52,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.52,
+          "end": 1.62,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.62,
+          "end": 1.74,
+          "key": "know",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.74,
+          "end": 1.82,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.82,
+          "end": 1.96,
+          "key": "all",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "beforehand.\"",
+          "start": 1.96,
+          "end": 3.32,
+          "key": "beforehand",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Kalia",
+          "start": 3.32,
+          "end": 3.44,
+          "key": "kalia",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "agreed",
+          "start": 3.44,
+          "end": 3.76,
+          "key": "agreed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.76,
+          "end": 3.92,
+          "key": "at",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "once.",
+          "start": 3.92,
+          "end": 4.24,
+          "key": "once",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "know,",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "text": "I",
+          "start": 0.94,
+          "end": 1.0
+        },
+        {
+          "text": "know.",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "text": "How",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "you",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "text": "know",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "text": "it",
+          "start": 1.74,
+          "end": 1.82
+        },
+        {
+          "text": "all",
+          "start": 1.82,
+          "end": 1.96
+        },
+        {
+          "text": "beforehand!\"",
+          "start": 1.96,
+          "end": 3.32
+        },
+        {
+          "text": "Kolya",
+          "start": 3.32,
+          "end": 3.38
+        },
+        {
+          "text": "agreed",
+          "start": 3.44,
+          "end": 3.76
+        },
+        {
+          "text": "at",
+          "start": 3.76,
+          "end": 3.92
+        },
+        {
+          "text": "once.",
+          "start": 3.92,
+          "end": 4.24
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.272659357637167
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3046cde2285f6c884ec5ed1c1e3ecfa6e48b335f859266617cfb6d6c09ab9ba8",
+  "selected_reasons": []
+}

@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "555a5f720c26ea14ae9adf406c6d4354e74125e13bece1e8f9b54a97b544da7a",
+  "attempts": [
+    {
+      "asr_seconds": 0.14011398889124393,
+      "alignment_seconds": 0.00031233765184879303,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Why do evil?",
+          "start": 0.02,
+          "end": 1.06,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " do",
+              "start": 0.56,
+              "end": 0.72,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " evil?",
+              "start": 0.72,
+              "end": 1.06,
+              "probability": 0.96923828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "do",
+          "start": 0.56,
+          "end": 0.72
+        },
+        {
+          "raw": "evil?",
+          "start": 0.72,
+          "end": 1.06
+        }
+      ],
+      "expected_tokens": [
+        "\"Why",
+        "do",
+        "evil?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.56,
+          "end": 0.72,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "evil?",
+          "start": 0.72,
+          "end": 1.06,
+          "key": "evil",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "do",
+          "start": 0.56,
+          "end": 0.72
+        },
+        {
+          "text": "evil?\"",
+          "start": 0.72,
+          "end": 1.06
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14055561646819115
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c44ae1d0e6ccdc0f486a2637e234743b133d6954bc51de96e993fc3fe52ad35f",
+  "selected_reasons": []
+}

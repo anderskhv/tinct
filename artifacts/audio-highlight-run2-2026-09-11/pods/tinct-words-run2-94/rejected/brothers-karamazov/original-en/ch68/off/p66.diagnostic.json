@@ -1,0 +1,594 @@
+{
+  "complete": true,
+  "signature": "675eb04dcf3ca9cb32fbb0884aac58084311bb36bd3b9b71edf0e15e1f8fd8ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.3439396992325783,
+      "alignment_seconds": 0.0006889160722494125,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You know, Kalia, you will be very unhappy in your life, something made Alyosha say suddenly.",
+          "start": 0.02,
+          "end": 5.56,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.60400390625
+            },
+            {
+              "text": " know,",
+              "start": 0.5,
+              "end": 0.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Kalia,",
+              "start": 0.92,
+              "end": 1.06,
+              "probability": 0.5455322265625
+            },
+            {
+              "text": " you",
+              "start": 1.46,
+              "end": 1.64,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " will",
+              "start": 1.64,
+              "end": 1.72,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " be",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " very",
+              "start": 1.86,
+              "end": 2.12,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " unhappy",
+              "start": 2.12,
+              "end": 2.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 2.52,
+              "end": 2.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " your",
+              "start": 2.76,
+              "end": 2.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " life,",
+              "start": 2.86,
+              "end": 3.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " something",
+              "start": 3.7,
+              "end": 4.0,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " made",
+              "start": 4.0,
+              "end": 4.26,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Alyosha",
+              "start": 4.26,
+              "end": 4.92,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " say",
+              "start": 4.92,
+              "end": 5.16,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " suddenly.",
+              "start": 5.16,
+              "end": 5.56,
+              "probability": 0.958984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "know,",
+          "start": 0.5,
+          "end": 0.72
+        },
+        {
+          "raw": "Kalia,",
+          "start": 0.92,
+          "end": 1.06
+        },
+        {
+          "raw": "you",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "raw": "will",
+          "start": 1.64,
+          "end": 1.72
+        },
+        {
+          "raw": "be",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "very",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "raw": "unhappy",
+          "start": 2.12,
+          "end": 2.52
+        },
+        {
+          "raw": "in",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "raw": "your",
+          "start": 2.76,
+          "end": 2.86
+        },
+        {
+          "raw": "life,",
+          "start": 2.86,
+          "end": 3.18
+        },
+        {
+          "raw": "something",
+          "start": 3.7,
+          "end": 4.0
+        },
+        {
+          "raw": "made",
+          "start": 4.0,
+          "end": 4.26
+        },
+        {
+          "raw": "Alyosha",
+          "start": 4.26,
+          "end": 4.92
+        },
+        {
+          "raw": "say",
+          "start": 4.92,
+          "end": 5.16
+        },
+        {
+          "raw": "suddenly.",
+          "start": 5.16,
+          "end": 5.56
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "know,",
+        "Kolya,",
+        "you",
+        "will",
+        "be",
+        "very",
+        "unhappy",
+        "in",
+        "your",
+        "life,\"",
+        "something",
+        "made",
+        "Alyosha",
+        "say",
+        "suddenly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          16,
+          3,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "know,",
+          "start": 0.5,
+          "end": 0.72,
+          "key": "know",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Kalia,",
+          "start": 0.92,
+          "end": 1.06,
+          "key": "kalia",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.46,
+          "end": 1.64,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.64,
+          "end": 1.72,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.72,
+          "end": 1.86,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 1.86,
+          "end": 2.12,
+          "key": "very",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "unhappy",
+          "start": 2.12,
+          "end": 2.52,
+          "key": "unhappy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.52,
+          "end": 2.76,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.76,
+          "end": 2.86,
+          "key": "your",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "life,",
+          "start": 2.86,
+          "end": 3.18,
+          "key": "life",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 3.7,
+          "end": 4.0,
+          "key": "something",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 4.0,
+          "end": 4.26,
+          "key": "made",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Alyosha",
+          "start": 4.26,
+          "end": 4.92,
+          "key": "alyosha",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 4.92,
+          "end": 5.16,
+          "key": "say",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "suddenly.",
+          "start": 5.16,
+          "end": 5.56,
+          "key": "suddenly",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "know,",
+          "start": 0.5,
+          "end": 0.72
+        },
+        {
+          "text": "Kolya,",
+          "start": 0.72,
+          "end": 1.09
+        },
+        {
+          "text": "you",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "text": "will",
+          "start": 1.64,
+          "end": 1.72
+        },
+        {
+          "text": "be",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "text": "very",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "text": "unhappy",
+          "start": 2.12,
+          "end": 2.52
+        },
+        {
+          "text": "in",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "text": "your",
+          "start": 2.76,
+          "end": 2.86
+        },
+        {
+          "text": "life,\"",
+          "start": 2.86,
+          "end": 3.18
+        },
+        {
+          "text": "something",
+          "start": 3.7,
+          "end": 4.0
+        },
+        {
+          "text": "made",
+          "start": 4.0,
+          "end": 4.26
+        },
+        {
+          "text": "Alyosha",
+          "start": 4.26,
+          "end": 4.92
+        },
+        {
+          "text": "say",
+          "start": 4.92,
+          "end": 5.16
+        },
+        {
+          "text": "suddenly.",
+          "start": 5.16,
+          "end": 5.56
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.3449224755167961
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e372b29106e8dc3c3259b6f8d5f900d1d59fd2d0be16c7671e0dafd1d00635cb",
+  "selected_reasons": []
+}

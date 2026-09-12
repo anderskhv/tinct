@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "24f26e92f008ddcce4a96d46568e53ec1328241cc0d7f73eed20059531739012",
+  "attempts": [
+    {
+      "asr_seconds": 0.22868063487112522,
+      "alignment_seconds": 0.0004443023353815079,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ye—es,\" answered Ilusha in a long whisper, gasping for breath.",
+        "hotwords": "Ye—es, Ilusha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ye—es, answered Ilusha in a long whisper, gasping for breath.",
+          "start": 0.67,
+          "end": 4.15,
+          "words": [
+            {
+              "text": " Ye—es,",
+              "start": 0.67,
+              "end": 1.15,
+              "probability": 0.13931496938069662
+            },
+            {
+              "text": " answered",
+              "start": 1.65,
+              "end": 1.89,
+              "probability": 0.220947265625
+            },
+            {
+              "text": " Ilusha",
+              "start": 1.89,
+              "end": 2.21,
+              "probability": 0.4503622055053711
+            },
+            {
+              "text": " in",
+              "start": 2.21,
+              "end": 2.39,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " a",
+              "start": 2.39,
+              "end": 2.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " long",
+              "start": 2.51,
+              "end": 2.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " whisper,",
+              "start": 2.73,
+              "end": 3.11,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " gasping",
+              "start": 3.35,
+              "end": 3.73,
+              "probability": 0.989990234375
+            },
+            {
+              "text": " for",
+              "start": 3.73,
+              "end": 3.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " breath.",
+              "start": 3.91,
+              "end": 4.15,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ye—es,",
+          "start": 0.67,
+          "end": 1.15
+        },
+        {
+          "raw": "answered",
+          "start": 1.65,
+          "end": 1.89
+        },
+        {
+          "raw": "Ilusha",
+          "start": 1.89,
+          "end": 2.21
+        },
+        {
+          "raw": "in",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "raw": "a",
+          "start": 2.39,
+          "end": 2.51
+        },
+        {
+          "raw": "long",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "raw": "whisper,",
+          "start": 2.73,
+          "end": 3.11
+        },
+        {
+          "raw": "gasping",
+          "start": 3.35,
+          "end": 3.73
+        },
+        {
+          "raw": "for",
+          "start": 3.73,
+          "end": 3.91
+        },
+        {
+          "raw": "breath.",
+          "start": 3.91,
+          "end": 4.15
+        }
+      ],
+      "expected_tokens": [
+        "\"Ye—es,\"",
+        "answered",
+        "Ilusha",
+        "in",
+        "a",
+        "long",
+        "whisper,",
+        "gasping",
+        "for",
+        "breath."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ye—es,",
+          "start": 0.67,
+          "end": 1.15,
+          "key": "yees",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "answered",
+          "start": 1.65,
+          "end": 1.89,
+          "key": "answered",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ilusha",
+          "start": 1.89,
+          "end": 2.21,
+          "key": "ilusha",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.21,
+          "end": 2.39,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.39,
+          "end": 2.51,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 2.51,
+          "end": 2.73,
+          "key": "long",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "whisper,",
+          "start": 2.73,
+          "end": 3.11,
+          "key": "whisper",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gasping",
+          "start": 3.35,
+          "end": 3.73,
+          "key": "gasping",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.73,
+          "end": 3.91,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "breath.",
+          "start": 3.91,
+          "end": 4.15,
+          "key": "breath",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ye—es,\"",
+          "start": 0.67,
+          "end": 1.15
+        },
+        {
+          "text": "answered",
+          "start": 1.65,
+          "end": 1.89
+        },
+        {
+          "text": "Ilusha",
+          "start": 1.89,
+          "end": 2.21
+        },
+        {
+          "text": "in",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "text": "a",
+          "start": 2.39,
+          "end": 2.51
+        },
+        {
+          "text": "long",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "text": "whisper,",
+          "start": 2.73,
+          "end": 3.11
+        },
+        {
+          "text": "gasping",
+          "start": 3.35,
+          "end": 3.73
+        },
+        {
+          "text": "for",
+          "start": 3.73,
+          "end": 3.91
+        },
+        {
+          "text": "breath.",
+          "start": 3.91,
+          "end": 4.15
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22931483015418053
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fd698d01fa39077f310df9920fe53e4a0e1abf8d83fe0974d22d84aa4006e298",
+  "selected_reasons": []
+}

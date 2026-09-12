@@ -1,0 +1,605 @@
+{
+  "complete": true,
+  "signature": "6ed41ce6e229495ef63db7660b6ea9d55c3f2fdbfc70e1ba7959363e63c605ee",
+  "attempts": [
+    {
+      "asr_seconds": 0.27260028198361397,
+      "alignment_seconds": 0.0003472641110420227,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"They don't let convicts marry, do they?\" he repeated for the third time in a supplicating voice."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They don't let convicts marry, do they?\" he repeated for the third time in a supplicating voice.",
+          "start": 0.05,
+          "end": 5.57,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.81298828125
+            },
+            {
+              "text": " don't",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " let",
+              "start": 0.65,
+              "end": 0.77,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " convicts",
+              "start": 0.77,
+              "end": 1.27,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " marry,",
+              "start": 1.27,
+              "end": 1.67,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " do",
+              "start": 1.93,
+              "end": 2.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " they?\"",
+              "start": 2.03,
+              "end": 2.83,
+              "probability": 0.63818359375
+            },
+            {
+              "text": " he",
+              "start": 2.83,
+              "end": 3.05,
+              "probability": 0.21875
+            },
+            {
+              "text": " repeated",
+              "start": 3.05,
+              "end": 3.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 3.39,
+              "end": 3.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.63,
+              "end": 3.79,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " third",
+              "start": 3.79,
+              "end": 3.99,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " time",
+              "start": 3.99,
+              "end": 4.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 4.33,
+              "end": 4.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 4.51,
+              "end": 4.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " supplicating",
+              "start": 4.63,
+              "end": 5.23,
+              "probability": 0.9690755208333334
+            },
+            {
+              "text": " voice.",
+              "start": 5.23,
+              "end": 5.57,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "don't",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "let",
+          "start": 0.65,
+          "end": 0.77
+        },
+        {
+          "raw": "convicts",
+          "start": 0.77,
+          "end": 1.27
+        },
+        {
+          "raw": "marry,",
+          "start": 1.27,
+          "end": 1.67
+        },
+        {
+          "raw": "do",
+          "start": 1.93,
+          "end": 2.03
+        },
+        {
+          "raw": "they?\"",
+          "start": 2.03,
+          "end": 2.83
+        },
+        {
+          "raw": "he",
+          "start": 2.83,
+          "end": 3.05
+        },
+        {
+          "raw": "repeated",
+          "start": 3.05,
+          "end": 3.39
+        },
+        {
+          "raw": "for",
+          "start": 3.39,
+          "end": 3.63
+        },
+        {
+          "raw": "the",
+          "start": 3.63,
+          "end": 3.79
+        },
+        {
+          "raw": "third",
+          "start": 3.79,
+          "end": 3.99
+        },
+        {
+          "raw": "time",
+          "start": 3.99,
+          "end": 4.33
+        },
+        {
+          "raw": "in",
+          "start": 4.33,
+          "end": 4.51
+        },
+        {
+          "raw": "a",
+          "start": 4.51,
+          "end": 4.63
+        },
+        {
+          "raw": "supplicating",
+          "start": 4.63,
+          "end": 5.23
+        },
+        {
+          "raw": "voice.",
+          "start": 5.23,
+          "end": 5.57
+        }
+      ],
+      "expected_tokens": [
+        "\"They",
+        "don't",
+        "let",
+        "convicts",
+        "marry,",
+        "do",
+        "they?\"",
+        "he",
+        "repeated",
+        "for",
+        "the",
+        "third",
+        "time",
+        "in",
+        "a",
+        "supplicating",
+        "voice."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "dont",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 0.65,
+          "end": 0.77,
+          "key": "let",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "convicts",
+          "start": 0.77,
+          "end": 1.27,
+          "key": "convicts",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "marry,",
+          "start": 1.27,
+          "end": 1.67,
+          "key": "marry",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.93,
+          "end": 2.03,
+          "key": "do",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "they?\"",
+          "start": 2.03,
+          "end": 2.83,
+          "key": "they",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.83,
+          "end": 3.05,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "repeated",
+          "start": 3.05,
+          "end": 3.39,
+          "key": "repeated",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.39,
+          "end": 3.63,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.63,
+          "end": 3.79,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "third",
+          "start": 3.79,
+          "end": 3.99,
+          "key": "third",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 3.99,
+          "end": 4.33,
+          "key": "time",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.33,
+          "end": 4.51,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.51,
+          "end": 4.63,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "supplicating",
+          "start": 4.63,
+          "end": 5.23,
+          "key": "supplicating",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "voice.",
+          "start": 5.23,
+          "end": 5.57,
+          "key": "voice",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"They",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "don't",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "let",
+          "start": 0.65,
+          "end": 0.77
+        },
+        {
+          "text": "convicts",
+          "start": 0.77,
+          "end": 1.27
+        },
+        {
+          "text": "marry,",
+          "start": 1.27,
+          "end": 1.67
+        },
+        {
+          "text": "do",
+          "start": 1.93,
+          "end": 2.03
+        },
+        {
+          "text": "they?\"",
+          "start": 2.03,
+          "end": 2.83
+        },
+        {
+          "text": "he",
+          "start": 2.83,
+          "end": 3.05
+        },
+        {
+          "text": "repeated",
+          "start": 3.05,
+          "end": 3.39
+        },
+        {
+          "text": "for",
+          "start": 3.39,
+          "end": 3.63
+        },
+        {
+          "text": "the",
+          "start": 3.63,
+          "end": 3.79
+        },
+        {
+          "text": "third",
+          "start": 3.79,
+          "end": 3.99
+        },
+        {
+          "text": "time",
+          "start": 3.99,
+          "end": 4.33
+        },
+        {
+          "text": "in",
+          "start": 4.33,
+          "end": 4.51
+        },
+        {
+          "text": "a",
+          "start": 4.51,
+          "end": 4.63
+        },
+        {
+          "text": "supplicating",
+          "start": 4.63,
+          "end": 5.23
+        },
+        {
+          "text": "voice.",
+          "start": 5.23,
+          "end": 5.57
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2731049843132496
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "84c5978931d18d1f0374d3eb31b4036bae3e24352c201fce49bc42b2635dbe73",
+  "selected_reasons": []
+}

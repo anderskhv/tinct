@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "e4113dcc4828a5a26044e45c2f7414902a3ea162b44726bb26a1cf52b3b80db0",
+  "attempts": [
+    {
+      "asr_seconds": 0.12083201296627522,
+      "alignment_seconds": 0.00012990087270736694,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You, too.\"",
+        "hotwords": "You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You, too.",
+          "start": 0.02,
+          "end": 0.92,
+          "words": [
+            {
+              "text": " You,",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " too.",
+              "start": 0.84,
+              "end": 0.92,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "too.",
+          "start": 0.84,
+          "end": 0.92
+        }
+      ],
+      "expected_tokens": [
+        "\"You,",
+        "too.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You,",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 0.84,
+          "end": 0.92,
+          "key": "too",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "too.\"",
+          "start": 0.84,
+          "end": 0.92
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12100568041205406
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4599dd157b302f8823d412ff550c0458d310551fea1fe4d6f11fd0873adf2919",
+  "selected_reasons": []
+}

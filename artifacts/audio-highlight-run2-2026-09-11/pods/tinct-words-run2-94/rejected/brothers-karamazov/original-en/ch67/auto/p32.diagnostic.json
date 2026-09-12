@@ -1,0 +1,3266 @@
+{
+  "complete": true,
+  "signature": "1beb75e693b3239acb512cd8c03b882ac6cefe74da8284ccd7371f37661727c8",
+  "attempts": [
+    {
+      "asr_seconds": 0.38921469263732433,
+      "alignment_seconds": 0.0007342677563428879,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ilusha did not speak, but he fixed an intent gaze once more on Kolya. Alyosha, catching Kolya's eye, signed to him vigorously again, but he turned away his eyes pretending not to have noticed.",
+        "hotwords": "Ilusha, Kolya, Alyosha, Kolya's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Alyosha, catching Kolya's eye, signed to him vigorously again, but he turned away his eyes pretending not to have noticed.",
+          "start": 5.49,
+          "end": 12.71,
+          "words": [
+            {
+              "text": " Alyosha,",
+              "start": 5.49,
+              "end": 6.09,
+              "probability": 0.6521428426106771
+            },
+            {
+              "text": " catching",
+              "start": 6.09,
+              "end": 6.69,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Kolya's",
+              "start": 6.69,
+              "end": 7.31,
+              "probability": 0.5423355102539062
+            },
+            {
+              "text": " eye,",
+              "start": 7.31,
+              "end": 7.57,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " signed",
+              "start": 7.79,
+              "end": 8.11,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " to",
+              "start": 8.11,
+              "end": 8.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him",
+              "start": 8.31,
+              "end": 8.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " vigorously",
+              "start": 8.53,
+              "end": 8.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " again,",
+              "start": 8.93,
+              "end": 9.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " but",
+              "start": 9.97,
+              "end": 10.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he",
+              "start": 10.05,
+              "end": 10.17,
+              "probability": 0.994140625
+            },
+            {
+              "text": " turned",
+              "start": 10.17,
+              "end": 10.43,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " away",
+              "start": 10.43,
+              "end": 10.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 10.69,
+              "end": 10.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " eyes",
+              "start": 10.89,
+              "end": 11.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " pretending",
+              "start": 11.19,
+              "end": 11.63,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " not",
+              "start": 11.63,
+              "end": 12.01,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 12.01,
+              "end": 12.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " have",
+              "start": 12.17,
+              "end": 12.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " noticed.",
+              "start": 12.31,
+              "end": 12.71,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alyosha,",
+          "start": 5.49,
+          "end": 6.09
+        },
+        {
+          "raw": "catching",
+          "start": 6.09,
+          "end": 6.69
+        },
+        {
+          "raw": "Kolya's",
+          "start": 6.69,
+          "end": 7.31
+        },
+        {
+          "raw": "eye,",
+          "start": 7.31,
+          "end": 7.57
+        },
+        {
+          "raw": "signed",
+          "start": 7.79,
+          "end": 8.11
+        },
+        {
+          "raw": "to",
+          "start": 8.11,
+          "end": 8.31
+        },
+        {
+          "raw": "him",
+          "start": 8.31,
+          "end": 8.53
+        },
+        {
+          "raw": "vigorously",
+          "start": 8.53,
+          "end": 8.93
+        },
+        {
+          "raw": "again,",
+          "start": 8.93,
+          "end": 9.45
+        },
+        {
+          "raw": "but",
+          "start": 9.97,
+          "end": 10.05
+        },
+        {
+          "raw": "he",
+          "start": 10.05,
+          "end": 10.17
+        },
+        {
+          "raw": "turned",
+          "start": 10.17,
+          "end": 10.43
+        },
+        {
+          "raw": "away",
+          "start": 10.43,
+          "end": 10.69
+        },
+        {
+          "raw": "his",
+          "start": 10.69,
+          "end": 10.89
+        },
+        {
+          "raw": "eyes",
+          "start": 10.89,
+          "end": 11.19
+        },
+        {
+          "raw": "pretending",
+          "start": 11.19,
+          "end": 11.63
+        },
+        {
+          "raw": "not",
+          "start": 11.63,
+          "end": 12.01
+        },
+        {
+          "raw": "to",
+          "start": 12.01,
+          "end": 12.17
+        },
+        {
+          "raw": "have",
+          "start": 12.17,
+          "end": 12.31
+        },
+        {
+          "raw": "noticed.",
+          "start": 12.31,
+          "end": 12.71
+        }
+      ],
+      "expected_tokens": [
+        "Ilusha",
+        "did",
+        "not",
+        "speak,",
+        "but",
+        "he",
+        "fixed",
+        "an",
+        "intent",
+        "gaze",
+        "once",
+        "more",
+        "on",
+        "Kolya.",
+        "Alyosha,",
+        "catching",
+        "Kolya's",
+        "eye,",
+        "signed",
+        "to",
+        "him",
+        "vigorously",
+        "again,",
+        "but",
+        "he",
+        "turned",
+        "away",
+        "his",
+        "eyes",
+        "pretending",
+        "not",
+        "to",
+        "have",
+        "noticed."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          14,
+          0,
+          0
+        ],
+        [
+          "equal",
+          14,
+          34,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          14,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alyosha,",
+          "start": 5.49,
+          "end": 6.09,
+          "key": "alyosha",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "catching",
+          "start": 6.09,
+          "end": 6.69,
+          "key": "catching",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Kolya's",
+          "start": 6.69,
+          "end": 7.31,
+          "key": "kolyas",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "eye,",
+          "start": 7.31,
+          "end": 7.57,
+          "key": "eye",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "signed",
+          "start": 7.79,
+          "end": 8.11,
+          "key": "signed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.11,
+          "end": 8.31,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 8.31,
+          "end": 8.53,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "vigorously",
+          "start": 8.53,
+          "end": 8.93,
+          "key": "vigorously",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "again,",
+          "start": 8.93,
+          "end": 9.45,
+          "key": "again",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 9.97,
+          "end": 10.05,
+          "key": "but",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.05,
+          "end": 10.17,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 10.17,
+          "end": 10.43,
+          "key": "turned",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 10.43,
+          "end": 10.69,
+          "key": "away",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.69,
+          "end": 10.89,
+          "key": "his",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 10.89,
+          "end": 11.19,
+          "key": "eyes",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "pretending",
+          "start": 11.19,
+          "end": 11.63,
+          "key": "pretending",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 11.63,
+          "end": 12.01,
+          "key": "not",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 12.01,
+          "end": 12.17,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 12.17,
+          "end": 12.31,
+          "key": "have",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "noticed.",
+          "start": 12.31,
+          "end": 12.71,
+          "key": "noticed",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ilusha",
+          "start": 0.0,
+          "end": 2.745
+        },
+        {
+          "text": "did",
+          "start": 2.745,
+          "end": 4.117
+        },
+        {
+          "text": "not",
+          "start": 4.117,
+          "end": 4.803
+        },
+        {
+          "text": "speak,",
+          "start": 4.803,
+          "end": 5.146
+        },
+        {
+          "text": "but",
+          "start": 5.146,
+          "end": 5.318
+        },
+        {
+          "text": "he",
+          "start": 5.318,
+          "end": 5.404
+        },
+        {
+          "text": "fixed",
+          "start": 5.404,
+          "end": 5.447
+        },
+        {
+          "text": "an",
+          "start": 5.447,
+          "end": 5.469
+        },
+        {
+          "text": "intent",
+          "start": 5.469,
+          "end": 5.479
+        },
+        {
+          "text": "gaze",
+          "start": 5.479,
+          "end": 5.485
+        },
+        {
+          "text": "once",
+          "start": 5.485,
+          "end": 5.488
+        },
+        {
+          "text": "more",
+          "start": 5.488,
+          "end": 5.489
+        },
+        {
+          "text": "on",
+          "start": 5.489,
+          "end": 5.489
+        },
+        {
+          "text": "Kolya.",
+          "start": 5.489,
+          "end": 5.489
+        },
+        {
+          "text": "Alyosha,",
+          "start": 5.49,
+          "end": 6.09
+        },
+        {
+          "text": "catching",
+          "start": 6.09,
+          "end": 6.69
+        },
+        {
+          "text": "Kolya's",
+          "start": 6.69,
+          "end": 7.31
+        },
+        {
+          "text": "eye,",
+          "start": 7.31,
+          "end": 7.57
+        },
+        {
+          "text": "signed",
+          "start": 7.79,
+          "end": 8.11
+        },
+        {
+          "text": "to",
+          "start": 8.11,
+          "end": 8.31
+        },
+        {
+          "text": "him",
+          "start": 8.31,
+          "end": 8.53
+        },
+        {
+          "text": "vigorously",
+          "start": 8.53,
+          "end": 8.93
+        },
+        {
+          "text": "again,",
+          "start": 8.93,
+          "end": 9.45
+        },
+        {
+          "text": "but",
+          "start": 9.97,
+          "end": 10.05
+        },
+        {
+          "text": "he",
+          "start": 10.05,
+          "end": 10.17
+        },
+        {
+          "text": "turned",
+          "start": 10.17,
+          "end": 10.43
+        },
+        {
+          "text": "away",
+          "start": 10.43,
+          "end": 10.69
+        },
+        {
+          "text": "his",
+          "start": 10.69,
+          "end": 10.89
+        },
+        {
+          "text": "eyes",
+          "start": 10.89,
+          "end": 11.19
+        },
+        {
+          "text": "pretending",
+          "start": 11.19,
+          "end": 11.63
+        },
+        {
+          "text": "not",
+          "start": 11.63,
+          "end": 12.01
+        },
+        {
+          "text": "to",
+          "start": 12.01,
+          "end": 12.17
+        },
+        {
+          "text": "have",
+          "start": 12.17,
+          "end": 12.31
+        },
+        {
+          "text": "noticed.",
+          "start": 12.31,
+          "end": 12.71
+        }
+      ],
+      "stats": {
+        "expected_words": 34,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 0.5882352941176471,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.39017067663371563
+    },
+    {
+      "asr_seconds": 0.5045177582651377,
+      "alignment_seconds": 0.0007985737174749374,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Ilusha, Kolya, Alyosha, Kolya's"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Alusha did not speak, but he fixed an intent gaze once more on Kolya.",
+          "start": 0.05,
+          "end": 4.77,
+          "words": [
+            {
+              "text": " Alusha",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.33642578125
+            },
+            {
+              "text": " did",
+              "start": 0.73,
+              "end": 0.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 0.91,
+              "end": 1.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " speak,",
+              "start": 1.13,
+              "end": 1.51,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " but",
+              "start": 1.95,
+              "end": 2.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 2.09,
+              "end": 2.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fixed",
+              "start": 2.23,
+              "end": 2.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " an",
+              "start": 2.45,
+              "end": 2.63,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " intent",
+              "start": 2.63,
+              "end": 3.05,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " gaze",
+              "start": 3.05,
+              "end": 3.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " once",
+              "start": 3.35,
+              "end": 3.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " more",
+              "start": 3.71,
+              "end": 4.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 4.01,
+              "end": 4.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Kolya.",
+              "start": 4.29,
+              "end": 4.77,
+              "probability": 0.5662943522135416
+            }
+          ]
+        },
+        {
+          "text": " Alyosha, catching Kolya's eye, signed to him vigorously again, but he turned away his",
+          "start": 5.59,
+          "end": 10.89,
+          "words": [
+            {
+              "text": " Alyosha,",
+              "start": 5.59,
+              "end": 6.09,
+              "probability": 0.8914388020833334
+            },
+            {
+              "text": " catching",
+              "start": 6.31,
+              "end": 6.69,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Kolya's",
+              "start": 6.69,
+              "end": 7.31,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " eye,",
+              "start": 7.31,
+              "end": 7.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " signed",
+              "start": 8.05,
+              "end": 8.11,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " to",
+              "start": 8.11,
+              "end": 8.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 8.31,
+              "end": 8.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " vigorously",
+              "start": 8.53,
+              "end": 8.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " again,",
+              "start": 8.93,
+              "end": 9.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " but",
+              "start": 9.93,
+              "end": 10.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 10.05,
+              "end": 10.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " turned",
+              "start": 10.19,
+              "end": 10.41,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " away",
+              "start": 10.41,
+              "end": 10.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 10.69,
+              "end": 10.89,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " eyes pretending not to have noticed.",
+          "start": 10.89,
+          "end": 12.69,
+          "words": [
+            {
+              "text": " eyes",
+              "start": 10.89,
+              "end": 11.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pretending",
+              "start": 11.19,
+              "end": 11.63,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " not",
+              "start": 11.63,
+              "end": 12.01,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 12.01,
+              "end": 12.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " have",
+              "start": 12.17,
+              "end": 12.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " noticed.",
+              "start": 12.31,
+              "end": 12.69,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alusha",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "did",
+          "start": 0.73,
+          "end": 0.91
+        },
+        {
+          "raw": "not",
+          "start": 0.91,
+          "end": 1.13
+        },
+        {
+          "raw": "speak,",
+          "start": 1.13,
+          "end": 1.51
+        },
+        {
+          "raw": "but",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "raw": "he",
+          "start": 2.09,
+          "end": 2.23
+        },
+        {
+          "raw": "fixed",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "raw": "an",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "raw": "intent",
+          "start": 2.63,
+          "end": 3.05
+        },
+        {
+          "raw": "gaze",
+          "start": 3.05,
+          "end": 3.35
+        },
+        {
+          "raw": "once",
+          "start": 3.35,
+          "end": 3.71
+        },
+        {
+          "raw": "more",
+          "start": 3.71,
+          "end": 4.01
+        },
+        {
+          "raw": "on",
+          "start": 4.01,
+          "end": 4.29
+        },
+        {
+          "raw": "Kolya.",
+          "start": 4.29,
+          "end": 4.77
+        },
+        {
+          "raw": "Alyosha,",
+          "start": 5.59,
+          "end": 6.09
+        },
+        {
+          "raw": "catching",
+          "start": 6.31,
+          "end": 6.69
+        },
+        {
+          "raw": "Kolya's",
+          "start": 6.69,
+          "end": 7.31
+        },
+        {
+          "raw": "eye,",
+          "start": 7.31,
+          "end": 7.57
+        },
+        {
+          "raw": "signed",
+          "start": 8.05,
+          "end": 8.11
+        },
+        {
+          "raw": "to",
+          "start": 8.11,
+          "end": 8.31
+        },
+        {
+          "raw": "him",
+          "start": 8.31,
+          "end": 8.53
+        },
+        {
+          "raw": "vigorously",
+          "start": 8.53,
+          "end": 8.93
+        },
+        {
+          "raw": "again,",
+          "start": 8.93,
+          "end": 9.45
+        },
+        {
+          "raw": "but",
+          "start": 9.93,
+          "end": 10.05
+        },
+        {
+          "raw": "he",
+          "start": 10.05,
+          "end": 10.19
+        },
+        {
+          "raw": "turned",
+          "start": 10.19,
+          "end": 10.41
+        },
+        {
+          "raw": "away",
+          "start": 10.41,
+          "end": 10.69
+        },
+        {
+          "raw": "his",
+          "start": 10.69,
+          "end": 10.89
+        },
+        {
+          "raw": "eyes",
+          "start": 10.89,
+          "end": 11.19
+        },
+        {
+          "raw": "pretending",
+          "start": 11.19,
+          "end": 11.63
+        },
+        {
+          "raw": "not",
+          "start": 11.63,
+          "end": 12.01
+        },
+        {
+          "raw": "to",
+          "start": 12.01,
+          "end": 12.17
+        },
+        {
+          "raw": "have",
+          "start": 12.17,
+          "end": 12.31
+        },
+        {
+          "raw": "noticed.",
+          "start": 12.31,
+          "end": 12.69
+        }
+      ],
+      "expected_tokens": [
+        "Ilusha",
+        "did",
+        "not",
+        "speak,",
+        "but",
+        "he",
+        "fixed",
+        "an",
+        "intent",
+        "gaze",
+        "once",
+        "more",
+        "on",
+        "Kolya.",
+        "Alyosha,",
+        "catching",
+        "Kolya's",
+        "eye,",
+        "signed",
+        "to",
+        "him",
+        "vigorously",
+        "again,",
+        "but",
+        "he",
+        "turned",
+        "away",
+        "his",
+        "eyes",
+        "pretending",
+        "not",
+        "to",
+        "have",
+        "noticed."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          34,
+          1,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alusha",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "alusha",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.73,
+          "end": 0.91,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.91,
+          "end": 1.13,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "speak,",
+          "start": 1.13,
+          "end": 1.51,
+          "key": "speak",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.95,
+          "end": 2.09,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.09,
+          "end": 2.23,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fixed",
+          "start": 2.23,
+          "end": 2.45,
+          "key": "fixed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.45,
+          "end": 2.63,
+          "key": "an",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "intent",
+          "start": 2.63,
+          "end": 3.05,
+          "key": "intent",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "gaze",
+          "start": 3.05,
+          "end": 3.35,
+          "key": "gaze",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 3.35,
+          "end": 3.71,
+          "key": "once",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 3.71,
+          "end": 4.01,
+          "key": "more",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.01,
+          "end": 4.29,
+          "key": "on",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Kolya.",
+          "start": 4.29,
+          "end": 4.77,
+          "key": "kolya",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Alyosha,",
+          "start": 5.59,
+          "end": 6.09,
+          "key": "alyosha",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "catching",
+          "start": 6.31,
+          "end": 6.69,
+          "key": "catching",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Kolya's",
+          "start": 6.69,
+          "end": 7.31,
+          "key": "kolyas",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "eye,",
+          "start": 7.31,
+          "end": 7.57,
+          "key": "eye",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "signed",
+          "start": 8.05,
+          "end": 8.11,
+          "key": "signed",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.11,
+          "end": 8.31,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 8.31,
+          "end": 8.53,
+          "key": "him",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "vigorously",
+          "start": 8.53,
+          "end": 8.93,
+          "key": "vigorously",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "again,",
+          "start": 8.93,
+          "end": 9.45,
+          "key": "again",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 9.93,
+          "end": 10.05,
+          "key": "but",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.05,
+          "end": 10.19,
+          "key": "he",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 10.19,
+          "end": 10.41,
+          "key": "turned",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 10.41,
+          "end": 10.69,
+          "key": "away",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.69,
+          "end": 10.89,
+          "key": "his",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 10.89,
+          "end": 11.19,
+          "key": "eyes",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "pretending",
+          "start": 11.19,
+          "end": 11.63,
+          "key": "pretending",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 11.63,
+          "end": 12.01,
+          "key": "not",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 12.01,
+          "end": 12.17,
+          "key": "to",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 12.17,
+          "end": 12.31,
+          "key": "have",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "noticed.",
+          "start": 12.31,
+          "end": 12.69,
+          "key": "noticed",
+          "pieces": [
+            33
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ilusha",
+          "start": 0.0,
+          "end": 0.365
+        },
+        {
+          "text": "did",
+          "start": 0.73,
+          "end": 0.91
+        },
+        {
+          "text": "not",
+          "start": 0.91,
+          "end": 1.13
+        },
+        {
+          "text": "speak,",
+          "start": 1.13,
+          "end": 1.51
+        },
+        {
+          "text": "but",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "text": "he",
+          "start": 2.09,
+          "end": 2.23
+        },
+        {
+          "text": "fixed",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "text": "an",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "text": "intent",
+          "start": 2.63,
+          "end": 3.05
+        },
+        {
+          "text": "gaze",
+          "start": 3.05,
+          "end": 3.35
+        },
+        {
+          "text": "once",
+          "start": 3.35,
+          "end": 3.71
+        },
+        {
+          "text": "more",
+          "start": 3.71,
+          "end": 4.01
+        },
+        {
+          "text": "on",
+          "start": 4.01,
+          "end": 4.29
+        },
+        {
+          "text": "Kolya.",
+          "start": 4.29,
+          "end": 4.77
+        },
+        {
+          "text": "Alyosha,",
+          "start": 5.59,
+          "end": 6.09
+        },
+        {
+          "text": "catching",
+          "start": 6.31,
+          "end": 6.69
+        },
+        {
+          "text": "Kolya's",
+          "start": 6.69,
+          "end": 7.31
+        },
+        {
+          "text": "eye,",
+          "start": 7.31,
+          "end": 7.57
+        },
+        {
+          "text": "signed",
+          "start": 8.05,
+          "end": 8.11
+        },
+        {
+          "text": "to",
+          "start": 8.11,
+          "end": 8.31
+        },
+        {
+          "text": "him",
+          "start": 8.31,
+          "end": 8.53
+        },
+        {
+          "text": "vigorously",
+          "start": 8.53,
+          "end": 8.93
+        },
+        {
+          "text": "again,",
+          "start": 8.93,
+          "end": 9.45
+        },
+        {
+          "text": "but",
+          "start": 9.93,
+          "end": 10.05
+        },
+        {
+          "text": "he",
+          "start": 10.05,
+          "end": 10.19
+        },
+        {
+          "text": "turned",
+          "start": 10.19,
+          "end": 10.41
+        },
+        {
+          "text": "away",
+          "start": 10.41,
+          "end": 10.69
+        },
+        {
+          "text": "his",
+          "start": 10.69,
+          "end": 10.89
+        },
+        {
+          "text": "eyes",
+          "start": 10.89,
+          "end": 11.19
+        },
+        {
+          "text": "pretending",
+          "start": 11.19,
+          "end": 11.63
+        },
+        {
+          "text": "not",
+          "start": 11.63,
+          "end": 12.01
+        },
+        {
+          "text": "to",
+          "start": 12.01,
+          "end": 12.17
+        },
+        {
+          "text": "have",
+          "start": 12.17,
+          "end": 12.31
+        },
+        {
+          "text": "noticed.",
+          "start": 12.31,
+          "end": 12.69
+        }
+      ],
+      "stats": {
+        "expected_words": 34,
+        "heard_words": 34,
+        "matched_words": 33
+      },
+      "match_ratio": 0.9705882352941176,
+      "rejection_reasons": [],
+      "seconds": 0.505764476954937
+    },
+    {
+      "asr_seconds": 0.49770751036703587,
+      "alignment_seconds": 0.0008367560803890228,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Elisha did not speak, but he fixed an intent gaze once more on Kalia.",
+          "start": 0.05,
+          "end": 4.57,
+          "words": [
+            {
+              "text": " Elisha",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.7311197916666666
+            },
+            {
+              "text": " did",
+              "start": 0.83,
+              "end": 0.91,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 0.91,
+              "end": 1.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " speak,",
+              "start": 1.13,
+              "end": 1.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " but",
+              "start": 1.95,
+              "end": 2.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 2.09,
+              "end": 2.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fixed",
+              "start": 2.23,
+              "end": 2.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " an",
+              "start": 2.45,
+              "end": 2.63,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " intent",
+              "start": 2.63,
+              "end": 3.05,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " gaze",
+              "start": 3.05,
+              "end": 3.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " once",
+              "start": 3.35,
+              "end": 3.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " more",
+              "start": 3.71,
+              "end": 3.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 3.99,
+              "end": 4.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Kalia.",
+              "start": 4.35,
+              "end": 4.57,
+              "probability": 0.587158203125
+            }
+          ]
+        },
+        {
+          "text": " Alyosha, catching Kalia's eye, signed to him vigorously again, but he turned away his",
+          "start": 5.53,
+          "end": 10.89,
+          "words": [
+            {
+              "text": " Alyosha,",
+              "start": 5.53,
+              "end": 6.09,
+              "probability": 0.9055989583333334
+            },
+            {
+              "text": " catching",
+              "start": 6.31,
+              "end": 6.69,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Kalia's",
+              "start": 6.69,
+              "end": 7.31,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " eye,",
+              "start": 7.31,
+              "end": 7.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " signed",
+              "start": 8.05,
+              "end": 8.11,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " to",
+              "start": 8.11,
+              "end": 8.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 8.31,
+              "end": 8.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " vigorously",
+              "start": 8.53,
+              "end": 8.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " again,",
+              "start": 8.93,
+              "end": 9.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " but",
+              "start": 9.93,
+              "end": 10.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 10.05,
+              "end": 10.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " turned",
+              "start": 10.19,
+              "end": 10.43,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " away",
+              "start": 10.43,
+              "end": 10.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 10.69,
+              "end": 10.89,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " eyes pretending not to have noticed.",
+          "start": 10.89,
+          "end": 12.69,
+          "words": [
+            {
+              "text": " eyes",
+              "start": 10.89,
+              "end": 11.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pretending",
+              "start": 11.19,
+              "end": 11.63,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " not",
+              "start": 11.63,
+              "end": 12.01,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 12.01,
+              "end": 12.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " have",
+              "start": 12.17,
+              "end": 12.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " noticed.",
+              "start": 12.31,
+              "end": 12.69,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Elisha",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "did",
+          "start": 0.83,
+          "end": 0.91
+        },
+        {
+          "raw": "not",
+          "start": 0.91,
+          "end": 1.13
+        },
+        {
+          "raw": "speak,",
+          "start": 1.13,
+          "end": 1.49
+        },
+        {
+          "raw": "but",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "raw": "he",
+          "start": 2.09,
+          "end": 2.23
+        },
+        {
+          "raw": "fixed",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "raw": "an",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "raw": "intent",
+          "start": 2.63,
+          "end": 3.05
+        },
+        {
+          "raw": "gaze",
+          "start": 3.05,
+          "end": 3.35
+        },
+        {
+          "raw": "once",
+          "start": 3.35,
+          "end": 3.71
+        },
+        {
+          "raw": "more",
+          "start": 3.71,
+          "end": 3.99
+        },
+        {
+          "raw": "on",
+          "start": 3.99,
+          "end": 4.35
+        },
+        {
+          "raw": "Kalia.",
+          "start": 4.35,
+          "end": 4.57
+        },
+        {
+          "raw": "Alyosha,",
+          "start": 5.53,
+          "end": 6.09
+        },
+        {
+          "raw": "catching",
+          "start": 6.31,
+          "end": 6.69
+        },
+        {
+          "raw": "Kalia's",
+          "start": 6.69,
+          "end": 7.31
+        },
+        {
+          "raw": "eye,",
+          "start": 7.31,
+          "end": 7.57
+        },
+        {
+          "raw": "signed",
+          "start": 8.05,
+          "end": 8.11
+        },
+        {
+          "raw": "to",
+          "start": 8.11,
+          "end": 8.31
+        },
+        {
+          "raw": "him",
+          "start": 8.31,
+          "end": 8.53
+        },
+        {
+          "raw": "vigorously",
+          "start": 8.53,
+          "end": 8.93
+        },
+        {
+          "raw": "again,",
+          "start": 8.93,
+          "end": 9.45
+        },
+        {
+          "raw": "but",
+          "start": 9.93,
+          "end": 10.05
+        },
+        {
+          "raw": "he",
+          "start": 10.05,
+          "end": 10.19
+        },
+        {
+          "raw": "turned",
+          "start": 10.19,
+          "end": 10.43
+        },
+        {
+          "raw": "away",
+          "start": 10.43,
+          "end": 10.69
+        },
+        {
+          "raw": "his",
+          "start": 10.69,
+          "end": 10.89
+        },
+        {
+          "raw": "eyes",
+          "start": 10.89,
+          "end": 11.19
+        },
+        {
+          "raw": "pretending",
+          "start": 11.19,
+          "end": 11.63
+        },
+        {
+          "raw": "not",
+          "start": 11.63,
+          "end": 12.01
+        },
+        {
+          "raw": "to",
+          "start": 12.01,
+          "end": 12.17
+        },
+        {
+          "raw": "have",
+          "start": 12.17,
+          "end": 12.31
+        },
+        {
+          "raw": "noticed.",
+          "start": 12.31,
+          "end": 12.69
+        }
+      ],
+      "expected_tokens": [
+        "Ilusha",
+        "did",
+        "not",
+        "speak,",
+        "but",
+        "he",
+        "fixed",
+        "an",
+        "intent",
+        "gaze",
+        "once",
+        "more",
+        "on",
+        "Kolya.",
+        "Alyosha,",
+        "catching",
+        "Kolya's",
+        "eye,",
+        "signed",
+        "to",
+        "him",
+        "vigorously",
+        "again,",
+        "but",
+        "he",
+        "turned",
+        "away",
+        "his",
+        "eyes",
+        "pretending",
+        "not",
+        "to",
+        "have",
+        "noticed."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          13,
+          1,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "equal",
+          14,
+          16,
+          14,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ],
+        [
+          "equal",
+          17,
+          34,
+          17,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Elisha",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "elisha",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.83,
+          "end": 0.91,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.91,
+          "end": 1.13,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "speak,",
+          "start": 1.13,
+          "end": 1.49,
+          "key": "speak",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.95,
+          "end": 2.09,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.09,
+          "end": 2.23,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fixed",
+          "start": 2.23,
+          "end": 2.45,
+          "key": "fixed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.45,
+          "end": 2.63,
+          "key": "an",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "intent",
+          "start": 2.63,
+          "end": 3.05,
+          "key": "intent",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "gaze",
+          "start": 3.05,
+          "end": 3.35,
+          "key": "gaze",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 3.35,
+          "end": 3.71,
+          "key": "once",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 3.71,
+          "end": 3.99,
+          "key": "more",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.99,
+          "end": 4.35,
+          "key": "on",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Kalia.",
+          "start": 4.35,
+          "end": 4.57,
+          "key": "kalia",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Alyosha,",
+          "start": 5.53,
+          "end": 6.09,
+          "key": "alyosha",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "catching",
+          "start": 6.31,
+          "end": 6.69,
+          "key": "catching",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Kalia's",
+          "start": 6.69,
+          "end": 7.31,
+          "key": "kalias",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "eye,",
+          "start": 7.31,
+          "end": 7.57,
+          "key": "eye",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "signed",
+          "start": 8.05,
+          "end": 8.11,
+          "key": "signed",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.11,
+          "end": 8.31,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 8.31,
+          "end": 8.53,
+          "key": "him",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "vigorously",
+          "start": 8.53,
+          "end": 8.93,
+          "key": "vigorously",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "again,",
+          "start": 8.93,
+          "end": 9.45,
+          "key": "again",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 9.93,
+          "end": 10.05,
+          "key": "but",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.05,
+          "end": 10.19,
+          "key": "he",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 10.19,
+          "end": 10.43,
+          "key": "turned",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 10.43,
+          "end": 10.69,
+          "key": "away",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.69,
+          "end": 10.89,
+          "key": "his",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 10.89,
+          "end": 11.19,
+          "key": "eyes",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "pretending",
+          "start": 11.19,
+          "end": 11.63,
+          "key": "pretending",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 11.63,
+          "end": 12.01,
+          "key": "not",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 12.01,
+          "end": 12.17,
+          "key": "to",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 12.17,
+          "end": 12.31,
+          "key": "have",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "noticed.",
+          "start": 12.31,
+          "end": 12.69,
+          "key": "noticed",
+          "pieces": [
+            33
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ilusha",
+          "start": 0.0,
+          "end": 0.415
+        },
+        {
+          "text": "did",
+          "start": 0.83,
+          "end": 0.91
+        },
+        {
+          "text": "not",
+          "start": 0.91,
+          "end": 1.13
+        },
+        {
+          "text": "speak,",
+          "start": 1.13,
+          "end": 1.49
+        },
+        {
+          "text": "but",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "text": "he",
+          "start": 2.09,
+          "end": 2.23
+        },
+        {
+          "text": "fixed",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "text": "an",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "text": "intent",
+          "start": 2.63,
+          "end": 3.05
+        },
+        {
+          "text": "gaze",
+          "start": 3.05,
+          "end": 3.35
+        },
+        {
+          "text": "once",
+          "start": 3.35,
+          "end": 3.71
+        },
+        {
+          "text": "more",
+          "start": 3.71,
+          "end": 3.99
+        },
+        {
+          "text": "on",
+          "start": 3.99,
+          "end": 4.35
+        },
+        {
+          "text": "Kolya.",
+          "start": 4.35,
+          "end": 4.94
+        },
+        {
+          "text": "Alyosha,",
+          "start": 5.53,
+          "end": 6.09
+        },
+        {
+          "text": "catching",
+          "start": 6.31,
+          "end": 6.69
+        },
+        {
+          "text": "Kolya's",
+          "start": 6.69,
+          "end": 7.0
+        },
+        {
+          "text": "eye,",
+          "start": 7.31,
+          "end": 7.57
+        },
+        {
+          "text": "signed",
+          "start": 8.05,
+          "end": 8.11
+        },
+        {
+          "text": "to",
+          "start": 8.11,
+          "end": 8.31
+        },
+        {
+          "text": "him",
+          "start": 8.31,
+          "end": 8.53
+        },
+        {
+          "text": "vigorously",
+          "start": 8.53,
+          "end": 8.93
+        },
+        {
+          "text": "again,",
+          "start": 8.93,
+          "end": 9.45
+        },
+        {
+          "text": "but",
+          "start": 9.93,
+          "end": 10.05
+        },
+        {
+          "text": "he",
+          "start": 10.05,
+          "end": 10.19
+        },
+        {
+          "text": "turned",
+          "start": 10.19,
+          "end": 10.43
+        },
+        {
+          "text": "away",
+          "start": 10.43,
+          "end": 10.69
+        },
+        {
+          "text": "his",
+          "start": 10.69,
+          "end": 10.89
+        },
+        {
+          "text": "eyes",
+          "start": 10.89,
+          "end": 11.19
+        },
+        {
+          "text": "pretending",
+          "start": 11.19,
+          "end": 11.63
+        },
+        {
+          "text": "not",
+          "start": 11.63,
+          "end": 12.01
+        },
+        {
+          "text": "to",
+          "start": 12.01,
+          "end": 12.17
+        },
+        {
+          "text": "have",
+          "start": 12.17,
+          "end": 12.31
+        },
+        {
+          "text": "noticed.",
+          "start": 12.31,
+          "end": 12.69
+        }
+      ],
+      "stats": {
+        "expected_words": 34,
+        "heard_words": 34,
+        "matched_words": 31
+      },
+      "match_ratio": 0.9117647058823529,
+      "rejection_reasons": [],
+      "seconds": 0.49888962134718895
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "073a8c85becce0f0155a26f09f89917a6b58846625aaa9ff01dd29b0c8863c55",
+  "selected_reasons": []
+}

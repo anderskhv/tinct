@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "14b3b0d8b07be2d3d8591459dc7bc46c331d6fe08bad8e56b7fc986c059981a6",
+  "attempts": [
+    {
+      "asr_seconds": 0.20327680371701717,
+      "alignment_seconds": 0.00039038434624671936,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He sat down on the bench and made Alyosha sit down beside him.",
+          "start": 0.05,
+          "end": 3.97,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " sat",
+              "start": 0.51,
+              "end": 0.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " down",
+              "start": 0.71,
+              "end": 0.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 0.97,
+              "end": 1.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.13,
+              "end": 1.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " bench",
+              "start": 1.23,
+              "end": 1.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 1.55,
+              "end": 2.09,
+              "probability": 0.8359375
+            },
+            {
+              "text": " made",
+              "start": 2.09,
+              "end": 2.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Alyosha",
+              "start": 2.23,
+              "end": 2.85,
+              "probability": 0.912109375
+            },
+            {
+              "text": " sit",
+              "start": 2.85,
+              "end": 3.13,
+              "probability": 0.994140625
+            },
+            {
+              "text": " down",
+              "start": 3.13,
+              "end": 3.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " beside",
+              "start": 3.39,
+              "end": 3.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him.",
+              "start": 3.69,
+              "end": 3.97,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "sat",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "raw": "down",
+          "start": 0.71,
+          "end": 0.97
+        },
+        {
+          "raw": "on",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "raw": "the",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "raw": "bench",
+          "start": 1.23,
+          "end": 1.55
+        },
+        {
+          "raw": "and",
+          "start": 1.55,
+          "end": 2.09
+        },
+        {
+          "raw": "made",
+          "start": 2.09,
+          "end": 2.23
+        },
+        {
+          "raw": "Alyosha",
+          "start": 2.23,
+          "end": 2.85
+        },
+        {
+          "raw": "sit",
+          "start": 2.85,
+          "end": 3.13
+        },
+        {
+          "raw": "down",
+          "start": 3.13,
+          "end": 3.39
+        },
+        {
+          "raw": "beside",
+          "start": 3.39,
+          "end": 3.69
+        },
+        {
+          "raw": "him.",
+          "start": 3.69,
+          "end": 3.97
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "sat",
+        "down",
+        "on",
+        "the",
+        "bench",
+        "and",
+        "made",
+        "Alyosha",
+        "sit",
+        "down",
+        "beside",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sat",
+          "start": 0.51,
+          "end": 0.71,
+          "key": "sat",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 0.71,
+          "end": 0.97,
+          "key": "down",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 0.97,
+          "end": 1.13,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.13,
+          "end": 1.23,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bench",
+          "start": 1.23,
+          "end": 1.55,
+          "key": "bench",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.55,
+          "end": 2.09,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 2.09,
+          "end": 2.23,
+          "key": "made",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Alyosha",
+          "start": 2.23,
+          "end": 2.85,
+          "key": "alyosha",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sit",
+          "start": 2.85,
+          "end": 3.13,
+          "key": "sit",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 3.13,
+          "end": 3.39,
+          "key": "down",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "beside",
+          "start": 3.39,
+          "end": 3.69,
+          "key": "beside",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 3.69,
+          "end": 3.97,
+          "key": "him",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "sat",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "text": "down",
+          "start": 0.71,
+          "end": 0.97
+        },
+        {
+          "text": "on",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "text": "the",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "text": "bench",
+          "start": 1.23,
+          "end": 1.55
+        },
+        {
+          "text": "and",
+          "start": 1.55,
+          "end": 2.09
+        },
+        {
+          "text": "made",
+          "start": 2.09,
+          "end": 2.23
+        },
+        {
+          "text": "Alyosha",
+          "start": 2.23,
+          "end": 2.85
+        },
+        {
+          "text": "sit",
+          "start": 2.85,
+          "end": 3.13
+        },
+        {
+          "text": "down",
+          "start": 3.13,
+          "end": 3.39
+        },
+        {
+          "text": "beside",
+          "start": 3.39,
+          "end": 3.69
+        },
+        {
+          "text": "him.",
+          "start": 3.69,
+          "end": 3.97
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20382653549313545
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a6c5d76600966484dcbca6a92efcf9d8125e90035a9ada8f529407f3e043c9ec",
+  "selected_reasons": []
+}

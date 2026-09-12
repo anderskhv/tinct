@@ -1,0 +1,427 @@
+{
+  "complete": true,
+  "signature": "cb60faf04c53bf95aa9e634f1669af49026e0d764e002e5d9b95f9b6a32ac132",
+  "attempts": [
+    {
+      "asr_seconds": 0.19408768229186535,
+      "alignment_seconds": 0.0004432331770658493,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And saying that, of course, you loved me,\" Alyosha laughed gaily.",
+          "start": 0.05,
+          "end": 3.67,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.3623046875
+            },
+            {
+              "text": " saying",
+              "start": 0.55,
+              "end": 0.79,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " that,",
+              "start": 0.79,
+              "end": 1.05,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " of",
+              "start": 1.11,
+              "end": 1.17,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " course,",
+              "start": 1.17,
+              "end": 1.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 1.57,
+              "end": 1.67,
+              "probability": 0.978515625
+            },
+            {
+              "text": " loved",
+              "start": 1.67,
+              "end": 1.89,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " me,\"",
+              "start": 1.89,
+              "end": 2.69,
+              "probability": 0.676513671875
+            },
+            {
+              "text": " Alyosha",
+              "start": 2.69,
+              "end": 3.07,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " laughed",
+              "start": 3.07,
+              "end": 3.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " gaily.",
+              "start": 3.31,
+              "end": 3.67,
+              "probability": 0.93017578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "saying",
+          "start": 0.55,
+          "end": 0.79
+        },
+        {
+          "raw": "that,",
+          "start": 0.79,
+          "end": 1.05
+        },
+        {
+          "raw": "of",
+          "start": 1.11,
+          "end": 1.17
+        },
+        {
+          "raw": "course,",
+          "start": 1.17,
+          "end": 1.39
+        },
+        {
+          "raw": "you",
+          "start": 1.57,
+          "end": 1.67
+        },
+        {
+          "raw": "loved",
+          "start": 1.67,
+          "end": 1.89
+        },
+        {
+          "raw": "me,\"",
+          "start": 1.89,
+          "end": 2.69
+        },
+        {
+          "raw": "Alyosha",
+          "start": 2.69,
+          "end": 3.07
+        },
+        {
+          "raw": "laughed",
+          "start": 3.07,
+          "end": 3.31
+        },
+        {
+          "raw": "gaily.",
+          "start": 3.31,
+          "end": 3.67
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "saying",
+        "that,",
+        "of",
+        "course,",
+        "you",
+        "loved",
+        "me,\"",
+        "Alyosha",
+        "laughed",
+        "gayly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "saying",
+          "start": 0.55,
+          "end": 0.79,
+          "key": "saying",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 0.79,
+          "end": 1.05,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.11,
+          "end": 1.17,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "course,",
+          "start": 1.17,
+          "end": 1.39,
+          "key": "course",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.57,
+          "end": 1.67,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "loved",
+          "start": 1.67,
+          "end": 1.89,
+          "key": "loved",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me,\"",
+          "start": 1.89,
+          "end": 2.69,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Alyosha",
+          "start": 2.69,
+          "end": 3.07,
+          "key": "alyosha",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "laughed",
+          "start": 3.07,
+          "end": 3.31,
+          "key": "laughed",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "gaily.",
+          "start": 3.31,
+          "end": 3.67,
+          "key": "gaily",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "saying",
+          "start": 0.55,
+          "end": 0.79
+        },
+        {
+          "text": "that,",
+          "start": 0.79,
+          "end": 1.05
+        },
+        {
+          "text": "of",
+          "start": 1.11,
+          "end": 1.17
+        },
+        {
+          "text": "course,",
+          "start": 1.17,
+          "end": 1.39
+        },
+        {
+          "text": "you",
+          "start": 1.57,
+          "end": 1.67
+        },
+        {
+          "text": "loved",
+          "start": 1.67,
+          "end": 1.89
+        },
+        {
+          "text": "me,\"",
+          "start": 1.89,
+          "end": 2.69
+        },
+        {
+          "text": "Alyosha",
+          "start": 2.69,
+          "end": 3.07
+        },
+        {
+          "text": "laughed",
+          "start": 3.07,
+          "end": 3.31
+        },
+        {
+          "text": "gayly.",
+          "start": 3.31,
+          "end": 3.49
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.19471849501132965
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e90a103e1b0ad0dc2271f865a38869e5b92e7a0b7f7f92d5c4bad2ac66a75967",
+  "selected_reasons": []
+}

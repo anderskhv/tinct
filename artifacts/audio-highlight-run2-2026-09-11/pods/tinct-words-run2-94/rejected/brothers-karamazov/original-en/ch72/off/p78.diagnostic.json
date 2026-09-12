@@ -1,0 +1,434 @@
+{
+  "complete": true,
+  "signature": "c1537e474f02f1013f614689860d30b00187548951bdbac599484ceda24fd7fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.23243357986211777,
+      "alignment_seconds": 0.0005461275577545166,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, he does believe in it,\" said lies with flashing eyes.",
+          "start": 0.05,
+          "end": 3.59,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.27490234375
+            },
+            {
+              "text": " he",
+              "start": 0.83,
+              "end": 0.91,
+              "probability": 0.9609375
+            },
+            {
+              "text": " does",
+              "start": 0.91,
+              "end": 1.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " believe",
+              "start": 1.07,
+              "end": 1.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " in",
+              "start": 1.39,
+              "end": 1.57,
+              "probability": 0.994140625
+            },
+            {
+              "text": " it,\"",
+              "start": 1.57,
+              "end": 2.05,
+              "probability": 0.78564453125
+            },
+            {
+              "text": " said",
+              "start": 2.05,
+              "end": 2.27,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " lies",
+              "start": 2.27,
+              "end": 2.55,
+              "probability": 0.521484375
+            },
+            {
+              "text": " with",
+              "start": 2.55,
+              "end": 2.83,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " flashing",
+              "start": 2.83,
+              "end": 3.25,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " eyes.",
+              "start": 3.25,
+              "end": 3.59,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "he",
+          "start": 0.83,
+          "end": 0.91
+        },
+        {
+          "raw": "does",
+          "start": 0.91,
+          "end": 1.07
+        },
+        {
+          "raw": "believe",
+          "start": 1.07,
+          "end": 1.39
+        },
+        {
+          "raw": "in",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "raw": "it,\"",
+          "start": 1.57,
+          "end": 2.05
+        },
+        {
+          "raw": "said",
+          "start": 2.05,
+          "end": 2.27
+        },
+        {
+          "raw": "lies",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "raw": "with",
+          "start": 2.55,
+          "end": 2.83
+        },
+        {
+          "raw": "flashing",
+          "start": 2.83,
+          "end": 3.25
+        },
+        {
+          "raw": "eyes.",
+          "start": 3.25,
+          "end": 3.59
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "he",
+        "does",
+        "believe",
+        "in",
+        "it,\"",
+        "said",
+        "Lise,",
+        "with",
+        "flashing",
+        "eyes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          11,
+          8,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.83,
+          "end": 0.91,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 0.91,
+          "end": 1.07,
+          "key": "does",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "believe",
+          "start": 1.07,
+          "end": 1.39,
+          "key": "believe",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.39,
+          "end": 1.57,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it,\"",
+          "start": 1.57,
+          "end": 2.05,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.05,
+          "end": 2.27,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lies",
+          "start": 2.27,
+          "end": 2.55,
+          "key": "lies",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.55,
+          "end": 2.83,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "flashing",
+          "start": 2.83,
+          "end": 3.25,
+          "key": "flashing",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "eyes.",
+          "start": 3.25,
+          "end": 3.59,
+          "key": "eyes",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "he",
+          "start": 0.83,
+          "end": 0.91
+        },
+        {
+          "text": "does",
+          "start": 0.91,
+          "end": 1.07
+        },
+        {
+          "text": "believe",
+          "start": 1.07,
+          "end": 1.39
+        },
+        {
+          "text": "in",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "text": "it,\"",
+          "start": 1.57,
+          "end": 2.05
+        },
+        {
+          "text": "said",
+          "start": 2.05,
+          "end": 2.27
+        },
+        {
+          "text": "Lise,",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "text": "with",
+          "start": 2.55,
+          "end": 2.83
+        },
+        {
+          "text": "flashing",
+          "start": 2.83,
+          "end": 3.25
+        },
+        {
+          "text": "eyes.",
+          "start": 3.25,
+          "end": 3.59
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.23318507708609104
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7629e7bef8b364338df35fbbd79f037136a729609bbf24fec3fb31736c5c28a5",
+  "selected_reasons": []
+}

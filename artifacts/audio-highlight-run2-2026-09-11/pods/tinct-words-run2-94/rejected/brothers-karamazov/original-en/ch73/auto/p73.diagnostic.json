@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "ef05b97d55a5b373418c16f4bbe0e84f6a22430b982ec2ba65334b02fc2dddac",
+  "attempts": [
+    {
+      "asr_seconds": 0.22417148761451244,
+      "alignment_seconds": 0.0004627890884876251,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Alyosha listened with extreme surprise and was deeply moved.",
+        "hotwords": "Alyosha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Alyosha listened with extreme surprise and was deeply moved.",
+          "start": 0.08,
+          "end": 3.88,
+          "words": [
+            {
+              "text": " Alyosha",
+              "start": 0.08,
+              "end": 1.0,
+              "probability": 0.9547526041666666
+            },
+            {
+              "text": " listened",
+              "start": 1.0,
+              "end": 1.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 1.28,
+              "end": 1.5,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " extreme",
+              "start": 1.5,
+              "end": 1.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " surprise",
+              "start": 1.9,
+              "end": 2.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 2.4,
+              "end": 3.02,
+              "probability": 0.828125
+            },
+            {
+              "text": " was",
+              "start": 3.02,
+              "end": 3.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " deeply",
+              "start": 3.12,
+              "end": 3.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " moved.",
+              "start": 3.42,
+              "end": 3.88,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alyosha",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "raw": "listened",
+          "start": 1.0,
+          "end": 1.28
+        },
+        {
+          "raw": "with",
+          "start": 1.28,
+          "end": 1.5
+        },
+        {
+          "raw": "extreme",
+          "start": 1.5,
+          "end": 1.9
+        },
+        {
+          "raw": "surprise",
+          "start": 1.9,
+          "end": 2.4
+        },
+        {
+          "raw": "and",
+          "start": 2.4,
+          "end": 3.02
+        },
+        {
+          "raw": "was",
+          "start": 3.02,
+          "end": 3.12
+        },
+        {
+          "raw": "deeply",
+          "start": 3.12,
+          "end": 3.42
+        },
+        {
+          "raw": "moved.",
+          "start": 3.42,
+          "end": 3.88
+        }
+      ],
+      "expected_tokens": [
+        "Alyosha",
+        "listened",
+        "with",
+        "extreme",
+        "surprise",
+        "and",
+        "was",
+        "deeply",
+        "moved."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alyosha",
+          "start": 0.08,
+          "end": 1.0,
+          "key": "alyosha",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "listened",
+          "start": 1.0,
+          "end": 1.28,
+          "key": "listened",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.28,
+          "end": 1.5,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "extreme",
+          "start": 1.5,
+          "end": 1.9,
+          "key": "extreme",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "surprise",
+          "start": 1.9,
+          "end": 2.4,
+          "key": "surprise",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.4,
+          "end": 3.02,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.02,
+          "end": 3.12,
+          "key": "was",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "deeply",
+          "start": 3.12,
+          "end": 3.42,
+          "key": "deeply",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "moved.",
+          "start": 3.42,
+          "end": 3.88,
+          "key": "moved",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alyosha",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "text": "listened",
+          "start": 1.0,
+          "end": 1.28
+        },
+        {
+          "text": "with",
+          "start": 1.28,
+          "end": 1.5
+        },
+        {
+          "text": "extreme",
+          "start": 1.5,
+          "end": 1.9
+        },
+        {
+          "text": "surprise",
+          "start": 1.9,
+          "end": 2.4
+        },
+        {
+          "text": "and",
+          "start": 2.4,
+          "end": 3.02
+        },
+        {
+          "text": "was",
+          "start": 3.02,
+          "end": 3.12
+        },
+        {
+          "text": "deeply",
+          "start": 3.12,
+          "end": 3.42
+        },
+        {
+          "text": "moved.",
+          "start": 3.42,
+          "end": 3.88
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22481085173785686
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3934ee49f3e2b22233bde58193ce7de647590488c52740f44188a68ecc6f1412",
+  "selected_reasons": []
+}
