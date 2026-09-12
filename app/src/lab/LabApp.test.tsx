@@ -336,7 +336,11 @@ describe('lab chrome', () => {
     expect(css).toMatch(/\.lab-kicker\s*\{[^}]*display:\s*none/)
     expect(css).toMatch(/\.lab-ask-tab\s*\{/)
     expect(css).not.toMatch(/Helvetica/)
-    expect(css).not.toMatch(/gold|#f5d76e|#ffeaa7|#ffd54f|#fff59d/i)
+    // No gold accent anywhere in the lab chrome. References to the shared
+    // `--highlight-gold` mark token are not that colour language: they are
+    // how the five highlight colours keep one definition across surfaces.
+    expect(css.replace(/var\(--highlight-gold[^)]*\)/g, 'var(--mark-default)'))
+      .not.toMatch(/gold|#f5d76e|#ffeaa7|#ffd54f|#fff59d/i)
     expect(css).not.toMatch(/\.lab-ask\s*\{[^}]*background:\s*#faf9f6/)
     expect(css).not.toMatch(/\.lab-ask-composer\s*\{[^}]*background:\s*#fff/)
     expect(css).not.toMatch(/\.lab-phone-notice\s*\{[^}]*position:\s*fixed/)
@@ -2633,9 +2637,16 @@ describe('lab passage headline pages', () => {
     const css = readFileSync(resolve(process.cwd(), 'src/lab/lab.css'), 'utf8')
     // The provisional mark is the highlight the Highlight action would make,
     // in the default colour, so the preview cannot lie about the result.
-    const gold = css.match(/\.lab-hearing-word\.is-hl-warm\s*\{[^}]*background:\s*(#[0-9a-f]{6})/i)?.[1]
-    expect(gold).toBe('#f5e6c8')
-    expect(css).toMatch(new RegExp(`\\.lab-hearing-word\\.is-selecting\\s*\\{[^}]*background:\\s*${gold}`))
+    const backgroundOf = (selector: string) => [...css.matchAll(
+      new RegExp(`${selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*\\{[^}]*background:\\s*([^;]+);`, 'g'),
+    )].map(match => match[1].trim())
+    const warm = backgroundOf('.lab-hearing-word.is-hl-warm')
+    const selecting = backgroundOf('.lab-hearing-word.is-selecting')
+    expect(warm.length).toBeGreaterThan(0)
+    expect(selecting).toEqual(warm)
+    // ...and the mark colours have one definition, the shared tokens, so the
+    // same highlight is the same colour on every surface.
+    expect(warm.every(value => value.startsWith('var(--highlight-gold'))).toBe(true)
     expect(css).not.toMatch(/\.lab-hearing-word\.is-selecting\s*\{[^}]*box-shadow:/)
   })
 

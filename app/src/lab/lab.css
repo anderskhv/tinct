@@ -578,23 +578,26 @@
   box-decoration-break: clone;
 }
 
-.lab-passage.is-reading .lab-hearing-word.is-hl-warm { background: #f5e6c8; }
-.lab-passage.is-reading .lab-hearing-word.is-hl-rose { background: #f5d0d0; }
-.lab-passage.is-reading .lab-hearing-word.is-hl-sage { background: #d0e8d0; }
-.lab-passage.is-reading .lab-hearing-word.is-hl-sky { background: #d0e0f5; }
-.lab-passage.is-reading .lab-hearing-word.is-hl-lavender { background: #e0d0f5; }
+/* The five highlight colours have ONE definition, the `--highlight-*` tokens
+   in index.css, so the same mark is the same colour on every surface a reader
+   syncs across. The fallbacks are those tokens' light values. */
+.lab-passage.is-reading .lab-hearing-word.is-hl-warm { background: var(--highlight-gold, #f5e6c8); }
+.lab-passage.is-reading .lab-hearing-word.is-hl-rose { background: var(--highlight-rose, #f5d0d0); }
+.lab-passage.is-reading .lab-hearing-word.is-hl-sage { background: var(--highlight-sage, #cde3b4); }
+.lab-passage.is-reading .lab-hearing-word.is-hl-sky { background: var(--highlight-sky, #d0e0f5); }
+.lab-passage.is-reading .lab-hearing-word.is-hl-lavender { background: var(--highlight-lavender, #e0d0f5); }
 /* A provisional highlight, not a selection colour: the action previews
    itself. It is exactly `is-hl-warm`, the default colour the Highlight
    action applies, so the preview cannot lie about the result. Nothing is
    written until the reader picks Highlight — choosing another action, or
    dismissing, leaves no trace. */
-.lab-passage.is-reading .lab-hearing-word.is-selecting { background: #f5e6c8; }
+.lab-passage.is-reading .lab-hearing-word.is-selecting { background: var(--highlight-gold, #f5e6c8); }
 
 /* Where a native selection is still possible inside the passage, it takes the
    same mark rather than the browser's blue. Scoped to the passage so it never
    reaches the conversation panel. */
 .lab-passage ::selection {
-  background: #f5e6c8;
+  background: var(--highlight-gold, #f5e6c8);
   color: var(--lab-ink);
 }
 
@@ -761,13 +764,14 @@
   border-bottom-color: rgba(204, 181, 146, 0.24);
 }
 
-.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-warm { background: #5c4a2e; }
-.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-rose { background: #5c2e2e; }
-.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-sage { background: #2e5c2e; }
-.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-sky { background: #2e3e5c; }
-.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-lavender { background: #3e2e5c; }
-.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-selecting { background: #5c4a2e; }
-.lab.is-night .lab-passage ::selection { background: #5c4a2e; color: var(--lab-ink); }
+/* Dark takes the same tokens; the fallbacks are their dark values. */
+.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-warm { background: var(--highlight-gold, #5c4a2e); }
+.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-rose { background: var(--highlight-rose, #5c3030); }
+.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-sage { background: var(--highlight-sage, #4a5c2e); }
+.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-sky { background: var(--highlight-sky, #2e3a5c); }
+.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-lavender { background: var(--highlight-lavender, #3a2e5c); }
+.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-selecting { background: var(--highlight-gold, #5c4a2e); }
+.lab.is-night .lab-passage ::selection { background: var(--highlight-gold, #5c4a2e); color: var(--lab-ink); }
 
 .lab-p.is-focus {
   outline: 1px solid #c8c0ae;
