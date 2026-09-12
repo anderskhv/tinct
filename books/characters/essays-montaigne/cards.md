@@ -40,7 +40,7 @@ The governor of Reggio, whose defence was unyielding and whose answer to the new
 
 ## Pompey · supporting
 
-Pompey the Great, who pardoned the whole city of the Mamertines, though furiously incensed at it, on the strength of one citizen’s magnanimity.
+Pompey the Great, who pardoned the whole city of the Mamertines, though furiously incensed at it, on the strength of one citizen’s magnanimity — and who excused himself to Posidonius for visiting him at an unseasonable hour, and got a lecture against pain for his politeness. The older edition prints his name Pompeius in that story.
 
 ## Zeno of Messina · reference
 
@@ -200,7 +200,7 @@ Philip of Spain, reigning as Montaigne writes, and Maximilian’s great-grandson
 
 ## Cyrus · supporting
 
-The founder of the Persian empire, who charged his children that neither they nor anyone else should see or touch his body once the soul had left it — a superstition, Montaigne thinks, of a piece with the reverence for religion that marks his whole life and his historian’s.
+The founder of the Persian empire, who charged his children that neither they nor anyone else should see or touch his body once the soul had left it — a superstition, Montaigne thinks, of a piece with the reverence for religion that marks his whole life and his historian’s. Montaigne also grants that agriculture was an honour to him, as a commendation that suited his condition.
 
 ## Marcus Aemilius Lepidus · reference
 
@@ -300,7 +300,7 @@ Montmord’s fellow defender of Mousson, censured with him.
 
 ## The Count of Nassau · reference
 
-Who besieged Mousson.
+Who besieged Mousson, which the Seigneurs de Montmord and de l’Assigni were highly censured for going out of to parley with him.
 
 ## Count Guido di Rangone · reference
 
@@ -680,7 +680,7 @@ The Carthaginian general, in the first pitched battle against whom ten thousand 
 
 ## The Consul Sempronius · reference
 
-Who commanded in that first defeat by Hannibal.
+The consul commanding in the first pitched battle the Romans lost against Hannibal, where ten thousand foot took fright and, seeing no other escape for their cowardice, threw themselves headlong on the enemy’s great battalion and routed it with great slaughter.
 
 ## Croesus · supporting
 
@@ -744,11 +744,11 @@ The proctor, one of the men Montaigne lists as having died between the thighs of
 
 ## Tigillinus · reference
 
-Captain of the watch at Rome, another of them.
+Captain of the watch at Rome, and one of the men Montaigne lists as having died between the thighs of women.
 
 ## Ludovico · reference
 
-Guido di Gonzaga’s son, another of them.
+Guido di Gonzaga’s son, one of the men Montaigne lists as having died between the thighs of women.
 
 ## Guido di Gonzaga, Marquis of Mantua · reference
 
@@ -836,7 +836,7 @@ Whom Pliny claims to have seen turned from a woman into a man on her wedding day
 
 ## Pontanus · reference
 
-Who reports the like change in Italy in more recent times.
+Who reports a girl turning into a boy in Italy in more recent times, as Pliny reports of Lucius Cossitius.
 
 ## Iphis · reference
 
@@ -936,7 +936,7 @@ One of the same three fables. The older edition prints him OEdipus, and Seneca�
 
 ## Macareus · reference
 
-The third of them.
+With Thyestes and Oedipus, one of the three whose fables the poets have sung to children, and so infused into their tender brains the belief that makes incest horrible.
 
 ## Cotta · reference
 
@@ -952,7 +952,7 @@ Another of the three high priests in Cotta’s list. Not Scipio Africanus, nor P
 
 ## P. Scaevola · reference
 
-The third of the three high priests.
+The third of the three high priests. Not the Scaevola who slipped into Porsenna’s camp.
 
 ## Zeno · reference
 
@@ -1016,15 +1016,15 @@ The first name in Livia’s list of conspirators punished to no purpose.
 
 ## Murena · reference
 
-The third name in it.
+The third name in Livia’s list of the conspirators severity had not stopped, after Salvidienus and Lepidus and before Caepio and Egnatius.
 
 ## Caepio · reference
 
-The fourth.
+The fourth name in Livia’s list of the conspirators severity had not stopped: Lepidus had followed Salvidienus, Murena Lepidus, Caepio Murena, and Egnatius Caepio.
 
 ## Egnatius · reference
 
-The last, and the proof that severity had settled nothing.
+The last name in Livia’s list of the conspirators severity had not stopped, and so her proof to Augustus that clemency was worth trying instead.
 
 ## The Paulli · reference
 
@@ -1032,11 +1032,11 @@ One of the great Roman houses Augustus names to Cinna as men who would never end
 
 ## The Fabii · reference
 
-Another of them — Fabius in the older edition, Fabii in the modern.
+One of the great Roman houses Augustus names to Cinna as men who would never endure him. The older edition prints the name Fabius, the modern Fabii.
 
 ## The Cossii · reference
 
-Another.
+One of the great Roman houses Augustus names to Cinna as men who would never endure him.
 
 ## The Servilii · reference
 
@@ -1152,7 +1152,7 @@ John V’s son, who was told that Isabella of Scotland was homely bred and witho
 
 ## John V · reference
 
-Francis of Brittany’s father.
+Duke of Brittany and father of the Francis who said he liked his bride the better for having been homely bred and without any manner of learning.
 
 ## Isabella of Scotland · reference
 
@@ -1216,7 +1216,7 @@ With Themistocles, one of the thousand men who very much deceived the expectatio
 
 ## Themistocles · supporting
 
-The other of that pair.
+With Cimon, one of the men Montaigne names as having very much deceived the expectation others had formed of them as children — a warning against reading the promises of that tender age.
 
 ## Monsieur de Candale · reference
 
@@ -1284,7 +1284,7 @@ One of the two mistresses Montaigne would have the tutor hold up to the boy: a n
 
 ## Angelica · reference
 
-The other: the soft, delicate, artificial, simpering form.
+Set against Bradamante when a tutor first shows his pupil a mistress: the soft, delicate, artificial, simpering and affected form, tricked up in curls and ribbons like a wanton minx, against the manly beauty in a glittering helmet.
 
 ## Flora · reference
 
@@ -1304,7 +1304,7 @@ Whose constitution Montaigne admires with wonder: he could transform himself to 
 
 ## Carneades · supporting
 
-So besotted with the thirst for knowledge that he could not find time to comb his head or pare his nails.
+The philosopher Montaigne gives as his instance of a man brutified by an immoderate thirst after knowledge: so besotted with it that he would not find time so much as to comb his head or pare his nails.
 
 ## Quintilian · supporting
 
@@ -1324,7 +1324,7 @@ Who asked Heraclides Ponticus what art or science he professed, and was told: ne
 
 ## Heraclides Ponticus · reference
 
-Who gave that answer.
+Asked by Leo, prince of the Phliasians, what art or science he professed, he answered that he knew neither art nor science, but that he was a philosopher.
 
 ## Diogenes · reference
 
@@ -1458,9 +1458,9 @@ Who lost the battle in Germany whose news reached Rome, Plutarch says, on the da
 
 Whose miracles of St Hilary’s relics Montaigne would wave away — while refusing to condemn all such stories out of hand, which he calls a singular impudence.
 
-## St Hilary · reference
+## St Hilary · supporting
 
-Whose relics Bouchet records the miracles of.
+Bishop of Poictiers and the famous enemy of the Arian heresy, whose relics Bouchet records the miracles of. Hearing in Syria that his only daughter Abra was being sought in marriage, he wrote telling her to put worldly pleasures aside for a greater husband — and then prayed without ceasing that God would take her out of the world, which soon happened, to his singular joy. His wife, hearing how it had been done, begged the same for herself and got it.
 
 ## St Gervasius · reference
 
@@ -1468,7 +1468,7 @@ On whose relics, with St Protasius’s, St Augustine testifies to having seen a 
 
 ## St Protasius · reference
 
-The other of that pair.
+With St Gervasius, one of the two saints whose relics at Milan St Augustine says he saw a blind child recover sight upon.
 
 ## Hesperius · reference
 
@@ -1484,7 +1484,7 @@ One of the two holy bishops St Augustine calls as witnesses to those miracles.
 
 ## Maximinus · reference
 
-The other of them.
+With Aurelius, one of the two holy bishops St Augustine calls as witnesses to the miracles he reports — men Montaigne says no one living is impudent enough to think himself comparable to.
 
 ## Laelius · reference
 
@@ -1508,7 +1508,7 @@ To whom Aeschylus gave the lover’s part in the loves of Achilles and Patroclus
 
 ## Patroclus · reference
 
-The other of that pair.
+Achilles’s friend. The Greeks blamed Aeschylus for giving the lover’s part in their loves to Achilles, who was in the first and beardless flower of his adolescence and the handsomest of them all.
 
 ## Harmodius · reference
 
@@ -1516,7 +1516,7 @@ Whose healthy love with Aristogiton is the Academy’s instance of the public go
 
 ## Aristogiton · reference
 
-The other of that pair.
+With Harmodius, one of the pair whose love the Greeks gave as an instance of the healthy kind, from which they said great utility came to private and public concerns alike.
 
 ## Eudamidas · reference
 
@@ -1580,7 +1580,7 @@ Philip of Macedon, who looked down from a height on the Roman camp Publius Sulpi
 
 ## Publius Sulpicius Galba · reference
 
-Who formed that camp.
+Who formed the Roman camp in Philip’s own kingdom, whose order and distribution Philip looked down on from a height and found nothing of barbarism in.
 
 ## Villegaignon · reference
 
@@ -1608,11 +1608,11 @@ Who with Leah and Rachel gave the most beautiful of her handmaids to her husband
 
 ## Leah · reference
 
-One of Jacob’s two wives in that comparison.
+With Rachel, one of the two wives of Jacob who in the Bible gave the most beautiful of their handmaids to their husband.
 
 ## Rachel · reference
 
-The other.
+With Leah, one of the two wives of Jacob who in the Bible gave the most beautiful of their handmaids to their husband — which Montaigne calls a truly matrimonial virtue of the highest form.
 
 ## King Deiotarus · reference
 
@@ -1625,3 +1625,355 @@ King Deiotarus’s wife. Not the Stratonice whose beauty gave Antiochus his feve
 ## King Charles IX · reference
 
 At Rouen when three of the cannibals were brought there, and who talked with them a good while. They said it was strange that so many tall bearded armed men should submit to obey a child.
+
+## Don John of Austria · reference
+
+Under whose command the fine naval battle against the Turks was won a few months before Montaigne wrote — a victory he will not let anyone use as proof of a cause, since God has let us see as great ones at our own expense.
+
+## Arius · reference
+
+The principal head of the Arian heresy, who was withdrawn from the disputation by a griping in the bowels and gave up the ghost upon the stool.
+
+## Pope Leo · reference
+
+Arius’s fellow head of the Arian heresy, who died the same strange death at another time. Not Pope Leo X, nor the Emperor Leo.
+
+## Heliogabalus · reference
+
+Also slain in a house of office — which Montaigne adds to show how little such coincidences prove.
+
+## Irenaeus · reference
+
+Involved in the same fortune, and the last of Montaigne’s examples that the place of a man’s death is no evidence of divine vengeance.
+
+## Lucilius · reference
+
+The man of power about the emperor whom Seneca advises either to leave that life of his or life itself: better once to fall than to be always falling.
+
+## Idomeneus · reference
+
+To whom Epicurus writes the same counsel on the like occasion — which is why Montaigne finds it stranger in Seneca, the Stoic having borrowed it from the Epicurean.
+
+## Abra · reference
+
+St Hilary’s only daughter, left at home under her mother’s eye, sought in marriage by the greatest noblemen of the country, and prayed out of the world by her father.
+
+## The Duc de Valentinois · reference
+
+Who sent a bottle of poisoned wine ahead to the Vatican for Cardinal Adrian, and whose butler, thinking it had been recommended only for its excellency, served it to the Pope — and then to the duke himself.
+
+## Adrian, Cardinal of Corneto · reference
+
+The intended victim, who was to sup with the Pope and his son.
+
+## Pope Alexander VI · reference
+
+Who drank the wine meant for the cardinal and died on the spot.
+
+## Monsieur d’Estrees · reference
+
+Ensign to Monsieur de Vendome, who took his rival prisoner on the day of the man’s wedding and before he had gone to bed to his wife — and gave him up when the bride asked it of him as a courtesy, the gentlemen of France never denying anything to ladies.
+
+## Monsieur de Vendome · reference
+
+Monsieur d’Estrees’s captain — he is named to place the ensign who was one of the two pretenders to the Sieur de Fougueselles’ sister.
+
+## Monsieur de Licques · reference
+
+Lieutenant in the Duc d’Ascot’s company, who carried the Sieur de Fougueselles’ sister and then went out to break a lance in her honour near St Omer and was taken prisoner before the wedding night.
+
+## The Duc d’Ascot · reference
+
+In whose company Licques was lieutenant.
+
+## The Sieur de Fougueselles · reference
+
+The Sieur de Fougueselles, whose sister Monsieur d’Estrees and Monsieur de Licques were both pretenders to.
+
+## Constantine, son of Helena · reference
+
+Who founded the empire of Constantinople.
+
+## Constantine, son of Helen · reference
+
+Who so many ages later put an end to the empire the first Constantine founded — the same name and the same mother’s name at both ends of it, which Montaigne calls Fortune playing the artist.
+
+## Helena · reference
+
+The first Constantine’s mother, whose name the last Constantine’s mother also carried.
+
+## King Clovis · reference
+
+Before whose siege of Angouleme the walls fell down of themselves by divine favour.
+
+## King Robert · reference
+
+Who left his siege to keep the feast of St Aignan at Orleans, and at a certain part of the Mass the walls of the besieged city fell down of themselves. Bouchet has it from some author; the Essays do not identify him with Robert of Scotland.
+
+## St Aignan · reference
+
+Whose feast King Robert left the siege to keep at Orleans.
+
+## Le Capitaine Rense · reference
+
+Who carried a mine under the wall of Arona for the French; the wall was lifted off its base and dropped back whole and exactly upon its foundation, and the besieged suffered nothing by it.
+
+## Jason of Pheres · reference
+
+Given over by the physicians for an imposthume in his breast, he threw himself into the thickest of the enemy to be rid of the pain by death at least — and was so fortunately wounded through the body that the imposthume broke and he was cured.
+
+## Protogenes · reference
+
+The painter who could not get the foam right on his tired dog, threw his colour-soaked sponge at the picture in a rage, and found that fortune’s throw had done what all his art could not.
+
+## Isabel, Queen of England · reference
+
+Sailing from Zealand with an army for her son against her husband, she would have been lost had she made the port she intended, where the enemy lay in wait; fortune threw her against her will into another haven and she landed safe.
+
+## Icetes · reference
+
+Who contracted with two soldiers to kill Timoleon at Adrana in Sicily.
+
+## Timoleon · supporting
+
+Whose assassins were interrupted by a third man cutting one of them down — for his own father’s murder, as it turned out — so that the plot came out and the killer was awarded ten Attic minae for preserving the common father of Sicily. Montaigne returns to him for the tears he shed over his own brother.
+
+## Ignatius the father · reference
+
+Who with his son, proscribed by the triumvirs, ran on his son’s sword as the son ran on his, so that the two mortal wounds were equal and the executioner cut off both heads at once, the bodies still locked together.
+
+## Ignatius the son · reference
+
+Proscribed with his father by the triumvirs of Rome, and resolved with him to fall by one another’s hands and so defeat the cruelty of the tyrants.
+
+## Lilius Gregorius Giraldus · reference
+
+Who died in Italy so poor he had scarce bread to put in his mouth — one of the two most excellent men for learning whose want Montaigne says the age should be ashamed of.
+
+## Sebastianus Castalio · reference
+
+Sebastianus Castalio, who with Lilius Gregorius Giraldus in Italy makes Montaigne’s pair of most excellent men for learning who died, in our very sight and to the shame of the age, so poor they had scarce bread to put in their mouths. Castalio died so in Germany.
+
+## King Massinissa · reference
+
+Who to an extreme old age could never be prevailed on to cover his head, in whatever weather.
+
+## The Emperor Severus · reference
+
+Of whom the same bare-headedness is reported as of Massinissa: neither could be prevailed on to cover his head, however cold or stormy the weather.
+
+## Varro · supporting
+
+Who thinks the rule that we go bare before the gods and the magistrate was made for health and to inure us to the weather rather than out of reverence.
+
+## Mithridates · supporting
+
+Whose lieutenant beat the enemy dry-foot at the mouth of Lake Maeotis in a frost so sharp, and beat them again in a naval battle on the same water the summer after.
+
+## Pausanias · reference
+
+The Spartan who commanded at Plataea. Montaigne has already told how his own mother threw the first stone towards his death.
+
+## Mardonius · reference
+
+Whose Persians Pausanias beat at Plataea.
+
+## Aristodemus · reference
+
+Who of all the Spartans at Plataea had hazarded his person most bravely, and was allowed no prize for it — because his virtue had been incited by a wish to clear his name of the reproach of Thermopylae, and to die bravely to wipe off that blemish.
+
+## Antigonus · reference
+
+Who was much displeased with his son for bringing him the head of King Pyrrhus his enemy, newly slain fighting against him, and wept to see it. Not the Antigonus who besieged Eumenes in Nora.
+
+## Rene, Duke of Lorraine · reference
+
+Who lamented the death of Charles of Burgundy, whom he had himself defeated, and appeared in mourning at his funeral. The modern edition spells him René.
+
+## Charles, Duke of Burgundy · reference
+
+Charles the Duke of Burgundy, defeated by Rene of Lorraine, who then lamented his death and appeared in mourning at his funeral.
+
+## Count Montfort · reference
+
+Who won the battle of D’Auray over his competitor for the duchy of Brittany and was much afflicted at meeting his dead body.
+
+## Charles de Blois · reference
+
+The competitor, whose body Montfort grieved over.
+
+## Publius Syrus · reference
+
+The Latin writer of maxims, quoted for the line that the heir’s tears behind the mask are smiles. The citation at 40:67 prints him P. Syrus.
+
+## Artabanus · reference
+
+Who came on his nephew Xerxes by surprise and chid him for the sudden change in his face.
+
+## Stilpo · reference
+
+Who escaped the burning of his town having lost wife, children and goods, and told Demetrius Poliorcetes that he had received no loss, since fortune had nothing of his.
+
+## Demetrius Poliorcetes · reference
+
+Seeing Stilpo appear with an undisturbed countenance in the ruin of his country, he asked whether the man had received no loss — and was told that nothing of his was lost.
+
+## Tibullus · reference
+
+The Latin elegiac poet, quoted for the line: in solitude, be company for thyself.
+
+## The younger Pliny · reference
+
+Whose letter advises Caninius Rufus to leave his husbandry to his hinds and take up something of his own that will last. Montaigne rejects both the means and the end of that advice: book-employment is as painful as any other, and the glory Pliny and Cicero hold out is infinitely wide of his account, ambition being the humour most contrary to solitude. Not the elder Pliny of the Natural History, and, Montaigne says, not much like his uncle in his humours.
+
+## Caninius Rufus · reference
+
+The friend the younger Pliny’s letter is written to, advising him to leave his husbandry to his hinds and take up something of his own that will last.
+
+## Phocion · supporting
+
+With Cato and Aristides, one of the three a man in solitude should keep continually before his imagination, in whose presence even fools hide their faults — the counsel Montaigne compounds out of two philosophers of different sects, one writing to Idomeneus and the other to Lucilius.
+
+## Aristides · supporting
+
+With Cato and Phocion, one of the three a man in solitude should keep continually before his imagination and set up as the controllers of all his intentions, in whose presence even fools hide their faults.
+
+## Antisthenes · supporting
+
+The Cynic, who thought it a poor sort of commendation that Ismenias played excellently well on the flute.
+
+## Bias · reference
+
+One of the sages, cited in the chapter on solitude.
+
+## Albuquerque · reference
+
+Viceroy in the Indies for Emmanuel of Portugal, who in an extreme peril of shipwreck took a young boy on his shoulders for no other end than that the child’s innocence might recommend him to God’s favour and save them both.
+
+## Paulinus · reference
+
+Bishop of Nola, who when the barbarians ruined the city lost everything he had and was taken prisoner, and prayed only to be kept from feeling the loss — they had touched nothing that was his.
+
+## Democritus · reference
+
+The philosopher of Abdera. Montaigne quotes Horace’s epistle on him: his cattle eat his corn and spoil his fields while his soaring mind ranges abroad without the body.
+
+## Eros · reference
+
+Cicero’s slave, who brought him word that the audience was put off till the next day — at which, Montaigne notes, his master was so ravished with joy that it laid his nature open.
+
+## Annibale Caro · reference
+
+Whose printed letters Montaigne thinks the best of the hundred volumes of them he owns.
+
+## Ismenias · reference
+
+Commended for playing excellently well upon the flute, which Antisthenes took for an argument of little value.
+
+## Scipio · reference
+
+The Scipio who with Laelius is said to have resigned the honour of his comedies to an African — and who would never have done it, Montaigne says, if eloquence had added a lustre suitable to a great person. Not the Africanus who crossed to Syphax, nor Pompey’s father-in-law, nor the high priest.
+
+## Demosthenes · supporting
+
+Whose companions in the embassy praised Philip as handsome, eloquent and a stout drinker — commendations, Demosthenes said, more proper for a woman, an advocate and a sponge than for a king.
+
+## Philip · reference
+
+Philip of Macedon, who asked his son Alexander whether he was not ashamed to sing so well, and whom Demosthenes’s fellow ambassadors praised for the wrong qualities.
+
+## Theodorus · reference
+
+Who answered Lysimachus’s threat to kill him: thou wilt do a brave feat, to attain the force of a cantharides.
+
+## Lysimachus · reference
+
+Who threatened to kill Theodorus, and was told he would be doing a brave feat — attaining the force of a cantharides.
+
+## Pyrrho · supporting
+
+The philosopher who, in a boat in a great tempest, pointed to a hog aboard as the pattern of the assurance the most frightened men lacked.
+
+## Brutus · reference
+
+Who besieged the Xanthians, and whose siege drove them — men, women and children — into such an appetite of dying that nothing he could do would save them.
+
+## John, King of Portugal · reference
+
+Who sold the Jews banished from Castile a retreat in his dominions for eight crowns a head and a fixed term, and after the term made slaves of those who stayed.
+
+## Emmanuel · reference
+
+John’s successor, who first set them at liberty and then changed his mind again.
+
+## Bishop Osorius · reference
+
+No contemptible Latin historian of these later times, and Montaigne’s source for what the kings of Portugal did to the Jews.
+
+## Posidonius · supporting
+
+Extremely tormented with a sharp and painful disease, he received Pompeius with a lecture against pain and would not admit that it was an evil.
+
+## Hieronimus · reference
+
+With Aristippus and most of the sages, he reputed pain the worst of evils. The modern edition spells him Hieronymus.
+
+## Cardinal Borromeo · reference
+
+Who died lately at Milan, and who amid all the jollity of Italy, youth, birth and riches kept so austere a way of life that Montaigne counts him among those who have hugged their own privation.
+
+## Foulke, Count of Anjou · reference
+
+Who went to Jerusalem to have himself whipped by two of his servants, with a cord about his neck, before the sepulchre.
+
+## William, Duke of Guienne · reference
+
+Montaigne’s last Duke of Guienne, who for the last ten or twelve years of his life wore a suit of armour under a religious habit by way of penance.
+
+## Eleanor · reference
+
+William’s daughter, who transmitted the duchy of Guienne to the houses of France and England.
+
+## Louis XI · reference
+
+At whose taking of Arras a great many of the inhabitants let themselves be hanged rather than say “God save the King.”
+
+## King St. Louis · reference
+
+Louis IX, whom Montaigne calls our good St Louis: he wore a hair-shirt until his confessor gave him a dispensation to leave it off in his old age, and every Friday had his shoulders drubbed by his priest with five small iron chains carried about among his night things.
+
+## Sabinus · reference
+
+A patrician of Rome, whose fair and noble wife bore two children alone and without crying out, for another’s interest.
+
+## Scaevola · reference
+
+Who slipped into the enemy camp to kill their general, missed his blow, and repaired the fault by telling Porsenna to his face not only what he had meant to do but that many more were sworn to do it. Not the P. Scaevola of Cotta’s list of high priests.
+
+## Porsenna · reference
+
+The king Scaevola had meant to kill, and who heard the whole confession — and who, conceiving horror at the sight of the burning arm, had the pan of coals taken away.
+
+## Q. Maximus · reference
+
+Who buried his son when the son was consul, with a countenance that expressed no manner of grief.
+
+## M. Cato · reference
+
+Who buried his son when the son was praetor elect with a countenance that expressed no manner of grief; and who, as consul, forbade the inhabitants of some Spanish cities to wear arms, whereupon a great many of them killed themselves. Not the Cato of Utica to whom Montaigne gives a chapter.
+
+## Feraulez · reference
+
+Who had run through both fortunes and found that increase of substance was no increase of appetite, and gave away the great estate he had got by Cyrus’s liberality and the war, on condition only that he be handsomely maintained.
+
+## Dionysius · reference
+
+Dionysius the son, who heard that a Syracusan had hidden a treasure, sent for it, and afterwards gave it back when he found the man had learned to live without it.
+
+## Teres · reference
+
+Sitalces’s father, who used to say that when he had no wars he fancied there was no difference between him and his groom.
+
+## Sitalces · reference
+
+Son of Teres, the king who used to say that when he had no wars he fancied there was no difference between him and his groom. He is named only to place his father.

@@ -1,6 +1,6 @@
 {
-  "contentVersion": "2026-09-12.5",
-  "coverage": "Both full English editions, chapters 1-30 of 107. Named persons and the gods Montaigne treats as agents. Peoples, places, schools of philosophy and book titles are not cast.",
+  "contentVersion": "2026-09-12.6",
+  "coverage": "Both full English editions, chapters 1-40 of 107. Named persons and the gods Montaigne treats as agents. Peoples, places, schools of philosophy and book titles are not cast.",
   "entities": [
     {
       "id": "montaigne",
@@ -107,7 +107,7 @@
     {
       "id": "pompey",
       "name": "Pompey",
-      "body": "Pompey the Great, who pardoned the whole city of the Mamertines, though furiously incensed at it, on the strength of one citizen’s magnanimity.",
+      "body": "Pompey the Great, who pardoned the whole city of the Mamertines, though furiously incensed at it, on the strength of one citizen’s magnanimity — and who excused himself to Posidonius for visiting him at an unseasonable hour, and got a lecture against pain for his politeness. The older edition prints his name Pompeius in that story.",
       "aliases": [],
       "category": "supporting",
       "kind": "person",
@@ -580,7 +580,7 @@
     {
       "id": "cyrus-the-great",
       "name": "Cyrus",
-      "body": "The founder of the Persian empire, who charged his children that neither they nor anyone else should see or touch his body once the soul had left it — a superstition, Montaigne thinks, of a piece with the reverence for religion that marks his whole life and his historian’s.",
+      "body": "The founder of the Persian empire, who charged his children that neither they nor anyone else should see or touch his body once the soul had left it — a superstition, Montaigne thinks, of a piece with the reverence for religion that marks his whole life and his historian’s. Montaigne also grants that agriculture was an honour to him, as a commendation that suited his condition.",
       "aliases": [],
       "category": "supporting",
       "kind": "person",
@@ -876,7 +876,7 @@
     {
       "id": "nassau",
       "name": "The Count of Nassau",
-      "body": "Who besieged Mousson.",
+      "body": "Who besieged Mousson, which the Seigneurs de Montmord and de l’Assigni were highly censured for going out of to parley with him.",
       "aliases": [],
       "category": "reference",
       "kind": "person",
@@ -2008,7 +2008,7 @@
     {
       "id": "sempronius",
       "name": "The Consul Sempronius",
-      "body": "Who commanded in that first defeat by Hannibal.",
+      "body": "The consul commanding in the first pitched battle the Romans lost against Hannibal, where ten thousand foot took fright and, seeing no other escape for their cowardice, threw themselves headlong on the enemy’s great battalion and routed it with great slaughter.",
       "aliases": [
         "Sempronius"
       ],
@@ -2200,7 +2200,7 @@
     {
       "id": "tigillinus",
       "name": "Tigillinus",
-      "body": "Captain of the watch at Rome, another of them.",
+      "body": "Captain of the watch at Rome, and one of the men Montaigne lists as having died between the thighs of women.",
       "aliases": [
         "Tigillinus"
       ],
@@ -2212,7 +2212,7 @@
     {
       "id": "ludovico-gonzaga",
       "name": "Ludovico",
-      "body": "Guido di Gonzaga’s son, another of them.",
+      "body": "Guido di Gonzaga’s son, one of the men Montaigne lists as having died between the thighs of women.",
       "aliases": [],
       "category": "reference",
       "kind": "person",
@@ -2473,7 +2473,7 @@
     {
       "id": "pontanus",
       "name": "Pontanus",
-      "body": "Who reports the like change in Italy in more recent times.",
+      "body": "Who reports a girl turning into a boy in Italy in more recent times, as Pliny reports of Lucius Cossitius.",
       "aliases": [
         "Pontanus"
       ],
@@ -2777,7 +2777,7 @@
     {
       "id": "macareus",
       "name": "Macareus",
-      "body": "The third of them.",
+      "body": "With Thyestes and Oedipus, one of the three whose fables the poets have sung to children, and so infused into their tender brains the belief that makes incest horrible.",
       "aliases": [
         "Macareus"
       ],
@@ -2823,10 +2823,8 @@
     {
       "id": "scaevola",
       "name": "P. Scaevola",
-      "body": "The third of the three high priests.",
-      "aliases": [
-        "Scaevola"
-      ],
+      "body": "The third of the three high priests. Not the Scaevola who slipped into Porsenna’s camp.",
+      "aliases": [],
       "category": "reference",
       "kind": "person",
       "subtitle": "",
@@ -3009,7 +3007,7 @@
     {
       "id": "murena",
       "name": "Murena",
-      "body": "The third name in it.",
+      "body": "The third name in Livia’s list of the conspirators severity had not stopped, after Salvidienus and Lepidus and before Caepio and Egnatius.",
       "aliases": [
         "Murena"
       ],
@@ -3021,7 +3019,7 @@
     {
       "id": "caepio",
       "name": "Caepio",
-      "body": "The fourth.",
+      "body": "The fourth name in Livia’s list of the conspirators severity had not stopped: Lepidus had followed Salvidienus, Murena Lepidus, Caepio Murena, and Egnatius Caepio.",
       "aliases": [
         "Caepio"
       ],
@@ -3033,7 +3031,7 @@
     {
       "id": "egnatius",
       "name": "Egnatius",
-      "body": "The last, and the proof that severity had settled nothing.",
+      "body": "The last name in Livia’s list of the conspirators severity had not stopped, and so her proof to Augustus that clemency was worth trying instead.",
       "aliases": [
         "Egnatius"
       ],
@@ -3047,7 +3045,6 @@
       "name": "The Paulli",
       "body": "One of the great Roman houses Augustus names to Cinna as men who would never endure him. The older edition prints the family in the singular, Paulus, and the modern in the plural.",
       "aliases": [
-        "Paulus",
         "Paulli"
       ],
       "category": "reference",
@@ -3058,7 +3055,7 @@
     {
       "id": "fabii",
       "name": "The Fabii",
-      "body": "Another of them — Fabius in the older edition, Fabii in the modern.",
+      "body": "One of the great Roman houses Augustus names to Cinna as men who would never endure him. The older edition prints the name Fabius, the modern Fabii.",
       "aliases": [
         "Fabius",
         "Fabii"
@@ -3071,7 +3068,7 @@
     {
       "id": "cossii",
       "name": "The Cossii",
-      "body": "Another.",
+      "body": "One of the great Roman houses Augustus names to Cinna as men who would never endure him.",
       "aliases": [
         "Cossii"
       ],
@@ -3413,7 +3410,7 @@
     {
       "id": "john-v-brittany",
       "name": "John V",
-      "body": "Francis of Brittany’s father.",
+      "body": "Duke of Brittany and father of the Francis who said he liked his bride the better for having been homely bred and without any manner of learning.",
       "aliases": [
         "John V"
       ],
@@ -3605,7 +3602,7 @@
     {
       "id": "themistocles",
       "name": "Themistocles",
-      "body": "The other of that pair.",
+      "body": "With Cimon, one of the men Montaigne names as having very much deceived the expectation others had formed of them as children — a warning against reading the promises of that tender age.",
       "aliases": [
         "Themistocles"
       ],
@@ -3808,7 +3805,7 @@
     {
       "id": "angelica",
       "name": "Angelica",
-      "body": "The other: the soft, delicate, artificial, simpering form.",
+      "body": "Set against Bradamante when a tutor first shows his pupil a mistress: the soft, delicate, artificial, simpering and affected form, tricked up in curls and ribbons like a wanton minx, against the manly beauty in a glittering helmet.",
       "aliases": [
         "Angelica"
       ],
@@ -3869,7 +3866,7 @@
     {
       "id": "carneades",
       "name": "Carneades",
-      "body": "So besotted with the thirst for knowledge that he could not find time to comb his head or pare his nails.",
+      "body": "The philosopher Montaigne gives as his instance of a man brutified by an immoderate thirst after knowledge: so besotted with it that he would not find time so much as to comb his head or pare his nails.",
       "aliases": [
         "Carneades"
       ],
@@ -3930,7 +3927,7 @@
     {
       "id": "heraclides-ponticus",
       "name": "Heraclides Ponticus",
-      "body": "Who gave that answer.",
+      "body": "Asked by Leo, prince of the Phliasians, what art or science he professed, he answered that he knew neither art nor science, but that he was a philosopher.",
       "aliases": [
         "Heraclides Ponticus"
       ],
@@ -4337,11 +4334,11 @@
     {
       "id": "st-hilary",
       "name": "St Hilary",
-      "body": "Whose relics Bouchet records the miracles of.",
+      "body": "Bishop of Poictiers and the famous enemy of the Arian heresy, whose relics Bouchet records the miracles of. Hearing in Syria that his only daughter Abra was being sought in marriage, he wrote telling her to put worldly pleasures aside for a greater husband — and then prayed without ceasing that God would take her out of the world, which soon happened, to his singular joy. His wife, hearing how it had been done, begged the same for herself and got it.",
       "aliases": [
         "St. Hilary"
       ],
-      "category": "reference",
+      "category": "supporting",
       "kind": "religious-figure",
       "subtitle": "",
       "snapshots": []
@@ -4361,7 +4358,7 @@
     {
       "id": "st-protasius",
       "name": "St Protasius",
-      "body": "The other of that pair.",
+      "body": "With St Gervasius, one of the two saints whose relics at Milan St Augustine says he saw a blind child recover sight upon.",
       "aliases": [
         "St. Protasius"
       ],
@@ -4409,7 +4406,7 @@
     {
       "id": "maximinus-bishop",
       "name": "Maximinus",
-      "body": "The other of them.",
+      "body": "With Aurelius, one of the two holy bishops St Augustine calls as witnesses to the miracles he reports — men Montaigne says no one living is impudent enough to think himself comparable to.",
       "aliases": [
         "Maximinus"
       ],
@@ -4483,7 +4480,7 @@
     {
       "id": "patroclus",
       "name": "Patroclus",
-      "body": "The other of that pair.",
+      "body": "Achilles’s friend. The Greeks blamed Aeschylus for giving the lover’s part in their loves to Achilles, who was in the first and beardless flower of his adolescence and the handsomest of them all.",
       "aliases": [
         "Patroclus"
       ],
@@ -4507,7 +4504,7 @@
     {
       "id": "aristogiton-friend",
       "name": "Aristogiton",
-      "body": "The other of that pair.",
+      "body": "With Harmodius, one of the pair whose love the Greeks gave as an instance of the healthy kind, from which they said great utility came to private and public concerns alike.",
       "aliases": [
         "Aristogiton"
       ],
@@ -4569,9 +4566,7 @@
       "id": "pausanias-sparta",
       "name": "Pausanias",
       "body": "Whose own mother was the first instructor of his process and threw the first stone towards his death — a virtue Montaigne finds not so much just as strange.",
-      "aliases": [
-        "Pausanias"
-      ],
+      "aliases": [],
       "category": "reference",
       "kind": "person",
       "subtitle": "",
@@ -4701,7 +4696,7 @@
     {
       "id": "sulpicius-galba",
       "name": "Publius Sulpicius Galba",
-      "body": "Who formed that camp.",
+      "body": "Who formed the Roman camp in Philip’s own kingdom, whose order and distribution Philip looked down on from a height and found nothing of barbarism in.",
       "aliases": [
         "Publius Sulpicius Galba"
       ],
@@ -4786,7 +4781,7 @@
     {
       "id": "leah",
       "name": "Leah",
-      "body": "One of Jacob’s two wives in that comparison.",
+      "body": "With Rachel, one of the two wives of Jacob who in the Bible gave the most beautiful of their handmaids to their husband.",
       "aliases": [
         "Leah"
       ],
@@ -4798,7 +4793,7 @@
     {
       "id": "rachel",
       "name": "Rachel",
-      "body": "The other.",
+      "body": "With Leah, one of the two wives of Jacob who in the Bible gave the most beautiful of their handmaids to their husband — which Montaigne calls a truly matrimonial virtue of the highest form.",
       "aliases": [
         "Rachel"
       ],
@@ -4834,6 +4829,1054 @@
       "name": "King Charles IX",
       "body": "At Rouen when three of the cannibals were brought there, and who talked with them a good while. They said it was strange that so many tall bearded armed men should submit to obey a child.",
       "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "don-john-of-austria",
+      "name": "Don John of Austria",
+      "body": "Under whose command the fine naval battle against the Turks was won a few months before Montaigne wrote — a victory he will not let anyone use as proof of a cause, since God has let us see as great ones at our own expense.",
+      "aliases": [
+        "Don John of Austria"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "arius",
+      "name": "Arius",
+      "body": "The principal head of the Arian heresy, who was withdrawn from the disputation by a griping in the bowels and gave up the ghost upon the stool.",
+      "aliases": [
+        "Arius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pope-leo-arian",
+      "name": "Pope Leo",
+      "body": "Arius’s fellow head of the Arian heresy, who died the same strange death at another time. Not Pope Leo X, nor the Emperor Leo.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "heliogabalus",
+      "name": "Heliogabalus",
+      "body": "Also slain in a house of office — which Montaigne adds to show how little such coincidences prove.",
+      "aliases": [
+        "Heliogabalus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "irenaeus",
+      "name": "Irenaeus",
+      "body": "Involved in the same fortune, and the last of Montaigne’s examples that the place of a man’s death is no evidence of divine vengeance.",
+      "aliases": [
+        "Irenaeus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lucilius",
+      "name": "Lucilius",
+      "body": "The man of power about the emperor whom Seneca advises either to leave that life of his or life itself: better once to fall than to be always falling.",
+      "aliases": [
+        "Lucilius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "idomeneus",
+      "name": "Idomeneus",
+      "body": "To whom Epicurus writes the same counsel on the like occasion — which is why Montaigne finds it stranger in Seneca, the Stoic having borrowed it from the Epicurean.",
+      "aliases": [
+        "Idomeneus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "abra",
+      "name": "Abra",
+      "body": "St Hilary’s only daughter, left at home under her mother’s eye, sought in marriage by the greatest noblemen of the country, and prayed out of the world by her father.",
+      "aliases": [
+        "Abra"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "duc-de-valentinois",
+      "name": "The Duc de Valentinois",
+      "body": "Who sent a bottle of poisoned wine ahead to the Vatican for Cardinal Adrian, and whose butler, thinking it had been recommended only for its excellency, served it to the Pope — and then to the duke himself.",
+      "aliases": [
+        "Duc de Valentinois",
+        "Duke of Valentinois"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cardinal-adrian",
+      "name": "Adrian, Cardinal of Corneto",
+      "body": "The intended victim, who was to sup with the Pope and his son.",
+      "aliases": [
+        "Adrian, Cardinal of Corneto"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alexander-vi",
+      "name": "Pope Alexander VI",
+      "body": "Who drank the wine meant for the cardinal and died on the spot.",
+      "aliases": [
+        "Pope Alexander VI",
+        "Alexander VI"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "destrees",
+      "name": "Monsieur d’Estrees",
+      "body": "Ensign to Monsieur de Vendome, who took his rival prisoner on the day of the man’s wedding and before he had gone to bed to his wife — and gave him up when the bride asked it of him as a courtesy, the gentlemen of France never denying anything to ladies.",
+      "aliases": [
+        "Monsieur d’Estrees",
+        "Sieur d’Estrees",
+        "Monsieur d'Estrees",
+        "Sieur d'Estrees"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "vendome",
+      "name": "Monsieur de Vendome",
+      "body": "Monsieur d’Estrees’s captain — he is named to place the ensign who was one of the two pretenders to the Sieur de Fougueselles’ sister.",
+      "aliases": [
+        "Monsieur de Vendome"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "licques",
+      "name": "Monsieur de Licques",
+      "body": "Lieutenant in the Duc d’Ascot’s company, who carried the Sieur de Fougueselles’ sister and then went out to break a lance in her honour near St Omer and was taken prisoner before the wedding night.",
+      "aliases": [
+        "Monsieur de Licques",
+        "Sieur de Licques"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "duc-dascot",
+      "name": "The Duc d’Ascot",
+      "body": "In whose company Licques was lieutenant.",
+      "aliases": [
+        "Duc d’Ascot",
+        "Duc d'Ascot"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fougueselles",
+      "name": "The Sieur de Fougueselles",
+      "body": "The Sieur de Fougueselles, whose sister Monsieur d’Estrees and Monsieur de Licques were both pretenders to.",
+      "aliases": [
+        "Sieur de Fougueselles"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "constantine-founder",
+      "name": "Constantine, son of Helena",
+      "body": "Who founded the empire of Constantinople.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "constantine-last",
+      "name": "Constantine, son of Helen",
+      "body": "Who so many ages later put an end to the empire the first Constantine founded — the same name and the same mother’s name at both ends of it, which Montaigne calls Fortune playing the artist.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "helena",
+      "name": "Helena",
+      "body": "The first Constantine’s mother, whose name the last Constantine’s mother also carried.",
+      "aliases": [
+        "Helena",
+        "Helen"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clovis",
+      "name": "King Clovis",
+      "body": "Before whose siege of Angouleme the walls fell down of themselves by divine favour.",
+      "aliases": [
+        "Clovis"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "king-robert",
+      "name": "King Robert",
+      "body": "Who left his siege to keep the feast of St Aignan at Orleans, and at a certain part of the Mass the walls of the besieged city fell down of themselves. Bouchet has it from some author; the Essays do not identify him with Robert of Scotland.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "st-aignan",
+      "name": "St Aignan",
+      "body": "Whose feast King Robert left the siege to keep at Orleans.",
+      "aliases": [
+        "St. Aignan"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "capitaine-rense",
+      "name": "Le Capitaine Rense",
+      "body": "Who carried a mine under the wall of Arona for the French; the wall was lifted off its base and dropped back whole and exactly upon its foundation, and the besieged suffered nothing by it.",
+      "aliases": [
+        "Capitaine Rense",
+        "Rense"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jason-of-pheres",
+      "name": "Jason of Pheres",
+      "body": "Given over by the physicians for an imposthume in his breast, he threw himself into the thickest of the enemy to be rid of the pain by death at least — and was so fortunately wounded through the body that the imposthume broke and he was cured.",
+      "aliases": [
+        "Jason of Pheres",
+        "Jason"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "protogenes",
+      "name": "Protogenes",
+      "body": "The painter who could not get the foam right on his tired dog, threw his colour-soaked sponge at the picture in a rage, and found that fortune’s throw had done what all his art could not.",
+      "aliases": [
+        "Protogenes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "isabel-of-england",
+      "name": "Isabel, Queen of England",
+      "body": "Sailing from Zealand with an army for her son against her husband, she would have been lost had she made the port she intended, where the enemy lay in wait; fortune threw her against her will into another haven and she landed safe.",
+      "aliases": [
+        "Isabel"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "icetes",
+      "name": "Icetes",
+      "body": "Who contracted with two soldiers to kill Timoleon at Adrana in Sicily.",
+      "aliases": [
+        "Icetes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "timoleon",
+      "name": "Timoleon",
+      "body": "Whose assassins were interrupted by a third man cutting one of them down — for his own father’s murder, as it turned out — so that the plot came out and the killer was awarded ten Attic minae for preserving the common father of Sicily. Montaigne returns to him for the tears he shed over his own brother.",
+      "aliases": [
+        "Timoleon"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ignatius-father",
+      "name": "Ignatius the father",
+      "body": "Who with his son, proscribed by the triumvirs, ran on his son’s sword as the son ran on his, so that the two mortal wounds were equal and the executioner cut off both heads at once, the bodies still locked together.",
+      "aliases": [
+        "Ignatius the father"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ignatius-son",
+      "name": "Ignatius the son",
+      "body": "Proscribed with his father by the triumvirs of Rome, and resolved with him to fall by one another’s hands and so defeat the cruelty of the tyrants.",
+      "aliases": [
+        "Ignatius the son"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "giraldus",
+      "name": "Lilius Gregorius Giraldus",
+      "body": "Who died in Italy so poor he had scarce bread to put in his mouth — one of the two most excellent men for learning whose want Montaigne says the age should be ashamed of.",
+      "aliases": [
+        "Lilius Gregorius Giraldus",
+        "Giraldus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "castalio",
+      "name": "Sebastianus Castalio",
+      "body": "Sebastianus Castalio, who with Lilius Gregorius Giraldus in Italy makes Montaigne’s pair of most excellent men for learning who died, in our very sight and to the shame of the age, so poor they had scarce bread to put in their mouths. Castalio died so in Germany.",
+      "aliases": [
+        "Sebastianus Castalio",
+        "Castalio"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "massinissa",
+      "name": "King Massinissa",
+      "body": "Who to an extreme old age could never be prevailed on to cover his head, in whatever weather.",
+      "aliases": [
+        "Massinissa"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "emperor-severus",
+      "name": "The Emperor Severus",
+      "body": "Of whom the same bare-headedness is reported as of Massinissa: neither could be prevailed on to cover his head, however cold or stormy the weather.",
+      "aliases": [
+        "Emperor Severus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "varro",
+      "name": "Varro",
+      "body": "Who thinks the rule that we go bare before the gods and the magistrate was made for health and to inure us to the weather rather than out of reverence.",
+      "aliases": [
+        "Varro"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mithridates",
+      "name": "Mithridates",
+      "body": "Whose lieutenant beat the enemy dry-foot at the mouth of Lake Maeotis in a frost so sharp, and beat them again in a naval battle on the same water the summer after.",
+      "aliases": [
+        "Mithridates"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pausanias-plataea",
+      "name": "Pausanias",
+      "body": "The Spartan who commanded at Plataea. Montaigne has already told how his own mother threw the first stone towards his death.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mardonius",
+      "name": "Mardonius",
+      "body": "Whose Persians Pausanias beat at Plataea.",
+      "aliases": [
+        "Mardonius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aristodemus",
+      "name": "Aristodemus",
+      "body": "Who of all the Spartans at Plataea had hazarded his person most bravely, and was allowed no prize for it — because his virtue had been incited by a wish to clear his name of the reproach of Thermopylae, and to die bravely to wipe off that blemish.",
+      "aliases": [
+        "Aristodemus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antigonus-gonatas",
+      "name": "Antigonus",
+      "body": "Who was much displeased with his son for bringing him the head of King Pyrrhus his enemy, newly slain fighting against him, and wept to see it. Not the Antigonus who besieged Eumenes in Nora.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rene-of-lorraine",
+      "name": "Rene, Duke of Lorraine",
+      "body": "Who lamented the death of Charles of Burgundy, whom he had himself defeated, and appeared in mourning at his funeral. The modern edition spells him René.",
+      "aliases": [
+        "Rene, Duke of Lorraine",
+        "René, Duke of Lorraine"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charles-of-burgundy",
+      "name": "Charles, Duke of Burgundy",
+      "body": "Charles the Duke of Burgundy, defeated by Rene of Lorraine, who then lamented his death and appeared in mourning at his funeral.",
+      "aliases": [
+        "Charles, Duke of Burgundy"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "count-montfort",
+      "name": "Count Montfort",
+      "body": "Who won the battle of D’Auray over his competitor for the duchy of Brittany and was much afflicted at meeting his dead body.",
+      "aliases": [
+        "Count Montfort",
+        "Montfort"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charles-de-blois",
+      "name": "Charles de Blois",
+      "body": "The competitor, whose body Montfort grieved over.",
+      "aliases": [
+        "Charles de Blois"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "publius-syrus",
+      "name": "Publius Syrus",
+      "body": "The Latin writer of maxims, quoted for the line that the heir’s tears behind the mask are smiles. The citation at 40:67 prints him P. Syrus.",
+      "aliases": [
+        "Publius Syrus",
+        "P. Syrus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "artabanus",
+      "name": "Artabanus",
+      "body": "Who came on his nephew Xerxes by surprise and chid him for the sudden change in his face.",
+      "aliases": [
+        "Artabanus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "stilpo",
+      "name": "Stilpo",
+      "body": "Who escaped the burning of his town having lost wife, children and goods, and told Demetrius Poliorcetes that he had received no loss, since fortune had nothing of his.",
+      "aliases": [
+        "Stilpo"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "demetrius-poliorcetes",
+      "name": "Demetrius Poliorcetes",
+      "body": "Seeing Stilpo appear with an undisturbed countenance in the ruin of his country, he asked whether the man had received no loss — and was told that nothing of his was lost.",
+      "aliases": [
+        "Demetrius Poliorcetes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tibullus",
+      "name": "Tibullus",
+      "body": "The Latin elegiac poet, quoted for the line: in solitude, be company for thyself.",
+      "aliases": [
+        "Tibullus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pliny-the-younger",
+      "name": "The younger Pliny",
+      "body": "Whose letter advises Caninius Rufus to leave his husbandry to his hinds and take up something of his own that will last. Montaigne rejects both the means and the end of that advice: book-employment is as painful as any other, and the glory Pliny and Cicero hold out is infinitely wide of his account, ambition being the humour most contrary to solitude. Not the elder Pliny of the Natural History, and, Montaigne says, not much like his uncle in his humours.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caninius-rufus",
+      "name": "Caninius Rufus",
+      "body": "The friend the younger Pliny’s letter is written to, advising him to leave his husbandry to his hinds and take up something of his own that will last.",
+      "aliases": [
+        "Caninius Rufus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phocion",
+      "name": "Phocion",
+      "body": "With Cato and Aristides, one of the three a man in solitude should keep continually before his imagination, in whose presence even fools hide their faults — the counsel Montaigne compounds out of two philosophers of different sects, one writing to Idomeneus and the other to Lucilius.",
+      "aliases": [
+        "Phocion"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aristides",
+      "name": "Aristides",
+      "body": "With Cato and Phocion, one of the three a man in solitude should keep continually before his imagination and set up as the controllers of all his intentions, in whose presence even fools hide their faults.",
+      "aliases": [
+        "Aristides"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antisthenes",
+      "name": "Antisthenes",
+      "body": "The Cynic, who thought it a poor sort of commendation that Ismenias played excellently well on the flute.",
+      "aliases": [
+        "Antisthenes"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bias",
+      "name": "Bias",
+      "body": "One of the sages, cited in the chapter on solitude.",
+      "aliases": [
+        "Bias"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "albuquerque",
+      "name": "Albuquerque",
+      "body": "Viceroy in the Indies for Emmanuel of Portugal, who in an extreme peril of shipwreck took a young boy on his shoulders for no other end than that the child’s innocence might recommend him to God’s favour and save them both.",
+      "aliases": [
+        "Albuquerque"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "paulinus-of-nola",
+      "name": "Paulinus",
+      "body": "Bishop of Nola, who when the barbarians ruined the city lost everything he had and was taken prisoner, and prayed only to be kept from feeling the loss — they had touched nothing that was his.",
+      "aliases": [
+        "Paulinus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "democritus",
+      "name": "Democritus",
+      "body": "The philosopher of Abdera. Montaigne quotes Horace’s epistle on him: his cattle eat his corn and spoil his fields while his soaring mind ranges abroad without the body.",
+      "aliases": [
+        "Democritus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eros-slave",
+      "name": "Eros",
+      "body": "Cicero’s slave, who brought him word that the audience was put off till the next day — at which, Montaigne notes, his master was so ravished with joy that it laid his nature open.",
+      "aliases": [
+        "Eros"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "annibale-caro",
+      "name": "Annibale Caro",
+      "body": "Whose printed letters Montaigne thinks the best of the hundred volumes of them he owns.",
+      "aliases": [
+        "Annibale Caro"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ismenias",
+      "name": "Ismenias",
+      "body": "Commended for playing excellently well upon the flute, which Antisthenes took for an argument of little value.",
+      "aliases": [
+        "Ismenias"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "scipio-aemilianus",
+      "name": "Scipio",
+      "body": "The Scipio who with Laelius is said to have resigned the honour of his comedies to an African — and who would never have done it, Montaigne says, if eloquence had added a lustre suitable to a great person. Not the Africanus who crossed to Syphax, nor Pompey’s father-in-law, nor the high priest.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "demosthenes",
+      "name": "Demosthenes",
+      "body": "Whose companions in the embassy praised Philip as handsome, eloquent and a stout drinker — commendations, Demosthenes said, more proper for a woman, an advocate and a sponge than for a king.",
+      "aliases": [
+        "Demosthenes"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "philip-ii-macedon",
+      "name": "Philip",
+      "body": "Philip of Macedon, who asked his son Alexander whether he was not ashamed to sing so well, and whom Demosthenes’s fellow ambassadors praised for the wrong qualities.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "theodorus",
+      "name": "Theodorus",
+      "body": "Who answered Lysimachus’s threat to kill him: thou wilt do a brave feat, to attain the force of a cantharides.",
+      "aliases": [
+        "Theodorus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lysimachus",
+      "name": "Lysimachus",
+      "body": "Who threatened to kill Theodorus, and was told he would be doing a brave feat — attaining the force of a cantharides.",
+      "aliases": [
+        "Lysimachus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pyrrho",
+      "name": "Pyrrho",
+      "body": "The philosopher who, in a boat in a great tempest, pointed to a hog aboard as the pattern of the assurance the most frightened men lacked.",
+      "aliases": [
+        "Pyrrho"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "brutus-xanthus",
+      "name": "Brutus",
+      "body": "Who besieged the Xanthians, and whose siege drove them — men, women and children — into such an appetite of dying that nothing he could do would save them.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "john-of-portugal",
+      "name": "John, King of Portugal",
+      "body": "Who sold the Jews banished from Castile a retreat in his dominions for eight crowns a head and a fixed term, and after the term made slaves of those who stayed.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "emmanuel-of-portugal",
+      "name": "Emmanuel",
+      "body": "John’s successor, who first set them at liberty and then changed his mind again.",
+      "aliases": [
+        "Emmanuel"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bishop-osorius",
+      "name": "Bishop Osorius",
+      "body": "No contemptible Latin historian of these later times, and Montaigne’s source for what the kings of Portugal did to the Jews.",
+      "aliases": [
+        "Bishop Osorius",
+        "Osorius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "posidonius",
+      "name": "Posidonius",
+      "body": "Extremely tormented with a sharp and painful disease, he received Pompeius with a lecture against pain and would not admit that it was an evil.",
+      "aliases": [
+        "Posidonius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hieronimus",
+      "name": "Hieronimus",
+      "body": "With Aristippus and most of the sages, he reputed pain the worst of evils. The modern edition spells him Hieronymus.",
+      "aliases": [
+        "Hieronimus",
+        "Hieronymus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cardinal-borromeo",
+      "name": "Cardinal Borromeo",
+      "body": "Who died lately at Milan, and who amid all the jollity of Italy, youth, birth and riches kept so austere a way of life that Montaigne counts him among those who have hugged their own privation.",
+      "aliases": [
+        "Cardinal Borromeo",
+        "Borromeo"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "foulke-of-anjou",
+      "name": "Foulke, Count of Anjou",
+      "body": "Who went to Jerusalem to have himself whipped by two of his servants, with a cord about his neck, before the sepulchre.",
+      "aliases": [
+        "Foulke"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "william-of-guienne",
+      "name": "William, Duke of Guienne",
+      "body": "Montaigne’s last Duke of Guienne, who for the last ten or twelve years of his life wore a suit of armour under a religious habit by way of penance.",
+      "aliases": [
+        "William, our last Duke of Guienne"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eleanor-of-guienne",
+      "name": "Eleanor",
+      "body": "William’s daughter, who transmitted the duchy of Guienne to the houses of France and England.",
+      "aliases": [
+        "Eleanor"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "louis-xi",
+      "name": "Louis XI",
+      "body": "At whose taking of Arras a great many of the inhabitants let themselves be hanged rather than say “God save the King.”",
+      "aliases": [
+        "Louis XI"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "st-louis",
+      "name": "King St. Louis",
+      "body": "Louis IX, whom Montaigne calls our good St Louis: he wore a hair-shirt until his confessor gave him a dispensation to leave it off in his old age, and every Friday had his shoulders drubbed by his priest with five small iron chains carried about among his night things.",
+      "aliases": [
+        "St. Louis",
+        "St Louis",
+        "Saint Louis"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sabinus",
+      "name": "Sabinus",
+      "body": "A patrician of Rome, whose fair and noble wife bore two children alone and without crying out, for another’s interest.",
+      "aliases": [
+        "Sabinus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mucius-scaevola",
+      "name": "Scaevola",
+      "body": "Who slipped into the enemy camp to kill their general, missed his blow, and repaired the fault by telling Porsenna to his face not only what he had meant to do but that many more were sworn to do it. Not the P. Scaevola of Cotta’s list of high priests.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "porsenna",
+      "name": "Porsenna",
+      "body": "The king Scaevola had meant to kill, and who heard the whole confession — and who, conceiving horror at the sight of the burning arm, had the pan of coals taken away.",
+      "aliases": [
+        "Porsenna"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fabius-maximus",
+      "name": "Q. Maximus",
+      "body": "Who buried his son when the son was consul, with a countenance that expressed no manner of grief.",
+      "aliases": [
+        "Q. Maximus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cato-the-censor",
+      "name": "M. Cato",
+      "body": "Who buried his son when the son was praetor elect with a countenance that expressed no manner of grief; and who, as consul, forbade the inhabitants of some Spanish cities to wear arms, whereupon a great many of them killed themselves. Not the Cato of Utica to whom Montaigne gives a chapter.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "feraulez",
+      "name": "Feraulez",
+      "body": "Who had run through both fortunes and found that increase of substance was no increase of appetite, and gave away the great estate he had got by Cyrus’s liberality and the war, on condition only that he be handsomely maintained.",
+      "aliases": [
+        "Feraulez"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dionysius-the-younger",
+      "name": "Dionysius",
+      "body": "Dionysius the son, who heard that a Syracusan had hidden a treasure, sent for it, and afterwards gave it back when he found the man had learned to live without it.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "teres",
+      "name": "Teres",
+      "body": "Sitalces’s father, who used to say that when he had no wars he fancied there was no difference between him and his groom.",
+      "aliases": [
+        "Teres"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sitalces",
+      "name": "Sitalces",
+      "body": "Son of Teres, the king who used to say that when he had no wars he fancied there was no difference between him and his groom. He is named only to place his father.",
+      "aliases": [
+        "Sitalces"
+      ],
       "category": "reference",
       "kind": "person",
       "subtitle": "",

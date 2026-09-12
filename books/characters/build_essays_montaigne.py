@@ -1,7 +1,7 @@
 """Reviewed bindings for Montaigne's Essays.
 
 Cotton in both editions, 107 chapters covering the three books, 4,897 paragraphs
-per edition. Chapters 1-30 are authored.
+per edition. Chapters 1-40 are authored.
 
 Two things make this book hard, and it has both of them at once. The first is
 spelling: the modern edition modernises the transliterations, so one man is
@@ -31,17 +31,20 @@ SPLIT={
  'Edward':({(1,1):'edward-black-prince',(3,11):'edward-i'},None),
  # The tyrant of Syracuse, named twice; the later Dionysiuses are not yet read.
  'Dionysius':({(1,4):'dionysius-elder',(2,21):'dionysius-elder',(16,3):'dionysius-elder',
-               (23,19):'dionysius-elder'},None),
- # Pompey the Great here; thirty-six later occurrences unread.
+               (23,19):'dionysius-elder',(40,75):'dionysius-the-younger'},None),
+ # Pompey the Great here; thirty-six later occurrences unread. 40:13 is keyed
+ # for the modern edition alone, which modernises the older text's "Pompeius".
  'Pompey':({(1,5):'pompey',(17,6):'pompey',(18,3):'pompey',(18,12):'pompey',
-            (23,1):'pompey',(25,25):'pompey-the-dancer'},None),
+            (23,1):'pompey',(25,25):'pompey-the-dancer',(36,22):'pompey',
+            (37,3):'pompey',(40,13):'pompey'},None),
  # The citizen of Messina, not the founder of the Stoa.
  'Zeno':({(1,5):'zeno-mamertine',(22,49):'zeno-of-citium',(24,55):'zeno-of-citium',
           (25,143):'zeno-of-citium',(30,28):'zeno-of-citium'},None),
  # Alexander the Great in both authored places.
  'Alexander':({(1,6):'alexander',(6,8):'alexander',(18,3):'alexander',
                (19,21):'alexander',(23,7):'alexander',
-               (25,81):'alexander',(25,91):'alexander'},None),
+               (25,81):'alexander',(25,91):'alexander',(35,11):'alexander',
+               (39,7):'alexander',(40,55):'alexander'},None),
  # Conrad III at 1:3; Conrad Marquis of Monteferrat at 86:19.
  'Conrad':({(1,3):'conrad-iii'},None),
  # The Ferdinand of the Buda campaign at 2:9; King Ferdinand of the Indies at
@@ -49,7 +52,8 @@ SPLIT={
  'Ferdinand':({(2,9):'ferdinand'},None),
  # King John of Hungary at 2:9. Bare "John" elsewhere belongs to John Zisca and
  # to men not yet read, so only the king's own paragraph is keyed.
- 'John':({(2,9):'john-of-hungary',(3,11):'john-zisca',(26,18):'john-of-castile'},None),
+ 'John':({(2,9):'john-of-hungary',(3,11):'john-zisca',(26,18):'john-of-castile',
+          (40,8):'john-of-portugal'},None),
  # The dialectician at 2:21; Diodorus Siculus at 69:532 and 74:18.
  'Diodorus':({(2,21):'diodorus-dialectician'},None),
  # Robert Bruce at 3:11; the King Robert of 33:7 is not identified with him.
@@ -57,11 +61,13 @@ SPLIT={
  # Philip of Spain at 3:13; Don Philip at 7:0. Philip of Macedon and Alexander's
  # physician Philip wait in later chapters.
  'Philip':({(3,13):'philip-ii-spain',(7,0):'don-philip',(23,7):'philip-physician',
-            (26,18):'philip-augustus',(30,0):'philip-v-macedon'},None),
+            (26,18):'philip-augustus',(30,0):'philip-v-macedon',
+            (39,1):'philip-ii-macedon',(39,7):'philip-ii-macedon'},None),
  # Cyrus the Great in both authored places; Cyrus the Younger is not yet read.
  'Cyrus':({(3,13):'cyrus-the-great',(4,9):'cyrus-the-great',(18,3):'cyrus-the-great',
            (24,57):'cyrus-the-great',(24,59):'cyrus-the-great',
-           (27,29):'cyrus-the-great'},None),
+           (27,29):'cyrus-the-great',(38,42):'cyrus-the-great',
+           (39,1):'cyrus-the-great',(40,83):'cyrus-the-great'},None),
  # Socrates's friend at 3:15; the Crito of 69:208 is somebody's brother in
  # another story.
  'Crito':({(3,15):'crito'},None),
@@ -69,15 +75,16 @@ SPLIT={
  'Perseus':({(5,0):'perseus-macedon'},None),
  # The King of Epirus; the Pyrrhus of the transmigration list at 69:473 is not
  # him.
- 'Pyrrhus':({(5,0):'pyrrhus-epirus',(30,0):'pyrrhus-epirus'},None),
+ 'Pyrrhus':({(5,0):'pyrrhus-epirus',(30,0):'pyrrhus-epirus',(37,0):'pyrrhus-epirus'},None),
  # Martin the memoirist at 5:9; Cardinal Jean at 10:3; the poet Joachim in
  # chapters 24, 25 and 74.
  r'[Dd]u Bellay':({(5,9):'martin-du-bellay',(10,3):'jean-du-bellay',
                    (14,1):'martin-du-bellay',(24,0):'joachim-du-bellay',
-                   (24,2):'joachim-du-bellay',(25,123):'joachim-du-bellay'},None),
+                   (24,2):'joachim-du-bellay',(25,123):'joachim-du-bellay',
+                   (35,6):'martin-du-bellay'},None),
  # Antigonus the besieger of Eumenes; the Antigonus of 37:0, who was displeased
  # at being brought Pyrrhus's head, is another.
- 'Antigonus':({(5,10):'antigonus-i'},None),
+ 'Antigonus':({(5,10):'antigonus-i',(37,0):'antigonus-gonatas'},None),
  # Henry de Vaux at 5:11, spelled Henri in the modern edition; Henry VII at 7:0.
  r'Henr[yi]':({(5,11):'henry-de-vaux',(7,0):'henry-vii'},None),
  # The Spartan who broke the truce with Argos. Later chapters have at least one
@@ -92,9 +99,13 @@ SPLIT={
  # The Duke of Alva of the Brussels executions; "the last Duke of Alva" at
  # 74:157 is a later head of the house.
  'Alva':({(7,0):'duke-of-alva'},None),
- # Pliny the Elder; the younger Pliny appears at 38:45 and 39:0.
+ # Pliny the Elder; the younger Pliny holds 38:45, 38:60 and 39:0, and the
+ # modern edition names him once more at 38:50 where the older text says only
+ # "this advice".
  'Pliny':({(9,6):'pliny-elder',(20,4):'pliny-elder',(22,2):'pliny-elder',
-           (26,18):'pliny-elder'},None),
+           (26,18):'pliny-elder',(38,45):'pliny-the-younger',
+           (38,50):'pliny-the-younger',(38,60):'pliny-the-younger',
+           (39,0):'pliny-the-younger'},None),
  # Francis I in all three authored places.
  'Francis':({(9,8):'francis-i',(9,9):'francis-i',(10,3):'francis-i',(11,14):'francis-i',
              (13,1):'francis-i',(24,49):'francis-brittany'},None),
@@ -119,11 +130,16 @@ SPLIT={
  'Caesar':({(16,3):'julius-caesar',(19,67):'julius-caesar',(19,71):'julius-caesar',
             (22,54):'julius-caesar',(23,13):'julius-caesar',(23,18):'julius-caesar',
             (23,1):'augustus',(25,47):'julius-caesar',(30,28):'julius-caesar',
-            (26,18):'julius-caesar'},None),
+            (26,18):'julius-caesar',(35,3):'julius-caesar',(36,12):'julius-caesar',
+            (36,18):'julius-caesar',(36,22):'julius-caesar',(36,25):'julius-caesar',
+            (37,3):'julius-caesar',(39,0):'julius-caesar',
+            (40,45):'julius-caesar',(40,55):'julius-caesar',
+            (40,62):'julius-caesar'},None),
  # Pompey's father-in-law at 18:12. Every other Scipio in the Essays belongs to
  # a chapter not yet authored, and the name runs through a whole family.
  'Scipio':({(18,12):'metellus-scipio',(22,49):'publius-scipio-pontifex',
-            (23,10):'scipio-africanus',(25,51):'scipio-africanus'},None),
+            (23,10):'scipio-africanus',(25,51):'scipio-africanus',
+            (39,0):'scipio-aemilianus'},None),
  # P. Crassus the consul in Asia — "Publius Crassus" in the modern edition. The
  # triumvir and his son are not yet read, so only 16:9 is keyed.
  'Crassus':({(16,9):'publius-crassus',(16,10):'publius-crassus'},None),
@@ -142,8 +158,20 @@ SPLIT={
  # longer alias, so only the Gonzaga paragraph is keyed here.
  'Ludovico':({(19,24):'ludovico-gonzaga'},None),
  # ------------------------------------------------- added with chapters 21-24
- # Cato of Utica at 22:54. Cato the Censor and the rest are unread.
- 'Cato':({(22,54):'cato-the-younger',(25,117):'cato-the-younger'},None),
+ # Cato of Utica: the prose of his own chapter, the nominative "Cato" in
+ # Martial's Latin at 36:17, and each of the five bracketed English versions of
+ # the five poets' verses (36:18, 21, 24, 27, 30). The Latin accusatives and
+ # genitives that carry him through 36:20-29 -- Catonem, Catoni, Catonis -- are
+ # left unbound like every other inflection in this book. The "M. Cato" of
+ # 40:52 and the "Cato the consul" who disarmed the Spanish cities at 40:55 are
+ # the Censor.
+ 'Cato':({(22,54):'cato-the-younger',(25,117):'cato-the-younger',
+          (36,12):'cato-the-younger',(36,13):'cato-the-younger',
+          (36,17):'cato-the-younger',(36,18):'cato-the-younger',
+          (36,21):'cato-the-younger',(36,24):'cato-the-younger',
+          (36,27):'cato-the-younger',(36,30):'cato-the-younger',
+          (38,66):'cato-the-younger',
+          (40,52):'cato-the-censor',(40,55):'cato-the-censor'},None),
  # The conspirator in Livia's list. The two Lepiduses already cast are bound by
  # their full names, so the bare surname is free for this one.
  'Lepidus':({(23,1):'lepidus-conspirator'},None),
@@ -162,6 +190,33 @@ SPLIT={
  # King Deiotarus's wife at 30:39; the Stratonice whose beauty gave Antiochus
  # his fever at 20:4.
  'Stratonice':({(20,4):'stratonice',(30,39):'stratonice-deiotarus'},None),
+ # ---------------------------------------------- added with chapters 31-40
+ # Arius's fellow heresiarch at 31:4. At 2:21 the same two words open "Pope Leo
+ # X.", so that position is deliberately unkeyed and the shorter alias binds
+ # there instead.
+ 'Pope Leo':({(31,4):'pope-leo-arian'},None),
+ # The Spartan commander at Plataea, whose mother threw the first stone towards
+ # his death in the chapter on moderation.
+ 'Pausanias':({(29,5):'pausanias-sparta',(36,10):'pausanias-plataea'},None),
+ # Mucius Scaevola in the enemy camp at 40:45; P. Scaevola the high priest in
+ # Cotta's list at 22:49.
+ 'Scaevola':({(22,49):'scaevola',(40,45):'mucius-scaevola'},None),
+ # The Brutus who besieged the Xanthians. The Essays have more than one.
+ 'Brutus':({(40,6):'brutus-xanthus'},None),
+ # Cotton prints Pompey's name Pompeius in the Posidonius story.
+ 'Pompeius':({(40,13):'pompey'},None),
+ # Two Constantines in one sentence at 33:7, the founder of the empire and the
+ # man who lost it, so that paragraph is keyed by occurrence.
+ 'Constantine':({(33,7):['constantine-founder','constantine-last']},None),
+ # King Robert of the falling walls, whom the Essays do not identify with Robert
+ # of Scotland.
+ 'King Robert':({(33,7):'king-robert'},None),
+ # The Paulli of Augustus's list at 23:1 -- the older edition prints the house in
+ # the singular, "Paulus" -- and the L. Paulus who buried both his sons at 40:52,
+ # who is the Paulus Aemilius of 19:37 under his shorter name. The family alias
+ # had been binding that man to the house. Chapters 51, 69 and 73 name a Paulus
+ # who has not been read, so the table defaults to nothing.
+ 'Paulus':({(23,1):'paulli',(40,52):'paulus-aemilius'},None),
 }
 # Aristo of Chios is bound by his full name rather than by a table, because the
 # bare "Aristo" is three different men in this book: the Stoic of 24:54, a

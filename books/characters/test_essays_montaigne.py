@@ -1,5 +1,5 @@
 """Focused checks for Montaigne's Essays.
-Chapters 1-30 of 107 are authored."""
+Chapters 1-40 of 107 are authored."""
 import unittest
 from build_essays_montaigne import compile_package
 
@@ -16,6 +16,19 @@ def ids(ed,ch,pi):
 def spans(ed,ch,pi):
     return [(m['characterId'],m['text']) for m in mentions(ed)
             if m['chapterNumber']==ch and m['paragraphIndex']==pi]
+def cards(ed):
+    return [(c['id'],c['snapshots'][0]['body']) for c in ASSET['editions'][ed]['characters']]
+def _paras():
+    import json,pathlib
+    from build_pilot import normalized
+    out={}
+    for ed in ['original-en','modern-en']:
+        p=pathlib.Path('/home/user/tinct/app/public/data/editions/essays-montaigne-%s.json'%ed)
+        d=json.loads(p.read_text(encoding='utf-8'))
+        out[ed]={(c['number'],i):normalized(x)
+                 for c in d['chapters'] for i,x in enumerate(c['paragraphs'])}
+    return out
+PARAS=_paras()
 
 class EssaysMontaigne(unittest.TestCase):
     # -------------------------------------------------------- the two editions
@@ -195,8 +208,8 @@ class EssaysMontaigne(unittest.TestCase):
             self.assertEqual(w[0],(28,2),ed)
             self.assertLess(len(w),40,ed)
 
-    def test_only_the_first_thirty_chapters_are_authored(self):
-        self.assertIn('chapters 1-30 of 107',REPORT['scope'])
+    def test_only_the_first_forty_chapters_are_authored(self):
+        self.assertIn('chapters 1-40 of 107',REPORT['scope'])
         self.assertEqual(REPORT['editions']['original-en']['chapters'],107)
         self.assertEqual(REPORT['editions']['original-en']['paragraphs'],4897)
         self.assertEqual(REPORT['editions']['modern-en']['paragraphs'],4897)
@@ -562,6 +575,149 @@ class EssaysMontaigne(unittest.TestCase):
         for cid,older,newer in [('postumius','Posthumius','Postumius'),
                                 ('aelius-verus','AElius Verus','Aelius Verus'),
                                 ('claudian','Claudian','Claudian')]:
+            self.assertIn(older,said('original-en',cid),cid)
+            self.assertIn(newer,said('modern-en',cid),cid)
+
+    # ------------------------------------------------- chapters 31-40 bindings
+    def test_every_table_key_actually_matches_something(self):
+        # A key that matches nothing is a silent mis-index: the name it was
+        # meant to pin stays unbound, and no other check notices. Four of them
+        # were found this way -- Cato at the Latin paragraphs of chapter 36
+        # where only the English versions carry the uninflected name, and
+        # Alexander, Caesar and Cyrus one paragraph off.
+        import re,build_essays_montaigne as B
+        dead=[]
+        for pat,(table,_) in B.SPLIT.items():
+            r=re.compile(r'(?<![A-Za-z])(?:'+pat+r')(?![A-Za-z])')
+            for key in table:
+                if not any(r.search(PARAS[ed].get(key,'')) for ed in PARAS):
+                    dead.append((pat,key))
+        self.assertEqual(dead,[])
+
+    def test_the_two_constantines_of_one_sentence(self):
+        # 33:7 names the founder of the empire of Constantinople and the man who
+        # lost it, both "Constantine", both sons of a Helen. Bound by occurrence.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([c for c in ids(ed,33,7) if c.startswith('constantine')],
+                             ['constantine-founder','constantine-last'],ed)
+
+    def test_king_robert_is_not_robert_bruce(self):
+        for ed in ['original-en','modern-en']:
+            self.assertIn((33,7),where(ed,'king-robert'),ed)
+            self.assertNotIn((33,7),where(ed,'robert-bruce'),ed)
+            self.assertEqual(['King Robert'],said(ed,'king-robert'),ed)
+
+    def test_cato_of_utica_carries_the_five_verse_translations(self):
+        # The five poets quote him in Latin at 36:17-29 and the bracketed
+        # English versions follow. Only the nominative "Cato" of Martial's line
+        # matches in the Latin; the accusatives and genitives are left unbound
+        # like every other inflection, and the English versions all bind.
+        for ed in ['original-en','modern-en']:
+            got=[p for c,p in where(ed,'cato-the-younger') if c==36]
+            self.assertEqual(got,[12,13,17,18,21,24,27,30],ed)
+            for pi in [20,23,26,29]:
+                self.assertNotIn('cato-the-younger',ids(ed,36,pi),(ed,pi))
+
+    def test_the_censor_holds_both_of_his_paragraphs(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(40,52),(40,55)],where(ed,'cato-the-censor'),ed)
+
+    def test_the_l_paulus_who_buried_both_sons_is_paulus_aemilius(self):
+        # The Paulli of Augustus's list at 23:1 -- "Paulus" in the older edition
+        # -- had been taking this man's shorter name away from him.
+        for ed in ['original-en','modern-en']:
+            self.assertIn((40,52),where(ed,'paulus-aemilius'),ed)
+            self.assertNotIn((40,52),where(ed,'paulli'),ed)
+            self.assertIn((23,1),where(ed,'paulli'),ed)
+        self.assertIn('Paulus',said('original-en','paulli'))
+        self.assertIn('Paulli',said('modern-en','paulli'))
+
+    def test_the_modern_edition_alone_says_pompey_in_the_posidonius_story(self):
+        self.assertIn('Pompeius',said('original-en','pompey'))
+        self.assertIn((40,13),where('original-en','pompey'))
+        self.assertIn((40,13),where('modern-en','pompey'))
+
+    def test_the_modern_edition_names_pliny_once_more_in_the_solitude_chapter(self):
+        for ed in ['original-en','modern-en']:
+            self.assertIn((38,45),where(ed,'pliny-the-younger'),ed)
+            self.assertIn((38,60),where(ed,'pliny-the-younger'),ed)
+        self.assertIn((38,50),where('modern-en','pliny-the-younger'))
+        self.assertNotIn((38,50),where('original-en','pliny-the-younger'))
+
+    def test_the_two_kings_called_louis_are_not_one_man(self):
+        # Louis XI is pinned to the taking of Arras by his numeral. St Louis is
+        # single-referent, so he binds book-wide: Joinville's companion at 67:31
+        # and 86:12, the crusader of 60:57, the king who would not have the
+        # Tartar come to Lyons at 69:12 are all Louis IX. The modern edition
+        # drops the period and once writes the name out in full.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(40,5)],where(ed,'louis-xi'),ed)
+            self.assertEqual([(40,51),(60,57),(67,31),(69,12),(86,12)],
+                             where(ed,'st-louis'),ed)
+        self.assertIn('St. Louis',said('original-en','st-louis'))
+        self.assertIn('St Louis',said('modern-en','st-louis'))
+        self.assertIn('Saint Louis',said('modern-en','st-louis'))
+
+    def test_philip_of_macedon_holds_both_of_his_paragraphs(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(39,1),(39,7)],where(ed,'philip-ii-macedon'),ed)
+            self.assertIn((39,1),where(ed,'cyrus-the-great'),ed)
+
+    def test_democritus_binds_throughout_like_the_other_authorities(self):
+        # Single-referent across the whole work, so his card is written to be
+        # true anywhere and he appears in chapters not yet authored.
+        for ed in ['original-en','modern-en']:
+            w=where(ed,'democritus')
+            self.assertIn((38,44),w,ed)
+            self.assertTrue([c for c,_ in w if c>40],ed)
+
+    def test_the_two_men_found_by_the_unbound_sweep(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(38,3)],where(ed,'albuquerque'),ed)
+            self.assertEqual([(38,26)],where(ed,'paulinus-of-nola'),ed)
+
+    def test_no_card_is_a_bare_cross_reference(self):
+        # "His son." and "The other of that pair." are not cards: a reader who
+        # taps the name gets a pronoun with no antecedent. Every card has to
+        # name what it refers to, so every card carries a proper noun of its
+        # own or says plainly what kind of person this is.
+        import re
+        NAME=re.compile(r'[A-Z\u00c0-\u00de][A-Za-z\u00c0-\u00ff\u2019\'-]{2,}')
+        ROLE=re.compile(r'\b(?:Latin|Greek|Roman|Athenian|Spartan|Persian|Italian'
+                        r'|philosopher|poet|satirist|epigrammatist|historian|orator'
+                        r'|god|goddess|king|queen|emperor|bishop|physician|tragedian'
+                        r'|compiler|elegist|sage|consul|patrician|Titan|house)\b')
+        thin=[]
+        for ed in ['original-en','modern-en']:
+            for cid,body in cards(ed):
+                # A card that names nobody and says nothing about what kind of
+                # person this is can only be read by the paragraph it came from,
+                # which is not how a reader meets it.
+                if not NAME.search(body) and not ROLE.search(body):
+                    thin.append((ed,cid,body))
+        self.assertEqual(thin,[])
+
+    def test_the_editorial_apparatus_quoting_florio_is_not_cast(self):
+        # 36:0 and 38:51 are the editor's notes setting Cotton beside Florio's
+        # 1613 version. Recorded as a source defect; Florio carries no card.
+        for ed in ['original-en','modern-en']:
+            for pi in [0]:
+                self.assertEqual([],[c for c,t in spans(ed,36,pi) if t=='Florio'],ed)
+            self.assertEqual([],[c for c,t in spans(ed,38,51) if t=='Florio'],ed)
+
+    def test_the_chapters_31_to_40_namesakes(self):
+        for ed in ['original-en','modern-en']:
+            self.assertIn((33,2),where(ed,'alexander-vi'),ed)
+            self.assertNotIn((33,2),where(ed,'alexander'),ed)
+            self.assertIn((40,55),where(ed,'alexander'),ed)
+            self.assertIn((39,0),where(ed,'scipio-aemilianus'),ed)
+            self.assertIn((31,4),where(ed,'pope-leo-arian'),ed)
+            self.assertIn((31,4),where(ed,'don-john-of-austria'),ed)
+
+    def test_the_chapters_31_to_40_transliterations(self):
+        for cid,older,newer in [('hieronimus','Hieronimus','Hieronymus'),
+                                ('rene-of-lorraine','Rene, Duke of Lorraine','Ren\u00e9, Duke of Lorraine'),
+                                ('duc-de-valentinois','Duc de Valentinois','Duke of Valentinois')]:
             self.assertIn(older,said('original-en',cid),cid)
             self.assertIn(newer,said('modern-en',cid),cid)
 
