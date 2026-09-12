@@ -1,0 +1,28 @@
+{
+  "bookId": "imitation-of-christ",
+  "scope": "26 entities: 1 central (Christ), 1 major (the Disciple, Book IV's other named dialogue voice), 24 reference. No namesake collisions. The book's real editorial hazard is footnote citations: 76 of 774 paragraphs in each edition are dedicated scripture-citation strings (e.g. '(1) Job vii. 1 (Vulg.).'); every Bible-book-named entity here (David, Solomon, Noah, Joshua, Samuel, Moses, Job, Luke, John the Baptist, Paul, Peter) is bound by a location-scoped custom bind() match to the exact prose location where the text names them as an agent, never by a global alias that could sweep up an unrelated footnote citation of the same bare word elsewhere.",
+  "authoredEntries": 27,
+  "editions": {
+    "original-en": {
+      "sourceSha256": "43902ea5bf50af978562e161b9e3202475777fc150ab067a8af13e144e54d0a2",
+      "chapters": 114,
+      "paragraphs": 774,
+      "entries": 27,
+      "mentions": 255,
+      "omittedEntities": []
+    },
+    "modern-en": {
+      "sourceSha256": "8805af64c4357b3f56e843e5c4c43b5746622547d774e2237711205000c727aa",
+      "chapters": 114,
+      "paragraphs": 774,
+      "entries": 27,
+      "mentions": 252,
+      "omittedEntities": []
+    }
+  },
+  "limits": [
+    "Authoring-agent source review; not independent editorial approval.",
+    "Named cast, speaking roles and named references; no claim of pronoun or every generic-title coverage.",
+    "No runtime registration or production verification in this content package."
+  ]
+}
