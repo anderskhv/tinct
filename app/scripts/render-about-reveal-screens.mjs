@@ -19,9 +19,9 @@ const preview = process.argv[2] || null;
 
 // Screen corners inside devices-transparent-v10.webp (1536 x 1024), plus each screen's corner radius in its own pixels.
 const SCREENS = [
-  { kind: 'desktop', width: 1000, height: 620, corners: [[695, 68], [1442, 77], [1396, 555], [642, 489]], radius: 6 },
-  { kind: 'eink', width: 360, height: 620, corners: [[140, 270], [466, 243], [549, 746], [223, 824]], radius: 8 },
-  { kind: 'phone', width: 390, height: 780, corners: [[1261, 481], [1483, 497], [1361, 954], [1110, 904]], radius: 40 },
+  { kind: 'desktop', width: 1000, height: 620, corners: [[695, 68], [1442, 77], [1396, 555], [642, 489]], radius: 6, bg: '#091722' },
+  { kind: 'eink', width: 360, height: 620, corners: [[140, 270], [466, 243], [549, 746], [223, 824]], radius: 8, bg: '#d8d6d0' },
+  { kind: 'phone', width: 390, height: 780, corners: [[1261, 481], [1483, 497], [1361, 954], [1110, 904]], radius: 40, bg: '#ece7db' },
 ];
 
 // Homography from a w x h rectangle to four corners, as a CSS matrix3d (same maths as the story chunk).
@@ -72,7 +72,9 @@ const html = `<!doctype html><html><head><meta charset="utf-8">
   html,body{margin:0;background:transparent}
   .stage{position:relative;width:1536px;height:1024px;overflow:hidden}
   .stage>img.base{position:absolute;inset:0;width:1536px;height:1024px;display:block}
-  .layer{position:absolute;top:0;left:0;transform-origin:0 0;overflow:hidden;background:#000}
+  /* Each layer's ground is its own screen colour, not black: the rounded edge is antialiased
+     against it, and a black ground drew a dark hairline around every lit screen. */
+  .layer{position:absolute;top:0;left:0;transform-origin:0 0;overflow:hidden}
   .layer img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
   /* The Talk screen, matching the voice beat's panel: globe, status word, quote, three small controls. */
   .talk{width:100%;height:100%;box-sizing:border-box;padding:118px 30px 44px;background:#ece7db;color:#0b0b0b;display:flex;flex-direction:column;align-items:center;text-align:center;font-family:'EB Garamond',TinctSerif,Georgia,serif;position:relative}
@@ -100,7 +102,7 @@ const html = `<!doctype html><html><head><meta charset="utf-8">
 </style></head><body>
 <div class="stage">
   <img class="base" src="http://tinct.local/assets/about-v20/assets/devices-transparent-v10.webp" alt="">
-  ${SCREENS.map(s => `<div class="layer" data-kind="${s.kind}" style="width:${s.width}px;height:${s.height}px;border-radius:${s.radius}px;transform:${matrix3d(s.width, s.height, s.corners)}">${
+  ${SCREENS.map(s => `<div class="layer" data-kind="${s.kind}" style="width:${s.width}px;height:${s.height}px;border-radius:${s.radius}px;background:${s.bg};transform:${matrix3d(s.width, s.height, s.corners)}">${
     s.kind === 'desktop' ? '<img src="http://tinct.local/assets/about-v20/assets/library-desktop-v1.webp" alt="">'
     : s.kind === 'eink' ? EINK
     : `<div class="talk"><canvas width="500" height="500"></canvas><p class="word">Speaking.</p><p class="quote">“More honoured in the breach than the observance…”</p><div class="controls"><span><i>${MIC}</i>Mute</span><span><i>${CHAT}</i>Transcript</span><span class="end"><i>${END}</i>End</span></div></div>`
