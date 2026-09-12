@@ -4,3 +4,28 @@
 [2026-09-12T07:58:31Z] phase cohort at 0.6 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
 [2026-09-12T07:58:31Z] 0.6 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
 [2026-09-12T07:59:02Z] 1.1 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T07:59:33Z] phase aligning at 1.6 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T07:59:33Z] 1.6 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 96}
+[2026-09-12T08:00:04Z] 2.1 min: aligning {"arm_chapters_passed": 2, "arm_chapters_rejected": 3, "arm_chapters_running": 1, "paragraph_diagnostics": 236}
+[2026-09-12T08:00:34Z] 2.6 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 3, "arm_chapters_running": 1, "paragraph_diagnostics": 359}
+[2026-09-12T08:01:05Z] 3.1 min: aligning {"arm_chapters_passed": 6, "arm_chapters_rejected": 4, "arm_chapters_running": 1, "paragraph_diagnostics": 453}
+[2026-09-12T08:01:36Z] 3.6 min: aligning {"arm_chapters_passed": 7, "arm_chapters_rejected": 5, "arm_chapters_running": 1, "paragraph_diagnostics": 593}
+[2026-09-12T08:02:07Z] 4.2 min: aligning {"arm_chapters_passed": 8, "arm_chapters_rejected": 7, "arm_chapters_running": 1, "paragraph_diagnostics": 708}
+[2026-09-12T08:02:41Z] snapshot 1510993 bytes
+[2026-09-12T08:02:41Z] 4.7 min: aligning {"arm_chapters_passed": 9, "arm_chapters_rejected": 8, "arm_chapters_running": 1, "paragraph_diagnostics": 835}
+[2026-09-12T08:03:11Z] 5.2 min: aligning {"arm_chapters_passed": 12, "arm_chapters_rejected": 8, "arm_chapters_running": 1, "paragraph_diagnostics": 974}
+[2026-09-12T08:03:42Z] 5.7 min: aligning {"arm_chapters_passed": 13, "arm_chapters_rejected": 10, "arm_chapters_running": 1, "paragraph_diagnostics": 1095}
+[2026-09-12T08:04:13Z] 6.3 min: aligning {"arm_chapters_passed": 14, "arm_chapters_rejected": 11, "arm_chapters_running": 1, "paragraph_diagnostics": 1201}
+[2026-09-12T08:04:44Z] 6.8 min: aligning {"arm_chapters_passed": 16, "arm_chapters_rejected": 11, "arm_chapters_running": 1, "paragraph_diagnostics": 1290}
+[2026-09-12T08:05:15Z] 7.3 min: aligning {"arm_chapters_passed": 17, "arm_chapters_rejected": 12, "arm_chapters_running": 1, "paragraph_diagnostics": 1414}
+[2026-09-12T08:05:46Z] 7.8 min: aligning {"arm_chapters_passed": 18, "arm_chapters_rejected": 13, "arm_chapters_running": 1, "paragraph_diagnostics": 1519}
+[2026-09-12T08:06:17Z] 8.3 min: aligning {"arm_chapters_passed": 20, "arm_chapters_rejected": 14, "arm_chapters_running": 1, "paragraph_diagnostics": 1656}
+[2026-09-12T08:06:52Z] snapshot 3248897 bytes
+[2026-09-12T08:06:52Z] 8.8 min: aligning {"arm_chapters_passed": 21, "arm_chapters_rejected": 16, "arm_chapters_running": 1, "paragraph_diagnostics": 1780}
+[2026-09-12T08:07:23Z] 9.4 min: aligning {"arm_chapters_passed": 22, "arm_chapters_rejected": 17, "arm_chapters_running": 1, "paragraph_diagnostics": 1895}
+[2026-09-12T08:07:54Z] phase done at 9.9 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T08:07:54Z] 9.9 min: done {"arm_chapters_passed": 23, "arm_chapters_rejected": 17, "arm_chapters_running": 0, "paragraph_diagnostics": 1910}
+[2026-09-12T08:08:01Z] fetched out.tar.gz (3473061 bytes)
+[2026-09-12T08:08:02Z] stop 6hz5xv0u89zqda: HTTP 200
+[2026-09-12T08:08:04Z] terminate 6hz5xv0u89zqda: HTTP 204
+[2026-09-12T08:08:04Z] pod 6hz5xv0u89zqda done: outcome=done uptime=10.1m est $0.12

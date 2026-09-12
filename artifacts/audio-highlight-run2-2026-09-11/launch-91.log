@@ -1,0 +1,21 @@
+[2026-09-12T08:01:03Z] created hjuc9rkc23mrro tinct-words-run2-91 gpu=None $0.49/hr
+[2026-09-12T08:01:04Z] waiting: pod RUNNING agent HTTP 404
+[2026-09-12T08:01:20Z] waiting: pod RUNNING agent HTTP 404
+[2026-09-12T08:01:37Z] phase cohort at 0.6 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T08:01:37Z] 0.6 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T08:02:08Z] 1.1 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T08:02:39Z] 1.6 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T08:03:10Z] phase aligning at 2.1 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T08:03:10Z] 2.1 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 1, "paragraph_diagnostics": 3}
+[2026-09-12T08:03:41Z] 2.6 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 1, "paragraph_diagnostics": 42}
+[2026-09-12T08:04:12Z] 3.1 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 71}
+[2026-09-12T08:04:42Z] 3.7 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 81}
+[2026-09-12T08:05:13Z] 4.2 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 113}
+[2026-09-12T08:05:47Z] snapshot 962836 bytes
+[2026-09-12T08:05:47Z] 4.7 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 2, "arm_chapters_running": 1, "paragraph_diagnostics": 143}
+[2026-09-12T08:06:17Z] 5.2 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 2, "arm_chapters_running": 1, "paragraph_diagnostics": 193}
+[2026-09-12T08:06:48Z] 5.7 min: aligning {"arm_chapters_passed": 2, "arm_chapters_rejected": 2, "arm_chapters_running": 1, "paragraph_diagnostics": 236}
+[2026-09-12T08:07:19Z] 6.3 min: aligning {"arm_chapters_passed": 2, "arm_chapters_rejected": 3, "arm_chapters_running": 1, "paragraph_diagnostics": 301}
+[2026-09-12T08:07:50Z] 6.8 min: aligning {"arm_chapters_passed": 2, "arm_chapters_rejected": 3, "arm_chapters_running": 1, "paragraph_diagnostics": 341}
+[2026-09-12T08:08:21Z] 7.3 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 3, "arm_chapters_running": 1, "paragraph_diagnostics": 372}
+[2026-09-12T08:08:52Z] 7.8 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 3, "arm_chapters_running": 1, "paragraph_diagnostics": 406}
