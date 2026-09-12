@@ -219,3 +219,14 @@ mark.ask-mark,span.ask-mark{color:inherit;background-color:rgba(255,226,120,var(
    holds the screen on its own. The questions also now follow the order of the lines they ask about, so the
    Voltemand card is the second of the three and sits at 26% instead of 40%. */
 .story-root[data-bookshelf=true] .journey-steps #chapter-difficult{height:520svh;min-height:520svh}
+
+/* Language scene (2026-09-12, Anders): the connector used to be a small arrow floating in the middle of the
+   screen, pointing at nothing in particular. It is replaced by a pen-drawn arrow inside the page itself,
+   rising from the end of the hard line to the edition control in the page header, in the control's own ink.
+   The box is stated in percentages of the page, so it holds as the page resizes; the phone page is taller
+   relative to its width, so the box grows to meet the line lower down. */
+.reading-journey[data-beat=language] .language-direction{display:none}
+.reading-journey[data-beat=language] .reading-right-leaf::after{content:"";position:absolute;left:79%;right:2%;top:7%;height:30%;background:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20190'%20fill='none'%20stroke='%231f4a5c'%20stroke-width='3'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M8%20178C53%20171%2086%20150%2092%20108%2096%2073%2074%2041%2048%2022'/%3E%3Cpath%20d='M10%20176C52%20168%2083%20148%2090%20110'%20opacity='.45'/%3E%3Cpath%20d='M48%2022%2049%2045'/%3E%3Cpath%20d='M48%2022%2068%2033'/%3E%3C/svg%3E") no-repeat center/100% 100%;opacity:.72;pointer-events:none}
+@media (max-width:1024px){
+  .reading-journey[data-beat=language] .reading-right-leaf::after{left:75%;right:2%;top:8%;height:40%}
+}
