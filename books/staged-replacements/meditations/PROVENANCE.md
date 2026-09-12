@@ -181,6 +181,29 @@ reproducible by running the script):
   diff; none did. The staged file's sha256 is unchanged at `7798607d…`, 487
   paragraphs, twelve chapters, section profile unchanged with **38** in Book 10,
   and `git status` is clean, so no accepted book is reopened.
+  **Upheld at the Book X round-1 review (2026-09-12), which audited the
+  reconstruction's own RULES rather than trusting its output** — on the
+  ground that a reconstruction sharing a blind spot with the build proves
+  nothing. The three rules that can fail silently were each tested against the
+  raw range. (a) The footnote-consumption rule cannot have swallowed Long's
+  Homer couplet: an independent listing of every maximal indented run in the
+  range with its indentation profile finds **twelve** runs, eleven of them
+  footnote runs indented **four** spaces (the footnote-[B] Odyssey quatrain at
+  **seven**, inside the run at 6009–6036), and the twelfth — 6305–6307
+  — is indented **five**, contains no footnote opener, and is adjacent to no
+  footnote run (the nearest preceding ends at 6269, the nearest following opens
+  at 6319). (b) The rule that joins unnumbered blocks onto the block before
+  cannot *hide* a running head, page number or catchword, since absorbed text
+  would show as an extra word in the diff and none did; and independently there
+  are no standalone short flush-left lines **inside** the range at all (the
+  "exactly one" above counts the `X.` header at 5865, which sits outside the
+  range — noted, no consequence). (c) A flush-left footnote body of the
+  VII.45 kind would have shown as an inserted paragraph or inserted words, and
+  none did. The marker recount reconciles exactly: **16** `[A-D]` markers in
+  flush-left lines **+ 1** at the end of the indented verse line 6306 = **17**,
+  for **17** indented footnote openers in eleven runs. The method — an
+  independent reconstruction whose *rules* are then audited class by class
+  against the raw text — is the standard for Book XI and after.
 - Long's footnotes removed. The build skipped footnotes by their indented
   `[A]` opener, but three in Book VII are printed flush left in the PG text
   ("See Aristophanes, Acharnenses, v. 661." and "From the Apologia, c. 16."
