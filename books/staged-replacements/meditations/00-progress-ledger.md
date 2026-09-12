@@ -217,6 +217,41 @@ session. Kept current at every push.
   `provenance.json` files). The other 124 footnotes in the body were already
   being stripped correctly. Recorded in `PROVENANCE.md` §4.
 
+- 2026-09-12 — **Book VII drafted and frozen** (steps 1–3): `book7/candidate-v1.json`
+  (sha256 `1823989f…`), 75 paragraphs 1:1 with Long's VII.1–VII.75, word ratio
+  0.995 (min paragraph 0.70, VII.12 — a ten-word meditation whose whole
+  difference is the dropped cross-reference). Source verified from the
+  **twice-rebuilt** staged Long chapter 7 into `book7/source-book7.json`
+  (sha256 `67e7bfd3…`); staged-file hash `7798607d…`. One glossary row added
+  before drafting (imagination → imagination, Long's second English word for
+  *phantasia*, promoted from the Book II and Book III candidates) and two
+  extended (the paired noun "the causal" into the form/matter row; the
+  reflexive "vex ourselves at" into the resent row) — committed and pushed
+  before any paragraph was written. Seven dagger marks in four sections
+  (VII.16 ×2, VII.31 ×2, VII.46 ×2, VII.67; seven clauses) named in
+  `review-instructions.md` with their PG line numbers and kept as Long has
+  them. Seven cross-references dropped (VII.12, VII.19, VII.23, VII.25,
+  VII.29, VII.30, VII.75) and six D11 drops listed (VII.9 "[order]", VII.10
+  "[causal]", VII.29 "[formal]", VII.68 "[reality]", VII.72 "[social]",
+  VII.75 "[continuity]"); nine supplements folded, of which two are flagged
+  (VII.2 "[thoughts]" and VII.17 "[happiness]", both folded as appositions on
+  the VI.50 "[men]" ruling). No verse citation had to be dropped: the three in
+  VII.45 were Long's footnotes and the step-1 rebuild removed them from the
+  staged original itself. Base-text defects recorded (VII.5 "what-soever", a
+  line-break hyphen, rendered "whatever"; VII.58's broken ending "and
+  remember…", ellipsis kept on the V.29 precedent). **Six decisions flagged
+  for the reviewer's ruling**: VII.2 fold-or-drop, VII.13 keeping Long's
+  transliterated Greek (*melos* / *meros*) because the meditation is a pun on
+  two words differing by one letter, VII.16 applying glossary renderings
+  inside dagger clauses, VII.17 "Eudaemonia, happiness, is a good god
+  within", VII.50 "unsentient" → "that have no sensation" (the book's one
+  expansion), VII.55 "for both are animal" kept exactly as Long has it.
+  Readable copy, `continuity.md`, `provenance.json`, `manifest.json`,
+  `README.md`, `review-instructions.md` and twenty-five review packets (25×3)
+  pushed, built by `scripts/build_book_package.py 7` from
+  `scripts/candidates/book7.py`. **Stopped for independent review** (step 4).
+  Findings expected under `book7/review/`.
+
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
@@ -249,10 +284,16 @@ session. Kept current at every push.
 
 ## Next
 
-1. **Book VII** (steps 1–3): source verified, glossary rows added or
-   extended before drafting, `book7/candidate-v1.json` frozen with packets,
-   then stop for the independent review.
-2. Then Books VIII … XII in numerical order, each with its own review round.
+**Waiting on the coordinator: independent review of Book VII.**
+`book7/candidate-v1.json` (sha256 `1823989f…`) is frozen, with twenty-five
+packets, `review-instructions.md` and `manifest.json` in place; findings go
+under `book7/review/`. Six decisions are flagged there for an explicit ruling
+(listed in the Book VII entry above). This agent does not review its own
+draft, and Book VIII has not been started.
+
+After the review: Book VII steps 6–8 (candidate v2, changes log, flow read,
+`ACCEPTANCE.md`), then Books VIII … XII in numerical order, each with its own
+review round.
 
 ## Needs Anders (listed, not waited on)
 

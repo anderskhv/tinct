@@ -1,0 +1,41 @@
+{
+ "repository": "anderskhv/tinct",
+ "branch": "claude/meditations-modern-en-20260911-v2",
+ "staged_original_path": "books/staged-replacements/meditations/meditations-original-en.staged.json",
+ "staged_original_sha256": "7798607dc6d8af0a25845b025405873c8a2597d44ed1f61eb5d803ba585e2830",
+ "staged_original_note": "The twice-rebuilt file. Rebuilt at Book VII step 1 (D12, 2026-09-12): three of Long's footnotes printed unindented in the PG text (\"See Aristophanes, Acharnenses, v. 661.\", \"From the Apologia, c. 16.\" twice, PG lines 4600, 4602, 4604) had escaped the build's footnote filter and been appended to VII.45; the filter now matches unindented openers too. Previous sha256 b0ecf3da6984c95a54ca36e1c60d20a01ad95fc6bb6e7544740e9c82717cf67f; before that 7bf2d1b175854b4adad90984a4bb61226e808a77148ad5f6d06041bacfaff443 (Book IV step 1, three PG illustration captions). 487 paragraphs at every stage; VII.45 is the only paragraph this rebuild changed; chapters 1-6 byte-identical, so Books I-VI's sources and acceptances stand. No '[Illustration' anywhere in the file.",
+ "chapter_extracted": {
+  "number": 7,
+  "title": "Book 7",
+  "paragraphs": 75,
+  "extraction": "found by chapter.number == 7 in the staged original-en; paragraphs byte-identical"
+ },
+ "source_book7_json_sha256": "67e7bfd3bd57a4dbaa1bcd089acfb8166cceaeffa5a682cdff5de2db0be74b41",
+ "candidate_v1_json_sha256": "1823989f9a35a00490041cd5600bddb01f59f1f6a2b3ed367d4d3ddd87e0e6fe",
+ "translation_source": "George Long, 1862. Project Gutenberg #15877 (source/pg15877-long-1862.txt, sha256 6584df7e90d6035eece30d8028527290bf2508076963ee0376cb41db9cf88d5b), with the mechanical normalisations listed in PROVENANCE.md section 4. The only source used for the candidate; no other translation consulted for wording, including for Long's quotations from Plato, Antisthenes and the verse authors at VII.35-VII.51. Standard Ebooks' Long (the edition PROVENANCE.md section 3 names) was consulted for the state of the base text only, at VII.5, VII.45 and VII.58; results in continuity.md.",
+ "word_counts": {
+  "source": 4357,
+  "candidate": 4334,
+  "ratio": 0.995,
+  "min_paragraph_ratio": 0.7,
+  "note": "screening signal only; not evidence of semantic completeness. The single outlier is VII.12 (0.70), where the whole difference is Long's dropped cross-reference '(iii. 5)' and his 'Be thou erect' becoming 'Stand upright' in a ten-word meditation. Next lowest: VII.38 (0.88) and VII.75 (0.89), both dropped apparatus. No paragraph was shortened by omitting content."
+ },
+ "dagger_marks": "Seven in Book VII of the PG text, in four sections: VII.16 x2 (lines 4433, 4439), VII.31 x2 (lines 4529, 4530), VII.46 x2 (lines 4607, 4609), VII.67 x1 (line 4788). Seven clauses, each named in review-instructions.md. Matches PROVENANCE.md section 4.",
+ "generation_setting": "Drafted in-conversation by the content agent (Claude Opus 5 session), whole book read before drafting, glossary (one row added and two extended for Book VII first) and the Book II, I, III, IV, V and VI acceptance records read first. Zero Anthropic API calls; no scripts calling any LLM API; generate-editions.cjs not run.",
+ "build_script": "scripts/build_book_package.py 7, from scripts/candidates/book7.py (frozen candidate text)",
+ "workflow_step": "Steps 1-3 of WORKFLOW.md complete. Frozen for step 4, the coordinator's independent review. Findings expected under book7/review/.",
+ "apparatus": {
+  "cross_references_dropped": 7,
+  "d11_alternative_renderings_dropped": 6,
+  "supplements_folded": 9,
+  "verse_citations": "none; the three that had been appended to VII.45 were Long's footnotes, removed from the staged original itself at step 1"
+ },
+ "flagged_for_reviewer": [
+  "VII.2 [thoughts] folded as an apposition rather than dropped under D11",
+  "VII.13 Long's transliterated Greek (melos / meros) kept",
+  "VII.16 glossary renderings applied inside the dagger-marked clauses",
+  "VII.17 Eudaemonia / a good god within",
+  "VII.50 'unsentient' rendered 'that have no sensation' (the one expansion in the book)",
+  "VII.55 'for both are animal' kept exactly as Long has it"
+ ]
+}
