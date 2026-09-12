@@ -555,6 +555,42 @@ the sentence, at first use only. Book 1 needed none. **Book 2 has one:**
 |---|---|---|
 | "the Erinyes" (B02-P008) | **"the Erinyes—the spirits of vengeance—to avenge her"** | Three words, at first use, on the Book 10 pilot's "cubit → roughly eighteen inches" model. The familiar English alternative is *the Furies*, which is the **Roman** name and is therefore unavailable to an edition that has just decided against Roman names — so the choice is Butler's Greek word plus a gloss, or Butler's Greek word bare. |
 
+## Recurring epithets and formulas first met in Book 5 and Book 6
+
+Fixed before drafting, per `WORKFLOW.md` step 2.
+
+| Butler (source) | Modern edition | Notes |
+|---|---|---|
+| "Hear me, daughter of Aegis-bearing Jove, unweariable" | **"daughter of aegis-bearing Zeus, unwearying"** | Athena's prayer-formula. Accepted **B04-P068** fixed it, including `unweariable` → **`unwearying`**, and **B06-P025** carries it word for word — Odysseus in the grove, praying to the goddess who will not show herself. `aegis-bearing` also at **B06-P009** (the wood nymphs), matching accepted B03-P031 and B04-P066. Lower-case, unglossed, hyphen kept, Butler's capital dropped. |
+| "bethought her/him of another matter" | **"thought of another matter"** | Accepted Book 4, twice; **B06-P020**, of Nausicaa. |
+| "do as I bid you" | **"as I tell you"** | Accepted **B05-P026** (Ino to Odysseus); **B06-P021** and **B06-P023** (Nausicaa to Odysseus, twice in one speech). |
+| "deemed it best" | **"thought it best"** | Accepted **B05-P037** (*"In the end he thought it best to take to the woods"*); **B06-P012** (*"In the end he thought it best to entreat her from a distance"*) — Butler's own formula, in the same position in consecutive Books. |
+| "thus in two minds" | **"still undecided"** | Accepted **B04-P011**, **B05-P028**, **B05-P032**. **It is reserved for that phrase.** Butler's *other* deliberation verb, `doubted whether` (**B06-P012**), takes *"did not know what to do"*, because rendering both with one phrase would flatten two of his into one — the mirror defect, and the one finding 9.1 convicted. |
+| "girdle" / "girdles" | **"belt" / "belts"** | Accepted **B05-P020** (Calypso's golden belt); **B06-P003** (the laundry). |
+| "creature" | **"creature"** | Accepted **B05-P010**, Calypso of Odysseus. **Reserved**, which is why Butler's `scion` at **B06-P013** becomes *"so fair a young woman as yourself"* and not *"so fair a creature"*. |
+| "skilled" vs. "skilful" | **"skilled"** vs. **"skillful"** | Two Butler words, kept apart: *a skilled shipwright* (accepted **B05-P020**) and *a skillful workman* (**B06-P018**, the American spelling of his own word under D9). |
+| "herbage" | **"greenery"** (B05) / **"grass"** (B06) | *Recorded as an open question, not as a settled row.* Accepted **B05-P006** has *"the beds of violets and lush greenery"* (garden planting) and **B06-P009** has *"the sweet juicy grass"* (pasture for the mules). One Butler word, two renderings across Books — a discrimination by referent, or the package's characteristic defect? **Put to Book 6's reviewer as question 2.** |
+| "discomfits" | **"thwarts"** | **B06-P014**. *Dismays* is unavailable: the Book 1 row keeps `dismay` and `grief` apart. |
+| "topes" | **"drinks"** | **B06-P023**, of Alcinous on his throne. |
+| "hie" | **"made her way"** | **B06-P001**. `in furtherance of` → *"to help bring … home"*. |
+
+### Names first met in Book 6
+
+Already Greek in Butler and left exactly as he spells them: Nausicaa,
+Alcinous, Nausithous, Dymas, Phaeacians/Phaeacian, Hypereia, Scheria,
+Taygetus, Erymanthus, Delos, Ogygian, Leto.
+
+**Book 6 adds NO row to the mapping table**, and that is asserted rather than
+passed over: every Roman name it carries — Ulysses, Minerva, Jove, Neptune,
+Diana, Vulcan — is already in it.
+
+**`Leto` is hazard 1's mirror image, and it is worth naming.** Butler writes
+the **Greek** *Leto* at B06-P009, not the Roman *Latona*. The closed table has
+nothing to say about her, so she is untouched; a general deity list run in
+*either* direction would have had something to say, and would have been wrong.
+`Latona` is asserted absent from the source as well as the candidate, so the
+claim is a result.
+
 ## Recurring words the edition holds steady
 
 Fixed at Book 1 step 6 from round-1 findings; each exists because one word of

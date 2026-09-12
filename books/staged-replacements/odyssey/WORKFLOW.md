@@ -80,6 +80,24 @@ disposition (adopt the existing pilot draft vs. redraft against this
 package's own glossary/continuity conventions) is a decision for the
 coordinator, not assumed here (see `PROVENANCE.md`).
 
+## Verifying a Book's source — the standing rule
+
+Every Book's source is verified **twice, by two unlike rules**, and each new
+Book's drafter devises a **new kind** of rule rather than re-running an earlier
+one. Agreement between unlike methods is evidence; agreement between one method
+and itself is not, and **byte-identity to a re-run of your own build script is
+not verification at all**. The eight kinds used so far are enumerated in
+`RESUME.md`.
+
+**Audit the rule before trusting it.** Four drafters and reviewers have now
+audited their own source rule before publishing it, and **all four audits found
+a defect in the rule as first written** — two no-op controls (Book 5 drafter),
+a measure blind to deletion (Book 5 reviewer), a half-vacuous containment guard
+found by the next round (Book 5 drafter again, finding C-14), and a character
+span that dropped the chapter's last full stop (Book 6 drafter). Budget for it.
+A rule that passes its own audit on the first attempt has probably not been
+audited.
+
 ## Negative controls — the two-clause rule (D18)
 
 Written at Book 5's step 6, from records findings **R-1** and **R-2** of
@@ -120,10 +138,11 @@ the package routes its controls through it, new and old:
 | `scripts/verify_source_book3.py` | 2 process controls | — |
 | `scripts/verify_source_book4.py` | 4 | — |
 | `scripts/verify_source_book5.py` | 5 + 2 structural | a paragraph merge |
+| `scripts/verify_source_book6.py` | 6 | a changed digit; a defect PG itself carries |
 | `book03/review/verify_source_book3_review.py` | 3 | — |
 | `book04/review/verify_source_book4_review.py` | 6 | a defect PG and the served file share |
 | `book05/review/verify_source_book5_review.py` | 5 | — (repaired at review time by its own audit) |
-| `scripts/compound_drift.py` | 3 | a compound no hyphen attests |
+| `scripts/compound_drift.py` | 4 | a compound open in every Book, with no closed or hyphenated form anywhere in the corpus |
 
 Applying the rule to an existing script changes its assertions, never its
 verdict; where a review script is touched, the change says so in place.

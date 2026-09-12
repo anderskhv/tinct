@@ -208,6 +208,23 @@ Kept current at every push.
 - 2026-09-12 — **D18** (the two-clause control rule, `scripts/controls.py`,
   applied to every verification script in the package) and **D19** (the
   semicolon count reported beside retention and the splitting rate).
+- 2026-09-12 — **Book 6 drafted and frozen** at `book06/candidate-v1.json`,
+  sha256 `9391ca16778a8225c1710b24296c51a2d3ba33f26ed3ac9fcf7c677c3c0413f0`:
+  26 paragraphs, ratio 0.99913, retention **0.93669**, sentences 116 → 148
+  (+27.6%), sixty-word 7 → **1**, semicolons 27 → **4**, 9 packets. Source
+  verified by an **eighth** kind of rule — a resemblance profile of the whole
+  PG file by suffix automaton, which asks not *is the chapter here?* but *is
+  there anywhere else it could have come from?* and **reports** the second-best
+  match (37 tokens, Athena's beautification of Odysseus, which recurs at Book
+  23) rather than bounding it. Its span starts at PG token 28997, the same
+  number the Book 5 residue rule read out independently. **The audit failed the
+  rule as first written**, as the last three did.
+- 2026-09-12 — **`compound_drift()` extended a second time, to the closed-word
+  axis**, and it cost a **fourth** successor: `book02/candidate-v5.json`
+  `4f9c336e…41761957` (`water side` → `waterside`). `water-side` occurs nowhere
+  in PG, so the hyphen-keyed version could not see the pair — blind spot 1 of
+  Book 5's round 1. **The first successor in the package found by a check
+  rather than by a reader.**
 
 ## Decided, and why
 
@@ -236,11 +253,13 @@ Kept current at every push.
 
 ## Next
 
-**Books 1–5 are accepted. Book 6 is next**, in numerical order: verify its
-source by an **eighth** kind of rule (the seven used are listed in
-`RESUME.md`), audit the rule before trusting it, and report **three** numbers —
-retention, splitting rate (**D17**) and semicolons against Butler's (**D19**).
-Every control under **D18**; run `scripts/compound_drift.py` before freezing.
+**Books 1–5 are accepted. Book 6 is drafted and frozen and waits on its
+independent review** (`book06/review-instructions.md`, five questions put
+explicitly). After that, steps 5–8, then **Book 7**: a **ninth** kind of source
+rule (the eight used are listed in `RESUME.md`), audited before it is trusted,
+and **three** numbers — retention, splitting rate (**D17**) and semicolons
+against Butler's (**D19**). Every control under **D18**; run
+`scripts/compound_drift.py` before freezing.
 
 *Historic, kept for the reasoning:*
 

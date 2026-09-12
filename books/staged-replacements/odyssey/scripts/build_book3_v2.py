@@ -232,7 +232,19 @@ def token_retention(src_paragraphs, cand_paragraphs):
 def hyphen_drift(books):
     """Records finding 27.1's SHAPE, generalized: a compound printed hyphenated
     in one accepted Book and open in another. `books` is {label: [paragraphs]}.
-    Returns a list of (compound, hyphenated-in, open-in) triples."""
+    Returns a list of (compound, hyphenated-in, open-in) triples.
+
+    **SUPERSEDED by `scripts/compound_drift.py`.** This function is blind to
+    *closed against open* (`seashore` beside `sea shore`), which cost three
+    successors at Book 5, and blind to a pair no hyphen attests anywhere
+    (`waterside` beside `water side`), which cost a fourth at Book 6. It is
+    kept here, unchanged, for exactly one reason: this build script must go on
+    reproducing its frozen `candidate-v2.json` byte for byte (**D10**).
+    **Nothing new should call it.** And the lesson that outlived it is not
+    about compounds: it was written at Book 3 and never run again -- Book 4's
+    build script does not call it -- so two drifts it COULD already see sat in
+    accepted work for two Books. A check nobody runs is worth what an absent
+    one is worth."""
     text = {k: " ".join(v) for k, v in books.items()}
     compounds = {}
     for label, t in text.items():

@@ -3,25 +3,30 @@
 Updated continuously. Read this first, then `WORKFLOW.md`.
 
 **Last updated:** 2026-09-12, session `session_01K5bL9oWzAagjTMExsyUADi`
-(worker 5). Book 5 accepted; three successors built; Book 6 in progress.
+(worker 5). Book 5 accepted; four successors built; Book 6 drafted and frozen,
+waiting on its review.
 
 ## State
 
 | Book | Step reached | Accepted file | sha256 | Retention | Splitting rate | Semicolons (D19) |
 |---|---|---|---|---|---|---|
 | 1 | 8 — accepted, successor `candidate-v3.json` | `candidate-v2.json` (successor v3) | v3 `c97e20f5…4807b57c` | **0.727** accepted / 0.728 v3 | +20.5%, 60+ 10 → 0 | 47 → 13 |
-| 2 | 8 — accepted, successors v3 **and v4** | `candidate-v2.json` (latest `candidate-v4.json`) | v4 `3aa8c4f2…428773fc` | 0.902 | +16.1%, 60+ 7 → 4 | 36 → 21 |
+| 2 | 8 — accepted, successors v3, v4 **and v5** | `candidate-v2.json` (latest `candidate-v5.json`) | v5 `4f9c336e…41761957` | 0.902 | +16.1%, 60+ 7 → 4 | 36 → 21 |
 | 3 | 8 — accepted, successor `candidate-v3.json` | `candidate-v2.json` (successor v3) | v3 `a79bacf6…8554ce1e` | 0.897 | +5.5%, 60+ 9 → 6 | 39 → 32 |
 | 4 | 8 — accepted, successor `candidate-v3.json` | `candidate-v2.json` (successor v3) | v3 `6926b9f9…f8304534` | **0.95872** | +8.9%, 60+ 17 → 3 | 68 → 50 |
 | 5 | **8 — accepted** | **`candidate-v2.json`** | **`acbfcb03…b51479e9`** | **0.93808** | **+23.5%, 60+ 9 → 1** | **34 → 13** |
-| 6 | — | — | — | — | — | — |
+| 6 | **3 — drafted and frozen; step 4, the review, is next** | — | v1 **`9391ca16…3c0413f0`** | **0.93669** | **+27.6%, 60+ 7 → 1** | **27 → 4** |
 
 Successor hashes in full: v2-successor `book02/candidate-v4.json`
 `3aa8c4f27f7f6b3fabd1447a32852f1507ead3a9710efc6373f43416428773fc`;
 `book03/candidate-v3.json`
 `a79bacf6fd5f4a995b27d404e38e58790487bd4586bb144c7a0503408554ce1e`;
 `book04/candidate-v3.json`
-`6926b9f9ae7aa7d43903a8e9f0f4324078f382bfc1029cd9178582e4f8304534`.
+`6926b9f9ae7aa7d43903a8e9f0f4324078f382bfc1029cd9178582e4f8304534`;
+`book02/candidate-v5.json`
+`4f9c336e7f0db733a5eed6c5d88f5d30ce6a8e7ad863619329b1869441761957`
+(the `waterside` successor, Book 6 step 2 — the **fourth** the compound rule
+has cost and the **first found by a check rather than by a reader**).
 
 **Book 1's retention was quoted as 0.721 everywhere until 2026-09-12 and that
 figure does not reproduce** — records finding R2 of Book 4's round 1. The
@@ -57,7 +62,7 @@ Book 4 F-1 shape; **P020**; **P027**). **Sentence count unchanged at 189;
 retention 0.94211 → 0.93808**, which is what moving clauses costs and dividing
 them does not.
 
-### The `seashore` ruling reopened three accepted Books
+### The `seashore` ruling reopened three accepted Books — and `waterside` a fourth
 
 Ruling 1: **`sea shore` → `seashore`**. D15 is about the form, not precedent,
 and Book 3's finding 27.1 already established that a settled-but-wrong form
@@ -112,23 +117,60 @@ lines above it, deleted), **R-5** (the word *survive*, corrected — and the
 build now fails on any recast that grows a sentence past 50 words beyond its
 source's longest).
 
+## Book 6 — drafted and frozen, waiting on the review
+
+- **Steps 1–3 are done and `book06/candidate-v1.json` is frozen** at
+  `9391ca16778a8225c1710b24296c51a2d3ba33f26ed3ac9fcf7c677c3c0413f0`: 26
+  paragraphs, ratio 0.99913, retention **0.93669**, **sentences 116 → 148
+  (+27.6%), sixty-word 7 → 1 (86% broken), semicolons 27 → 4**, 9 packets,
+  `review-instructions.md` written with five questions put explicitly.
+- **The source is verified by an eighth kind of rule, and it asks a question
+  none of the seven asks.** All seven establish *presence*.
+  `scripts/verify_source_book6.py` asks the complement — *is there anywhere
+  ELSE in PG that this chapter could have come from?* — by building a **suffix
+  automaton** over the served chapter and walking the **whole** PG file through
+  it once, from token zero, producing a resemblance profile of the entire file.
+  The profile reaches the chapter's full length at **exactly one** position
+  (span `[28997, 32456)`), and the **second-best match anywhere in the file is
+  37 tokens**, reported with its text: Athena's beautification of Odysseus,
+  which Homer repeats at Book 23. **28997 is the same number the Book 5 residue
+  rule read out independently** for chapter 6's start.
+- **The audit failed the rule as first written**, as the last three did: the
+  token-span-to-character-span recovery stopped at the last *letter* of the
+  chapter and dropped its terminal full stop, so it reported `home` against
+  `home.` on a byte-clean file. Fixed and named in place. Six controls under
+  **D18**, two blindnesses declared with the checks that carry them.
+- **D19 is stated against the draft, not for it.** 23 of Book 6's 32 added
+  sentences are at most a semicolon conversion — the S-1 shape. The evidence
+  offered that the rest is real is the retention figure, **0.93669**, below
+  Book 5 v1's 0.94211; division costs no retention, so a lower figure means
+  clauses moved. Four paragraphs are named as the real recasting (P004's
+  dropped `but`, P005's referential `she`, P012's deliberation, P013's 57-word
+  close). **The reviewer is asked to test that claim** (question 5).
+- **D4 fires twice**, the first Book since Book 4: Odysseus's speech across
+  P013 → P014 and Nausicaa's across P021 → P022 → P023.
+
 ## Next, in order
 
-1. **Book 6**, in numerical order. Verify its source by an **eighth** kind of
-   rule — the seven used are listed below — **audit the rule before trusting
-   it** (the last three reviewers all audited theirs and all three audits
-   *failed* the rule as first written), then diff word for word. Byte-identity
-   to a re-run of your own build script is not verification.
-2. **Report three numbers**: retention, splitting rate (**D17**), and the
+1. **Book 6 step 4**: the independent review, by a separate reviewer session,
+   following `book06/review-instructions.md`. Findings under `book06/review/`.
+   Then steps 5–8 in the established pattern.
+2. **Book 7** after that, in numerical order. Verify its source by a **ninth**
+   kind of rule — the eight used are listed below — **audit the rule before
+   trusting it** (four drafters/reviewers have now audited theirs and all four
+   audits *failed* the rule as first written), then diff word for word.
+   Byte-identity to a re-run of your own build script is not verification.
+3. **Report three numbers**: retention, splitting rate (**D17**), and the
    semicolon count against Butler's (**D19**).
-3. **Every control under D18.** Use `scripts/controls.py`; do not hand-roll.
-4. **Run `scripts/compound_drift.py`** before freezing, with the new Book
+4. **Every control under D18.** Use `scripts/controls.py`; do not hand-roll.
+5. **Run `scripts/compound_drift.py`** before freezing, with the new Book
    included. The lesson of `hyphen_drift()` is that a check nobody runs is not
-   a check.
-5. Book 10's disposition still needs a coordinator decision — see
+   a check — it was written at Book 3, never called again, and two drifts sat
+   in accepted work for two Books inside the class it could already see.
+6. Book 10's disposition still needs a coordinator decision — see
    `00-progress-ledger.md`, A2.
 
-### The seven source rules already used
+### The eight source rules already used
 
 1. **Book 2 drafter** — PG's footnote-entry list, positionally.
 2. **Book 3 drafter** — the `BOOK III`/`BOOK IV` headings, bytes,
@@ -142,6 +184,17 @@ source's longest).
    twenty-three chapters, take Book 5 as what is left.
 7. **Book 5 reviewer** — one global **monotone diff** of the whole 24-chapter
    edition against the whole PG file, no anchors, no needles, no fingerprints.
+8. **Book 6 drafter** — a **resemblance profile** of the whole file, by suffix
+   automaton, asking not *is the chapter here?* but *is there anywhere else it
+   could have come from?* — and **reporting the second-best match** rather than
+   bounding it.
+
+All eight so far have been about *location* or *resemblance*. A ninth might go
+at it from a different direction entirely: the **edition's own internal
+evidence** (Butler's footnote numbering, his own cross-references, the
+apparatus he prints), or **PG's file structure** as a published artefact
+(line-count arithmetic, the transcriber's note, the table of contents), neither
+of which any rule so far has used as its primary instrument.
 
 ## Hard rules
 
