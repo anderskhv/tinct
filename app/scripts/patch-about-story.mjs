@@ -88,7 +88,19 @@ const edits = [
   ['story', 'calendar stays gone', 'className:`recap-calendar`,style:{opacity:1-p}', 'className:`recap-calendar`,style:{opacity:(1-Q(u,.52,.64))*(1-f)}', 1],
   ['story', 'exit and recap fade variables', 'style:{"--answer":p,"--reveal":d}', 'style:{"--answer":p,"--reveal":d,"--exit":f,"--gone":n.index===0?Q(u,.36,.56):0}', 1],
   // The reveal moves to the turn: bridge, brand, voice, language, character, return, audio. Phones skip audio.
-  ['story', 'beat order', 'n=[0,.06,.2,.34,.48,.64,.92,1],r=[-1,2,1,3,0,4,5]', 'n=[0,.05,.13,.27,.41,.55,.71,1],r=[-1,5,2,1,3,0,4]', 1],
+  // 2026-09-12 (Anders): the bridge ("So what could we do about it?") and the talk beat ran too fast. The
+  // chapter grows 2100svh -> 2460 (about-v21.css) and these boundaries hand the whole 360svh to those two:
+  // bridge 105 -> 240, brand 168, talk 294 -> 520, language 294, character 294, recap 336, audio 609 -> 608.
+  ['story', 'beat order', 'n=[0,.06,.2,.34,.48,.64,.92,1],r=[-1,2,1,3,0,4,5]', 'n=[0,.09756,.16585,.37724,.49675,.61626,.75285,1],r=[-1,5,2,1,3,0,4]', 1],
+  // Inside the talk beat the panel arrives on --reveal (d) and the spoken answer on a hard u>=.64. Both are
+  // respaced for the longer beat so they keep roughly the absolute scroll position they have today and the
+  // added distance is spent with the answer standing still and readable. The panel's d is shared with the
+  // edition gesture of the language beat and with the overview (which borrows index 2), so the new window is
+  // scoped to this beat with Bv; the answer's threshold already sits inside the index-2 branch.
+  ['story', 'talk panel arrival', 'u=n.progress,d=Q(u,.34,.53),f=t?0:Q(u,.94,1),',
+    'u=n.progress,Bv=!t&&n.index===2,d=Q(u,Bv?.17:.34,Bv?.3:.53),f=t?0:Q(u,.94,1),', 1, 'Bv=!t&&n.index===2'],
+  ['story', 'talk answer arrival', '(0,_.jsx)(`h3`,{children:a?`Tinct`:u<.64?`Listening.`:`Speaking.`}),(0,_.jsx)(`p`,{style:{opacity:a||u>=.64?1:0}',
+    '(0,_.jsx)(`h3`,{children:a?`Tinct`:u<.42?`Listening.`:`Speaking.`}),(0,_.jsx)(`p`,{style:{opacity:a||u>=.42?1:0}', 1],
   // Narrow screens skip the audio scene's book opening and start at the car.
   // The audio scene fades in over the first part of its beat instead of cutting from the dark recap.
   ['story', 'audio fades in', '!t&&n.index===4?(0,_.jsx)(eo,{progress:Math.min(1,u/.88)})', '!t&&n.index===4?(0,_.jsx)(eo,{progress:Math.min(1,u/.88),fade:Q(u,0,.12)})', 1],
@@ -182,15 +194,10 @@ const edits = [
   ['iframe', 'intro line', 'Read and listen<br><em>at will.</em>', 'Read and listen<br><em>wherever you are.</em>', 1],
   ['iframe', 'intro width', '.ta-audio-intro{position:absolute;left:6%;top:32%;width:37%;', '.ta-audio-intro{position:absolute;left:6%;top:32%;width:40%;', 1],
   ['iframe', 'keep talking', '<div class="ta-keep-talking">and keep<br><em>talking.</em></div>', '<div class="ta-keep-talking">Keep<br><em>talking.</em></div>', 1],
-  // 2026-09-12 (Anders): the main line no longer names Android; the caveat is an asterisked footnote in much
-  // smaller type under it. The portrait size for the footnote rides along with the portrait caption edit below.
-  ['iframe', 'e-reader footnote', '<em>On your favourite<br>e-reader.</em>',
-    '<em>On your favourite<br>e-reader.<sup class="ta-note-mark">*</sup></em><small class="ta-footnote">* Android-based e-readers only</small>', 1, 'ta-footnote'],
-  ['iframe', 'e-reader footnote type', '.ta-unwind em{display:block;margin-top:24px;font-size:39px;color:#d6c29b}',
-    '.ta-unwind em{display:block;margin-top:24px;font-size:39px;color:#d6c29b}\n' +
-    '.ta-unwind em .ta-note-mark{font-size:.42em;line-height:0;vertical-align:.62em;margin-left:.06em}' +
-    '.ta-unwind .ta-footnote{display:block;margin-top:15px;font:16px/1.35 Georgia,serif;color:#a2917a;text-shadow:none}', 1, 'ta-note-mark{'],
-  ['iframe', 'portrait captions', '#tinct-audio-couch-study .ta-audio-intro em{color:#d6c29b}</style>', '#tinct-audio-couch-study .ta-audio-intro em{color:#d6c29b}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-caption,#tinct-audio-couch-study .ta-scene.ta-portrait .ta-unwind{left:24px;right:24px;width:auto;top:auto;bottom:max(28px,4vh)}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-caption-title,#tinct-audio-couch-study .ta-scene.ta-portrait .ta-unwind{font-size:clamp(24px,6.2vw,40px);line-height:1.1}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-keep-talking{margin-top:14px}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-unwind em{font-size:.78em;margin-top:12px}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-unwind .ta-footnote{margin-top:9px;font-size:12px}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-audio-intro{left:24px;right:24px;width:auto;top:auto;bottom:max(28px,4vh);font-size:clamp(24px,6.2vw,40px);line-height:1.1}</style>', 1, 'ta-portrait'],
+  // 2026-09-12 (Anders, second round): the e-reader line stands on its own. It briefly carried an
+  // asterisk and an "Android-based e-readers only" footnote; the caveat is covered later in the story,
+  // so the line, the footnote, its type and the portrait size for it are all gone again.
+  ['iframe', 'portrait captions', '#tinct-audio-couch-study .ta-audio-intro em{color:#d6c29b}</style>', '#tinct-audio-couch-study .ta-audio-intro em{color:#d6c29b}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-caption,#tinct-audio-couch-study .ta-scene.ta-portrait .ta-unwind{left:24px;right:24px;width:auto;top:auto;bottom:max(28px,4vh)}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-caption-title,#tinct-audio-couch-study .ta-scene.ta-portrait .ta-unwind{font-size:clamp(24px,6.2vw,40px);line-height:1.1}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-keep-talking{margin-top:14px}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-unwind em{font-size:.78em;margin-top:12px}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-audio-intro{left:24px;right:24px;width:auto;top:auto;bottom:max(28px,4vh);font-size:clamp(24px,6.2vw,40px);line-height:1.1}</style>', 1, 'ta-portrait'],
   // On phones the persistent pill sits at the bottom centre (about-v21.css); the portrait captions end above it.
   ['iframe', 'portrait captions clear the pill', 'bottom:max(28px,4vh)', 'bottom:max(84px,4vh + 56px)', 2],
 ];
