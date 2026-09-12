@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "f5f1956467706d8cc237b7f689abcca5b13069cae669d24cab605d26a6bd8de3",
+  "attempts": [
+    {
+      "asr_seconds": 0.1935171360091772,
+      "alignment_seconds": 0.00035008598933927715,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Other stocking. Her petticoat.",
+        "hotwords": "Other, Her"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Other stocking. Her petticoat.",
+          "start": 0.08,
+          "end": 2.26,
+          "words": [
+            {
+              "text": " Other",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.71826171875
+            },
+            {
+              "text": " stocking.",
+              "start": 0.6,
+              "end": 1.04,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " Her",
+              "start": 1.5,
+              "end": 1.56,
+              "probability": 0.970703125
+            },
+            {
+              "text": " petticoat.",
+              "start": 1.56,
+              "end": 2.26,
+              "probability": 0.935302734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Other",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "stocking.",
+          "start": 0.6,
+          "end": 1.04
+        },
+        {
+          "raw": "Her",
+          "start": 1.5,
+          "end": 1.56
+        },
+        {
+          "raw": "petticoat.",
+          "start": 1.56,
+          "end": 2.26
+        }
+      ],
+      "expected_tokens": [
+        "Other",
+        "stocking.",
+        "Her",
+        "petticoat."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Other",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "other",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "stocking.",
+          "start": 0.6,
+          "end": 1.04,
+          "key": "stocking",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Her",
+          "start": 1.5,
+          "end": 1.56,
+          "key": "her",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "petticoat.",
+          "start": 1.56,
+          "end": 2.26,
+          "key": "petticoat",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Other",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "stocking.",
+          "start": 0.6,
+          "end": 1.04
+        },
+        {
+          "text": "Her",
+          "start": 1.5,
+          "end": 1.56
+        },
+        {
+          "text": "petticoat.",
+          "start": 1.56,
+          "end": 2.26
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19398556899977848
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a5d33ac7a453ba2740f67f62285877552a4b9dd020db0689e9cb9dd67d381987",
+  "selected_reasons": []
+}

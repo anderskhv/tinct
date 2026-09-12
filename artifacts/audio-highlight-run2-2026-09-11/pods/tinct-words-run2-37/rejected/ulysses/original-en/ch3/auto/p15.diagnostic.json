@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "2b52f8bb01eea458336cb18b25a9463c21259378e66212217a29682c3dc564f8",
+  "attempts": [
+    {
+      "asr_seconds": 0.1996745789947454,
+      "alignment_seconds": 0.00043660998926497996,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "A bolt drawn back and Walter welcomes me.",
+        "hotwords": "A, Walter"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A bolt drawn back and Walter welcomes me.",
+          "start": 0.02,
+          "end": 2.72,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.7763671875
+            },
+            {
+              "text": " bolt",
+              "start": 0.5,
+              "end": 0.76,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " drawn",
+              "start": 0.76,
+              "end": 1.06,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " back",
+              "start": 1.06,
+              "end": 1.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 1.44,
+              "end": 1.68,
+              "probability": 0.7763671875
+            },
+            {
+              "text": " Walter",
+              "start": 1.68,
+              "end": 1.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " welcomes",
+              "start": 1.98,
+              "end": 2.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me.",
+              "start": 2.38,
+              "end": 2.72,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "bolt",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "raw": "drawn",
+          "start": 0.76,
+          "end": 1.06
+        },
+        {
+          "raw": "back",
+          "start": 1.06,
+          "end": 1.44
+        },
+        {
+          "raw": "and",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "raw": "Walter",
+          "start": 1.68,
+          "end": 1.98
+        },
+        {
+          "raw": "welcomes",
+          "start": 1.98,
+          "end": 2.38
+        },
+        {
+          "raw": "me.",
+          "start": 2.38,
+          "end": 2.72
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "bolt",
+        "drawn",
+        "back",
+        "and",
+        "Walter",
+        "welcomes",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "bolt",
+          "start": 0.5,
+          "end": 0.76,
+          "key": "bolt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "drawn",
+          "start": 0.76,
+          "end": 1.06,
+          "key": "drawn",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 1.06,
+          "end": 1.44,
+          "key": "back",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.44,
+          "end": 1.68,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Walter",
+          "start": 1.68,
+          "end": 1.98,
+          "key": "walter",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "welcomes",
+          "start": 1.98,
+          "end": 2.38,
+          "key": "welcomes",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.38,
+          "end": 2.72,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "bolt",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "text": "drawn",
+          "start": 0.76,
+          "end": 1.06
+        },
+        {
+          "text": "back",
+          "start": 1.06,
+          "end": 1.44
+        },
+        {
+          "text": "and",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "text": "Walter",
+          "start": 1.68,
+          "end": 1.98
+        },
+        {
+          "text": "welcomes",
+          "start": 1.98,
+          "end": 2.38
+        },
+        {
+          "text": "me.",
+          "start": 2.38,
+          "end": 2.72
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20027914899401367
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6635e94221aef18c49c2648fba78266df81262e8ead721f941d3c2327fccff9f",
+  "selected_reasons": []
+}

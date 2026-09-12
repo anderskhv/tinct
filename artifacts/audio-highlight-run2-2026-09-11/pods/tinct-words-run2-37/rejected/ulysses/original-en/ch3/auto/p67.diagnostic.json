@@ -1,0 +1,3719 @@
+{
+  "complete": true,
+  "signature": "ddc0d42950ce399d2705ca31d1ebd994f444a38fb2ebd6e7d951493b8b33f1e5",
+  "attempts": [
+    {
+      "asr_seconds": 1.2947774279746227,
+      "alignment_seconds": 0.0038127420120872557,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Galleys of the Lochlanns ran here to beach, in quest of prey, their bloodbeaked prows riding low on a molten pewter surf. Dane vikings, torcs of tomahawks aglitter on their breasts when Malachi wore the collar of gold. A school of turlehide whales stranded in hot noon, spouting, hobbling in the shallows. Then from the starving cagework city a horde of jerkined dwarfs, my people, with flayers' knives, running, scaling, hacking in green blubbery whalemeat. Famine, plague and slaughters. Their blood is in me, their lusts my waves. I moved among them on the frozen Liffey, that I, a changeling, among the spluttering resin fires. I spoke to no-one: none to me.",
+        "hotwords": "Galleys, Lochlanns, Dane, Malachi, Then, Famine, I, Liffey"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Galleys of the Lochlanns ran here to beach, in quest of prey, their bloodbeaked prows riding",
+          "start": 0.05,
+          "end": 5.03,
+          "words": [
+            {
+              "text": " Galleys",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.4971466064453125
+            },
+            {
+              "text": " of",
+              "start": 0.77,
+              "end": 0.87,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " the",
+              "start": 0.87,
+              "end": 0.99,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Lochlanns",
+              "start": 0.99,
+              "end": 1.55,
+              "probability": 0.057967185974121094
+            },
+            {
+              "text": " ran",
+              "start": 1.55,
+              "end": 1.69,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " here",
+              "start": 1.69,
+              "end": 1.93,
+              "probability": 0.986328125
+            },
+            {
+              "text": " to",
+              "start": 1.93,
+              "end": 2.05,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " beach,",
+              "start": 2.05,
+              "end": 2.27,
+              "probability": 0.67529296875
+            },
+            {
+              "text": " in",
+              "start": 2.45,
+              "end": 2.57,
+              "probability": 0.75244140625
+            },
+            {
+              "text": " quest",
+              "start": 2.57,
+              "end": 2.77,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " of",
+              "start": 2.77,
+              "end": 2.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " prey,",
+              "start": 2.97,
+              "end": 3.21,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " their",
+              "start": 3.73,
+              "end": 3.83,
+              "probability": 0.7470703125
+            },
+            {
+              "text": " bloodbeaked",
+              "start": 3.83,
+              "end": 4.31,
+              "probability": 0.6931559244791666
+            },
+            {
+              "text": " prows",
+              "start": 4.31,
+              "end": 4.73,
+              "probability": 0.521636962890625
+            },
+            {
+              "text": " riding",
+              "start": 4.73,
+              "end": 5.03,
+              "probability": 0.98779296875
+            }
+          ]
+        },
+        {
+          "text": " low on a molten pewter surf. Dane vikings, torcs of tomahawks aglitter on their breasts",
+          "start": 5.03,
+          "end": 10.47,
+          "words": [
+            {
+              "text": " low",
+              "start": 5.03,
+              "end": 5.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 5.33,
+              "end": 5.49,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " a",
+              "start": 5.49,
+              "end": 5.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " molten",
+              "start": 5.71,
+              "end": 5.87,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " pewter",
+              "start": 5.87,
+              "end": 6.41,
+              "probability": 0.9637044270833334
+            },
+            {
+              "text": " surf.",
+              "start": 6.41,
+              "end": 6.71,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " Dane",
+              "start": 7.59,
+              "end": 7.67,
+              "probability": 0.53955078125
+            },
+            {
+              "text": " vikings,",
+              "start": 7.67,
+              "end": 8.23,
+              "probability": 0.7473958333333334
+            },
+            {
+              "text": " torcs",
+              "start": 8.73,
+              "end": 8.87,
+              "probability": 0.4781227111816406
+            },
+            {
+              "text": " of",
+              "start": 8.87,
+              "end": 9.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tomahawks",
+              "start": 9.01,
+              "end": 9.51,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " aglitter",
+              "start": 9.51,
+              "end": 9.89,
+              "probability": 0.5000406901041666
+            },
+            {
+              "text": " on",
+              "start": 9.89,
+              "end": 10.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " their",
+              "start": 10.01,
+              "end": 10.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " breasts",
+              "start": 10.15,
+              "end": 10.47,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " when Malachi wore the collar of gold. A school of turlehide whales stranded in hot noon, spouting,",
+          "start": 10.47,
+          "end": 16.15,
+          "words": [
+            {
+              "text": " when",
+              "start": 10.47,
+              "end": 10.71,
+              "probability": 0.962890625
+            },
+            {
+              "text": " Malachi",
+              "start": 10.71,
+              "end": 11.07,
+              "probability": 0.756591796875
+            },
+            {
+              "text": " wore",
+              "start": 11.07,
+              "end": 11.33,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 11.33,
+              "end": 11.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " collar",
+              "start": 11.51,
+              "end": 11.69,
+              "probability": 0.916015625
+            },
+            {
+              "text": " of",
+              "start": 11.69,
+              "end": 11.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " gold.",
+              "start": 11.93,
+              "end": 12.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " A",
+              "start": 12.81,
+              "end": 13.05,
+              "probability": 0.98828125
+            },
+            {
+              "text": " school",
+              "start": 13.05,
+              "end": 13.25,
+              "probability": 0.984375
+            },
+            {
+              "text": " of",
+              "start": 13.25,
+              "end": 13.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " turlehide",
+              "start": 13.47,
+              "end": 13.97,
+              "probability": 0.2857068379720052
+            },
+            {
+              "text": " whales",
+              "start": 13.97,
+              "end": 14.31,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " stranded",
+              "start": 14.31,
+              "end": 14.65,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " in",
+              "start": 14.65,
+              "end": 14.87,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " hot",
+              "start": 14.87,
+              "end": 15.05,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " noon,",
+              "start": 15.05,
+              "end": 15.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " spouting,",
+              "start": 15.91,
+              "end": 16.15,
+              "probability": 0.98046875
+            }
+          ]
+        },
+        {
+          "text": " hobbling in the shallows. Then from the starving cagework city a horde of jerkined dwarfs,",
+          "start": 16.49,
+          "end": 20.83,
+          "words": [
+            {
+              "text": " hobbling",
+              "start": 16.49,
+              "end": 16.71,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 16.71,
+              "end": 16.83,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 16.83,
+              "end": 16.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shallows.",
+              "start": 16.95,
+              "end": 17.41,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Then",
+              "start": 18.05,
+              "end": 18.19,
+              "probability": 0.98828125
+            },
+            {
+              "text": " from",
+              "start": 18.19,
+              "end": 18.35,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " the",
+              "start": 18.35,
+              "end": 18.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " starving",
+              "start": 18.53,
+              "end": 18.79,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " cagework",
+              "start": 18.79,
+              "end": 19.19,
+              "probability": 0.16567230224609375
+            },
+            {
+              "text": " city",
+              "start": 19.19,
+              "end": 19.47,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " a",
+              "start": 19.47,
+              "end": 19.65,
+              "probability": 0.6962890625
+            },
+            {
+              "text": " horde",
+              "start": 19.65,
+              "end": 19.79,
+              "probability": 0.370361328125
+            },
+            {
+              "text": " of",
+              "start": 19.79,
+              "end": 20.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " jerkined",
+              "start": 20.07,
+              "end": 20.37,
+              "probability": 0.0861058235168457
+            },
+            {
+              "text": " dwarfs,",
+              "start": 20.37,
+              "end": 20.83,
+              "probability": 0.978759765625
+            }
+          ]
+        },
+        {
+          "text": " my people, with flayers' knives, running, scaling, hacking in green blubbery whalemeat.",
+          "start": 21.13,
+          "end": 26.07,
+          "words": [
+            {
+              "text": " my",
+              "start": 21.13,
+              "end": 21.25,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " people,",
+              "start": 21.25,
+              "end": 21.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 21.83,
+              "end": 21.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " flayers'",
+              "start": 21.97,
+              "end": 22.31,
+              "probability": 0.65087890625
+            },
+            {
+              "text": " knives,",
+              "start": 22.47,
+              "end": 22.71,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " running,",
+              "start": 23.17,
+              "end": 23.35,
+              "probability": 0.962890625
+            },
+            {
+              "text": " scaling,",
+              "start": 23.63,
+              "end": 23.89,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " hacking",
+              "start": 24.25,
+              "end": 24.47,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 24.47,
+              "end": 24.75,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " green",
+              "start": 24.75,
+              "end": 25.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " blubbery",
+              "start": 25.11,
+              "end": 25.53,
+              "probability": 0.9173177083333334
+            },
+            {
+              "text": " whalemeat.",
+              "start": 25.53,
+              "end": 26.07,
+              "probability": 0.4076385498046875
+            }
+          ]
+        },
+        {
+          "text": " Famine, plague and slaughters. Their blood is in me, their lusts my waves. I moved among",
+          "start": 26.63,
+          "end": 32.93,
+          "words": [
+            {
+              "text": " Famine,",
+              "start": 26.63,
+              "end": 27.05,
+              "probability": 0.775634765625
+            },
+            {
+              "text": " plague",
+              "start": 27.51,
+              "end": 27.55,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " and",
+              "start": 27.55,
+              "end": 27.81,
+              "probability": 0.313232421875
+            },
+            {
+              "text": " slaughters.",
+              "start": 27.81,
+              "end": 28.23,
+              "probability": 0.9375
+            },
+            {
+              "text": " Their",
+              "start": 29.37,
+              "end": 29.49,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " blood",
+              "start": 29.49,
+              "end": 29.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " is",
+              "start": 29.69,
+              "end": 29.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " in",
+              "start": 29.87,
+              "end": 30.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me,",
+              "start": 30.03,
+              "end": 30.31,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " their",
+              "start": 30.61,
+              "end": 30.71,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " lusts",
+              "start": 30.71,
+              "end": 31.09,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " my",
+              "start": 31.09,
+              "end": 31.21,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " waves.",
+              "start": 31.21,
+              "end": 31.61,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " I",
+              "start": 32.29,
+              "end": 32.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " moved",
+              "start": 32.39,
+              "end": 32.65,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " among",
+              "start": 32.65,
+              "end": 32.93,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " them on the frozen Liffey, that I, a changeling, among the spluttering resin fires. I spoke",
+          "start": 32.93,
+          "end": 38.27,
+          "words": [
+            {
+              "text": " them",
+              "start": 32.93,
+              "end": 33.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 33.13,
+              "end": 33.25,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 33.25,
+              "end": 33.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " frozen",
+              "start": 33.39,
+              "end": 33.73,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Liffey,",
+              "start": 33.73,
+              "end": 34.19,
+              "probability": 0.547119140625
+            },
+            {
+              "text": " that",
+              "start": 34.35,
+              "end": 34.43,
+              "probability": 0.96484375
+            },
+            {
+              "text": " I,",
+              "start": 34.43,
+              "end": 34.69,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " a",
+              "start": 34.87,
+              "end": 34.93,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " changeling,",
+              "start": 34.93,
+              "end": 35.43,
+              "probability": 0.90234375
+            },
+            {
+              "text": " among",
+              "start": 35.63,
+              "end": 35.73,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 35.73,
+              "end": 35.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " spluttering",
+              "start": 35.91,
+              "end": 36.33,
+              "probability": 0.94921875
+            },
+            {
+              "text": " resin",
+              "start": 36.33,
+              "end": 36.71,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " fires.",
+              "start": 36.71,
+              "end": 37.15,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " I",
+              "start": 37.91,
+              "end": 38.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " spoke",
+              "start": 38.07,
+              "end": 38.27,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " to no-one, none to me.",
+          "start": 38.27,
+          "end": 39.97,
+          "words": [
+            {
+              "text": " to",
+              "start": 38.27,
+              "end": 38.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " no",
+              "start": 38.47,
+              "end": 38.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": "-one,",
+              "start": 38.65,
+              "end": 38.99,
+              "probability": 0.5027751922607422
+            },
+            {
+              "text": " none",
+              "start": 39.53,
+              "end": 39.57,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " to",
+              "start": 39.57,
+              "end": 39.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me.",
+              "start": 39.75,
+              "end": 39.97,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Galleys",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "of",
+          "start": 0.77,
+          "end": 0.87
+        },
+        {
+          "raw": "the",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "raw": "Lochlanns",
+          "start": 0.99,
+          "end": 1.55
+        },
+        {
+          "raw": "ran",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "raw": "here",
+          "start": 1.69,
+          "end": 1.93
+        },
+        {
+          "raw": "to",
+          "start": 1.93,
+          "end": 2.05
+        },
+        {
+          "raw": "beach,",
+          "start": 2.05,
+          "end": 2.27
+        },
+        {
+          "raw": "in",
+          "start": 2.45,
+          "end": 2.57
+        },
+        {
+          "raw": "quest",
+          "start": 2.57,
+          "end": 2.77
+        },
+        {
+          "raw": "of",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "raw": "prey,",
+          "start": 2.97,
+          "end": 3.21
+        },
+        {
+          "raw": "their",
+          "start": 3.73,
+          "end": 3.83
+        },
+        {
+          "raw": "bloodbeaked",
+          "start": 3.83,
+          "end": 4.31
+        },
+        {
+          "raw": "prows",
+          "start": 4.31,
+          "end": 4.73
+        },
+        {
+          "raw": "riding",
+          "start": 4.73,
+          "end": 5.03
+        },
+        {
+          "raw": "low",
+          "start": 5.03,
+          "end": 5.33
+        },
+        {
+          "raw": "on",
+          "start": 5.33,
+          "end": 5.49
+        },
+        {
+          "raw": "a",
+          "start": 5.49,
+          "end": 5.71
+        },
+        {
+          "raw": "molten",
+          "start": 5.71,
+          "end": 5.87
+        },
+        {
+          "raw": "pewter",
+          "start": 5.87,
+          "end": 6.41
+        },
+        {
+          "raw": "surf.",
+          "start": 6.41,
+          "end": 6.71
+        },
+        {
+          "raw": "Dane",
+          "start": 7.59,
+          "end": 7.67
+        },
+        {
+          "raw": "vikings,",
+          "start": 7.67,
+          "end": 8.23
+        },
+        {
+          "raw": "torcs",
+          "start": 8.73,
+          "end": 8.87
+        },
+        {
+          "raw": "of",
+          "start": 8.87,
+          "end": 9.01
+        },
+        {
+          "raw": "tomahawks",
+          "start": 9.01,
+          "end": 9.51
+        },
+        {
+          "raw": "aglitter",
+          "start": 9.51,
+          "end": 9.89
+        },
+        {
+          "raw": "on",
+          "start": 9.89,
+          "end": 10.01
+        },
+        {
+          "raw": "their",
+          "start": 10.01,
+          "end": 10.15
+        },
+        {
+          "raw": "breasts",
+          "start": 10.15,
+          "end": 10.47
+        },
+        {
+          "raw": "when",
+          "start": 10.47,
+          "end": 10.71
+        },
+        {
+          "raw": "Malachi",
+          "start": 10.71,
+          "end": 11.07
+        },
+        {
+          "raw": "wore",
+          "start": 11.07,
+          "end": 11.33
+        },
+        {
+          "raw": "the",
+          "start": 11.33,
+          "end": 11.51
+        },
+        {
+          "raw": "collar",
+          "start": 11.51,
+          "end": 11.69
+        },
+        {
+          "raw": "of",
+          "start": 11.69,
+          "end": 11.93
+        },
+        {
+          "raw": "gold.",
+          "start": 11.93,
+          "end": 12.19
+        },
+        {
+          "raw": "A",
+          "start": 12.81,
+          "end": 13.05
+        },
+        {
+          "raw": "school",
+          "start": 13.05,
+          "end": 13.25
+        },
+        {
+          "raw": "of",
+          "start": 13.25,
+          "end": 13.47
+        },
+        {
+          "raw": "turlehide",
+          "start": 13.47,
+          "end": 13.97
+        },
+        {
+          "raw": "whales",
+          "start": 13.97,
+          "end": 14.31
+        },
+        {
+          "raw": "stranded",
+          "start": 14.31,
+          "end": 14.65
+        },
+        {
+          "raw": "in",
+          "start": 14.65,
+          "end": 14.87
+        },
+        {
+          "raw": "hot",
+          "start": 14.87,
+          "end": 15.05
+        },
+        {
+          "raw": "noon,",
+          "start": 15.05,
+          "end": 15.35
+        },
+        {
+          "raw": "spouting,",
+          "start": 15.91,
+          "end": 16.15
+        },
+        {
+          "raw": "hobbling",
+          "start": 16.49,
+          "end": 16.71
+        },
+        {
+          "raw": "in",
+          "start": 16.71,
+          "end": 16.83
+        },
+        {
+          "raw": "the",
+          "start": 16.83,
+          "end": 16.95
+        },
+        {
+          "raw": "shallows.",
+          "start": 16.95,
+          "end": 17.41
+        },
+        {
+          "raw": "Then",
+          "start": 18.05,
+          "end": 18.19
+        },
+        {
+          "raw": "from",
+          "start": 18.19,
+          "end": 18.35
+        },
+        {
+          "raw": "the",
+          "start": 18.35,
+          "end": 18.53
+        },
+        {
+          "raw": "starving",
+          "start": 18.53,
+          "end": 18.79
+        },
+        {
+          "raw": "cagework",
+          "start": 18.79,
+          "end": 19.19
+        },
+        {
+          "raw": "city",
+          "start": 19.19,
+          "end": 19.47
+        },
+        {
+          "raw": "a",
+          "start": 19.47,
+          "end": 19.65
+        },
+        {
+          "raw": "horde",
+          "start": 19.65,
+          "end": 19.79
+        },
+        {
+          "raw": "of",
+          "start": 19.79,
+          "end": 20.07
+        },
+        {
+          "raw": "jerkined",
+          "start": 20.07,
+          "end": 20.37
+        },
+        {
+          "raw": "dwarfs,",
+          "start": 20.37,
+          "end": 20.83
+        },
+        {
+          "raw": "my",
+          "start": 21.13,
+          "end": 21.25
+        },
+        {
+          "raw": "people,",
+          "start": 21.25,
+          "end": 21.55
+        },
+        {
+          "raw": "with",
+          "start": 21.83,
+          "end": 21.97
+        },
+        {
+          "raw": "flayers'",
+          "start": 21.97,
+          "end": 22.31
+        },
+        {
+          "raw": "knives,",
+          "start": 22.47,
+          "end": 22.71
+        },
+        {
+          "raw": "running,",
+          "start": 23.17,
+          "end": 23.35
+        },
+        {
+          "raw": "scaling,",
+          "start": 23.63,
+          "end": 23.89
+        },
+        {
+          "raw": "hacking",
+          "start": 24.25,
+          "end": 24.47
+        },
+        {
+          "raw": "in",
+          "start": 24.47,
+          "end": 24.75
+        },
+        {
+          "raw": "green",
+          "start": 24.75,
+          "end": 25.11
+        },
+        {
+          "raw": "blubbery",
+          "start": 25.11,
+          "end": 25.53
+        },
+        {
+          "raw": "whalemeat.",
+          "start": 25.53,
+          "end": 26.07
+        },
+        {
+          "raw": "Famine,",
+          "start": 26.63,
+          "end": 27.05
+        },
+        {
+          "raw": "plague",
+          "start": 27.51,
+          "end": 27.55
+        },
+        {
+          "raw": "and",
+          "start": 27.55,
+          "end": 27.81
+        },
+        {
+          "raw": "slaughters.",
+          "start": 27.81,
+          "end": 28.23
+        },
+        {
+          "raw": "Their",
+          "start": 29.37,
+          "end": 29.49
+        },
+        {
+          "raw": "blood",
+          "start": 29.49,
+          "end": 29.69
+        },
+        {
+          "raw": "is",
+          "start": 29.69,
+          "end": 29.87
+        },
+        {
+          "raw": "in",
+          "start": 29.87,
+          "end": 30.03
+        },
+        {
+          "raw": "me,",
+          "start": 30.03,
+          "end": 30.31
+        },
+        {
+          "raw": "their",
+          "start": 30.61,
+          "end": 30.71
+        },
+        {
+          "raw": "lusts",
+          "start": 30.71,
+          "end": 31.09
+        },
+        {
+          "raw": "my",
+          "start": 31.09,
+          "end": 31.21
+        },
+        {
+          "raw": "waves.",
+          "start": 31.21,
+          "end": 31.61
+        },
+        {
+          "raw": "I",
+          "start": 32.29,
+          "end": 32.39
+        },
+        {
+          "raw": "moved",
+          "start": 32.39,
+          "end": 32.65
+        },
+        {
+          "raw": "among",
+          "start": 32.65,
+          "end": 32.93
+        },
+        {
+          "raw": "them",
+          "start": 32.93,
+          "end": 33.13
+        },
+        {
+          "raw": "on",
+          "start": 33.13,
+          "end": 33.25
+        },
+        {
+          "raw": "the",
+          "start": 33.25,
+          "end": 33.39
+        },
+        {
+          "raw": "frozen",
+          "start": 33.39,
+          "end": 33.73
+        },
+        {
+          "raw": "Liffey,",
+          "start": 33.73,
+          "end": 34.19
+        },
+        {
+          "raw": "that",
+          "start": 34.35,
+          "end": 34.43
+        },
+        {
+          "raw": "I,",
+          "start": 34.43,
+          "end": 34.69
+        },
+        {
+          "raw": "a",
+          "start": 34.87,
+          "end": 34.93
+        },
+        {
+          "raw": "changeling,",
+          "start": 34.93,
+          "end": 35.43
+        },
+        {
+          "raw": "among",
+          "start": 35.63,
+          "end": 35.73
+        },
+        {
+          "raw": "the",
+          "start": 35.73,
+          "end": 35.91
+        },
+        {
+          "raw": "spluttering",
+          "start": 35.91,
+          "end": 36.33
+        },
+        {
+          "raw": "resin",
+          "start": 36.33,
+          "end": 36.71
+        },
+        {
+          "raw": "fires.",
+          "start": 36.71,
+          "end": 37.15
+        },
+        {
+          "raw": "I",
+          "start": 37.91,
+          "end": 38.07
+        },
+        {
+          "raw": "spoke",
+          "start": 38.07,
+          "end": 38.27
+        },
+        {
+          "raw": "to",
+          "start": 38.27,
+          "end": 38.47
+        },
+        {
+          "raw": "no",
+          "start": 38.47,
+          "end": 38.65
+        },
+        {
+          "raw": "-one,",
+          "start": 38.65,
+          "end": 38.99
+        },
+        {
+          "raw": "none",
+          "start": 39.53,
+          "end": 39.57
+        },
+        {
+          "raw": "to",
+          "start": 39.57,
+          "end": 39.75
+        },
+        {
+          "raw": "me.",
+          "start": 39.75,
+          "end": 39.97
+        }
+      ],
+      "expected_tokens": [
+        "Galleys",
+        "of",
+        "the",
+        "Lochlanns",
+        "ran",
+        "here",
+        "to",
+        "beach,",
+        "in",
+        "quest",
+        "of",
+        "prey,",
+        "their",
+        "bloodbeaked",
+        "prows",
+        "riding",
+        "low",
+        "on",
+        "a",
+        "molten",
+        "pewter",
+        "surf.",
+        "Dane",
+        "vikings,",
+        "torcs",
+        "of",
+        "tomahawks",
+        "aglitter",
+        "on",
+        "their",
+        "breasts",
+        "when",
+        "Malachi",
+        "wore",
+        "the",
+        "collar",
+        "of",
+        "gold.",
+        "A",
+        "school",
+        "of",
+        "turlehide",
+        "whales",
+        "stranded",
+        "in",
+        "hot",
+        "noon,",
+        "spouting,",
+        "hobbling",
+        "in",
+        "the",
+        "shallows.",
+        "Then",
+        "from",
+        "the",
+        "starving",
+        "cagework",
+        "city",
+        "a",
+        "horde",
+        "of",
+        "jerkined",
+        "dwarfs,",
+        "my",
+        "people,",
+        "with",
+        "flayers'",
+        "knives,",
+        "running,",
+        "scaling,",
+        "hacking",
+        "in",
+        "green",
+        "blubbery",
+        "whalemeat.",
+        "Famine,",
+        "plague",
+        "and",
+        "slaughters.",
+        "Their",
+        "blood",
+        "is",
+        "in",
+        "me,",
+        "their",
+        "lusts",
+        "my",
+        "waves.",
+        "I",
+        "moved",
+        "among",
+        "them",
+        "on",
+        "the",
+        "frozen",
+        "Liffey,",
+        "that",
+        "I,",
+        "a",
+        "changeling,",
+        "among",
+        "the",
+        "spluttering",
+        "resin",
+        "fires.",
+        "I",
+        "spoke",
+        "to",
+        "no-one:",
+        "none",
+        "to",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          112,
+          0,
+          112
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 107
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 108
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 109
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 110
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 111
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Galleys",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "galleys",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.77,
+          "end": 0.87,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.87,
+          "end": 0.99,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lochlanns",
+          "start": 0.99,
+          "end": 1.55,
+          "key": "lochlanns",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ran",
+          "start": 1.55,
+          "end": 1.69,
+          "key": "ran",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 1.69,
+          "end": 1.93,
+          "key": "here",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.93,
+          "end": 2.05,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "beach,",
+          "start": 2.05,
+          "end": 2.27,
+          "key": "beach",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.45,
+          "end": 2.57,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "quest",
+          "start": 2.57,
+          "end": 2.77,
+          "key": "quest",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.77,
+          "end": 2.97,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "prey,",
+          "start": 2.97,
+          "end": 3.21,
+          "key": "prey",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 3.73,
+          "end": 3.83,
+          "key": "their",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "bloodbeaked",
+          "start": 3.83,
+          "end": 4.31,
+          "key": "bloodbeaked",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "prows",
+          "start": 4.31,
+          "end": 4.73,
+          "key": "prows",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "riding",
+          "start": 4.73,
+          "end": 5.03,
+          "key": "riding",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "low",
+          "start": 5.03,
+          "end": 5.33,
+          "key": "low",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.33,
+          "end": 5.49,
+          "key": "on",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.49,
+          "end": 5.71,
+          "key": "a",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "molten",
+          "start": 5.71,
+          "end": 5.87,
+          "key": "molten",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "pewter",
+          "start": 5.87,
+          "end": 6.41,
+          "key": "pewter",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "surf.",
+          "start": 6.41,
+          "end": 6.71,
+          "key": "surf",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Dane",
+          "start": 7.59,
+          "end": 7.67,
+          "key": "dane",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "vikings,",
+          "start": 7.67,
+          "end": 8.23,
+          "key": "vikings",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "torcs",
+          "start": 8.73,
+          "end": 8.87,
+          "key": "torcs",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.87,
+          "end": 9.01,
+          "key": "of",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "tomahawks",
+          "start": 9.01,
+          "end": 9.51,
+          "key": "tomahawks",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "aglitter",
+          "start": 9.51,
+          "end": 9.89,
+          "key": "aglitter",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 9.89,
+          "end": 10.01,
+          "key": "on",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 10.01,
+          "end": 10.15,
+          "key": "their",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "breasts",
+          "start": 10.15,
+          "end": 10.47,
+          "key": "breasts",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 10.47,
+          "end": 10.71,
+          "key": "when",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Malachi",
+          "start": 10.71,
+          "end": 11.07,
+          "key": "malachi",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "wore",
+          "start": 11.07,
+          "end": 11.33,
+          "key": "wore",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.33,
+          "end": 11.51,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "collar",
+          "start": 11.51,
+          "end": 11.69,
+          "key": "collar",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.69,
+          "end": 11.93,
+          "key": "of",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "gold.",
+          "start": 11.93,
+          "end": 12.19,
+          "key": "gold",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 12.81,
+          "end": 13.05,
+          "key": "a",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "school",
+          "start": 13.05,
+          "end": 13.25,
+          "key": "school",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.25,
+          "end": 13.47,
+          "key": "of",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "turlehide",
+          "start": 13.47,
+          "end": 13.97,
+          "key": "turlehide",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "whales",
+          "start": 13.97,
+          "end": 14.31,
+          "key": "whales",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "stranded",
+          "start": 14.31,
+          "end": 14.65,
+          "key": "stranded",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 14.65,
+          "end": 14.87,
+          "key": "in",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "hot",
+          "start": 14.87,
+          "end": 15.05,
+          "key": "hot",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "noon,",
+          "start": 15.05,
+          "end": 15.35,
+          "key": "noon",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "spouting,",
+          "start": 15.91,
+          "end": 16.15,
+          "key": "spouting",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "hobbling",
+          "start": 16.49,
+          "end": 16.71,
+          "key": "hobbling",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 16.71,
+          "end": 16.83,
+          "key": "in",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.83,
+          "end": 16.95,
+          "key": "the",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "shallows.",
+          "start": 16.95,
+          "end": 17.41,
+          "key": "shallows",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 18.05,
+          "end": 18.19,
+          "key": "then",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 18.19,
+          "end": 18.35,
+          "key": "from",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.35,
+          "end": 18.53,
+          "key": "the",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "starving",
+          "start": 18.53,
+          "end": 18.79,
+          "key": "starving",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "cagework",
+          "start": 18.79,
+          "end": 19.19,
+          "key": "cagework",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "city",
+          "start": 19.19,
+          "end": 19.47,
+          "key": "city",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 19.47,
+          "end": 19.65,
+          "key": "a",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "horde",
+          "start": 19.65,
+          "end": 19.79,
+          "key": "horde",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 19.79,
+          "end": 20.07,
+          "key": "of",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "jerkined",
+          "start": 20.07,
+          "end": 20.37,
+          "key": "jerkined",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "dwarfs,",
+          "start": 20.37,
+          "end": 20.83,
+          "key": "dwarfs",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 21.13,
+          "end": 21.25,
+          "key": "my",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "people,",
+          "start": 21.25,
+          "end": 21.55,
+          "key": "people",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 21.83,
+          "end": 21.97,
+          "key": "with",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "flayers'",
+          "start": 21.97,
+          "end": 22.31,
+          "key": "flayers",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "knives,",
+          "start": 22.47,
+          "end": 22.71,
+          "key": "knives",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "running,",
+          "start": 23.17,
+          "end": 23.35,
+          "key": "running",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "scaling,",
+          "start": 23.63,
+          "end": 23.89,
+          "key": "scaling",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "hacking",
+          "start": 24.25,
+          "end": 24.47,
+          "key": "hacking",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 24.47,
+          "end": 24.75,
+          "key": "in",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "green",
+          "start": 24.75,
+          "end": 25.11,
+          "key": "green",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "blubbery",
+          "start": 25.11,
+          "end": 25.53,
+          "key": "blubbery",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "whalemeat.",
+          "start": 25.53,
+          "end": 26.07,
+          "key": "whalemeat",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "Famine,",
+          "start": 26.63,
+          "end": 27.05,
+          "key": "famine",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "plague",
+          "start": 27.51,
+          "end": 27.55,
+          "key": "plague",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 27.55,
+          "end": 27.81,
+          "key": "and",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "slaughters.",
+          "start": 27.81,
+          "end": 28.23,
+          "key": "slaughters",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "Their",
+          "start": 29.37,
+          "end": 29.49,
+          "key": "their",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "blood",
+          "start": 29.49,
+          "end": 29.69,
+          "key": "blood",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 29.69,
+          "end": 29.87,
+          "key": "is",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 29.87,
+          "end": 30.03,
+          "key": "in",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 30.03,
+          "end": 30.31,
+          "key": "me",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 30.61,
+          "end": 30.71,
+          "key": "their",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "lusts",
+          "start": 30.71,
+          "end": 31.09,
+          "key": "lusts",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 31.09,
+          "end": 31.21,
+          "key": "my",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "waves.",
+          "start": 31.21,
+          "end": 31.61,
+          "key": "waves",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 32.29,
+          "end": 32.39,
+          "key": "i",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "moved",
+          "start": 32.39,
+          "end": 32.65,
+          "key": "moved",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "among",
+          "start": 32.65,
+          "end": 32.93,
+          "key": "among",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 32.93,
+          "end": 33.13,
+          "key": "them",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 33.13,
+          "end": 33.25,
+          "key": "on",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 33.25,
+          "end": 33.39,
+          "key": "the",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "frozen",
+          "start": 33.39,
+          "end": 33.73,
+          "key": "frozen",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "Liffey,",
+          "start": 33.73,
+          "end": 34.19,
+          "key": "liffey",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 34.35,
+          "end": 34.43,
+          "key": "that",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 34.43,
+          "end": 34.69,
+          "key": "i",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 34.87,
+          "end": 34.93,
+          "key": "a",
+          "pieces": [
+            98
+          ]
+        },
+        {
+          "raw": "changeling,",
+          "start": 34.93,
+          "end": 35.43,
+          "key": "changeling",
+          "pieces": [
+            99
+          ]
+        },
+        {
+          "raw": "among",
+          "start": 35.63,
+          "end": 35.73,
+          "key": "among",
+          "pieces": [
+            100
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 35.73,
+          "end": 35.91,
+          "key": "the",
+          "pieces": [
+            101
+          ]
+        },
+        {
+          "raw": "spluttering",
+          "start": 35.91,
+          "end": 36.33,
+          "key": "spluttering",
+          "pieces": [
+            102
+          ]
+        },
+        {
+          "raw": "resin",
+          "start": 36.33,
+          "end": 36.71,
+          "key": "resin",
+          "pieces": [
+            103
+          ]
+        },
+        {
+          "raw": "fires.",
+          "start": 36.71,
+          "end": 37.15,
+          "key": "fires",
+          "pieces": [
+            104
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 37.91,
+          "end": 38.07,
+          "key": "i",
+          "pieces": [
+            105
+          ]
+        },
+        {
+          "raw": "spoke",
+          "start": 38.07,
+          "end": 38.27,
+          "key": "spoke",
+          "pieces": [
+            106
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 38.27,
+          "end": 38.47,
+          "key": "to",
+          "pieces": [
+            107
+          ]
+        },
+        {
+          "raw": "no -one,",
+          "start": 38.47,
+          "end": 38.99,
+          "key": "noone",
+          "pieces": [
+            108,
+            109
+          ]
+        },
+        {
+          "raw": "none",
+          "start": 39.53,
+          "end": 39.57,
+          "key": "none",
+          "pieces": [
+            110
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 39.57,
+          "end": 39.75,
+          "key": "to",
+          "pieces": [
+            111
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 39.75,
+          "end": 39.97,
+          "key": "me",
+          "pieces": [
+            112
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 108,
+          "text": "no-one:",
+          "heard": "no -one,",
+          "heard_indexes": [
+            108,
+            109
+          ],
+          "start": 38.47,
+          "end": 38.99
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Galleys",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "of",
+          "start": 0.77,
+          "end": 0.87
+        },
+        {
+          "text": "the",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "text": "Lochlanns",
+          "start": 0.99,
+          "end": 1.55
+        },
+        {
+          "text": "ran",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "text": "here",
+          "start": 1.69,
+          "end": 1.93
+        },
+        {
+          "text": "to",
+          "start": 1.93,
+          "end": 2.05
+        },
+        {
+          "text": "beach,",
+          "start": 2.05,
+          "end": 2.27
+        },
+        {
+          "text": "in",
+          "start": 2.45,
+          "end": 2.57
+        },
+        {
+          "text": "quest",
+          "start": 2.57,
+          "end": 2.77
+        },
+        {
+          "text": "of",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "text": "prey,",
+          "start": 2.97,
+          "end": 3.21
+        },
+        {
+          "text": "their",
+          "start": 3.73,
+          "end": 3.83
+        },
+        {
+          "text": "bloodbeaked",
+          "start": 3.83,
+          "end": 4.31
+        },
+        {
+          "text": "prows",
+          "start": 4.31,
+          "end": 4.73
+        },
+        {
+          "text": "riding",
+          "start": 4.73,
+          "end": 5.03
+        },
+        {
+          "text": "low",
+          "start": 5.03,
+          "end": 5.33
+        },
+        {
+          "text": "on",
+          "start": 5.33,
+          "end": 5.49
+        },
+        {
+          "text": "a",
+          "start": 5.49,
+          "end": 5.71
+        },
+        {
+          "text": "molten",
+          "start": 5.71,
+          "end": 5.87
+        },
+        {
+          "text": "pewter",
+          "start": 5.87,
+          "end": 6.41
+        },
+        {
+          "text": "surf.",
+          "start": 6.41,
+          "end": 6.71
+        },
+        {
+          "text": "Dane",
+          "start": 7.59,
+          "end": 7.67
+        },
+        {
+          "text": "vikings,",
+          "start": 7.67,
+          "end": 8.23
+        },
+        {
+          "text": "torcs",
+          "start": 8.73,
+          "end": 8.87
+        },
+        {
+          "text": "of",
+          "start": 8.87,
+          "end": 9.01
+        },
+        {
+          "text": "tomahawks",
+          "start": 9.01,
+          "end": 9.51
+        },
+        {
+          "text": "aglitter",
+          "start": 9.51,
+          "end": 9.89
+        },
+        {
+          "text": "on",
+          "start": 9.89,
+          "end": 10.01
+        },
+        {
+          "text": "their",
+          "start": 10.01,
+          "end": 10.15
+        },
+        {
+          "text": "breasts",
+          "start": 10.15,
+          "end": 10.47
+        },
+        {
+          "text": "when",
+          "start": 10.47,
+          "end": 10.71
+        },
+        {
+          "text": "Malachi",
+          "start": 10.71,
+          "end": 11.07
+        },
+        {
+          "text": "wore",
+          "start": 11.07,
+          "end": 11.33
+        },
+        {
+          "text": "the",
+          "start": 11.33,
+          "end": 11.51
+        },
+        {
+          "text": "collar",
+          "start": 11.51,
+          "end": 11.69
+        },
+        {
+          "text": "of",
+          "start": 11.69,
+          "end": 11.93
+        },
+        {
+          "text": "gold.",
+          "start": 11.93,
+          "end": 12.19
+        },
+        {
+          "text": "A",
+          "start": 12.81,
+          "end": 13.05
+        },
+        {
+          "text": "school",
+          "start": 13.05,
+          "end": 13.25
+        },
+        {
+          "text": "of",
+          "start": 13.25,
+          "end": 13.47
+        },
+        {
+          "text": "turlehide",
+          "start": 13.47,
+          "end": 13.97
+        },
+        {
+          "text": "whales",
+          "start": 13.97,
+          "end": 14.31
+        },
+        {
+          "text": "stranded",
+          "start": 14.31,
+          "end": 14.65
+        },
+        {
+          "text": "in",
+          "start": 14.65,
+          "end": 14.87
+        },
+        {
+          "text": "hot",
+          "start": 14.87,
+          "end": 15.05
+        },
+        {
+          "text": "noon,",
+          "start": 15.05,
+          "end": 15.35
+        },
+        {
+          "text": "spouting,",
+          "start": 15.91,
+          "end": 16.15
+        },
+        {
+          "text": "hobbling",
+          "start": 16.49,
+          "end": 16.71
+        },
+        {
+          "text": "in",
+          "start": 16.71,
+          "end": 16.83
+        },
+        {
+          "text": "the",
+          "start": 16.83,
+          "end": 16.95
+        },
+        {
+          "text": "shallows.",
+          "start": 16.95,
+          "end": 17.41
+        },
+        {
+          "text": "Then",
+          "start": 18.05,
+          "end": 18.19
+        },
+        {
+          "text": "from",
+          "start": 18.19,
+          "end": 18.35
+        },
+        {
+          "text": "the",
+          "start": 18.35,
+          "end": 18.53
+        },
+        {
+          "text": "starving",
+          "start": 18.53,
+          "end": 18.79
+        },
+        {
+          "text": "cagework",
+          "start": 18.79,
+          "end": 19.19
+        },
+        {
+          "text": "city",
+          "start": 19.19,
+          "end": 19.47
+        },
+        {
+          "text": "a",
+          "start": 19.47,
+          "end": 19.65
+        },
+        {
+          "text": "horde",
+          "start": 19.65,
+          "end": 19.79
+        },
+        {
+          "text": "of",
+          "start": 19.79,
+          "end": 20.07
+        },
+        {
+          "text": "jerkined",
+          "start": 20.07,
+          "end": 20.37
+        },
+        {
+          "text": "dwarfs,",
+          "start": 20.37,
+          "end": 20.83
+        },
+        {
+          "text": "my",
+          "start": 21.13,
+          "end": 21.25
+        },
+        {
+          "text": "people,",
+          "start": 21.25,
+          "end": 21.55
+        },
+        {
+          "text": "with",
+          "start": 21.83,
+          "end": 21.97
+        },
+        {
+          "text": "flayers'",
+          "start": 21.97,
+          "end": 22.31
+        },
+        {
+          "text": "knives,",
+          "start": 22.47,
+          "end": 22.71
+        },
+        {
+          "text": "running,",
+          "start": 23.17,
+          "end": 23.35
+        },
+        {
+          "text": "scaling,",
+          "start": 23.63,
+          "end": 23.89
+        },
+        {
+          "text": "hacking",
+          "start": 24.25,
+          "end": 24.47
+        },
+        {
+          "text": "in",
+          "start": 24.47,
+          "end": 24.75
+        },
+        {
+          "text": "green",
+          "start": 24.75,
+          "end": 25.11
+        },
+        {
+          "text": "blubbery",
+          "start": 25.11,
+          "end": 25.53
+        },
+        {
+          "text": "whalemeat.",
+          "start": 25.53,
+          "end": 26.07
+        },
+        {
+          "text": "Famine,",
+          "start": 26.63,
+          "end": 27.05
+        },
+        {
+          "text": "plague",
+          "start": 27.51,
+          "end": 27.55
+        },
+        {
+          "text": "and",
+          "start": 27.55,
+          "end": 27.81
+        },
+        {
+          "text": "slaughters.",
+          "start": 27.81,
+          "end": 28.23
+        },
+        {
+          "text": "Their",
+          "start": 29.37,
+          "end": 29.49
+        },
+        {
+          "text": "blood",
+          "start": 29.49,
+          "end": 29.69
+        },
+        {
+          "text": "is",
+          "start": 29.69,
+          "end": 29.87
+        },
+        {
+          "text": "in",
+          "start": 29.87,
+          "end": 30.03
+        },
+        {
+          "text": "me,",
+          "start": 30.03,
+          "end": 30.31
+        },
+        {
+          "text": "their",
+          "start": 30.61,
+          "end": 30.71
+        },
+        {
+          "text": "lusts",
+          "start": 30.71,
+          "end": 31.09
+        },
+        {
+          "text": "my",
+          "start": 31.09,
+          "end": 31.21
+        },
+        {
+          "text": "waves.",
+          "start": 31.21,
+          "end": 31.61
+        },
+        {
+          "text": "I",
+          "start": 32.29,
+          "end": 32.39
+        },
+        {
+          "text": "moved",
+          "start": 32.39,
+          "end": 32.65
+        },
+        {
+          "text": "among",
+          "start": 32.65,
+          "end": 32.93
+        },
+        {
+          "text": "them",
+          "start": 32.93,
+          "end": 33.13
+        },
+        {
+          "text": "on",
+          "start": 33.13,
+          "end": 33.25
+        },
+        {
+          "text": "the",
+          "start": 33.25,
+          "end": 33.39
+        },
+        {
+          "text": "frozen",
+          "start": 33.39,
+          "end": 33.73
+        },
+        {
+          "text": "Liffey,",
+          "start": 33.73,
+          "end": 34.19
+        },
+        {
+          "text": "that",
+          "start": 34.35,
+          "end": 34.43
+        },
+        {
+          "text": "I,",
+          "start": 34.43,
+          "end": 34.69
+        },
+        {
+          "text": "a",
+          "start": 34.87,
+          "end": 34.93
+        },
+        {
+          "text": "changeling,",
+          "start": 34.93,
+          "end": 35.43
+        },
+        {
+          "text": "among",
+          "start": 35.63,
+          "end": 35.73
+        },
+        {
+          "text": "the",
+          "start": 35.73,
+          "end": 35.91
+        },
+        {
+          "text": "spluttering",
+          "start": 35.91,
+          "end": 36.33
+        },
+        {
+          "text": "resin",
+          "start": 36.33,
+          "end": 36.71
+        },
+        {
+          "text": "fires.",
+          "start": 36.71,
+          "end": 37.15
+        },
+        {
+          "text": "I",
+          "start": 37.91,
+          "end": 38.07
+        },
+        {
+          "text": "spoke",
+          "start": 38.07,
+          "end": 38.27
+        },
+        {
+          "text": "to",
+          "start": 38.27,
+          "end": 38.47
+        },
+        {
+          "text": "no-one:",
+          "start": 38.47,
+          "end": 38.99
+        },
+        {
+          "text": "none",
+          "start": 39.53,
+          "end": 39.57
+        },
+        {
+          "text": "to",
+          "start": 39.57,
+          "end": 39.75
+        },
+        {
+          "text": "me.",
+          "start": 39.75,
+          "end": 39.97
+        }
+      ],
+      "stats": {
+        "expected_words": 112,
+        "heard_words": 112,
+        "matched_words": 112
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.3002716129994951
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "382b9308f9df7a90196ee02df8f413825448f03d7c3a18e075eb08c1c4b5675f",
+  "selected_reasons": []
+}

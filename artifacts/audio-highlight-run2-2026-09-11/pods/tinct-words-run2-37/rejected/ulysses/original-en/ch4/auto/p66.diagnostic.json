@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "c263ba39745ab6e164f8c5d17c63cbb0dca402d6ca291d87650ddae5fa559f46",
+  "attempts": [
+    {
+      "asr_seconds": 0.12141234698356129,
+      "alignment_seconds": 0.0003668589924927801,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Who are the letters for?",
+        "hotwords": "Who"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Who are the letters for?",
+          "start": 0.05,
+          "end": 1.29,
+          "words": [
+            {
+              "text": " Who",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " are",
+              "start": 0.53,
+              "end": 0.63,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 0.63,
+              "end": 0.75,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " letters",
+              "start": 0.75,
+              "end": 0.99,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " for?",
+              "start": 0.99,
+              "end": 1.29,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "are",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "raw": "the",
+          "start": 0.63,
+          "end": 0.75
+        },
+        {
+          "raw": "letters",
+          "start": 0.75,
+          "end": 0.99
+        },
+        {
+          "raw": "for?",
+          "start": 0.99,
+          "end": 1.29
+        }
+      ],
+      "expected_tokens": [
+        "—Who",
+        "are",
+        "the",
+        "letters",
+        "for?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "who",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.53,
+          "end": 0.63,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.63,
+          "end": 0.75,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "letters",
+          "start": 0.75,
+          "end": 0.99,
+          "key": "letters",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for?",
+          "start": 0.99,
+          "end": 1.29,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Who",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "are",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "text": "the",
+          "start": 0.63,
+          "end": 0.75
+        },
+        {
+          "text": "letters",
+          "start": 0.75,
+          "end": 0.99
+        },
+        {
+          "text": "for?",
+          "start": 0.99,
+          "end": 1.29
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12190789697342552
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9192b718b3ab2a7b73ee3edd26bb8dee568facf05f7e87e8d62cb3e6fa3f013c",
+  "selected_reasons": []
+}

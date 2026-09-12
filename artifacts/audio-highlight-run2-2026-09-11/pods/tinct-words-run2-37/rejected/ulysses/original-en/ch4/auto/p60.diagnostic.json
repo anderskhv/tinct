@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "21d57b4eedf2bcf675790a6fc4732d04950101763f1873189a66ae208643d8b7",
+  "attempts": [
+    {
+      "asr_seconds": 0.13811995700234547,
+      "alignment_seconds": 0.00031725200824439526,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Desolation.",
+        "hotwords": "Desolation"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Desolation.",
+          "start": 0.05,
+          "end": 0.95,
+          "words": [
+            {
+              "text": " Desolation.",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.8671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Desolation.",
+          "start": 0.05,
+          "end": 0.95
+        }
+      ],
+      "expected_tokens": [
+        "Desolation."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Desolation.",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "desolation",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desolation.",
+          "start": 0.05,
+          "end": 0.95
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13854646001709625
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "efca298d05fe17c9b954b0c48a2195253ba8d71365452c6d4e0f7c8e99a77bb9",
+  "selected_reasons": []
+}

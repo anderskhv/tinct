@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "dcaeffbdb7f62c1a0c092164d0c6a1e7309e91c6b3e11556ea24c493108af559",
+  "attempts": [
+    {
+      "asr_seconds": 0.10535544800222851,
+      "alignment_seconds": 0.0002350830181967467,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alerta",
+          "start": 0.02,
+          "end": 0.96,
+          "words": [
+            {
+              "text": " Alerta",
+              "start": 0.02,
+              "end": 0.96,
+              "probability": 0.68994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alerta",
+          "start": 0.02,
+          "end": 0.96
+        }
+      ],
+      "expected_tokens": [
+        "_All'erta!_"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alerta",
+          "start": 0.02,
+          "end": 0.96,
+          "key": "alerta",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_All'erta!_",
+          "start": 0.0,
+          "end": 0.48
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10565780499018729
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3bf50c32f90dfda9464ff7b32388f43c22306e4a0f2fa6c8a719fe1ed596bfc3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,490 @@
+{
+  "complete": true,
+  "signature": "70343df24d171d660889c50084d55c36fa5c721d0c3a47bdb8f087d08ab8a73e",
+  "attempts": [
+    {
+      "asr_seconds": 0.19444115401711315,
+      "alignment_seconds": 0.00033348900615237653,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_—Mon père, oui._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mon père, oui._",
+          "start": 0.02,
+          "end": 1.78,
+          "words": [
+            {
+              "text": " Mon",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.07177734375
+            },
+            {
+              "text": " père,",
+              "start": 0.58,
+              "end": 0.9,
+              "probability": 0.04193305969238281
+            },
+            {
+              "text": " oui._",
+              "start": 1.08,
+              "end": 1.78,
+              "probability": 0.5079752802848816
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mon",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "père,",
+          "start": 0.58,
+          "end": 0.9
+        },
+        {
+          "raw": "oui._",
+          "start": 1.08,
+          "end": 1.78
+        }
+      ],
+      "expected_tokens": [
+        "_—Mon",
+        "père,",
+        "oui._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mon",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "mon",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "père,",
+          "start": 0.58,
+          "end": 0.9,
+          "key": "père",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "oui._",
+          "start": 1.08,
+          "end": 1.78,
+          "key": "oui_",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_—Mon",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "père,",
+          "start": 0.58,
+          "end": 0.9
+        },
+        {
+          "text": "oui._",
+          "start": 0.9,
+          "end": 1.34
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19487098799436353
+    },
+    {
+      "asr_seconds": 0.1214300169958733,
+      "alignment_seconds": 0.00032015700708143413,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Mone Pier Way",
+          "start": 0.02,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " Mone",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.4566650390625
+            },
+            {
+              "text": " Pier",
+              "start": 0.64,
+              "end": 0.86,
+              "probability": 0.382080078125
+            },
+            {
+              "text": " Way",
+              "start": 0.86,
+              "end": 1.14,
+              "probability": 0.49169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mone",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Pier",
+          "start": 0.64,
+          "end": 0.86
+        },
+        {
+          "raw": "Way",
+          "start": 0.86,
+          "end": 1.14
+        }
+      ],
+      "expected_tokens": [
+        "_—Mon",
+        "père,",
+        "oui._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mone",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "mone",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pier",
+          "start": 0.64,
+          "end": 0.86,
+          "key": "pier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Way",
+          "start": 0.86,
+          "end": 1.14,
+          "key": "way",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_—Mon",
+          "start": 0.0,
+          "end": 0.57
+        },
+        {
+          "text": "père,",
+          "start": 0.57,
+          "end": 0.855
+        },
+        {
+          "text": "oui._",
+          "start": 0.855,
+          "end": 0.997
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12185700098052621
+    },
+    {
+      "asr_seconds": 0.13528053200570866,
+      "alignment_seconds": 0.0003416739928070456,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mone Pier Way",
+          "start": 0.02,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " Mone",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.4566650390625
+            },
+            {
+              "text": " Pier",
+              "start": 0.64,
+              "end": 0.86,
+              "probability": 0.382080078125
+            },
+            {
+              "text": " Way",
+              "start": 0.86,
+              "end": 1.14,
+              "probability": 0.49169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mone",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Pier",
+          "start": 0.64,
+          "end": 0.86
+        },
+        {
+          "raw": "Way",
+          "start": 0.86,
+          "end": 1.14
+        }
+      ],
+      "expected_tokens": [
+        "_—Mon",
+        "père,",
+        "oui._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mone",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "mone",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pier",
+          "start": 0.64,
+          "end": 0.86,
+          "key": "pier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Way",
+          "start": 0.86,
+          "end": 1.14,
+          "key": "way",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_—Mon",
+          "start": 0.0,
+          "end": 0.57
+        },
+        {
+          "text": "père,",
+          "start": 0.57,
+          "end": 0.855
+        },
+        {
+          "text": "oui._",
+          "start": 0.855,
+          "end": 0.997
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13572866300819442
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "018c018898c903a50105134c6f3192ec526ffea819c26b4472491972d327b04b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

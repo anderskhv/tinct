@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "ef4a1bf0b0bf3479dff2366332b372f6700243de2079dea13ae55ea2780aa95e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1155971749976743,
+      "alignment_seconds": 0.0002624790067784488,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Morrow nephew.",
+          "start": 0.02,
+          "end": 0.98,
+          "words": [
+            {
+              "text": " Morrow",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.24700927734375
+            },
+            {
+              "text": " nephew.",
+              "start": 0.74,
+              "end": 0.98,
+              "probability": 0.64306640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Morrow",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "nephew.",
+          "start": 0.74,
+          "end": 0.98
+        }
+      ],
+      "expected_tokens": [
+        "—Morrow,",
+        "nephew."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Morrow",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "morrow",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nephew.",
+          "start": 0.74,
+          "end": 0.98,
+          "key": "nephew",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Morrow,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "nephew.",
+          "start": 0.74,
+          "end": 0.98
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11595035801292397
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "11ab18e14012e05dd2f933a522e49bc19f9f3622b24bc0e853ab38bf16d505da",
+  "selected_reasons": []
+}

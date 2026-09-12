@@ -1,0 +1,193 @@
+{
+  "complete": true,
+  "signature": "1494d7f3a4a8d0c62a69603909db6385e88fab035b42dd2e5e0d569a5feab85c",
+  "attempts": [
+    {
+      "asr_seconds": 0.14503839402459562,
+      "alignment_seconds": 0.0003051180101465434,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—No: that book.",
+        "hotwords": "No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No —No that book.",
+          "start": 0.05,
+          "end": 1.35,
+          "words": [
+            {
+              "text": " No",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.062408447265625
+            },
+            {
+              "text": " —No",
+              "start": 0.69,
+              "end": 0.75,
+              "probability": 0.00018668174743652344
+            },
+            {
+              "text": " that",
+              "start": 0.75,
+              "end": 1.09,
+              "probability": 0.1304931640625
+            },
+            {
+              "text": " book.",
+              "start": 1.09,
+              "end": 1.35,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "—No",
+          "start": 0.69,
+          "end": 0.75
+        },
+        {
+          "raw": "that",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "raw": "book.",
+          "start": 1.09,
+          "end": 1.35
+        }
+      ],
+      "expected_tokens": [
+        "—No:",
+        "that",
+        "book."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          3,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "—No",
+          "start": 0.69,
+          "end": 0.75,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.75,
+          "end": 1.09,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "book.",
+          "start": 1.09,
+          "end": 1.35,
+          "key": "book",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—No:",
+          "start": 0.69,
+          "end": 0.75
+        },
+        {
+          "text": "that",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "text": "book.",
+          "start": 1.09,
+          "end": 1.35
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14545680201263167
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6ddbcb566d18a2e8e0a8688e6ee1965dc29257b6ab3c93cc78822cf9b50a7e0c",
+  "selected_reasons": []
+}

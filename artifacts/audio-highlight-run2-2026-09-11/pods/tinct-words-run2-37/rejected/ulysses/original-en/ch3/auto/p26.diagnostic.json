@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "f0c17129ba762608f6f3ad6b106c8fb804900b802af6551f19a70ac93f5fbb38",
+  "attempts": [
+    {
+      "asr_seconds": 0.12593250200734474,
+      "alignment_seconds": 0.000334420008584857,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Uncle Richie, really...",
+        "hotwords": "Uncle, Richie"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Uncle Richie, really...",
+          "start": 0.02,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " Uncle",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " Richie,",
+              "start": 0.64,
+              "end": 0.94,
+              "probability": 0.935546875
+            },
+            {
+              "text": " really...",
+              "start": 1.18,
+              "end": 2.1,
+              "probability": 0.4819183349609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Uncle",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Richie,",
+          "start": 0.64,
+          "end": 0.94
+        },
+        {
+          "raw": "really...",
+          "start": 1.18,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "—Uncle",
+        "Richie,",
+        "really..."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Uncle",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "uncle",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richie,",
+          "start": 0.64,
+          "end": 0.94,
+          "key": "richie",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "really...",
+          "start": 1.18,
+          "end": 2.1,
+          "key": "really",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Uncle",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Richie,",
+          "start": 0.64,
+          "end": 0.94
+        },
+        {
+          "text": "really...",
+          "start": 1.18,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12637364500551485
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1de7686545e5052bcb29b34773db379d597d2fbd2fe9c966670e995d77fc67c2",
+  "selected_reasons": []
+}

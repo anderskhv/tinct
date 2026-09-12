@@ -1,0 +1,116 @@
+{
+  "complete": true,
+  "signature": "47503c8630a4d5f98ad27bc81094beea4769addc663c3d89d34f200554c7386b",
+  "attempts": [
+    {
+      "asr_seconds": 0.09040493599604815,
+      "alignment_seconds": 0.00025447001098655164,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ilkrite",
+          "start": 0.05,
+          "end": 0.89,
+          "words": [
+            {
+              "text": " Ilkrite",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.5426432291666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ilkrite",
+          "start": 0.05,
+          "end": 0.89
+        }
+      ],
+      "expected_tokens": [
+        "_—Il",
+        "croit?_"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ilkrite",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "ilkrite",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_—Il",
+          "start": 0.0,
+          "end": 0.445
+        },
+        {
+          "text": "croit?_",
+          "start": 0.445,
+          "end": 0.667
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09072720998665318
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3fe5181ab67b324109b2aff47416fd38021e4cc373fe7238854d89a42c6d2ad1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}
