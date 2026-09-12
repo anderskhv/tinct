@@ -108,6 +108,21 @@ Kept current at every push.
   `scripts/build_book01_v3.py`, which asserts v2's accepted hash first and
   re-asserts every hazard and punctuation standard after. The objection had
   been deferred twice; it is now settled in both Books at once.
+- 2026-09-12 — **Book 2 accepted** (steps 6–8) at `candidate-v2.json`, sha256
+  `71816de3e761932c43a5bc3d5699e5dd2cb8811d0024b1048ca17e76b3445126`.
+  **Every paragraph-level finding applied — 14 minor and 8 optional — none
+  declined**; all four records findings answered outside the text. 23
+  substitutions in 15 of 35 paragraphs; ratio 0.9993 → 1.0002; **Butler token
+  retention 0.889 → 0.902**, which is the direction a correction round should
+  move, since 19 of the 23 put a word of Butler's back. Applied by
+  `scripts/build_book02_v2.py`, which asserts v1's frozen hash, every hazard,
+  and that none of the six "also noted" readings the reviewer *declined* to
+  raise has been changed. `book02/changes-v1-to-v2.md` (with a recorded reason
+  for every optional finding, and the reviewer's optional-count discrepancy
+  recorded rather than reconciled), `book02/ACCEPTANCE.md`, `continuity.md`
+  amended at R1–R4, README's mechanical checks extended and re-run verbatim
+  (`ratio 1.0002`, `retention 0.902`). Continuous flow read produced no further
+  change.
 - 2026-09-12 — **Two package-wide rules settled before Book 3**, both from
   Book 2's round 1: **D12**, Butler's square brackets disposed of by class
   (A supplied-and-flagged, B unflagged explanatory, C editorial doubt —
@@ -136,20 +151,14 @@ Kept current at every push.
 
 ## Next
 
-1. **Waiting on the coordinator: independent review of Book 2**
-   (`book02/review-instructions.md`, `book02/review-packets/`, 12 packets,
-   coverage `B02-P001`…`B02-P035`). On findings: `book02/candidate-v2.json`
-   via a change script in the established pattern, verification, flow read,
-   `book02/ACCEPTANCE.md`. **Three things are put to the reviewer explicitly**
-   and should not be left unruled: the `[do not]` bracket decision at
-   B02-P004 (the package's first bracket of any kind, and whether it should
-   become a recorded rule); the Erinyes gloss at B02-P008; and the
-   "marriage gifts a beloved daughter deserves" formula carried over from
-   accepted Book 1 with its objection deferred rather than answered — if it
-   changes, it changes in both Books.
-2. Book 3 onward proceeds in numerical order once a coordinator says so; this
-   task's brief scoped drafting to Book 2 and forbade starting Book 3.
-3. Book 10's disposition still needs a coordinator decision — see A2 below,
+1. **Book 2 is accepted and closed.** All three things put to its reviewer were
+   ruled on: the `[do not]` bracket (upheld, reason corrected, now **D12**),
+   the Erinyes gloss (upheld at this size, for the recorded reason), and the
+   marriage-gifts formula (changed, in both Books, as finding 11.1).
+2. Book 3 — drafting in progress under this task's brief.
+3. **Class-C brackets block Book 4** (D12). A coordinator decision is needed
+   before Book 4 is drafted; Books 1–3 contain none.
+4. Book 10's disposition still needs a coordinator decision — see A2 below,
    now narrowed.
 
 ## Needs Anders (listed, not waited on)

@@ -1,7 +1,10 @@
-# Continuity sheet — the Odyssey, Book 2 (candidate v1, frozen)
+# Continuity sheet — the Odyssey, Book 2 (accepted at candidate v2)
 
-Written alongside drafting `candidate-v1.json`. Describes what the frozen
-draft actually did. Paragraph IDs are `B02-Pnnn`, 1-indexed, throughout — no
+Written alongside drafting `candidate-v1.json`, and **updated at step 6**,
+2026-09-12, when round 1's findings were applied and Book 2 was accepted at
+`candidate-v2.json`. Entries that changed at step 6 say so and name the finding
+they answer; every other entry describes the frozen draft as it was reviewed.
+Every change from v1 to v2 is listed by paragraph ID in `changes-v1-to-v2.md`. Paragraph IDs are `B02-Pnnn`, 1-indexed, throughout — no
 parallel 0-indexed numbering (the off-by-one that caused records finding R4 at
 Book 1).
 
@@ -132,7 +135,14 @@ Three of these want a note:
 - **`Mycene`** (B02-P007) is the woman Mykene, in a list of famous women of
   old with Tyro and Alcmena — **not** the city Mycenae. Kept as Butler spells
   it; a reader who takes it for the city is in the same position as a reader
-  of Butler.
+  of Butler. **Upheld at round 1, and it produced decision D13** *(recorded at
+  step 6, records finding **R1**)*: Butler spells the **city** `Mycene` too, at
+  PG 1377 (Book 3) and PG 9326 (Book 21), so the glossary row as written would
+  have misled Book 3's drafter. The woman keeps Butler's spelling; the **city
+  becomes `Mycenae`** under **D8**, since `odyssey-threads.json` gives
+  Agamemnon *"Murdered King of Mycenae"* and has no entry for the woman. Book
+  2 contains no city, and the v2 build asserts that `Mycenae` does not appear
+  here.
 
 ## Recurring formulas fixed in this Book
 
@@ -165,35 +175,66 @@ the risk runs *between* Books rather than within one:
 |---|---|---|
 | "spunging upon one man… Jove shall reckon with you in full… no man to avenge you" | B01-P027 | **B02-P008, identical**: "feeding off one man, heaven help me, but Zeus will settle the account with you in full, and when you fall in my father's house, there will be no one to avenge you" |
 | "a ship and a crew of twenty men"; "(and people often hear things in this way) some heaven-sent message may direct"; "build a barrow to his memory, and make my mother marry again" | B01-P019, in Athena's mouth | **B02-P012, identical, in Telemachus's**: "a crew of twenty men"; "or—as often happens—some message from heaven may guide me"; "hold his funeral rites with full honor, raise a mound to his memory, and give my mother in marriage again" |
-| "all the marriage gifts so dear a daughter may expect" | B01-P019 | **B02-P011, identical**: "all the marriage gifts a beloved daughter deserves" |
+| "all the marriage gifts that so dear a daughter may expect" | B01-P019 | **B02-P011, identical**: v1 "a beloved daughter **deserves**"; **v2 "a beloved daughter may expect"** |
 | "moodily" | B01-P009, "in low spirits" | **B02-P020, identical** |
 
-**One of those four is flagged for the reviewer.** Book 1's reviewer noted, in
-an "also noted" remark and without making it a finding, that "so dear a
-daughter may **expect**" → "a beloved daughter **deserves**" moves from
-expectation to desert. It is repeated here **for consistency with the accepted
-Book 1**, not because the objection has been answered. If the reviewer thinks
-the objection should now be raised, the fix belongs in both Books at once, as
-a glossary row and a `candidate-v2` in each — not in Book 2 alone.
+**One of those four was flagged for the reviewer, and is now settled.**
+Book 1's reviewer noted, in an "also noted" remark and without making it a
+finding, that "so dear a daughter may **expect**" → "a beloved daughter
+**deserves**" moves from expectation to desert. v1 repeated it **for
+consistency with the accepted Book 1**, not because the objection had been
+answered, and put it to this reviewer with a request to rule rather than defer.
+
+**Ruled, at round 1, finding 11.1: it changes, in both Books.** `deserves` is a
+claim about merit, and at B02-P011 it is in **Eurymachus's** mouth mid-threat,
+about a woman he has just called artful. Butler's own verb carries no archaism.
+Applied at step 6 to `candidate-v2.json` here and to
+`../book01/candidate-v3.json` — a recorded successor to accepted Book 1, with
+Book 1's `candidate-v2.json` and `ACCEPTANCE.md` left byte-unchanged
+(`../book01/changes-v2-to-v3.md`). The `../GLOSSARY.md` row is rewritten from
+deferred-and-flagged to settled. The v2 build asserts the phrase is present in
+**both** files.
 
 ## Paragraph-level decisions
 
-- **B02-P001** — "comely feet" → "shapely feet"; "girded his sword about his
-  shoulder" → "slung his sword over his shoulder"; "endowed him with a
+**Read with `changes-v1-to-v2.md`.** The entries below were written for
+`candidate-v1.json`. Fifteen paragraphs changed at step 6 — B02-P001, P002,
+P004, P006, P007, P009, P010, P011, P013, P015, P020, P023, P026, P031, P034 —
+and every substitution is listed there against the finding it answers. Where a
+v1 decision was reversed, the entry below says so; where it stands, it stands.
+
+- **B02-P001** — v1 had "comely feet" → "shapely feet" and "endowed him with a
   presence of such divine comeliness" → "gave him such divine grace of
-  presence". **"criers" → "town criers"**, deliberately *not* "heralds":
+  presence". **Both reversed at step 6, finding 1.1**: the candidate now reads
+  "comely feet" and "such divine comeliness of presence", because Butler's
+  *comely* / *comeliness* twenty words apart is an echo doing work — the young
+  man is already fair to look at and the goddess pours more of the same
+  quality over him — and neither word is obscure. "Telemachus got up and
+  dressed" → **"rose and dressed"** (finding 1.2), matching B02-P004's own
+  `rose at once`, which is Butler's. "girded his sword about his
+  shoulder" → "slung his sword over his shoulder" stands. **"criers" → "town
+  criers"**, deliberately *not* "heralds":
   Butler uses *herald* three paragraphs later for Pisenor, and collapsing the
   two would lose a distinction he keeps. The two hounds, the spear in hand,
   and the father's seat are kept exactly.
 - **B02-P002** — **"had cooked his last dinner for him" is kept verbatim.**
   Butler's phrase is doing two things at once — the idiom for *finished him*
   and the literal fact that the Cyclops ate him — and any paraphrase picks
-  one. "Ilius, land of noble steeds" → "land of fine horses" (the epithet
-  kept as an epithet). The three sons and which of them is a suitor are kept
-  as three distinct facts.
+  one. "Ilius, land of noble steeds" → v1 "land of fine horses", **corrected at
+  step 6 to "land of noble horses" (finding 2.1)**: `steeds` is dead and rightly
+  goes, but `noble` is the epithet's qualifier and is neither dead nor obscure,
+  and `fine` collided with "my fine hothead" at B02-P020. "of infinite
+  experience" restored from v1's "vast" (finding 2.2). The three sons and which
+  of them is a suitor are kept as three distinct facts.
 - **B02-P003** — "host" → "army"; "matter of public moment" → "matter of
-  public importance"; "hear my words" → "hear what I have to say". Butler's
-  three questions stay three.
+  public importance"; "hear my words" → "hear what I have to say". **Butler's
+  two interrogatives become three questions**: his second one carries three
+  limbs (has he news of an army, does he want to warn us, or is there some
+  other matter?) and is split into two. *(Corrected at step 6, records finding
+  **R2**: this entry previously read "Butler's three questions stay three",
+  which is wrong on a countable fact — Butler prints two question marks here
+  and the candidate prints three. The split is good and no finding was made
+  against the text; the claim about it had to hold.)*
 - **B02-P004** — the Book's longest paragraph (440 source words) and its
   hardest. Every item of Telemachus's case is kept and in Butler's order: the
   staff from Pisenor; the two misfortunes named and numbered; the father who
@@ -356,21 +397,91 @@ a glossary row and a `candidate-v2` in each — not in Book 2 alone.
 **0.9993** overall (4,181 candidate words to 4,184 source words), with no
 paragraph below **0.951** (B02-P005) and none above **1.059** (B02-P003).
 
+v2 is **1.0002** (4,185 candidate words to 4,184 source words).
+
 This is far closer to 1.0 than Book 1's 0.9462, and the reason is in the
 source rather than in the drafting: Book 2 is a Book of speeches in plain
 argument, with far less of the long Victorian sentence-chaining that Book 1's
 narration carries. **The ratio is a screening signal and proves nothing about
 completeness either way**, and a near-1.0 ratio carries its own risk — that
-the rendering is a light touch-up rather than a real modernization. Two checks
-against that, both offered to the reviewer rather than claimed as proof:
+the rendering is a light touch-up rather than a real modernization.
 
-- **No paragraph is byte-identical to Butler.** All 35 differ.
+### The retention measure — the check that can actually fail
+
+**Introduced by Book 2's round-1 reviewer, and adopted here as the package's
+standard signal in place of the two counter-checks v1 offered.** Measure the
+fraction of **Butler's word tokens the candidate carries over unchanged and in
+order** (name mapping normalized, punctuation and case stripped, `difflib`
+matching blocks over word tokens). Computed by
+`../scripts/build_book02_v2.py`'s `token_retention()`.
+
+| | value |
+|---|---|
+| Book 1, `candidate-v2.json` (accepted) | **0.721** |
+| Book 2, `candidate-v1.json` | **0.889** |
+| Book 2, `candidate-v2.json` | **0.902** |
+
+**This is a better signal than the word-count ratio and it says something the
+ratio cannot**: Book 2 is a substantially lighter rewrite than the Book already
+accepted, and the two files' near-identical word ratios hid that completely.
+The reviewer then read the paragraphs the measure points at and ruled that the
+lightness is **the source's, not the drafter's** — the ten least-changed
+paragraphs are all either plain dialogue or plain concrete narration (the
+launching at B02-P034: hawsers, benches, mast, socket, cross plank, forestays,
+ox-hide ropes), where Butler's prose is already modern English and there is
+nothing to modernize without rewriting him for its own sake, which the package
+forbids. Where his Victorian sentence-chaining does appear — B02-P001, P003,
+P004, P012, P015, P019 — the candidate does the work, and those are the
+most-rewritten paragraphs on the same measure.
+
+**One qualification, and it earned the measure its keep:** the Book's
+*highest*-retention paragraph, B02-P026 at 0.974, was the one place a Victorian
+construction had been carried over intact and still obstructed
+(`after what you are keeping`). That is finding 26.1, applied at v2.
+
+**Retention rising from v1 to v2 is the right direction.** Nineteen of v2's
+twenty-three substitutions put a word of Butler's back. A correction round that
+moved retention *down* would be a warning, and the number is recorded here so a
+later round can be read against it.
+
+### The two checks this replaces, and why they were weak
+
+Both were offered to the reviewer rather than claimed as proof, and the
+reviewer declined to rely on either — correctly, since **a rewrite that
+changed one word per paragraph would satisfy both**:
+
+- **No paragraph is byte-identical to Butler.** All 35 differ. (Still asserted
+  by the build, as a floor.)
 - **Butler's dead words and forms in Book 2 are gone**: `thereon`, `ere long`,
   `whereon` (×3), `spunging`, `victuals`, `naughtiness`, `prating`, `hither
   and thither`, `abode`, `save only`, `bade`, `moodily`, `endowed`, `tambour`,
-  `singlehanded`, `unblended`, `comeliness`, `steeds`, `amongst`, `bethought`,
-  `fuddle`, `find you in everything`. **Zero survive**, and none was replaced
-  by a different archaism.
+  `singlehanded`, `unblended`, `steeds`, `amongst`, `bethought`,
+  `fuddle`, `find you in everything`. **Zero survive.**
+
+  *(Amended at step 6, records finding **R3**. Two changes. `whereupon` is
+  **added** to the list: v1 asserted `whereon` and the word survived under one
+  letter's disguise at B02-P034, which is finding 34.1. `comeliness` is
+  **removed** from it: finding 1.1 restores the word deliberately, to keep
+  Butler's `comely`/`comeliness` pair at B02-P001, and the reviewer ruled it
+  neither obscure nor archaic. **The general point matters more than either
+  entry: an assert-list of exact dead words is a regression guard, not a
+  check.** It cannot catch a dead word respelled, and nothing in this package
+  claims it can.)*
+
+### `whereon` — rendered by what it connects, not fixed as a formula
+
+Recorded at step 6, because the reviewer left the choice open at finding 34.1
+and asked that whichever way it went be written down. `whereon` is a
+**connective, not a content word**, so it is not held steady the way an epithet
+or a formula is. Book 2's three:
+
+| | Butler | Modern edition | Why |
+|---|---|---|---|
+| B02-P009 | `whereon` | **`and then`** | joins two actions in immediate sequence |
+| B02-P034 | `whereon` | **`and then`** | the same; v1 had `whereupon`, which is `whereon` respelled and a legalism in current English (finding 34.1) |
+| B02-P007 | `whereon` | **`and after that`** | follows a speech and covers three years of nightly unpicking — not an immediate sequel |
+
+A later Book should not flatten these into one rendering.
 
 ## Nothing imported from other translations
 
@@ -395,19 +506,40 @@ own, from `odyssey-threads.json`, applied from the closed table in
 
    **The mark goes and the words stand**: the candidate reads "I beg you, by
    Zeus and by Themis, who is the beginning and the end of councils: do not
-   hold back, my friends". This follows the Meditations package's settled
-   practice for a **textual mark** (a mark about the state of the source text,
-   rather than a translator's supplement of a second English word or a
-   translator's note), which is that the mark is dropped and the word is kept.
-   The alternative — keeping `[do not]` on the page — would read to a modern
-   reader as a typographic error in a sentence that is already a plea, since
-   nothing else in the edition uses brackets and there is no apparatus to
-   explain them. A colon was introduced before "do not" to carry the weight
-   the bracket was carrying in Butler's pointing. **This is the package's
-   first bracket of any kind. Put to the reviewer**, both for the ruling and
-   for whether it should become a glossary/ledger rule before a later Book
-   produces a second one (the Book 10 pilot reports brackets of a different
-   class — "[to be milked]", "[to feed]" — in its chapter).
+   hold back, my friends". A colon was introduced before "do not" to carry the
+   weight the bracket was carrying in Butler's pointing. Keeping `[do not]` on
+   the page would read to a modern reader as a typographic error inside a plea,
+   since nothing else in the edition uses brackets and there is no apparatus to
+   explain them; deleting the words would reverse the sentence.
+
+   **The disposition was upheld at round 1 and is now decision D12; the reason
+   recorded here in v1 was wrong, and the right one is stronger.** *(Corrected
+   at step 6, records finding **R4**.)* This entry previously classified the
+   bracket as "a textual mark … rather than a translator's supplement".
+   Butler's own footnote 18, attached to this very sentence (PG #1727 line
+   10926, verified directly), says the opposite in terms:
+
+   > *"'Il.' xxii. 416 … The authoress has bungled by borrowing these words
+   > verbatim from the 'Iliad', without prefixing the necessary 'do not,'
+   > which I have supplied."*
+
+   So it is **a translator's supplement, supplied against the Greek, flagged as
+   supplied and defended in a note** — the very category the old wording
+   contrasted it with. Butler himself calls the words *necessary*, so keeping
+   them is his judgement and not this package's.
+
+   **This is a class-A bracket under D12** (`../GLOSSARY.md`, "Butler's square
+   brackets — the rule, written by class"), and it is the poem's only one.
+   The rule is written by class because Butler brackets at least three
+   different things and one disposition is not right for all three:
+   **class B** (an unflagged explanatory supplement inside the line) takes the
+   same disposition on a weaker warrant and must be flagged per instance —
+   **Book 3 meets the first of these at PG 1129, `[on the embers]`**; and
+   **class C** (a passage Butler brackets as an afterthought or interpolation,
+   first at PG 1551 in Book 4, footnote 36) is **open and blocks Book 4**,
+   because dropping the mark there silently converts recorded editorial doubt
+   into narration. All fifteen brackets in the translation body are enumerated
+   in `../GLOSSARY.md`. Books 1–3 contain no class-C bracket.
 2. **No corrupted, truncated, or mid-sentence source paragraph** was found.
    All 35 source paragraphs are complete passages ending in terminal
    punctuation, apart from item 3.

@@ -13,6 +13,10 @@
  "source_book2_json_sha256": "3cc4f38c171e0e1d72ad741e75c745b31c7f330dfb3ed79910832ae4d04714c7",
  "candidate_v1_json_sha256": "2b5a0280719312bbabb214f0bcbf400cde62541ab7e9c892ce2c2b65bb4273ea",
  "candidate_v1_readable_md_sha256": "8b5719073fbff0afb7ffe23c04f8757a7c21465494564a1a4b0f4a7013fc3891",
+ "candidate_v2_json_sha256": "71816de3e761932c43a5bc3d5699e5dd2cb8811d0024b1048ca17e76b3445126",
+ "candidate_v2_readable_md_sha256": "ba4fafb88cb14b93e3337ea12987be0527ff6584809f80de0819a13783a9f173",
+ "accepted_file": "candidate-v2.json",
+ "accepted_date": "2026-09-12",
  "pg_source_sha256": "ffbdb29c3dda284b65c11243db1a98167826a70c81bca2ed4b6232f86c905fb9",
  "translation_source": "Samuel Butler, 1900. Project Gutenberg #1727 (source-texts/pg1727-butler-1900.txt). The only translation used; no other consulted for wording (Fagles, Lattimore, Wilson, Fitzgerald not read).",
  "source_verification": {
@@ -25,13 +29,18 @@
  },
  "word_counts": {
   "source": 4184,
-  "candidate": 4181,
-  "ratio": 0.9993,
-  "min_paragraph_ratio": 0.951,
-  "min_paragraph_id": "B02-P005",
-  "max_paragraph_ratio": 1.059,
-  "max_paragraph_id": "B02-P003",
-  "note": "Screening signal only; not evidence of semantic completeness, in either direction. Book 2 sits far closer to 1.0 than Book 1 (0.9462) because it is a Book of speeches in plain argument with much less of the long Victorian sentence-chaining Book 1's narration carries. A near-1.0 ratio carries its own risk - that the rendering is a light touch-up rather than a real modernization - so two counter-checks are offered to the reviewer rather than claimed as proof: no paragraph is byte-identical to Butler (0 of 35), and all 22 of Butler's dead words and forms in this Book are gone with none replaced by a different archaism."
+  "candidate_v1": 4181,
+  "candidate_v2": 4185,
+  "ratio_v1": 0.9993,
+  "ratio_v2": 1.0002,
+  "min_paragraph_ratio_v1": 0.951,
+  "min_paragraph_id_v1": "B02-P005",
+  "max_paragraph_ratio_v1": 1.059,
+  "max_paragraph_id_v1": "B02-P003",
+  "butler_token_retention_v1": 0.889,
+  "butler_token_retention_v2": 0.902,
+  "butler_token_retention_book1_v2_accepted": 0.721,
+  "note": "Screening signal only; not evidence of semantic completeness, in either direction. Book 2 sits far closer to 1.0 than Book 1 (0.9462) because it is a Book of speeches in plain argument with much less of the long Victorian sentence-chaining Book 1's narration carries. THE RATIO IS SUPERSEDED AS THE PRIMARY SIGNAL by the retention measure the round-1 reviewer introduced: the fraction of Butler's word tokens the candidate carries over unchanged AND in order (name mapping normalized, punctuation and case stripped, difflib matching blocks over word tokens; computed by scripts/build_book02_v2.py's token_retention()). It says what the ratio cannot - Book 2 is a substantially lighter rewrite than accepted Book 1 (0.889 against 0.721) at a near-identical word ratio. The reviewer then read the paragraphs it points at and ruled the lightness is the source's, not the drafter's: the least-changed paragraphs are plain dialogue and plain concrete narration where Butler is already modern English. Its one catch is finding 26.1, in the Book's HIGHEST-retention paragraph. The two counter-checks v1 offered - no paragraph byte-identical to Butler, and 22 dead words gone - are retained as floors but are weak: a rewrite changing one word per paragraph satisfies both. Retention rose from v1 to v2 because 19 of the 23 corrections put a word of Butler's back; a round that moved it down would be a warning."
  },
  "naming": {
   "decision": "Greek forms per GLOSSARY.md (standing finding S1, settled at Book 1). Book 2 is the first Book drafted under it from the start rather than remapped afterwards.",
@@ -44,10 +53,35 @@
   "quotation_balance": "candidate 29 open / 28 close, identical to the source's 29 / 28.",
   "d4_preserved": "Butler's unclosed quotation at B02-P006 into B02-P007 (Antinous's continuous speech) is reproduced exactly; it is the only unbalanced paragraph in either file. The inner single quotation round Penelope's own speech IS closed at B02-P006's end, which is Butler and not a slip."
  },
- "base_text_defects": "One. B02-P004 carries Butler's own square bracket, '[do not] hold back' (PG line 802), which the staged original-en keeps verbatim. It is Butler's bracket, not PG apparatus. The candidate drops the mark and keeps the words, with a colon introduced to carry the pointing - the package's first bracket of any kind, put to the reviewer for a ruling and for whether it should become a recorded rule. See continuity.md 'Base-text defects'.",
+ "base_text_defects": "One. B02-P004 carries Butler's own square bracket, '[do not] hold back' (PG #1727 line 802), which the staged original-en keeps verbatim. It is Butler's bracket, not PG apparatus. The candidate drops the mark and keeps the words, with a colon introduced to carry the pointing. RULED AT ROUND 1: the disposition is upheld and the reason v1 recorded for it was wrong. It is NOT a textual mark. Butler's footnote 18, attached to this sentence (PG line 10926, verified directly), reads: 'The authoress has bungled by borrowing these words verbatim from the Iliad, without prefixing the necessary \"do not,\" which I have supplied.' So it is a translator's supplement, supplied against the Greek, flagged as supplied and defended in a note - which makes keeping the words Butler's judgement and not this package's, since he calls them necessary. Now decision D12, CLASS A, and the poem's only class-A bracket. D12 is written by class because Butler brackets at least three different things: class B (unflagged explanatory supplement inside the line - same disposition, weaker warrant, flagged per instance; Book 3 meets the first at PG 1129, '[on the embers]') and class C (a passage Butler brackets as an afterthought or interpolation; first at PG 1551 in Book 4, footnote 36) - and class C is OPEN and blocks Book 4, because dropping the mark there silently converts recorded editorial doubt into narration. All fifteen brackets in the translation body are enumerated in GLOSSARY.md. See continuity.md 'Base-text defects'.",
  "glosses": "One, at B02-P008: 'the Erinyes-the spirits of vengeance-to avenge her'. Three words at first use, folded into the sentence, on the Book 10 pilot's 'cubit -> roughly eighteen inches' model. The English alternative 'the Furies' is a Roman name and is not available to this edition.",
  "generation_setting": "Drafted in-conversation by the content agent, whole Book read before drafting, against the revised GLOSSARY.md and PUNCTUATION.md. Zero Anthropic API calls; no scripts calling any LLM API; generate-editions.cjs not run.",
  "build_script": "scripts/build_book_package.py 2 (candidate text frozen in scripts/candidates/book2.py; regenerates source-book2.json, candidate-v1.json, candidate-v1-readable.md, manifest.json and review-packets/ deterministically). The script now maps the CANDIDATE's chapter title through GLOSSARY.md's closed table, and refuses to rebuild a frozen Book without --force.",
- "frozen": "candidate-v1.json is frozen at the hash above. Corrections from independent review go to candidate-v2.json.",
- "review_round_1": "not yet run. review-packets/ (12 packets) and review-instructions.md are pushed; findings expected under book02/review/."
+ "frozen": "candidate-v1.json is frozen at the hash above and was not edited; candidate-v1-readable.md and review-packets/ are likewise left as the record of what round 1 reviewed (D10). Corrections from round 1 are in candidate-v2.json, listed in changes-v1-to-v2.md.",
+ "review_round_1": "Complete. review/findings-v1.md, independent reviewer session spawned by the coordinator, on candidate-v1.json. Verdict: Accept after corrections - 0 substantive, 16 minor (14 paragraph-level + 2 records), 11 optional by the reviewer's summary table and 10 by its own numbered entries (8 paragraph-level + 2 records), 19 paragraphs with no material issue. Coverage: every ID B02-P001..B02-P035 exactly once. Every finding answered; every one applied; none declined. The reviewer re-verified the source on a different KIND of rule from the drafter's - identifying nothing in advance, diffing with PG's apparatus still in, and classifying every difference before removing anything: 7 differences in 5 paragraphs, all bare footnote-marker digit runs, then 35 of 35 byte-identical. It also introduced the Butler-token retention measure now recorded in word_counts. No second round requested or required.",
+ "review_round_2": "not run, and not required: round 1 raised no substantive finding and every finding was applied.",
+ "corrections_v1_to_v2": {
+  "substitutions": 23,
+  "paragraphs_changed": 15,
+  "paragraph_ids": [
+   "B02-P001",
+   "B02-P002",
+   "B02-P004",
+   "B02-P006",
+   "B02-P007",
+   "B02-P009",
+   "B02-P010",
+   "B02-P011",
+   "B02-P013",
+   "B02-P015",
+   "B02-P020",
+   "B02-P023",
+   "B02-P026",
+   "B02-P031",
+   "B02-P034"
+  ],
+  "built_by": "scripts/build_book02_v2.py",
+  "cross_book": "Finding 11.1 also changes accepted Book 1: book01/candidate-v3.json, sha256 c97e20f5b929d0e02b4cd1a3cd0ce8dceec86f71c935371360ab3bd14807b57c, a recorded successor leaving book01/candidate-v2.json and book01/ACCEPTANCE.md byte-unchanged.",
+  "package_decisions": "D12 (Butler's square brackets by class; class C open and blocking Book 4) and D13 (Mycene split by referent; the city becomes Mycenae under D8). Both in GLOSSARY.md and 00-progress-ledger.md."
+ }
 }
