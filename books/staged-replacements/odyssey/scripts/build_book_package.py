@@ -12,6 +12,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent  # books/staged-replacements/odyssey
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 REPO_ROOT = ROOT.parent.parent.parent  # repo root
 ORIGINAL_EN = REPO_ROOT / "app/public/data/editions/odyssey-original-en.json"
 PACKET_SIZE = 3
@@ -228,6 +229,48 @@ def main():
     source_sha = sha256_file(source_path)
 
     manifest["candidate_v1_json_sha256"] = candidate_v1_sha
+
+    # ---- THE CHECKS RUN, AND THE MANIFEST IS THE ENFORCEMENT --------------
+    # Substantive finding S-2 of Book 6's round 1: until `scripts/checks.py`
+    # existed, this script called NO check in the package — not
+    # token_retention(), not splitting_rate(), not semicolons(), not
+    # compound_drift(). D17's gate lived only in Books 4's and 5's CORRECTION
+    # scripts, so it had never gated a v1 candidate at all, and Book 6 was
+    # frozen and sent to review with no `checks-v1.md`.
+    #
+    # A convention would not have fixed that; a convention is what failed. So
+    # the enforcement is structural, and it has one moving part: the manifest
+    # is written ONLY after the gates pass, and it records the sha256 of the
+    # `checks-vN.md` that this run produced. A package directory whose checks
+    # did not run therefore has **no manifest**, and a manifest that does not
+    # name a checks file is a manifest from before this rule. A candidate that
+    # cannot be frozen without its checks running is a candidate whose checks
+    # run.
+    import checks                                            # noqa: E402
+    print()
+    figs, gate = checks.run_book(book_num, version=1)
+    if gate.failures:
+        if manifest_path.exists():
+            manifest_path.unlink()
+        sys.exit(
+            "\nbuild_book_package.py: %d gate(s) FAILED for Book %d. The "
+            "manifest was NOT written, so this package is not frozen. See "
+            "book%02d/checks-v1.md."
+            % (len(gate.failures), book_num, book_num))
+    manifest["checks"] = {
+        "written_by": "scripts/checks.py",
+        "file": figs["checks_md"],
+        "sha256": figs["checks_md_sha256"],
+        "basis": figs["basis"],
+        "retention": round(figs["retention"], 5),
+        "sentences": list(figs["sent"]),
+        "splitting_rate_raw_pct": round(figs["raw"], 1),
+        "norm_rate_pct": round(figs["norm"], 1),
+        "sixty_word": list(figs["sixty"]),
+        "semicolons": list(figs["semi"]),
+        "move_gap": round(figs["movegap"], 5),
+        "all_gates_passed": True,
+    }
     manifest_path.write_text(dump_json(manifest), encoding="utf-8")
 
     print(f"Book {book_num}: {n} paragraphs")
