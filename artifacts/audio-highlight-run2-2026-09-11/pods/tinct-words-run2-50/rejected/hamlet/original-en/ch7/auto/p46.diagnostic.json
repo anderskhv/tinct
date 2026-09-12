@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "bedf77e48974d7074849c5294c7a7b77667889b9f257f14233e6b34dea1c43e3",
+  "attempts": [
+    {
+      "asr_seconds": 0.13145935162901878,
+      "alignment_seconds": 0.00033968687057495117,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King. Not that I know.",
+        "hotwords": "King, Not, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King, Not that I know.",
+          "start": 0.05,
+          "end": 1.61,
+          "words": [
+            {
+              "text": " King,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " Not",
+              "start": 0.93,
+              "end": 1.13,
+              "probability": 0.015869140625
+            },
+            {
+              "text": " that",
+              "start": 1.13,
+              "end": 1.25,
+              "probability": 0.64501953125
+            },
+            {
+              "text": " I",
+              "start": 1.25,
+              "end": 1.39,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " know.",
+              "start": 1.39,
+              "end": 1.61,
+              "probability": 0.8232421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Not",
+          "start": 0.93,
+          "end": 1.13
+        },
+        {
+          "raw": "that",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "raw": "know.",
+          "start": 1.39,
+          "end": 1.61
+        }
+      ],
+      "expected_tokens": [
+        "King.",
+        "Not",
+        "that",
+        "I",
+        "know."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 0.93,
+          "end": 1.13,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.13,
+          "end": 1.25,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.39,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "know.",
+          "start": 1.39,
+          "end": 1.61,
+          "key": "know",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Not",
+          "start": 0.93,
+          "end": 1.13
+        },
+        {
+          "text": "that",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "text": "I",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "text": "know.",
+          "start": 1.39,
+          "end": 1.61
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1319310124963522
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1a38109994da6ddbe9d33309f00770316bfbf31ea050ec0b1e0b4285961d9cc7",
+  "selected_reasons": []
+}

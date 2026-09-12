@@ -1,0 +1,355 @@
+{
+  "complete": true,
+  "signature": "8f40b196c5b5db2d17a9d71daba8710cf52c7f199ec93237d622fa87e5824602",
+  "attempts": [
+    {
+      "asr_seconds": 0.2255555633455515,
+      "alignment_seconds": 0.00023399293422698975,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet, follow him, friends.",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.936767578125
+            },
+            {
+              "text": " follow",
+              "start": 1.07,
+              "end": 1.23,
+              "probability": 0.962890625
+            },
+            {
+              "text": " him,",
+              "start": 1.23,
+              "end": 1.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " friends.",
+              "start": 1.67,
+              "end": 1.75,
+              "probability": 0.99072265625
+            }
+          ]
+        },
+        {
+          "text": " We'll hear a play tomorrow.",
+          "start": 2.31,
+          "end": 3.21,
+          "words": [
+            {
+              "text": " We'll",
+              "start": 2.31,
+              "end": 2.41,
+              "probability": 0.985595703125
+            },
+            {
+              "text": " hear",
+              "start": 2.41,
+              "end": 2.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 2.55,
+              "end": 2.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " play",
+              "start": 2.69,
+              "end": 2.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tomorrow.",
+              "start": 2.85,
+              "end": 3.21,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "follow",
+          "start": 1.07,
+          "end": 1.23
+        },
+        {
+          "raw": "him,",
+          "start": 1.23,
+          "end": 1.47
+        },
+        {
+          "raw": "friends.",
+          "start": 1.67,
+          "end": 1.75
+        },
+        {
+          "raw": "We'll",
+          "start": 2.31,
+          "end": 2.41
+        },
+        {
+          "raw": "hear",
+          "start": 2.41,
+          "end": 2.55
+        },
+        {
+          "raw": "a",
+          "start": 2.55,
+          "end": 2.69
+        },
+        {
+          "raw": "play",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "raw": "tomorrow.",
+          "start": 2.85,
+          "end": 3.21
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Follow",
+        "him,",
+        "friends.",
+        "We'll",
+        "hear",
+        "a",
+        "play",
+        "tomorrow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "follow",
+          "start": 1.07,
+          "end": 1.23,
+          "key": "follow",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 1.23,
+          "end": 1.47,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "friends.",
+          "start": 1.67,
+          "end": 1.75,
+          "key": "friends",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "We'll",
+          "start": 2.31,
+          "end": 2.41,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 2.41,
+          "end": 2.55,
+          "key": "hear",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.55,
+          "end": 2.69,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "play",
+          "start": 2.69,
+          "end": 2.85,
+          "key": "play",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tomorrow.",
+          "start": 2.85,
+          "end": 3.21,
+          "key": "tomorrow",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Follow",
+          "start": 1.07,
+          "end": 1.23
+        },
+        {
+          "text": "him,",
+          "start": 1.23,
+          "end": 1.47
+        },
+        {
+          "text": "friends.",
+          "start": 1.67,
+          "end": 1.75
+        },
+        {
+          "text": "We'll",
+          "start": 2.31,
+          "end": 2.41
+        },
+        {
+          "text": "hear",
+          "start": 2.41,
+          "end": 2.55
+        },
+        {
+          "text": "a",
+          "start": 2.55,
+          "end": 2.69
+        },
+        {
+          "text": "play",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "text": "tomorrow.",
+          "start": 2.85,
+          "end": 3.21
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22586625255644321
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "302866f06c45624ea74828d3c9a90d872e358c4612be67a54c002efd2b466de6",
+  "selected_reasons": []
+}

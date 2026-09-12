@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "fa1ac18f2c74214eb807f2aba966755d7a7423a1560eaddd340fa2203f46014a",
+  "attempts": [
+    {
+      "asr_seconds": 0.3084088731557131,
+      "alignment_seconds": 0.0005137771368026733,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. I see a cherub that sees them. But, come; for England! Farewell, dear mother.",
+        "hotwords": "Hamlet, I, But, England, Farewell"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, I see a cherub that sees them. But, come, for England! Farewell, dear mother.",
+          "start": 0.05,
+          "end": 5.25,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " I",
+              "start": 0.93,
+              "end": 1.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " see",
+              "start": 1.03,
+              "end": 1.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 1.19,
+              "end": 1.37,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " cherub",
+              "start": 1.37,
+              "end": 1.59,
+              "probability": 0.992431640625
+            },
+            {
+              "text": " that",
+              "start": 1.59,
+              "end": 1.71,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " sees",
+              "start": 1.71,
+              "end": 1.97,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " them.",
+              "start": 1.97,
+              "end": 2.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " But,",
+              "start": 2.73,
+              "end": 2.85,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " come,",
+              "start": 2.85,
+              "end": 3.09,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " for",
+              "start": 3.29,
+              "end": 3.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " England!",
+              "start": 3.33,
+              "end": 3.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Farewell,",
+              "start": 4.33,
+              "end": 4.71,
+              "probability": 0.974609375
+            },
+            {
+              "text": " dear",
+              "start": 4.87,
+              "end": 4.95,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " mother.",
+              "start": 4.95,
+              "end": 5.25,
+              "probability": 0.77197265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "I",
+          "start": 0.93,
+          "end": 1.03
+        },
+        {
+          "raw": "see",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "raw": "a",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "raw": "cherub",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "raw": "that",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "raw": "sees",
+          "start": 1.71,
+          "end": 1.97
+        },
+        {
+          "raw": "them.",
+          "start": 1.97,
+          "end": 2.29
+        },
+        {
+          "raw": "But,",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "raw": "come,",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "raw": "for",
+          "start": 3.29,
+          "end": 3.33
+        },
+        {
+          "raw": "England!",
+          "start": 3.33,
+          "end": 3.65
+        },
+        {
+          "raw": "Farewell,",
+          "start": 4.33,
+          "end": 4.71
+        },
+        {
+          "raw": "dear",
+          "start": 4.87,
+          "end": 4.95
+        },
+        {
+          "raw": "mother.",
+          "start": 4.95,
+          "end": 5.25
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "I",
+        "see",
+        "a",
+        "cherub",
+        "that",
+        "sees",
+        "them.",
+        "But,",
+        "come;",
+        "for",
+        "England!",
+        "Farewell,",
+        "dear",
+        "mother."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.93,
+          "end": 1.03,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.03,
+          "end": 1.19,
+          "key": "see",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.19,
+          "end": 1.37,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cherub",
+          "start": 1.37,
+          "end": 1.59,
+          "key": "cherub",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.59,
+          "end": 1.71,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sees",
+          "start": 1.71,
+          "end": 1.97,
+          "key": "sees",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 1.97,
+          "end": 2.29,
+          "key": "them",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "But,",
+          "start": 2.73,
+          "end": 2.85,
+          "key": "but",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "come,",
+          "start": 2.85,
+          "end": 3.09,
+          "key": "come",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.29,
+          "end": 3.33,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "England!",
+          "start": 3.33,
+          "end": 3.65,
+          "key": "england",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Farewell,",
+          "start": 4.33,
+          "end": 4.71,
+          "key": "farewell",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 4.87,
+          "end": 4.95,
+          "key": "dear",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "mother.",
+          "start": 4.95,
+          "end": 5.25,
+          "key": "mother",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "I",
+          "start": 0.93,
+          "end": 1.03
+        },
+        {
+          "text": "see",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "text": "a",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "text": "cherub",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "text": "that",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "text": "sees",
+          "start": 1.71,
+          "end": 1.97
+        },
+        {
+          "text": "them.",
+          "start": 1.97,
+          "end": 2.29
+        },
+        {
+          "text": "But,",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "text": "come;",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "text": "for",
+          "start": 3.29,
+          "end": 3.33
+        },
+        {
+          "text": "England!",
+          "start": 3.33,
+          "end": 3.65
+        },
+        {
+          "text": "Farewell,",
+          "start": 4.33,
+          "end": 4.71
+        },
+        {
+          "text": "dear",
+          "start": 4.87,
+          "end": 4.95
+        },
+        {
+          "text": "mother.",
+          "start": 4.95,
+          "end": 5.25
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3091368358582258
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ea895e1489e8f0dfc1dcc66725a7102503a37d6372b9a85f083b687a8a72b50a",
+  "selected_reasons": []
+}

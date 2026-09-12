@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "80228adde7c8e51ee7a6d9362479a67ef64d685a75d9ecc222f7f18ae865db72",
+  "attempts": [
+    {
+      "asr_seconds": 0.15332653373479843,
+      "alignment_seconds": 0.00034378841519355774,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. What's the matter now?",
+        "hotwords": "Hamlet, What's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, What's the matter now?",
+          "start": 0.08,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " What's",
+              "start": 1.1,
+              "end": 1.32,
+              "probability": 0.504180908203125
+            },
+            {
+              "text": " the",
+              "start": 1.32,
+              "end": 1.42,
+              "probability": 0.63232421875
+            },
+            {
+              "text": " matter",
+              "start": 1.42,
+              "end": 1.6,
+              "probability": 0.267578125
+            },
+            {
+              "text": " now?",
+              "start": 1.6,
+              "end": 1.94,
+              "probability": 0.96337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "What's",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "raw": "the",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "raw": "matter",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "raw": "now?",
+          "start": 1.6,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "What's",
+        "the",
+        "matter",
+        "now?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 1.1,
+          "end": 1.32,
+          "key": "whats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.32,
+          "end": 1.42,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "matter",
+          "start": 1.42,
+          "end": 1.6,
+          "key": "matter",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "now?",
+          "start": 1.6,
+          "end": 1.94,
+          "key": "now",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "What's",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "text": "the",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "text": "matter",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "text": "now?",
+          "start": 1.6,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15381156280636787
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "50ecae46d28499a22b651493a0260b9b97e95c75fd99de049fd731140a6f0ba6",
+  "selected_reasons": []
+}

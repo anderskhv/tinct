@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "8adac24ef50099cfb7915b6927a7631ffbe98f3d89a79d361b3b7e643e6c2f5b",
+  "attempts": [
+    {
+      "asr_seconds": 0.10952570848166943,
+      "alignment_seconds": 0.00022855587303638458,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. At supper.",
+        "hotwords": "Hamlet, At"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, At supper.",
+          "start": 0.05,
+          "end": 1.39,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.902099609375
+            },
+            {
+              "text": " At",
+              "start": 1.01,
+              "end": 1.09,
+              "probability": 0.02056884765625
+            },
+            {
+              "text": " supper.",
+              "start": 1.09,
+              "end": 1.39,
+              "probability": 0.188720703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "At",
+          "start": 1.01,
+          "end": 1.09
+        },
+        {
+          "raw": "supper.",
+          "start": 1.09,
+          "end": 1.39
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "At",
+        "supper."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "At",
+          "start": 1.01,
+          "end": 1.09,
+          "key": "at",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "supper.",
+          "start": 1.09,
+          "end": 1.39,
+          "key": "supper",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "At",
+          "start": 1.01,
+          "end": 1.09
+        },
+        {
+          "text": "supper.",
+          "start": 1.09,
+          "end": 1.39
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10983341187238693
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "90aa54b88de607aa275fffc1c044a1dc29badd137db8f247f83b9044c983dcd6",
+  "selected_reasons": []
+}

@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "e390a7849f76e31cb13373bb8838027d9f7d57f263fcb8cbbf01e9c9c5a333ec",
+  "attempts": [
+    {
+      "asr_seconds": 0.2209255751222372,
+      "alignment_seconds": 0.0003246814012527466,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Guildenstern, what my lord.",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Guildenstern,",
+              "start": 0.05,
+              "end": 1.11,
+              "probability": 0.8587646484375
+            },
+            {
+              "text": " what",
+              "start": 1.47,
+              "end": 1.55,
+              "probability": 0.8203125
+            },
+            {
+              "text": " my",
+              "start": 1.55,
+              "end": 1.73,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " lord.",
+              "start": 1.73,
+              "end": 1.95,
+              "probability": 0.869140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Guildenstern,",
+          "start": 0.05,
+          "end": 1.11
+        },
+        {
+          "raw": "what",
+          "start": 1.47,
+          "end": 1.55
+        },
+        {
+          "raw": "my",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "raw": "lord.",
+          "start": 1.73,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "Guildenstern.",
+        "What,",
+        "my",
+        "lord?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Guildenstern,",
+          "start": 0.05,
+          "end": 1.11,
+          "key": "guildenstern",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.47,
+          "end": 1.55,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.55,
+          "end": 1.73,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.73,
+          "end": 1.95,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guildenstern.",
+          "start": 0.05,
+          "end": 1.11
+        },
+        {
+          "text": "What,",
+          "start": 1.47,
+          "end": 1.55
+        },
+        {
+          "text": "my",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "text": "lord?",
+          "start": 1.73,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2213637437671423
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8dafa5341e6c9182c37cdbb65f3517634363428a65dc3e44dd522f1c0ad7d902",
+  "selected_reasons": []
+}

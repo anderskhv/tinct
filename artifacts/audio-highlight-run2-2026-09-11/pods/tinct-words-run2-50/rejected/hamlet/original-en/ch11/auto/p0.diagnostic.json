@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "058b6d3c3e9b28daac984fe4920615a53a7f00ebbdb5a86a3b6762b42d1c66f7",
+  "attempts": [
+    {
+      "asr_seconds": 0.11830763146281242,
+      "alignment_seconds": 0.0003007110208272934,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Enter Queen and Polonius]",
+        "hotwords": "Enter, Queen, Polonius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Queen and Polonius",
+          "start": 0.11,
+          "end": 1.69,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " Queen",
+              "start": 0.63,
+              "end": 0.91,
+              "probability": 0.65234375
+            },
+            {
+              "text": " and",
+              "start": 0.91,
+              "end": 1.13,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " Polonius",
+              "start": 1.13,
+              "end": 1.69,
+              "probability": 0.8927408854166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "Queen",
+          "start": 0.63,
+          "end": 0.91
+        },
+        {
+          "raw": "and",
+          "start": 0.91,
+          "end": 1.13
+        },
+        {
+          "raw": "Polonius",
+          "start": 1.13,
+          "end": 1.69
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Queen",
+        "and",
+        "Polonius]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Queen",
+          "start": 0.63,
+          "end": 0.91,
+          "key": "queen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.91,
+          "end": 1.13,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Polonius",
+          "start": 1.13,
+          "end": 1.69,
+          "key": "polonius",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "text": "Queen",
+          "start": 0.63,
+          "end": 0.91
+        },
+        {
+          "text": "and",
+          "start": 0.91,
+          "end": 1.13
+        },
+        {
+          "text": "Polonius]",
+          "start": 1.13,
+          "end": 1.69
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11872043274343014
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4843396a65978ac55763f01ac5aabf5eb8dd2dbf289f4608ccd74c8779e99fb5",
+  "selected_reasons": []
+}

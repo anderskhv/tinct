@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "0f24709c487fe6b07e9417e4a5f15e613d81cd0a06b1454992f7c0bfff886a9b",
+  "attempts": [
+    {
+      "asr_seconds": 0.18318787962198257,
+      "alignment_seconds": 0.00041324086487293243,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. No, good mother, here's metal more attractive.",
+        "hotwords": "Hamlet, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, No, good mother, here's metal more attractive.",
+          "start": 0.08,
+          "end": 3.32,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.942626953125
+            },
+            {
+              "text": " No,",
+              "start": 1.24,
+              "end": 1.52,
+              "probability": 0.06549072265625
+            },
+            {
+              "text": " good",
+              "start": 1.7,
+              "end": 1.76,
+              "probability": 0.59033203125
+            },
+            {
+              "text": " mother,",
+              "start": 1.76,
+              "end": 2.02,
+              "probability": 0.791015625
+            },
+            {
+              "text": " here's",
+              "start": 2.28,
+              "end": 2.44,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " metal",
+              "start": 2.44,
+              "end": 2.62,
+              "probability": 0.86328125
+            },
+            {
+              "text": " more",
+              "start": 2.62,
+              "end": 2.88,
+              "probability": 0.67138671875
+            },
+            {
+              "text": " attractive.",
+              "start": 2.88,
+              "end": 3.32,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "No,",
+          "start": 1.24,
+          "end": 1.52
+        },
+        {
+          "raw": "good",
+          "start": 1.7,
+          "end": 1.76
+        },
+        {
+          "raw": "mother,",
+          "start": 1.76,
+          "end": 2.02
+        },
+        {
+          "raw": "here's",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "raw": "metal",
+          "start": 2.44,
+          "end": 2.62
+        },
+        {
+          "raw": "more",
+          "start": 2.62,
+          "end": 2.88
+        },
+        {
+          "raw": "attractive.",
+          "start": 2.88,
+          "end": 3.32
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "No,",
+        "good",
+        "mother,",
+        "here's",
+        "metal",
+        "more",
+        "attractive."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.24,
+          "end": 1.52,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.7,
+          "end": 1.76,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mother,",
+          "start": 1.76,
+          "end": 2.02,
+          "key": "mother",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "here's",
+          "start": 2.28,
+          "end": 2.44,
+          "key": "heres",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "metal",
+          "start": 2.44,
+          "end": 2.62,
+          "key": "metal",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 2.62,
+          "end": 2.88,
+          "key": "more",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "attractive.",
+          "start": 2.88,
+          "end": 3.32,
+          "key": "attractive",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "No,",
+          "start": 1.24,
+          "end": 1.52
+        },
+        {
+          "text": "good",
+          "start": 1.7,
+          "end": 1.76
+        },
+        {
+          "text": "mother,",
+          "start": 1.76,
+          "end": 2.02
+        },
+        {
+          "text": "here's",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "text": "metal",
+          "start": 2.44,
+          "end": 2.62
+        },
+        {
+          "text": "more",
+          "start": 2.62,
+          "end": 2.88
+        },
+        {
+          "text": "attractive.",
+          "start": 2.88,
+          "end": 3.32
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18377944827079773
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b095fb2c0ac4d6bbbbafa3694af7e60763ef78b60b1acc903f9c13f5eaa621f0",
+  "selected_reasons": []
+}

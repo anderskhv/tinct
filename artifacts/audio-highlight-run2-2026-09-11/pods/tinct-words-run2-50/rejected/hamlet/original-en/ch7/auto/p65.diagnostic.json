@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "f96981f419e904504e758822ee9ff17927385349c5a4b9cf324655918c2316b7",
+  "attempts": [
+    {
+      "asr_seconds": 0.1788443960249424,
+      "alignment_seconds": 0.00011858530342578888,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Polonius. Honest, my lord?",
+        "hotwords": "Polonius, Honest"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Polonius, Honest, my lord?",
+          "start": 0.55,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " Polonius,",
+              "start": 0.55,
+              "end": 0.99,
+              "probability": 0.798828125
+            },
+            {
+              "text": " Honest,",
+              "start": 1.45,
+              "end": 1.59,
+              "probability": 0.106689453125
+            },
+            {
+              "text": " my",
+              "start": 1.71,
+              "end": 1.83,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " lord?",
+              "start": 1.83,
+              "end": 2.05,
+              "probability": 0.70751953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polonius,",
+          "start": 0.55,
+          "end": 0.99
+        },
+        {
+          "raw": "Honest,",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "raw": "my",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "raw": "lord?",
+          "start": 1.83,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "Polonius.",
+        "Honest,",
+        "my",
+        "lord?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polonius,",
+          "start": 0.55,
+          "end": 0.99,
+          "key": "polonius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Honest,",
+          "start": 1.45,
+          "end": 1.59,
+          "key": "honest",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.71,
+          "end": 1.83,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord?",
+          "start": 1.83,
+          "end": 2.05,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polonius.",
+          "start": 0.55,
+          "end": 0.99
+        },
+        {
+          "text": "Honest,",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "text": "my",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "text": "lord?",
+          "start": 1.83,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1790011078119278
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "817866487d3999cedb1db02fb46b8b06baad487651cb565d824904109edf8bcd",
+  "selected_reasons": []
+}

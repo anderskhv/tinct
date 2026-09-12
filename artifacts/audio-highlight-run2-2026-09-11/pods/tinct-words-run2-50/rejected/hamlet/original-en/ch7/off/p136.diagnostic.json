@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "64ed84f2a6d28641c0de9e55a2a4292e3ec9fc3fa10a782e79134456dc3dac34",
+  "attempts": [
+    {
+      "asr_seconds": 0.17384974844753742,
+      "alignment_seconds": 0.0002087857574224472,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Guildenstern. Oh, there has been much throwing about of brains",
+          "start": 0.75,
+          "end": 3.49,
+          "words": [
+            {
+              "text": " Guildenstern.",
+              "start": 0.75,
+              "end": 1.11,
+              "probability": 0.878173828125
+            },
+            {
+              "text": " Oh,",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " there",
+              "start": 1.81,
+              "end": 1.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " has",
+              "start": 1.95,
+              "end": 2.07,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " been",
+              "start": 2.07,
+              "end": 2.21,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " much",
+              "start": 2.21,
+              "end": 2.41,
+              "probability": 0.994140625
+            },
+            {
+              "text": " throwing",
+              "start": 2.41,
+              "end": 2.79,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " about",
+              "start": 2.79,
+              "end": 3.05,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " of",
+              "start": 3.05,
+              "end": 3.19,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " brains",
+              "start": 3.19,
+              "end": 3.49,
+              "probability": 0.9580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Guildenstern.",
+          "start": 0.75,
+          "end": 1.11
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "there",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "raw": "has",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "raw": "been",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "raw": "much",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "raw": "throwing",
+          "start": 2.41,
+          "end": 2.79
+        },
+        {
+          "raw": "about",
+          "start": 2.79,
+          "end": 3.05
+        },
+        {
+          "raw": "of",
+          "start": 3.05,
+          "end": 3.19
+        },
+        {
+          "raw": "brains",
+          "start": 3.19,
+          "end": 3.49
+        }
+      ],
+      "expected_tokens": [
+        "Guildenstern.",
+        "O,",
+        "there",
+        "has",
+        "been",
+        "much",
+        "throwing",
+        "about",
+        "of",
+        "brains."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          10,
+          2,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Guildenstern.",
+          "start": 0.75,
+          "end": 1.11,
+          "key": "guildenstern",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.61,
+          "end": 1.77,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 1.81,
+          "end": 1.95,
+          "key": "there",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 1.95,
+          "end": 2.07,
+          "key": "has",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 2.07,
+          "end": 2.21,
+          "key": "been",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.21,
+          "end": 2.41,
+          "key": "much",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "throwing",
+          "start": 2.41,
+          "end": 2.79,
+          "key": "throwing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 2.79,
+          "end": 3.05,
+          "key": "about",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.05,
+          "end": 3.19,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "brains",
+          "start": 3.19,
+          "end": 3.49,
+          "key": "brains",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guildenstern.",
+          "start": 0.75,
+          "end": 1.11
+        },
+        {
+          "text": "O,",
+          "start": 1.11,
+          "end": 1.46
+        },
+        {
+          "text": "there",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "text": "has",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "text": "been",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "text": "much",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "text": "throwing",
+          "start": 2.41,
+          "end": 2.79
+        },
+        {
+          "text": "about",
+          "start": 2.79,
+          "end": 3.05
+        },
+        {
+          "text": "of",
+          "start": 3.05,
+          "end": 3.19
+        },
+        {
+          "text": "brains.",
+          "start": 3.19,
+          "end": 3.49
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.17413510382175446
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "992507d7734c4bc9b621a923f58f4a7cdde2736415b43ccca019f44944c03c88",
+  "selected_reasons": []
+}

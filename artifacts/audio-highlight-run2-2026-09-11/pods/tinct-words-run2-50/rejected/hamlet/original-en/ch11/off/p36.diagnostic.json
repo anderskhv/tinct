@@ -1,0 +1,690 @@
+{
+  "complete": true,
+  "signature": "8a0da48cd8cf0c95aabe749e004df1c1eff95c33e1af5371e46a59b9c6e6d36b",
+  "attempts": [
+    {
+      "asr_seconds": 0.3114501293748617,
+      "alignment_seconds": 0.0007231328636407852,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Queen oh speak to me no more these words like daggers enter in mine ears no more sweet hamlet",
+          "start": 0.08,
+          "end": 6.56,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.685546875
+            },
+            {
+              "text": " oh",
+              "start": 0.68,
+              "end": 1.38,
+              "probability": 0.205078125
+            },
+            {
+              "text": " speak",
+              "start": 1.38,
+              "end": 1.6,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " to",
+              "start": 1.6,
+              "end": 1.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 1.78,
+              "end": 1.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " no",
+              "start": 1.88,
+              "end": 2.06,
+              "probability": 0.7392578125
+            },
+            {
+              "text": " more",
+              "start": 2.06,
+              "end": 2.4,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " these",
+              "start": 2.4,
+              "end": 2.96,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " words",
+              "start": 2.96,
+              "end": 3.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " like",
+              "start": 3.2,
+              "end": 3.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " daggers",
+              "start": 3.46,
+              "end": 3.9,
+              "probability": 0.978271484375
+            },
+            {
+              "text": " enter",
+              "start": 3.9,
+              "end": 4.16,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " in",
+              "start": 4.16,
+              "end": 4.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " mine",
+              "start": 4.34,
+              "end": 4.56,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " ears",
+              "start": 4.56,
+              "end": 4.94,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " no",
+              "start": 4.94,
+              "end": 5.44,
+              "probability": 0.6171875
+            },
+            {
+              "text": " more",
+              "start": 5.44,
+              "end": 5.7,
+              "probability": 0.990234375
+            },
+            {
+              "text": " sweet",
+              "start": 5.7,
+              "end": 6.06,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " hamlet",
+              "start": 6.06,
+              "end": 6.56,
+              "probability": 0.84033203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "oh",
+          "start": 0.68,
+          "end": 1.38
+        },
+        {
+          "raw": "speak",
+          "start": 1.38,
+          "end": 1.6
+        },
+        {
+          "raw": "to",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "raw": "me",
+          "start": 1.78,
+          "end": 1.88
+        },
+        {
+          "raw": "no",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "raw": "more",
+          "start": 2.06,
+          "end": 2.4
+        },
+        {
+          "raw": "these",
+          "start": 2.4,
+          "end": 2.96
+        },
+        {
+          "raw": "words",
+          "start": 2.96,
+          "end": 3.2
+        },
+        {
+          "raw": "like",
+          "start": 3.2,
+          "end": 3.46
+        },
+        {
+          "raw": "daggers",
+          "start": 3.46,
+          "end": 3.9
+        },
+        {
+          "raw": "enter",
+          "start": 3.9,
+          "end": 4.16
+        },
+        {
+          "raw": "in",
+          "start": 4.16,
+          "end": 4.34
+        },
+        {
+          "raw": "mine",
+          "start": 4.34,
+          "end": 4.56
+        },
+        {
+          "raw": "ears",
+          "start": 4.56,
+          "end": 4.94
+        },
+        {
+          "raw": "no",
+          "start": 4.94,
+          "end": 5.44
+        },
+        {
+          "raw": "more",
+          "start": 5.44,
+          "end": 5.7
+        },
+        {
+          "raw": "sweet",
+          "start": 5.7,
+          "end": 6.06
+        },
+        {
+          "raw": "hamlet",
+          "start": 6.06,
+          "end": 6.56
+        }
+      ],
+      "expected_tokens": [
+        "Queen.",
+        "O",
+        "speak",
+        "to",
+        "me",
+        "no",
+        "more;",
+        "These",
+        "words",
+        "like",
+        "daggers",
+        "enter",
+        "in",
+        "mine",
+        "ears;",
+        "No",
+        "more,",
+        "sweet",
+        "Hamlet."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          19,
+          2,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 0.68,
+          "end": 1.38,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 1.38,
+          "end": 1.6,
+          "key": "speak",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.6,
+          "end": 1.78,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.78,
+          "end": 1.88,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.88,
+          "end": 2.06,
+          "key": "no",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 2.06,
+          "end": 2.4,
+          "key": "more",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 2.4,
+          "end": 2.96,
+          "key": "these",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "words",
+          "start": 2.96,
+          "end": 3.2,
+          "key": "words",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.2,
+          "end": 3.46,
+          "key": "like",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "daggers",
+          "start": 3.46,
+          "end": 3.9,
+          "key": "daggers",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "enter",
+          "start": 3.9,
+          "end": 4.16,
+          "key": "enter",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.16,
+          "end": 4.34,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 4.34,
+          "end": 4.56,
+          "key": "mine",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "ears",
+          "start": 4.56,
+          "end": 4.94,
+          "key": "ears",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 4.94,
+          "end": 5.44,
+          "key": "no",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 5.44,
+          "end": 5.7,
+          "key": "more",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 5.7,
+          "end": 6.06,
+          "key": "sweet",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "hamlet",
+          "start": 6.06,
+          "end": 6.56,
+          "key": "hamlet",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen.",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "O",
+          "start": 0.68,
+          "end": 1.03
+        },
+        {
+          "text": "speak",
+          "start": 1.38,
+          "end": 1.6
+        },
+        {
+          "text": "to",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "text": "me",
+          "start": 1.78,
+          "end": 1.88
+        },
+        {
+          "text": "no",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "text": "more;",
+          "start": 2.06,
+          "end": 2.4
+        },
+        {
+          "text": "These",
+          "start": 2.4,
+          "end": 2.96
+        },
+        {
+          "text": "words",
+          "start": 2.96,
+          "end": 3.2
+        },
+        {
+          "text": "like",
+          "start": 3.2,
+          "end": 3.46
+        },
+        {
+          "text": "daggers",
+          "start": 3.46,
+          "end": 3.9
+        },
+        {
+          "text": "enter",
+          "start": 3.9,
+          "end": 4.16
+        },
+        {
+          "text": "in",
+          "start": 4.16,
+          "end": 4.34
+        },
+        {
+          "text": "mine",
+          "start": 4.34,
+          "end": 4.56
+        },
+        {
+          "text": "ears;",
+          "start": 4.56,
+          "end": 4.94
+        },
+        {
+          "text": "No",
+          "start": 4.94,
+          "end": 5.44
+        },
+        {
+          "text": "more,",
+          "start": 5.44,
+          "end": 5.7
+        },
+        {
+          "text": "sweet",
+          "start": 5.7,
+          "end": 6.06
+        },
+        {
+          "text": "Hamlet.",
+          "start": 6.06,
+          "end": 6.56
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.3124433495104313
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "874f15a88f6314230e358b0fd87b4fc633c233ffebaacebc0c43cdbef3e465ba",
+  "selected_reasons": []
+}

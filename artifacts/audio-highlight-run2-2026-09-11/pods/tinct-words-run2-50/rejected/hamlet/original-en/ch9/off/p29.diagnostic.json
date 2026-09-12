@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "c5c6266007adbad7dd24f269098ca0ac3698bcf3bb89c77ce3226e1611a63111",
+  "attempts": [
+    {
+      "asr_seconds": 0.11227646470069885,
+      "alignment_seconds": 0.00037741847336292267,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet, what did you enact?",
+          "start": 0.05,
+          "end": 1.77,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.958740234375
+            },
+            {
+              "text": " what",
+              "start": 1.07,
+              "end": 1.21,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " did",
+              "start": 1.21,
+              "end": 1.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 1.33,
+              "end": 1.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " enact?",
+              "start": 1.43,
+              "end": 1.77,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "what",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "raw": "did",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "raw": "you",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "raw": "enact?",
+          "start": 1.43,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "What",
+        "did",
+        "you",
+        "enact?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.07,
+          "end": 1.21,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.21,
+          "end": 1.33,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.33,
+          "end": 1.43,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "enact?",
+          "start": 1.43,
+          "end": 1.77,
+          "key": "enact",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "What",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "text": "did",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "text": "you",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "text": "enact?",
+          "start": 1.43,
+          "end": 1.77
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11278017051517963
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "61d085d4e9a16587a66e216c51a6a27debad4d86c60b92ac069c7f8b76a8a866",
+  "selected_reasons": []
+}

@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "693c16053edce764697dccfd184d3574b81486894828d9fd81df841cda9350e6",
+  "attempts": [
+    {
+      "asr_seconds": 0.23647326603531837,
+      "alignment_seconds": 0.000459279865026474,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King. But how hath she receiv'd his love?",
+        "hotwords": "King, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King, But how hath she receiv'd his love?",
+          "start": 0.05,
+          "end": 2.45,
+          "words": [
+            {
+              "text": " King,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.67724609375
+            },
+            {
+              "text": " But",
+              "start": 0.95,
+              "end": 1.15,
+              "probability": 0.0126953125
+            },
+            {
+              "text": " how",
+              "start": 1.15,
+              "end": 1.29,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " hath",
+              "start": 1.29,
+              "end": 1.47,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " she",
+              "start": 1.47,
+              "end": 1.63,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " receiv'd",
+              "start": 1.63,
+              "end": 2.07,
+              "probability": 0.4557991027832031
+            },
+            {
+              "text": " his",
+              "start": 2.07,
+              "end": 2.17,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " love?",
+              "start": 2.17,
+              "end": 2.45,
+              "probability": 0.94873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "But",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "raw": "how",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "raw": "hath",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "raw": "she",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "raw": "receiv'd",
+          "start": 1.63,
+          "end": 2.07
+        },
+        {
+          "raw": "his",
+          "start": 2.07,
+          "end": 2.17
+        },
+        {
+          "raw": "love?",
+          "start": 2.17,
+          "end": 2.45
+        }
+      ],
+      "expected_tokens": [
+        "King.",
+        "But",
+        "how",
+        "hath",
+        "she",
+        "receiv'd",
+        "his",
+        "love?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 0.95,
+          "end": 1.15,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.15,
+          "end": 1.29,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.29,
+          "end": 1.47,
+          "key": "hath",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.47,
+          "end": 1.63,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "receiv'd",
+          "start": 1.63,
+          "end": 2.07,
+          "key": "receivd",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.07,
+          "end": 2.17,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "love?",
+          "start": 2.17,
+          "end": 2.45,
+          "key": "love",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "But",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "text": "how",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "text": "hath",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "text": "she",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "text": "receiv'd",
+          "start": 1.63,
+          "end": 2.07
+        },
+        {
+          "text": "his",
+          "start": 2.07,
+          "end": 2.17
+        },
+        {
+          "text": "love?",
+          "start": 2.17,
+          "end": 2.45
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23711207509040833
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "62d040bf1aeceebaca5acfc9476e14de61cd1be3014700577170d823b2484b42",
+  "selected_reasons": []
+}

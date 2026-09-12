@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "bbf4d6766538a6dcdbf8097289bf0b8931350b549110580ef47da87a41c1c33e",
+  "attempts": [
+    {
+      "asr_seconds": 0.300614558160305,
+      "alignment_seconds": 0.0005638990551233292,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Rosencrantz. Ay, that they do, my lord. Hercules and his load too.",
+        "hotwords": "Rosencrantz, Ay, Hercules"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Rosencrantz, Ay, that they do, my lord. Hercules and his load too.",
+          "start": 0.95,
+          "end": 4.59,
+          "words": [
+            {
+              "text": " Rosencrantz,",
+              "start": 0.95,
+              "end": 1.35,
+              "probability": 0.75885009765625
+            },
+            {
+              "text": " Ay,",
+              "start": 1.75,
+              "end": 1.83,
+              "probability": 0.01111602783203125
+            },
+            {
+              "text": " that",
+              "start": 1.95,
+              "end": 1.99,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " they",
+              "start": 1.99,
+              "end": 2.15,
+              "probability": 0.876953125
+            },
+            {
+              "text": " do,",
+              "start": 2.15,
+              "end": 2.29,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " my",
+              "start": 2.37,
+              "end": 2.49,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " lord.",
+              "start": 2.49,
+              "end": 2.75,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " Hercules",
+              "start": 3.27,
+              "end": 3.51,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " and",
+              "start": 3.51,
+              "end": 3.87,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " his",
+              "start": 3.87,
+              "end": 4.01,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " load",
+              "start": 4.01,
+              "end": 4.21,
+              "probability": 0.640625
+            },
+            {
+              "text": " too.",
+              "start": 4.21,
+              "end": 4.59,
+              "probability": 0.5361328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rosencrantz,",
+          "start": 0.95,
+          "end": 1.35
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.75,
+          "end": 1.83
+        },
+        {
+          "raw": "that",
+          "start": 1.95,
+          "end": 1.99
+        },
+        {
+          "raw": "they",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "raw": "do,",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "raw": "my",
+          "start": 2.37,
+          "end": 2.49
+        },
+        {
+          "raw": "lord.",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "raw": "Hercules",
+          "start": 3.27,
+          "end": 3.51
+        },
+        {
+          "raw": "and",
+          "start": 3.51,
+          "end": 3.87
+        },
+        {
+          "raw": "his",
+          "start": 3.87,
+          "end": 4.01
+        },
+        {
+          "raw": "load",
+          "start": 4.01,
+          "end": 4.21
+        },
+        {
+          "raw": "too.",
+          "start": 4.21,
+          "end": 4.59
+        }
+      ],
+      "expected_tokens": [
+        "Rosencrantz.",
+        "Ay,",
+        "that",
+        "they",
+        "do,",
+        "my",
+        "lord.",
+        "Hercules",
+        "and",
+        "his",
+        "load",
+        "too."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rosencrantz,",
+          "start": 0.95,
+          "end": 1.35,
+          "key": "rosencrantz",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.75,
+          "end": 1.83,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.95,
+          "end": 1.99,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.99,
+          "end": 2.15,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do,",
+          "start": 2.15,
+          "end": 2.29,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.37,
+          "end": 2.49,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 2.49,
+          "end": 2.75,
+          "key": "lord",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Hercules",
+          "start": 3.27,
+          "end": 3.51,
+          "key": "hercules",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.51,
+          "end": 3.87,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.87,
+          "end": 4.01,
+          "key": "his",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "load",
+          "start": 4.01,
+          "end": 4.21,
+          "key": "load",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 4.21,
+          "end": 4.59,
+          "key": "too",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Rosencrantz.",
+          "start": 0.95,
+          "end": 1.35
+        },
+        {
+          "text": "Ay,",
+          "start": 1.75,
+          "end": 1.83
+        },
+        {
+          "text": "that",
+          "start": 1.95,
+          "end": 1.99
+        },
+        {
+          "text": "they",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "text": "do,",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "text": "my",
+          "start": 2.37,
+          "end": 2.49
+        },
+        {
+          "text": "lord.",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "text": "Hercules",
+          "start": 3.27,
+          "end": 3.51
+        },
+        {
+          "text": "and",
+          "start": 3.51,
+          "end": 3.87
+        },
+        {
+          "text": "his",
+          "start": 3.87,
+          "end": 4.01
+        },
+        {
+          "text": "load",
+          "start": 4.01,
+          "end": 4.21
+        },
+        {
+          "text": "too.",
+          "start": 4.21,
+          "end": 4.59
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3014039397239685
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bc8515f5568800091b1b9cf05ec6c8de028992ad8461aa8e941358a875c1fa85",
+  "selected_reasons": []
+}

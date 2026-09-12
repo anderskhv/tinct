@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "3abbafa3f549035d064627fba1c5fb408b71dd80755eb649db5e597f1f6ebb84",
+  "attempts": [
+    {
+      "asr_seconds": 0.2095210887491703,
+      "alignment_seconds": 0.00018619559705257416,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ophelia, you are Mary, my lord.",
+          "start": 0.55,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Ophelia,",
+              "start": 0.55,
+              "end": 0.95,
+              "probability": 0.9025065104166666
+            },
+            {
+              "text": " you",
+              "start": 1.27,
+              "end": 1.37,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " are",
+              "start": 1.37,
+              "end": 1.45,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " Mary,",
+              "start": 1.45,
+              "end": 1.67,
+              "probability": 0.650390625
+            },
+            {
+              "text": " my",
+              "start": 1.79,
+              "end": 1.87,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " lord.",
+              "start": 1.87,
+              "end": 2.07,
+              "probability": 0.60693359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ophelia,",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "raw": "you",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "raw": "are",
+          "start": 1.37,
+          "end": 1.45
+        },
+        {
+          "raw": "Mary,",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "raw": "my",
+          "start": 1.79,
+          "end": 1.87
+        },
+        {
+          "raw": "lord.",
+          "start": 1.87,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "Ophelia.",
+        "You",
+        "are",
+        "merry,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ophelia,",
+          "start": 0.55,
+          "end": 0.95,
+          "key": "ophelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.27,
+          "end": 1.37,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.37,
+          "end": 1.45,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mary,",
+          "start": 1.45,
+          "end": 1.67,
+          "key": "mary",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.79,
+          "end": 1.87,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.87,
+          "end": 2.07,
+          "key": "lord",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ophelia.",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "text": "You",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "text": "are",
+          "start": 1.37,
+          "end": 1.45
+        },
+        {
+          "text": "merry,",
+          "start": 1.45,
+          "end": 1.62
+        },
+        {
+          "text": "my",
+          "start": 1.79,
+          "end": 1.87
+        },
+        {
+          "text": "lord.",
+          "start": 1.87,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20976616442203522
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "209859453e94acf4a098c399be44419b32ed4fcaf3bdf618524f55a9acfb49c8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

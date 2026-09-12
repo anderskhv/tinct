@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "8bd96e6a68bbc20542e2e6479d4ced9f530c5742dff5e814be827bdd7eeb2528",
+  "attempts": [
+    {
+      "asr_seconds": 0.18811164982616901,
+      "alignment_seconds": 0.0001463908702135086,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet, do you see nothing there?",
+          "start": 0.08,
+          "end": 2.02,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.943115234375
+            },
+            {
+              "text": " do",
+              "start": 1.14,
+              "end": 1.22,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " you",
+              "start": 1.22,
+              "end": 1.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " see",
+              "start": 1.32,
+              "end": 1.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " nothing",
+              "start": 1.44,
+              "end": 1.66,
+              "probability": 0.9921875
+            },
+            {
+              "text": " there?",
+              "start": 1.66,
+              "end": 2.02,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "do",
+          "start": 1.14,
+          "end": 1.22
+        },
+        {
+          "raw": "you",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "raw": "see",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "raw": "nothing",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "raw": "there?",
+          "start": 1.66,
+          "end": 2.02
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Do",
+        "you",
+        "see",
+        "nothing",
+        "there?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.14,
+          "end": 1.22,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.22,
+          "end": 1.32,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.32,
+          "end": 1.44,
+          "key": "see",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 1.44,
+          "end": 1.66,
+          "key": "nothing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "there?",
+          "start": 1.66,
+          "end": 2.02,
+          "key": "there",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "Do",
+          "start": 1.14,
+          "end": 1.22
+        },
+        {
+          "text": "you",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "text": "see",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "text": "nothing",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "text": "there?",
+          "start": 1.66,
+          "end": 2.02
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18830984085798264
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8f2b38a6e1834247751158f0a123e297a908dafd83c621a98d36cac0cb95bce4",
+  "selected_reasons": []
+}

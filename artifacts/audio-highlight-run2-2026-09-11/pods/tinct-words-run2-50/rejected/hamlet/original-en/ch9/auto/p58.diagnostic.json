@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "5312a75e297c0ed5ccebd824a902f6979771fbb77e9811b5e7c1e33ee5c8ad6a",
+  "attempts": [
+    {
+      "asr_seconds": 0.11657187715172768,
+      "alignment_seconds": 0.0002209283411502838,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Enter Prologue]",
+        "hotwords": "Enter, Prologue"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Prologue",
+          "start": 0.05,
+          "end": 1.17,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Prologue",
+              "start": 0.65,
+              "end": 1.17,
+              "probability": 0.5099716186523438
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Prologue",
+          "start": 0.65,
+          "end": 1.17
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Prologue]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Prologue",
+          "start": 0.65,
+          "end": 1.17,
+          "key": "prologue",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Prologue]",
+          "start": 0.65,
+          "end": 1.17
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11687910556793213
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9367866ed1e81c3004610a18216544852ba5cf2914f580ee17cd7a6ccbc10969",
+  "selected_reasons": []
+}

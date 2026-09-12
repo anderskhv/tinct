@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "29bc321e11e99be9a006d149228319b6cde09e45a25b5b7f5e90685a17349a06",
+  "attempts": [
+    {
+      "asr_seconds": 0.1423864420503378,
+      "alignment_seconds": 0.00026441924273967743,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter ghost",
+          "start": 0.14,
+          "end": 0.96,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.14,
+              "end": 0.66,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " ghost",
+              "start": 0.66,
+              "end": 0.96,
+              "probability": 0.54931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "raw": "ghost",
+          "start": 0.66,
+          "end": 0.96
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Ghost]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ghost",
+          "start": 0.66,
+          "end": 0.96,
+          "key": "ghost",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "text": "Ghost]",
+          "start": 0.66,
+          "end": 0.96
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14274385571479797
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9d3c0a3b1e28befd26834644ced718bb5f0cf0c30e24e2ed46fa2d12cc1512fb",
+  "selected_reasons": []
+}

@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "3a4292679ca2e53e0cfd1b8ad63ae34b21dae240bb486443d1aac7fba7b883de",
+  "attempts": [
+    {
+      "asr_seconds": 0.25020065531134605,
+      "alignment_seconds": 0.0004164166748523712,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. How chances it they travel? Their residence, both in reputation and profit, was better both ways.",
+        "hotwords": "Hamlet, How, Their"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, How chances it they travel? Their residence, both in reputation and profit, was better both ways.",
+          "start": 0.08,
+          "end": 6.7,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.943359375
+            },
+            {
+              "text": " How",
+              "start": 1.16,
+              "end": 1.42,
+              "probability": 0.012481689453125
+            },
+            {
+              "text": " chances",
+              "start": 1.42,
+              "end": 1.76,
+              "probability": 0.0928955078125
+            },
+            {
+              "text": " it",
+              "start": 1.76,
+              "end": 1.96,
+              "probability": 0.546875
+            },
+            {
+              "text": " they",
+              "start": 1.96,
+              "end": 2.12,
+              "probability": 0.978515625
+            },
+            {
+              "text": " travel?",
+              "start": 2.12,
+              "end": 2.5,
+              "probability": 0.966796875
+            },
+            {
+              "text": " Their",
+              "start": 3.18,
+              "end": 3.34,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " residence,",
+              "start": 3.34,
+              "end": 3.82,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " both",
+              "start": 4.08,
+              "end": 4.16,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " in",
+              "start": 4.16,
+              "end": 4.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " reputation",
+              "start": 4.38,
+              "end": 4.8,
+              "probability": 0.9609375
+            },
+            {
+              "text": " and",
+              "start": 4.8,
+              "end": 5.24,
+              "probability": 0.990234375
+            },
+            {
+              "text": " profit,",
+              "start": 5.24,
+              "end": 5.58,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " was",
+              "start": 5.7,
+              "end": 5.84,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " better",
+              "start": 5.84,
+              "end": 6.08,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " both",
+              "start": 6.08,
+              "end": 6.26,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " ways.",
+              "start": 6.26,
+              "end": 6.7,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "How",
+          "start": 1.16,
+          "end": 1.42
+        },
+        {
+          "raw": "chances",
+          "start": 1.42,
+          "end": 1.76
+        },
+        {
+          "raw": "it",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "raw": "they",
+          "start": 1.96,
+          "end": 2.12
+        },
+        {
+          "raw": "travel?",
+          "start": 2.12,
+          "end": 2.5
+        },
+        {
+          "raw": "Their",
+          "start": 3.18,
+          "end": 3.34
+        },
+        {
+          "raw": "residence,",
+          "start": 3.34,
+          "end": 3.82
+        },
+        {
+          "raw": "both",
+          "start": 4.08,
+          "end": 4.16
+        },
+        {
+          "raw": "in",
+          "start": 4.16,
+          "end": 4.38
+        },
+        {
+          "raw": "reputation",
+          "start": 4.38,
+          "end": 4.8
+        },
+        {
+          "raw": "and",
+          "start": 4.8,
+          "end": 5.24
+        },
+        {
+          "raw": "profit,",
+          "start": 5.24,
+          "end": 5.58
+        },
+        {
+          "raw": "was",
+          "start": 5.7,
+          "end": 5.84
+        },
+        {
+          "raw": "better",
+          "start": 5.84,
+          "end": 6.08
+        },
+        {
+          "raw": "both",
+          "start": 6.08,
+          "end": 6.26
+        },
+        {
+          "raw": "ways.",
+          "start": 6.26,
+          "end": 6.7
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "How",
+        "chances",
+        "it",
+        "they",
+        "travel?",
+        "Their",
+        "residence,",
+        "both",
+        "in",
+        "reputation",
+        "and",
+        "profit,",
+        "was",
+        "better",
+        "both",
+        "ways."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.16,
+          "end": 1.42,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "chances",
+          "start": 1.42,
+          "end": 1.76,
+          "key": "chances",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.76,
+          "end": 1.96,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.96,
+          "end": 2.12,
+          "key": "they",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "travel?",
+          "start": 2.12,
+          "end": 2.5,
+          "key": "travel",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Their",
+          "start": 3.18,
+          "end": 3.34,
+          "key": "their",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "residence,",
+          "start": 3.34,
+          "end": 3.82,
+          "key": "residence",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 4.08,
+          "end": 4.16,
+          "key": "both",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.16,
+          "end": 4.38,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "reputation",
+          "start": 4.38,
+          "end": 4.8,
+          "key": "reputation",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.8,
+          "end": 5.24,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "profit,",
+          "start": 5.24,
+          "end": 5.58,
+          "key": "profit",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.7,
+          "end": 5.84,
+          "key": "was",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 5.84,
+          "end": 6.08,
+          "key": "better",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 6.08,
+          "end": 6.26,
+          "key": "both",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "ways.",
+          "start": 6.26,
+          "end": 6.7,
+          "key": "ways",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "How",
+          "start": 1.16,
+          "end": 1.42
+        },
+        {
+          "text": "chances",
+          "start": 1.42,
+          "end": 1.76
+        },
+        {
+          "text": "it",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "text": "they",
+          "start": 1.96,
+          "end": 2.12
+        },
+        {
+          "text": "travel?",
+          "start": 2.12,
+          "end": 2.5
+        },
+        {
+          "text": "Their",
+          "start": 3.18,
+          "end": 3.34
+        },
+        {
+          "text": "residence,",
+          "start": 3.34,
+          "end": 3.82
+        },
+        {
+          "text": "both",
+          "start": 4.08,
+          "end": 4.16
+        },
+        {
+          "text": "in",
+          "start": 4.16,
+          "end": 4.38
+        },
+        {
+          "text": "reputation",
+          "start": 4.38,
+          "end": 4.8
+        },
+        {
+          "text": "and",
+          "start": 4.8,
+          "end": 5.24
+        },
+        {
+          "text": "profit,",
+          "start": 5.24,
+          "end": 5.58
+        },
+        {
+          "text": "was",
+          "start": 5.7,
+          "end": 5.84
+        },
+        {
+          "text": "better",
+          "start": 5.84,
+          "end": 6.08
+        },
+        {
+          "text": "both",
+          "start": 6.08,
+          "end": 6.26
+        },
+        {
+          "text": "ways.",
+          "start": 6.26,
+          "end": 6.7
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2507697194814682
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9d0d80293449fec74d5f770f6a12e53559efa839a5cfce3a1379995932846ff3",
+  "selected_reasons": []
+}

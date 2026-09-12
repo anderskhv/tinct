@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "6d04a5d81aa9a9d774bfbb9ca9761964eeeade7ec0b56570de8906086f145354",
+  "attempts": [
+    {
+      "asr_seconds": 0.09678498283028603,
+      "alignment_seconds": 0.00022234395146369934,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet is possible.",
+          "start": 0.08,
+          "end": 1.7,
+          "words": [
+            {
+              "text": " Hamlet",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.968505859375
+            },
+            {
+              "text": " is",
+              "start": 0.86,
+              "end": 1.2,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " possible.",
+              "start": 1.2,
+              "end": 1.7,
+              "probability": 0.77587890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "is",
+          "start": 0.86,
+          "end": 1.2
+        },
+        {
+          "raw": "possible.",
+          "start": 1.2,
+          "end": 1.7
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Is't",
+        "possible?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.86,
+          "end": 1.2,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "possible.",
+          "start": 1.2,
+          "end": 1.7,
+          "key": "possible",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "Is't",
+          "start": 0.86,
+          "end": 1.03
+        },
+        {
+          "text": "possible?",
+          "start": 1.2,
+          "end": 1.7
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09707132168114185
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d2a619a415910274bb2aedbf8b45fa59a27c8e6eb25d4e5892090cf3f8a91cfe",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

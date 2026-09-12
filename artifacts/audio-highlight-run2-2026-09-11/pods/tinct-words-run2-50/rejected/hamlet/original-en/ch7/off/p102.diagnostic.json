@@ -1,0 +1,717 @@
+{
+  "complete": true,
+  "signature": "f31c647b1b7bb18793f2434d2d758545c2c6a9fada3939f37b65adc75ac84c36",
+  "attempts": [
+    {
+      "asr_seconds": 0.39573293924331665,
+      "alignment_seconds": 0.0007383022457361221,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet, a goodly one, in which there are many confines, wards, and dungeons, Denmark being",
+          "start": 0.05,
+          "end": 5.93,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.930908203125
+            },
+            {
+              "text": " a",
+              "start": 1.27,
+              "end": 1.37,
+              "probability": 0.826171875
+            },
+            {
+              "text": " goodly",
+              "start": 1.37,
+              "end": 1.67,
+              "probability": 0.7093505859375
+            },
+            {
+              "text": " one,",
+              "start": 1.67,
+              "end": 1.91,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " in",
+              "start": 2.31,
+              "end": 2.41,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " which",
+              "start": 2.41,
+              "end": 2.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " there",
+              "start": 2.55,
+              "end": 2.71,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " are",
+              "start": 2.71,
+              "end": 2.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " many",
+              "start": 2.83,
+              "end": 3.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " confines,",
+              "start": 3.01,
+              "end": 3.55,
+              "probability": 0.9453125
+            },
+            {
+              "text": " wards,",
+              "start": 3.95,
+              "end": 4.05,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " and",
+              "start": 4.31,
+              "end": 4.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " dungeons,",
+              "start": 4.35,
+              "end": 4.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Denmark",
+              "start": 5.59,
+              "end": 5.59,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " being",
+              "start": 5.59,
+              "end": 5.93,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " one O T H worst.",
+          "start": 5.93,
+          "end": 7.37,
+          "words": [
+            {
+              "text": " one",
+              "start": 5.93,
+              "end": 6.21,
+              "probability": 0.69970703125
+            },
+            {
+              "text": " O",
+              "start": 6.21,
+              "end": 6.43,
+              "probability": 0.6884765625
+            },
+            {
+              "text": " T",
+              "start": 6.43,
+              "end": 6.71,
+              "probability": 0.447509765625
+            },
+            {
+              "text": " H",
+              "start": 6.71,
+              "end": 7.07,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " worst.",
+              "start": 7.07,
+              "end": 7.37,
+              "probability": 0.80029296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "a",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "raw": "goodly",
+          "start": 1.37,
+          "end": 1.67
+        },
+        {
+          "raw": "one,",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "raw": "in",
+          "start": 2.31,
+          "end": 2.41
+        },
+        {
+          "raw": "which",
+          "start": 2.41,
+          "end": 2.55
+        },
+        {
+          "raw": "there",
+          "start": 2.55,
+          "end": 2.71
+        },
+        {
+          "raw": "are",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "raw": "many",
+          "start": 2.83,
+          "end": 3.01
+        },
+        {
+          "raw": "confines,",
+          "start": 3.01,
+          "end": 3.55
+        },
+        {
+          "raw": "wards,",
+          "start": 3.95,
+          "end": 4.05
+        },
+        {
+          "raw": "and",
+          "start": 4.31,
+          "end": 4.35
+        },
+        {
+          "raw": "dungeons,",
+          "start": 4.35,
+          "end": 4.69
+        },
+        {
+          "raw": "Denmark",
+          "start": 5.59,
+          "end": 5.59
+        },
+        {
+          "raw": "being",
+          "start": 5.59,
+          "end": 5.93
+        },
+        {
+          "raw": "one",
+          "start": 5.93,
+          "end": 6.21
+        },
+        {
+          "raw": "O",
+          "start": 6.21,
+          "end": 6.43
+        },
+        {
+          "raw": "T",
+          "start": 6.43,
+          "end": 6.71
+        },
+        {
+          "raw": "H",
+          "start": 6.71,
+          "end": 7.07
+        },
+        {
+          "raw": "worst.",
+          "start": 7.07,
+          "end": 7.37
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "A",
+        "goodly",
+        "one;",
+        "in",
+        "which",
+        "there",
+        "are",
+        "many",
+        "confines,",
+        "wards,",
+        "and",
+        "dungeons,",
+        "Denmark",
+        "being",
+        "one",
+        "o'",
+        "th'",
+        "worst."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          19
+        ],
+        [
+          "equal",
+          18,
+          19,
+          19,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          17,
+          18,
+          17,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.27,
+          "end": 1.37,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "goodly",
+          "start": 1.37,
+          "end": 1.67,
+          "key": "goodly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "one,",
+          "start": 1.67,
+          "end": 1.91,
+          "key": "one",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.31,
+          "end": 2.41,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 2.41,
+          "end": 2.55,
+          "key": "which",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 2.55,
+          "end": 2.71,
+          "key": "there",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.71,
+          "end": 2.83,
+          "key": "are",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 2.83,
+          "end": 3.01,
+          "key": "many",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "confines,",
+          "start": 3.01,
+          "end": 3.55,
+          "key": "confines",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "wards,",
+          "start": 3.95,
+          "end": 4.05,
+          "key": "wards",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.31,
+          "end": 4.35,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "dungeons,",
+          "start": 4.35,
+          "end": 4.69,
+          "key": "dungeons",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Denmark",
+          "start": 5.59,
+          "end": 5.59,
+          "key": "denmark",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 5.59,
+          "end": 5.93,
+          "key": "being",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 5.93,
+          "end": 6.21,
+          "key": "one",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 6.21,
+          "end": 6.43,
+          "key": "o",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "T",
+          "start": 6.43,
+          "end": 6.71,
+          "key": "t",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "H",
+          "start": 6.71,
+          "end": 7.07,
+          "key": "h",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "worst.",
+          "start": 7.07,
+          "end": 7.37,
+          "key": "worst",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "A",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "text": "goodly",
+          "start": 1.37,
+          "end": 1.67
+        },
+        {
+          "text": "one;",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "text": "in",
+          "start": 2.31,
+          "end": 2.41
+        },
+        {
+          "text": "which",
+          "start": 2.41,
+          "end": 2.55
+        },
+        {
+          "text": "there",
+          "start": 2.55,
+          "end": 2.71
+        },
+        {
+          "text": "are",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "text": "many",
+          "start": 2.83,
+          "end": 3.01
+        },
+        {
+          "text": "confines,",
+          "start": 3.01,
+          "end": 3.55
+        },
+        {
+          "text": "wards,",
+          "start": 3.95,
+          "end": 4.05
+        },
+        {
+          "text": "and",
+          "start": 4.31,
+          "end": 4.35
+        },
+        {
+          "text": "dungeons,",
+          "start": 4.35,
+          "end": 4.69
+        },
+        {
+          "text": "Denmark",
+          "start": 5.59,
+          "end": 5.59
+        },
+        {
+          "text": "being",
+          "start": 5.59,
+          "end": 5.93
+        },
+        {
+          "text": "one",
+          "start": 5.93,
+          "end": 6.21
+        },
+        {
+          "text": "o'",
+          "start": 6.21,
+          "end": 6.43
+        },
+        {
+          "text": "th'",
+          "start": 6.43,
+          "end": 6.75
+        },
+        {
+          "text": "worst.",
+          "start": 7.07,
+          "end": 7.37
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 20,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.3967722412198782
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e4e83a2e61198f62847f95fdaf97083d1985fea08ef23f4e1ed6270a42f9f580",
+  "selected_reasons": []
+}

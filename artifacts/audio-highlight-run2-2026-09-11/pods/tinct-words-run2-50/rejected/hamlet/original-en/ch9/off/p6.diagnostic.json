@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "fc91faecffd2c6df8ea728671254bcb7b2a67edda2372c3c7997d35562a09234",
+  "attempts": [
+    {
+      "asr_seconds": 0.1295127049088478,
+      "alignment_seconds": 0.0002822279930114746,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt players.",
+          "start": 0.02,
+          "end": 1.06,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.4553629557291667
+            },
+            {
+              "text": " players.",
+              "start": 0.78,
+              "end": 1.06,
+              "probability": 0.86279296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "players.",
+          "start": 0.78,
+          "end": 1.06
+        }
+      ],
+      "expected_tokens": [
+        "[Exeunt",
+        "Players.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "players.",
+          "start": 0.78,
+          "end": 1.06,
+          "key": "players",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exeunt",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "Players.]",
+          "start": 0.78,
+          "end": 1.06
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1298867054283619
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e8e6c1ed3656c32967029b5db41133988633fa6464178d150bf259e77408026d",
+  "selected_reasons": []
+}

@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "7489b6c118ffb9a36787bbf7c6a34c98acfd0f6452d3120ff300f5b59faf6dfe",
+  "attempts": [
+    {
+      "asr_seconds": 0.11304065212607384,
+      "alignment_seconds": 0.00022005103528499603,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King, Alas, Alas.",
+          "start": 0.05,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " King,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.63427734375
+            },
+            {
+              "text": " Alas,",
+              "start": 1.31,
+              "end": 1.37,
+              "probability": 0.56982421875
+            },
+            {
+              "text": " Alas.",
+              "start": 1.57,
+              "end": 1.73,
+              "probability": 0.96630859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Alas,",
+          "start": 1.31,
+          "end": 1.37
+        },
+        {
+          "raw": "Alas.",
+          "start": 1.57,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "King.",
+        "Alas,",
+        "alas!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Alas,",
+          "start": 1.31,
+          "end": 1.37,
+          "key": "alas",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Alas.",
+          "start": 1.57,
+          "end": 1.73,
+          "key": "alas",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Alas,",
+          "start": 1.31,
+          "end": 1.37
+        },
+        {
+          "text": "alas!",
+          "start": 1.57,
+          "end": 1.73
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11333400197327137
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6e7df2cbd7fc2c8cd6204ff9470e64596d9a810d0920d0badccab194dc4bce82",
+  "selected_reasons": []
+}

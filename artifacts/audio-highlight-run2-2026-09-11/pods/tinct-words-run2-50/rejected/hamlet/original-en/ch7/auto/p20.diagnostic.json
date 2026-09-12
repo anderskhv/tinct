@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "84def80b2de7cee0151dd9754ba7c5a2b9ed61cc893ae534be670aade6d1fd90",
+  "attempts": [
+    {
+      "asr_seconds": 0.2331535778939724,
+      "alignment_seconds": 0.0004053991287946701,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King. Well, we shall sift him.",
+        "hotwords": "King, Well"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King, Well, we shall sift him.",
+          "start": 0.05,
+          "end": 1.99,
+          "words": [
+            {
+              "text": " King,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.63037109375
+            },
+            {
+              "text": " Well,",
+              "start": 0.85,
+              "end": 1.21,
+              "probability": 0.013458251953125
+            },
+            {
+              "text": " we",
+              "start": 1.31,
+              "end": 1.33,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " shall",
+              "start": 1.33,
+              "end": 1.47,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " sift",
+              "start": 1.47,
+              "end": 1.77,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " him.",
+              "start": 1.77,
+              "end": 1.99,
+              "probability": 0.94677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Well,",
+          "start": 0.85,
+          "end": 1.21
+        },
+        {
+          "raw": "we",
+          "start": 1.31,
+          "end": 1.33
+        },
+        {
+          "raw": "shall",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "raw": "sift",
+          "start": 1.47,
+          "end": 1.77
+        },
+        {
+          "raw": "him.",
+          "start": 1.77,
+          "end": 1.99
+        }
+      ],
+      "expected_tokens": [
+        "King.",
+        "Well,",
+        "we",
+        "shall",
+        "sift",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 0.85,
+          "end": 1.21,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.31,
+          "end": 1.33,
+          "key": "we",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.33,
+          "end": 1.47,
+          "key": "shall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sift",
+          "start": 1.47,
+          "end": 1.77,
+          "key": "sift",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.77,
+          "end": 1.99,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Well,",
+          "start": 0.85,
+          "end": 1.21
+        },
+        {
+          "text": "we",
+          "start": 1.31,
+          "end": 1.33
+        },
+        {
+          "text": "shall",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "text": "sift",
+          "start": 1.47,
+          "end": 1.77
+        },
+        {
+          "text": "him.",
+          "start": 1.77,
+          "end": 1.99
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2337003443390131
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "316ff9714115d1e8648db64499ac61562f6e22c531af33179e2099e22d8d426a",
+  "selected_reasons": []
+}

@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "5f9df59a05a5b7208061216f9a6d842803765b389e087c60fa672d4155926f6f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1615356057882309,
+      "alignment_seconds": 0.00037807971239089966,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Queen. To whom do you speak this?",
+        "hotwords": "Queen, To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Queen, To whom do you speak this?",
+          "start": 0.08,
+          "end": 2.02,
+          "words": [
+            {
+              "text": " Queen,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " To",
+              "start": 1.04,
+              "end": 1.16,
+              "probability": 0.0047454833984375
+            },
+            {
+              "text": " whom",
+              "start": 1.16,
+              "end": 1.32,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " do",
+              "start": 1.32,
+              "end": 1.44,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " you",
+              "start": 1.44,
+              "end": 1.52,
+              "probability": 0.984375
+            },
+            {
+              "text": " speak",
+              "start": 1.52,
+              "end": 1.72,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " this?",
+              "start": 1.72,
+              "end": 2.02,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "To",
+          "start": 1.04,
+          "end": 1.16
+        },
+        {
+          "raw": "whom",
+          "start": 1.16,
+          "end": 1.32
+        },
+        {
+          "raw": "do",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "raw": "you",
+          "start": 1.44,
+          "end": 1.52
+        },
+        {
+          "raw": "speak",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "raw": "this?",
+          "start": 1.72,
+          "end": 2.02
+        }
+      ],
+      "expected_tokens": [
+        "Queen.",
+        "To",
+        "whom",
+        "do",
+        "you",
+        "speak",
+        "this?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 1.04,
+          "end": 1.16,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 1.16,
+          "end": 1.32,
+          "key": "whom",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.32,
+          "end": 1.44,
+          "key": "do",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.44,
+          "end": 1.52,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 1.52,
+          "end": 1.72,
+          "key": "speak",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this?",
+          "start": 1.72,
+          "end": 2.02,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen.",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "To",
+          "start": 1.04,
+          "end": 1.16
+        },
+        {
+          "text": "whom",
+          "start": 1.16,
+          "end": 1.32
+        },
+        {
+          "text": "do",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "text": "you",
+          "start": 1.44,
+          "end": 1.52
+        },
+        {
+          "text": "speak",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "text": "this?",
+          "start": 1.72,
+          "end": 2.02
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16205169633030891
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5fcad805a357f9fa7a43446966f65b60d8fb80331092926db7c2517214738476",
+  "selected_reasons": []
+}

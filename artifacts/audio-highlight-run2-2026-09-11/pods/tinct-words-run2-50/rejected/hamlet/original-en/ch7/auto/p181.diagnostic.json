@@ -1,0 +1,4155 @@
+{
+  "complete": true,
+  "signature": "7187b7124035a5d6dd92ab7fbf12e176417de6fed77fb2d7307e6d134f0171c3",
+  "attempts": [
+    {
+      "asr_seconds": 0.5105900932103395,
+      "alignment_seconds": 0.000516476109623909,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. God's bodikin, man, much better. Use every man after his desert, and who should 'scape whipping? Use them after your own honour and dignity. The less they deserve, the more merit is in your bounty. Take them in.",
+        "hotwords": "Hamlet, God's, Use, Take"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, God's bodikin, man, much better. Use every man after his desert, and who should",
+          "start": 0.05,
+          "end": 5.91,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " God's",
+              "start": 1.45,
+              "end": 1.71,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " bodikin,",
+              "start": 1.71,
+              "end": 2.17,
+              "probability": 0.3831380208333333
+            },
+            {
+              "text": " man,",
+              "start": 2.25,
+              "end": 2.49,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " much",
+              "start": 2.63,
+              "end": 2.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " better.",
+              "start": 2.79,
+              "end": 3.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Use",
+              "start": 3.79,
+              "end": 3.91,
+              "probability": 0.990234375
+            },
+            {
+              "text": " every",
+              "start": 3.91,
+              "end": 4.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " man",
+              "start": 4.19,
+              "end": 4.49,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " after",
+              "start": 4.49,
+              "end": 4.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " his",
+              "start": 4.81,
+              "end": 4.99,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " desert,",
+              "start": 4.99,
+              "end": 5.31,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " and",
+              "start": 5.51,
+              "end": 5.55,
+              "probability": 0.984375
+            },
+            {
+              "text": " who",
+              "start": 5.55,
+              "end": 5.71,
+              "probability": 0.990234375
+            },
+            {
+              "text": " should",
+              "start": 5.71,
+              "end": 5.91,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " escape whipping? Use them after your own honour and dignity. The less they deserve, the more",
+          "start": 5.91,
+          "end": 11.55,
+          "words": [
+            {
+              "text": " escape",
+              "start": 5.91,
+              "end": 6.27,
+              "probability": 0.646484375
+            },
+            {
+              "text": " whipping?",
+              "start": 6.27,
+              "end": 6.61,
+              "probability": 0.951171875
+            },
+            {
+              "text": " Use",
+              "start": 7.33,
+              "end": 7.53,
+              "probability": 0.98828125
+            },
+            {
+              "text": " them",
+              "start": 7.53,
+              "end": 7.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " after",
+              "start": 7.73,
+              "end": 8.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " your",
+              "start": 8.01,
+              "end": 8.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " own",
+              "start": 8.19,
+              "end": 8.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " honour",
+              "start": 8.49,
+              "end": 8.77,
+              "probability": 0.0232696533203125
+            },
+            {
+              "text": " and",
+              "start": 8.77,
+              "end": 9.01,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " dignity.",
+              "start": 9.01,
+              "end": 9.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " The",
+              "start": 10.03,
+              "end": 10.21,
+              "probability": 0.99609375
+            },
+            {
+              "text": " less",
+              "start": 10.21,
+              "end": 10.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " they",
+              "start": 10.35,
+              "end": 10.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " deserve,",
+              "start": 10.57,
+              "end": 10.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 11.21,
+              "end": 11.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " more",
+              "start": 11.33,
+              "end": 11.55,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " merit is in your bounty. Take them in.",
+          "start": 11.55,
+          "end": 13.89,
+          "words": [
+            {
+              "text": " merit",
+              "start": 11.55,
+              "end": 11.89,
+              "probability": 0.990234375
+            },
+            {
+              "text": " is",
+              "start": 11.89,
+              "end": 12.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 12.17,
+              "end": 12.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 12.33,
+              "end": 12.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bounty.",
+              "start": 12.45,
+              "end": 12.73,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Take",
+              "start": 13.31,
+              "end": 13.45,
+              "probability": 0.9921875
+            },
+            {
+              "text": " them",
+              "start": 13.45,
+              "end": 13.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in.",
+              "start": 13.63,
+              "end": 13.89,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "God's",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "raw": "bodikin,",
+          "start": 1.71,
+          "end": 2.17
+        },
+        {
+          "raw": "man,",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "raw": "much",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "raw": "better.",
+          "start": 2.79,
+          "end": 3.19
+        },
+        {
+          "raw": "Use",
+          "start": 3.79,
+          "end": 3.91
+        },
+        {
+          "raw": "every",
+          "start": 3.91,
+          "end": 4.19
+        },
+        {
+          "raw": "man",
+          "start": 4.19,
+          "end": 4.49
+        },
+        {
+          "raw": "after",
+          "start": 4.49,
+          "end": 4.81
+        },
+        {
+          "raw": "his",
+          "start": 4.81,
+          "end": 4.99
+        },
+        {
+          "raw": "desert,",
+          "start": 4.99,
+          "end": 5.31
+        },
+        {
+          "raw": "and",
+          "start": 5.51,
+          "end": 5.55
+        },
+        {
+          "raw": "who",
+          "start": 5.55,
+          "end": 5.71
+        },
+        {
+          "raw": "should",
+          "start": 5.71,
+          "end": 5.91
+        },
+        {
+          "raw": "escape",
+          "start": 5.91,
+          "end": 6.27
+        },
+        {
+          "raw": "whipping?",
+          "start": 6.27,
+          "end": 6.61
+        },
+        {
+          "raw": "Use",
+          "start": 7.33,
+          "end": 7.53
+        },
+        {
+          "raw": "them",
+          "start": 7.53,
+          "end": 7.73
+        },
+        {
+          "raw": "after",
+          "start": 7.73,
+          "end": 8.01
+        },
+        {
+          "raw": "your",
+          "start": 8.01,
+          "end": 8.19
+        },
+        {
+          "raw": "own",
+          "start": 8.19,
+          "end": 8.49
+        },
+        {
+          "raw": "honour",
+          "start": 8.49,
+          "end": 8.77
+        },
+        {
+          "raw": "and",
+          "start": 8.77,
+          "end": 9.01
+        },
+        {
+          "raw": "dignity.",
+          "start": 9.01,
+          "end": 9.39
+        },
+        {
+          "raw": "The",
+          "start": 10.03,
+          "end": 10.21
+        },
+        {
+          "raw": "less",
+          "start": 10.21,
+          "end": 10.35
+        },
+        {
+          "raw": "they",
+          "start": 10.35,
+          "end": 10.57
+        },
+        {
+          "raw": "deserve,",
+          "start": 10.57,
+          "end": 10.97
+        },
+        {
+          "raw": "the",
+          "start": 11.21,
+          "end": 11.33
+        },
+        {
+          "raw": "more",
+          "start": 11.33,
+          "end": 11.55
+        },
+        {
+          "raw": "merit",
+          "start": 11.55,
+          "end": 11.89
+        },
+        {
+          "raw": "is",
+          "start": 11.89,
+          "end": 12.17
+        },
+        {
+          "raw": "in",
+          "start": 12.17,
+          "end": 12.33
+        },
+        {
+          "raw": "your",
+          "start": 12.33,
+          "end": 12.45
+        },
+        {
+          "raw": "bounty.",
+          "start": 12.45,
+          "end": 12.73
+        },
+        {
+          "raw": "Take",
+          "start": 13.31,
+          "end": 13.45
+        },
+        {
+          "raw": "them",
+          "start": 13.45,
+          "end": 13.63
+        },
+        {
+          "raw": "in.",
+          "start": 13.63,
+          "end": 13.89
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "God's",
+        "bodikin,",
+        "man,",
+        "much",
+        "better.",
+        "Use",
+        "every",
+        "man",
+        "after",
+        "his",
+        "desert,",
+        "and",
+        "who",
+        "should",
+        "'scape",
+        "whipping?",
+        "Use",
+        "them",
+        "after",
+        "your",
+        "own",
+        "honour",
+        "and",
+        "dignity.",
+        "The",
+        "less",
+        "they",
+        "deserve,",
+        "the",
+        "more",
+        "merit",
+        "is",
+        "in",
+        "your",
+        "bounty.",
+        "Take",
+        "them",
+        "in."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "equal",
+          16,
+          39,
+          16,
+          39
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "God's",
+          "start": 1.45,
+          "end": 1.71,
+          "key": "gods",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bodikin,",
+          "start": 1.71,
+          "end": 2.17,
+          "key": "bodikin",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 2.25,
+          "end": 2.49,
+          "key": "man",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.63,
+          "end": 2.79,
+          "key": "much",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "better.",
+          "start": 2.79,
+          "end": 3.19,
+          "key": "better",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Use",
+          "start": 3.79,
+          "end": 3.91,
+          "key": "use",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 3.91,
+          "end": 4.19,
+          "key": "every",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 4.19,
+          "end": 4.49,
+          "key": "man",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 4.49,
+          "end": 4.81,
+          "key": "after",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.81,
+          "end": 4.99,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "desert,",
+          "start": 4.99,
+          "end": 5.31,
+          "key": "desert",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.51,
+          "end": 5.55,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 5.55,
+          "end": 5.71,
+          "key": "who",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 5.71,
+          "end": 5.91,
+          "key": "should",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "escape",
+          "start": 5.91,
+          "end": 6.27,
+          "key": "escape",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "whipping?",
+          "start": 6.27,
+          "end": 6.61,
+          "key": "whipping",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Use",
+          "start": 7.33,
+          "end": 7.53,
+          "key": "use",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 7.53,
+          "end": 7.73,
+          "key": "them",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 7.73,
+          "end": 8.01,
+          "key": "after",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 8.01,
+          "end": 8.19,
+          "key": "your",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 8.19,
+          "end": 8.49,
+          "key": "own",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "honour",
+          "start": 8.49,
+          "end": 8.77,
+          "key": "honour",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.77,
+          "end": 9.01,
+          "key": "and",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "dignity.",
+          "start": 9.01,
+          "end": 9.39,
+          "key": "dignity",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 10.03,
+          "end": 10.21,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "less",
+          "start": 10.21,
+          "end": 10.35,
+          "key": "less",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 10.35,
+          "end": 10.57,
+          "key": "they",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "deserve,",
+          "start": 10.57,
+          "end": 10.97,
+          "key": "deserve",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.21,
+          "end": 11.33,
+          "key": "the",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 11.33,
+          "end": 11.55,
+          "key": "more",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "merit",
+          "start": 11.55,
+          "end": 11.89,
+          "key": "merit",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 11.89,
+          "end": 12.17,
+          "key": "is",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 12.17,
+          "end": 12.33,
+          "key": "in",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 12.33,
+          "end": 12.45,
+          "key": "your",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "bounty.",
+          "start": 12.45,
+          "end": 12.73,
+          "key": "bounty",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Take",
+          "start": 13.31,
+          "end": 13.45,
+          "key": "take",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 13.45,
+          "end": 13.63,
+          "key": "them",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "in.",
+          "start": 13.63,
+          "end": 13.89,
+          "key": "in",
+          "pieces": [
+            38
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "God's",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "text": "bodikin,",
+          "start": 1.71,
+          "end": 2.17
+        },
+        {
+          "text": "man,",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "text": "much",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "text": "better.",
+          "start": 2.79,
+          "end": 3.19
+        },
+        {
+          "text": "Use",
+          "start": 3.79,
+          "end": 3.91
+        },
+        {
+          "text": "every",
+          "start": 3.91,
+          "end": 4.19
+        },
+        {
+          "text": "man",
+          "start": 4.19,
+          "end": 4.49
+        },
+        {
+          "text": "after",
+          "start": 4.49,
+          "end": 4.81
+        },
+        {
+          "text": "his",
+          "start": 4.81,
+          "end": 4.99
+        },
+        {
+          "text": "desert,",
+          "start": 4.99,
+          "end": 5.31
+        },
+        {
+          "text": "and",
+          "start": 5.51,
+          "end": 5.55
+        },
+        {
+          "text": "who",
+          "start": 5.55,
+          "end": 5.71
+        },
+        {
+          "text": "should",
+          "start": 5.71,
+          "end": 5.91
+        },
+        {
+          "text": "'scape",
+          "start": 5.91,
+          "end": 6.09
+        },
+        {
+          "text": "whipping?",
+          "start": 6.27,
+          "end": 6.61
+        },
+        {
+          "text": "Use",
+          "start": 7.33,
+          "end": 7.53
+        },
+        {
+          "text": "them",
+          "start": 7.53,
+          "end": 7.73
+        },
+        {
+          "text": "after",
+          "start": 7.73,
+          "end": 8.01
+        },
+        {
+          "text": "your",
+          "start": 8.01,
+          "end": 8.19
+        },
+        {
+          "text": "own",
+          "start": 8.19,
+          "end": 8.49
+        },
+        {
+          "text": "honour",
+          "start": 8.49,
+          "end": 8.77
+        },
+        {
+          "text": "and",
+          "start": 8.77,
+          "end": 9.01
+        },
+        {
+          "text": "dignity.",
+          "start": 9.01,
+          "end": 9.39
+        },
+        {
+          "text": "The",
+          "start": 10.03,
+          "end": 10.21
+        },
+        {
+          "text": "less",
+          "start": 10.21,
+          "end": 10.35
+        },
+        {
+          "text": "they",
+          "start": 10.35,
+          "end": 10.57
+        },
+        {
+          "text": "deserve,",
+          "start": 10.57,
+          "end": 10.97
+        },
+        {
+          "text": "the",
+          "start": 11.21,
+          "end": 11.33
+        },
+        {
+          "text": "more",
+          "start": 11.33,
+          "end": 11.55
+        },
+        {
+          "text": "merit",
+          "start": 11.55,
+          "end": 11.89
+        },
+        {
+          "text": "is",
+          "start": 11.89,
+          "end": 12.17
+        },
+        {
+          "text": "in",
+          "start": 12.17,
+          "end": 12.33
+        },
+        {
+          "text": "your",
+          "start": 12.33,
+          "end": 12.45
+        },
+        {
+          "text": "bounty.",
+          "start": 12.45,
+          "end": 12.73
+        },
+        {
+          "text": "Take",
+          "start": 13.31,
+          "end": 13.45
+        },
+        {
+          "text": "them",
+          "start": 13.45,
+          "end": 13.63
+        },
+        {
+          "text": "in.",
+          "start": 13.63,
+          "end": 13.89
+        }
+      ],
+      "stats": {
+        "expected_words": 39,
+        "heard_words": 39,
+        "matched_words": 38
+      },
+      "match_ratio": 0.9743589743589743,
+      "rejection_reasons": [],
+      "seconds": 0.5113344173878431
+    },
+    {
+      "asr_seconds": 0.45519736409187317,
+      "alignment_seconds": 0.0007779467850923538,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Hamlet, God's, Use, Take"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Hamlet, God's body can man much better. Use every man after his desert and who should",
+          "start": 0.05,
+          "end": 5.91,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.957275390625
+            },
+            {
+              "text": " God's",
+              "start": 1.45,
+              "end": 1.71,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " body",
+              "start": 1.71,
+              "end": 1.89,
+              "probability": 0.458984375
+            },
+            {
+              "text": " can",
+              "start": 1.89,
+              "end": 2.15,
+              "probability": 0.405517578125
+            },
+            {
+              "text": " man",
+              "start": 2.15,
+              "end": 2.47,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " much",
+              "start": 2.47,
+              "end": 2.79,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " better.",
+              "start": 2.79,
+              "end": 3.21,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Use",
+              "start": 3.77,
+              "end": 3.91,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " every",
+              "start": 3.91,
+              "end": 4.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " man",
+              "start": 4.19,
+              "end": 4.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " after",
+              "start": 4.49,
+              "end": 4.81,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " his",
+              "start": 4.81,
+              "end": 4.99,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " desert",
+              "start": 4.99,
+              "end": 5.33,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " and",
+              "start": 5.33,
+              "end": 5.55,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " who",
+              "start": 5.55,
+              "end": 5.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " should",
+              "start": 5.71,
+              "end": 5.91,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " escape whipping. Use them after your own honor and dignity. The less they deserve, the more",
+          "start": 5.91,
+          "end": 11.55,
+          "words": [
+            {
+              "text": " escape",
+              "start": 5.91,
+              "end": 6.29,
+              "probability": 0.7529296875
+            },
+            {
+              "text": " whipping.",
+              "start": 6.29,
+              "end": 6.67,
+              "probability": 0.951171875
+            },
+            {
+              "text": " Use",
+              "start": 7.31,
+              "end": 7.53,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " them",
+              "start": 7.53,
+              "end": 7.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " after",
+              "start": 7.73,
+              "end": 8.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 8.01,
+              "end": 8.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " own",
+              "start": 8.19,
+              "end": 8.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " honor",
+              "start": 8.49,
+              "end": 8.79,
+              "probability": 0.978515625
+            },
+            {
+              "text": " and",
+              "start": 8.79,
+              "end": 9.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " dignity.",
+              "start": 9.01,
+              "end": 9.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " The",
+              "start": 9.99,
+              "end": 10.21,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " less",
+              "start": 10.21,
+              "end": 10.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " they",
+              "start": 10.35,
+              "end": 10.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " deserve,",
+              "start": 10.57,
+              "end": 10.97,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 11.21,
+              "end": 11.33,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " more",
+              "start": 11.33,
+              "end": 11.55,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " merit is in your bounty. Take them in.",
+          "start": 11.55,
+          "end": 13.89,
+          "words": [
+            {
+              "text": " merit",
+              "start": 11.55,
+              "end": 11.93,
+              "probability": 0.986328125
+            },
+            {
+              "text": " is",
+              "start": 11.93,
+              "end": 12.17,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 12.17,
+              "end": 12.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 12.33,
+              "end": 12.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bounty.",
+              "start": 12.43,
+              "end": 12.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Take",
+              "start": 13.33,
+              "end": 13.43,
+              "probability": 0.9921875
+            },
+            {
+              "text": " them",
+              "start": 13.43,
+              "end": 13.63,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " in.",
+              "start": 13.63,
+              "end": 13.89,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "God's",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "raw": "body",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "raw": "can",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "raw": "man",
+          "start": 2.15,
+          "end": 2.47
+        },
+        {
+          "raw": "much",
+          "start": 2.47,
+          "end": 2.79
+        },
+        {
+          "raw": "better.",
+          "start": 2.79,
+          "end": 3.21
+        },
+        {
+          "raw": "Use",
+          "start": 3.77,
+          "end": 3.91
+        },
+        {
+          "raw": "every",
+          "start": 3.91,
+          "end": 4.19
+        },
+        {
+          "raw": "man",
+          "start": 4.19,
+          "end": 4.49
+        },
+        {
+          "raw": "after",
+          "start": 4.49,
+          "end": 4.81
+        },
+        {
+          "raw": "his",
+          "start": 4.81,
+          "end": 4.99
+        },
+        {
+          "raw": "desert",
+          "start": 4.99,
+          "end": 5.33
+        },
+        {
+          "raw": "and",
+          "start": 5.33,
+          "end": 5.55
+        },
+        {
+          "raw": "who",
+          "start": 5.55,
+          "end": 5.71
+        },
+        {
+          "raw": "should",
+          "start": 5.71,
+          "end": 5.91
+        },
+        {
+          "raw": "escape",
+          "start": 5.91,
+          "end": 6.29
+        },
+        {
+          "raw": "whipping.",
+          "start": 6.29,
+          "end": 6.67
+        },
+        {
+          "raw": "Use",
+          "start": 7.31,
+          "end": 7.53
+        },
+        {
+          "raw": "them",
+          "start": 7.53,
+          "end": 7.73
+        },
+        {
+          "raw": "after",
+          "start": 7.73,
+          "end": 8.01
+        },
+        {
+          "raw": "your",
+          "start": 8.01,
+          "end": 8.19
+        },
+        {
+          "raw": "own",
+          "start": 8.19,
+          "end": 8.49
+        },
+        {
+          "raw": "honor",
+          "start": 8.49,
+          "end": 8.79
+        },
+        {
+          "raw": "and",
+          "start": 8.79,
+          "end": 9.01
+        },
+        {
+          "raw": "dignity.",
+          "start": 9.01,
+          "end": 9.41
+        },
+        {
+          "raw": "The",
+          "start": 9.99,
+          "end": 10.21
+        },
+        {
+          "raw": "less",
+          "start": 10.21,
+          "end": 10.35
+        },
+        {
+          "raw": "they",
+          "start": 10.35,
+          "end": 10.57
+        },
+        {
+          "raw": "deserve,",
+          "start": 10.57,
+          "end": 10.97
+        },
+        {
+          "raw": "the",
+          "start": 11.21,
+          "end": 11.33
+        },
+        {
+          "raw": "more",
+          "start": 11.33,
+          "end": 11.55
+        },
+        {
+          "raw": "merit",
+          "start": 11.55,
+          "end": 11.93
+        },
+        {
+          "raw": "is",
+          "start": 11.93,
+          "end": 12.17
+        },
+        {
+          "raw": "in",
+          "start": 12.17,
+          "end": 12.33
+        },
+        {
+          "raw": "your",
+          "start": 12.33,
+          "end": 12.43
+        },
+        {
+          "raw": "bounty.",
+          "start": 12.43,
+          "end": 12.75
+        },
+        {
+          "raw": "Take",
+          "start": 13.33,
+          "end": 13.43
+        },
+        {
+          "raw": "them",
+          "start": 13.43,
+          "end": 13.63
+        },
+        {
+          "raw": "in.",
+          "start": 13.63,
+          "end": 13.89
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "God's",
+        "bodikin,",
+        "man,",
+        "much",
+        "better.",
+        "Use",
+        "every",
+        "man",
+        "after",
+        "his",
+        "desert,",
+        "and",
+        "who",
+        "should",
+        "'scape",
+        "whipping?",
+        "Use",
+        "them",
+        "after",
+        "your",
+        "own",
+        "honour",
+        "and",
+        "dignity.",
+        "The",
+        "less",
+        "they",
+        "deserve,",
+        "the",
+        "more",
+        "merit",
+        "is",
+        "in",
+        "your",
+        "bounty.",
+        "Take",
+        "them",
+        "in."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          15,
+          4,
+          16
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          17
+        ],
+        [
+          "equal",
+          16,
+          22,
+          17,
+          23
+        ],
+        [
+          "replace",
+          22,
+          23,
+          23,
+          24
+        ],
+        [
+          "equal",
+          23,
+          39,
+          24,
+          40
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          17
+        ],
+        [
+          "replace",
+          22,
+          23,
+          23,
+          24
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "God's",
+          "start": 1.45,
+          "end": 1.71,
+          "key": "gods",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "body",
+          "start": 1.71,
+          "end": 1.89,
+          "key": "body",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.89,
+          "end": 2.15,
+          "key": "can",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 2.15,
+          "end": 2.47,
+          "key": "man",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.47,
+          "end": 2.79,
+          "key": "much",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "better.",
+          "start": 2.79,
+          "end": 3.21,
+          "key": "better",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Use",
+          "start": 3.77,
+          "end": 3.91,
+          "key": "use",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 3.91,
+          "end": 4.19,
+          "key": "every",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 4.19,
+          "end": 4.49,
+          "key": "man",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 4.49,
+          "end": 4.81,
+          "key": "after",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.81,
+          "end": 4.99,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "desert",
+          "start": 4.99,
+          "end": 5.33,
+          "key": "desert",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.33,
+          "end": 5.55,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 5.55,
+          "end": 5.71,
+          "key": "who",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 5.71,
+          "end": 5.91,
+          "key": "should",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "escape",
+          "start": 5.91,
+          "end": 6.29,
+          "key": "escape",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "whipping.",
+          "start": 6.29,
+          "end": 6.67,
+          "key": "whipping",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Use",
+          "start": 7.31,
+          "end": 7.53,
+          "key": "use",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 7.53,
+          "end": 7.73,
+          "key": "them",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 7.73,
+          "end": 8.01,
+          "key": "after",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 8.01,
+          "end": 8.19,
+          "key": "your",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 8.19,
+          "end": 8.49,
+          "key": "own",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "honor",
+          "start": 8.49,
+          "end": 8.79,
+          "key": "honor",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.79,
+          "end": 9.01,
+          "key": "and",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "dignity.",
+          "start": 9.01,
+          "end": 9.41,
+          "key": "dignity",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 9.99,
+          "end": 10.21,
+          "key": "the",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "less",
+          "start": 10.21,
+          "end": 10.35,
+          "key": "less",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 10.35,
+          "end": 10.57,
+          "key": "they",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "deserve,",
+          "start": 10.57,
+          "end": 10.97,
+          "key": "deserve",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.21,
+          "end": 11.33,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 11.33,
+          "end": 11.55,
+          "key": "more",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "merit",
+          "start": 11.55,
+          "end": 11.93,
+          "key": "merit",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 11.93,
+          "end": 12.17,
+          "key": "is",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 12.17,
+          "end": 12.33,
+          "key": "in",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 12.33,
+          "end": 12.43,
+          "key": "your",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "bounty.",
+          "start": 12.43,
+          "end": 12.75,
+          "key": "bounty",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Take",
+          "start": 13.33,
+          "end": 13.43,
+          "key": "take",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 13.43,
+          "end": 13.63,
+          "key": "them",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "in.",
+          "start": 13.63,
+          "end": 13.89,
+          "key": "in",
+          "pieces": [
+            39
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "God's",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "text": "bodikin,",
+          "start": 1.71,
+          "end": 1.93
+        },
+        {
+          "text": "man,",
+          "start": 2.15,
+          "end": 2.47
+        },
+        {
+          "text": "much",
+          "start": 2.47,
+          "end": 2.79
+        },
+        {
+          "text": "better.",
+          "start": 2.79,
+          "end": 3.21
+        },
+        {
+          "text": "Use",
+          "start": 3.77,
+          "end": 3.91
+        },
+        {
+          "text": "every",
+          "start": 3.91,
+          "end": 4.19
+        },
+        {
+          "text": "man",
+          "start": 4.19,
+          "end": 4.49
+        },
+        {
+          "text": "after",
+          "start": 4.49,
+          "end": 4.81
+        },
+        {
+          "text": "his",
+          "start": 4.81,
+          "end": 4.99
+        },
+        {
+          "text": "desert,",
+          "start": 4.99,
+          "end": 5.33
+        },
+        {
+          "text": "and",
+          "start": 5.33,
+          "end": 5.55
+        },
+        {
+          "text": "who",
+          "start": 5.55,
+          "end": 5.71
+        },
+        {
+          "text": "should",
+          "start": 5.71,
+          "end": 5.91
+        },
+        {
+          "text": "'scape",
+          "start": 5.91,
+          "end": 6.1
+        },
+        {
+          "text": "whipping?",
+          "start": 6.29,
+          "end": 6.67
+        },
+        {
+          "text": "Use",
+          "start": 7.31,
+          "end": 7.53
+        },
+        {
+          "text": "them",
+          "start": 7.53,
+          "end": 7.73
+        },
+        {
+          "text": "after",
+          "start": 7.73,
+          "end": 8.01
+        },
+        {
+          "text": "your",
+          "start": 8.01,
+          "end": 8.19
+        },
+        {
+          "text": "own",
+          "start": 8.19,
+          "end": 8.49
+        },
+        {
+          "text": "honour",
+          "start": 8.49,
+          "end": 8.64
+        },
+        {
+          "text": "and",
+          "start": 8.79,
+          "end": 9.01
+        },
+        {
+          "text": "dignity.",
+          "start": 9.01,
+          "end": 9.41
+        },
+        {
+          "text": "The",
+          "start": 9.99,
+          "end": 10.21
+        },
+        {
+          "text": "less",
+          "start": 10.21,
+          "end": 10.35
+        },
+        {
+          "text": "they",
+          "start": 10.35,
+          "end": 10.57
+        },
+        {
+          "text": "deserve,",
+          "start": 10.57,
+          "end": 10.97
+        },
+        {
+          "text": "the",
+          "start": 11.21,
+          "end": 11.33
+        },
+        {
+          "text": "more",
+          "start": 11.33,
+          "end": 11.55
+        },
+        {
+          "text": "merit",
+          "start": 11.55,
+          "end": 11.93
+        },
+        {
+          "text": "is",
+          "start": 11.93,
+          "end": 12.17
+        },
+        {
+          "text": "in",
+          "start": 12.17,
+          "end": 12.33
+        },
+        {
+          "text": "your",
+          "start": 12.33,
+          "end": 12.43
+        },
+        {
+          "text": "bounty.",
+          "start": 12.43,
+          "end": 12.75
+        },
+        {
+          "text": "Take",
+          "start": 13.33,
+          "end": 13.43
+        },
+        {
+          "text": "them",
+          "start": 13.43,
+          "end": 13.63
+        },
+        {
+          "text": "in.",
+          "start": 13.63,
+          "end": 13.89
+        }
+      ],
+      "stats": {
+        "expected_words": 39,
+        "heard_words": 40,
+        "matched_words": 36
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.45630229264497757
+    },
+    {
+      "asr_seconds": 0.5388113800436258,
+      "alignment_seconds": 0.0005024746060371399,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet, God's body can man much better.",
+          "start": 0.05,
+          "end": 3.21,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.957275390625
+            },
+            {
+              "text": " God's",
+              "start": 1.45,
+              "end": 1.71,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " body",
+              "start": 1.71,
+              "end": 1.89,
+              "probability": 0.458984375
+            },
+            {
+              "text": " can",
+              "start": 1.89,
+              "end": 2.15,
+              "probability": 0.405517578125
+            },
+            {
+              "text": " man",
+              "start": 2.15,
+              "end": 2.47,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " much",
+              "start": 2.47,
+              "end": 2.79,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " better.",
+              "start": 2.79,
+              "end": 3.21,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " Use every man after his desert and who should escape whipping.",
+          "start": 3.77,
+          "end": 6.67,
+          "words": [
+            {
+              "text": " Use",
+              "start": 3.77,
+              "end": 3.91,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " every",
+              "start": 3.91,
+              "end": 4.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " man",
+              "start": 4.19,
+              "end": 4.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " after",
+              "start": 4.49,
+              "end": 4.81,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " his",
+              "start": 4.81,
+              "end": 4.99,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " desert",
+              "start": 4.99,
+              "end": 5.33,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " and",
+              "start": 5.33,
+              "end": 5.55,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " who",
+              "start": 5.55,
+              "end": 5.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " should",
+              "start": 5.71,
+              "end": 5.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " escape",
+              "start": 5.91,
+              "end": 6.29,
+              "probability": 0.7529296875
+            },
+            {
+              "text": " whipping.",
+              "start": 6.29,
+              "end": 6.67,
+              "probability": 0.951171875
+            }
+          ]
+        },
+        {
+          "text": " Use them after your own honor and dignity.",
+          "start": 7.31,
+          "end": 9.41,
+          "words": [
+            {
+              "text": " Use",
+              "start": 7.31,
+              "end": 7.53,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " them",
+              "start": 7.53,
+              "end": 7.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " after",
+              "start": 7.73,
+              "end": 8.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 8.01,
+              "end": 8.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " own",
+              "start": 8.19,
+              "end": 8.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " honor",
+              "start": 8.49,
+              "end": 8.79,
+              "probability": 0.978515625
+            },
+            {
+              "text": " and",
+              "start": 8.79,
+              "end": 9.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " dignity.",
+              "start": 9.01,
+              "end": 9.41,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " The less they deserve, the more merit is in your bounty.",
+          "start": 9.99,
+          "end": 12.75,
+          "words": [
+            {
+              "text": " The",
+              "start": 9.99,
+              "end": 10.21,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " less",
+              "start": 10.21,
+              "end": 10.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " they",
+              "start": 10.35,
+              "end": 10.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " deserve,",
+              "start": 10.57,
+              "end": 10.97,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 11.21,
+              "end": 11.33,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " more",
+              "start": 11.33,
+              "end": 11.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " merit",
+              "start": 11.55,
+              "end": 11.93,
+              "probability": 0.986328125
+            },
+            {
+              "text": " is",
+              "start": 11.93,
+              "end": 12.17,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 12.17,
+              "end": 12.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 12.33,
+              "end": 12.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bounty.",
+              "start": 12.43,
+              "end": 12.75,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Take them in.",
+          "start": 13.33,
+          "end": 13.89,
+          "words": [
+            {
+              "text": " Take",
+              "start": 13.33,
+              "end": 13.43,
+              "probability": 0.9921875
+            },
+            {
+              "text": " them",
+              "start": 13.43,
+              "end": 13.63,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " in.",
+              "start": 13.63,
+              "end": 13.89,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "God's",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "raw": "body",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "raw": "can",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "raw": "man",
+          "start": 2.15,
+          "end": 2.47
+        },
+        {
+          "raw": "much",
+          "start": 2.47,
+          "end": 2.79
+        },
+        {
+          "raw": "better.",
+          "start": 2.79,
+          "end": 3.21
+        },
+        {
+          "raw": "Use",
+          "start": 3.77,
+          "end": 3.91
+        },
+        {
+          "raw": "every",
+          "start": 3.91,
+          "end": 4.19
+        },
+        {
+          "raw": "man",
+          "start": 4.19,
+          "end": 4.49
+        },
+        {
+          "raw": "after",
+          "start": 4.49,
+          "end": 4.81
+        },
+        {
+          "raw": "his",
+          "start": 4.81,
+          "end": 4.99
+        },
+        {
+          "raw": "desert",
+          "start": 4.99,
+          "end": 5.33
+        },
+        {
+          "raw": "and",
+          "start": 5.33,
+          "end": 5.55
+        },
+        {
+          "raw": "who",
+          "start": 5.55,
+          "end": 5.71
+        },
+        {
+          "raw": "should",
+          "start": 5.71,
+          "end": 5.91
+        },
+        {
+          "raw": "escape",
+          "start": 5.91,
+          "end": 6.29
+        },
+        {
+          "raw": "whipping.",
+          "start": 6.29,
+          "end": 6.67
+        },
+        {
+          "raw": "Use",
+          "start": 7.31,
+          "end": 7.53
+        },
+        {
+          "raw": "them",
+          "start": 7.53,
+          "end": 7.73
+        },
+        {
+          "raw": "after",
+          "start": 7.73,
+          "end": 8.01
+        },
+        {
+          "raw": "your",
+          "start": 8.01,
+          "end": 8.19
+        },
+        {
+          "raw": "own",
+          "start": 8.19,
+          "end": 8.49
+        },
+        {
+          "raw": "honor",
+          "start": 8.49,
+          "end": 8.79
+        },
+        {
+          "raw": "and",
+          "start": 8.79,
+          "end": 9.01
+        },
+        {
+          "raw": "dignity.",
+          "start": 9.01,
+          "end": 9.41
+        },
+        {
+          "raw": "The",
+          "start": 9.99,
+          "end": 10.21
+        },
+        {
+          "raw": "less",
+          "start": 10.21,
+          "end": 10.35
+        },
+        {
+          "raw": "they",
+          "start": 10.35,
+          "end": 10.57
+        },
+        {
+          "raw": "deserve,",
+          "start": 10.57,
+          "end": 10.97
+        },
+        {
+          "raw": "the",
+          "start": 11.21,
+          "end": 11.33
+        },
+        {
+          "raw": "more",
+          "start": 11.33,
+          "end": 11.55
+        },
+        {
+          "raw": "merit",
+          "start": 11.55,
+          "end": 11.93
+        },
+        {
+          "raw": "is",
+          "start": 11.93,
+          "end": 12.17
+        },
+        {
+          "raw": "in",
+          "start": 12.17,
+          "end": 12.33
+        },
+        {
+          "raw": "your",
+          "start": 12.33,
+          "end": 12.43
+        },
+        {
+          "raw": "bounty.",
+          "start": 12.43,
+          "end": 12.75
+        },
+        {
+          "raw": "Take",
+          "start": 13.33,
+          "end": 13.43
+        },
+        {
+          "raw": "them",
+          "start": 13.43,
+          "end": 13.63
+        },
+        {
+          "raw": "in.",
+          "start": 13.63,
+          "end": 13.89
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "God's",
+        "bodikin,",
+        "man,",
+        "much",
+        "better.",
+        "Use",
+        "every",
+        "man",
+        "after",
+        "his",
+        "desert,",
+        "and",
+        "who",
+        "should",
+        "'scape",
+        "whipping?",
+        "Use",
+        "them",
+        "after",
+        "your",
+        "own",
+        "honour",
+        "and",
+        "dignity.",
+        "The",
+        "less",
+        "they",
+        "deserve,",
+        "the",
+        "more",
+        "merit",
+        "is",
+        "in",
+        "your",
+        "bounty.",
+        "Take",
+        "them",
+        "in."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          15,
+          4,
+          16
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          17
+        ],
+        [
+          "equal",
+          16,
+          22,
+          17,
+          23
+        ],
+        [
+          "replace",
+          22,
+          23,
+          23,
+          24
+        ],
+        [
+          "equal",
+          23,
+          39,
+          24,
+          40
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          17
+        ],
+        [
+          "replace",
+          22,
+          23,
+          23,
+          24
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "God's",
+          "start": 1.45,
+          "end": 1.71,
+          "key": "gods",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "body",
+          "start": 1.71,
+          "end": 1.89,
+          "key": "body",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.89,
+          "end": 2.15,
+          "key": "can",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 2.15,
+          "end": 2.47,
+          "key": "man",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.47,
+          "end": 2.79,
+          "key": "much",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "better.",
+          "start": 2.79,
+          "end": 3.21,
+          "key": "better",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Use",
+          "start": 3.77,
+          "end": 3.91,
+          "key": "use",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 3.91,
+          "end": 4.19,
+          "key": "every",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 4.19,
+          "end": 4.49,
+          "key": "man",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 4.49,
+          "end": 4.81,
+          "key": "after",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.81,
+          "end": 4.99,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "desert",
+          "start": 4.99,
+          "end": 5.33,
+          "key": "desert",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.33,
+          "end": 5.55,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 5.55,
+          "end": 5.71,
+          "key": "who",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 5.71,
+          "end": 5.91,
+          "key": "should",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "escape",
+          "start": 5.91,
+          "end": 6.29,
+          "key": "escape",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "whipping.",
+          "start": 6.29,
+          "end": 6.67,
+          "key": "whipping",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Use",
+          "start": 7.31,
+          "end": 7.53,
+          "key": "use",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 7.53,
+          "end": 7.73,
+          "key": "them",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 7.73,
+          "end": 8.01,
+          "key": "after",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 8.01,
+          "end": 8.19,
+          "key": "your",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 8.19,
+          "end": 8.49,
+          "key": "own",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "honor",
+          "start": 8.49,
+          "end": 8.79,
+          "key": "honor",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.79,
+          "end": 9.01,
+          "key": "and",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "dignity.",
+          "start": 9.01,
+          "end": 9.41,
+          "key": "dignity",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 9.99,
+          "end": 10.21,
+          "key": "the",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "less",
+          "start": 10.21,
+          "end": 10.35,
+          "key": "less",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 10.35,
+          "end": 10.57,
+          "key": "they",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "deserve,",
+          "start": 10.57,
+          "end": 10.97,
+          "key": "deserve",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.21,
+          "end": 11.33,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 11.33,
+          "end": 11.55,
+          "key": "more",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "merit",
+          "start": 11.55,
+          "end": 11.93,
+          "key": "merit",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 11.93,
+          "end": 12.17,
+          "key": "is",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 12.17,
+          "end": 12.33,
+          "key": "in",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 12.33,
+          "end": 12.43,
+          "key": "your",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "bounty.",
+          "start": 12.43,
+          "end": 12.75,
+          "key": "bounty",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Take",
+          "start": 13.33,
+          "end": 13.43,
+          "key": "take",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 13.43,
+          "end": 13.63,
+          "key": "them",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "in.",
+          "start": 13.63,
+          "end": 13.89,
+          "key": "in",
+          "pieces": [
+            39
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "God's",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "text": "bodikin,",
+          "start": 1.71,
+          "end": 1.93
+        },
+        {
+          "text": "man,",
+          "start": 2.15,
+          "end": 2.47
+        },
+        {
+          "text": "much",
+          "start": 2.47,
+          "end": 2.79
+        },
+        {
+          "text": "better.",
+          "start": 2.79,
+          "end": 3.21
+        },
+        {
+          "text": "Use",
+          "start": 3.77,
+          "end": 3.91
+        },
+        {
+          "text": "every",
+          "start": 3.91,
+          "end": 4.19
+        },
+        {
+          "text": "man",
+          "start": 4.19,
+          "end": 4.49
+        },
+        {
+          "text": "after",
+          "start": 4.49,
+          "end": 4.81
+        },
+        {
+          "text": "his",
+          "start": 4.81,
+          "end": 4.99
+        },
+        {
+          "text": "desert,",
+          "start": 4.99,
+          "end": 5.33
+        },
+        {
+          "text": "and",
+          "start": 5.33,
+          "end": 5.55
+        },
+        {
+          "text": "who",
+          "start": 5.55,
+          "end": 5.71
+        },
+        {
+          "text": "should",
+          "start": 5.71,
+          "end": 5.91
+        },
+        {
+          "text": "'scape",
+          "start": 5.91,
+          "end": 6.1
+        },
+        {
+          "text": "whipping?",
+          "start": 6.29,
+          "end": 6.67
+        },
+        {
+          "text": "Use",
+          "start": 7.31,
+          "end": 7.53
+        },
+        {
+          "text": "them",
+          "start": 7.53,
+          "end": 7.73
+        },
+        {
+          "text": "after",
+          "start": 7.73,
+          "end": 8.01
+        },
+        {
+          "text": "your",
+          "start": 8.01,
+          "end": 8.19
+        },
+        {
+          "text": "own",
+          "start": 8.19,
+          "end": 8.49
+        },
+        {
+          "text": "honour",
+          "start": 8.49,
+          "end": 8.64
+        },
+        {
+          "text": "and",
+          "start": 8.79,
+          "end": 9.01
+        },
+        {
+          "text": "dignity.",
+          "start": 9.01,
+          "end": 9.41
+        },
+        {
+          "text": "The",
+          "start": 9.99,
+          "end": 10.21
+        },
+        {
+          "text": "less",
+          "start": 10.21,
+          "end": 10.35
+        },
+        {
+          "text": "they",
+          "start": 10.35,
+          "end": 10.57
+        },
+        {
+          "text": "deserve,",
+          "start": 10.57,
+          "end": 10.97
+        },
+        {
+          "text": "the",
+          "start": 11.21,
+          "end": 11.33
+        },
+        {
+          "text": "more",
+          "start": 11.33,
+          "end": 11.55
+        },
+        {
+          "text": "merit",
+          "start": 11.55,
+          "end": 11.93
+        },
+        {
+          "text": "is",
+          "start": 11.93,
+          "end": 12.17
+        },
+        {
+          "text": "in",
+          "start": 12.17,
+          "end": 12.33
+        },
+        {
+          "text": "your",
+          "start": 12.33,
+          "end": 12.43
+        },
+        {
+          "text": "bounty.",
+          "start": 12.43,
+          "end": 12.75
+        },
+        {
+          "text": "Take",
+          "start": 13.33,
+          "end": 13.43
+        },
+        {
+          "text": "them",
+          "start": 13.43,
+          "end": 13.63
+        },
+        {
+          "text": "in.",
+          "start": 13.63,
+          "end": 13.89
+        }
+      ],
+      "stats": {
+        "expected_words": 39,
+        "heard_words": 40,
+        "matched_words": 36
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.5395211465656757
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "023d1e75275a4ca7abcf76ba0108ff4cbf45b0c2af8d20b94b521abdefb4c031",
+  "selected_reasons": []
+}

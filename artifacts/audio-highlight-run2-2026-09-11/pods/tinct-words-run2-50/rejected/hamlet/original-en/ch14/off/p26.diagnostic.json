@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "dbf82b5e55d79224b1fe678331dfc2eae16698bd6f7da9bc3a680210165b90c3",
+  "attempts": [
+    {
+      "asr_seconds": 0.1313837580382824,
+      "alignment_seconds": 0.0002757646143436432,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet good",
+          "start": 0.08,
+          "end": 1.2,
+          "words": [
+            {
+              "text": " Hamlet",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.959716796875
+            },
+            {
+              "text": " good",
+              "start": 0.84,
+              "end": 1.2,
+              "probability": 0.25341796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "good",
+          "start": 0.84,
+          "end": 1.2
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Good."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 0.84,
+          "end": 1.2,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "Good.",
+          "start": 0.84,
+          "end": 1.2
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13175105676054955
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "890d1c7f6e44b2f0abaa4e5186bf6fd8141fe20ecff1717315548a126c8e99a2",
+  "selected_reasons": []
+}

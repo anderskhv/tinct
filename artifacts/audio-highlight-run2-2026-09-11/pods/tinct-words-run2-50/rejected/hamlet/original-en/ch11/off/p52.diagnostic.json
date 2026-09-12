@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "d21975447098b57a76ea8fef3726cc144c46d6ea880b93d4ac70f9951e2db140",
+  "attempts": [
+    {
+      "asr_seconds": 0.17711040005087852,
+      "alignment_seconds": 0.00015398859977722168,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Queen know nothing but ourselves",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.884765625
+            },
+            {
+              "text": " know",
+              "start": 0.63,
+              "end": 1.25,
+              "probability": 0.137939453125
+            },
+            {
+              "text": " nothing",
+              "start": 1.25,
+              "end": 1.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " but",
+              "start": 1.53,
+              "end": 1.73,
+              "probability": 0.953125
+            },
+            {
+              "text": " ourselves",
+              "start": 1.73,
+              "end": 2.07,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "know",
+          "start": 0.63,
+          "end": 1.25
+        },
+        {
+          "raw": "nothing",
+          "start": 1.25,
+          "end": 1.53
+        },
+        {
+          "raw": "but",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "raw": "ourselves",
+          "start": 1.73,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "Queen.",
+        "No,",
+        "nothing",
+        "but",
+        "ourselves."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 0.63,
+          "end": 1.25,
+          "key": "know",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 1.25,
+          "end": 1.53,
+          "key": "nothing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.53,
+          "end": 1.73,
+          "key": "but",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ourselves",
+          "start": 1.73,
+          "end": 2.07,
+          "key": "ourselves",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "No,",
+          "start": 0.63,
+          "end": 0.94
+        },
+        {
+          "text": "nothing",
+          "start": 1.25,
+          "end": 1.53
+        },
+        {
+          "text": "but",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "text": "ourselves.",
+          "start": 1.73,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17731459252536297
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8f4da75c8006873fcc21a237be754dc01efc1acff12b7d63ec6ec1e443238a9a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

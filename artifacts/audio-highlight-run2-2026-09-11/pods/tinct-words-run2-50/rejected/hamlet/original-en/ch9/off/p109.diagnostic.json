@@ -1,0 +1,562 @@
+{
+  "complete": true,
+  "signature": "1627820907192763347b13c023caa504529b954eba5c1bd23f929700afc4e16d",
+  "attempts": [
+    {
+      "asr_seconds": 0.32674863934516907,
+      "alignment_seconds": 0.00063345767557621,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet. Oh good Horatio, I'll take the ghost's word for a thousand pound. Didst perceive.",
+          "start": 0.05,
+          "end": 5.59,
+          "words": [
+            {
+              "text": " Hamlet.",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " Oh",
+              "start": 1.23,
+              "end": 1.41,
+              "probability": 0.515625
+            },
+            {
+              "text": " good",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.55615234375
+            },
+            {
+              "text": " Horatio,",
+              "start": 1.53,
+              "end": 1.99,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " I'll",
+              "start": 2.21,
+              "end": 2.33,
+              "probability": 0.983642578125
+            },
+            {
+              "text": " take",
+              "start": 2.33,
+              "end": 2.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.45,
+              "end": 2.65,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " ghost's",
+              "start": 2.65,
+              "end": 3.05,
+              "probability": 0.859130859375
+            },
+            {
+              "text": " word",
+              "start": 3.05,
+              "end": 3.19,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " for",
+              "start": 3.19,
+              "end": 3.41,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 3.41,
+              "end": 3.55,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " thousand",
+              "start": 3.55,
+              "end": 3.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " pound.",
+              "start": 3.87,
+              "end": 4.27,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " Didst",
+              "start": 5.03,
+              "end": 5.25,
+              "probability": 0.6126708984375
+            },
+            {
+              "text": " perceive.",
+              "start": 5.25,
+              "end": 5.59,
+              "probability": 0.79345703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Oh",
+          "start": 1.23,
+          "end": 1.41
+        },
+        {
+          "raw": "good",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "Horatio,",
+          "start": 1.53,
+          "end": 1.99
+        },
+        {
+          "raw": "I'll",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "raw": "take",
+          "start": 2.33,
+          "end": 2.45
+        },
+        {
+          "raw": "the",
+          "start": 2.45,
+          "end": 2.65
+        },
+        {
+          "raw": "ghost's",
+          "start": 2.65,
+          "end": 3.05
+        },
+        {
+          "raw": "word",
+          "start": 3.05,
+          "end": 3.19
+        },
+        {
+          "raw": "for",
+          "start": 3.19,
+          "end": 3.41
+        },
+        {
+          "raw": "a",
+          "start": 3.41,
+          "end": 3.55
+        },
+        {
+          "raw": "thousand",
+          "start": 3.55,
+          "end": 3.87
+        },
+        {
+          "raw": "pound.",
+          "start": 3.87,
+          "end": 4.27
+        },
+        {
+          "raw": "Didst",
+          "start": 5.03,
+          "end": 5.25
+        },
+        {
+          "raw": "perceive.",
+          "start": 5.25,
+          "end": 5.59
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "O",
+        "good",
+        "Horatio,",
+        "I'll",
+        "take",
+        "the",
+        "ghost's",
+        "word",
+        "for",
+        "a",
+        "thousand",
+        "pound.",
+        "Didst",
+        "perceive?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          15,
+          2,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet.",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Oh",
+          "start": 1.23,
+          "end": 1.41,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.41,
+          "end": 1.53,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Horatio,",
+          "start": 1.53,
+          "end": 1.99,
+          "key": "horatio",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.21,
+          "end": 2.33,
+          "key": "ill",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 2.33,
+          "end": 2.45,
+          "key": "take",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.45,
+          "end": 2.65,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ghost's",
+          "start": 2.65,
+          "end": 3.05,
+          "key": "ghosts",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "word",
+          "start": 3.05,
+          "end": 3.19,
+          "key": "word",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.19,
+          "end": 3.41,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.41,
+          "end": 3.55,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 3.55,
+          "end": 3.87,
+          "key": "thousand",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "pound.",
+          "start": 3.87,
+          "end": 4.27,
+          "key": "pound",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Didst",
+          "start": 5.03,
+          "end": 5.25,
+          "key": "didst",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "perceive.",
+          "start": 5.25,
+          "end": 5.59,
+          "key": "perceive",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "O",
+          "start": 0.83,
+          "end": 1.12
+        },
+        {
+          "text": "good",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "text": "Horatio,",
+          "start": 1.53,
+          "end": 1.99
+        },
+        {
+          "text": "I'll",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "text": "take",
+          "start": 2.33,
+          "end": 2.45
+        },
+        {
+          "text": "the",
+          "start": 2.45,
+          "end": 2.65
+        },
+        {
+          "text": "ghost's",
+          "start": 2.65,
+          "end": 3.05
+        },
+        {
+          "text": "word",
+          "start": 3.05,
+          "end": 3.19
+        },
+        {
+          "text": "for",
+          "start": 3.19,
+          "end": 3.41
+        },
+        {
+          "text": "a",
+          "start": 3.41,
+          "end": 3.55
+        },
+        {
+          "text": "thousand",
+          "start": 3.55,
+          "end": 3.87
+        },
+        {
+          "text": "pound.",
+          "start": 3.87,
+          "end": 4.27
+        },
+        {
+          "text": "Didst",
+          "start": 5.03,
+          "end": 5.25
+        },
+        {
+          "text": "perceive?",
+          "start": 5.25,
+          "end": 5.59
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.32761613465845585
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fbcd3ad42f7ec1a156ca59d1059d265f6d033684daa05effebdff3f0d92bfea8",
+  "selected_reasons": []
+}

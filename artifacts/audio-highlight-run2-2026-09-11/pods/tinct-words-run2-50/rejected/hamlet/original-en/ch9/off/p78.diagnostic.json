@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "4e9766bff7fbff7de71bdf13a91e72869b4c3464d8f09c47ff7df6dff9d579e1",
+  "attempts": [
+    {
+      "asr_seconds": 0.10005065239965916,
+      "alignment_seconds": 0.00021947361528873444,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sleeps.",
+          "start": 0.0,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " Sleeps.",
+              "start": 0.0,
+              "end": 1.32,
+              "probability": 0.740234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sleeps.",
+          "start": 0.0,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "[Sleeps.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sleeps.",
+          "start": 0.0,
+          "end": 1.32,
+          "key": "sleeps",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Sleeps.]",
+          "start": 0.0,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10035702958703041
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7a6cd76f4f4b504d6958373001c842c32b2976ffc7dc8d5a21c14908aab7457f",
+  "selected_reasons": []
+}

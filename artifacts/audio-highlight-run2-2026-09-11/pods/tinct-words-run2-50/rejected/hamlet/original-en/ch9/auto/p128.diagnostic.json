@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "8311a3c3ffbd58594b92a2a59c7a2f5388f03c6a0d67fa521ae2454972b08cc3",
+  "attempts": [
+    {
+      "asr_seconds": 0.1462931726127863,
+      "alignment_seconds": 0.00034478865563869476,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. Sir, I cannot.",
+        "hotwords": "Hamlet, Sir, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, Sir, I cannot.",
+          "start": 0.56,
+          "end": 1.38,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.56,
+              "end": 0.8,
+              "probability": 0.839599609375
+            },
+            {
+              "text": " Sir,",
+              "start": 0.92,
+              "end": 1.02,
+              "probability": 0.32861328125
+            },
+            {
+              "text": " I",
+              "start": 1.12,
+              "end": 1.14,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " cannot.",
+              "start": 1.14,
+              "end": 1.38,
+              "probability": 0.91943359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "raw": "Sir,",
+          "start": 0.92,
+          "end": 1.02
+        },
+        {
+          "raw": "I",
+          "start": 1.12,
+          "end": 1.14
+        },
+        {
+          "raw": "cannot.",
+          "start": 1.14,
+          "end": 1.38
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Sir,",
+        "I",
+        "cannot."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.56,
+          "end": 0.8,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir,",
+          "start": 0.92,
+          "end": 1.02,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.12,
+          "end": 1.14,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cannot.",
+          "start": 1.14,
+          "end": 1.38,
+          "key": "cannot",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "text": "Sir,",
+          "start": 0.92,
+          "end": 1.02
+        },
+        {
+          "text": "I",
+          "start": 1.12,
+          "end": 1.14
+        },
+        {
+          "text": "cannot.",
+          "start": 1.14,
+          "end": 1.38
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14675417356193066
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "21e5a8a9d514f4d60f84a5dd19641e85397289e48eca6378e55eb368b332e85b",
+  "selected_reasons": []
+}

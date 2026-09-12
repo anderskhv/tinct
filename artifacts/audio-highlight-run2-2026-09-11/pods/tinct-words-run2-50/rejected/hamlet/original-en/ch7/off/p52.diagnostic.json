@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "503dc11e28121f68b3e6237336a6c9fc293b4456c791a96b5811128629c80f8a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1619831919670105,
+      "alignment_seconds": 0.0003525931388139725,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Queen so he does indeed",
+          "start": 0.08,
+          "end": 1.8,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " so",
+              "start": 0.64,
+              "end": 1.2,
+              "probability": 0.1368408203125
+            },
+            {
+              "text": " he",
+              "start": 1.2,
+              "end": 1.28,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " does",
+              "start": 1.28,
+              "end": 1.46,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " indeed",
+              "start": 1.46,
+              "end": 1.8,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "so",
+          "start": 0.64,
+          "end": 1.2
+        },
+        {
+          "raw": "he",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "raw": "does",
+          "start": 1.28,
+          "end": 1.46
+        },
+        {
+          "raw": "indeed",
+          "start": 1.46,
+          "end": 1.8
+        }
+      ],
+      "expected_tokens": [
+        "Queen.",
+        "So",
+        "he",
+        "does",
+        "indeed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 0.64,
+          "end": 1.2,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.2,
+          "end": 1.28,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 1.28,
+          "end": 1.46,
+          "key": "does",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "indeed",
+          "start": 1.46,
+          "end": 1.8,
+          "key": "indeed",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen.",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "So",
+          "start": 0.64,
+          "end": 1.2
+        },
+        {
+          "text": "he",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "text": "does",
+          "start": 1.28,
+          "end": 1.46
+        },
+        {
+          "text": "indeed.",
+          "start": 1.46,
+          "end": 1.8
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16246316023170948
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "58fa5e89904e5ce043369388efea340ce18de0e78a130f94406611d82ac509f7",
+  "selected_reasons": []
+}

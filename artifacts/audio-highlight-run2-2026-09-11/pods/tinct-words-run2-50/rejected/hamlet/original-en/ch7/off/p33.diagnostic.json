@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "68b33571b2fe27b61c74e3ce26730432a494cc94415de42d3c685099545a9b5f",
+  "attempts": [
+    {
+      "asr_seconds": 0.08876481838524342,
+      "alignment_seconds": 0.00010962225496768951,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Reads",
+          "start": 0.05,
+          "end": 1.17,
+          "words": [
+            {
+              "text": " Reads",
+              "start": 0.05,
+              "end": 1.17,
+              "probability": 0.7344970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Reads",
+          "start": 0.05,
+          "end": 1.17
+        }
+      ],
+      "expected_tokens": [
+        "[Reads.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Reads",
+          "start": 0.05,
+          "end": 1.17,
+          "key": "reads",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Reads.]",
+          "start": 0.05,
+          "end": 1.17
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08890939131379128
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0ee1650c6809f5d6d169687c8ff7998641ecabc6a45ab0b82d783c6c227bbc04",
+  "selected_reasons": []
+}

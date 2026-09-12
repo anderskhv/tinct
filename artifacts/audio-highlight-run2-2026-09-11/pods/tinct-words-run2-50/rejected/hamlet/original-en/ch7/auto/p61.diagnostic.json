@@ -1,0 +1,2302 @@
+{
+  "complete": true,
+  "signature": "cbff8451d7e8d8a57ca5a939f40a1a1d3e2eae3652abaa3df868924c13745e12",
+  "attempts": [
+    {
+      "asr_seconds": 4.49853540956974,
+      "alignment_seconds": 0.0012492239475250244,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Polonius. Do you know me, my lord?",
+        "hotwords": "Polonius, Do"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do you know me, my lord?",
+          "start": 0.63,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " Polonius,",
+              "start": 0.63,
+              "end": 0.95,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " Do",
+              "start": 1.39,
+              "end": 1.43,
+              "probability": 0.00852203369140625
+            },
+            {
+              "text": " Polonius,",
+              "start": 1.43,
+              "end": 1.53,
+              "probability": 0.6569011211395264
+            },
+            {
+              "text": " Do",
+              "start": 1.53,
+              "end": 1.53,
+              "probability": 0.953125
+            },
+            {
+              "text": " Polonius,",
+              "start": 1.53,
+              "end": 1.53,
+              "probability": 0.6609722773234049
+            },
+            {
+              "text": " Do",
+              "start": 1.53,
+              "end": 1.53,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Polonius,",
+              "start": 1.53,
+              "end": 1.53,
+              "probability": 0.6560887495676676
+            },
+            {
+              "text": " Do",
+              "start": 1.53,
+              "end": 1.53,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " Polonius,",
+              "start": 1.53,
+              "end": 1.53,
+              "probability": 0.653327465057373
+            },
+            {
+              "text": " Do",
+              "start": 1.53,
+              "end": 1.53,
+              "probability": 0.95703125
+            },
+            {
+              "text": " Polonius,",
+              "start": 1.53,
+              "end": 1.53,
+              "probability": 0.6525576512018839
+            },
+            {
+              "text": " Do",
+              "start": 1.53,
+              "end": 1.53,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " you",
+              "start": 1.53,
+              "end": 1.53,
+              "probability": 0.912109375
+            },
+            {
+              "text": " know",
+              "start": 1.53,
+              "end": 1.61,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " me,",
+              "start": 1.61,
+              "end": 1.75,
+              "probability": 0.951171875
+            },
+            {
+              "text": " my",
+              "start": 1.91,
+              "end": 1.91,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " lord?",
+              "start": 1.91,
+              "end": 2.09,
+              "probability": 0.2164306640625
+            }
+          ]
+        },
+        {
+          "text": " Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius, Do Polonius",
+          "start": 2.09,
+          "end": 2.83,
+          "words": [
+            {
+              "text": " Polonius,",
+              "start": 2.09,
+              "end": 2.09,
+              "probability": 0.005982458591461182
+            },
+            {
+              "text": " Do",
+              "start": 2.09,
+              "end": 2.09,
+              "probability": 7.158517837524414e-05
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.09,
+              "end": 2.19,
+              "probability": 0.616227408250173
+            },
+            {
+              "text": " Do",
+              "start": 2.19,
+              "end": 2.19,
+              "probability": 0.259521484375
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.19,
+              "end": 2.19,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " Do",
+              "start": 2.19,
+              "end": 2.19,
+              "probability": 0.673828125
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.19,
+              "end": 2.23,
+              "probability": 0.9615885416666666
+            },
+            {
+              "text": " Do",
+              "start": 2.23,
+              "end": 2.23,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.23,
+              "end": 2.23,
+              "probability": 0.96875
+            },
+            {
+              "text": " Do",
+              "start": 2.23,
+              "end": 2.23,
+              "probability": 0.77099609375
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.23,
+              "end": 2.35,
+              "probability": 0.9733072916666666
+            },
+            {
+              "text": " Do",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Do",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.80859375
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.9777018229166666
+            },
+            {
+              "text": " Do",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.9796549479166666
+            },
+            {
+              "text": " Do",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.9812825520833334
+            },
+            {
+              "text": " Do",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.9822591145833334
+            },
+            {
+              "text": " Do",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.8515625
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.9832356770833334
+            },
+            {
+              "text": " Do",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.9842122395833334
+            },
+            {
+              "text": " Do",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Do",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.9855143229166666
+            },
+            {
+              "text": " Do",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.9860026041666666
+            },
+            {
+              "text": " Do",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Do",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.9871419270833334
+            },
+            {
+              "text": " Do",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Do",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.35,
+              "end": 2.35,
+              "probability": 0.9879557291666666
+            },
+            {
+              "text": " Do",
+              "start": 2.35,
+              "end": 2.49,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9881184895833334
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9884440104166666
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.892578125
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9884440104166666
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9889322916666666
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9890950520833334
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9895833333333334
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9899088541666666
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9903971354166666
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9903971354166666
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.900390625
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9910481770833334
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9908854166666666
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9910481770833334
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9910481770833334
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9915364583333334
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9913736979166666
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9915364583333334
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9915364583333334
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.908203125
+            },
+            {
+              "text": " Polonius,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9913736979166666
+            },
+            {
+              "text": " Do",
+              "start": 2.49,
+              "end": 2.83,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " Polonius",
+              "start": 2.83,
+              "end": 2.83,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polonius,",
+          "start": 0.63,
+          "end": 0.95
+        },
+        {
+          "raw": "Do",
+          "start": 1.39,
+          "end": 1.43
+        },
+        {
+          "raw": "Polonius,",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "raw": "Do",
+          "start": 1.53,
+          "end": 1.53
+        },
+        {
+          "raw": "Polonius,",
+          "start": 1.53,
+          "end": 1.53
+        },
+        {
+          "raw": "Do",
+          "start": 1.53,
+          "end": 1.53
+        },
+        {
+          "raw": "Polonius,",
+          "start": 1.53,
+          "end": 1.53
+        },
+        {
+          "raw": "Do",
+          "start": 1.53,
+          "end": 1.53
+        },
+        {
+          "raw": "Polonius,",
+          "start": 1.53,
+          "end": 1.53
+        },
+        {
+          "raw": "Do",
+          "start": 1.53,
+          "end": 1.53
+        },
+        {
+          "raw": "Polonius,",
+          "start": 1.53,
+          "end": 1.53
+        },
+        {
+          "raw": "Do",
+          "start": 1.53,
+          "end": 1.53
+        },
+        {
+          "raw": "you",
+          "start": 1.53,
+          "end": 1.53
+        },
+        {
+          "raw": "know",
+          "start": 1.53,
+          "end": 1.61
+        },
+        {
+          "raw": "me,",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "raw": "my",
+          "start": 1.91,
+          "end": 1.91
+        },
+        {
+          "raw": "lord?",
+          "start": 1.91,
+          "end": 2.09
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.09,
+          "end": 2.09
+        },
+        {
+          "raw": "Do",
+          "start": 2.09,
+          "end": 2.09
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "raw": "Do",
+          "start": 2.19,
+          "end": 2.19
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.19,
+          "end": 2.19
+        },
+        {
+          "raw": "Do",
+          "start": 2.19,
+          "end": 2.19
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.19,
+          "end": 2.23
+        },
+        {
+          "raw": "Do",
+          "start": 2.23,
+          "end": 2.23
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.23,
+          "end": 2.23
+        },
+        {
+          "raw": "Do",
+          "start": 2.23,
+          "end": 2.23
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.83
+        },
+        {
+          "raw": "Polonius",
+          "start": 2.83,
+          "end": 2.83
+        }
+      ],
+      "expected_tokens": [
+        "Polonius.",
+        "Do",
+        "you",
+        "know",
+        "me,",
+        "my",
+        "lord?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          10
+        ],
+        [
+          "equal",
+          0,
+          7,
+          10,
+          17
+        ],
+        [
+          "insert",
+          7,
+          7,
+          17,
+          106
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          10
+        ],
+        [
+          "insert",
+          7,
+          7,
+          17,
+          106
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polonius,",
+          "start": 0.63,
+          "end": 0.95,
+          "key": "polonius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 1.39,
+          "end": 1.43,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 1.43,
+          "end": 1.53,
+          "key": "polonius",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 1.53,
+          "end": 1.53,
+          "key": "do",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 1.53,
+          "end": 1.53,
+          "key": "polonius",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 1.53,
+          "end": 1.53,
+          "key": "do",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 1.53,
+          "end": 1.53,
+          "key": "polonius",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 1.53,
+          "end": 1.53,
+          "key": "do",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 1.53,
+          "end": 1.53,
+          "key": "polonius",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 1.53,
+          "end": 1.53,
+          "key": "do",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 1.53,
+          "end": 1.53,
+          "key": "polonius",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 1.53,
+          "end": 1.53,
+          "key": "do",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.53,
+          "end": 1.53,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.53,
+          "end": 1.61,
+          "key": "know",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 1.61,
+          "end": 1.75,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.91,
+          "end": 1.91,
+          "key": "my",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "lord?",
+          "start": 1.91,
+          "end": 2.09,
+          "key": "lord",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.09,
+          "end": 2.09,
+          "key": "polonius",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.09,
+          "end": 2.09,
+          "key": "do",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.09,
+          "end": 2.19,
+          "key": "polonius",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.19,
+          "end": 2.19,
+          "key": "do",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.19,
+          "end": 2.19,
+          "key": "polonius",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.19,
+          "end": 2.19,
+          "key": "do",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.19,
+          "end": 2.23,
+          "key": "polonius",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.23,
+          "end": 2.23,
+          "key": "do",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.23,
+          "end": 2.23,
+          "key": "polonius",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.23,
+          "end": 2.23,
+          "key": "do",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.23,
+          "end": 2.35,
+          "key": "polonius",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "do",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "polonius",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "do",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "polonius",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "do",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "polonius",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "do",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "polonius",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "do",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "polonius",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "do",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "polonius",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "do",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "polonius",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "do",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "polonius",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "do",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "polonius",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "do",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "polonius",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "do",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "polonius",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "do",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "polonius",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "do",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "polonius",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "do",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.35,
+          "end": 2.35,
+          "key": "polonius",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.35,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            98
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            99
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            100
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            101
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "do",
+          "pieces": [
+            102
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "polonius",
+          "pieces": [
+            103
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.49,
+          "end": 2.83,
+          "key": "do",
+          "pieces": [
+            104
+          ]
+        },
+        {
+          "raw": "Polonius",
+          "start": 2.83,
+          "end": 2.83,
+          "key": "polonius",
+          "pieces": [
+            105
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polonius.",
+          "start": 1.53,
+          "end": 1.53
+        },
+        {
+          "text": "Do",
+          "start": 1.53,
+          "end": 1.53
+        },
+        {
+          "text": "you",
+          "start": 1.53,
+          "end": 1.53
+        },
+        {
+          "text": "know",
+          "start": 1.53,
+          "end": 1.61
+        },
+        {
+          "text": "me,",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "text": "my",
+          "start": 1.91,
+          "end": 1.91
+        },
+        {
+          "text": "lord?",
+          "start": 1.91,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 106,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 4.501545829698443
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "edf014073388ec5ecb0f6d3ab71836efa534aeba1561763ef70137d16b2f8f18",
+  "selected_reasons": []
+}

@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "842d64fed479c9691a4b94096590666cc2a3e05345f6896f02abc5f91c304b63",
+  "attempts": [
+    {
+      "asr_seconds": 0.12080454267561436,
+      "alignment_seconds": 0.0002554524689912796,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Exit Polonius.]",
+        "hotwords": "Exit, Polonius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit Polonius.",
+          "start": 0.02,
+          "end": 1.26,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " Polonius.",
+              "start": 0.64,
+              "end": 1.26,
+              "probability": 0.8810221354166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Polonius.",
+          "start": 0.64,
+          "end": 1.26
+        }
+      ],
+      "expected_tokens": [
+        "[Exit",
+        "Polonius.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Polonius.",
+          "start": 0.64,
+          "end": 1.26,
+          "key": "polonius",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Polonius.]",
+          "start": 0.64,
+          "end": 1.26
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12114325538277626
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "11ebcbff9736b7edd22ac57c57ec6f57de0ba5f8837d646839ad08e3cee00309",
+  "selected_reasons": []
+}

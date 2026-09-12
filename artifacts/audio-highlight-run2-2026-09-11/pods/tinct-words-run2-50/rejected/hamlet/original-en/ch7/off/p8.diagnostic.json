@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "d72971b070ee980bcdc356fc7344f6f4a5bccde1dbbc385efe4685f85ec9e174",
+  "attempts": [
+    {
+      "asr_seconds": 0.1241955328732729,
+      "alignment_seconds": 0.00036042556166648865,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Queen, I Amen.",
+          "start": 0.05,
+          "end": 1.41,
+          "words": [
+            {
+              "text": " Queen,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " I",
+              "start": 1.11,
+              "end": 1.17,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Amen.",
+              "start": 1.17,
+              "end": 1.41,
+              "probability": 0.44970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "I",
+          "start": 1.11,
+          "end": 1.17
+        },
+        {
+          "raw": "Amen.",
+          "start": 1.17,
+          "end": 1.41
+        }
+      ],
+      "expected_tokens": [
+        "Queen.",
+        "Ay,",
+        "amen."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.11,
+          "end": 1.17,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Amen.",
+          "start": 1.17,
+          "end": 1.41,
+          "key": "amen",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Ay,",
+          "start": 0.67,
+          "end": 0.92
+        },
+        {
+          "text": "amen.",
+          "start": 1.17,
+          "end": 1.41
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1246686764061451
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ff26a4aea46894d84506bb3cc64c7e4377e67804c5e1205838ddad1891bb2c3b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

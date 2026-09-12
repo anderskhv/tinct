@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "4622cadc935bd109c17cda644139f7de61e88cee57e70a74b4c51282fc991e6e",
+  "attempts": [
+    {
+      "asr_seconds": 0.13175630196928978,
+      "alignment_seconds": 0.0003170482814311981,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King. Ay, Hamlet.",
+        "hotwords": "King, Ay, Hamlet"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King, Ay, Hamlet.",
+          "start": 0.05,
+          "end": 1.65,
+          "words": [
+            {
+              "text": " King,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.70654296875
+            },
+            {
+              "text": " Ay,",
+              "start": 1.01,
+              "end": 1.19,
+              "probability": 3.6656856536865234e-05
+            },
+            {
+              "text": " Hamlet.",
+              "start": 1.35,
+              "end": 1.65,
+              "probability": 0.978759765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.01,
+          "end": 1.19
+        },
+        {
+          "raw": "Hamlet.",
+          "start": 1.35,
+          "end": 1.65
+        }
+      ],
+      "expected_tokens": [
+        "King.",
+        "Ay,",
+        "Hamlet."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.01,
+          "end": 1.19,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Hamlet.",
+          "start": 1.35,
+          "end": 1.65,
+          "key": "hamlet",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Ay,",
+          "start": 1.01,
+          "end": 1.19
+        },
+        {
+          "text": "Hamlet.",
+          "start": 1.35,
+          "end": 1.65
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13218537531793118
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7739529c0871c7cbf74422c49a7518cc09302957287931a8b5c2b355f7a2ce96",
+  "selected_reasons": []
+}

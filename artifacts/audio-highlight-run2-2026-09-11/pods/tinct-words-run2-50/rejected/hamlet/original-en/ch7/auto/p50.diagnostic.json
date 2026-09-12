@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "5288216d25e9bf796702d05f821ef683980108b25e6e4e97f130c13f610ab266",
+  "attempts": [
+    {
+      "asr_seconds": 0.10854545421898365,
+      "alignment_seconds": 0.0003934372216463089,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King. How may we try it further?",
+        "hotwords": "King, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King, How may we try it further?",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " King,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.802734375
+            },
+            {
+              "text": " How",
+              "start": 0.97,
+              "end": 1.13,
+              "probability": 0.00954437255859375
+            },
+            {
+              "text": " may",
+              "start": 1.13,
+              "end": 1.25,
+              "probability": 0.77978515625
+            },
+            {
+              "text": " we",
+              "start": 1.25,
+              "end": 1.37,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " try",
+              "start": 1.37,
+              "end": 1.53,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " it",
+              "start": 1.53,
+              "end": 1.67,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " further?",
+              "start": 1.67,
+              "end": 1.83,
+              "probability": 0.9677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "How",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "raw": "may",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "raw": "we",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "raw": "try",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "raw": "it",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "raw": "further?",
+          "start": 1.67,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "King.",
+        "How",
+        "may",
+        "we",
+        "try",
+        "it",
+        "further?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 0.97,
+          "end": 1.13,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 1.13,
+          "end": 1.25,
+          "key": "may",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.25,
+          "end": 1.37,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "try",
+          "start": 1.37,
+          "end": 1.53,
+          "key": "try",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.53,
+          "end": 1.67,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "further?",
+          "start": 1.67,
+          "end": 1.83,
+          "key": "further",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "How",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "text": "may",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "text": "we",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "text": "try",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "text": "it",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "text": "further?",
+          "start": 1.67,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.109076963737607
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c99d92fb8804701f5c2df163c49b48932fab00c11b65e8079f2577027c577f1e",
+  "selected_reasons": []
+}

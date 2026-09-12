@@ -1,0 +1,597 @@
+{
+  "complete": true,
+  "signature": "94f6530e52a0cb0bb9ab71c56fbb92b231a768f073f45b4deb183ad6963ce11f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2963150590658188,
+      "alignment_seconds": 0.00022095628082752228,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Rosencrantz. Even those you were wont to take such delight in—the tragedians of the city.",
+        "hotwords": "Rosencrantz, Even"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Rosencrantz, Even Rosencrantz. Even those you were wont to take such delight in—the tragedians of the city.",
+          "start": 1.13,
+          "end": 5.53,
+          "words": [
+            {
+              "text": " Rosencrantz,",
+              "start": 1.13,
+              "end": 1.57,
+              "probability": 0.77099609375
+            },
+            {
+              "text": " Even",
+              "start": 1.87,
+              "end": 2.07,
+              "probability": 0.01415252685546875
+            },
+            {
+              "text": " Rosencrantz.",
+              "start": 2.07,
+              "end": 2.37,
+              "probability": 0.7442627251148224
+            },
+            {
+              "text": " Even",
+              "start": 2.37,
+              "end": 2.37,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " those",
+              "start": 2.37,
+              "end": 2.37,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " you",
+              "start": 2.37,
+              "end": 2.53,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " were",
+              "start": 2.53,
+              "end": 2.63,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " wont",
+              "start": 2.63,
+              "end": 2.79,
+              "probability": 0.148681640625
+            },
+            {
+              "text": " to",
+              "start": 2.79,
+              "end": 2.93,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " take",
+              "start": 2.93,
+              "end": 3.09,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " such",
+              "start": 3.09,
+              "end": 3.33,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " delight",
+              "start": 3.33,
+              "end": 3.71,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " in—the",
+              "start": 3.71,
+              "end": 4.51,
+              "probability": 0.48675791422526044
+            },
+            {
+              "text": " tragedians",
+              "start": 4.51,
+              "end": 5.05,
+              "probability": 0.894775390625
+            },
+            {
+              "text": " of",
+              "start": 5.05,
+              "end": 5.21,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 5.21,
+              "end": 5.31,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " city.",
+              "start": 5.31,
+              "end": 5.53,
+              "probability": 0.94482421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rosencrantz,",
+          "start": 1.13,
+          "end": 1.57
+        },
+        {
+          "raw": "Even",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "raw": "Rosencrantz.",
+          "start": 2.07,
+          "end": 2.37
+        },
+        {
+          "raw": "Even",
+          "start": 2.37,
+          "end": 2.37
+        },
+        {
+          "raw": "those",
+          "start": 2.37,
+          "end": 2.37
+        },
+        {
+          "raw": "you",
+          "start": 2.37,
+          "end": 2.53
+        },
+        {
+          "raw": "were",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "raw": "wont",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "raw": "to",
+          "start": 2.79,
+          "end": 2.93
+        },
+        {
+          "raw": "take",
+          "start": 2.93,
+          "end": 3.09
+        },
+        {
+          "raw": "such",
+          "start": 3.09,
+          "end": 3.33
+        },
+        {
+          "raw": "delight",
+          "start": 3.33,
+          "end": 3.71
+        },
+        {
+          "raw": "in—the",
+          "start": 3.71,
+          "end": 4.51
+        },
+        {
+          "raw": "tragedians",
+          "start": 4.51,
+          "end": 5.05
+        },
+        {
+          "raw": "of",
+          "start": 5.05,
+          "end": 5.21
+        },
+        {
+          "raw": "the",
+          "start": 5.21,
+          "end": 5.31
+        },
+        {
+          "raw": "city.",
+          "start": 5.31,
+          "end": 5.53
+        }
+      ],
+      "expected_tokens": [
+        "Rosencrantz.",
+        "Even",
+        "those",
+        "you",
+        "were",
+        "wont",
+        "to",
+        "take",
+        "such",
+        "delight",
+        "in—the",
+        "tragedians",
+        "of",
+        "the",
+        "city."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "equal",
+          0,
+          15,
+          2,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rosencrantz,",
+          "start": 1.13,
+          "end": 1.57,
+          "key": "rosencrantz",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Even",
+          "start": 1.87,
+          "end": 2.07,
+          "key": "even",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Rosencrantz.",
+          "start": 2.07,
+          "end": 2.37,
+          "key": "rosencrantz",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Even",
+          "start": 2.37,
+          "end": 2.37,
+          "key": "even",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 2.37,
+          "end": 2.37,
+          "key": "those",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.37,
+          "end": 2.53,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 2.53,
+          "end": 2.63,
+          "key": "were",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "wont",
+          "start": 2.63,
+          "end": 2.79,
+          "key": "wont",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.79,
+          "end": 2.93,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 2.93,
+          "end": 3.09,
+          "key": "take",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 3.09,
+          "end": 3.33,
+          "key": "such",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "delight",
+          "start": 3.33,
+          "end": 3.71,
+          "key": "delight",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in—the",
+          "start": 3.71,
+          "end": 4.51,
+          "key": "inthe",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "tragedians",
+          "start": 4.51,
+          "end": 5.05,
+          "key": "tragedians",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.05,
+          "end": 5.21,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.21,
+          "end": 5.31,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "city.",
+          "start": 5.31,
+          "end": 5.53,
+          "key": "city",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Rosencrantz.",
+          "start": 2.07,
+          "end": 2.37
+        },
+        {
+          "text": "Even",
+          "start": 2.37,
+          "end": 2.37
+        },
+        {
+          "text": "those",
+          "start": 2.37,
+          "end": 2.37
+        },
+        {
+          "text": "you",
+          "start": 2.37,
+          "end": 2.53
+        },
+        {
+          "text": "were",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "text": "wont",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "text": "to",
+          "start": 2.79,
+          "end": 2.93
+        },
+        {
+          "text": "take",
+          "start": 2.93,
+          "end": 3.09
+        },
+        {
+          "text": "such",
+          "start": 3.09,
+          "end": 3.33
+        },
+        {
+          "text": "delight",
+          "start": 3.33,
+          "end": 3.71
+        },
+        {
+          "text": "in—the",
+          "start": 3.71,
+          "end": 4.51
+        },
+        {
+          "text": "tragedians",
+          "start": 4.51,
+          "end": 5.05
+        },
+        {
+          "text": "of",
+          "start": 5.05,
+          "end": 5.21
+        },
+        {
+          "text": "the",
+          "start": 5.21,
+          "end": 5.31
+        },
+        {
+          "text": "city.",
+          "start": 5.31,
+          "end": 5.53
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29664410278201103
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bf69af7c9414907794263ec64ee6012d245fc9932f6575a8d37a68332944a8b8",
+  "selected_reasons": []
+}

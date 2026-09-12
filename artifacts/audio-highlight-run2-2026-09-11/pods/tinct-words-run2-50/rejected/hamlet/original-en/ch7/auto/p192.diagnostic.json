@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "94ab61baaf8ae30ff7ebad806991648242fe6f2f9842e43b108d7bc73bb2b415",
+  "attempts": [
+    {
+      "asr_seconds": 0.16343855671584606,
+      "alignment_seconds": 0.0003378037363290787,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Rosencrantz. Good my lord.",
+        "hotwords": "Rosencrantz, Good"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Rosencrantz, Good my lord.",
+          "start": 0.89,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Rosencrantz,",
+              "start": 0.89,
+              "end": 1.29,
+              "probability": 0.75140380859375
+            },
+            {
+              "text": " Good",
+              "start": 1.49,
+              "end": 1.59,
+              "probability": 0.201904296875
+            },
+            {
+              "text": " my",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.62841796875
+            },
+            {
+              "text": " lord.",
+              "start": 1.75,
+              "end": 1.95,
+              "probability": 0.498046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rosencrantz,",
+          "start": 0.89,
+          "end": 1.29
+        },
+        {
+          "raw": "Good",
+          "start": 1.49,
+          "end": 1.59
+        },
+        {
+          "raw": "my",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "raw": "lord.",
+          "start": 1.75,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "Rosencrantz.",
+        "Good",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rosencrantz,",
+          "start": 0.89,
+          "end": 1.29,
+          "key": "rosencrantz",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 1.49,
+          "end": 1.59,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.59,
+          "end": 1.75,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.75,
+          "end": 1.95,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Rosencrantz.",
+          "start": 0.89,
+          "end": 1.29
+        },
+        {
+          "text": "Good",
+          "start": 1.49,
+          "end": 1.59
+        },
+        {
+          "text": "my",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "text": "lord.",
+          "start": 1.75,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16391579993069172
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d4c05c52dc23cebcd6ca852d00a5ee6a746f1917040374cece8d016ff83c4e4c",
+  "selected_reasons": []
+}

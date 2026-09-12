@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "5985ba3d116d17e7ecb05aa01a543981afeeb7075745fdaf9491ab8054666022",
+  "attempts": [
+    {
+      "asr_seconds": 0.23422289825975895,
+      "alignment_seconds": 0.0003568604588508606,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. That's a fair thought to lie between maids' legs.",
+        "hotwords": "Hamlet, That's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, That's a fair thought to lie between maids' legs.",
+          "start": 0.08,
+          "end": 3.38,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " That's",
+              "start": 1.22,
+              "end": 1.62,
+              "probability": 0.5020675659179688
+            },
+            {
+              "text": " a",
+              "start": 1.62,
+              "end": 1.7,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " fair",
+              "start": 1.7,
+              "end": 1.84,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " thought",
+              "start": 1.84,
+              "end": 2.06,
+              "probability": 0.947265625
+            },
+            {
+              "text": " to",
+              "start": 2.06,
+              "end": 2.2,
+              "probability": 0.0185546875
+            },
+            {
+              "text": " lie",
+              "start": 2.2,
+              "end": 2.36,
+              "probability": 0.9921875
+            },
+            {
+              "text": " between",
+              "start": 2.36,
+              "end": 2.72,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " maids'",
+              "start": 2.72,
+              "end": 3.14,
+              "probability": 0.6512451171875
+            },
+            {
+              "text": " legs.",
+              "start": 3.18,
+              "end": 3.38,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "That's",
+          "start": 1.22,
+          "end": 1.62
+        },
+        {
+          "raw": "a",
+          "start": 1.62,
+          "end": 1.7
+        },
+        {
+          "raw": "fair",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "raw": "thought",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "raw": "to",
+          "start": 2.06,
+          "end": 2.2
+        },
+        {
+          "raw": "lie",
+          "start": 2.2,
+          "end": 2.36
+        },
+        {
+          "raw": "between",
+          "start": 2.36,
+          "end": 2.72
+        },
+        {
+          "raw": "maids'",
+          "start": 2.72,
+          "end": 3.14
+        },
+        {
+          "raw": "legs.",
+          "start": 3.18,
+          "end": 3.38
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "That's",
+        "a",
+        "fair",
+        "thought",
+        "to",
+        "lie",
+        "between",
+        "maids'",
+        "legs."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 1.22,
+          "end": 1.62,
+          "key": "thats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.62,
+          "end": 1.7,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 1.7,
+          "end": 1.84,
+          "key": "fair",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 1.84,
+          "end": 2.06,
+          "key": "thought",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.06,
+          "end": 2.2,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lie",
+          "start": 2.2,
+          "end": 2.36,
+          "key": "lie",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "between",
+          "start": 2.36,
+          "end": 2.72,
+          "key": "between",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "maids'",
+          "start": 2.72,
+          "end": 3.14,
+          "key": "maids",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "legs.",
+          "start": 3.18,
+          "end": 3.38,
+          "key": "legs",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "That's",
+          "start": 1.22,
+          "end": 1.62
+        },
+        {
+          "text": "a",
+          "start": 1.62,
+          "end": 1.7
+        },
+        {
+          "text": "fair",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "text": "thought",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "text": "to",
+          "start": 2.06,
+          "end": 2.2
+        },
+        {
+          "text": "lie",
+          "start": 2.2,
+          "end": 2.36
+        },
+        {
+          "text": "between",
+          "start": 2.36,
+          "end": 2.72
+        },
+        {
+          "text": "maids'",
+          "start": 2.72,
+          "end": 3.14
+        },
+        {
+          "text": "legs.",
+          "start": 3.18,
+          "end": 3.38
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23471827246248722
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1379f6d928552b4f4d0289b0338ab073de0c80ecb61b4f2914d8d515018feeca",
+  "selected_reasons": []
+}

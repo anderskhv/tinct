@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "09b0551557b84cc3a075217b40939739b54aebd6c130101487b88cc5f936090f",
+  "attempts": [
+    {
+      "asr_seconds": 0.17374853789806366,
+      "alignment_seconds": 0.00042016059160232544,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. Ay, sir, what of him?",
+        "hotwords": "Hamlet, Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, Ay, sir, what of him?",
+          "start": 0.63,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.63,
+              "end": 0.85,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " Ay,",
+              "start": 1.25,
+              "end": 1.27,
+              "probability": 0.0033664703369140625
+            },
+            {
+              "text": " sir,",
+              "start": 1.33,
+              "end": 1.43,
+              "probability": 0.60205078125
+            },
+            {
+              "text": " what",
+              "start": 1.51,
+              "end": 1.57,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " of",
+              "start": 1.57,
+              "end": 1.69,
+              "probability": 0.984375
+            },
+            {
+              "text": " him?",
+              "start": 1.69,
+              "end": 1.83,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.25,
+          "end": 1.27
+        },
+        {
+          "raw": "sir,",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "raw": "what",
+          "start": 1.51,
+          "end": 1.57
+        },
+        {
+          "raw": "of",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "raw": "him?",
+          "start": 1.69,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Ay,",
+        "sir,",
+        "what",
+        "of",
+        "him?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.63,
+          "end": 0.85,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.25,
+          "end": 1.27,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.33,
+          "end": 1.43,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.51,
+          "end": 1.57,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.57,
+          "end": 1.69,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him?",
+          "start": 1.69,
+          "end": 1.83,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "text": "Ay,",
+          "start": 1.25,
+          "end": 1.27
+        },
+        {
+          "text": "sir,",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "text": "what",
+          "start": 1.51,
+          "end": 1.57
+        },
+        {
+          "text": "of",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "text": "him?",
+          "start": 1.69,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1743116769939661
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "773275abe13912b558f50c8ec1a286897494067e6325383a522832c2f8bdf578",
+  "selected_reasons": []
+}

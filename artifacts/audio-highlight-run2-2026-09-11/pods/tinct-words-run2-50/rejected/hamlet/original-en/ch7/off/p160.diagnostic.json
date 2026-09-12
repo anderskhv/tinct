@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "eab223a7cae5532312c3ba0401785f3c372771ebcb7dd354530dcb4517ad99a6",
+  "attempts": [
+    {
+      "asr_seconds": 0.235555961728096,
+      "alignment_seconds": 0.00019567832350730896,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Polonius, aside, still on my daughter.",
+          "start": 0.05,
+          "end": 2.73,
+          "words": [
+            {
+              "text": " Polonius,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.7682291666666666
+            },
+            {
+              "text": " aside,",
+              "start": 1.17,
+              "end": 1.51,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " still",
+              "start": 2.15,
+              "end": 2.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " on",
+              "start": 2.15,
+              "end": 2.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 2.29,
+              "end": 2.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " daughter.",
+              "start": 2.45,
+              "end": 2.73,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polonius,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "aside,",
+          "start": 1.17,
+          "end": 1.51
+        },
+        {
+          "raw": "still",
+          "start": 2.15,
+          "end": 2.15
+        },
+        {
+          "raw": "on",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "raw": "my",
+          "start": 2.29,
+          "end": 2.45
+        },
+        {
+          "raw": "daughter.",
+          "start": 2.45,
+          "end": 2.73
+        }
+      ],
+      "expected_tokens": [
+        "Polonius.",
+        "[Aside.]",
+        "Still",
+        "on",
+        "my",
+        "daughter."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polonius,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "polonius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "aside,",
+          "start": 1.17,
+          "end": 1.51,
+          "key": "aside",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 2.15,
+          "end": 2.15,
+          "key": "still",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.15,
+          "end": 2.29,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.29,
+          "end": 2.45,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "daughter.",
+          "start": 2.45,
+          "end": 2.73,
+          "key": "daughter",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polonius.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "[Aside.]",
+          "start": 1.17,
+          "end": 1.51
+        },
+        {
+          "text": "Still",
+          "start": 2.15,
+          "end": 2.15
+        },
+        {
+          "text": "on",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "text": "my",
+          "start": 2.29,
+          "end": 2.45
+        },
+        {
+          "text": "daughter.",
+          "start": 2.45,
+          "end": 2.73
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23582391068339348
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "eedb2c0404367428a1616bd2a4f966fde5883042e721b5866545b9782cad463b",
+  "selected_reasons": []
+}

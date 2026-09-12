@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "880620c3c2c2fdf2da95e5a826f0a1e575495afc0afdfe28c3fbfbf5cb11c333",
+  "attempts": [
+    {
+      "asr_seconds": 0.20066107995808125,
+      "alignment_seconds": 0.0004798993468284607,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King. Thyself do grace to them, and bring them in.",
+        "hotwords": "King, Thyself"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King, Thyself do grace to them, and bring them in.",
+          "start": 0.05,
+          "end": 3.13,
+          "words": [
+            {
+              "text": " King,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.55322265625
+            },
+            {
+              "text": " Thyself",
+              "start": 1.07,
+              "end": 1.53,
+              "probability": 0.57940673828125
+            },
+            {
+              "text": " do",
+              "start": 1.53,
+              "end": 1.73,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " grace",
+              "start": 1.73,
+              "end": 2.01,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " to",
+              "start": 2.01,
+              "end": 2.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " them,",
+              "start": 2.23,
+              "end": 2.39,
+              "probability": 0.91796875
+            },
+            {
+              "text": " and",
+              "start": 2.49,
+              "end": 2.59,
+              "probability": 0.95703125
+            },
+            {
+              "text": " bring",
+              "start": 2.59,
+              "end": 2.71,
+              "probability": 0.994140625
+            },
+            {
+              "text": " them",
+              "start": 2.71,
+              "end": 2.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in.",
+              "start": 2.85,
+              "end": 3.13,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Thyself",
+          "start": 1.07,
+          "end": 1.53
+        },
+        {
+          "raw": "do",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "raw": "grace",
+          "start": 1.73,
+          "end": 2.01
+        },
+        {
+          "raw": "to",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "raw": "them,",
+          "start": 2.23,
+          "end": 2.39
+        },
+        {
+          "raw": "and",
+          "start": 2.49,
+          "end": 2.59
+        },
+        {
+          "raw": "bring",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "raw": "them",
+          "start": 2.71,
+          "end": 2.85
+        },
+        {
+          "raw": "in.",
+          "start": 2.85,
+          "end": 3.13
+        }
+      ],
+      "expected_tokens": [
+        "King.",
+        "Thyself",
+        "do",
+        "grace",
+        "to",
+        "them,",
+        "and",
+        "bring",
+        "them",
+        "in."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thyself",
+          "start": 1.07,
+          "end": 1.53,
+          "key": "thyself",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.53,
+          "end": 1.73,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "grace",
+          "start": 1.73,
+          "end": 2.01,
+          "key": "grace",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.01,
+          "end": 2.23,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 2.23,
+          "end": 2.39,
+          "key": "them",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.49,
+          "end": 2.59,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 2.59,
+          "end": 2.71,
+          "key": "bring",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 2.71,
+          "end": 2.85,
+          "key": "them",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in.",
+          "start": 2.85,
+          "end": 3.13,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Thyself",
+          "start": 1.07,
+          "end": 1.53
+        },
+        {
+          "text": "do",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "text": "grace",
+          "start": 1.73,
+          "end": 2.01
+        },
+        {
+          "text": "to",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "text": "them,",
+          "start": 2.23,
+          "end": 2.39
+        },
+        {
+          "text": "and",
+          "start": 2.49,
+          "end": 2.59
+        },
+        {
+          "text": "bring",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "text": "them",
+          "start": 2.71,
+          "end": 2.85
+        },
+        {
+          "text": "in.",
+          "start": 2.85,
+          "end": 3.13
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20135018788278103
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4cbfcda1b5d06bcfdb8e4aead8509708005773a577f70f6b0beae70f2deaecf1",
+  "selected_reasons": []
+}

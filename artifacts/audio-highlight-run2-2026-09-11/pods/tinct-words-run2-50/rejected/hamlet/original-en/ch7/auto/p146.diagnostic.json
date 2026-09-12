@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "b44362729db62815859db3908d971ba412eea063ebb1da4d645f07e849bf8be2",
+  "attempts": [
+    {
+      "asr_seconds": 0.21358672343194485,
+      "alignment_seconds": 0.00035489723086357117,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Polonius. Well be with you, gentlemen.",
+        "hotwords": "Polonius, Well"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Polonius, Well be with you, gentlemen.",
+          "start": 0.59,
+          "end": 2.41,
+          "words": [
+            {
+              "text": " Polonius,",
+              "start": 0.59,
+              "end": 0.99,
+              "probability": 0.791015625
+            },
+            {
+              "text": " Well",
+              "start": 1.47,
+              "end": 1.51,
+              "probability": 0.0165557861328125
+            },
+            {
+              "text": " be",
+              "start": 1.51,
+              "end": 1.67,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " with",
+              "start": 1.67,
+              "end": 1.81,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " you,",
+              "start": 1.81,
+              "end": 2.01,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " gentlemen.",
+              "start": 2.15,
+              "end": 2.41,
+              "probability": 0.69873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polonius,",
+          "start": 0.59,
+          "end": 0.99
+        },
+        {
+          "raw": "Well",
+          "start": 1.47,
+          "end": 1.51
+        },
+        {
+          "raw": "be",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "raw": "with",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "raw": "you,",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "raw": "gentlemen.",
+          "start": 2.15,
+          "end": 2.41
+        }
+      ],
+      "expected_tokens": [
+        "Polonius.",
+        "Well",
+        "be",
+        "with",
+        "you,",
+        "gentlemen."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polonius,",
+          "start": 0.59,
+          "end": 0.99,
+          "key": "polonius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Well",
+          "start": 1.47,
+          "end": 1.51,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.51,
+          "end": 1.67,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.67,
+          "end": 1.81,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.81,
+          "end": 2.01,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gentlemen.",
+          "start": 2.15,
+          "end": 2.41,
+          "key": "gentlemen",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polonius.",
+          "start": 0.59,
+          "end": 0.99
+        },
+        {
+          "text": "Well",
+          "start": 1.47,
+          "end": 1.51
+        },
+        {
+          "text": "be",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "text": "with",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "text": "you,",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "text": "gentlemen.",
+          "start": 2.15,
+          "end": 2.41
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21408367529511452
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b6933c75711c1ca59b1bc9b7b63d66d4320c3d965caf94de9a8d402b54eb4656",
+  "selected_reasons": []
+}

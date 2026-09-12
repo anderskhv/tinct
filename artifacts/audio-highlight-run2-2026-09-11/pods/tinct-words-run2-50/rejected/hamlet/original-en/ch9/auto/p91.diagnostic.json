@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "2ea9419421454c4982ef17e7c7b37000d09026f63f2b03cad6fb2f66b5122961",
+  "attempts": [
+    {
+      "asr_seconds": 0.2675623670220375,
+      "alignment_seconds": 0.0002568364143371582,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. I could interpret between you and your love, if I could see the puppets dallying.",
+        "hotwords": "Hamlet, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, I could interpret between you and your love, if I could see the puppets dallying.",
+          "start": 0.05,
+          "end": 5.19,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " I",
+              "start": 1.21,
+              "end": 1.43,
+              "probability": 0.984375
+            },
+            {
+              "text": " could",
+              "start": 1.43,
+              "end": 1.55,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " interpret",
+              "start": 1.55,
+              "end": 1.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " between",
+              "start": 1.99,
+              "end": 2.35,
+              "probability": 0.994140625
+            },
+            {
+              "text": " you",
+              "start": 2.35,
+              "end": 2.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 2.63,
+              "end": 2.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " your",
+              "start": 2.79,
+              "end": 2.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " love,",
+              "start": 2.91,
+              "end": 3.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " if",
+              "start": 3.55,
+              "end": 3.67,
+              "probability": 0.966796875
+            },
+            {
+              "text": " I",
+              "start": 3.67,
+              "end": 3.79,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " could",
+              "start": 3.79,
+              "end": 3.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " see",
+              "start": 3.95,
+              "end": 4.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.11,
+              "end": 4.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " puppets",
+              "start": 4.25,
+              "end": 4.61,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " dallying.",
+              "start": 4.61,
+              "end": 5.19,
+              "probability": 0.7579752604166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "I",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "raw": "could",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "raw": "interpret",
+          "start": 1.55,
+          "end": 1.99
+        },
+        {
+          "raw": "between",
+          "start": 1.99,
+          "end": 2.35
+        },
+        {
+          "raw": "you",
+          "start": 2.35,
+          "end": 2.63
+        },
+        {
+          "raw": "and",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "raw": "your",
+          "start": 2.79,
+          "end": 2.91
+        },
+        {
+          "raw": "love,",
+          "start": 2.91,
+          "end": 3.25
+        },
+        {
+          "raw": "if",
+          "start": 3.55,
+          "end": 3.67
+        },
+        {
+          "raw": "I",
+          "start": 3.67,
+          "end": 3.79
+        },
+        {
+          "raw": "could",
+          "start": 3.79,
+          "end": 3.95
+        },
+        {
+          "raw": "see",
+          "start": 3.95,
+          "end": 4.11
+        },
+        {
+          "raw": "the",
+          "start": 4.11,
+          "end": 4.25
+        },
+        {
+          "raw": "puppets",
+          "start": 4.25,
+          "end": 4.61
+        },
+        {
+          "raw": "dallying.",
+          "start": 4.61,
+          "end": 5.19
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "I",
+        "could",
+        "interpret",
+        "between",
+        "you",
+        "and",
+        "your",
+        "love,",
+        "if",
+        "I",
+        "could",
+        "see",
+        "the",
+        "puppets",
+        "dallying."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.21,
+          "end": 1.43,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 1.43,
+          "end": 1.55,
+          "key": "could",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "interpret",
+          "start": 1.55,
+          "end": 1.99,
+          "key": "interpret",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "between",
+          "start": 1.99,
+          "end": 2.35,
+          "key": "between",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.35,
+          "end": 2.63,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.63,
+          "end": 2.79,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.79,
+          "end": 2.91,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "love,",
+          "start": 2.91,
+          "end": 3.25,
+          "key": "love",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 3.55,
+          "end": 3.67,
+          "key": "if",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.67,
+          "end": 3.79,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 3.79,
+          "end": 3.95,
+          "key": "could",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 3.95,
+          "end": 4.11,
+          "key": "see",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.11,
+          "end": 4.25,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "puppets",
+          "start": 4.25,
+          "end": 4.61,
+          "key": "puppets",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "dallying.",
+          "start": 4.61,
+          "end": 5.19,
+          "key": "dallying",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "I",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "text": "could",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "text": "interpret",
+          "start": 1.55,
+          "end": 1.99
+        },
+        {
+          "text": "between",
+          "start": 1.99,
+          "end": 2.35
+        },
+        {
+          "text": "you",
+          "start": 2.35,
+          "end": 2.63
+        },
+        {
+          "text": "and",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "text": "your",
+          "start": 2.79,
+          "end": 2.91
+        },
+        {
+          "text": "love,",
+          "start": 2.91,
+          "end": 3.25
+        },
+        {
+          "text": "if",
+          "start": 3.55,
+          "end": 3.67
+        },
+        {
+          "text": "I",
+          "start": 3.67,
+          "end": 3.79
+        },
+        {
+          "text": "could",
+          "start": 3.79,
+          "end": 3.95
+        },
+        {
+          "text": "see",
+          "start": 3.95,
+          "end": 4.11
+        },
+        {
+          "text": "the",
+          "start": 4.11,
+          "end": 4.25
+        },
+        {
+          "text": "puppets",
+          "start": 4.25,
+          "end": 4.61
+        },
+        {
+          "text": "dallying.",
+          "start": 4.61,
+          "end": 5.19
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2679220102727413
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4d3ad1a66aa269aba1f21d6ac9b1f774abeb33245ff30a416b5d5cc09cd5e769",
+  "selected_reasons": []
+}

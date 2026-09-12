@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "34a6435fba853bdc2b529c282d5589a3b52ae6a09068a9366006114305cc73dd",
+  "attempts": [
+    {
+      "asr_seconds": 0.23752100951969624,
+      "alignment_seconds": 0.00041669420897960663,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. This is one Lucianus, nephew to the King.",
+        "hotwords": "Hamlet, This, Lucianus, King"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, This is one Lucianus, nephew to the King.",
+          "start": 0.08,
+          "end": 3.38,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.921875
+            },
+            {
+              "text": " This",
+              "start": 1.2,
+              "end": 1.38,
+              "probability": 0.041168212890625
+            },
+            {
+              "text": " is",
+              "start": 1.38,
+              "end": 1.54,
+              "probability": 0.9140625
+            },
+            {
+              "text": " one",
+              "start": 1.54,
+              "end": 1.76,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " Lucianus,",
+              "start": 1.76,
+              "end": 2.44,
+              "probability": 0.7198893229166666
+            },
+            {
+              "text": " nephew",
+              "start": 2.64,
+              "end": 2.76,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " to",
+              "start": 2.76,
+              "end": 3.08,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 3.08,
+              "end": 3.18,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " King.",
+              "start": 3.18,
+              "end": 3.38,
+              "probability": 0.25048828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "This",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "raw": "is",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "raw": "one",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "raw": "Lucianus,",
+          "start": 1.76,
+          "end": 2.44
+        },
+        {
+          "raw": "nephew",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "raw": "to",
+          "start": 2.76,
+          "end": 3.08
+        },
+        {
+          "raw": "the",
+          "start": 3.08,
+          "end": 3.18
+        },
+        {
+          "raw": "King.",
+          "start": 3.18,
+          "end": 3.38
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "This",
+        "is",
+        "one",
+        "Lucianus,",
+        "nephew",
+        "to",
+        "the",
+        "King."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 1.2,
+          "end": 1.38,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.38,
+          "end": 1.54,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.54,
+          "end": 1.76,
+          "key": "one",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Lucianus,",
+          "start": 1.76,
+          "end": 2.44,
+          "key": "lucianus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "nephew",
+          "start": 2.64,
+          "end": 2.76,
+          "key": "nephew",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.76,
+          "end": 3.08,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.08,
+          "end": 3.18,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "King.",
+          "start": 3.18,
+          "end": 3.38,
+          "key": "king",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "This",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "text": "is",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "text": "one",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "text": "Lucianus,",
+          "start": 1.76,
+          "end": 2.44
+        },
+        {
+          "text": "nephew",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "text": "to",
+          "start": 2.76,
+          "end": 3.08
+        },
+        {
+          "text": "the",
+          "start": 3.08,
+          "end": 3.18
+        },
+        {
+          "text": "King.",
+          "start": 3.18,
+          "end": 3.38
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23813987709581852
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3b681a88fe380e83a59a32ce6c310af429eeea27cde235c8607e5335cbd63f8b",
+  "selected_reasons": []
+}

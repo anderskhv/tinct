@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "0c9593626a61e1a5b36e4e97d1147bf89f42b5da8716a64d3e74bc12eaab1c44",
+  "attempts": [
+    {
+      "asr_seconds": 0.3201133478432894,
+      "alignment_seconds": 0.00029252655804157257,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Queen. This is the very coinage of your brain. This bodiless creation ecstasy Is very cunning in.",
+        "hotwords": "Queen, This"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Queen, This is the very coinage of your brain. This bodiless creation ecstasy is very cunning in.",
+          "start": 0.08,
+          "end": 6.62,
+          "words": [
+            {
+              "text": " Queen,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " This",
+              "start": 1.1,
+              "end": 1.46,
+              "probability": 0.01165008544921875
+            },
+            {
+              "text": " is",
+              "start": 1.46,
+              "end": 1.6,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " the",
+              "start": 1.6,
+              "end": 1.78,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " very",
+              "start": 1.78,
+              "end": 2.02,
+              "probability": 0.98046875
+            },
+            {
+              "text": " coinage",
+              "start": 2.02,
+              "end": 2.5,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " of",
+              "start": 2.5,
+              "end": 2.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " your",
+              "start": 2.62,
+              "end": 2.74,
+              "probability": 0.990234375
+            },
+            {
+              "text": " brain.",
+              "start": 2.74,
+              "end": 3.04,
+              "probability": 0.97265625
+            },
+            {
+              "text": " This",
+              "start": 3.66,
+              "end": 3.84,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " bodiless",
+              "start": 3.84,
+              "end": 4.34,
+              "probability": 0.478851318359375
+            },
+            {
+              "text": " creation",
+              "start": 4.34,
+              "end": 4.8,
+              "probability": 0.978515625
+            },
+            {
+              "text": " ecstasy",
+              "start": 4.8,
+              "end": 5.3,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " is",
+              "start": 5.3,
+              "end": 5.7,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " very",
+              "start": 5.7,
+              "end": 5.98,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " cunning",
+              "start": 5.98,
+              "end": 6.28,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " in.",
+              "start": 6.28,
+              "end": 6.62,
+              "probability": 0.93310546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "This",
+          "start": 1.1,
+          "end": 1.46
+        },
+        {
+          "raw": "is",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "raw": "the",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "raw": "very",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "raw": "coinage",
+          "start": 2.02,
+          "end": 2.5
+        },
+        {
+          "raw": "of",
+          "start": 2.5,
+          "end": 2.62
+        },
+        {
+          "raw": "your",
+          "start": 2.62,
+          "end": 2.74
+        },
+        {
+          "raw": "brain.",
+          "start": 2.74,
+          "end": 3.04
+        },
+        {
+          "raw": "This",
+          "start": 3.66,
+          "end": 3.84
+        },
+        {
+          "raw": "bodiless",
+          "start": 3.84,
+          "end": 4.34
+        },
+        {
+          "raw": "creation",
+          "start": 4.34,
+          "end": 4.8
+        },
+        {
+          "raw": "ecstasy",
+          "start": 4.8,
+          "end": 5.3
+        },
+        {
+          "raw": "is",
+          "start": 5.3,
+          "end": 5.7
+        },
+        {
+          "raw": "very",
+          "start": 5.7,
+          "end": 5.98
+        },
+        {
+          "raw": "cunning",
+          "start": 5.98,
+          "end": 6.28
+        },
+        {
+          "raw": "in.",
+          "start": 6.28,
+          "end": 6.62
+        }
+      ],
+      "expected_tokens": [
+        "Queen.",
+        "This",
+        "is",
+        "the",
+        "very",
+        "coinage",
+        "of",
+        "your",
+        "brain.",
+        "This",
+        "bodiless",
+        "creation",
+        "ecstasy",
+        "Is",
+        "very",
+        "cunning",
+        "in."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 1.1,
+          "end": 1.46,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.46,
+          "end": 1.6,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.6,
+          "end": 1.78,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 1.78,
+          "end": 2.02,
+          "key": "very",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "coinage",
+          "start": 2.02,
+          "end": 2.5,
+          "key": "coinage",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.5,
+          "end": 2.62,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.62,
+          "end": 2.74,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "brain.",
+          "start": 2.74,
+          "end": 3.04,
+          "key": "brain",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 3.66,
+          "end": 3.84,
+          "key": "this",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bodiless",
+          "start": 3.84,
+          "end": 4.34,
+          "key": "bodiless",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "creation",
+          "start": 4.34,
+          "end": 4.8,
+          "key": "creation",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ecstasy",
+          "start": 4.8,
+          "end": 5.3,
+          "key": "ecstasy",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.3,
+          "end": 5.7,
+          "key": "is",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 5.7,
+          "end": 5.98,
+          "key": "very",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "cunning",
+          "start": 5.98,
+          "end": 6.28,
+          "key": "cunning",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "in.",
+          "start": 6.28,
+          "end": 6.62,
+          "key": "in",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen.",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "This",
+          "start": 1.1,
+          "end": 1.46
+        },
+        {
+          "text": "is",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "text": "the",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "text": "very",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "text": "coinage",
+          "start": 2.02,
+          "end": 2.5
+        },
+        {
+          "text": "of",
+          "start": 2.5,
+          "end": 2.62
+        },
+        {
+          "text": "your",
+          "start": 2.62,
+          "end": 2.74
+        },
+        {
+          "text": "brain.",
+          "start": 2.74,
+          "end": 3.04
+        },
+        {
+          "text": "This",
+          "start": 3.66,
+          "end": 3.84
+        },
+        {
+          "text": "bodiless",
+          "start": 3.84,
+          "end": 4.34
+        },
+        {
+          "text": "creation",
+          "start": 4.34,
+          "end": 4.8
+        },
+        {
+          "text": "ecstasy",
+          "start": 4.8,
+          "end": 5.3
+        },
+        {
+          "text": "Is",
+          "start": 5.3,
+          "end": 5.7
+        },
+        {
+          "text": "very",
+          "start": 5.7,
+          "end": 5.98
+        },
+        {
+          "text": "cunning",
+          "start": 5.98,
+          "end": 6.28
+        },
+        {
+          "text": "in.",
+          "start": 6.28,
+          "end": 6.62
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32053104415535927
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "56f0936db72cdddaf33f57657385619f4e3b97b019bdcb25806fee3926146acb",
+  "selected_reasons": []
+}

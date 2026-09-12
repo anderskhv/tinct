@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "a9d4ee22dcb14ebba4242be45adec0279ec769c326dc003aabf94019175ef401",
+  "attempts": [
+    {
+      "asr_seconds": 0.37244529463350773,
+      "alignment_seconds": 0.0002929121255874634,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. My excellent good friends! How dost thou, Guildenstern? Ah, Rosencrantz. Good lads, how do ye both?",
+        "hotwords": "Hamlet, My, Guildenstern, Ah, Rosencrantz"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, My excellent good friends! How dost thou, Guildenstern? Ah, Rosencrantz. Good lads, how do ye both?",
+          "start": 0.05,
+          "end": 7.11,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.782958984375
+            },
+            {
+              "text": " My",
+              "start": 0.89,
+              "end": 1.01,
+              "probability": 0.004974365234375
+            },
+            {
+              "text": " excellent",
+              "start": 1.01,
+              "end": 1.39,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " good",
+              "start": 1.39,
+              "end": 1.67,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " friends!",
+              "start": 1.67,
+              "end": 1.99,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " How",
+              "start": 2.57,
+              "end": 2.65,
+              "probability": 0.873046875
+            },
+            {
+              "text": " dost",
+              "start": 2.65,
+              "end": 2.83,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " thou,",
+              "start": 2.83,
+              "end": 3.09,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Guildenstern?",
+              "start": 3.21,
+              "end": 3.81,
+              "probability": 0.9288330078125
+            },
+            {
+              "text": " Ah,",
+              "start": 4.39,
+              "end": 4.59,
+              "probability": 0.65966796875
+            },
+            {
+              "text": " Rosencrantz.",
+              "start": 4.97,
+              "end": 5.63,
+              "probability": 0.8509521484375
+            },
+            {
+              "text": " Good",
+              "start": 5.93,
+              "end": 6.09,
+              "probability": 0.98828125
+            },
+            {
+              "text": " lads,",
+              "start": 6.09,
+              "end": 6.49,
+              "probability": 0.940673828125
+            },
+            {
+              "text": " how",
+              "start": 6.65,
+              "end": 6.69,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " do",
+              "start": 6.69,
+              "end": 6.79,
+              "probability": 0.6298828125
+            },
+            {
+              "text": " ye",
+              "start": 6.79,
+              "end": 6.87,
+              "probability": 0.7412109375
+            },
+            {
+              "text": " both?",
+              "start": 6.87,
+              "end": 7.11,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "My",
+          "start": 0.89,
+          "end": 1.01
+        },
+        {
+          "raw": "excellent",
+          "start": 1.01,
+          "end": 1.39
+        },
+        {
+          "raw": "good",
+          "start": 1.39,
+          "end": 1.67
+        },
+        {
+          "raw": "friends!",
+          "start": 1.67,
+          "end": 1.99
+        },
+        {
+          "raw": "How",
+          "start": 2.57,
+          "end": 2.65
+        },
+        {
+          "raw": "dost",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "raw": "thou,",
+          "start": 2.83,
+          "end": 3.09
+        },
+        {
+          "raw": "Guildenstern?",
+          "start": 3.21,
+          "end": 3.81
+        },
+        {
+          "raw": "Ah,",
+          "start": 4.39,
+          "end": 4.59
+        },
+        {
+          "raw": "Rosencrantz.",
+          "start": 4.97,
+          "end": 5.63
+        },
+        {
+          "raw": "Good",
+          "start": 5.93,
+          "end": 6.09
+        },
+        {
+          "raw": "lads,",
+          "start": 6.09,
+          "end": 6.49
+        },
+        {
+          "raw": "how",
+          "start": 6.65,
+          "end": 6.69
+        },
+        {
+          "raw": "do",
+          "start": 6.69,
+          "end": 6.79
+        },
+        {
+          "raw": "ye",
+          "start": 6.79,
+          "end": 6.87
+        },
+        {
+          "raw": "both?",
+          "start": 6.87,
+          "end": 7.11
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "My",
+        "excellent",
+        "good",
+        "friends!",
+        "How",
+        "dost",
+        "thou,",
+        "Guildenstern?",
+        "Ah,",
+        "Rosencrantz.",
+        "Good",
+        "lads,",
+        "how",
+        "do",
+        "ye",
+        "both?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 0.89,
+          "end": 1.01,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "excellent",
+          "start": 1.01,
+          "end": 1.39,
+          "key": "excellent",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.39,
+          "end": 1.67,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "friends!",
+          "start": 1.67,
+          "end": 1.99,
+          "key": "friends",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.57,
+          "end": 2.65,
+          "key": "how",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 2.65,
+          "end": 2.83,
+          "key": "dost",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thou,",
+          "start": 2.83,
+          "end": 3.09,
+          "key": "thou",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Guildenstern?",
+          "start": 3.21,
+          "end": 3.81,
+          "key": "guildenstern",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Ah,",
+          "start": 4.39,
+          "end": 4.59,
+          "key": "ah",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Rosencrantz.",
+          "start": 4.97,
+          "end": 5.63,
+          "key": "rosencrantz",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 5.93,
+          "end": 6.09,
+          "key": "good",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "lads,",
+          "start": 6.09,
+          "end": 6.49,
+          "key": "lads",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 6.65,
+          "end": 6.69,
+          "key": "how",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 6.69,
+          "end": 6.79,
+          "key": "do",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "ye",
+          "start": 6.79,
+          "end": 6.87,
+          "key": "ye",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "both?",
+          "start": 6.87,
+          "end": 7.11,
+          "key": "both",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "My",
+          "start": 0.89,
+          "end": 1.01
+        },
+        {
+          "text": "excellent",
+          "start": 1.01,
+          "end": 1.39
+        },
+        {
+          "text": "good",
+          "start": 1.39,
+          "end": 1.67
+        },
+        {
+          "text": "friends!",
+          "start": 1.67,
+          "end": 1.99
+        },
+        {
+          "text": "How",
+          "start": 2.57,
+          "end": 2.65
+        },
+        {
+          "text": "dost",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "text": "thou,",
+          "start": 2.83,
+          "end": 3.09
+        },
+        {
+          "text": "Guildenstern?",
+          "start": 3.21,
+          "end": 3.81
+        },
+        {
+          "text": "Ah,",
+          "start": 4.39,
+          "end": 4.59
+        },
+        {
+          "text": "Rosencrantz.",
+          "start": 4.97,
+          "end": 5.63
+        },
+        {
+          "text": "Good",
+          "start": 5.93,
+          "end": 6.09
+        },
+        {
+          "text": "lads,",
+          "start": 6.09,
+          "end": 6.49
+        },
+        {
+          "text": "how",
+          "start": 6.65,
+          "end": 6.69
+        },
+        {
+          "text": "do",
+          "start": 6.69,
+          "end": 6.79
+        },
+        {
+          "text": "ye",
+          "start": 6.79,
+          "end": 6.87
+        },
+        {
+          "text": "both?",
+          "start": 6.87,
+          "end": 7.11
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3728850856423378
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2ea2c1e7bcf3fecfe8588a55e17cf46bc6f41d90f9a962a0613217963509ae37",
+  "selected_reasons": []
+}

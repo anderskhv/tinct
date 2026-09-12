@@ -1,0 +1,193 @@
+{
+  "complete": true,
+  "signature": "7206716d3d9c52c0aae09ef1ccbbcffd7b4240a20509b9e065d873ca1db4a138",
+  "attempts": [
+    {
+      "asr_seconds": 0.1986959856003523,
+      "alignment_seconds": 0.00042570196092128754,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet, well, God a mercy.",
+          "start": 0.08,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.927978515625
+            },
+            {
+              "text": " well,",
+              "start": 1.26,
+              "end": 1.3,
+              "probability": 0.78857421875
+            },
+            {
+              "text": " God",
+              "start": 1.38,
+              "end": 1.58,
+              "probability": 0.8671875
+            },
+            {
+              "text": " a",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.47314453125
+            },
+            {
+              "text": " mercy.",
+              "start": 1.7,
+              "end": 1.94,
+              "probability": 0.89697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "well,",
+          "start": 1.26,
+          "end": 1.3
+        },
+        {
+          "raw": "God",
+          "start": 1.38,
+          "end": 1.58
+        },
+        {
+          "raw": "a",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "mercy.",
+          "start": 1.7,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Well,",
+        "God-a-mercy."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 1.26,
+          "end": 1.3,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "God a mercy.",
+          "start": 1.38,
+          "end": 1.94,
+          "key": "godamercy",
+          "pieces": [
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 2,
+          "text": "God-a-mercy.",
+          "heard": "God a mercy.",
+          "heard_indexes": [
+            2,
+            3,
+            4
+          ],
+          "start": 1.38,
+          "end": 1.94
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "Well,",
+          "start": 1.26,
+          "end": 1.3
+        },
+        {
+          "text": "God-a-mercy.",
+          "start": 1.38,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19926974922418594
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1198a0472c476c55116872c87f3411de094c0971ac4c2aa57e7c79307ea23c76",
+  "selected_reasons": []
+}

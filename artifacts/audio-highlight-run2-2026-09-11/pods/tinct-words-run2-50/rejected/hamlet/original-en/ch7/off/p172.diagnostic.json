@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "06a9032f61f3da44f3f738947a7b2c8a219be5e52e9ffb3d1b1550fc7c536d32",
+  "attempts": [
+    {
+      "asr_seconds": 0.17197213880717754,
+      "alignment_seconds": 0.00012209638953208923,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Polonius, this is too long.",
+          "start": 0.05,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " Polonius,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " this",
+              "start": 1.29,
+              "end": 1.41,
+              "probability": 0.982421875
+            },
+            {
+              "text": " is",
+              "start": 1.41,
+              "end": 1.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " too",
+              "start": 1.55,
+              "end": 1.73,
+              "probability": 0.99609375
+            },
+            {
+              "text": " long.",
+              "start": 1.73,
+              "end": 2.09,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polonius,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "this",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "raw": "is",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "raw": "too",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "raw": "long.",
+          "start": 1.73,
+          "end": 2.09
+        }
+      ],
+      "expected_tokens": [
+        "Polonius.",
+        "This",
+        "is",
+        "too",
+        "long."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polonius,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "polonius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.29,
+          "end": 1.41,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.41,
+          "end": 1.55,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 1.55,
+          "end": 1.73,
+          "key": "too",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "long.",
+          "start": 1.73,
+          "end": 2.09,
+          "key": "long",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polonius.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "This",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "text": "is",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "text": "too",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "text": "long.",
+          "start": 1.73,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17213822156190872
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ff6e7af741238fde4c177141f229c05bc0ad6932394bfe9982426ef81713b5a6",
+  "selected_reasons": []
+}
