@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "ba7c095f4d7f108a9ad94b2b1d2c407171737177b8243f0189a68de24f10705d",
+  "attempts": [
+    {
+      "asr_seconds": 0.19938787491992116,
+      "alignment_seconds": 0.00039353291504085064,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Messenger, my lord, my lord.",
+          "start": 0.02,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " Messenger,",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.7080078125
+            },
+            {
+              "text": " my",
+              "start": 1.24,
+              "end": 1.34,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " lord,",
+              "start": 1.34,
+              "end": 1.54,
+              "probability": 0.5439453125
+            },
+            {
+              "text": " my",
+              "start": 1.68,
+              "end": 1.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " lord.",
+              "start": 1.74,
+              "end": 1.98,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messenger,",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "my",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "raw": "lord,",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "raw": "my",
+          "start": 1.68,
+          "end": 1.74
+        },
+        {
+          "raw": "lord.",
+          "start": 1.74,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "Messenger.",
+        "My",
+        "lord,",
+        "my",
+        "lord!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messenger,",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "messenger",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.24,
+          "end": 1.34,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 1.34,
+          "end": 1.54,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.68,
+          "end": 1.74,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.74,
+          "end": 1.98,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messenger.",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "text": "My",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "text": "lord,",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "text": "my",
+          "start": 1.68,
+          "end": 1.74
+        },
+        {
+          "text": "lord!",
+          "start": 1.74,
+          "end": 1.98
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19989687204360962
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "281e61dbdbf0795a5b59910cfbff49c25a34686d3d59a04d3a9b76f6b55a1421",
+  "selected_reasons": []
+}

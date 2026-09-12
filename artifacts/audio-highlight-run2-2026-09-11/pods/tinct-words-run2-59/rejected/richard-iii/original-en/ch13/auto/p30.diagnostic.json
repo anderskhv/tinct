@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "3aaf83b0efda45073cf5f19a53e8e8ccf47d2403c2b32ce9ceccab194ce7d4d4",
+  "attempts": [
+    {
+      "asr_seconds": 0.22331361309625208,
+      "alignment_seconds": 0.00048341602087020874,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Richard. Go, Lovell, with all speed to Doctor Shaa.",
+        "hotwords": "Richard, Go, Lovell, Doctor, Shaa"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Richard, Go, Lovell, with all speed to Doctor Shaa.",
+          "start": 0.02,
+          "end": 3.24,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " Go,",
+              "start": 1.44,
+              "end": 1.48,
+              "probability": 0.1214599609375
+            },
+            {
+              "text": " Lovell,",
+              "start": 1.56,
+              "end": 1.8,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " with",
+              "start": 1.8,
+              "end": 1.96,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " all",
+              "start": 1.96,
+              "end": 2.12,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " speed",
+              "start": 2.12,
+              "end": 2.42,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " to",
+              "start": 2.42,
+              "end": 2.6,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " Doctor",
+              "start": 2.6,
+              "end": 2.9,
+              "probability": 0.137939453125
+            },
+            {
+              "text": " Shaa.",
+              "start": 2.9,
+              "end": 3.24,
+              "probability": 0.13018798828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "Go,",
+          "start": 1.44,
+          "end": 1.48
+        },
+        {
+          "raw": "Lovell,",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "raw": "with",
+          "start": 1.8,
+          "end": 1.96
+        },
+        {
+          "raw": "all",
+          "start": 1.96,
+          "end": 2.12
+        },
+        {
+          "raw": "speed",
+          "start": 2.12,
+          "end": 2.42
+        },
+        {
+          "raw": "to",
+          "start": 2.42,
+          "end": 2.6
+        },
+        {
+          "raw": "Doctor",
+          "start": 2.6,
+          "end": 2.9
+        },
+        {
+          "raw": "Shaa.",
+          "start": 2.9,
+          "end": 3.24
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Go,",
+        "Lovell,",
+        "with",
+        "all",
+        "speed",
+        "to",
+        "Doctor",
+        "Shaa."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Go,",
+          "start": 1.44,
+          "end": 1.48,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lovell,",
+          "start": 1.56,
+          "end": 1.8,
+          "key": "lovell",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.8,
+          "end": 1.96,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.96,
+          "end": 2.12,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "speed",
+          "start": 2.12,
+          "end": 2.42,
+          "key": "speed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.42,
+          "end": 2.6,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Doctor",
+          "start": 2.6,
+          "end": 2.9,
+          "key": "doctor",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Shaa.",
+          "start": 2.9,
+          "end": 3.24,
+          "key": "shaa",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "Go,",
+          "start": 1.44,
+          "end": 1.48
+        },
+        {
+          "text": "Lovell,",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "text": "with",
+          "start": 1.8,
+          "end": 1.96
+        },
+        {
+          "text": "all",
+          "start": 1.96,
+          "end": 2.12
+        },
+        {
+          "text": "speed",
+          "start": 2.12,
+          "end": 2.42
+        },
+        {
+          "text": "to",
+          "start": 2.42,
+          "end": 2.6
+        },
+        {
+          "text": "Doctor",
+          "start": 2.6,
+          "end": 2.9
+        },
+        {
+          "text": "Shaa.",
+          "start": 2.9,
+          "end": 3.24
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22397616296075284
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f442f6acbe8204e31338fcbc1c32d2ce5b96faaedfd77c87099e53a4188bbfea",
+  "selected_reasons": []
+}

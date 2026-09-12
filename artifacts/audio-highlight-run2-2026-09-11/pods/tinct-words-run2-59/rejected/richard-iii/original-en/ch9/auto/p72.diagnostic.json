@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "156630cca4edf1b04f7f581fb0ef2f8fe71869c4d34d971b99e332436f468fee",
+  "attempts": [
+    {
+      "asr_seconds": 0.3447522681672126,
+      "alignment_seconds": 0.00040153320878744125,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Richard. Why, what should you fear?",
+        "hotwords": "Richard, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Richard, Why, what should you fear?",
+          "start": 0.05,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " Why,",
+              "start": 1.13,
+              "end": 1.39,
+              "probability": 0.0189971923828125
+            },
+            {
+              "text": " what",
+              "start": 1.51,
+              "end": 1.55,
+              "probability": 0.37939453125
+            },
+            {
+              "text": " should",
+              "start": 1.55,
+              "end": 1.69,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " you",
+              "start": 1.69,
+              "end": 1.83,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " fear?",
+              "start": 1.83,
+              "end": 2.05,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Why,",
+          "start": 1.13,
+          "end": 1.39
+        },
+        {
+          "raw": "what",
+          "start": 1.51,
+          "end": 1.55
+        },
+        {
+          "raw": "should",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "raw": "you",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "raw": "fear?",
+          "start": 1.83,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Why,",
+        "what",
+        "should",
+        "you",
+        "fear?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 1.13,
+          "end": 1.39,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.51,
+          "end": 1.55,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 1.55,
+          "end": 1.69,
+          "key": "should",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.69,
+          "end": 1.83,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fear?",
+          "start": 1.83,
+          "end": 2.05,
+          "key": "fear",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Why,",
+          "start": 1.13,
+          "end": 1.39
+        },
+        {
+          "text": "what",
+          "start": 1.51,
+          "end": 1.55
+        },
+        {
+          "text": "should",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "text": "you",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "text": "fear?",
+          "start": 1.83,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.34529466507956386
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2906aa7ab5aa943ee1fc136e4fc2e299601f0967982d561d3bbc4ff9398e393a",
+  "selected_reasons": []
+}

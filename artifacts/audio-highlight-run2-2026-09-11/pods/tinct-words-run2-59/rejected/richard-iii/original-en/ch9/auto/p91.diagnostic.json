@@ -1,0 +1,293 @@
+{
+  "complete": true,
+  "signature": "b32e46c2cf6b4955b89ae02e90fbcbc5a2372b7082643aa9c2b90dcb9e6007e5",
+  "attempts": [
+    {
+      "asr_seconds": 0.15063613397069275,
+      "alignment_seconds": 0.00032512308098375797,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit Catesby._]",
+        "hotwords": "Catesby._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Catesby._ Exit Catesby._",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " Catesby._",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.0896521806716919
+            },
+            {
+              "text": " Exit",
+              "start": 0.71,
+              "end": 0.71,
+              "probability": 0.005794525146484375
+            },
+            {
+              "text": " Catesby._",
+              "start": 0.71,
+              "end": 1.83,
+              "probability": 0.7146339416503906
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Catesby._",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Exit",
+          "start": 0.71,
+          "end": 0.71
+        },
+        {
+          "raw": "Catesby._",
+          "start": 0.71,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Catesby._]"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          1,
+          1,
+          2
+        ],
+        [
+          "replace",
+          1,
+          2,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Catesby._",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "catesby_",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Exit",
+          "start": 0.71,
+          "end": 0.71,
+          "key": "exit",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Catesby._",
+          "start": 0.71,
+          "end": 1.83,
+          "key": "catesby_",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.71,
+          "end": 0.71
+        },
+        {
+          "text": "Catesby._]",
+          "start": 0.71,
+          "end": 1.27
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15105996397323906
+    },
+    {
+      "asr_seconds": 0.12493498204275966,
+      "alignment_seconds": 0.00028576701879501343,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Catesby._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exit Catesby.",
+          "start": 0.05,
+          "end": 1.21,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " Catesby.",
+              "start": 0.65,
+              "end": 1.21,
+              "probability": 0.487762451171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Catesby.",
+          "start": 0.65,
+          "end": 1.21
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Catesby._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Catesby.",
+          "start": 0.65,
+          "end": 1.21,
+          "key": "catesby",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Catesby._]",
+          "start": 0.65,
+          "end": 1.21
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12531128199771047
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "ef0ad584ce25812937a15887a5be182a0aea3c3ce8ee3cc570851703fb54f525",
+  "selected_reasons": []
+}

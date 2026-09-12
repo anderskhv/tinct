@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "d6148333b7e8da35ed9dfcf0f322e7ccb9b56182f27cadb35b7a91c96777a0e8",
+  "attempts": [
+    {
+      "asr_seconds": 0.1320814210921526,
+      "alignment_seconds": 0.0002554429229348898,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Catesby.",
+        "hotwords": "Enter, Catesby"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Catesby.",
+          "start": 0.05,
+          "end": 1.25,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.94140625
+            },
+            {
+              "text": " Catesby.",
+              "start": 0.71,
+              "end": 1.25,
+              "probability": 0.3268330891927083
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Catesby.",
+          "start": 0.71,
+          "end": 1.25
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Catesby."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Catesby.",
+          "start": 0.71,
+          "end": 1.25,
+          "key": "catesby",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Catesby.",
+          "start": 0.71,
+          "end": 1.25
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13242072402499616
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bb6ed3b836f0eaddc1f0e292d364ea2ebddccc22d598f8cbd8ec89b83515503f",
+  "selected_reasons": []
+}

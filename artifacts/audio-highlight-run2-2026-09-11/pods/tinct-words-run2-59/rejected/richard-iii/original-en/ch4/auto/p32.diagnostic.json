@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "011fa429c76f4b6e639218da561469f0c83a91291eb925b678008e9965fd799a",
+  "attempts": [
+    {
+      "asr_seconds": 0.20585725014097989,
+      "alignment_seconds": 0.0004399549216032028,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Murderer. I thought thou hadst been resolute.",
+        "hotwords": "First, Murderer, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Murderer, I thought thou hadst been resolute.",
+          "start": 0.05,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.744140625
+            },
+            {
+              "text": " Murderer,",
+              "start": 0.67,
+              "end": 1.15,
+              "probability": 0.5345458984375
+            },
+            {
+              "text": " I",
+              "start": 1.53,
+              "end": 1.61,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " thought",
+              "start": 1.61,
+              "end": 1.75,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " thou",
+              "start": 1.75,
+              "end": 1.91,
+              "probability": 0.923828125
+            },
+            {
+              "text": " hadst",
+              "start": 1.91,
+              "end": 2.29,
+              "probability": 0.953857421875
+            },
+            {
+              "text": " been",
+              "start": 2.29,
+              "end": 2.45,
+              "probability": 0.974609375
+            },
+            {
+              "text": " resolute.",
+              "start": 2.45,
+              "end": 2.93,
+              "probability": 0.9072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.67,
+          "end": 1.15
+        },
+        {
+          "raw": "I",
+          "start": 1.53,
+          "end": 1.61
+        },
+        {
+          "raw": "thought",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "raw": "thou",
+          "start": 1.75,
+          "end": 1.91
+        },
+        {
+          "raw": "hadst",
+          "start": 1.91,
+          "end": 2.29
+        },
+        {
+          "raw": "been",
+          "start": 2.29,
+          "end": 2.45
+        },
+        {
+          "raw": "resolute.",
+          "start": 2.45,
+          "end": 2.93
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Murderer.",
+        "I",
+        "thought",
+        "thou",
+        "hadst",
+        "been",
+        "resolute."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.67,
+          "end": 1.15,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.53,
+          "end": 1.61,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 1.61,
+          "end": 1.75,
+          "key": "thought",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.75,
+          "end": 1.91,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hadst",
+          "start": 1.91,
+          "end": 2.29,
+          "key": "hadst",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 2.29,
+          "end": 2.45,
+          "key": "been",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "resolute.",
+          "start": 2.45,
+          "end": 2.93,
+          "key": "resolute",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.67,
+          "end": 1.15
+        },
+        {
+          "text": "I",
+          "start": 1.53,
+          "end": 1.61
+        },
+        {
+          "text": "thought",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "text": "thou",
+          "start": 1.75,
+          "end": 1.91
+        },
+        {
+          "text": "hadst",
+          "start": 1.91,
+          "end": 2.29
+        },
+        {
+          "text": "been",
+          "start": 2.29,
+          "end": 2.45
+        },
+        {
+          "text": "resolute.",
+          "start": 2.45,
+          "end": 2.93
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20646213297732174
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c1bec993a8ec326e50caf44875a1341ca235bae8d9f2a49b32fbdfdec5de1eaa",
+  "selected_reasons": []
+}

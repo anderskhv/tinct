@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "cbed2fd1f59ead03a54261fabe73f7a4e3d8747eec3d984f6257ce19820543c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.15122687094844878,
+      "alignment_seconds": 0.00029581994749605656,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Queen Margaret. Richard!",
+        "hotwords": "Queen, Margaret, Richard"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Queen Margaret, Richard.",
+          "start": 0.05,
+          "end": 1.59,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " Margaret,",
+              "start": 0.57,
+              "end": 0.97,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Richard.",
+              "start": 1.27,
+              "end": 1.59,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Margaret,",
+          "start": 0.57,
+          "end": 0.97
+        },
+        {
+          "raw": "Richard.",
+          "start": 1.27,
+          "end": 1.59
+        }
+      ],
+      "expected_tokens": [
+        "Queen",
+        "Margaret.",
+        "Richard!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Margaret,",
+          "start": 0.57,
+          "end": 0.97,
+          "key": "margaret",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Richard.",
+          "start": 1.27,
+          "end": 1.59,
+          "key": "richard",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "Margaret.",
+          "start": 0.57,
+          "end": 0.97
+        },
+        {
+          "text": "Richard!",
+          "start": 1.27,
+          "end": 1.59
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15163382794708014
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4f89128cc1ea6cf1df31b7d28d82635be0e589fba254a485b2e32aeecc57a56e",
+  "selected_reasons": []
+}

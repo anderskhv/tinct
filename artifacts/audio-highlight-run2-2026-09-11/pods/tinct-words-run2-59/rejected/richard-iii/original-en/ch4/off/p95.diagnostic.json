@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "25b5e5f4a2a831e2ac29c492d18211027c4f76daaf85e0c761da5a76e9d0e788",
+  "attempts": [
+    {
+      "asr_seconds": 0.17228989396244287,
+      "alignment_seconds": 0.0003641480579972267,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Second murderer, what shall we do?",
+          "start": 0.08,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.75927734375
+            },
+            {
+              "text": " murderer,",
+              "start": 0.7,
+              "end": 1.02,
+              "probability": 0.67333984375
+            },
+            {
+              "text": " what",
+              "start": 1.48,
+              "end": 1.58,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " shall",
+              "start": 1.58,
+              "end": 1.74,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " we",
+              "start": 1.74,
+              "end": 1.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " do?",
+              "start": 1.86,
+              "end": 2.12,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "murderer,",
+          "start": 0.7,
+          "end": 1.02
+        },
+        {
+          "raw": "what",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "raw": "shall",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "raw": "we",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "raw": "do?",
+          "start": 1.86,
+          "end": 2.12
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Murderer.",
+        "What",
+        "shall",
+        "we",
+        "do?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "murderer,",
+          "start": 0.7,
+          "end": 1.02,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.48,
+          "end": 1.58,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.58,
+          "end": 1.74,
+          "key": "shall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.74,
+          "end": 1.86,
+          "key": "we",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "do?",
+          "start": 1.86,
+          "end": 2.12,
+          "key": "do",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.7,
+          "end": 1.02
+        },
+        {
+          "text": "What",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "text": "shall",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "text": "we",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "text": "do?",
+          "start": 1.86,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17277915799058974
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0de13adfc15ba1e2a05836562f18f4ff9bd308c7f8714403dd69138c331e55d0",
+  "selected_reasons": []
+}

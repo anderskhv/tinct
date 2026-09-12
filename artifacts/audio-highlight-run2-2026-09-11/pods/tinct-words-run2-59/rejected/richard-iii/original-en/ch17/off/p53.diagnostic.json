@@ -1,0 +1,643 @@
+{
+  "complete": true,
+  "signature": "06e056aa59bf26c8d03743de221be8421734f27151075a0243d45c26209fd3ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.33529670210555196,
+      "alignment_seconds": 0.0004552390892058611,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Buckingham, my lord, I have considered in my mind the late request that you did sound",
+          "start": 0.05,
+          "end": 5.43,
+          "words": [
+            {
+              "text": " Buckingham,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " my",
+              "start": 1.53,
+              "end": 1.65,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " lord,",
+              "start": 1.65,
+              "end": 1.93,
+              "probability": 0.80126953125
+            },
+            {
+              "text": " I",
+              "start": 2.47,
+              "end": 2.55,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " have",
+              "start": 2.55,
+              "end": 2.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " considered",
+              "start": 2.67,
+              "end": 3.01,
+              "probability": 0.990234375
+            },
+            {
+              "text": " in",
+              "start": 3.01,
+              "end": 3.27,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " my",
+              "start": 3.27,
+              "end": 3.41,
+              "probability": 0.994140625
+            },
+            {
+              "text": " mind",
+              "start": 3.41,
+              "end": 3.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 3.69,
+              "end": 3.87,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " late",
+              "start": 3.87,
+              "end": 4.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " request",
+              "start": 4.09,
+              "end": 4.51,
+              "probability": 0.845703125
+            },
+            {
+              "text": " that",
+              "start": 4.51,
+              "end": 4.75,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " you",
+              "start": 4.75,
+              "end": 4.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " did",
+              "start": 4.89,
+              "end": 5.11,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " sound",
+              "start": 5.11,
+              "end": 5.43,
+              "probability": 0.9814453125
+            }
+          ]
+        },
+        {
+          "text": " me in.",
+          "start": 5.43,
+          "end": 5.87,
+          "words": [
+            {
+              "text": " me",
+              "start": 5.43,
+              "end": 5.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in.",
+              "start": 5.63,
+              "end": 5.87,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "my",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "raw": "lord,",
+          "start": 1.65,
+          "end": 1.93
+        },
+        {
+          "raw": "I",
+          "start": 2.47,
+          "end": 2.55
+        },
+        {
+          "raw": "have",
+          "start": 2.55,
+          "end": 2.67
+        },
+        {
+          "raw": "considered",
+          "start": 2.67,
+          "end": 3.01
+        },
+        {
+          "raw": "in",
+          "start": 3.01,
+          "end": 3.27
+        },
+        {
+          "raw": "my",
+          "start": 3.27,
+          "end": 3.41
+        },
+        {
+          "raw": "mind",
+          "start": 3.41,
+          "end": 3.69
+        },
+        {
+          "raw": "the",
+          "start": 3.69,
+          "end": 3.87
+        },
+        {
+          "raw": "late",
+          "start": 3.87,
+          "end": 4.09
+        },
+        {
+          "raw": "request",
+          "start": 4.09,
+          "end": 4.51
+        },
+        {
+          "raw": "that",
+          "start": 4.51,
+          "end": 4.75
+        },
+        {
+          "raw": "you",
+          "start": 4.75,
+          "end": 4.89
+        },
+        {
+          "raw": "did",
+          "start": 4.89,
+          "end": 5.11
+        },
+        {
+          "raw": "sound",
+          "start": 5.11,
+          "end": 5.43
+        },
+        {
+          "raw": "me",
+          "start": 5.43,
+          "end": 5.63
+        },
+        {
+          "raw": "in.",
+          "start": 5.63,
+          "end": 5.87
+        }
+      ],
+      "expected_tokens": [
+        "Buckingham.",
+        "My",
+        "lord,",
+        "I",
+        "have",
+        "considered",
+        "in",
+        "my",
+        "mind",
+        "The",
+        "late",
+        "request",
+        "that",
+        "you",
+        "did",
+        "sound",
+        "me",
+        "in."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "buckingham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.53,
+          "end": 1.65,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 1.65,
+          "end": 1.93,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.47,
+          "end": 2.55,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.55,
+          "end": 2.67,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "considered",
+          "start": 2.67,
+          "end": 3.01,
+          "key": "considered",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.01,
+          "end": 3.27,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.27,
+          "end": 3.41,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 3.41,
+          "end": 3.69,
+          "key": "mind",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.69,
+          "end": 3.87,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "late",
+          "start": 3.87,
+          "end": 4.09,
+          "key": "late",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "request",
+          "start": 4.09,
+          "end": 4.51,
+          "key": "request",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.51,
+          "end": 4.75,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.75,
+          "end": 4.89,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 4.89,
+          "end": 5.11,
+          "key": "did",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "sound",
+          "start": 5.11,
+          "end": 5.43,
+          "key": "sound",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.43,
+          "end": 5.63,
+          "key": "me",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "in.",
+          "start": 5.63,
+          "end": 5.87,
+          "key": "in",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Buckingham.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "My",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "text": "lord,",
+          "start": 1.65,
+          "end": 1.93
+        },
+        {
+          "text": "I",
+          "start": 2.47,
+          "end": 2.55
+        },
+        {
+          "text": "have",
+          "start": 2.55,
+          "end": 2.67
+        },
+        {
+          "text": "considered",
+          "start": 2.67,
+          "end": 3.01
+        },
+        {
+          "text": "in",
+          "start": 3.01,
+          "end": 3.27
+        },
+        {
+          "text": "my",
+          "start": 3.27,
+          "end": 3.41
+        },
+        {
+          "text": "mind",
+          "start": 3.41,
+          "end": 3.69
+        },
+        {
+          "text": "The",
+          "start": 3.69,
+          "end": 3.87
+        },
+        {
+          "text": "late",
+          "start": 3.87,
+          "end": 4.09
+        },
+        {
+          "text": "request",
+          "start": 4.09,
+          "end": 4.51
+        },
+        {
+          "text": "that",
+          "start": 4.51,
+          "end": 4.75
+        },
+        {
+          "text": "you",
+          "start": 4.75,
+          "end": 4.89
+        },
+        {
+          "text": "did",
+          "start": 4.89,
+          "end": 5.11
+        },
+        {
+          "text": "sound",
+          "start": 5.11,
+          "end": 5.43
+        },
+        {
+          "text": "me",
+          "start": 5.43,
+          "end": 5.63
+        },
+        {
+          "text": "in.",
+          "start": 5.63,
+          "end": 5.87
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3359378930181265
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "88d6126e7effa7a5d5d96c72021200d6fdfd2a7c84f47d9b729c00c85d1d3f83",
+  "selected_reasons": []
+}

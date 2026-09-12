@@ -1,0 +1,129 @@
+{
+  "complete": true,
+  "signature": "ae4c9a69f0267e5cb2dcf3c3f8d469d8d570d3ccbe4e0f9d4aa3dec5635fc559",
+  "attempts": [
+    {
+      "asr_seconds": 0.12614642805419862,
+      "alignment_seconds": 0.00022373697720468044,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hastings.",
+        "hotwords": "Hastings"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hastings Hastings.",
+          "start": 0.05,
+          "end": 1.59,
+          "words": [
+            {
+              "text": " Hastings",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " Hastings.",
+              "start": 0.75,
+              "end": 1.59,
+              "probability": 5.960464477539063e-08
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hastings",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Hastings.",
+          "start": 0.75,
+          "end": 1.59
+        }
+      ],
+      "expected_tokens": [
+        "Hastings."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hastings",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "hastings",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hastings.",
+          "start": 0.75,
+          "end": 1.59,
+          "key": "hastings",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hastings.",
+          "start": 0.05,
+          "end": 0.75
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12646432407200336
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b2f6bf123cb7e7da6bf76a6f1e853d48e3ac65603e1f7c8b6902269dc909eda4",
+  "selected_reasons": []
+}

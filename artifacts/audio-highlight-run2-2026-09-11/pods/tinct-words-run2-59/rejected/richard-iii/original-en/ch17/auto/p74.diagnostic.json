@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "a794d98b7e4c170ca8a4874963f0bc64c7dfcdc752351c679d6560600dfad05e",
+  "attempts": [
+    {
+      "asr_seconds": 0.24310031393542886,
+      "alignment_seconds": 0.0005111461505293846,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Richard. Thou troublest me; I am not in the vein.",
+        "hotwords": "King, Richard, Thou, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Richard, Thou troublest me, I am not in the vein.",
+          "start": 0.05,
+          "end": 3.33,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " Richard,",
+              "start": 0.55,
+              "end": 0.95,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Thou",
+              "start": 1.25,
+              "end": 1.53,
+              "probability": 0.0751953125
+            },
+            {
+              "text": " troublest",
+              "start": 1.53,
+              "end": 2.01,
+              "probability": 0.6218821207682291
+            },
+            {
+              "text": " me,",
+              "start": 2.01,
+              "end": 2.27,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " I",
+              "start": 2.49,
+              "end": 2.65,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " am",
+              "start": 2.65,
+              "end": 2.73,
+              "probability": 0.98828125
+            },
+            {
+              "text": " not",
+              "start": 2.73,
+              "end": 2.89,
+              "probability": 0.96484375
+            },
+            {
+              "text": " in",
+              "start": 2.89,
+              "end": 3.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 3.01,
+              "end": 3.11,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " vein.",
+              "start": 3.11,
+              "end": 3.33,
+              "probability": 0.52099609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "raw": "Thou",
+          "start": 1.25,
+          "end": 1.53
+        },
+        {
+          "raw": "troublest",
+          "start": 1.53,
+          "end": 2.01
+        },
+        {
+          "raw": "me,",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "raw": "I",
+          "start": 2.49,
+          "end": 2.65
+        },
+        {
+          "raw": "am",
+          "start": 2.65,
+          "end": 2.73
+        },
+        {
+          "raw": "not",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "raw": "in",
+          "start": 2.89,
+          "end": 3.01
+        },
+        {
+          "raw": "the",
+          "start": 3.01,
+          "end": 3.11
+        },
+        {
+          "raw": "vein.",
+          "start": 3.11,
+          "end": 3.33
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "Thou",
+        "troublest",
+        "me;",
+        "I",
+        "am",
+        "not",
+        "in",
+        "the",
+        "vein."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.55,
+          "end": 0.95,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 1.25,
+          "end": 1.53,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "troublest",
+          "start": 1.53,
+          "end": 2.01,
+          "key": "troublest",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.01,
+          "end": 2.27,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.49,
+          "end": 2.65,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.65,
+          "end": 2.73,
+          "key": "am",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.73,
+          "end": 2.89,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.89,
+          "end": 3.01,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.01,
+          "end": 3.11,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "vein.",
+          "start": 3.11,
+          "end": 3.33,
+          "key": "vein",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Richard.",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "text": "Thou",
+          "start": 1.25,
+          "end": 1.53
+        },
+        {
+          "text": "troublest",
+          "start": 1.53,
+          "end": 2.01
+        },
+        {
+          "text": "me;",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "text": "I",
+          "start": 2.49,
+          "end": 2.65
+        },
+        {
+          "text": "am",
+          "start": 2.65,
+          "end": 2.73
+        },
+        {
+          "text": "not",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "text": "in",
+          "start": 2.89,
+          "end": 3.01
+        },
+        {
+          "text": "the",
+          "start": 3.01,
+          "end": 3.11
+        },
+        {
+          "text": "vein.",
+          "start": 3.11,
+          "end": 3.33
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24382023210637271
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c4f3a29bdf7897e3cfa6aa28b0c46752ad7ccf36ab92f34fdab5f5c667d4b783",
+  "selected_reasons": []
+}

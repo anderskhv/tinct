@@ -1,0 +1,391 @@
+{
+  "complete": true,
+  "signature": "96cf841f0011e68f7abc0bacfdcef00ae66bc3074f1888a0f99cd3246eeb7654",
+  "attempts": [
+    {
+      "asr_seconds": 0.9090150881092995,
+      "alignment_seconds": 0.0003243139944970608,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit Priest._]",
+        "hotwords": "Priest._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit Priest._",
+          "start": 0.05,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " Priest._",
+              "start": 0.65,
+              "end": 1.73,
+              "probability": 0.3361816704273224
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Priest._",
+          "start": 0.65,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Priest._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Priest._",
+          "start": 0.65,
+          "end": 1.73,
+          "key": "priest_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Priest._]",
+          "start": 0.65,
+          "end": 1.19
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.9094320139847696
+    },
+    {
+      "asr_seconds": 0.11426590895280242,
+      "alignment_seconds": 0.0002810070291161537,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Priest._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exit Priest._",
+          "start": 0.05,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " Priest._",
+              "start": 0.65,
+              "end": 1.73,
+              "probability": 0.3361816704273224
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Priest._",
+          "start": 0.65,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Priest._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Priest._",
+          "start": 0.65,
+          "end": 1.73,
+          "key": "priest_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Priest._]",
+          "start": 0.65,
+          "end": 1.19
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11463725194334984
+    },
+    {
+      "asr_seconds": 0.11520230094902217,
+      "alignment_seconds": 0.0002626730129122734,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Priest",
+          "start": 0.05,
+          "end": 0.97,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " Priest",
+              "start": 0.67,
+              "end": 0.97,
+              "probability": 0.67236328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Priest",
+          "start": 0.67,
+          "end": 0.97
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Priest._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Priest",
+          "start": 0.67,
+          "end": 0.97,
+          "key": "priest",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Priest._]",
+          "start": 0.67,
+          "end": 0.97
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11555506498552859
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3273da630c53179f96ccbe572cec1ad26f8b86bd21c4464b76d4d9a6a93367d9",
+  "selected_reasons": []
+}

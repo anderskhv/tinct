@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "c802ac8d1cffa4399cb3fc16836c93d6829bd02219ef574ff9068604fb1ce2d4",
+  "attempts": [
+    {
+      "asr_seconds": 0.27390248887240887,
+      "alignment_seconds": 0.00045613013207912445,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Second murderer, what shall I stab him as he sleeps?",
+          "start": 0.08,
+          "end": 3.02,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.6650390625
+            },
+            {
+              "text": " murderer,",
+              "start": 0.68,
+              "end": 1.02,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " what",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " shall",
+              "start": 1.72,
+              "end": 1.9,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " I",
+              "start": 1.9,
+              "end": 2.04,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " stab",
+              "start": 2.04,
+              "end": 2.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him",
+              "start": 2.32,
+              "end": 2.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " as",
+              "start": 2.5,
+              "end": 2.62,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " he",
+              "start": 2.62,
+              "end": 2.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sleeps?",
+              "start": 2.74,
+              "end": 3.02,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "murderer,",
+          "start": 0.68,
+          "end": 1.02
+        },
+        {
+          "raw": "what",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "shall",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "raw": "I",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "raw": "stab",
+          "start": 2.04,
+          "end": 2.32
+        },
+        {
+          "raw": "him",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "raw": "as",
+          "start": 2.5,
+          "end": 2.62
+        },
+        {
+          "raw": "he",
+          "start": 2.62,
+          "end": 2.74
+        },
+        {
+          "raw": "sleeps?",
+          "start": 2.74,
+          "end": 3.02
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Murderer.",
+        "What,",
+        "shall",
+        "I",
+        "stab",
+        "him",
+        "as",
+        "he",
+        "sleeps?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "murderer,",
+          "start": 0.68,
+          "end": 1.02,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.72,
+          "end": 1.9,
+          "key": "shall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.9,
+          "end": 2.04,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "stab",
+          "start": 2.04,
+          "end": 2.32,
+          "key": "stab",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.32,
+          "end": 2.5,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.5,
+          "end": 2.62,
+          "key": "as",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.62,
+          "end": 2.74,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sleeps?",
+          "start": 2.74,
+          "end": 3.02,
+          "key": "sleeps",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.68,
+          "end": 1.02
+        },
+        {
+          "text": "What,",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "text": "shall",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "text": "I",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "text": "stab",
+          "start": 2.04,
+          "end": 2.32
+        },
+        {
+          "text": "him",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "text": "as",
+          "start": 2.5,
+          "end": 2.62
+        },
+        {
+          "text": "he",
+          "start": 2.62,
+          "end": 2.74
+        },
+        {
+          "text": "sleeps?",
+          "start": 2.74,
+          "end": 3.02
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27453322196379304
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4c2da14aadd19587a2e1b859c64b8df880d9eb36a9e99feff9991dfd054e1256",
+  "selected_reasons": []
+}

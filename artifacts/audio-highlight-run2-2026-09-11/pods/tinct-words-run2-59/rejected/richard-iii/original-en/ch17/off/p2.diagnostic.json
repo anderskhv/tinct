@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "cbffd068b6a12f92dc396d2464aa6e9074c9dd33d9655fb8599e36ef5ec3eec6",
+  "attempts": [
+    {
+      "asr_seconds": 0.1811694281641394,
+      "alignment_seconds": 0.0003347101155668497,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Buckingham, my gracious sovereign.",
+          "start": 0.05,
+          "end": 2.13,
+          "words": [
+            {
+              "text": " Buckingham,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " my",
+              "start": 1.31,
+              "end": 1.35,
+              "probability": 0.61474609375
+            },
+            {
+              "text": " gracious",
+              "start": 1.35,
+              "end": 1.69,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " sovereign.",
+              "start": 1.69,
+              "end": 2.13,
+              "probability": 0.6826171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "my",
+          "start": 1.31,
+          "end": 1.35
+        },
+        {
+          "raw": "gracious",
+          "start": 1.35,
+          "end": 1.69
+        },
+        {
+          "raw": "sovereign.",
+          "start": 1.69,
+          "end": 2.13
+        }
+      ],
+      "expected_tokens": [
+        "Buckingham.",
+        "My",
+        "gracious",
+        "sovereign!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "buckingham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.31,
+          "end": 1.35,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gracious",
+          "start": 1.35,
+          "end": 1.69,
+          "key": "gracious",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sovereign.",
+          "start": 1.69,
+          "end": 2.13,
+          "key": "sovereign",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Buckingham.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "My",
+          "start": 1.31,
+          "end": 1.35
+        },
+        {
+          "text": "gracious",
+          "start": 1.35,
+          "end": 1.69
+        },
+        {
+          "text": "sovereign!",
+          "start": 1.69,
+          "end": 2.13
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18161587114445865
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e19b76c586cb6e0663507075580884d37612747583a802893b2c0e1ba6476c54",
+  "selected_reasons": []
+}

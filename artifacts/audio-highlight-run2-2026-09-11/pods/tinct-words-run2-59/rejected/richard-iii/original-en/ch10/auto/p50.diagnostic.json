@@ -1,0 +1,93 @@
+{
+  "complete": true,
+  "signature": "bcbc958cb450b064d0979b12cb4ae5ee723b3efeefce740751f28692a8586d99",
+  "attempts": [
+    {
+      "asr_seconds": 0.12029607896693051,
+      "alignment_seconds": 0.000201050890609622,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit.",
+          "start": 0.05,
+          "end": 0.75,
+          "words": [
+            {
+              "text": " Exit.",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.76611328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit.",
+          "start": 0.05,
+          "end": 0.75
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit.",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit._]",
+          "start": 0.05,
+          "end": 0.75
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12055784300900996
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ed201ad706a590cc37e6295704ec8a590182b73d4fab8ccc3581e8445abb4d7d",
+  "selected_reasons": []
+}

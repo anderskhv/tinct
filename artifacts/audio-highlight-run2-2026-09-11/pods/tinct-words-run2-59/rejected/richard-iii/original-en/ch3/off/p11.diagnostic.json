@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "1eec891406fe3c6aecff930210f397667ee6a655a06dc97abb9f84662c7215b2",
+  "attempts": [
+    {
+      "asr_seconds": 0.2214372248854488,
+      "alignment_seconds": 0.0003589140251278877,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gray, here come the lords of Buckingham and Derby.",
+          "start": 0.08,
+          "end": 3.04,
+          "words": [
+            {
+              "text": " Gray,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.6591796875
+            },
+            {
+              "text": " here",
+              "start": 1.14,
+              "end": 1.34,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " come",
+              "start": 1.34,
+              "end": 1.52,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 1.52,
+              "end": 1.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " lords",
+              "start": 1.7,
+              "end": 1.86,
+              "probability": 0.8134765625
+            },
+            {
+              "text": " of",
+              "start": 1.86,
+              "end": 2.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Buckingham",
+              "start": 2.12,
+              "end": 2.4,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 2.4,
+              "end": 2.78,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " Derby.",
+              "start": 2.78,
+              "end": 3.04,
+              "probability": 0.7099609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gray,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "here",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "raw": "come",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "raw": "the",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "raw": "lords",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "raw": "of",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "raw": "Buckingham",
+          "start": 2.12,
+          "end": 2.4
+        },
+        {
+          "raw": "and",
+          "start": 2.4,
+          "end": 2.78
+        },
+        {
+          "raw": "Derby.",
+          "start": 2.78,
+          "end": 3.04
+        }
+      ],
+      "expected_tokens": [
+        "Grey.",
+        "Here",
+        "come",
+        "the",
+        "Lords",
+        "of",
+        "Buckingham",
+        "and",
+        "Derby."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          9,
+          1,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gray,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "gray",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 1.14,
+          "end": 1.34,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.34,
+          "end": 1.52,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.52,
+          "end": 1.7,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lords",
+          "start": 1.7,
+          "end": 1.86,
+          "key": "lords",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.86,
+          "end": 2.12,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Buckingham",
+          "start": 2.12,
+          "end": 2.4,
+          "key": "buckingham",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.4,
+          "end": 2.78,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Derby.",
+          "start": 2.78,
+          "end": 3.04,
+          "key": "derby",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Grey.",
+          "start": 0.0,
+          "end": 0.57
+        },
+        {
+          "text": "Here",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "text": "come",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "text": "the",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "text": "Lords",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "text": "of",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "text": "Buckingham",
+          "start": 2.12,
+          "end": 2.4
+        },
+        {
+          "text": "and",
+          "start": 2.4,
+          "end": 2.78
+        },
+        {
+          "text": "Derby.",
+          "start": 2.78,
+          "end": 3.04
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.22193510783836246
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d0c0675a311d6a7c4880a06f2ee75b061eece4572a4145191ac3a9fa2b96abda",
+  "selected_reasons": []
+}

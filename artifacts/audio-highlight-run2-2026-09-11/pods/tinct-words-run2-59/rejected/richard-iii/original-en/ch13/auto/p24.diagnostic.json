@@ -1,0 +1,487 @@
+{
+  "complete": true,
+  "signature": "ae4976c500072ae34d39f1f5e91343c539cd61b96aaf46814a53f45339e5246b",
+  "attempts": [
+    {
+      "asr_seconds": 0.6674814058933407,
+      "alignment_seconds": 0.00034428597427904606,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit Lord Mayor._]",
+        "hotwords": "Lord, Mayor._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " exit Lord Mayor._",
+          "start": 0.02,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " exit",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.056732177734375
+            },
+            {
+              "text": " Lord",
+              "start": 0.64,
+              "end": 0.88,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " Mayor._",
+              "start": 0.88,
+              "end": 1.94,
+              "probability": 0.25732421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Lord",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "raw": "Mayor._",
+          "start": 0.88,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Lord",
+        "Mayor._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "exit",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 0.64,
+          "end": 0.88,
+          "key": "lord",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mayor._",
+          "start": 0.88,
+          "end": 1.94,
+          "key": "mayor_",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Lord",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "text": "Mayor._]",
+          "start": 0.88,
+          "end": 1.41
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.667936930898577
+    },
+    {
+      "asr_seconds": 0.14591933181509376,
+      "alignment_seconds": 0.0006500962190330029,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Lord, Mayor._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exit Lord, Mayor._",
+          "start": 0.02,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " Lord,",
+              "start": 0.62,
+              "end": 0.88,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " Mayor._",
+              "start": 1.02,
+              "end": 1.94,
+              "probability": 0.34814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "Lord,",
+          "start": 0.62,
+          "end": 0.88
+        },
+        {
+          "raw": "Mayor._",
+          "start": 1.02,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Lord",
+        "Mayor._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lord,",
+          "start": 0.62,
+          "end": 0.88,
+          "key": "lord",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mayor._",
+          "start": 1.02,
+          "end": 1.94,
+          "key": "mayor_",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "Lord",
+          "start": 0.62,
+          "end": 0.88
+        },
+        {
+          "text": "Mayor._]",
+          "start": 0.88,
+          "end": 1.41
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1467556927818805
+    },
+    {
+      "asr_seconds": 0.14737090608105063,
+      "alignment_seconds": 0.00032109301537275314,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Lord Mayor.",
+          "start": 0.02,
+          "end": 1.24,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " Lord",
+              "start": 0.62,
+              "end": 0.88,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " Mayor.",
+              "start": 0.88,
+              "end": 1.24,
+              "probability": 0.548828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "Lord",
+          "start": 0.62,
+          "end": 0.88
+        },
+        {
+          "raw": "Mayor.",
+          "start": 0.88,
+          "end": 1.24
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Lord",
+        "Mayor._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 0.62,
+          "end": 0.88,
+          "key": "lord",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mayor.",
+          "start": 0.88,
+          "end": 1.24,
+          "key": "mayor",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "Lord",
+          "start": 0.62,
+          "end": 0.88
+        },
+        {
+          "text": "Mayor._]",
+          "start": 0.88,
+          "end": 1.24
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14779319614171982
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "144fac983edc5d9b0dc2513445b13406b9592c8e6015a9e3db03ba22f2bafc85",
+  "selected_reasons": []
+}

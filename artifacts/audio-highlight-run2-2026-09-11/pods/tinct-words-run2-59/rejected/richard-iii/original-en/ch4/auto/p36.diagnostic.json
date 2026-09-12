@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "f2ffa2f542b61f297c281e1667ea36dc6e8545284403d6eb48f94ac8cb3f6d04",
+  "attempts": [
+    {
+      "asr_seconds": 0.19478470995090902,
+      "alignment_seconds": 0.0004498499911278486,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Murderer. How dost thou feel thyself now?",
+        "hotwords": "First, Murderer, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First, Murderer, How dost thou feel thyself now?",
+          "start": 0.05,
+          "end": 2.97,
+          "words": [
+            {
+              "text": " First,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.7470703125
+            },
+            {
+              "text": " Murderer,",
+              "start": 0.85,
+              "end": 1.13,
+              "probability": 0.6585693359375
+            },
+            {
+              "text": " How",
+              "start": 1.59,
+              "end": 1.63,
+              "probability": 0.245849609375
+            },
+            {
+              "text": " dost",
+              "start": 1.63,
+              "end": 1.89,
+              "probability": 0.816162109375
+            },
+            {
+              "text": " thou",
+              "start": 1.89,
+              "end": 2.07,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " feel",
+              "start": 2.07,
+              "end": 2.27,
+              "probability": 0.9375
+            },
+            {
+              "text": " thyself",
+              "start": 2.27,
+              "end": 2.67,
+              "probability": 0.986328125
+            },
+            {
+              "text": " now?",
+              "start": 2.67,
+              "end": 2.97,
+              "probability": 0.9658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.85,
+          "end": 1.13
+        },
+        {
+          "raw": "How",
+          "start": 1.59,
+          "end": 1.63
+        },
+        {
+          "raw": "dost",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "raw": "thou",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "raw": "feel",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "raw": "thyself",
+          "start": 2.27,
+          "end": 2.67
+        },
+        {
+          "raw": "now?",
+          "start": 2.67,
+          "end": 2.97
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Murderer.",
+        "How",
+        "dost",
+        "thou",
+        "feel",
+        "thyself",
+        "now?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.85,
+          "end": 1.13,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.59,
+          "end": 1.63,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 1.63,
+          "end": 1.89,
+          "key": "dost",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.89,
+          "end": 2.07,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "feel",
+          "start": 2.07,
+          "end": 2.27,
+          "key": "feel",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thyself",
+          "start": 2.27,
+          "end": 2.67,
+          "key": "thyself",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "now?",
+          "start": 2.67,
+          "end": 2.97,
+          "key": "now",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.85,
+          "end": 1.13
+        },
+        {
+          "text": "How",
+          "start": 1.59,
+          "end": 1.63
+        },
+        {
+          "text": "dost",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "text": "thou",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "text": "feel",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "text": "thyself",
+          "start": 2.27,
+          "end": 2.67
+        },
+        {
+          "text": "now?",
+          "start": 2.67,
+          "end": 2.97
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19540116097778082
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "60876c9d8a84f3626da9974e6982cbfcf56eca4d3643f724dfb5d6d186970759",
+  "selected_reasons": []
+}

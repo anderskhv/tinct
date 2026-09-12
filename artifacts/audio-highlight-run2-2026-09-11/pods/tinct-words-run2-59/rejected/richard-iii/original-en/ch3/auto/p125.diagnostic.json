@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "0ab3c1e7795f47839958b5564389ea72fc04142dc43247a54ffcbcc232e07337",
+  "attempts": [
+    {
+      "asr_seconds": 0.3722906780894846,
+      "alignment_seconds": 0.0005612769164144993,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Murderer. We are, my lord, and come to have the warrant, That we may be admitted where he is.",
+        "hotwords": "First, Murderer, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Murderer, We are, my lord, and come to have the warrant, That we may be admitted where he is.",
+          "start": 0.05,
+          "end": 5.91,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.76904296875
+            },
+            {
+              "text": " Murderer,",
+              "start": 0.67,
+              "end": 1.17,
+              "probability": 0.560516357421875
+            },
+            {
+              "text": " We",
+              "start": 1.59,
+              "end": 1.85,
+              "probability": 0.108642578125
+            },
+            {
+              "text": " are,",
+              "start": 1.85,
+              "end": 2.05,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " my",
+              "start": 2.15,
+              "end": 2.27,
+              "probability": 0.62255859375
+            },
+            {
+              "text": " lord,",
+              "start": 2.27,
+              "end": 2.55,
+              "probability": 0.336669921875
+            },
+            {
+              "text": " and",
+              "start": 2.87,
+              "end": 2.93,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " come",
+              "start": 2.93,
+              "end": 3.09,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " to",
+              "start": 3.09,
+              "end": 3.25,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " have",
+              "start": 3.25,
+              "end": 3.39,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " the",
+              "start": 3.39,
+              "end": 3.55,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " warrant,",
+              "start": 3.55,
+              "end": 3.85,
+              "probability": 0.76416015625
+            },
+            {
+              "text": " That",
+              "start": 4.19,
+              "end": 4.33,
+              "probability": 0.0531005859375
+            },
+            {
+              "text": " we",
+              "start": 4.33,
+              "end": 4.49,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " may",
+              "start": 4.49,
+              "end": 4.65,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " be",
+              "start": 4.65,
+              "end": 4.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " admitted",
+              "start": 4.81,
+              "end": 5.09,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " where",
+              "start": 5.09,
+              "end": 5.39,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " he",
+              "start": 5.39,
+              "end": 5.57,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " is.",
+              "start": 5.57,
+              "end": 5.91,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.67,
+          "end": 1.17
+        },
+        {
+          "raw": "We",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "raw": "are,",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "raw": "my",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "raw": "lord,",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "raw": "and",
+          "start": 2.87,
+          "end": 2.93
+        },
+        {
+          "raw": "come",
+          "start": 2.93,
+          "end": 3.09
+        },
+        {
+          "raw": "to",
+          "start": 3.09,
+          "end": 3.25
+        },
+        {
+          "raw": "have",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "raw": "the",
+          "start": 3.39,
+          "end": 3.55
+        },
+        {
+          "raw": "warrant,",
+          "start": 3.55,
+          "end": 3.85
+        },
+        {
+          "raw": "That",
+          "start": 4.19,
+          "end": 4.33
+        },
+        {
+          "raw": "we",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "raw": "may",
+          "start": 4.49,
+          "end": 4.65
+        },
+        {
+          "raw": "be",
+          "start": 4.65,
+          "end": 4.81
+        },
+        {
+          "raw": "admitted",
+          "start": 4.81,
+          "end": 5.09
+        },
+        {
+          "raw": "where",
+          "start": 5.09,
+          "end": 5.39
+        },
+        {
+          "raw": "he",
+          "start": 5.39,
+          "end": 5.57
+        },
+        {
+          "raw": "is.",
+          "start": 5.57,
+          "end": 5.91
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Murderer.",
+        "We",
+        "are,",
+        "my",
+        "lord,",
+        "and",
+        "come",
+        "to",
+        "have",
+        "the",
+        "warrant,",
+        "That",
+        "we",
+        "may",
+        "be",
+        "admitted",
+        "where",
+        "he",
+        "is."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.67,
+          "end": 1.17,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.59,
+          "end": 1.85,
+          "key": "we",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are,",
+          "start": 1.85,
+          "end": 2.05,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.15,
+          "end": 2.27,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 2.27,
+          "end": 2.55,
+          "key": "lord",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.87,
+          "end": 2.93,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.93,
+          "end": 3.09,
+          "key": "come",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.09,
+          "end": 3.25,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.25,
+          "end": 3.39,
+          "key": "have",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.39,
+          "end": 3.55,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "warrant,",
+          "start": 3.55,
+          "end": 3.85,
+          "key": "warrant",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 4.19,
+          "end": 4.33,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 4.33,
+          "end": 4.49,
+          "key": "we",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 4.49,
+          "end": 4.65,
+          "key": "may",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.65,
+          "end": 4.81,
+          "key": "be",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "admitted",
+          "start": 4.81,
+          "end": 5.09,
+          "key": "admitted",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 5.09,
+          "end": 5.39,
+          "key": "where",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.39,
+          "end": 5.57,
+          "key": "he",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "is.",
+          "start": 5.57,
+          "end": 5.91,
+          "key": "is",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.67,
+          "end": 1.17
+        },
+        {
+          "text": "We",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "text": "are,",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "text": "my",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "text": "lord,",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "text": "and",
+          "start": 2.87,
+          "end": 2.93
+        },
+        {
+          "text": "come",
+          "start": 2.93,
+          "end": 3.09
+        },
+        {
+          "text": "to",
+          "start": 3.09,
+          "end": 3.25
+        },
+        {
+          "text": "have",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "text": "the",
+          "start": 3.39,
+          "end": 3.55
+        },
+        {
+          "text": "warrant,",
+          "start": 3.55,
+          "end": 3.85
+        },
+        {
+          "text": "That",
+          "start": 4.19,
+          "end": 4.33
+        },
+        {
+          "text": "we",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "text": "may",
+          "start": 4.49,
+          "end": 4.65
+        },
+        {
+          "text": "be",
+          "start": 4.65,
+          "end": 4.81
+        },
+        {
+          "text": "admitted",
+          "start": 4.81,
+          "end": 5.09
+        },
+        {
+          "text": "where",
+          "start": 5.09,
+          "end": 5.39
+        },
+        {
+          "text": "he",
+          "start": 5.39,
+          "end": 5.57
+        },
+        {
+          "text": "is.",
+          "start": 5.57,
+          "end": 5.91
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3731037371326238
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7dad413564a0591e17dd8a698758ecef8b3ad5e8dd9b09ee16bbdc489e9bb8c3",
+  "selected_reasons": []
+}

@@ -1,0 +1,404 @@
+{
+  "complete": true,
+  "signature": "b03dc6b584fb480c2e6758930e24e16652855921a02fa6e540f8bf991eb02808",
+  "attempts": [
+    {
+      "asr_seconds": 0.2340321820229292,
+      "alignment_seconds": 0.0006349510513246059,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First murderer. I am strong framed. He cannot prevail with me",
+          "start": 0.05,
+          "end": 4.23,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.83984375
+            },
+            {
+              "text": " murderer.",
+              "start": 0.67,
+              "end": 1.09,
+              "probability": 0.861328125
+            },
+            {
+              "text": " I",
+              "start": 1.47,
+              "end": 1.63,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " am",
+              "start": 1.63,
+              "end": 1.73,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " strong",
+              "start": 1.73,
+              "end": 2.03,
+              "probability": 0.978515625
+            },
+            {
+              "text": " framed.",
+              "start": 2.03,
+              "end": 2.43,
+              "probability": 0.443603515625
+            },
+            {
+              "text": " He",
+              "start": 2.93,
+              "end": 3.03,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " cannot",
+              "start": 3.03,
+              "end": 3.33,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " prevail",
+              "start": 3.33,
+              "end": 3.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 3.73,
+              "end": 3.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me",
+              "start": 3.99,
+              "end": 4.23,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "murderer.",
+          "start": 0.67,
+          "end": 1.09
+        },
+        {
+          "raw": "I",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "raw": "am",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "raw": "strong",
+          "start": 1.73,
+          "end": 2.03
+        },
+        {
+          "raw": "framed.",
+          "start": 2.03,
+          "end": 2.43
+        },
+        {
+          "raw": "He",
+          "start": 2.93,
+          "end": 3.03
+        },
+        {
+          "raw": "cannot",
+          "start": 3.03,
+          "end": 3.33
+        },
+        {
+          "raw": "prevail",
+          "start": 3.33,
+          "end": 3.73
+        },
+        {
+          "raw": "with",
+          "start": 3.73,
+          "end": 3.99
+        },
+        {
+          "raw": "me",
+          "start": 3.99,
+          "end": 4.23
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Murderer.",
+        "I",
+        "am",
+        "strong-framed;",
+        "he",
+        "cannot",
+        "prevail",
+        "with",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "murderer.",
+          "start": 0.67,
+          "end": 1.09,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.47,
+          "end": 1.63,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.63,
+          "end": 1.73,
+          "key": "am",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "strong framed.",
+          "start": 1.73,
+          "end": 2.43,
+          "key": "strongframed",
+          "pieces": [
+            4,
+            5
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.93,
+          "end": 3.03,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 3.03,
+          "end": 3.33,
+          "key": "cannot",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "prevail",
+          "start": 3.33,
+          "end": 3.73,
+          "key": "prevail",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.73,
+          "end": 3.99,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.99,
+          "end": 4.23,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 4,
+          "text": "strong-framed;",
+          "heard": "strong framed.",
+          "heard_indexes": [
+            4,
+            5
+          ],
+          "start": 1.73,
+          "end": 2.43
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.67,
+          "end": 1.09
+        },
+        {
+          "text": "I",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "text": "am",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "text": "strong-framed;",
+          "start": 1.73,
+          "end": 2.43
+        },
+        {
+          "text": "he",
+          "start": 2.93,
+          "end": 3.03
+        },
+        {
+          "text": "cannot",
+          "start": 3.03,
+          "end": 3.33
+        },
+        {
+          "text": "prevail",
+          "start": 3.33,
+          "end": 3.73
+        },
+        {
+          "text": "with",
+          "start": 3.73,
+          "end": 3.99
+        },
+        {
+          "text": "me.",
+          "start": 3.99,
+          "end": 4.23
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23488456197082996
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ccc66c1a03f55a33b68d9b60a9c3a3d1e182cd26017e7b32b17665563801bfc4",
+  "selected_reasons": []
+}

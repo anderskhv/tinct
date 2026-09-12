@@ -1,0 +1,388 @@
+{
+  "complete": true,
+  "signature": "0177d43c1ff1b8bbdc8e45746e15f0a593c3547f2d359b3cbad314d3bd14e30f",
+  "attempts": [
+    {
+      "asr_seconds": 0.19944423204287887,
+      "alignment_seconds": 0.0004569168668240309,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Richard. Good counsel, Mary. Learn it, learn it, Marquis.",
+          "start": 0.05,
+          "end": 3.67,
+          "words": [
+            {
+              "text": " Richard.",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.681640625
+            },
+            {
+              "text": " Good",
+              "start": 1.23,
+              "end": 1.41,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " counsel,",
+              "start": 1.41,
+              "end": 1.77,
+              "probability": 0.7314453125
+            },
+            {
+              "text": " Mary.",
+              "start": 2.03,
+              "end": 2.05,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Learn",
+              "start": 2.59,
+              "end": 2.59,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " it,",
+              "start": 2.59,
+              "end": 2.75,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " learn",
+              "start": 2.91,
+              "end": 3.01,
+              "probability": 0.82421875
+            },
+            {
+              "text": " it,",
+              "start": 3.01,
+              "end": 3.21,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Marquis.",
+              "start": 3.33,
+              "end": 3.67,
+              "probability": 0.7197265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Good",
+          "start": 1.23,
+          "end": 1.41
+        },
+        {
+          "raw": "counsel,",
+          "start": 1.41,
+          "end": 1.77
+        },
+        {
+          "raw": "Mary.",
+          "start": 2.03,
+          "end": 2.05
+        },
+        {
+          "raw": "Learn",
+          "start": 2.59,
+          "end": 2.59
+        },
+        {
+          "raw": "it,",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "raw": "learn",
+          "start": 2.91,
+          "end": 3.01
+        },
+        {
+          "raw": "it,",
+          "start": 3.01,
+          "end": 3.21
+        },
+        {
+          "raw": "Marquis.",
+          "start": 3.33,
+          "end": 3.67
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Good",
+        "counsel,",
+        "marry.",
+        "Learn",
+        "it,",
+        "learn",
+        "it,",
+        "Marquess."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard.",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 1.23,
+          "end": 1.41,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "counsel,",
+          "start": 1.41,
+          "end": 1.77,
+          "key": "counsel",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mary.",
+          "start": 2.03,
+          "end": 2.05,
+          "key": "mary",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Learn",
+          "start": 2.59,
+          "end": 2.59,
+          "key": "learn",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 2.59,
+          "end": 2.75,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "learn",
+          "start": 2.91,
+          "end": 3.01,
+          "key": "learn",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 3.01,
+          "end": 3.21,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Marquis.",
+          "start": 3.33,
+          "end": 3.67,
+          "key": "marquis",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Good",
+          "start": 1.23,
+          "end": 1.41
+        },
+        {
+          "text": "counsel,",
+          "start": 1.41,
+          "end": 1.77
+        },
+        {
+          "text": "marry.",
+          "start": 1.77,
+          "end": 2.18
+        },
+        {
+          "text": "Learn",
+          "start": 2.59,
+          "end": 2.59
+        },
+        {
+          "text": "it,",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "text": "learn",
+          "start": 2.91,
+          "end": 3.01
+        },
+        {
+          "text": "it,",
+          "start": 3.01,
+          "end": 3.21
+        },
+        {
+          "text": "Marquess.",
+          "start": 3.21,
+          "end": 3.44
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20004955492913723
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5b863e80d2b26de818e39aed7e3b3216923c0c463d8cf81e575417e393168204",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

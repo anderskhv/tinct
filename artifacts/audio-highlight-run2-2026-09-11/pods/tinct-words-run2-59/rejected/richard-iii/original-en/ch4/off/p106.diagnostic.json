@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "f2db3dcff3291afa7d3e9b37552b1d22d9049a524d5f29406de1f00d859c4707",
+  "attempts": [
+    {
+      "asr_seconds": 0.12788246083073318,
+      "alignment_seconds": 0.00022287294268608093,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit.",
+          "start": 0.08,
+          "end": 0.74,
+          "words": [
+            {
+              "text": " Exit.",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.77294921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit.",
+          "start": 0.08,
+          "end": 0.74
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit.",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit._]",
+          "start": 0.08,
+          "end": 0.74
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.128177247941494
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9458089d390df4793300dde8580c086683d84e11f9f0151a9fab2ec1a2003a46",
+  "selected_reasons": []
+}

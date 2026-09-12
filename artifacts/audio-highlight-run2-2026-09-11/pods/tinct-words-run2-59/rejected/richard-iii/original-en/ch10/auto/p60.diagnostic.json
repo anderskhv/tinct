@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "3674ae793daf2a62f5300b60708e7fffda5ae2ba11ad392aee9ae4b5970005d0",
+  "attempts": [
+    {
+      "asr_seconds": 0.2160430660005659,
+      "alignment_seconds": 0.00047756987623870373,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hastings. Nay, like enough, for I stay dinner there.",
+        "hotwords": "Hastings, Nay, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hastings, Nay, like enough, for I stay dinner there.",
+          "start": 0.05,
+          "end": 3.27,
+          "words": [
+            {
+              "text": " Hastings,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.955078125
+            },
+            {
+              "text": " Nay,",
+              "start": 1.61,
+              "end": 1.63,
+              "probability": 0.06060791015625
+            },
+            {
+              "text": " like",
+              "start": 1.79,
+              "end": 1.83,
+              "probability": 0.89453125
+            },
+            {
+              "text": " enough,",
+              "start": 1.83,
+              "end": 2.07,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " for",
+              "start": 2.25,
+              "end": 2.33,
+              "probability": 0.783203125
+            },
+            {
+              "text": " I",
+              "start": 2.33,
+              "end": 2.45,
+              "probability": 0.98828125
+            },
+            {
+              "text": " stay",
+              "start": 2.45,
+              "end": 2.69,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " dinner",
+              "start": 2.69,
+              "end": 2.93,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " there.",
+              "start": 2.93,
+              "end": 3.27,
+              "probability": 0.97802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hastings,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.61,
+          "end": 1.63
+        },
+        {
+          "raw": "like",
+          "start": 1.79,
+          "end": 1.83
+        },
+        {
+          "raw": "enough,",
+          "start": 1.83,
+          "end": 2.07
+        },
+        {
+          "raw": "for",
+          "start": 2.25,
+          "end": 2.33
+        },
+        {
+          "raw": "I",
+          "start": 2.33,
+          "end": 2.45
+        },
+        {
+          "raw": "stay",
+          "start": 2.45,
+          "end": 2.69
+        },
+        {
+          "raw": "dinner",
+          "start": 2.69,
+          "end": 2.93
+        },
+        {
+          "raw": "there.",
+          "start": 2.93,
+          "end": 3.27
+        }
+      ],
+      "expected_tokens": [
+        "Hastings.",
+        "Nay,",
+        "like",
+        "enough,",
+        "for",
+        "I",
+        "stay",
+        "dinner",
+        "there."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hastings,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "hastings",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.61,
+          "end": 1.63,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.79,
+          "end": 1.83,
+          "key": "like",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "enough,",
+          "start": 1.83,
+          "end": 2.07,
+          "key": "enough",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.25,
+          "end": 2.33,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.33,
+          "end": 2.45,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "stay",
+          "start": 2.45,
+          "end": 2.69,
+          "key": "stay",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dinner",
+          "start": 2.69,
+          "end": 2.93,
+          "key": "dinner",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "there.",
+          "start": 2.93,
+          "end": 3.27,
+          "key": "there",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hastings.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Nay,",
+          "start": 1.61,
+          "end": 1.63
+        },
+        {
+          "text": "like",
+          "start": 1.79,
+          "end": 1.83
+        },
+        {
+          "text": "enough,",
+          "start": 1.83,
+          "end": 2.07
+        },
+        {
+          "text": "for",
+          "start": 2.25,
+          "end": 2.33
+        },
+        {
+          "text": "I",
+          "start": 2.33,
+          "end": 2.45
+        },
+        {
+          "text": "stay",
+          "start": 2.45,
+          "end": 2.69
+        },
+        {
+          "text": "dinner",
+          "start": 2.69,
+          "end": 2.93
+        },
+        {
+          "text": "there.",
+          "start": 2.93,
+          "end": 3.27
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21669824491254985
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "103cc9813c21b94e6d1e249c63e06dabde106a7f4a2c5d20cb0dcd03e0ed3e8e",
+  "selected_reasons": []
+}

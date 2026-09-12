@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "ff5f2eebe204b0025629a802bfd7cb9037a6f72ebaad90f4908b74c368a6d0c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.12318413308821619,
+      "alignment_seconds": 0.0003010910004377365,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gives the warrant.",
+          "start": 0.05,
+          "end": 1.11,
+          "words": [
+            {
+              "text": " Gives",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.692626953125
+            },
+            {
+              "text": " the",
+              "start": 0.61,
+              "end": 0.77,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " warrant.",
+              "start": 0.77,
+              "end": 1.11,
+              "probability": 0.77783203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gives",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "raw": "warrant.",
+          "start": 0.77,
+          "end": 1.11
+        }
+      ],
+      "expected_tokens": [
+        "[_Gives",
+        "the",
+        "warrant._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gives",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "gives",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.77,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "warrant.",
+          "start": 0.77,
+          "end": 1.11,
+          "key": "warrant",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Gives",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "the",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "text": "warrant._]",
+          "start": 0.77,
+          "end": 1.11
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12359424005262554
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "516e6c571b6247423cc4b821b107dd965022c7412033b8b113211409d24af674",
+  "selected_reasons": []
+}

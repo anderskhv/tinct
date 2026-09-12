@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "a951adb6db6d743a875c19fe6735caa1ccf20d605aac3786f93effa871405f92",
+  "attempts": [
+    {
+      "asr_seconds": 0.1964619760401547,
+      "alignment_seconds": 0.00037201307713985443,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Breakenberry reads the commission.",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Breakenberry",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.5948079427083334
+            },
+            {
+              "text": " reads",
+              "start": 0.97,
+              "end": 1.49,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " the",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.861328125
+            },
+            {
+              "text": " commission.",
+              "start": 1.71,
+              "end": 2.01,
+              "probability": 0.67724609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Breakenberry",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "reads",
+          "start": 0.97,
+          "end": 1.49
+        },
+        {
+          "raw": "the",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "commission.",
+          "start": 1.71,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "[_Brakenbury",
+        "reads",
+        "the",
+        "commission._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Breakenberry",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "breakenberry",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "reads",
+          "start": 0.97,
+          "end": 1.49,
+          "key": "reads",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.49,
+          "end": 1.71,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "commission.",
+          "start": 1.71,
+          "end": 2.01,
+          "key": "commission",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Brakenbury",
+          "start": 0.0,
+          "end": 0.485
+        },
+        {
+          "text": "reads",
+          "start": 0.97,
+          "end": 1.49
+        },
+        {
+          "text": "the",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "text": "commission._]",
+          "start": 1.71,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19695356395095587
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1992f7db138aec44cb175e5d53c8229abebf0f322f14caa44ef5bb5ddc99ea02",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

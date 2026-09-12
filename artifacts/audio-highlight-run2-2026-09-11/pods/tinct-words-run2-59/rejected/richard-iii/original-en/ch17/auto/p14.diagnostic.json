@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "942707af17c01680b10381a883b6bed5f6615e70301ad29762264c8432ede7af",
+  "attempts": [
+    {
+      "asr_seconds": 0.15524125494994223,
+      "alignment_seconds": 0.00034710695035755634,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Buckingham. Your Grace may do your pleasure.",
+        "hotwords": "Buckingham, Grace"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Buckingham, Your Grace may do your pleasure.",
+          "start": 0.05,
+          "end": 2.47,
+          "words": [
+            {
+              "text": " Buckingham,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Your",
+              "start": 1.39,
+              "end": 1.43,
+              "probability": 0.322021484375
+            },
+            {
+              "text": " Grace",
+              "start": 1.43,
+              "end": 1.69,
+              "probability": 0.43603515625
+            },
+            {
+              "text": " may",
+              "start": 1.69,
+              "end": 1.95,
+              "probability": 0.156494140625
+            },
+            {
+              "text": " do",
+              "start": 1.95,
+              "end": 2.09,
+              "probability": 0.943359375
+            },
+            {
+              "text": " your",
+              "start": 2.09,
+              "end": 2.21,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " pleasure.",
+              "start": 2.21,
+              "end": 2.47,
+              "probability": 0.93359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Your",
+          "start": 1.39,
+          "end": 1.43
+        },
+        {
+          "raw": "Grace",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "raw": "may",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "raw": "do",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "raw": "your",
+          "start": 2.09,
+          "end": 2.21
+        },
+        {
+          "raw": "pleasure.",
+          "start": 2.21,
+          "end": 2.47
+        }
+      ],
+      "expected_tokens": [
+        "Buckingham.",
+        "Your",
+        "Grace",
+        "may",
+        "do",
+        "your",
+        "pleasure."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "buckingham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 1.39,
+          "end": 1.43,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Grace",
+          "start": 1.43,
+          "end": 1.69,
+          "key": "grace",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 1.69,
+          "end": 1.95,
+          "key": "may",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.95,
+          "end": 2.09,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.09,
+          "end": 2.21,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pleasure.",
+          "start": 2.21,
+          "end": 2.47,
+          "key": "pleasure",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Buckingham.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Your",
+          "start": 1.39,
+          "end": 1.43
+        },
+        {
+          "text": "Grace",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "text": "may",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "text": "do",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "text": "your",
+          "start": 2.09,
+          "end": 2.21
+        },
+        {
+          "text": "pleasure.",
+          "start": 2.21,
+          "end": 2.47
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15571999293752015
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "77111596e6b03008fa94f3d7e432a5d4f2f96730952e8d623611a97ad13837f5",
+  "selected_reasons": []
+}

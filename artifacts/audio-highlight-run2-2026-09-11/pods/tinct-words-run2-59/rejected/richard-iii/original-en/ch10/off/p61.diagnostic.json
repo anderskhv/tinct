@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "6e829f913fd6d648ceb3b9b92a952ed50d7f7f18a9450a6e834eb8fe201d71f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.11357130506075919,
+      "alignment_seconds": 0.00020761298947036266,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Buckingham",
+          "start": 0.05,
+          "end": 0.73,
+          "words": [
+            {
+              "text": " Buckingham",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.97119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Buckingham",
+          "start": 0.05,
+          "end": 0.73
+        }
+      ],
+      "expected_tokens": [
+        "Buckingham."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Buckingham",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "buckingham",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Buckingham.",
+          "start": 0.05,
+          "end": 0.73
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11384689202532172
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "16a94479085f8b1162ec09b7e95c18bab246a9313a4dc7fd4bcd030a2e4ebc1a",
+  "selected_reasons": []
+}

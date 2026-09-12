@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "d3e1616fdffa2415a7fcc42d3bec36e30fe89d5b8e04ed7c812fea663d289552",
+  "attempts": [
+    {
+      "asr_seconds": 0.21296849800273776,
+      "alignment_seconds": 0.0003973599523305893,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Buckingham. Good Catesby, go effect this business soundly.",
+        "hotwords": "Buckingham, Good, Catesby"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Buckingham, Good, Catesby, go effect this business soundly.",
+          "start": 0.05,
+          "end": 3.89,
+          "words": [
+            {
+              "text": " Buckingham,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.9296875
+            },
+            {
+              "text": " Good,",
+              "start": 1.43,
+              "end": 1.59,
+              "probability": 0.101318359375
+            },
+            {
+              "text": " Catesby,",
+              "start": 1.65,
+              "end": 2.19,
+              "probability": 0.3682454427083333
+            },
+            {
+              "text": " go",
+              "start": 2.33,
+              "end": 2.49,
+              "probability": 0.763671875
+            },
+            {
+              "text": " effect",
+              "start": 2.49,
+              "end": 2.75,
+              "probability": 0.2001953125
+            },
+            {
+              "text": " this",
+              "start": 2.75,
+              "end": 2.97,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " business",
+              "start": 2.97,
+              "end": 3.29,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " soundly.",
+              "start": 3.29,
+              "end": 3.89,
+              "probability": 0.97998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Good,",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "raw": "Catesby,",
+          "start": 1.65,
+          "end": 2.19
+        },
+        {
+          "raw": "go",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "raw": "effect",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "raw": "this",
+          "start": 2.75,
+          "end": 2.97
+        },
+        {
+          "raw": "business",
+          "start": 2.97,
+          "end": 3.29
+        },
+        {
+          "raw": "soundly.",
+          "start": 3.29,
+          "end": 3.89
+        }
+      ],
+      "expected_tokens": [
+        "Buckingham.",
+        "Good",
+        "Catesby,",
+        "go",
+        "effect",
+        "this",
+        "business",
+        "soundly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "buckingham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Good,",
+          "start": 1.43,
+          "end": 1.59,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Catesby,",
+          "start": 1.65,
+          "end": 2.19,
+          "key": "catesby",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 2.33,
+          "end": 2.49,
+          "key": "go",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "effect",
+          "start": 2.49,
+          "end": 2.75,
+          "key": "effect",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.75,
+          "end": 2.97,
+          "key": "this",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "business",
+          "start": 2.97,
+          "end": 3.29,
+          "key": "business",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "soundly.",
+          "start": 3.29,
+          "end": 3.89,
+          "key": "soundly",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Buckingham.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Good",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "text": "Catesby,",
+          "start": 1.65,
+          "end": 2.19
+        },
+        {
+          "text": "go",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "text": "effect",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "text": "this",
+          "start": 2.75,
+          "end": 2.97
+        },
+        {
+          "text": "business",
+          "start": 2.97,
+          "end": 3.29
+        },
+        {
+          "text": "soundly.",
+          "start": 3.29,
+          "end": 3.89
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21351414313539863
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "afe4960ab818b9ff5b314eac1e122bd94f94733e1d3c33ec53cc8fbbbe494af3",
+  "selected_reasons": []
+}

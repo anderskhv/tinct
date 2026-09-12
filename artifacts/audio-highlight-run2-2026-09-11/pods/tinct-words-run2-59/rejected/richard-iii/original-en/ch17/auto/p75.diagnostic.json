@@ -1,0 +1,515 @@
+{
+  "complete": true,
+  "signature": "1093e8ff59960b3379417bbdb06c5598684847dcdc46155148e250857ddb9196",
+  "attempts": [
+    {
+      "asr_seconds": 0.20853138901293278,
+      "alignment_seconds": 0.00043548992834985256,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit followed by all save Buckingham._]",
+        "hotwords": "Buckingham._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " exit followed by all save Buckingham._",
+          "start": 0.08,
+          "end": 2.9,
+          "words": [
+            {
+              "text": " exit",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.040985107421875
+            },
+            {
+              "text": " followed",
+              "start": 0.66,
+              "end": 1.04,
+              "probability": 0.982421875
+            },
+            {
+              "text": " by",
+              "start": 1.04,
+              "end": 1.28,
+              "probability": 0.982421875
+            },
+            {
+              "text": " all",
+              "start": 1.28,
+              "end": 1.48,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " save",
+              "start": 1.48,
+              "end": 1.74,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " Buckingham._",
+              "start": 1.74,
+              "end": 2.9,
+              "probability": 0.46826171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "exit",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "followed",
+          "start": 0.66,
+          "end": 1.04
+        },
+        {
+          "raw": "by",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "raw": "all",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "raw": "save",
+          "start": 1.48,
+          "end": 1.74
+        },
+        {
+          "raw": "Buckingham._",
+          "start": 1.74,
+          "end": 2.9
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "followed",
+        "by",
+        "all",
+        "save",
+        "Buckingham._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "exit",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "followed",
+          "start": 0.66,
+          "end": 1.04,
+          "key": "followed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.04,
+          "end": 1.28,
+          "key": "by",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.28,
+          "end": 1.48,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "save",
+          "start": 1.48,
+          "end": 1.74,
+          "key": "save",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Buckingham._",
+          "start": 1.74,
+          "end": 2.9,
+          "key": "buckingham_",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "followed",
+          "start": 0.66,
+          "end": 1.04
+        },
+        {
+          "text": "by",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "text": "all",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "text": "save",
+          "start": 1.48,
+          "end": 1.74
+        },
+        {
+          "text": "Buckingham._]",
+          "start": 1.74,
+          "end": 2.32
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20910775195807219
+    },
+    {
+      "asr_seconds": 0.1937574460171163,
+      "alignment_seconds": 0.00040478818118572235,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Buckingham._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exit followed by all save Buckingham.",
+          "start": 0.08,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " followed",
+              "start": 0.66,
+              "end": 1.02,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " by",
+              "start": 1.02,
+              "end": 1.28,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " all",
+              "start": 1.28,
+              "end": 1.48,
+              "probability": 0.77685546875
+            },
+            {
+              "text": " save",
+              "start": 1.48,
+              "end": 1.74,
+              "probability": 0.77099609375
+            },
+            {
+              "text": " Buckingham.",
+              "start": 1.74,
+              "end": 2.12,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "followed",
+          "start": 0.66,
+          "end": 1.02
+        },
+        {
+          "raw": "by",
+          "start": 1.02,
+          "end": 1.28
+        },
+        {
+          "raw": "all",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "raw": "save",
+          "start": 1.48,
+          "end": 1.74
+        },
+        {
+          "raw": "Buckingham.",
+          "start": 1.74,
+          "end": 2.12
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "followed",
+        "by",
+        "all",
+        "save",
+        "Buckingham._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "followed",
+          "start": 0.66,
+          "end": 1.02,
+          "key": "followed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.02,
+          "end": 1.28,
+          "key": "by",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.28,
+          "end": 1.48,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "save",
+          "start": 1.48,
+          "end": 1.74,
+          "key": "save",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Buckingham.",
+          "start": 1.74,
+          "end": 2.12,
+          "key": "buckingham",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "followed",
+          "start": 0.66,
+          "end": 1.02
+        },
+        {
+          "text": "by",
+          "start": 1.02,
+          "end": 1.28
+        },
+        {
+          "text": "all",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "text": "save",
+          "start": 1.48,
+          "end": 1.74
+        },
+        {
+          "text": "Buckingham._]",
+          "start": 1.74,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19431631197221577
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "9aa6b8da2dedbbd465e9a165bec6adfb244ab2cb0b76772c83d8a6726b0149c3",
+  "selected_reasons": []
+}

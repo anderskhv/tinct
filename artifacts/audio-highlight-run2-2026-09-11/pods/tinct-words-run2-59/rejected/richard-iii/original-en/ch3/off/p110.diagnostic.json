@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "18b8dda880228dd4fcccba67ecba23cb5f43b1390cf953d62b492aabe7765380",
+  "attempts": [
+    {
+      "asr_seconds": 0.2246763699222356,
+      "alignment_seconds": 0.00045970105566084385,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Buckingham, my hair doth stand on end to hear her curses.",
+          "start": 0.05,
+          "end": 3.53,
+          "words": [
+            {
+              "text": " Buckingham,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " my",
+              "start": 1.37,
+              "end": 1.53,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " hair",
+              "start": 1.53,
+              "end": 1.75,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " doth",
+              "start": 1.75,
+              "end": 1.93,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " stand",
+              "start": 1.93,
+              "end": 2.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 2.25,
+              "end": 2.45,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " end",
+              "start": 2.45,
+              "end": 2.65,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " to",
+              "start": 2.65,
+              "end": 2.85,
+              "probability": 0.990234375
+            },
+            {
+              "text": " hear",
+              "start": 2.85,
+              "end": 3.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " her",
+              "start": 3.01,
+              "end": 3.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " curses.",
+              "start": 3.17,
+              "end": 3.53,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "my",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "raw": "hair",
+          "start": 1.53,
+          "end": 1.75
+        },
+        {
+          "raw": "doth",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "raw": "stand",
+          "start": 1.93,
+          "end": 2.25
+        },
+        {
+          "raw": "on",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "raw": "end",
+          "start": 2.45,
+          "end": 2.65
+        },
+        {
+          "raw": "to",
+          "start": 2.65,
+          "end": 2.85
+        },
+        {
+          "raw": "hear",
+          "start": 2.85,
+          "end": 3.01
+        },
+        {
+          "raw": "her",
+          "start": 3.01,
+          "end": 3.17
+        },
+        {
+          "raw": "curses.",
+          "start": 3.17,
+          "end": 3.53
+        }
+      ],
+      "expected_tokens": [
+        "Buckingham.",
+        "My",
+        "hair",
+        "doth",
+        "stand",
+        "on",
+        "end",
+        "to",
+        "hear",
+        "her",
+        "curses."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "buckingham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.37,
+          "end": 1.53,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hair",
+          "start": 1.53,
+          "end": 1.75,
+          "key": "hair",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 1.75,
+          "end": 1.93,
+          "key": "doth",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "stand",
+          "start": 1.93,
+          "end": 2.25,
+          "key": "stand",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.25,
+          "end": 2.45,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "end",
+          "start": 2.45,
+          "end": 2.65,
+          "key": "end",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.65,
+          "end": 2.85,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 2.85,
+          "end": 3.01,
+          "key": "hear",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.01,
+          "end": 3.17,
+          "key": "her",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "curses.",
+          "start": 3.17,
+          "end": 3.53,
+          "key": "curses",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Buckingham.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "My",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "text": "hair",
+          "start": 1.53,
+          "end": 1.75
+        },
+        {
+          "text": "doth",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "text": "stand",
+          "start": 1.93,
+          "end": 2.25
+        },
+        {
+          "text": "on",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "text": "end",
+          "start": 2.45,
+          "end": 2.65
+        },
+        {
+          "text": "to",
+          "start": 2.65,
+          "end": 2.85
+        },
+        {
+          "text": "hear",
+          "start": 2.85,
+          "end": 3.01
+        },
+        {
+          "text": "her",
+          "start": 3.01,
+          "end": 3.17
+        },
+        {
+          "text": "curses.",
+          "start": 3.17,
+          "end": 3.53
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2253209629561752
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "619d0fbf74bdbe7f1e10c448771d08a376217bd2c8396d44a0f1d5c2ea2aa5fb",
+  "selected_reasons": []
+}

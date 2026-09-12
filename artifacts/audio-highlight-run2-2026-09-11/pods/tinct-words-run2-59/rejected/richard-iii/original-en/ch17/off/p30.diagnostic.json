@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "f0c88ee7f9d1a2532b7d6dcaef65a1ee5d4e80f6aa35e8aff9dcdccb39996fd0",
+  "attempts": [
+    {
+      "asr_seconds": 0.2185468680690974,
+      "alignment_seconds": 0.00038921809755265713,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aside, the deprevolving witty Buckingham.",
+          "start": 0.05,
+          "end": 2.57,
+          "words": [
+            {
+              "text": " Aside,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.7119140625
+            },
+            {
+              "text": " the",
+              "start": 1.33,
+              "end": 1.39,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " deprevolving",
+              "start": 1.39,
+              "end": 2.01,
+              "probability": 0.72998046875
+            },
+            {
+              "text": " witty",
+              "start": 2.01,
+              "end": 2.17,
+              "probability": 0.64599609375
+            },
+            {
+              "text": " Buckingham.",
+              "start": 2.17,
+              "end": 2.57,
+              "probability": 0.9140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "the",
+          "start": 1.33,
+          "end": 1.39
+        },
+        {
+          "raw": "deprevolving",
+          "start": 1.39,
+          "end": 2.01
+        },
+        {
+          "raw": "witty",
+          "start": 2.01,
+          "end": 2.17
+        },
+        {
+          "raw": "Buckingham.",
+          "start": 2.17,
+          "end": 2.57
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside_.]",
+        "The",
+        "deep-revolving",
+        "witty",
+        "Buckingham"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.33,
+          "end": 1.39,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "deprevolving",
+          "start": 1.39,
+          "end": 2.01,
+          "key": "deprevolving",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "witty",
+          "start": 2.01,
+          "end": 2.17,
+          "key": "witty",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Buckingham.",
+          "start": 2.17,
+          "end": 2.57,
+          "key": "buckingham",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside_.]",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "The",
+          "start": 1.33,
+          "end": 1.39
+        },
+        {
+          "text": "deep-revolving",
+          "start": 1.39,
+          "end": 1.7
+        },
+        {
+          "text": "witty",
+          "start": 2.01,
+          "end": 2.17
+        },
+        {
+          "text": "Buckingham",
+          "start": 2.17,
+          "end": 2.57
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21905072988010943
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6771332523fb9a11cfd352b3142b5309ea93cbb26e3fafe33292249488cfea43",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

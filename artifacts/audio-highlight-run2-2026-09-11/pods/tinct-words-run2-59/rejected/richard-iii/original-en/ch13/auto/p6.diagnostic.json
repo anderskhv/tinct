@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "43c7ff975471039d013c317b120ef06e813cdfb1e6bd7e31a24da89a43826040",
+  "attempts": [
+    {
+      "asr_seconds": 0.15337449708022177,
+      "alignment_seconds": 0.0005407598800957203,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Richard. Look to the drawbridge there!",
+        "hotwords": "Richard, Look"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Richard, Look to the drawbridge there!",
+          "start": 0.05,
+          "end": 2.35,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.82666015625
+            },
+            {
+              "text": " Look",
+              "start": 1.15,
+              "end": 1.33,
+              "probability": 0.00537109375
+            },
+            {
+              "text": " to",
+              "start": 1.33,
+              "end": 1.51,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " the",
+              "start": 1.51,
+              "end": 1.61,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " drawbridge",
+              "start": 1.61,
+              "end": 1.99,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " there!",
+              "start": 1.99,
+              "end": 2.35,
+              "probability": 0.98095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Look",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "raw": "to",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "raw": "the",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "raw": "drawbridge",
+          "start": 1.61,
+          "end": 1.99
+        },
+        {
+          "raw": "there!",
+          "start": 1.99,
+          "end": 2.35
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Look",
+        "to",
+        "the",
+        "drawbridge",
+        "there!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Look",
+          "start": 1.15,
+          "end": 1.33,
+          "key": "look",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.33,
+          "end": 1.51,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.51,
+          "end": 1.61,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "drawbridge",
+          "start": 1.61,
+          "end": 1.99,
+          "key": "drawbridge",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "there!",
+          "start": 1.99,
+          "end": 2.35,
+          "key": "there",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Look",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "text": "to",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "text": "the",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "text": "drawbridge",
+          "start": 1.61,
+          "end": 1.99
+        },
+        {
+          "text": "there!",
+          "start": 1.99,
+          "end": 2.35
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1541303109843284
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c5d73daa24b3102a901f4f822cdf2fa055ff5b2704164992010546d1b0ca7789",
+  "selected_reasons": []
+}

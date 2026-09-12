@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "e8100cf27f26cbf40ceeba6c2a26f8c263ac309ba9908925202d8da2b802f83a",
+  "attempts": [
+    {
+      "asr_seconds": 0.2105646759737283,
+      "alignment_seconds": 0.00047845602966845036,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " York, I pray you uncle, give me this dagger.",
+          "start": 0.05,
+          "end": 2.61,
+          "words": [
+            {
+              "text": " York,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.8037109375
+            },
+            {
+              "text": " I",
+              "start": 1.01,
+              "end": 1.09,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " pray",
+              "start": 1.09,
+              "end": 1.25,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " you",
+              "start": 1.25,
+              "end": 1.45,
+              "probability": 0.974609375
+            },
+            {
+              "text": " uncle,",
+              "start": 1.45,
+              "end": 1.65,
+              "probability": 0.51904296875
+            },
+            {
+              "text": " give",
+              "start": 2.03,
+              "end": 2.05,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " me",
+              "start": 2.05,
+              "end": 2.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " this",
+              "start": 2.17,
+              "end": 2.33,
+              "probability": 0.55615234375
+            },
+            {
+              "text": " dagger.",
+              "start": 2.33,
+              "end": 2.61,
+              "probability": 0.9619140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "York,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "I",
+          "start": 1.01,
+          "end": 1.09
+        },
+        {
+          "raw": "pray",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "raw": "you",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "raw": "uncle,",
+          "start": 1.45,
+          "end": 1.65
+        },
+        {
+          "raw": "give",
+          "start": 2.03,
+          "end": 2.05
+        },
+        {
+          "raw": "me",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "raw": "this",
+          "start": 2.17,
+          "end": 2.33
+        },
+        {
+          "raw": "dagger.",
+          "start": 2.33,
+          "end": 2.61
+        }
+      ],
+      "expected_tokens": [
+        "York.",
+        "I",
+        "pray",
+        "you,",
+        "uncle,",
+        "give",
+        "me",
+        "this",
+        "dagger."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "York,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "york",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.01,
+          "end": 1.09,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.09,
+          "end": 1.25,
+          "key": "pray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.25,
+          "end": 1.45,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "uncle,",
+          "start": 1.45,
+          "end": 1.65,
+          "key": "uncle",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 2.03,
+          "end": 2.05,
+          "key": "give",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.05,
+          "end": 2.17,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.17,
+          "end": 2.33,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "dagger.",
+          "start": 2.33,
+          "end": 2.61,
+          "key": "dagger",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "York.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "I",
+          "start": 1.01,
+          "end": 1.09
+        },
+        {
+          "text": "pray",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "text": "you,",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "text": "uncle,",
+          "start": 1.45,
+          "end": 1.65
+        },
+        {
+          "text": "give",
+          "start": 2.03,
+          "end": 2.05
+        },
+        {
+          "text": "me",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "text": "this",
+          "start": 2.17,
+          "end": 2.33
+        },
+        {
+          "text": "dagger.",
+          "start": 2.33,
+          "end": 2.61
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21122509194537997
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "07321d22268dadd1994bfc770d95a2f6de049ec1f93e0aabd1ed698b04407e51",
+  "selected_reasons": []
+}

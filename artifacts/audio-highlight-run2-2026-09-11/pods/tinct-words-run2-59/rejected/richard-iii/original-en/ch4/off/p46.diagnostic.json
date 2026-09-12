@@ -1,0 +1,594 @@
+{
+  "complete": true,
+  "signature": "30fcc59521c03e4ea116be272e6b55b7d1090d96e939b71d9a8ef7ecf99c8c41",
+  "attempts": [
+    {
+      "asr_seconds": 0.3016791329719126,
+      "alignment_seconds": 0.0005130611825734377,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First murderer zounds tease even now at my elbow persuading me not to kill the Duke",
+          "start": 0.05,
+          "end": 5.55,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " murderer",
+              "start": 0.67,
+              "end": 1.13,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " zounds",
+              "start": 1.13,
+              "end": 2.25,
+              "probability": 0.4369354248046875
+            },
+            {
+              "text": " tease",
+              "start": 2.25,
+              "end": 2.81,
+              "probability": 0.591796875
+            },
+            {
+              "text": " even",
+              "start": 2.81,
+              "end": 3.09,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " now",
+              "start": 3.09,
+              "end": 3.29,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " at",
+              "start": 3.29,
+              "end": 3.39,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " my",
+              "start": 3.39,
+              "end": 3.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " elbow",
+              "start": 3.53,
+              "end": 3.89,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " persuading",
+              "start": 3.89,
+              "end": 4.55,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " me",
+              "start": 4.55,
+              "end": 4.71,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 4.71,
+              "end": 4.89,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to",
+              "start": 4.89,
+              "end": 5.03,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " kill",
+              "start": 5.03,
+              "end": 5.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 5.19,
+              "end": 5.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Duke",
+              "start": 5.35,
+              "end": 5.55,
+              "probability": 0.62060546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "murderer",
+          "start": 0.67,
+          "end": 1.13
+        },
+        {
+          "raw": "zounds",
+          "start": 1.13,
+          "end": 2.25
+        },
+        {
+          "raw": "tease",
+          "start": 2.25,
+          "end": 2.81
+        },
+        {
+          "raw": "even",
+          "start": 2.81,
+          "end": 3.09
+        },
+        {
+          "raw": "now",
+          "start": 3.09,
+          "end": 3.29
+        },
+        {
+          "raw": "at",
+          "start": 3.29,
+          "end": 3.39
+        },
+        {
+          "raw": "my",
+          "start": 3.39,
+          "end": 3.53
+        },
+        {
+          "raw": "elbow",
+          "start": 3.53,
+          "end": 3.89
+        },
+        {
+          "raw": "persuading",
+          "start": 3.89,
+          "end": 4.55
+        },
+        {
+          "raw": "me",
+          "start": 4.55,
+          "end": 4.71
+        },
+        {
+          "raw": "not",
+          "start": 4.71,
+          "end": 4.89
+        },
+        {
+          "raw": "to",
+          "start": 4.89,
+          "end": 5.03
+        },
+        {
+          "raw": "kill",
+          "start": 5.03,
+          "end": 5.19
+        },
+        {
+          "raw": "the",
+          "start": 5.19,
+          "end": 5.35
+        },
+        {
+          "raw": "Duke",
+          "start": 5.35,
+          "end": 5.55
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Murderer.",
+        "Zounds,",
+        "'tis",
+        "even",
+        "now",
+        "at",
+        "my",
+        "elbow,",
+        "persuading",
+        "me",
+        "not",
+        "to",
+        "kill",
+        "the",
+        "Duke."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          16,
+          4,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "murderer",
+          "start": 0.67,
+          "end": 1.13,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "zounds",
+          "start": 1.13,
+          "end": 2.25,
+          "key": "zounds",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 2.25,
+          "end": 2.81,
+          "key": "tease",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 2.81,
+          "end": 3.09,
+          "key": "even",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 3.09,
+          "end": 3.29,
+          "key": "now",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.29,
+          "end": 3.39,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.39,
+          "end": 3.53,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "elbow",
+          "start": 3.53,
+          "end": 3.89,
+          "key": "elbow",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "persuading",
+          "start": 3.89,
+          "end": 4.55,
+          "key": "persuading",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.55,
+          "end": 4.71,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.71,
+          "end": 4.89,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.89,
+          "end": 5.03,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "kill",
+          "start": 5.03,
+          "end": 5.19,
+          "key": "kill",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.19,
+          "end": 5.35,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Duke",
+          "start": 5.35,
+          "end": 5.55,
+          "key": "duke",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.67,
+          "end": 1.13
+        },
+        {
+          "text": "Zounds,",
+          "start": 1.13,
+          "end": 2.25
+        },
+        {
+          "text": "'tis",
+          "start": 2.25,
+          "end": 2.53
+        },
+        {
+          "text": "even",
+          "start": 2.81,
+          "end": 3.09
+        },
+        {
+          "text": "now",
+          "start": 3.09,
+          "end": 3.29
+        },
+        {
+          "text": "at",
+          "start": 3.29,
+          "end": 3.39
+        },
+        {
+          "text": "my",
+          "start": 3.39,
+          "end": 3.53
+        },
+        {
+          "text": "elbow,",
+          "start": 3.53,
+          "end": 3.89
+        },
+        {
+          "text": "persuading",
+          "start": 3.89,
+          "end": 4.55
+        },
+        {
+          "text": "me",
+          "start": 4.55,
+          "end": 4.71
+        },
+        {
+          "text": "not",
+          "start": 4.71,
+          "end": 4.89
+        },
+        {
+          "text": "to",
+          "start": 4.89,
+          "end": 5.03
+        },
+        {
+          "text": "kill",
+          "start": 5.03,
+          "end": 5.19
+        },
+        {
+          "text": "the",
+          "start": 5.19,
+          "end": 5.35
+        },
+        {
+          "text": "Duke.",
+          "start": 5.35,
+          "end": 5.55
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.30240447190590203
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ab1ebc9d96d055f81748db0570de5c0741c09507538efd152fca3bb30219e1ec",
+  "selected_reasons": []
+}

@@ -1,0 +1,464 @@
+{
+  "complete": true,
+  "signature": "8752c46b59d47b4c6f0cc902604306da11c9b8f791c32bc45a7df6f6b50050d9",
+  "attempts": [
+    {
+      "asr_seconds": 0.2638654690235853,
+      "alignment_seconds": 0.00043853698298335075,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Priest, well met, my lord. I'm glad to see your honor.",
+          "start": 0.05,
+          "end": 3.37,
+          "words": [
+            {
+              "text": " Priest,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " well",
+              "start": 1.13,
+              "end": 1.39,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " met,",
+              "start": 1.39,
+              "end": 1.59,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " my",
+              "start": 1.69,
+              "end": 1.79,
+              "probability": 0.9609375
+            },
+            {
+              "text": " lord.",
+              "start": 1.79,
+              "end": 2.03,
+              "probability": 0.67431640625
+            },
+            {
+              "text": " I'm",
+              "start": 2.35,
+              "end": 2.49,
+              "probability": 0.839111328125
+            },
+            {
+              "text": " glad",
+              "start": 2.49,
+              "end": 2.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.69,
+              "end": 2.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " see",
+              "start": 2.87,
+              "end": 3.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " your",
+              "start": 3.01,
+              "end": 3.15,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " honor.",
+              "start": 3.15,
+              "end": 3.37,
+              "probability": 0.9658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Priest,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "well",
+          "start": 1.13,
+          "end": 1.39
+        },
+        {
+          "raw": "met,",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "raw": "my",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "raw": "lord.",
+          "start": 1.79,
+          "end": 2.03
+        },
+        {
+          "raw": "I'm",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "raw": "glad",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "raw": "to",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "raw": "see",
+          "start": 2.87,
+          "end": 3.01
+        },
+        {
+          "raw": "your",
+          "start": 3.01,
+          "end": 3.15
+        },
+        {
+          "raw": "honor.",
+          "start": 3.15,
+          "end": 3.37
+        }
+      ],
+      "expected_tokens": [
+        "Priest.",
+        "Well",
+        "met,",
+        "my",
+        "lord;",
+        "I",
+        "am",
+        "glad",
+        "to",
+        "see",
+        "your",
+        "honour."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          7,
+          5,
+          6
+        ],
+        [
+          "equal",
+          7,
+          11,
+          6,
+          10
+        ],
+        [
+          "replace",
+          11,
+          12,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          7,
+          5,
+          6
+        ],
+        [
+          "replace",
+          11,
+          12,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Priest,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "priest",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.13,
+          "end": 1.39,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "met,",
+          "start": 1.39,
+          "end": 1.59,
+          "key": "met",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.69,
+          "end": 1.79,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.79,
+          "end": 2.03,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 2.35,
+          "end": 2.49,
+          "key": "im",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "glad",
+          "start": 2.49,
+          "end": 2.69,
+          "key": "glad",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.69,
+          "end": 2.87,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.87,
+          "end": 3.01,
+          "key": "see",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.01,
+          "end": 3.15,
+          "key": "your",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "honor.",
+          "start": 3.15,
+          "end": 3.37,
+          "key": "honor",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Priest.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Well",
+          "start": 1.13,
+          "end": 1.39
+        },
+        {
+          "text": "met,",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "text": "my",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "text": "lord;",
+          "start": 1.79,
+          "end": 2.03
+        },
+        {
+          "text": "I",
+          "start": 2.03,
+          "end": 2.26
+        },
+        {
+          "text": "am",
+          "start": 2.26,
+          "end": 2.375
+        },
+        {
+          "text": "glad",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "text": "to",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "text": "see",
+          "start": 2.87,
+          "end": 3.01
+        },
+        {
+          "text": "your",
+          "start": 3.01,
+          "end": 3.15
+        },
+        {
+          "text": "honour.",
+          "start": 3.15,
+          "end": 3.26
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2644456918351352
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "352c3ef76c962187678464d19a3bb40038456a9973e37691b8e4110e034c0c8a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "b1c10dafcca65b85cc9c3be25b211151f6daedc82d528d868de41c4785c0e1ad",
+  "attempts": [
+    {
+      "asr_seconds": 0.29382631997577846,
+      "alignment_seconds": 0.00036068493500351906,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Buckingham. What says your Highness to my just request?",
+        "hotwords": "Buckingham, What, Highness"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Buckingham, What says your Highness to my just request?",
+          "start": 0.05,
+          "end": 2.91,
+          "words": [
+            {
+              "text": " Buckingham,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " What",
+              "start": 1.37,
+              "end": 1.49,
+              "probability": 0.048553466796875
+            },
+            {
+              "text": " says",
+              "start": 1.49,
+              "end": 1.63,
+              "probability": 0.712890625
+            },
+            {
+              "text": " your",
+              "start": 1.63,
+              "end": 1.81,
+              "probability": 0.71826171875
+            },
+            {
+              "text": " Highness",
+              "start": 1.81,
+              "end": 2.13,
+              "probability": 0.7158203125
+            },
+            {
+              "text": " to",
+              "start": 2.13,
+              "end": 2.27,
+              "probability": 0.93359375
+            },
+            {
+              "text": " my",
+              "start": 2.27,
+              "end": 2.39,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " just",
+              "start": 2.39,
+              "end": 2.57,
+              "probability": 0.66796875
+            },
+            {
+              "text": " request?",
+              "start": 2.57,
+              "end": 2.91,
+              "probability": 0.65576171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "What",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "raw": "says",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "raw": "your",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "raw": "Highness",
+          "start": 1.81,
+          "end": 2.13
+        },
+        {
+          "raw": "to",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "raw": "my",
+          "start": 2.27,
+          "end": 2.39
+        },
+        {
+          "raw": "just",
+          "start": 2.39,
+          "end": 2.57
+        },
+        {
+          "raw": "request?",
+          "start": 2.57,
+          "end": 2.91
+        }
+      ],
+      "expected_tokens": [
+        "Buckingham.",
+        "What",
+        "says",
+        "your",
+        "Highness",
+        "to",
+        "my",
+        "just",
+        "request?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "buckingham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.37,
+          "end": 1.49,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 1.49,
+          "end": 1.63,
+          "key": "says",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.63,
+          "end": 1.81,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Highness",
+          "start": 1.81,
+          "end": 2.13,
+          "key": "highness",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.13,
+          "end": 2.27,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.27,
+          "end": 2.39,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 2.39,
+          "end": 2.57,
+          "key": "just",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "request?",
+          "start": 2.57,
+          "end": 2.91,
+          "key": "request",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Buckingham.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "What",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "text": "says",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "text": "your",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "text": "Highness",
+          "start": 1.81,
+          "end": 2.13
+        },
+        {
+          "text": "to",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "text": "my",
+          "start": 2.27,
+          "end": 2.39
+        },
+        {
+          "text": "just",
+          "start": 2.39,
+          "end": 2.57
+        },
+        {
+          "text": "request?",
+          "start": 2.57,
+          "end": 2.91
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29432255402207375
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "df5bb47c1e12108ff0052015f7eb32f419ca8d63e4eafc9bd1ad1c1ce9aca1b1",
+  "selected_reasons": []
+}

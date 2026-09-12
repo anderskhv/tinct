@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "0b0144fe770ce09ee254dd5619ba1b995aef573cd12ecd70985fab9d4b24e54d",
+  "attempts": [
+    {
+      "asr_seconds": 0.27824665792286396,
+      "alignment_seconds": 0.000397898955270648,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Say, uncle Gloucester, if our brother come, Where shall we sojourn till our coronation?",
+        "hotwords": "Say, Gloucester, Where"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Say, uncle Gloucester, if our brother come, Where shall we sojourn till our coronation?",
+          "start": 0.08,
+          "end": 5.02,
+          "words": [
+            {
+              "text": " Say,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " uncle",
+              "start": 0.72,
+              "end": 1.04,
+              "probability": 0.029693603515625
+            },
+            {
+              "text": " Gloucester,",
+              "start": 1.04,
+              "end": 1.56,
+              "probability": 0.949462890625
+            },
+            {
+              "text": " if",
+              "start": 1.92,
+              "end": 2.08,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " our",
+              "start": 2.08,
+              "end": 2.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " brother",
+              "start": 2.22,
+              "end": 2.42,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " come,",
+              "start": 2.42,
+              "end": 2.78,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " Where",
+              "start": 3.3,
+              "end": 3.34,
+              "probability": 0.007671356201171875
+            },
+            {
+              "text": " shall",
+              "start": 3.34,
+              "end": 3.54,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " we",
+              "start": 3.54,
+              "end": 3.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sojourn",
+              "start": 3.68,
+              "end": 4.12,
+              "probability": 0.9383138020833334
+            },
+            {
+              "text": " till",
+              "start": 4.12,
+              "end": 4.32,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " our",
+              "start": 4.32,
+              "end": 4.5,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " coronation?",
+              "start": 4.5,
+              "end": 5.02,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Say,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "uncle",
+          "start": 0.72,
+          "end": 1.04
+        },
+        {
+          "raw": "Gloucester,",
+          "start": 1.04,
+          "end": 1.56
+        },
+        {
+          "raw": "if",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "raw": "our",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "raw": "brother",
+          "start": 2.22,
+          "end": 2.42
+        },
+        {
+          "raw": "come,",
+          "start": 2.42,
+          "end": 2.78
+        },
+        {
+          "raw": "Where",
+          "start": 3.3,
+          "end": 3.34
+        },
+        {
+          "raw": "shall",
+          "start": 3.34,
+          "end": 3.54
+        },
+        {
+          "raw": "we",
+          "start": 3.54,
+          "end": 3.68
+        },
+        {
+          "raw": "sojourn",
+          "start": 3.68,
+          "end": 4.12
+        },
+        {
+          "raw": "till",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "raw": "our",
+          "start": 4.32,
+          "end": 4.5
+        },
+        {
+          "raw": "coronation?",
+          "start": 4.5,
+          "end": 5.02
+        }
+      ],
+      "expected_tokens": [
+        "Say,",
+        "uncle",
+        "Gloucester,",
+        "if",
+        "our",
+        "brother",
+        "come,",
+        "Where",
+        "shall",
+        "we",
+        "sojourn",
+        "till",
+        "our",
+        "coronation?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Say,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "say",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "uncle",
+          "start": 0.72,
+          "end": 1.04,
+          "key": "uncle",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Gloucester,",
+          "start": 1.04,
+          "end": 1.56,
+          "key": "gloucester",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.92,
+          "end": 2.08,
+          "key": "if",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 2.08,
+          "end": 2.22,
+          "key": "our",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "brother",
+          "start": 2.22,
+          "end": 2.42,
+          "key": "brother",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "come,",
+          "start": 2.42,
+          "end": 2.78,
+          "key": "come",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 3.3,
+          "end": 3.34,
+          "key": "where",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 3.34,
+          "end": 3.54,
+          "key": "shall",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 3.54,
+          "end": 3.68,
+          "key": "we",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sojourn",
+          "start": 3.68,
+          "end": 4.12,
+          "key": "sojourn",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 4.12,
+          "end": 4.32,
+          "key": "till",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.32,
+          "end": 4.5,
+          "key": "our",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "coronation?",
+          "start": 4.5,
+          "end": 5.02,
+          "key": "coronation",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Say,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "uncle",
+          "start": 0.72,
+          "end": 1.04
+        },
+        {
+          "text": "Gloucester,",
+          "start": 1.04,
+          "end": 1.56
+        },
+        {
+          "text": "if",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "text": "our",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "text": "brother",
+          "start": 2.22,
+          "end": 2.42
+        },
+        {
+          "text": "come,",
+          "start": 2.42,
+          "end": 2.78
+        },
+        {
+          "text": "Where",
+          "start": 3.3,
+          "end": 3.34
+        },
+        {
+          "text": "shall",
+          "start": 3.34,
+          "end": 3.54
+        },
+        {
+          "text": "we",
+          "start": 3.54,
+          "end": 3.68
+        },
+        {
+          "text": "sojourn",
+          "start": 3.68,
+          "end": 4.12
+        },
+        {
+          "text": "till",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "text": "our",
+          "start": 4.32,
+          "end": 4.5
+        },
+        {
+          "text": "coronation?",
+          "start": 4.5,
+          "end": 5.02
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27880111592821777
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8d51c63a46f5745d46ff26ce4e9df4c98a6f6bc76dd71b4a4358e4818f01bac6",
+  "selected_reasons": []
+}

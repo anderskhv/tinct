@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "812ed44886fd698cdfcbbecc8a58f57b5b18ac8943bdf6d7cd37d8df31793d06",
+  "attempts": [
+    {
+      "asr_seconds": 0.20396480499766767,
+      "alignment_seconds": 0.00048326211981475353,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Tyrrel. Please you. But I had rather kill two enemies.",
+        "hotwords": "Tyrrel, Please, But, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Tyrrel, Please you. But I had rather kill two enemies.",
+          "start": 0.0,
+          "end": 3.04,
+          "words": [
+            {
+              "text": " Tyrrel,",
+              "start": 0.0,
+              "end": 0.72,
+              "probability": 0.204345703125
+            },
+            {
+              "text": " Please",
+              "start": 0.9,
+              "end": 1.08,
+              "probability": 0.0019550323486328125
+            },
+            {
+              "text": " you.",
+              "start": 1.08,
+              "end": 1.36,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " But",
+              "start": 1.74,
+              "end": 1.9,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " I",
+              "start": 1.9,
+              "end": 2.0,
+              "probability": 0.890625
+            },
+            {
+              "text": " had",
+              "start": 2.0,
+              "end": 2.1,
+              "probability": 0.72509765625
+            },
+            {
+              "text": " rather",
+              "start": 2.1,
+              "end": 2.24,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " kill",
+              "start": 2.24,
+              "end": 2.48,
+              "probability": 0.41796875
+            },
+            {
+              "text": " two",
+              "start": 2.48,
+              "end": 2.74,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " enemies.",
+              "start": 2.74,
+              "end": 3.04,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tyrrel,",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "raw": "Please",
+          "start": 0.9,
+          "end": 1.08
+        },
+        {
+          "raw": "you.",
+          "start": 1.08,
+          "end": 1.36
+        },
+        {
+          "raw": "But",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "raw": "I",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "raw": "had",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "raw": "rather",
+          "start": 2.1,
+          "end": 2.24
+        },
+        {
+          "raw": "kill",
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "raw": "two",
+          "start": 2.48,
+          "end": 2.74
+        },
+        {
+          "raw": "enemies.",
+          "start": 2.74,
+          "end": 3.04
+        }
+      ],
+      "expected_tokens": [
+        "Tyrrel.",
+        "Please",
+        "you.",
+        "But",
+        "I",
+        "had",
+        "rather",
+        "kill",
+        "two",
+        "enemies."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tyrrel,",
+          "start": 0.0,
+          "end": 0.72,
+          "key": "tyrrel",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Please",
+          "start": 0.9,
+          "end": 1.08,
+          "key": "please",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.08,
+          "end": 1.36,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 1.74,
+          "end": 1.9,
+          "key": "but",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.9,
+          "end": 2.0,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.0,
+          "end": 2.1,
+          "key": "had",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "rather",
+          "start": 2.1,
+          "end": 2.24,
+          "key": "rather",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "kill",
+          "start": 2.24,
+          "end": 2.48,
+          "key": "kill",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 2.48,
+          "end": 2.74,
+          "key": "two",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "enemies.",
+          "start": 2.74,
+          "end": 3.04,
+          "key": "enemies",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Tyrrel.",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "text": "Please",
+          "start": 0.9,
+          "end": 1.08
+        },
+        {
+          "text": "you.",
+          "start": 1.08,
+          "end": 1.36
+        },
+        {
+          "text": "But",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "text": "I",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "text": "had",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "text": "rather",
+          "start": 2.1,
+          "end": 2.24
+        },
+        {
+          "text": "kill",
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "text": "two",
+          "start": 2.48,
+          "end": 2.74
+        },
+        {
+          "text": "enemies.",
+          "start": 2.74,
+          "end": 3.04
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20464376010932028
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e92a7af6b0e7aaf0389e4c3a55e48785ded03ccc6ecf9593569f380f1fe60f88",
+  "selected_reasons": []
+}

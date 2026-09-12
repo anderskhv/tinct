@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "16ae35b004786e5b8697e4cd43ccd06b00f5f98c81d335086d4cef7433426318",
+  "attempts": [
+    {
+      "asr_seconds": 0.16732457815669477,
+      "alignment_seconds": 0.00034322007559239864,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Within, who knocks?",
+          "start": 0.02,
+          "end": 1.5,
+          "words": [
+            {
+              "text": " Within,",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.732421875
+            },
+            {
+              "text": " who",
+              "start": 1.16,
+              "end": 1.24,
+              "probability": 0.779296875
+            },
+            {
+              "text": " knocks?",
+              "start": 1.24,
+              "end": 1.5,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Within,",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "who",
+          "start": 1.16,
+          "end": 1.24
+        },
+        {
+          "raw": "knocks?",
+          "start": 1.24,
+          "end": 1.5
+        }
+      ],
+      "expected_tokens": [
+        "[_Within_.]",
+        "Who",
+        "knocks?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Within,",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "within",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.16,
+          "end": 1.24,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "knocks?",
+          "start": 1.24,
+          "end": 1.5,
+          "key": "knocks",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Within_.]",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "Who",
+          "start": 1.16,
+          "end": 1.24
+        },
+        {
+          "text": "knocks?",
+          "start": 1.24,
+          "end": 1.5
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16777552920393646
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "66bdf47cb9a734d3119bb7388114ea4d6cd745acb573aa264244a285aeef6701",
+  "selected_reasons": []
+}

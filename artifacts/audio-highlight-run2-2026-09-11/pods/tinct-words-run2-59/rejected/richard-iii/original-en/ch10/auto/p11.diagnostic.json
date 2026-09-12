@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "36c15c2db157086d2acf5adbcf5b3c434f19c6bd0b79bf0136c3f240f413f2b5",
+  "attempts": [
+    {
+      "asr_seconds": 0.35855248500593007,
+      "alignment_seconds": 0.000516554806381464,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Messenger. So it appears by that I have to say. First, he commends him to your noble self.",
+        "hotwords": "Messenger, So, I, First"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Messenger, So, it appears by that I have to say. First, he commends him to your noble self.",
+          "start": 0.02,
+          "end": 5.6,
+          "words": [
+            {
+              "text": " Messenger,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.6064453125
+            },
+            {
+              "text": " So,",
+              "start": 1.26,
+              "end": 1.5,
+              "probability": 0.006259918212890625
+            },
+            {
+              "text": " it",
+              "start": 1.6,
+              "end": 1.6,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " appears",
+              "start": 1.6,
+              "end": 1.9,
+              "probability": 0.98828125
+            },
+            {
+              "text": " by",
+              "start": 1.9,
+              "end": 2.2,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " that",
+              "start": 2.2,
+              "end": 2.36,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " I",
+              "start": 2.36,
+              "end": 2.48,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " have",
+              "start": 2.48,
+              "end": 2.64,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 2.64,
+              "end": 2.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " say.",
+              "start": 2.8,
+              "end": 3.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " First,",
+              "start": 3.64,
+              "end": 3.88,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " he",
+              "start": 4.18,
+              "end": 4.26,
+              "probability": 0.82763671875
+            },
+            {
+              "text": " commends",
+              "start": 4.26,
+              "end": 4.62,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " him",
+              "start": 4.62,
+              "end": 4.76,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " to",
+              "start": 4.76,
+              "end": 4.9,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " your",
+              "start": 4.9,
+              "end": 5.02,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " noble",
+              "start": 5.02,
+              "end": 5.24,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " self.",
+              "start": 5.24,
+              "end": 5.6,
+              "probability": 0.84326171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messenger,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "So,",
+          "start": 1.26,
+          "end": 1.5
+        },
+        {
+          "raw": "it",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "raw": "appears",
+          "start": 1.6,
+          "end": 1.9
+        },
+        {
+          "raw": "by",
+          "start": 1.9,
+          "end": 2.2
+        },
+        {
+          "raw": "that",
+          "start": 2.2,
+          "end": 2.36
+        },
+        {
+          "raw": "I",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "raw": "have",
+          "start": 2.48,
+          "end": 2.64
+        },
+        {
+          "raw": "to",
+          "start": 2.64,
+          "end": 2.8
+        },
+        {
+          "raw": "say.",
+          "start": 2.8,
+          "end": 3.08
+        },
+        {
+          "raw": "First,",
+          "start": 3.64,
+          "end": 3.88
+        },
+        {
+          "raw": "he",
+          "start": 4.18,
+          "end": 4.26
+        },
+        {
+          "raw": "commends",
+          "start": 4.26,
+          "end": 4.62
+        },
+        {
+          "raw": "him",
+          "start": 4.62,
+          "end": 4.76
+        },
+        {
+          "raw": "to",
+          "start": 4.76,
+          "end": 4.9
+        },
+        {
+          "raw": "your",
+          "start": 4.9,
+          "end": 5.02
+        },
+        {
+          "raw": "noble",
+          "start": 5.02,
+          "end": 5.24
+        },
+        {
+          "raw": "self.",
+          "start": 5.24,
+          "end": 5.6
+        }
+      ],
+      "expected_tokens": [
+        "Messenger.",
+        "So",
+        "it",
+        "appears",
+        "by",
+        "that",
+        "I",
+        "have",
+        "to",
+        "say.",
+        "First,",
+        "he",
+        "commends",
+        "him",
+        "to",
+        "your",
+        "noble",
+        "self."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messenger,",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "messenger",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "So,",
+          "start": 1.26,
+          "end": 1.5,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.6,
+          "end": 1.6,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "appears",
+          "start": 1.6,
+          "end": 1.9,
+          "key": "appears",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.9,
+          "end": 2.2,
+          "key": "by",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.2,
+          "end": 2.36,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.36,
+          "end": 2.48,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.48,
+          "end": 2.64,
+          "key": "have",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.64,
+          "end": 2.8,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "say.",
+          "start": 2.8,
+          "end": 3.08,
+          "key": "say",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "First,",
+          "start": 3.64,
+          "end": 3.88,
+          "key": "first",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.18,
+          "end": 4.26,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "commends",
+          "start": 4.26,
+          "end": 4.62,
+          "key": "commends",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.62,
+          "end": 4.76,
+          "key": "him",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.76,
+          "end": 4.9,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.9,
+          "end": 5.02,
+          "key": "your",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 5.02,
+          "end": 5.24,
+          "key": "noble",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "self.",
+          "start": 5.24,
+          "end": 5.6,
+          "key": "self",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messenger.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "So",
+          "start": 1.26,
+          "end": 1.5
+        },
+        {
+          "text": "it",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "appears",
+          "start": 1.6,
+          "end": 1.9
+        },
+        {
+          "text": "by",
+          "start": 1.9,
+          "end": 2.2
+        },
+        {
+          "text": "that",
+          "start": 2.2,
+          "end": 2.36
+        },
+        {
+          "text": "I",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "text": "have",
+          "start": 2.48,
+          "end": 2.64
+        },
+        {
+          "text": "to",
+          "start": 2.64,
+          "end": 2.8
+        },
+        {
+          "text": "say.",
+          "start": 2.8,
+          "end": 3.08
+        },
+        {
+          "text": "First,",
+          "start": 3.64,
+          "end": 3.88
+        },
+        {
+          "text": "he",
+          "start": 4.18,
+          "end": 4.26
+        },
+        {
+          "text": "commends",
+          "start": 4.26,
+          "end": 4.62
+        },
+        {
+          "text": "him",
+          "start": 4.62,
+          "end": 4.76
+        },
+        {
+          "text": "to",
+          "start": 4.76,
+          "end": 4.9
+        },
+        {
+          "text": "your",
+          "start": 4.9,
+          "end": 5.02
+        },
+        {
+          "text": "noble",
+          "start": 5.02,
+          "end": 5.24
+        },
+        {
+          "text": "self.",
+          "start": 5.24,
+          "end": 5.6
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.35929304477758706
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0108f37a8c79cb4b61a1dadce83fe75c8bc1f1a09ddb59306070029813d61c61",
+  "selected_reasons": []
+}

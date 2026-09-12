@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "722fbade1a2c9cd69c861c4fffea3058afab339eecadfdd7addc17d0513769a4",
+  "attempts": [
+    {
+      "asr_seconds": 0.20895955292508006,
+      "alignment_seconds": 0.000425493810325861,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Richard, what doth she say, my lord of Buckingham?",
+          "start": 0.4,
+          "end": 2.82,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.4,
+              "end": 0.76,
+              "probability": 0.484130859375
+            },
+            {
+              "text": " what",
+              "start": 1.2,
+              "end": 1.34,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " doth",
+              "start": 1.34,
+              "end": 1.5,
+              "probability": 0.853271484375
+            },
+            {
+              "text": " she",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.9921875
+            },
+            {
+              "text": " say,",
+              "start": 1.66,
+              "end": 1.94,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " my",
+              "start": 2.12,
+              "end": 2.2,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " lord",
+              "start": 2.2,
+              "end": 2.38,
+              "probability": 0.720703125
+            },
+            {
+              "text": " of",
+              "start": 2.38,
+              "end": 2.54,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Buckingham?",
+              "start": 2.54,
+              "end": 2.82,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.4,
+          "end": 0.76
+        },
+        {
+          "raw": "what",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "raw": "doth",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "raw": "she",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "say,",
+          "start": 1.66,
+          "end": 1.94
+        },
+        {
+          "raw": "my",
+          "start": 2.12,
+          "end": 2.2
+        },
+        {
+          "raw": "lord",
+          "start": 2.2,
+          "end": 2.38
+        },
+        {
+          "raw": "of",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "raw": "Buckingham?",
+          "start": 2.54,
+          "end": 2.82
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "What",
+        "doth",
+        "she",
+        "say,",
+        "my",
+        "lord",
+        "of",
+        "Buckingham?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.4,
+          "end": 0.76,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.2,
+          "end": 1.34,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 1.34,
+          "end": 1.5,
+          "key": "doth",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.5,
+          "end": 1.66,
+          "key": "she",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 1.66,
+          "end": 1.94,
+          "key": "say",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.12,
+          "end": 2.2,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lord",
+          "start": 2.2,
+          "end": 2.38,
+          "key": "lord",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.38,
+          "end": 2.54,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Buckingham?",
+          "start": 2.54,
+          "end": 2.82,
+          "key": "buckingham",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.4,
+          "end": 0.76
+        },
+        {
+          "text": "What",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "text": "doth",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "text": "she",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "text": "say,",
+          "start": 1.66,
+          "end": 1.94
+        },
+        {
+          "text": "my",
+          "start": 2.12,
+          "end": 2.2
+        },
+        {
+          "text": "lord",
+          "start": 2.2,
+          "end": 2.38
+        },
+        {
+          "text": "of",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "text": "Buckingham?",
+          "start": 2.54,
+          "end": 2.82
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2095597900915891
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ff0fed65f38014cff11a3e7c1abcb2a063335288e9535f2ecbb33cee480d6725",
+  "selected_reasons": []
+}

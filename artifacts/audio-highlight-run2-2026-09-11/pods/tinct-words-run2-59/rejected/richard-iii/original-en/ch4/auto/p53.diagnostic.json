@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "7e7f46f179a6cdb507468aef2b0ce1e2f3aefc202fbecc3931ab3e5f9748f332",
+  "attempts": [
+    {
+      "asr_seconds": 0.1426299719605595,
+      "alignment_seconds": 0.00029571610502898693,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Second Murderer. Strike!",
+        "hotwords": "Second, Murderer, Strike"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Second Murderer, Strike.",
+          "start": 0.11,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.11,
+              "end": 0.69,
+              "probability": 0.68017578125
+            },
+            {
+              "text": " Murderer,",
+              "start": 0.69,
+              "end": 1.11,
+              "probability": 0.6700439453125
+            },
+            {
+              "text": " Strike.",
+              "start": 1.57,
+              "end": 1.63,
+              "probability": 0.39794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.69,
+          "end": 1.11
+        },
+        {
+          "raw": "Strike.",
+          "start": 1.57,
+          "end": 1.63
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Murderer.",
+        "Strike!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.11,
+          "end": 0.69,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.69,
+          "end": 1.11,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Strike.",
+          "start": 1.57,
+          "end": 1.63,
+          "key": "strike",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.69,
+          "end": 1.11
+        },
+        {
+          "text": "Strike!",
+          "start": 1.57,
+          "end": 1.63
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14303202205337584
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2ff3d0a46aca8ac9dbec989966456eb1170857ea40b42d25a96e165187f13701",
+  "selected_reasons": []
+}

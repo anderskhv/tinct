@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "279b3013b0f22bd90262d0f95db1fe4a97c72152f05fa62f010f9581f99c62c8",
+  "attempts": [
+    {
+      "asr_seconds": 0.23232085397467017,
+      "alignment_seconds": 0.0004572661127895117,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Queen Elizabeth. What likelihood of his amendment, lords?",
+          "start": 0.0,
+          "end": 3.32,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.0,
+              "end": 0.6,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " Elizabeth.",
+              "start": 0.6,
+              "end": 1.12,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " What",
+              "start": 1.76,
+              "end": 1.8,
+              "probability": 0.974609375
+            },
+            {
+              "text": " likelihood",
+              "start": 1.8,
+              "end": 2.14,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " of",
+              "start": 2.14,
+              "end": 2.42,
+              "probability": 0.99609375
+            },
+            {
+              "text": " his",
+              "start": 2.42,
+              "end": 2.52,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " amendment,",
+              "start": 2.52,
+              "end": 2.9,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " lords?",
+              "start": 3.32,
+              "end": 3.32,
+              "probability": 0.595703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "raw": "Elizabeth.",
+          "start": 0.6,
+          "end": 1.12
+        },
+        {
+          "raw": "What",
+          "start": 1.76,
+          "end": 1.8
+        },
+        {
+          "raw": "likelihood",
+          "start": 1.8,
+          "end": 2.14
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.42
+        },
+        {
+          "raw": "his",
+          "start": 2.42,
+          "end": 2.52
+        },
+        {
+          "raw": "amendment,",
+          "start": 2.52,
+          "end": 2.9
+        },
+        {
+          "raw": "lords?",
+          "start": 3.32,
+          "end": 3.32
+        }
+      ],
+      "expected_tokens": [
+        "Queen",
+        "Elizabeth.",
+        "What",
+        "likelihood",
+        "of",
+        "his",
+        "amendment,",
+        "lords?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.0,
+          "end": 0.6,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Elizabeth.",
+          "start": 0.6,
+          "end": 1.12,
+          "key": "elizabeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.76,
+          "end": 1.8,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "likelihood",
+          "start": 1.8,
+          "end": 2.14,
+          "key": "likelihood",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.42,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.42,
+          "end": 2.52,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "amendment,",
+          "start": 2.52,
+          "end": 2.9,
+          "key": "amendment",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lords?",
+          "start": 3.32,
+          "end": 3.32,
+          "key": "lords",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "text": "Elizabeth.",
+          "start": 0.6,
+          "end": 1.12
+        },
+        {
+          "text": "What",
+          "start": 1.76,
+          "end": 1.8
+        },
+        {
+          "text": "likelihood",
+          "start": 1.8,
+          "end": 2.14
+        },
+        {
+          "text": "of",
+          "start": 2.14,
+          "end": 2.42
+        },
+        {
+          "text": "his",
+          "start": 2.42,
+          "end": 2.52
+        },
+        {
+          "text": "amendment,",
+          "start": 2.52,
+          "end": 2.9
+        },
+        {
+          "text": "lords?",
+          "start": 3.32,
+          "end": 3.32
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23294788016937673
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b10f29d2aeac34505070b2c91df3566a3da2a00a5e7f548ad359b72420a84a2a",
+  "selected_reasons": []
+}

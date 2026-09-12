@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "c56e5429e86a5cd9aa378b99afee8a00337c3f3fe1ba5a7ac5ca5cf7aaed5d56",
+  "attempts": [
+    {
+      "asr_seconds": 0.14756310801021755,
+      "alignment_seconds": 0.00040653604082763195,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Come, will you go?",
+        "hotwords": "Come"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Come, will you go?",
+          "start": 0.05,
+          "end": 1.03,
+          "words": [
+            {
+              "text": " Come,",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " will",
+              "start": 0.71,
+              "end": 0.73,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " you",
+              "start": 0.73,
+              "end": 0.85,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " go?",
+              "start": 0.85,
+              "end": 1.03,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Come,",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "will",
+          "start": 0.71,
+          "end": 0.73
+        },
+        {
+          "raw": "you",
+          "start": 0.73,
+          "end": 0.85
+        },
+        {
+          "raw": "go?",
+          "start": 0.85,
+          "end": 1.03
+        }
+      ],
+      "expected_tokens": [
+        "Come,",
+        "will",
+        "you",
+        "go?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Come,",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "come",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.71,
+          "end": 0.73,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.73,
+          "end": 0.85,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "go?",
+          "start": 0.85,
+          "end": 1.03,
+          "key": "go",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Come,",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "will",
+          "start": 0.71,
+          "end": 0.73
+        },
+        {
+          "text": "you",
+          "start": 0.73,
+          "end": 0.85
+        },
+        {
+          "text": "go?",
+          "start": 0.85,
+          "end": 1.03
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14810100803151727
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a3a11eb153e7c74483c769238e7e9e222e90ce9e65da4a45cac3742af5d99ee9",
+  "selected_reasons": []
+}

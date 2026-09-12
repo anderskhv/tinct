@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "100084a9656caae8a85ff3c0efd4864cc87760b0ea1b2ac912c86cda898a17cf",
+  "attempts": [
+    {
+      "asr_seconds": 0.18454603105783463,
+      "alignment_seconds": 0.0004028638359159231,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Keeper. Awaked you not in this sore agony?",
+        "hotwords": "Keeper, Awaked"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Keeper, Awaked you not in this sore agony?",
+          "start": 0.0,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " Keeper,",
+              "start": 0.0,
+              "end": 0.68,
+              "probability": 0.7275390625
+            },
+            {
+              "text": " Awaked",
+              "start": 1.12,
+              "end": 1.4,
+              "probability": 0.15274429321289062
+            },
+            {
+              "text": " you",
+              "start": 1.4,
+              "end": 1.5,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " not",
+              "start": 1.5,
+              "end": 1.62,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " in",
+              "start": 1.62,
+              "end": 1.72,
+              "probability": 0.94921875
+            },
+            {
+              "text": " this",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.501953125
+            },
+            {
+              "text": " sore",
+              "start": 1.86,
+              "end": 2.04,
+              "probability": 0.9375
+            },
+            {
+              "text": " agony?",
+              "start": 2.04,
+              "end": 2.38,
+              "probability": 0.9580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Keeper,",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "raw": "Awaked",
+          "start": 1.12,
+          "end": 1.4
+        },
+        {
+          "raw": "you",
+          "start": 1.4,
+          "end": 1.5
+        },
+        {
+          "raw": "not",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "raw": "in",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "raw": "this",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "sore",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "raw": "agony?",
+          "start": 2.04,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "Keeper.",
+        "Awaked",
+        "you",
+        "not",
+        "in",
+        "this",
+        "sore",
+        "agony?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Keeper,",
+          "start": 0.0,
+          "end": 0.68,
+          "key": "keeper",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Awaked",
+          "start": 1.12,
+          "end": 1.4,
+          "key": "awaked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.4,
+          "end": 1.5,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.5,
+          "end": 1.62,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.62,
+          "end": 1.72,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.72,
+          "end": 1.86,
+          "key": "this",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sore",
+          "start": 1.86,
+          "end": 2.04,
+          "key": "sore",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "agony?",
+          "start": 2.04,
+          "end": 2.38,
+          "key": "agony",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Keeper.",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "text": "Awaked",
+          "start": 1.12,
+          "end": 1.4
+        },
+        {
+          "text": "you",
+          "start": 1.4,
+          "end": 1.5
+        },
+        {
+          "text": "not",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "text": "in",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "text": "this",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "text": "sore",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "text": "agony?",
+          "start": 2.04,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18510371213778853
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "186c06ba58d47d3b3c178c5748cb20b93dd50d4978d619e6bf36461c695dfefd",
+  "selected_reasons": []
+}

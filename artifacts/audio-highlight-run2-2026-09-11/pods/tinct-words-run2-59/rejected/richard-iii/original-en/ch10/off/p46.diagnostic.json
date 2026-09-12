@@ -1,0 +1,428 @@
+{
+  "complete": true,
+  "signature": "3b029acbd614a7e7873ffde7307833a89f8dcbcd17bb23ef8a150483272190bd",
+  "attempts": [
+    {
+      "asr_seconds": 0.2334470939822495,
+      "alignment_seconds": 0.0003928118385374546,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Purse with it. God hold it to your honors good content",
+          "start": 0.05,
+          "end": 3.47,
+          "words": [
+            {
+              "text": " Purse",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.556640625
+            },
+            {
+              "text": " with",
+              "start": 0.71,
+              "end": 0.79,
+              "probability": 0.67822265625
+            },
+            {
+              "text": " it.",
+              "start": 0.79,
+              "end": 1.05,
+              "probability": 0.6484375
+            },
+            {
+              "text": " God",
+              "start": 1.33,
+              "end": 1.67,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " hold",
+              "start": 1.67,
+              "end": 1.91,
+              "probability": 0.8125
+            },
+            {
+              "text": " it",
+              "start": 1.91,
+              "end": 2.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 2.13,
+              "end": 2.29,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " your",
+              "start": 2.29,
+              "end": 2.39,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " honors",
+              "start": 2.39,
+              "end": 2.65,
+              "probability": 0.65576171875
+            },
+            {
+              "text": " good",
+              "start": 2.65,
+              "end": 2.93,
+              "probability": 0.71826171875
+            },
+            {
+              "text": " content",
+              "start": 2.93,
+              "end": 3.47,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Purse",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "with",
+          "start": 0.71,
+          "end": 0.79
+        },
+        {
+          "raw": "it.",
+          "start": 0.79,
+          "end": 1.05
+        },
+        {
+          "raw": "God",
+          "start": 1.33,
+          "end": 1.67
+        },
+        {
+          "raw": "hold",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "raw": "it",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "raw": "to",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "raw": "your",
+          "start": 2.29,
+          "end": 2.39
+        },
+        {
+          "raw": "honors",
+          "start": 2.39,
+          "end": 2.65
+        },
+        {
+          "raw": "good",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "raw": "content",
+          "start": 2.93,
+          "end": 3.47
+        }
+      ],
+      "expected_tokens": [
+        "Pursuivant.",
+        "God",
+        "hold",
+        "it,",
+        "to",
+        "your",
+        "honour's",
+        "good",
+        "content!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "equal",
+          1,
+          6,
+          3,
+          8
+        ],
+        [
+          "replace",
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          "equal",
+          7,
+          9,
+          9,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "replace",
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Purse",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "purse",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.71,
+          "end": 0.79,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 0.79,
+          "end": 1.05,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 1.33,
+          "end": 1.67,
+          "key": "god",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 1.67,
+          "end": 1.91,
+          "key": "hold",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.91,
+          "end": 2.13,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.13,
+          "end": 2.29,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.29,
+          "end": 2.39,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "honors",
+          "start": 2.39,
+          "end": 2.65,
+          "key": "honors",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.65,
+          "end": 2.93,
+          "key": "good",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "content",
+          "start": 2.93,
+          "end": 3.47,
+          "key": "content",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pursuivant.",
+          "start": 0.0,
+          "end": 0.665
+        },
+        {
+          "text": "God",
+          "start": 1.33,
+          "end": 1.67
+        },
+        {
+          "text": "hold",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "text": "it,",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "text": "to",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "text": "your",
+          "start": 2.29,
+          "end": 2.39
+        },
+        {
+          "text": "honour's",
+          "start": 2.39,
+          "end": 2.52
+        },
+        {
+          "text": "good",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "text": "content!",
+          "start": 2.93,
+          "end": 3.47
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 11,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23400366678833961
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7bfa30972347fd92b4ce54a5cc5f96006aff5c1bde570542a25d3be2123042f0",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}
