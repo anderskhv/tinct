@@ -1,0 +1,626 @@
+{
+  "complete": true,
+  "signature": "a7b3a77986c586a65cfb5f9d6b265303238c10eb467dca36f6296b9c42eb90b6",
+  "attempts": [
+    {
+      "asr_seconds": 0.2981456434354186,
+      "alignment_seconds": 0.0011579524725675583,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mine is Sarah Crue, said Sarah.",
+          "start": 0.02,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " Mine",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.356201171875
+            },
+            {
+              "text": " is",
+              "start": 0.66,
+              "end": 0.88,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Sarah",
+              "start": 0.88,
+              "end": 1.16,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " Crue,",
+              "start": 1.16,
+              "end": 1.6,
+              "probability": 0.5948486328125
+            },
+            {
+              "text": " said",
+              "start": 1.76,
+              "end": 1.96,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Sarah.",
+              "start": 1.96,
+              "end": 2.36,
+              "probability": 0.99169921875
+            }
+          ]
+        },
+        {
+          "text": " Yours is very pretty, it sounds like a story book.",
+          "start": 2.98,
+          "end": 5.3,
+          "words": [
+            {
+              "text": " Yours",
+              "start": 2.98,
+              "end": 3.26,
+              "probability": 0.968505859375
+            },
+            {
+              "text": " is",
+              "start": 3.26,
+              "end": 3.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " very",
+              "start": 3.36,
+              "end": 3.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " pretty,",
+              "start": 3.6,
+              "end": 3.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it",
+              "start": 4.14,
+              "end": 4.2,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " sounds",
+              "start": 4.2,
+              "end": 4.42,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " like",
+              "start": 4.42,
+              "end": 4.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 4.6,
+              "end": 4.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " story",
+              "start": 4.74,
+              "end": 4.94,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " book.",
+              "start": 4.94,
+              "end": 5.3,
+              "probability": 0.68017578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mine",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "is",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "raw": "Sarah",
+          "start": 0.88,
+          "end": 1.16
+        },
+        {
+          "raw": "Crue,",
+          "start": 1.16,
+          "end": 1.6
+        },
+        {
+          "raw": "said",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "raw": "Sarah.",
+          "start": 1.96,
+          "end": 2.36
+        },
+        {
+          "raw": "Yours",
+          "start": 2.98,
+          "end": 3.26
+        },
+        {
+          "raw": "is",
+          "start": 3.26,
+          "end": 3.36
+        },
+        {
+          "raw": "very",
+          "start": 3.36,
+          "end": 3.6
+        },
+        {
+          "raw": "pretty,",
+          "start": 3.6,
+          "end": 3.86
+        },
+        {
+          "raw": "it",
+          "start": 4.14,
+          "end": 4.2
+        },
+        {
+          "raw": "sounds",
+          "start": 4.2,
+          "end": 4.42
+        },
+        {
+          "raw": "like",
+          "start": 4.42,
+          "end": 4.6
+        },
+        {
+          "raw": "a",
+          "start": 4.6,
+          "end": 4.74
+        },
+        {
+          "raw": "story",
+          "start": 4.74,
+          "end": 4.94
+        },
+        {
+          "raw": "book.",
+          "start": 4.94,
+          "end": 5.3
+        }
+      ],
+      "expected_tokens": [
+        "\"Mine",
+        "is",
+        "Sara",
+        "Crewe,\"",
+        "said",
+        "Sara.",
+        "\"Yours",
+        "is",
+        "very",
+        "pretty.",
+        "It",
+        "sounds",
+        "like",
+        "a",
+        "story",
+        "book.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          16,
+          6,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mine",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "mine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.66,
+          "end": 0.88,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sarah",
+          "start": 0.88,
+          "end": 1.16,
+          "key": "sarah",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Crue,",
+          "start": 1.16,
+          "end": 1.6,
+          "key": "crue",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.76,
+          "end": 1.96,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Sarah.",
+          "start": 1.96,
+          "end": 2.36,
+          "key": "sarah",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Yours",
+          "start": 2.98,
+          "end": 3.26,
+          "key": "yours",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.26,
+          "end": 3.36,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 3.36,
+          "end": 3.6,
+          "key": "very",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "pretty,",
+          "start": 3.6,
+          "end": 3.86,
+          "key": "pretty",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.14,
+          "end": 4.2,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sounds",
+          "start": 4.2,
+          "end": 4.42,
+          "key": "sounds",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 4.42,
+          "end": 4.6,
+          "key": "like",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.6,
+          "end": 4.74,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "story",
+          "start": 4.74,
+          "end": 4.94,
+          "key": "story",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "book.",
+          "start": 4.94,
+          "end": 5.3,
+          "key": "book",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Mine",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "is",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "text": "Sara",
+          "start": 0.88,
+          "end": 1.32
+        },
+        {
+          "text": "Crewe,\"",
+          "start": 1.32,
+          "end": 1.54
+        },
+        {
+          "text": "said",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "text": "Sara.",
+          "start": 1.96,
+          "end": 2.47
+        },
+        {
+          "text": "\"Yours",
+          "start": 2.98,
+          "end": 3.26
+        },
+        {
+          "text": "is",
+          "start": 3.26,
+          "end": 3.36
+        },
+        {
+          "text": "very",
+          "start": 3.36,
+          "end": 3.6
+        },
+        {
+          "text": "pretty.",
+          "start": 3.6,
+          "end": 3.86
+        },
+        {
+          "text": "It",
+          "start": 4.14,
+          "end": 4.2
+        },
+        {
+          "text": "sounds",
+          "start": 4.2,
+          "end": 4.42
+        },
+        {
+          "text": "like",
+          "start": 4.42,
+          "end": 4.6
+        },
+        {
+          "text": "a",
+          "start": 4.6,
+          "end": 4.74
+        },
+        {
+          "text": "story",
+          "start": 4.74,
+          "end": 4.94
+        },
+        {
+          "text": "book.\"",
+          "start": 4.94,
+          "end": 5.3
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8125,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2997470637783408
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6d37b5230eec63998a6be9090872e0486f89b8817837808a23d0fa25b1653203",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

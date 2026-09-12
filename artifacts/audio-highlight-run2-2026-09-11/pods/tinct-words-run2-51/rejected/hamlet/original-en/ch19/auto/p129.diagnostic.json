@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "1073f66f25183a7400556c3212ad4a63dfe333c74969697cebc58e2e40683986",
+  "attempts": [
+    {
+      "asr_seconds": 0.3002825127914548,
+      "alignment_seconds": 0.0004975469782948494,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King. I pray thee, good Horatio, wait upon him.",
+        "hotwords": "King, I, Horatio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King, I pray thee, good Horatio, wait upon him.",
+          "start": 0.05,
+          "end": 3.13,
+          "words": [
+            {
+              "text": " King,",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.5498046875
+            },
+            {
+              "text": " I",
+              "start": 0.99,
+              "end": 1.25,
+              "probability": 0.9921875
+            },
+            {
+              "text": " pray",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.99609375
+            },
+            {
+              "text": " thee,",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.284423828125
+            },
+            {
+              "text": " good",
+              "start": 1.71,
+              "end": 1.87,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " Horatio,",
+              "start": 1.87,
+              "end": 2.29,
+              "probability": 0.982177734375
+            },
+            {
+              "text": " wait",
+              "start": 2.53,
+              "end": 2.59,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " upon",
+              "start": 2.59,
+              "end": 2.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him.",
+              "start": 2.83,
+              "end": 3.13,
+              "probability": 0.97509765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "I",
+          "start": 0.99,
+          "end": 1.25
+        },
+        {
+          "raw": "pray",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "thee,",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "good",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "raw": "Horatio,",
+          "start": 1.87,
+          "end": 2.29
+        },
+        {
+          "raw": "wait",
+          "start": 2.53,
+          "end": 2.59
+        },
+        {
+          "raw": "upon",
+          "start": 2.59,
+          "end": 2.83
+        },
+        {
+          "raw": "him.",
+          "start": 2.83,
+          "end": 3.13
+        }
+      ],
+      "expected_tokens": [
+        "King.",
+        "I",
+        "pray",
+        "thee,",
+        "good",
+        "Horatio,",
+        "wait",
+        "upon",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.99,
+          "end": 1.25,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "pray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.71,
+          "end": 1.87,
+          "key": "good",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Horatio,",
+          "start": 1.87,
+          "end": 2.29,
+          "key": "horatio",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wait",
+          "start": 2.53,
+          "end": 2.59,
+          "key": "wait",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.59,
+          "end": 2.83,
+          "key": "upon",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 2.83,
+          "end": 3.13,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King.",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "I",
+          "start": 0.99,
+          "end": 1.25
+        },
+        {
+          "text": "pray",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "text": "thee,",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "text": "good",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "text": "Horatio,",
+          "start": 1.87,
+          "end": 2.29
+        },
+        {
+          "text": "wait",
+          "start": 2.53,
+          "end": 2.59
+        },
+        {
+          "text": "upon",
+          "start": 2.59,
+          "end": 2.83
+        },
+        {
+          "text": "him.",
+          "start": 2.83,
+          "end": 3.13
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3009645938873291
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "55bffa4ede698496a00972a10f1a56186ce1a2db245adfb34f6cb0e1d5bf617a",
+  "selected_reasons": []
+}

@@ -1,0 +1,469 @@
+{
+  "complete": true,
+  "signature": "64976a0b57a4f6391940a1c41f2f0be64d39fab84da5ab66cfa1225fb476d345",
+  "attempts": [
+    {
+      "asr_seconds": 0.3328380612656474,
+      "alignment_seconds": 0.00036363862454891205,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. I think it be thine indeed, for thou liest in't.",
+        "hotwords": "Hamlet, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, I Hamlet. I think it be thine indeed, for thou liest in't.",
+          "start": 0.05,
+          "end": 3.55,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.900390625
+            },
+            {
+              "text": " I",
+              "start": 1.17,
+              "end": 1.37,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Hamlet.",
+              "start": 1.37,
+              "end": 1.45,
+              "probability": 0.495849609375
+            },
+            {
+              "text": " I",
+              "start": 1.45,
+              "end": 1.45,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " think",
+              "start": 1.45,
+              "end": 1.49,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " it",
+              "start": 1.49,
+              "end": 1.59,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " be",
+              "start": 1.59,
+              "end": 1.71,
+              "probability": 0.962890625
+            },
+            {
+              "text": " thine",
+              "start": 1.71,
+              "end": 1.95,
+              "probability": 0.942138671875
+            },
+            {
+              "text": " indeed,",
+              "start": 1.95,
+              "end": 2.29,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " for",
+              "start": 2.59,
+              "end": 2.59,
+              "probability": 0.796875
+            },
+            {
+              "text": " thou",
+              "start": 2.59,
+              "end": 2.73,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " liest",
+              "start": 2.73,
+              "end": 2.99,
+              "probability": 0.480255126953125
+            },
+            {
+              "text": " in't.",
+              "start": 2.99,
+              "end": 3.55,
+              "probability": 0.5041351318359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "I",
+          "start": 1.17,
+          "end": 1.37
+        },
+        {
+          "raw": "Hamlet.",
+          "start": 1.37,
+          "end": 1.45
+        },
+        {
+          "raw": "I",
+          "start": 1.45,
+          "end": 1.45
+        },
+        {
+          "raw": "think",
+          "start": 1.45,
+          "end": 1.49
+        },
+        {
+          "raw": "it",
+          "start": 1.49,
+          "end": 1.59
+        },
+        {
+          "raw": "be",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "raw": "thine",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "raw": "indeed,",
+          "start": 1.95,
+          "end": 2.29
+        },
+        {
+          "raw": "for",
+          "start": 2.59,
+          "end": 2.59
+        },
+        {
+          "raw": "thou",
+          "start": 2.59,
+          "end": 2.73
+        },
+        {
+          "raw": "liest",
+          "start": 2.73,
+          "end": 2.99
+        },
+        {
+          "raw": "in't.",
+          "start": 2.99,
+          "end": 3.55
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "I",
+        "think",
+        "it",
+        "be",
+        "thine",
+        "indeed,",
+        "for",
+        "thou",
+        "liest",
+        "in't."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "equal",
+          0,
+          11,
+          2,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.17,
+          "end": 1.37,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Hamlet.",
+          "start": 1.37,
+          "end": 1.45,
+          "key": "hamlet",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.45,
+          "end": 1.45,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.45,
+          "end": 1.49,
+          "key": "think",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.49,
+          "end": 1.59,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.59,
+          "end": 1.71,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thine",
+          "start": 1.71,
+          "end": 1.95,
+          "key": "thine",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "indeed,",
+          "start": 1.95,
+          "end": 2.29,
+          "key": "indeed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.59,
+          "end": 2.59,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.59,
+          "end": 2.73,
+          "key": "thou",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "liest",
+          "start": 2.73,
+          "end": 2.99,
+          "key": "liest",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in't.",
+          "start": 2.99,
+          "end": 3.55,
+          "key": "int",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 1.37,
+          "end": 1.45
+        },
+        {
+          "text": "I",
+          "start": 1.45,
+          "end": 1.45
+        },
+        {
+          "text": "think",
+          "start": 1.45,
+          "end": 1.49
+        },
+        {
+          "text": "it",
+          "start": 1.49,
+          "end": 1.59
+        },
+        {
+          "text": "be",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "text": "thine",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "text": "indeed,",
+          "start": 1.95,
+          "end": 2.29
+        },
+        {
+          "text": "for",
+          "start": 2.59,
+          "end": 2.59
+        },
+        {
+          "text": "thou",
+          "start": 2.59,
+          "end": 2.73
+        },
+        {
+          "text": "liest",
+          "start": 2.73,
+          "end": 2.99
+        },
+        {
+          "text": "in't.",
+          "start": 2.99,
+          "end": 3.55
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33335093688219786
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a3980bfff05189e35e11109688def53ef8dbe28d87c35a12dae092e2b82cc1f9",
+  "selected_reasons": []
+}

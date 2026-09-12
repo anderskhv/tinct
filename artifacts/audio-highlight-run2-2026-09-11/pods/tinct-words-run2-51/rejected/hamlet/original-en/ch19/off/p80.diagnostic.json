@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "062020216ae3270299efa3cd02d4deb9ce0e74863501e9fc12a22f8ce5735e3f",
+  "attempts": [
+    {
+      "asr_seconds": 0.18272329401224852,
+      "alignment_seconds": 0.00027078017592430115,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet, whose was it?",
+          "start": 0.08,
+          "end": 1.58,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.956787109375
+            },
+            {
+              "text": " whose",
+              "start": 1.04,
+              "end": 1.08,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " was",
+              "start": 1.08,
+              "end": 1.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it?",
+              "start": 1.32,
+              "end": 1.58,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "whose",
+          "start": 1.04,
+          "end": 1.08
+        },
+        {
+          "raw": "was",
+          "start": 1.08,
+          "end": 1.32
+        },
+        {
+          "raw": "it?",
+          "start": 1.32,
+          "end": 1.58
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Whose",
+        "was",
+        "it?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "whose",
+          "start": 1.04,
+          "end": 1.08,
+          "key": "whose",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.08,
+          "end": 1.32,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 1.32,
+          "end": 1.58,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "Whose",
+          "start": 1.04,
+          "end": 1.08
+        },
+        {
+          "text": "was",
+          "start": 1.08,
+          "end": 1.32
+        },
+        {
+          "text": "it?",
+          "start": 1.32,
+          "end": 1.58
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18308497965335846
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "77a5faedc8f0b16b373d71c47d9cc152149089a82ab88825fce183b802fca314",
+  "selected_reasons": []
+}

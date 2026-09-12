@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "5d4321fe296155207b8ef3bb0047322a00b73c30fc78a8cbeafdff703d877e15",
+  "attempts": [
+    {
+      "asr_seconds": 0.2505530100315809,
+      "alignment_seconds": 0.0007730470970273018,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First clown faith in with losing his wits",
+          "start": 0.05,
+          "end": 3.25,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.8154296875
+            },
+            {
+              "text": " clown",
+              "start": 0.61,
+              "end": 0.95,
+              "probability": 0.71533203125
+            },
+            {
+              "text": " faith",
+              "start": 0.95,
+              "end": 1.77,
+              "probability": 0.356689453125
+            },
+            {
+              "text": " in",
+              "start": 1.77,
+              "end": 2.15,
+              "probability": 0.64208984375
+            },
+            {
+              "text": " with",
+              "start": 2.15,
+              "end": 2.31,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " losing",
+              "start": 2.31,
+              "end": 2.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 2.65,
+              "end": 2.83,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " wits",
+              "start": 2.83,
+              "end": 3.25,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "clown",
+          "start": 0.61,
+          "end": 0.95
+        },
+        {
+          "raw": "faith",
+          "start": 0.95,
+          "end": 1.77
+        },
+        {
+          "raw": "in",
+          "start": 1.77,
+          "end": 2.15
+        },
+        {
+          "raw": "with",
+          "start": 2.15,
+          "end": 2.31
+        },
+        {
+          "raw": "losing",
+          "start": 2.31,
+          "end": 2.65
+        },
+        {
+          "raw": "his",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "raw": "wits",
+          "start": 2.83,
+          "end": 3.25
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Clown.",
+        "Faith,",
+        "e'en",
+        "with",
+        "losing",
+        "his",
+        "wits."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "clown",
+          "start": 0.61,
+          "end": 0.95,
+          "key": "clown",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "faith",
+          "start": 0.95,
+          "end": 1.77,
+          "key": "faith",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.77,
+          "end": 2.15,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.15,
+          "end": 2.31,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "losing",
+          "start": 2.31,
+          "end": 2.65,
+          "key": "losing",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.65,
+          "end": 2.83,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "wits",
+          "start": 2.83,
+          "end": 3.25,
+          "key": "wits",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Clown.",
+          "start": 0.61,
+          "end": 0.95
+        },
+        {
+          "text": "Faith,",
+          "start": 0.95,
+          "end": 1.77
+        },
+        {
+          "text": "e'en",
+          "start": 1.77,
+          "end": 1.96
+        },
+        {
+          "text": "with",
+          "start": 2.15,
+          "end": 2.31
+        },
+        {
+          "text": "losing",
+          "start": 2.31,
+          "end": 2.65
+        },
+        {
+          "text": "his",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "text": "wits.",
+          "start": 2.83,
+          "end": 3.25
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.251627366989851
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "009e591625c4b8151f3c8c5847735c6c443885b4a1036a27cc1b911514ed2670",
+  "selected_reasons": []
+}

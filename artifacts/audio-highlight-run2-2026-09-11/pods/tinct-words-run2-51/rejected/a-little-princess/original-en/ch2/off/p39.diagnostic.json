@@ -1,0 +1,585 @@
+{
+  "complete": true,
+  "signature": "45b66eddf9b94856066f03b1877c0d957077070d24af1f4ffd7bb5ce04c4e0d4",
+  "attempts": [
+    {
+      "asr_seconds": 0.3155345320701599,
+      "alignment_seconds": 0.0005513913929462433,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You ought to have told me!\" exclaimed Miss Mention, much mortified, turning to Sarah.",
+          "start": 0.02,
+          "end": 5.2,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.06353759765625
+            },
+            {
+              "text": " ought",
+              "start": 0.54,
+              "end": 0.72,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 0.72,
+              "end": 0.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " have",
+              "start": 0.86,
+              "end": 1.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " told",
+              "start": 1.02,
+              "end": 1.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me",
+              "start": 1.26,
+              "end": 1.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": "!\"",
+              "start": 1.76,
+              "end": 1.9,
+              "probability": 0.122802734375
+            },
+            {
+              "text": " exclaimed",
+              "start": 1.9,
+              "end": 2.42,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Miss",
+              "start": 2.42,
+              "end": 2.7,
+              "probability": 0.68798828125
+            },
+            {
+              "text": " Mention,",
+              "start": 2.7,
+              "end": 3.06,
+              "probability": 0.594970703125
+            },
+            {
+              "text": " much",
+              "start": 3.64,
+              "end": 3.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " mortified,",
+              "start": 3.78,
+              "end": 4.42,
+              "probability": 0.950927734375
+            },
+            {
+              "text": " turning",
+              "start": 4.58,
+              "end": 4.72,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 4.72,
+              "end": 4.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Sarah.",
+              "start": 4.96,
+              "end": 5.2,
+              "probability": 0.884765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "ought",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "raw": "to",
+          "start": 0.72,
+          "end": 0.86
+        },
+        {
+          "raw": "have",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "raw": "told",
+          "start": 1.02,
+          "end": 1.26
+        },
+        {
+          "raw": "me",
+          "start": 1.26,
+          "end": 1.76
+        },
+        {
+          "raw": "!\"",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "raw": "exclaimed",
+          "start": 1.9,
+          "end": 2.42
+        },
+        {
+          "raw": "Miss",
+          "start": 2.42,
+          "end": 2.7
+        },
+        {
+          "raw": "Mention,",
+          "start": 2.7,
+          "end": 3.06
+        },
+        {
+          "raw": "much",
+          "start": 3.64,
+          "end": 3.78
+        },
+        {
+          "raw": "mortified,",
+          "start": 3.78,
+          "end": 4.42
+        },
+        {
+          "raw": "turning",
+          "start": 4.58,
+          "end": 4.72
+        },
+        {
+          "raw": "to",
+          "start": 4.72,
+          "end": 4.96
+        },
+        {
+          "raw": "Sarah.",
+          "start": 4.96,
+          "end": 5.2
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "ought",
+        "to",
+        "have",
+        "told",
+        "me,\"",
+        "exclaimed",
+        "Miss",
+        "Minchin,",
+        "much",
+        "mortified,",
+        "turning",
+        "to",
+        "Sara."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "insert",
+          6,
+          6,
+          6,
+          7
+        ],
+        [
+          "equal",
+          6,
+          8,
+          7,
+          9
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          10
+        ],
+        [
+          "equal",
+          9,
+          13,
+          10,
+          14
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          6,
+          6,
+          6,
+          7
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          10
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ought",
+          "start": 0.54,
+          "end": 0.72,
+          "key": "ought",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.72,
+          "end": 0.86,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.86,
+          "end": 1.02,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 1.02,
+          "end": 1.26,
+          "key": "told",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.26,
+          "end": 1.76,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.76,
+          "end": 1.9,
+          "key": "",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "exclaimed",
+          "start": 1.9,
+          "end": 2.42,
+          "key": "exclaimed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 2.42,
+          "end": 2.7,
+          "key": "miss",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Mention,",
+          "start": 2.7,
+          "end": 3.06,
+          "key": "mention",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 3.64,
+          "end": 3.78,
+          "key": "much",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "mortified,",
+          "start": 3.78,
+          "end": 4.42,
+          "key": "mortified",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "turning",
+          "start": 4.58,
+          "end": 4.72,
+          "key": "turning",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.72,
+          "end": 4.96,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Sarah.",
+          "start": 4.96,
+          "end": 5.2,
+          "key": "sarah",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "ought",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "text": "to",
+          "start": 0.72,
+          "end": 0.86
+        },
+        {
+          "text": "have",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "text": "told",
+          "start": 1.02,
+          "end": 1.26
+        },
+        {
+          "text": "me,\"",
+          "start": 1.26,
+          "end": 1.76
+        },
+        {
+          "text": "exclaimed",
+          "start": 1.9,
+          "end": 2.42
+        },
+        {
+          "text": "Miss",
+          "start": 2.42,
+          "end": 2.7
+        },
+        {
+          "text": "Minchin,",
+          "start": 2.7,
+          "end": 3.17
+        },
+        {
+          "text": "much",
+          "start": 3.64,
+          "end": 3.78
+        },
+        {
+          "text": "mortified,",
+          "start": 3.78,
+          "end": 4.42
+        },
+        {
+          "text": "turning",
+          "start": 4.58,
+          "end": 4.72
+        },
+        {
+          "text": "to",
+          "start": 4.72,
+          "end": 4.96
+        },
+        {
+          "text": "Sara.",
+          "start": 4.96,
+          "end": 5.08
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.31627437099814415
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cd788519fc4f344f71586d28d9548a9d87723f7cd2bfe480d3a7553898a967a3",
+  "selected_reasons": []
+}

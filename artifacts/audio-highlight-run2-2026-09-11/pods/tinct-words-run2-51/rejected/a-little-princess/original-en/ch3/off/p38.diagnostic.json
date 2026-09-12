@@ -1,0 +1,319 @@
+{
+  "complete": true,
+  "signature": "191bd46e918a138f66d1095c343dc748246e2795beedaf1fe687bcb0c79550cd",
+  "attempts": [
+    {
+      "asr_seconds": 0.23049286659806967,
+      "alignment_seconds": 0.0004572449252009392,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " She put her hand, warningly, on erming guards.",
+          "start": 0.05,
+          "end": 2.55,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " put",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " her",
+              "start": 0.63,
+              "end": 0.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hand,",
+              "start": 0.75,
+              "end": 1.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " warningly,",
+              "start": 1.27,
+              "end": 1.79,
+              "probability": 0.744873046875
+            },
+            {
+              "text": " on",
+              "start": 1.91,
+              "end": 2.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " erming",
+              "start": 2.01,
+              "end": 2.29,
+              "probability": 0.546875
+            },
+            {
+              "text": " guards.",
+              "start": 2.29,
+              "end": 2.55,
+              "probability": 0.96337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "put",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "her",
+          "start": 0.63,
+          "end": 0.75
+        },
+        {
+          "raw": "hand,",
+          "start": 0.75,
+          "end": 1.11
+        },
+        {
+          "raw": "warningly,",
+          "start": 1.27,
+          "end": 1.79
+        },
+        {
+          "raw": "on",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "raw": "erming",
+          "start": 2.01,
+          "end": 2.29
+        },
+        {
+          "raw": "guards.",
+          "start": 2.29,
+          "end": 2.55
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "put",
+        "her",
+        "hand",
+        "warningly",
+        "on",
+        "Ermengarde's."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "put",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 0.63,
+          "end": 0.75,
+          "key": "her",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hand,",
+          "start": 0.75,
+          "end": 1.11,
+          "key": "hand",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "warningly,",
+          "start": 1.27,
+          "end": 1.79,
+          "key": "warningly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.91,
+          "end": 2.01,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "erming",
+          "start": 2.01,
+          "end": 2.29,
+          "key": "erming",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "guards.",
+          "start": 2.29,
+          "end": 2.55,
+          "key": "guards",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "put",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "her",
+          "start": 0.63,
+          "end": 0.75
+        },
+        {
+          "text": "hand",
+          "start": 0.75,
+          "end": 1.11
+        },
+        {
+          "text": "warningly",
+          "start": 1.27,
+          "end": 1.79
+        },
+        {
+          "text": "on",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "text": "Ermengarde's.",
+          "start": 2.01,
+          "end": 2.28
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.2311214553192258
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4ee8811e08d2dd6022e3d68a3aca31f7fb4542636fe2caf6ac7517a4279b9545",
+  "selected_reasons": []
+}

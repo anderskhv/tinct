@@ -1,0 +1,321 @@
+{
+  "complete": true,
+  "signature": "757ef50757097c9b8e20be21818b88dc655bc3c9fd2b9a8f34aeb4e9179a574d",
+  "attempts": [
+    {
+      "asr_seconds": 0.21309980936348438,
+      "alignment_seconds": 0.00045936834067106247,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sara looked at her in simple surprise.",
+        "hotwords": "Sara"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sara Sara looked at her in simple surprise.",
+          "start": 0.11,
+          "end": 2.17,
+          "words": [
+            {
+              "text": " Sara",
+              "start": 0.11,
+              "end": 0.61,
+              "probability": 0.1014404296875
+            },
+            {
+              "text": " Sara",
+              "start": 0.61,
+              "end": 0.79,
+              "probability": 0.0
+            },
+            {
+              "text": " looked",
+              "start": 0.79,
+              "end": 0.89,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " at",
+              "start": 0.89,
+              "end": 1.05,
+              "probability": 0.9921875
+            },
+            {
+              "text": " her",
+              "start": 1.05,
+              "end": 1.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 1.17,
+              "end": 1.35,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " simple",
+              "start": 1.35,
+              "end": 1.69,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " surprise.",
+              "start": 1.69,
+              "end": 2.17,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sara",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "raw": "Sara",
+          "start": 0.61,
+          "end": 0.79
+        },
+        {
+          "raw": "looked",
+          "start": 0.79,
+          "end": 0.89
+        },
+        {
+          "raw": "at",
+          "start": 0.89,
+          "end": 1.05
+        },
+        {
+          "raw": "her",
+          "start": 1.05,
+          "end": 1.17
+        },
+        {
+          "raw": "in",
+          "start": 1.17,
+          "end": 1.35
+        },
+        {
+          "raw": "simple",
+          "start": 1.35,
+          "end": 1.69
+        },
+        {
+          "raw": "surprise.",
+          "start": 1.69,
+          "end": 2.17
+        }
+      ],
+      "expected_tokens": [
+        "Sara",
+        "looked",
+        "at",
+        "her",
+        "in",
+        "simple",
+        "surprise."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          7,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sara",
+          "start": 0.11,
+          "end": 0.61,
+          "key": "sara",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sara",
+          "start": 0.61,
+          "end": 0.79,
+          "key": "sara",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 0.79,
+          "end": 0.89,
+          "key": "looked",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.89,
+          "end": 1.05,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.05,
+          "end": 1.17,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.17,
+          "end": 1.35,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "simple",
+          "start": 1.35,
+          "end": 1.69,
+          "key": "simple",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "surprise.",
+          "start": 1.69,
+          "end": 2.17,
+          "key": "surprise",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sara",
+          "start": 0.61,
+          "end": 0.79
+        },
+        {
+          "text": "looked",
+          "start": 0.79,
+          "end": 0.89
+        },
+        {
+          "text": "at",
+          "start": 0.89,
+          "end": 1.05
+        },
+        {
+          "text": "her",
+          "start": 1.05,
+          "end": 1.17
+        },
+        {
+          "text": "in",
+          "start": 1.17,
+          "end": 1.35
+        },
+        {
+          "text": "simple",
+          "start": 1.35,
+          "end": 1.69
+        },
+        {
+          "text": "surprise.",
+          "start": 1.69,
+          "end": 2.17
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2137273270636797
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4eb8605e911f40ade8d2e1cd7da6a78ec525a18d189321f3677ec7fbef54da3b",
+  "selected_reasons": []
+}

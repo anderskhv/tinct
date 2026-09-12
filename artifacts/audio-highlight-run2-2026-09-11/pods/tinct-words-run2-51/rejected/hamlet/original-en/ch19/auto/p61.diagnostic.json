@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "6ed7c9714d54ca7be6744d8b0c592f84ef7d57001937e962d1d2bada9d92ad67",
+  "attempts": [
+    {
+      "asr_seconds": 0.270655270665884,
+      "alignment_seconds": 0.0006291540339589119,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Clown. One that was a woman, sir; but, rest her soul, she's dead.",
+        "hotwords": "First, Clown, One"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First, Clown, One that was a woman, sir, but, rest her soul, she's dead.",
+          "start": 0.05,
+          "end": 4.15,
+          "words": [
+            {
+              "text": " First,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " Clown,",
+              "start": 0.93,
+              "end": 0.93,
+              "probability": 0.09393310546875
+            },
+            {
+              "text": " One",
+              "start": 1.45,
+              "end": 1.65,
+              "probability": 0.09124755859375
+            },
+            {
+              "text": " that",
+              "start": 1.65,
+              "end": 1.77,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " was",
+              "start": 1.77,
+              "end": 1.85,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " a",
+              "start": 1.85,
+              "end": 1.97,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " woman,",
+              "start": 1.97,
+              "end": 2.11,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " sir,",
+              "start": 2.35,
+              "end": 2.41,
+              "probability": 0.75537109375
+            },
+            {
+              "text": " but,",
+              "start": 2.59,
+              "end": 2.71,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " rest",
+              "start": 2.79,
+              "end": 3.03,
+              "probability": 0.439208984375
+            },
+            {
+              "text": " her",
+              "start": 3.03,
+              "end": 3.21,
+              "probability": 0.966796875
+            },
+            {
+              "text": " soul,",
+              "start": 3.21,
+              "end": 3.53,
+              "probability": 0.921875
+            },
+            {
+              "text": " she's",
+              "start": 3.73,
+              "end": 3.95,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " dead.",
+              "start": 3.95,
+              "end": 4.15,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Clown,",
+          "start": 0.93,
+          "end": 0.93
+        },
+        {
+          "raw": "One",
+          "start": 1.45,
+          "end": 1.65
+        },
+        {
+          "raw": "that",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "raw": "was",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "raw": "a",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "raw": "woman,",
+          "start": 1.97,
+          "end": 2.11
+        },
+        {
+          "raw": "sir,",
+          "start": 2.35,
+          "end": 2.41
+        },
+        {
+          "raw": "but,",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "raw": "rest",
+          "start": 2.79,
+          "end": 3.03
+        },
+        {
+          "raw": "her",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "raw": "soul,",
+          "start": 3.21,
+          "end": 3.53
+        },
+        {
+          "raw": "she's",
+          "start": 3.73,
+          "end": 3.95
+        },
+        {
+          "raw": "dead.",
+          "start": 3.95,
+          "end": 4.15
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Clown.",
+        "One",
+        "that",
+        "was",
+        "a",
+        "woman,",
+        "sir;",
+        "but,",
+        "rest",
+        "her",
+        "soul,",
+        "she's",
+        "dead."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Clown,",
+          "start": 0.93,
+          "end": 0.93,
+          "key": "clown",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "One",
+          "start": 1.45,
+          "end": 1.65,
+          "key": "one",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.65,
+          "end": 1.77,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.77,
+          "end": 1.85,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.85,
+          "end": 1.97,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "woman,",
+          "start": 1.97,
+          "end": 2.11,
+          "key": "woman",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.35,
+          "end": 2.41,
+          "key": "sir",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "but,",
+          "start": 2.59,
+          "end": 2.71,
+          "key": "but",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "rest",
+          "start": 2.79,
+          "end": 3.03,
+          "key": "rest",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.03,
+          "end": 3.21,
+          "key": "her",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "soul,",
+          "start": 3.21,
+          "end": 3.53,
+          "key": "soul",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "she's",
+          "start": 3.73,
+          "end": 3.95,
+          "key": "shes",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "dead.",
+          "start": 3.95,
+          "end": 4.15,
+          "key": "dead",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Clown.",
+          "start": 0.93,
+          "end": 0.93
+        },
+        {
+          "text": "One",
+          "start": 1.45,
+          "end": 1.65
+        },
+        {
+          "text": "that",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "text": "was",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "text": "a",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "text": "woman,",
+          "start": 1.97,
+          "end": 2.11
+        },
+        {
+          "text": "sir;",
+          "start": 2.35,
+          "end": 2.41
+        },
+        {
+          "text": "but,",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "text": "rest",
+          "start": 2.79,
+          "end": 3.03
+        },
+        {
+          "text": "her",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "text": "soul,",
+          "start": 3.21,
+          "end": 3.53
+        },
+        {
+          "text": "she's",
+          "start": 3.73,
+          "end": 3.95
+        },
+        {
+          "text": "dead.",
+          "start": 3.95,
+          "end": 4.15
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2715313686057925
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "16b743ccf5990312958f9fa25b35dfb7d09accf8d64d1afbfb9ee20cabdd8a78",
+  "selected_reasons": []
+}

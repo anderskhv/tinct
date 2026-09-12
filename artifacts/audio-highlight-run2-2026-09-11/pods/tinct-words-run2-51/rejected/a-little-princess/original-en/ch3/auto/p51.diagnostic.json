@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "cc8d3aec01433c982b75052e0b6930c2a1d0af2b2ee17dfd3c249206e41be757",
+  "attempts": [
+    {
+      "asr_seconds": 0.27954154275357723,
+      "alignment_seconds": 0.0004999348893761635,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"We couldn't do it,\" said Sara, seriously. \"You see, it's a kind of magic.\"",
+        "hotwords": "We, Sara, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " We couldn't do it, said Sara, seriously. You see, it's a kind of magic.",
+          "start": 0.02,
+          "end": 4.32,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.2432861328125
+            },
+            {
+              "text": " couldn't",
+              "start": 0.5,
+              "end": 0.78,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " do",
+              "start": 0.78,
+              "end": 0.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it,",
+              "start": 0.92,
+              "end": 1.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " said",
+              "start": 1.24,
+              "end": 1.54,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Sara,",
+              "start": 1.54,
+              "end": 1.88,
+              "probability": 0.12298583984375
+            },
+            {
+              "text": " seriously.",
+              "start": 1.98,
+              "end": 2.34,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " You",
+              "start": 3.1,
+              "end": 3.18,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " see,",
+              "start": 3.18,
+              "end": 3.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it's",
+              "start": 3.54,
+              "end": 3.66,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " a",
+              "start": 3.66,
+              "end": 3.72,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " kind",
+              "start": 3.72,
+              "end": 3.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 3.86,
+              "end": 3.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " magic.",
+              "start": 3.98,
+              "end": 4.32,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "couldn't",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "raw": "do",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "raw": "it,",
+          "start": 0.92,
+          "end": 1.16
+        },
+        {
+          "raw": "said",
+          "start": 1.24,
+          "end": 1.54
+        },
+        {
+          "raw": "Sara,",
+          "start": 1.54,
+          "end": 1.88
+        },
+        {
+          "raw": "seriously.",
+          "start": 1.98,
+          "end": 2.34
+        },
+        {
+          "raw": "You",
+          "start": 3.1,
+          "end": 3.18
+        },
+        {
+          "raw": "see,",
+          "start": 3.18,
+          "end": 3.42
+        },
+        {
+          "raw": "it's",
+          "start": 3.54,
+          "end": 3.66
+        },
+        {
+          "raw": "a",
+          "start": 3.66,
+          "end": 3.72
+        },
+        {
+          "raw": "kind",
+          "start": 3.72,
+          "end": 3.86
+        },
+        {
+          "raw": "of",
+          "start": 3.86,
+          "end": 3.98
+        },
+        {
+          "raw": "magic.",
+          "start": 3.98,
+          "end": 4.32
+        }
+      ],
+      "expected_tokens": [
+        "\"We",
+        "couldn't",
+        "do",
+        "it,\"",
+        "said",
+        "Sara,",
+        "seriously.",
+        "\"You",
+        "see,",
+        "it's",
+        "a",
+        "kind",
+        "of",
+        "magic.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "couldn't",
+          "start": 0.5,
+          "end": 0.78,
+          "key": "couldnt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.78,
+          "end": 0.92,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 0.92,
+          "end": 1.16,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.24,
+          "end": 1.54,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Sara,",
+          "start": 1.54,
+          "end": 1.88,
+          "key": "sara",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "seriously.",
+          "start": 1.98,
+          "end": 2.34,
+          "key": "seriously",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 3.1,
+          "end": 3.18,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "see,",
+          "start": 3.18,
+          "end": 3.42,
+          "key": "see",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 3.54,
+          "end": 3.66,
+          "key": "its",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.66,
+          "end": 3.72,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 3.72,
+          "end": 3.86,
+          "key": "kind",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.86,
+          "end": 3.98,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "magic.",
+          "start": 3.98,
+          "end": 4.32,
+          "key": "magic",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"We",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "couldn't",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "text": "do",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "text": "it,\"",
+          "start": 0.92,
+          "end": 1.16
+        },
+        {
+          "text": "said",
+          "start": 1.24,
+          "end": 1.54
+        },
+        {
+          "text": "Sara,",
+          "start": 1.54,
+          "end": 1.88
+        },
+        {
+          "text": "seriously.",
+          "start": 1.98,
+          "end": 2.34
+        },
+        {
+          "text": "\"You",
+          "start": 3.1,
+          "end": 3.18
+        },
+        {
+          "text": "see,",
+          "start": 3.18,
+          "end": 3.42
+        },
+        {
+          "text": "it's",
+          "start": 3.54,
+          "end": 3.66
+        },
+        {
+          "text": "a",
+          "start": 3.66,
+          "end": 3.72
+        },
+        {
+          "text": "kind",
+          "start": 3.72,
+          "end": 3.86
+        },
+        {
+          "text": "of",
+          "start": 3.86,
+          "end": 3.98
+        },
+        {
+          "text": "magic.\"",
+          "start": 3.98,
+          "end": 4.32
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2802311647683382
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "829c47c1f402d35caad1f9514c3a4d84206021edbdc08f2a2404398c3ff5de44",
+  "selected_reasons": []
+}

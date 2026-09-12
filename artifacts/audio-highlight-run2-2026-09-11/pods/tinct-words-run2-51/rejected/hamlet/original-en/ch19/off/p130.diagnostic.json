@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "966b4a3dfb6174e0f3a9666d1b3652875e0800a7b6214654d9bc61a1d24770fd",
+  "attempts": [
+    {
+      "asr_seconds": 0.14148615952581167,
+      "alignment_seconds": 0.00030460767447948456,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Horatio.",
+          "start": 0.02,
+          "end": 1.2,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.8671875
+            },
+            {
+              "text": " Horatio.",
+              "start": 0.66,
+              "end": 1.2,
+              "probability": 0.985107421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Horatio.",
+          "start": 0.66,
+          "end": 1.2
+        }
+      ],
+      "expected_tokens": [
+        "[Exit",
+        "Horatio.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Horatio.",
+          "start": 0.66,
+          "end": 1.2,
+          "key": "horatio",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Horatio.]",
+          "start": 0.66,
+          "end": 1.2
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14188495092093945
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b99447dd5cdfccbcf002dfb921cd6b88e20c82db9a3ef1f598bbd313d452ec86",
+  "selected_reasons": []
+}

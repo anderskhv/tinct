@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "d8f0f865dec7d6ac87ae6a7ec2815dac04eae14e5fa72700e4912b4768460f7e",
+  "attempts": [
+    {
+      "asr_seconds": 0.20901681017130613,
+      "alignment_seconds": 0.00034510623663663864,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Clown. He was the first that ever bore arms.",
+        "hotwords": "Clown, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Clown, He was the first that ever bore arms.",
+          "start": 0.05,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " Clown,",
+              "start": 0.65,
+              "end": 0.99,
+              "probability": 0.0972900390625
+            },
+            {
+              "text": " He",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.0765380859375
+            },
+            {
+              "text": " was",
+              "start": 1.61,
+              "end": 1.69,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " the",
+              "start": 1.69,
+              "end": 1.81,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " first",
+              "start": 1.81,
+              "end": 1.99,
+              "probability": 0.947265625
+            },
+            {
+              "text": " that",
+              "start": 1.99,
+              "end": 2.23,
+              "probability": 0.955078125
+            },
+            {
+              "text": " ever",
+              "start": 2.23,
+              "end": 2.45,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " bore",
+              "start": 2.45,
+              "end": 2.73,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " arms.",
+              "start": 2.73,
+              "end": 3.11,
+              "probability": 0.4921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Clown,",
+          "start": 0.65,
+          "end": 0.99
+        },
+        {
+          "raw": "He",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "raw": "was",
+          "start": 1.61,
+          "end": 1.69
+        },
+        {
+          "raw": "the",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "raw": "first",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "raw": "that",
+          "start": 1.99,
+          "end": 2.23
+        },
+        {
+          "raw": "ever",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "raw": "bore",
+          "start": 2.45,
+          "end": 2.73
+        },
+        {
+          "raw": "arms.",
+          "start": 2.73,
+          "end": 3.11
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Clown.",
+        "He",
+        "was",
+        "the",
+        "first",
+        "that",
+        "ever",
+        "bore",
+        "arms."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Clown,",
+          "start": 0.65,
+          "end": 0.99,
+          "key": "clown",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.43,
+          "end": 1.61,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.61,
+          "end": 1.69,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.69,
+          "end": 1.81,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 1.81,
+          "end": 1.99,
+          "key": "first",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.99,
+          "end": 2.23,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 2.23,
+          "end": 2.45,
+          "key": "ever",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bore",
+          "start": 2.45,
+          "end": 2.73,
+          "key": "bore",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "arms.",
+          "start": 2.73,
+          "end": 3.11,
+          "key": "arms",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Clown.",
+          "start": 0.65,
+          "end": 0.99
+        },
+        {
+          "text": "He",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "text": "was",
+          "start": 1.61,
+          "end": 1.69
+        },
+        {
+          "text": "the",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "text": "first",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "text": "that",
+          "start": 1.99,
+          "end": 2.23
+        },
+        {
+          "text": "ever",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "text": "bore",
+          "start": 2.45,
+          "end": 2.73
+        },
+        {
+          "text": "arms.",
+          "start": 2.73,
+          "end": 3.11
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20950137730687857
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "58f7393854350c440b422cfc211022ea149a0a3c3a1cb85b7a980918f3738cc6",
+  "selected_reasons": []
+}

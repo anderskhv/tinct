@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "181bc4872bff0fed69d6ecf4c968302d1eff44841cb5209757e252dbad276e5c",
+  "attempts": [
+    {
+      "asr_seconds": 0.987417746335268,
+      "alignment_seconds": 0.00036410335451364517,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. Whose was it?",
+        "hotwords": "Hamlet, Whose"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, Whose was it?",
+          "start": 0.08,
+          "end": 1.58,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.956787109375
+            },
+            {
+              "text": " Whose",
+              "start": 1.06,
+              "end": 1.16,
+              "probability": 0.4976348876953125
+            },
+            {
+              "text": " was",
+              "start": 1.16,
+              "end": 1.3,
+              "probability": 0.1812744140625
+            },
+            {
+              "text": " it?",
+              "start": 1.3,
+              "end": 1.58,
+              "probability": 0.9677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "Whose",
+          "start": 1.06,
+          "end": 1.16
+        },
+        {
+          "raw": "was",
+          "start": 1.16,
+          "end": 1.3
+        },
+        {
+          "raw": "it?",
+          "start": 1.3,
+          "end": 1.58
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Whose",
+        "was",
+        "it?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Whose",
+          "start": 1.06,
+          "end": 1.16,
+          "key": "whose",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.16,
+          "end": 1.3,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 1.3,
+          "end": 1.58,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "Whose",
+          "start": 1.06,
+          "end": 1.16
+        },
+        {
+          "text": "was",
+          "start": 1.16,
+          "end": 1.3
+        },
+        {
+          "text": "it?",
+          "start": 1.3,
+          "end": 1.58
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.9878982743248343
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "77a5faedc8f0b16b373d71c47d9cc152149089a82ab88825fce183b802fca314",
+  "selected_reasons": []
+}

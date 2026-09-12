@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "7ea0b1fbcd16a278fc74bac895e28a90fcb87f2cf44e53e3afaca8194935981e",
+  "attempts": [
+    {
+      "asr_seconds": 0.277166279964149,
+      "alignment_seconds": 0.000493277795612812,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Second Clown. Why, 'tis found so.",
+        "hotwords": "Second, Clown, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Second, Clown, Why, \"'tis found so.",
+          "start": 0.08,
+          "end": 2.46,
+          "words": [
+            {
+              "text": " Second,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.58642578125
+            },
+            {
+              "text": " Clown,",
+              "start": 0.94,
+              "end": 1.0,
+              "probability": 0.06231689453125
+            },
+            {
+              "text": " Why,",
+              "start": 1.6,
+              "end": 1.64,
+              "probability": 0.14501953125
+            },
+            {
+              "text": " \"'tis",
+              "start": 1.72,
+              "end": 1.92,
+              "probability": 0.041240811347961426
+            },
+            {
+              "text": " found",
+              "start": 1.92,
+              "end": 2.18,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " so.",
+              "start": 2.18,
+              "end": 2.46,
+              "probability": 0.93505859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Clown,",
+          "start": 0.94,
+          "end": 1.0
+        },
+        {
+          "raw": "Why,",
+          "start": 1.6,
+          "end": 1.64
+        },
+        {
+          "raw": "\"'tis",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "raw": "found",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "raw": "so.",
+          "start": 2.18,
+          "end": 2.46
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Clown.",
+        "Why,",
+        "'tis",
+        "found",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Clown,",
+          "start": 0.94,
+          "end": 1.0,
+          "key": "clown",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 1.6,
+          "end": 1.64,
+          "key": "why",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "\"'tis",
+          "start": 1.72,
+          "end": 1.92,
+          "key": "tis",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "found",
+          "start": 1.92,
+          "end": 2.18,
+          "key": "found",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 2.18,
+          "end": 2.46,
+          "key": "so",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Clown.",
+          "start": 0.94,
+          "end": 1.0
+        },
+        {
+          "text": "Why,",
+          "start": 1.6,
+          "end": 1.64
+        },
+        {
+          "text": "'tis",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "text": "found",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "text": "so.",
+          "start": 2.18,
+          "end": 2.46
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2778204018250108
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a7515871311279f9c926d7d668a903f261663ea3ecf4f0e953f6a074a462538c",
+  "selected_reasons": []
+}

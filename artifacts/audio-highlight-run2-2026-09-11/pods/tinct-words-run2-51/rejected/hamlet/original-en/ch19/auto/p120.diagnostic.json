@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "f12c78fb96731691c067d080f2fbae82dfc444639bc88dfceba5bb79e9b0d681",
+  "attempts": [
+    {
+      "asr_seconds": 0.34329709596931934,
+      "alignment_seconds": 0.0006966665387153625,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. Why, I will fight with him upon this theme Until my eyelids will no longer wag.",
+        "hotwords": "Hamlet, Why, I, Until"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, Why, I will fight with him upon this theme Until my eyelids will no longer wag.",
+          "start": 0.05,
+          "end": 5.21,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.8564453125
+            },
+            {
+              "text": " Why,",
+              "start": 1.23,
+              "end": 1.55,
+              "probability": 0.0309906005859375
+            },
+            {
+              "text": " I",
+              "start": 1.79,
+              "end": 1.83,
+              "probability": 0.94140625
+            },
+            {
+              "text": " will",
+              "start": 1.83,
+              "end": 1.95,
+              "probability": 0.962890625
+            },
+            {
+              "text": " fight",
+              "start": 1.95,
+              "end": 2.13,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " with",
+              "start": 2.13,
+              "end": 2.29,
+              "probability": 0.984375
+            },
+            {
+              "text": " him",
+              "start": 2.29,
+              "end": 2.41,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " upon",
+              "start": 2.41,
+              "end": 2.63,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " this",
+              "start": 2.63,
+              "end": 2.85,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " theme",
+              "start": 2.85,
+              "end": 3.15,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " Until",
+              "start": 3.15,
+              "end": 3.39,
+              "probability": 0.08013916015625
+            },
+            {
+              "text": " my",
+              "start": 3.39,
+              "end": 3.57,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " eyelids",
+              "start": 3.57,
+              "end": 4.05,
+              "probability": 0.965576171875
+            },
+            {
+              "text": " will",
+              "start": 4.05,
+              "end": 4.23,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " no",
+              "start": 4.23,
+              "end": 4.41,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " longer",
+              "start": 4.41,
+              "end": 4.73,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " wag.",
+              "start": 4.73,
+              "end": 5.21,
+              "probability": 0.945556640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Why,",
+          "start": 1.23,
+          "end": 1.55
+        },
+        {
+          "raw": "I",
+          "start": 1.79,
+          "end": 1.83
+        },
+        {
+          "raw": "will",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "raw": "fight",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "raw": "with",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "raw": "him",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "raw": "upon",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "raw": "this",
+          "start": 2.63,
+          "end": 2.85
+        },
+        {
+          "raw": "theme",
+          "start": 2.85,
+          "end": 3.15
+        },
+        {
+          "raw": "Until",
+          "start": 3.15,
+          "end": 3.39
+        },
+        {
+          "raw": "my",
+          "start": 3.39,
+          "end": 3.57
+        },
+        {
+          "raw": "eyelids",
+          "start": 3.57,
+          "end": 4.05
+        },
+        {
+          "raw": "will",
+          "start": 4.05,
+          "end": 4.23
+        },
+        {
+          "raw": "no",
+          "start": 4.23,
+          "end": 4.41
+        },
+        {
+          "raw": "longer",
+          "start": 4.41,
+          "end": 4.73
+        },
+        {
+          "raw": "wag.",
+          "start": 4.73,
+          "end": 5.21
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Why,",
+        "I",
+        "will",
+        "fight",
+        "with",
+        "him",
+        "upon",
+        "this",
+        "theme",
+        "Until",
+        "my",
+        "eyelids",
+        "will",
+        "no",
+        "longer",
+        "wag."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 1.23,
+          "end": 1.55,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.79,
+          "end": 1.83,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.83,
+          "end": 1.95,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fight",
+          "start": 1.95,
+          "end": 2.13,
+          "key": "fight",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.13,
+          "end": 2.29,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.29,
+          "end": 2.41,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.41,
+          "end": 2.63,
+          "key": "upon",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.63,
+          "end": 2.85,
+          "key": "this",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "theme",
+          "start": 2.85,
+          "end": 3.15,
+          "key": "theme",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Until",
+          "start": 3.15,
+          "end": 3.39,
+          "key": "until",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.39,
+          "end": 3.57,
+          "key": "my",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "eyelids",
+          "start": 3.57,
+          "end": 4.05,
+          "key": "eyelids",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.05,
+          "end": 4.23,
+          "key": "will",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 4.23,
+          "end": 4.41,
+          "key": "no",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "longer",
+          "start": 4.41,
+          "end": 4.73,
+          "key": "longer",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "wag.",
+          "start": 4.73,
+          "end": 5.21,
+          "key": "wag",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Why,",
+          "start": 1.23,
+          "end": 1.55
+        },
+        {
+          "text": "I",
+          "start": 1.79,
+          "end": 1.83
+        },
+        {
+          "text": "will",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "text": "fight",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "text": "with",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "text": "him",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "text": "upon",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "text": "this",
+          "start": 2.63,
+          "end": 2.85
+        },
+        {
+          "text": "theme",
+          "start": 2.85,
+          "end": 3.15
+        },
+        {
+          "text": "Until",
+          "start": 3.15,
+          "end": 3.39
+        },
+        {
+          "text": "my",
+          "start": 3.39,
+          "end": 3.57
+        },
+        {
+          "text": "eyelids",
+          "start": 3.57,
+          "end": 4.05
+        },
+        {
+          "text": "will",
+          "start": 4.05,
+          "end": 4.23
+        },
+        {
+          "text": "no",
+          "start": 4.23,
+          "end": 4.41
+        },
+        {
+          "text": "longer",
+          "start": 4.41,
+          "end": 4.73
+        },
+        {
+          "text": "wag.",
+          "start": 4.73,
+          "end": 5.21
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.34427851904183626
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "06dadad1004c76ce9b5594ead30c3a9716f0dcd888ec19e49be26d175dca006a",
+  "selected_reasons": []
+}

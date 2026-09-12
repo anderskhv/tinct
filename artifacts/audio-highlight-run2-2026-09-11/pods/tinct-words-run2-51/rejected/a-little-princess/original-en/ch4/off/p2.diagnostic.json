@@ -1,0 +1,466 @@
+{
+  "complete": true,
+  "signature": "9c014c05b83d0f0a90e8ba363674b2f88b73f56bf638b7beab4a05c51d2a5a73",
+  "attempts": [
+    {
+      "asr_seconds": 0.30175752006471157,
+      "alignment_seconds": 0.00047688279300928116,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lavinia has no trials, said Ermengard, stolidly, and she is horrid enough.",
+          "start": 0.05,
+          "end": 4.93,
+          "words": [
+            {
+              "text": " Lavinia",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.6730295817057291
+            },
+            {
+              "text": " has",
+              "start": 0.89,
+              "end": 1.07,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " no",
+              "start": 1.07,
+              "end": 1.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " trials,",
+              "start": 1.29,
+              "end": 1.83,
+              "probability": 0.990234375
+            },
+            {
+              "text": " said",
+              "start": 2.15,
+              "end": 2.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Ermengard,",
+              "start": 2.35,
+              "end": 2.87,
+              "probability": 0.66278076171875
+            },
+            {
+              "text": " stolidly,",
+              "start": 3.01,
+              "end": 3.53,
+              "probability": 0.7923177083333334
+            },
+            {
+              "text": " and",
+              "start": 3.95,
+              "end": 4.09,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " she",
+              "start": 4.09,
+              "end": 4.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " is",
+              "start": 4.25,
+              "end": 4.39,
+              "probability": 0.982421875
+            },
+            {
+              "text": " horrid",
+              "start": 4.39,
+              "end": 4.73,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " enough.",
+              "start": 4.73,
+              "end": 4.93,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lavinia",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "has",
+          "start": 0.89,
+          "end": 1.07
+        },
+        {
+          "raw": "no",
+          "start": 1.07,
+          "end": 1.29
+        },
+        {
+          "raw": "trials,",
+          "start": 1.29,
+          "end": 1.83
+        },
+        {
+          "raw": "said",
+          "start": 2.15,
+          "end": 2.35
+        },
+        {
+          "raw": "Ermengard,",
+          "start": 2.35,
+          "end": 2.87
+        },
+        {
+          "raw": "stolidly,",
+          "start": 3.01,
+          "end": 3.53
+        },
+        {
+          "raw": "and",
+          "start": 3.95,
+          "end": 4.09
+        },
+        {
+          "raw": "she",
+          "start": 4.09,
+          "end": 4.25
+        },
+        {
+          "raw": "is",
+          "start": 4.25,
+          "end": 4.39
+        },
+        {
+          "raw": "horrid",
+          "start": 4.39,
+          "end": 4.73
+        },
+        {
+          "raw": "enough.",
+          "start": 4.73,
+          "end": 4.93
+        }
+      ],
+      "expected_tokens": [
+        "\"Lavinia",
+        "has",
+        "no",
+        "trials,\"",
+        "said",
+        "Ermengarde,",
+        "stolidly,",
+        "\"and",
+        "she",
+        "is",
+        "horrid",
+        "enough.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          12,
+          6,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lavinia",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "lavinia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 0.89,
+          "end": 1.07,
+          "key": "has",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.07,
+          "end": 1.29,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "trials,",
+          "start": 1.29,
+          "end": 1.83,
+          "key": "trials",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.15,
+          "end": 2.35,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Ermengard,",
+          "start": 2.35,
+          "end": 2.87,
+          "key": "ermengard",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "stolidly,",
+          "start": 3.01,
+          "end": 3.53,
+          "key": "stolidly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.95,
+          "end": 4.09,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 4.09,
+          "end": 4.25,
+          "key": "she",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.25,
+          "end": 4.39,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "horrid",
+          "start": 4.39,
+          "end": 4.73,
+          "key": "horrid",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "enough.",
+          "start": 4.73,
+          "end": 4.93,
+          "key": "enough",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Lavinia",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "has",
+          "start": 0.89,
+          "end": 1.07
+        },
+        {
+          "text": "no",
+          "start": 1.07,
+          "end": 1.29
+        },
+        {
+          "text": "trials,\"",
+          "start": 1.29,
+          "end": 1.83
+        },
+        {
+          "text": "said",
+          "start": 2.15,
+          "end": 2.35
+        },
+        {
+          "text": "Ermengarde,",
+          "start": 2.35,
+          "end": 2.68
+        },
+        {
+          "text": "stolidly,",
+          "start": 3.01,
+          "end": 3.53
+        },
+        {
+          "text": "\"and",
+          "start": 3.95,
+          "end": 4.09
+        },
+        {
+          "text": "she",
+          "start": 4.09,
+          "end": 4.25
+        },
+        {
+          "text": "is",
+          "start": 4.25,
+          "end": 4.39
+        },
+        {
+          "text": "horrid",
+          "start": 4.39,
+          "end": 4.73
+        },
+        {
+          "text": "enough.\"",
+          "start": 4.73,
+          "end": 4.93
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.30239984672516584
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "11cd2f9af47d7e1f9026fd0be8d210b9342034206808f562591e3c8732cc2191",
+  "selected_reasons": []
+}

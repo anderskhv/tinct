@@ -1,0 +1,811 @@
+{
+  "complete": true,
+  "signature": "fe2f9b4f0001446ca206278aab3f532177d95f49bba302be97f99408263b45a3",
+  "attempts": [
+    {
+      "asr_seconds": 0.7411716151982546,
+      "alignment_seconds": 0.0006062360480427742,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sara rubbed the end of her little nose reflectively, as she thought the matter over.",
+        "hotwords": "Sara"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sara",
+          "start": 3.97,
+          "end": 5.37,
+          "words": [
+            {
+              "text": " Sara",
+              "start": 3.97,
+              "end": 5.37,
+              "probability": 0.12646484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sara",
+          "start": 3.97,
+          "end": 5.37
+        }
+      ],
+      "expected_tokens": [
+        "Sara",
+        "rubbed",
+        "the",
+        "end",
+        "of",
+        "her",
+        "little",
+        "nose",
+        "reflectively,",
+        "as",
+        "she",
+        "thought",
+        "the",
+        "matter",
+        "over."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          15,
+          1,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          15,
+          1,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sara",
+          "start": 3.97,
+          "end": 5.37,
+          "key": "sara",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sara",
+          "start": 3.97,
+          "end": 5.37
+        },
+        {
+          "text": "rubbed",
+          "start": 5.37,
+          "end": 5.37
+        },
+        {
+          "text": "the",
+          "start": 5.37,
+          "end": 5.37
+        },
+        {
+          "text": "end",
+          "start": 5.37,
+          "end": 5.37
+        },
+        {
+          "text": "of",
+          "start": 5.37,
+          "end": 5.37
+        },
+        {
+          "text": "her",
+          "start": 5.37,
+          "end": 5.37
+        },
+        {
+          "text": "little",
+          "start": 5.37,
+          "end": 5.37
+        },
+        {
+          "text": "nose",
+          "start": 5.37,
+          "end": 5.37
+        },
+        {
+          "text": "reflectively,",
+          "start": 5.37,
+          "end": 5.37
+        },
+        {
+          "text": "as",
+          "start": 5.37,
+          "end": 5.37
+        },
+        {
+          "text": "she",
+          "start": 5.37,
+          "end": 5.37
+        },
+        {
+          "text": "thought",
+          "start": 5.37,
+          "end": 5.37
+        },
+        {
+          "text": "the",
+          "start": 5.37,
+          "end": 5.37
+        },
+        {
+          "text": "matter",
+          "start": 5.37,
+          "end": 5.37
+        },
+        {
+          "text": "over.",
+          "start": 5.37,
+          "end": 5.37
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 0.06666666666666667,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.7418517870828509
+    },
+    {
+      "asr_seconds": 0.2876663766801357,
+      "alignment_seconds": 0.0002857949584722519,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Sara"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Sara rubbed the end of her little nose reflectively as she thought the matter over",
+          "start": 0.11,
+          "end": 4.67,
+          "words": [
+            {
+              "text": " Sara",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.1273193359375
+            },
+            {
+              "text": " rubbed",
+              "start": 0.63,
+              "end": 0.99,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " the",
+              "start": 0.99,
+              "end": 1.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " end",
+              "start": 1.19,
+              "end": 1.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 1.41,
+              "end": 1.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 1.55,
+              "end": 1.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " little",
+              "start": 1.65,
+              "end": 1.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " nose",
+              "start": 1.83,
+              "end": 2.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " reflectively",
+              "start": 2.25,
+              "end": 3.01,
+              "probability": 0.942138671875
+            },
+            {
+              "text": " as",
+              "start": 3.01,
+              "end": 3.55,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " she",
+              "start": 3.55,
+              "end": 3.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thought",
+              "start": 3.71,
+              "end": 3.89,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 3.89,
+              "end": 4.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " matter",
+              "start": 4.05,
+              "end": 4.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " over",
+              "start": 4.27,
+              "end": 4.67,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sara",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "rubbed",
+          "start": 0.63,
+          "end": 0.99
+        },
+        {
+          "raw": "the",
+          "start": 0.99,
+          "end": 1.19
+        },
+        {
+          "raw": "end",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "raw": "of",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "raw": "her",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "raw": "little",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "raw": "nose",
+          "start": 1.83,
+          "end": 2.25
+        },
+        {
+          "raw": "reflectively",
+          "start": 2.25,
+          "end": 3.01
+        },
+        {
+          "raw": "as",
+          "start": 3.01,
+          "end": 3.55
+        },
+        {
+          "raw": "she",
+          "start": 3.55,
+          "end": 3.71
+        },
+        {
+          "raw": "thought",
+          "start": 3.71,
+          "end": 3.89
+        },
+        {
+          "raw": "the",
+          "start": 3.89,
+          "end": 4.05
+        },
+        {
+          "raw": "matter",
+          "start": 4.05,
+          "end": 4.27
+        },
+        {
+          "raw": "over",
+          "start": 4.27,
+          "end": 4.67
+        }
+      ],
+      "expected_tokens": [
+        "Sara",
+        "rubbed",
+        "the",
+        "end",
+        "of",
+        "her",
+        "little",
+        "nose",
+        "reflectively,",
+        "as",
+        "she",
+        "thought",
+        "the",
+        "matter",
+        "over."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sara",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "sara",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "rubbed",
+          "start": 0.63,
+          "end": 0.99,
+          "key": "rubbed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.99,
+          "end": 1.19,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "end",
+          "start": 1.19,
+          "end": 1.41,
+          "key": "end",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.41,
+          "end": 1.55,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.55,
+          "end": 1.65,
+          "key": "her",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 1.65,
+          "end": 1.83,
+          "key": "little",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "nose",
+          "start": 1.83,
+          "end": 2.25,
+          "key": "nose",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "reflectively",
+          "start": 2.25,
+          "end": 3.01,
+          "key": "reflectively",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.01,
+          "end": 3.55,
+          "key": "as",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.55,
+          "end": 3.71,
+          "key": "she",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 3.71,
+          "end": 3.89,
+          "key": "thought",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.89,
+          "end": 4.05,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "matter",
+          "start": 4.05,
+          "end": 4.27,
+          "key": "matter",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 4.27,
+          "end": 4.67,
+          "key": "over",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sara",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "text": "rubbed",
+          "start": 0.63,
+          "end": 0.99
+        },
+        {
+          "text": "the",
+          "start": 0.99,
+          "end": 1.19
+        },
+        {
+          "text": "end",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "text": "of",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "text": "her",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "text": "little",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "text": "nose",
+          "start": 1.83,
+          "end": 2.25
+        },
+        {
+          "text": "reflectively,",
+          "start": 2.25,
+          "end": 3.01
+        },
+        {
+          "text": "as",
+          "start": 3.01,
+          "end": 3.55
+        },
+        {
+          "text": "she",
+          "start": 3.55,
+          "end": 3.71
+        },
+        {
+          "text": "thought",
+          "start": 3.71,
+          "end": 3.89
+        },
+        {
+          "text": "the",
+          "start": 3.89,
+          "end": 4.05
+        },
+        {
+          "text": "matter",
+          "start": 4.05,
+          "end": 4.27
+        },
+        {
+          "text": "over.",
+          "start": 4.27,
+          "end": 4.67
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2880657287314534
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "30aa851c34b5c44ed2952f7c93656c49086d89894b971b0c910e14db3043b8b2",
+  "selected_reasons": []
+}

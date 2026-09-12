@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "59b5b55454bae1c6e410d82f64c7ed53ff207e4decc898ef33fc8d854848bb01",
+  "attempts": [
+    {
+      "asr_seconds": 0.14976989291608334,
+      "alignment_seconds": 0.0003340337425470352,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Horatio. Ay, my lord.",
+        "hotwords": "Horatio, Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Horatio, Ay, my lord.",
+          "start": 0.45,
+          "end": 1.77,
+          "words": [
+            {
+              "text": " Horatio,",
+              "start": 0.45,
+              "end": 0.85,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Ay,",
+              "start": 1.39,
+              "end": 1.41,
+              "probability": 0.0007700920104980469
+            },
+            {
+              "text": " my",
+              "start": 1.49,
+              "end": 1.57,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " lord.",
+              "start": 1.57,
+              "end": 1.77,
+              "probability": 0.67431640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Horatio,",
+          "start": 0.45,
+          "end": 0.85
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.39,
+          "end": 1.41
+        },
+        {
+          "raw": "my",
+          "start": 1.49,
+          "end": 1.57
+        },
+        {
+          "raw": "lord.",
+          "start": 1.57,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "Horatio.",
+        "Ay,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Horatio,",
+          "start": 0.45,
+          "end": 0.85,
+          "key": "horatio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.39,
+          "end": 1.41,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.49,
+          "end": 1.57,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.57,
+          "end": 1.77,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Horatio.",
+          "start": 0.45,
+          "end": 0.85
+        },
+        {
+          "text": "Ay,",
+          "start": 1.39,
+          "end": 1.41
+        },
+        {
+          "text": "my",
+          "start": 1.49,
+          "end": 1.57
+        },
+        {
+          "text": "lord.",
+          "start": 1.57,
+          "end": 1.77
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15022306144237518
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5c373bfa719bff813b873b350492d96ce9a4635e16b7975c48126de7f9402fa1",
+  "selected_reasons": []
+}

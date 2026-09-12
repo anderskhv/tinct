@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "a563b26bb0d7e81f2bf82c39f2bc4229bb9b54ffb35f1d6c8dde9a21151458f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.22635885700583458,
+      "alignment_seconds": 0.0003839358687400818,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Clown. For none neither.",
+        "hotwords": "First, Clown, For"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First, Clown, For None Neither.",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " First,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " Clown,",
+              "start": 0.97,
+              "end": 0.97,
+              "probability": 0.2381591796875
+            },
+            {
+              "text": " For",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.049102783203125
+            },
+            {
+              "text": " None",
+              "start": 1.51,
+              "end": 1.67,
+              "probability": 0.52294921875
+            },
+            {
+              "text": " Neither.",
+              "start": 1.67,
+              "end": 1.93,
+              "probability": 0.9345703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Clown,",
+          "start": 0.97,
+          "end": 0.97
+        },
+        {
+          "raw": "For",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "None",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "raw": "Neither.",
+          "start": 1.67,
+          "end": 1.93
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Clown.",
+        "For",
+        "none",
+        "neither."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Clown,",
+          "start": 0.97,
+          "end": 0.97,
+          "key": "clown",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 1.39,
+          "end": 1.51,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "None",
+          "start": 1.51,
+          "end": 1.67,
+          "key": "none",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Neither.",
+          "start": 1.67,
+          "end": 1.93,
+          "key": "neither",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Clown.",
+          "start": 0.97,
+          "end": 0.97
+        },
+        {
+          "text": "For",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "text": "none",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "text": "neither.",
+          "start": 1.67,
+          "end": 1.93
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22686951607465744
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8c717458464b99a5cfa75ca62c8ca5e268c8eacfc8fb3d51385946e2bd152baf",
+  "selected_reasons": []
+}

@@ -1,0 +1,709 @@
+{
+  "complete": true,
+  "signature": "73fd4f8a12b16348c2d98d2ec179a8de0a3965eea1bdf8ea10cb29e2bc06c928",
+  "attempts": [
+    {
+      "asr_seconds": 0.3733925735577941,
+      "alignment_seconds": 0.0006517628207802773,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"It isn't funny, really,\" she said between her teeth, as she bent over her book. \"They ought not to laugh.\"",
+        "hotwords": "It, They"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It isn't funny, really,\" she said between her teeth, as she bent over her book.",
+          "start": 0.02,
+          "end": 4.48,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.43359375
+            },
+            {
+              "text": " isn't",
+              "start": 0.5,
+              "end": 0.88,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " funny,",
+              "start": 0.88,
+              "end": 1.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " really,\"",
+              "start": 1.32,
+              "end": 2.08,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " she",
+              "start": 2.08,
+              "end": 2.24,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " said",
+              "start": 2.24,
+              "end": 2.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " between",
+              "start": 2.44,
+              "end": 2.7,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " her",
+              "start": 2.7,
+              "end": 2.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " teeth,",
+              "start": 2.88,
+              "end": 3.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 3.36,
+              "end": 3.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " she",
+              "start": 3.5,
+              "end": 3.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " bent",
+              "start": 3.66,
+              "end": 3.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " over",
+              "start": 3.86,
+              "end": 4.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " her",
+              "start": 4.1,
+              "end": 4.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " book.",
+              "start": 4.24,
+              "end": 4.48,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " They ought not to laugh.",
+          "start": 5.12,
+          "end": 6.08,
+          "words": [
+            {
+              "text": " They",
+              "start": 5.12,
+              "end": 5.26,
+              "probability": 0.74853515625
+            },
+            {
+              "text": " ought",
+              "start": 5.26,
+              "end": 5.4,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " not",
+              "start": 5.4,
+              "end": 5.62,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 5.62,
+              "end": 5.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " laugh.",
+              "start": 5.82,
+              "end": 6.08,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "isn't",
+          "start": 0.5,
+          "end": 0.88
+        },
+        {
+          "raw": "funny,",
+          "start": 0.88,
+          "end": 1.14
+        },
+        {
+          "raw": "really,\"",
+          "start": 1.32,
+          "end": 2.08
+        },
+        {
+          "raw": "she",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "raw": "said",
+          "start": 2.24,
+          "end": 2.44
+        },
+        {
+          "raw": "between",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "raw": "her",
+          "start": 2.7,
+          "end": 2.88
+        },
+        {
+          "raw": "teeth,",
+          "start": 2.88,
+          "end": 3.2
+        },
+        {
+          "raw": "as",
+          "start": 3.36,
+          "end": 3.5
+        },
+        {
+          "raw": "she",
+          "start": 3.5,
+          "end": 3.66
+        },
+        {
+          "raw": "bent",
+          "start": 3.66,
+          "end": 3.86
+        },
+        {
+          "raw": "over",
+          "start": 3.86,
+          "end": 4.1
+        },
+        {
+          "raw": "her",
+          "start": 4.1,
+          "end": 4.24
+        },
+        {
+          "raw": "book.",
+          "start": 4.24,
+          "end": 4.48
+        },
+        {
+          "raw": "They",
+          "start": 5.12,
+          "end": 5.26
+        },
+        {
+          "raw": "ought",
+          "start": 5.26,
+          "end": 5.4
+        },
+        {
+          "raw": "not",
+          "start": 5.4,
+          "end": 5.62
+        },
+        {
+          "raw": "to",
+          "start": 5.62,
+          "end": 5.82
+        },
+        {
+          "raw": "laugh.",
+          "start": 5.82,
+          "end": 6.08
+        }
+      ],
+      "expected_tokens": [
+        "\"It",
+        "isn't",
+        "funny,",
+        "really,\"",
+        "she",
+        "said",
+        "between",
+        "her",
+        "teeth,",
+        "as",
+        "she",
+        "bent",
+        "over",
+        "her",
+        "book.",
+        "\"They",
+        "ought",
+        "not",
+        "to",
+        "laugh.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "isn't",
+          "start": 0.5,
+          "end": 0.88,
+          "key": "isnt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "funny,",
+          "start": 0.88,
+          "end": 1.14,
+          "key": "funny",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "really,\"",
+          "start": 1.32,
+          "end": 2.08,
+          "key": "really",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.08,
+          "end": 2.24,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.24,
+          "end": 2.44,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "between",
+          "start": 2.44,
+          "end": 2.7,
+          "key": "between",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.7,
+          "end": 2.88,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "teeth,",
+          "start": 2.88,
+          "end": 3.2,
+          "key": "teeth",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.36,
+          "end": 3.5,
+          "key": "as",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.5,
+          "end": 3.66,
+          "key": "she",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "bent",
+          "start": 3.66,
+          "end": 3.86,
+          "key": "bent",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 3.86,
+          "end": 4.1,
+          "key": "over",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.1,
+          "end": 4.24,
+          "key": "her",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "book.",
+          "start": 4.24,
+          "end": 4.48,
+          "key": "book",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 5.12,
+          "end": 5.26,
+          "key": "they",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "ought",
+          "start": 5.26,
+          "end": 5.4,
+          "key": "ought",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.4,
+          "end": 5.62,
+          "key": "not",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.62,
+          "end": 5.82,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "laugh.",
+          "start": 5.82,
+          "end": 6.08,
+          "key": "laugh",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"It",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "isn't",
+          "start": 0.5,
+          "end": 0.88
+        },
+        {
+          "text": "funny,",
+          "start": 0.88,
+          "end": 1.14
+        },
+        {
+          "text": "really,\"",
+          "start": 1.32,
+          "end": 2.08
+        },
+        {
+          "text": "she",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "text": "said",
+          "start": 2.24,
+          "end": 2.44
+        },
+        {
+          "text": "between",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "text": "her",
+          "start": 2.7,
+          "end": 2.88
+        },
+        {
+          "text": "teeth,",
+          "start": 2.88,
+          "end": 3.2
+        },
+        {
+          "text": "as",
+          "start": 3.36,
+          "end": 3.5
+        },
+        {
+          "text": "she",
+          "start": 3.5,
+          "end": 3.66
+        },
+        {
+          "text": "bent",
+          "start": 3.66,
+          "end": 3.86
+        },
+        {
+          "text": "over",
+          "start": 3.86,
+          "end": 4.1
+        },
+        {
+          "text": "her",
+          "start": 4.1,
+          "end": 4.24
+        },
+        {
+          "text": "book.",
+          "start": 4.24,
+          "end": 4.48
+        },
+        {
+          "text": "\"They",
+          "start": 5.12,
+          "end": 5.26
+        },
+        {
+          "text": "ought",
+          "start": 5.26,
+          "end": 5.4
+        },
+        {
+          "text": "not",
+          "start": 5.4,
+          "end": 5.62
+        },
+        {
+          "text": "to",
+          "start": 5.62,
+          "end": 5.82
+        },
+        {
+          "text": "laugh.\"",
+          "start": 5.82,
+          "end": 6.08
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3743224451318383
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ebb9cd7094f7d1910eb914ee1d79964654db54ef65c36e35d1f1d43231c16ebc",
+  "selected_reasons": []
+}

@@ -1,0 +1,1331 @@
+{
+  "complete": true,
+  "signature": "468cf275a99470eac130010ef79fa3003338d2dd3f32bf02f6a2b0b66ff3a4a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.39194669760763645,
+      "alignment_seconds": 0.0006392048671841621,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I--I tried,\" said Sara. \"I--I suppose I did not begin right.\"",
+        "hotwords": "I--I, Sara, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I tried,\" said Sara.",
+          "start": 0.05,
+          "end": 1.91,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.208740234375
+            },
+            {
+              "text": " tried,\"",
+              "start": 0.59,
+              "end": 1.25,
+              "probability": 0.7325439453125
+            },
+            {
+              "text": " said",
+              "start": 1.25,
+              "end": 1.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Sara.",
+              "start": 1.59,
+              "end": 1.91,
+              "probability": 0.1319580078125
+            }
+          ]
+        },
+        {
+          "text": " I suppose I did not begin right.",
+          "start": 1.91,
+          "end": 3.91,
+          "words": [
+            {
+              "text": " I",
+              "start": 1.91,
+              "end": 2.59,
+              "probability": 0.849609375
+            },
+            {
+              "text": " suppose",
+              "start": 2.59,
+              "end": 2.89,
+              "probability": 0.974609375
+            },
+            {
+              "text": " I",
+              "start": 2.89,
+              "end": 3.09,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " did",
+              "start": 3.09,
+              "end": 3.19,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " not",
+              "start": 3.19,
+              "end": 3.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " begin",
+              "start": 3.35,
+              "end": 3.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " right.",
+              "start": 3.59,
+              "end": 3.91,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "tried,\"",
+          "start": 0.59,
+          "end": 1.25
+        },
+        {
+          "raw": "said",
+          "start": 1.25,
+          "end": 1.59
+        },
+        {
+          "raw": "Sara.",
+          "start": 1.59,
+          "end": 1.91
+        },
+        {
+          "raw": "I",
+          "start": 1.91,
+          "end": 2.59
+        },
+        {
+          "raw": "suppose",
+          "start": 2.59,
+          "end": 2.89
+        },
+        {
+          "raw": "I",
+          "start": 2.89,
+          "end": 3.09
+        },
+        {
+          "raw": "did",
+          "start": 3.09,
+          "end": 3.19
+        },
+        {
+          "raw": "not",
+          "start": 3.19,
+          "end": 3.35
+        },
+        {
+          "raw": "begin",
+          "start": 3.35,
+          "end": 3.59
+        },
+        {
+          "raw": "right.",
+          "start": 3.59,
+          "end": 3.91
+        }
+      ],
+      "expected_tokens": [
+        "\"I--I",
+        "tried,\"",
+        "said",
+        "Sara.",
+        "\"I--I",
+        "suppose",
+        "I",
+        "did",
+        "not",
+        "begin",
+        "right.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          11,
+          5,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tried,\"",
+          "start": 0.59,
+          "end": 1.25,
+          "key": "tried",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.25,
+          "end": 1.59,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sara.",
+          "start": 1.59,
+          "end": 1.91,
+          "key": "sara",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.91,
+          "end": 2.59,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "suppose",
+          "start": 2.59,
+          "end": 2.89,
+          "key": "suppose",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.89,
+          "end": 3.09,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 3.09,
+          "end": 3.19,
+          "key": "did",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.19,
+          "end": 3.35,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "begin",
+          "start": 3.35,
+          "end": 3.59,
+          "key": "begin",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "right.",
+          "start": 3.59,
+          "end": 3.91,
+          "key": "right",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I--I",
+          "start": 0.0,
+          "end": 0.295
+        },
+        {
+          "text": "tried,\"",
+          "start": 0.59,
+          "end": 1.25
+        },
+        {
+          "text": "said",
+          "start": 1.25,
+          "end": 1.59
+        },
+        {
+          "text": "Sara.",
+          "start": 1.59,
+          "end": 1.91
+        },
+        {
+          "text": "\"I--I",
+          "start": 1.91,
+          "end": 2.25
+        },
+        {
+          "text": "suppose",
+          "start": 2.59,
+          "end": 2.89
+        },
+        {
+          "text": "I",
+          "start": 2.89,
+          "end": 3.09
+        },
+        {
+          "text": "did",
+          "start": 3.09,
+          "end": 3.19
+        },
+        {
+          "text": "not",
+          "start": 3.19,
+          "end": 3.35
+        },
+        {
+          "text": "begin",
+          "start": 3.35,
+          "end": 3.59
+        },
+        {
+          "text": "right.\"",
+          "start": 3.59,
+          "end": 3.91
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.39280771277844906
+    },
+    {
+      "asr_seconds": 0.26208743546158075,
+      "alignment_seconds": 0.0005579572170972824,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I--I, Sara, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " tried,\" said Sara. I suppose I did not begin right.",
+          "start": 0.87,
+          "end": 3.91,
+          "words": [
+            {
+              "text": " tried,\"",
+              "start": 0.87,
+              "end": 1.45,
+              "probability": 0.2665947675704956
+            },
+            {
+              "text": " said",
+              "start": 1.45,
+              "end": 1.57,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Sara.",
+              "start": 1.57,
+              "end": 1.93,
+              "probability": 0.1207275390625
+            },
+            {
+              "text": " I",
+              "start": 2.33,
+              "end": 2.61,
+              "probability": 0.226806640625
+            },
+            {
+              "text": " suppose",
+              "start": 2.61,
+              "end": 2.91,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " I",
+              "start": 2.91,
+              "end": 3.09,
+              "probability": 0.9921875
+            },
+            {
+              "text": " did",
+              "start": 3.09,
+              "end": 3.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 3.17,
+              "end": 3.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " begin",
+              "start": 3.35,
+              "end": 3.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " right.",
+              "start": 3.59,
+              "end": 3.91,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "tried,\"",
+          "start": 0.87,
+          "end": 1.45
+        },
+        {
+          "raw": "said",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "raw": "Sara.",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "raw": "I",
+          "start": 2.33,
+          "end": 2.61
+        },
+        {
+          "raw": "suppose",
+          "start": 2.61,
+          "end": 2.91
+        },
+        {
+          "raw": "I",
+          "start": 2.91,
+          "end": 3.09
+        },
+        {
+          "raw": "did",
+          "start": 3.09,
+          "end": 3.17
+        },
+        {
+          "raw": "not",
+          "start": 3.17,
+          "end": 3.35
+        },
+        {
+          "raw": "begin",
+          "start": 3.35,
+          "end": 3.59
+        },
+        {
+          "raw": "right.",
+          "start": 3.59,
+          "end": 3.91
+        }
+      ],
+      "expected_tokens": [
+        "\"I--I",
+        "tried,\"",
+        "said",
+        "Sara.",
+        "\"I--I",
+        "suppose",
+        "I",
+        "did",
+        "not",
+        "begin",
+        "right.\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          4,
+          0,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          3,
+          4
+        ],
+        [
+          "equal",
+          5,
+          11,
+          4,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          4,
+          5,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "tried,\"",
+          "start": 0.87,
+          "end": 1.45,
+          "key": "tried",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.45,
+          "end": 1.57,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sara.",
+          "start": 1.57,
+          "end": 1.93,
+          "key": "sara",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.33,
+          "end": 2.61,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "suppose",
+          "start": 2.61,
+          "end": 2.91,
+          "key": "suppose",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.91,
+          "end": 3.09,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 3.09,
+          "end": 3.17,
+          "key": "did",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.17,
+          "end": 3.35,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "begin",
+          "start": 3.35,
+          "end": 3.59,
+          "key": "begin",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "right.",
+          "start": 3.59,
+          "end": 3.91,
+          "key": "right",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I--I",
+          "start": 0.0,
+          "end": 0.435
+        },
+        {
+          "text": "tried,\"",
+          "start": 0.87,
+          "end": 1.45
+        },
+        {
+          "text": "said",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "text": "Sara.",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "text": "\"I--I",
+          "start": 1.93,
+          "end": 2.27
+        },
+        {
+          "text": "suppose",
+          "start": 2.61,
+          "end": 2.91
+        },
+        {
+          "text": "I",
+          "start": 2.91,
+          "end": 3.09
+        },
+        {
+          "text": "did",
+          "start": 3.09,
+          "end": 3.17
+        },
+        {
+          "text": "not",
+          "start": 3.17,
+          "end": 3.35
+        },
+        {
+          "text": "begin",
+          "start": 3.35,
+          "end": 3.59
+        },
+        {
+          "text": "right.\"",
+          "start": 3.59,
+          "end": 3.91
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.26282315514981747
+    },
+    {
+      "asr_seconds": 0.29638384748250246,
+      "alignment_seconds": 0.0005713524296879768,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I tried,\" said Sarah.",
+          "start": 0.05,
+          "end": 1.91,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.208740234375
+            },
+            {
+              "text": " tried,\"",
+              "start": 0.59,
+              "end": 1.25,
+              "probability": 0.7308349609375
+            },
+            {
+              "text": " said",
+              "start": 1.25,
+              "end": 1.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Sarah.",
+              "start": 1.59,
+              "end": 1.91,
+              "probability": 0.853515625
+            }
+          ]
+        },
+        {
+          "text": " I suppose I did not begin right.",
+          "start": 2.39,
+          "end": 3.91,
+          "words": [
+            {
+              "text": " I",
+              "start": 2.39,
+              "end": 2.61,
+              "probability": 0.30908203125
+            },
+            {
+              "text": " suppose",
+              "start": 2.61,
+              "end": 2.91,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " I",
+              "start": 2.91,
+              "end": 3.09,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " did",
+              "start": 3.09,
+              "end": 3.17,
+              "probability": 0.994140625
+            },
+            {
+              "text": " not",
+              "start": 3.17,
+              "end": 3.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " begin",
+              "start": 3.35,
+              "end": 3.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " right.",
+              "start": 3.59,
+              "end": 3.91,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "tried,\"",
+          "start": 0.59,
+          "end": 1.25
+        },
+        {
+          "raw": "said",
+          "start": 1.25,
+          "end": 1.59
+        },
+        {
+          "raw": "Sarah.",
+          "start": 1.59,
+          "end": 1.91
+        },
+        {
+          "raw": "I",
+          "start": 2.39,
+          "end": 2.61
+        },
+        {
+          "raw": "suppose",
+          "start": 2.61,
+          "end": 2.91
+        },
+        {
+          "raw": "I",
+          "start": 2.91,
+          "end": 3.09
+        },
+        {
+          "raw": "did",
+          "start": 3.09,
+          "end": 3.17
+        },
+        {
+          "raw": "not",
+          "start": 3.17,
+          "end": 3.35
+        },
+        {
+          "raw": "begin",
+          "start": 3.35,
+          "end": 3.59
+        },
+        {
+          "raw": "right.",
+          "start": 3.59,
+          "end": 3.91
+        }
+      ],
+      "expected_tokens": [
+        "\"I--I",
+        "tried,\"",
+        "said",
+        "Sara.",
+        "\"I--I",
+        "suppose",
+        "I",
+        "did",
+        "not",
+        "begin",
+        "right.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "equal",
+          5,
+          11,
+          5,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tried,\"",
+          "start": 0.59,
+          "end": 1.25,
+          "key": "tried",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.25,
+          "end": 1.59,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sarah.",
+          "start": 1.59,
+          "end": 1.91,
+          "key": "sarah",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.39,
+          "end": 2.61,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "suppose",
+          "start": 2.61,
+          "end": 2.91,
+          "key": "suppose",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.91,
+          "end": 3.09,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 3.09,
+          "end": 3.17,
+          "key": "did",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.17,
+          "end": 3.35,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "begin",
+          "start": 3.35,
+          "end": 3.59,
+          "key": "begin",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "right.",
+          "start": 3.59,
+          "end": 3.91,
+          "key": "right",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I--I",
+          "start": 0.0,
+          "end": 0.295
+        },
+        {
+          "text": "tried,\"",
+          "start": 0.59,
+          "end": 1.25
+        },
+        {
+          "text": "said",
+          "start": 1.25,
+          "end": 1.59
+        },
+        {
+          "text": "Sara.",
+          "start": 1.59,
+          "end": 2.1
+        },
+        {
+          "text": "\"I--I",
+          "start": 2.1,
+          "end": 2.355
+        },
+        {
+          "text": "suppose",
+          "start": 2.61,
+          "end": 2.91
+        },
+        {
+          "text": "I",
+          "start": 2.91,
+          "end": 3.09
+        },
+        {
+          "text": "did",
+          "start": 3.09,
+          "end": 3.17
+        },
+        {
+          "text": "not",
+          "start": 3.17,
+          "end": 3.35
+        },
+        {
+          "text": "begin",
+          "start": 3.35,
+          "end": 3.59
+        },
+        {
+          "text": "right.\"",
+          "start": 3.59,
+          "end": 3.91
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 8
+      },
+      "match_ratio": 0.7272727272727273,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.29714363254606724
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d2ed5a7a573fbe87c1e6b0bf5ba190e6793bc1e719c1a009fea5ebf844f860f4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

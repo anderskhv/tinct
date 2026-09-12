@@ -1,0 +1,1238 @@
+{
+  "complete": true,
+  "signature": "dbb66f88f3ae742b89224bdb384f63bf56a5963924ea1d277ce408a93df94927",
+  "attempts": [
+    {
+      "asr_seconds": 0.46762289945036173,
+      "alignment_seconds": 0.0009331386536359787,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Dear me,\" said Lavinia, \"how we can calculate!\" In fact, it was not to be denied that sixteen and four made twenty--and twenty was an age the most daring were scarcely bold enough to dream of.",
+        "hotwords": "Dear, Lavinia, In"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dear me, said Lavinia, how we can calculate! In fact, it was not to be denied that sixteen and four made twenty and twenty was an age the most daring were scarcely bold enough to dream of.",
+          "start": 0.02,
+          "end": 12.18,
+          "words": [
+            {
+              "text": " Dear",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.07220458984375
+            },
+            {
+              "text": " me,",
+              "start": 0.56,
+              "end": 0.92,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " said",
+              "start": 1.2,
+              "end": 1.28,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Lavinia,",
+              "start": 1.28,
+              "end": 1.8,
+              "probability": 0.7754720052083334
+            },
+            {
+              "text": " how",
+              "start": 2.14,
+              "end": 2.4,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " we",
+              "start": 2.4,
+              "end": 2.54,
+              "probability": 0.990234375
+            },
+            {
+              "text": " can",
+              "start": 2.54,
+              "end": 2.72,
+              "probability": 0.994140625
+            },
+            {
+              "text": " calculate!",
+              "start": 2.72,
+              "end": 3.28,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " In",
+              "start": 4.08,
+              "end": 4.22,
+              "probability": 0.951171875
+            },
+            {
+              "text": " fact,",
+              "start": 4.22,
+              "end": 4.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " it",
+              "start": 4.76,
+              "end": 4.84,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " was",
+              "start": 4.84,
+              "end": 4.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 4.94,
+              "end": 5.16,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 5.16,
+              "end": 5.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 5.32,
+              "end": 5.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " denied",
+              "start": 5.42,
+              "end": 5.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 5.78,
+              "end": 6.1,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " sixteen",
+              "start": 6.1,
+              "end": 6.6,
+              "probability": 0.79443359375
+            },
+            {
+              "text": " and",
+              "start": 6.6,
+              "end": 6.82,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " four",
+              "start": 6.82,
+              "end": 7.14,
+              "probability": 0.990234375
+            },
+            {
+              "text": " made",
+              "start": 7.14,
+              "end": 7.38,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " twenty",
+              "start": 7.38,
+              "end": 7.76,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " and",
+              "start": 7.76,
+              "end": 7.96,
+              "probability": 0.94921875
+            },
+            {
+              "text": " twenty",
+              "start": 7.96,
+              "end": 8.34,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " was",
+              "start": 8.34,
+              "end": 8.56,
+              "probability": 0.982421875
+            },
+            {
+              "text": " an",
+              "start": 8.56,
+              "end": 8.74,
+              "probability": 0.935546875
+            },
+            {
+              "text": " age",
+              "start": 8.74,
+              "end": 9.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 9.04,
+              "end": 9.28,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " most",
+              "start": 9.28,
+              "end": 9.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " daring",
+              "start": 9.52,
+              "end": 9.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " were",
+              "start": 9.96,
+              "end": 10.22,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " scarcely",
+              "start": 10.22,
+              "end": 10.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bold",
+              "start": 10.68,
+              "end": 11.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " enough",
+              "start": 11.16,
+              "end": 11.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 11.44,
+              "end": 11.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " dream",
+              "start": 11.66,
+              "end": 11.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of.",
+              "start": 11.88,
+              "end": 12.18,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dear",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "me,",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "raw": "said",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "raw": "Lavinia,",
+          "start": 1.28,
+          "end": 1.8
+        },
+        {
+          "raw": "how",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "raw": "we",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "raw": "can",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "raw": "calculate!",
+          "start": 2.72,
+          "end": 3.28
+        },
+        {
+          "raw": "In",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "raw": "fact,",
+          "start": 4.22,
+          "end": 4.5
+        },
+        {
+          "raw": "it",
+          "start": 4.76,
+          "end": 4.84
+        },
+        {
+          "raw": "was",
+          "start": 4.84,
+          "end": 4.94
+        },
+        {
+          "raw": "not",
+          "start": 4.94,
+          "end": 5.16
+        },
+        {
+          "raw": "to",
+          "start": 5.16,
+          "end": 5.32
+        },
+        {
+          "raw": "be",
+          "start": 5.32,
+          "end": 5.42
+        },
+        {
+          "raw": "denied",
+          "start": 5.42,
+          "end": 5.78
+        },
+        {
+          "raw": "that",
+          "start": 5.78,
+          "end": 6.1
+        },
+        {
+          "raw": "sixteen",
+          "start": 6.1,
+          "end": 6.6
+        },
+        {
+          "raw": "and",
+          "start": 6.6,
+          "end": 6.82
+        },
+        {
+          "raw": "four",
+          "start": 6.82,
+          "end": 7.14
+        },
+        {
+          "raw": "made",
+          "start": 7.14,
+          "end": 7.38
+        },
+        {
+          "raw": "twenty",
+          "start": 7.38,
+          "end": 7.76
+        },
+        {
+          "raw": "and",
+          "start": 7.76,
+          "end": 7.96
+        },
+        {
+          "raw": "twenty",
+          "start": 7.96,
+          "end": 8.34
+        },
+        {
+          "raw": "was",
+          "start": 8.34,
+          "end": 8.56
+        },
+        {
+          "raw": "an",
+          "start": 8.56,
+          "end": 8.74
+        },
+        {
+          "raw": "age",
+          "start": 8.74,
+          "end": 9.04
+        },
+        {
+          "raw": "the",
+          "start": 9.04,
+          "end": 9.28
+        },
+        {
+          "raw": "most",
+          "start": 9.28,
+          "end": 9.52
+        },
+        {
+          "raw": "daring",
+          "start": 9.52,
+          "end": 9.96
+        },
+        {
+          "raw": "were",
+          "start": 9.96,
+          "end": 10.22
+        },
+        {
+          "raw": "scarcely",
+          "start": 10.22,
+          "end": 10.68
+        },
+        {
+          "raw": "bold",
+          "start": 10.68,
+          "end": 11.16
+        },
+        {
+          "raw": "enough",
+          "start": 11.16,
+          "end": 11.44
+        },
+        {
+          "raw": "to",
+          "start": 11.44,
+          "end": 11.66
+        },
+        {
+          "raw": "dream",
+          "start": 11.66,
+          "end": 11.88
+        },
+        {
+          "raw": "of.",
+          "start": 11.88,
+          "end": 12.18
+        }
+      ],
+      "expected_tokens": [
+        "\"Dear",
+        "me,\"",
+        "said",
+        "Lavinia,",
+        "\"how",
+        "we",
+        "can",
+        "calculate!\"",
+        "In",
+        "fact,",
+        "it",
+        "was",
+        "not",
+        "to",
+        "be",
+        "denied",
+        "that",
+        "sixteen",
+        "and",
+        "four",
+        "made",
+        "twenty--and",
+        "twenty",
+        "was",
+        "an",
+        "age",
+        "the",
+        "most",
+        "daring",
+        "were",
+        "scarcely",
+        "bold",
+        "enough",
+        "to",
+        "dream",
+        "of."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          36,
+          0,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dear",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "dear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 0.56,
+          "end": 0.92,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.2,
+          "end": 1.28,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lavinia,",
+          "start": 1.28,
+          "end": 1.8,
+          "key": "lavinia",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 2.14,
+          "end": 2.4,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.4,
+          "end": 2.54,
+          "key": "we",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 2.54,
+          "end": 2.72,
+          "key": "can",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "calculate!",
+          "start": 2.72,
+          "end": 3.28,
+          "key": "calculate",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 4.08,
+          "end": 4.22,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fact,",
+          "start": 4.22,
+          "end": 4.5,
+          "key": "fact",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.76,
+          "end": 4.84,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 4.84,
+          "end": 4.94,
+          "key": "was",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.94,
+          "end": 5.16,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.16,
+          "end": 5.32,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.32,
+          "end": 5.42,
+          "key": "be",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "denied",
+          "start": 5.42,
+          "end": 5.78,
+          "key": "denied",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.78,
+          "end": 6.1,
+          "key": "that",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "sixteen",
+          "start": 6.1,
+          "end": 6.6,
+          "key": "sixteen",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.6,
+          "end": 6.82,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "four",
+          "start": 6.82,
+          "end": 7.14,
+          "key": "four",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 7.14,
+          "end": 7.38,
+          "key": "made",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "twenty and",
+          "start": 7.38,
+          "end": 7.96,
+          "key": "twentyand",
+          "pieces": [
+            21,
+            22
+          ]
+        },
+        {
+          "raw": "twenty",
+          "start": 7.96,
+          "end": 8.34,
+          "key": "twenty",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 8.34,
+          "end": 8.56,
+          "key": "was",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 8.56,
+          "end": 8.74,
+          "key": "an",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "age",
+          "start": 8.74,
+          "end": 9.04,
+          "key": "age",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.04,
+          "end": 9.28,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 9.28,
+          "end": 9.52,
+          "key": "most",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "daring",
+          "start": 9.52,
+          "end": 9.96,
+          "key": "daring",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 9.96,
+          "end": 10.22,
+          "key": "were",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "scarcely",
+          "start": 10.22,
+          "end": 10.68,
+          "key": "scarcely",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "bold",
+          "start": 10.68,
+          "end": 11.16,
+          "key": "bold",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "enough",
+          "start": 11.16,
+          "end": 11.44,
+          "key": "enough",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 11.44,
+          "end": 11.66,
+          "key": "to",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "dream",
+          "start": 11.66,
+          "end": 11.88,
+          "key": "dream",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "of.",
+          "start": 11.88,
+          "end": 12.18,
+          "key": "of",
+          "pieces": [
+            36
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 21,
+          "text": "twenty--and",
+          "heard": "twenty and",
+          "heard_indexes": [
+            21,
+            22
+          ],
+          "start": 7.38,
+          "end": 7.96
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Dear",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "me,\"",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "text": "said",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "text": "Lavinia,",
+          "start": 1.28,
+          "end": 1.8
+        },
+        {
+          "text": "\"how",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "text": "we",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "text": "can",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "text": "calculate!\"",
+          "start": 2.72,
+          "end": 3.28
+        },
+        {
+          "text": "In",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "text": "fact,",
+          "start": 4.22,
+          "end": 4.5
+        },
+        {
+          "text": "it",
+          "start": 4.76,
+          "end": 4.84
+        },
+        {
+          "text": "was",
+          "start": 4.84,
+          "end": 4.94
+        },
+        {
+          "text": "not",
+          "start": 4.94,
+          "end": 5.16
+        },
+        {
+          "text": "to",
+          "start": 5.16,
+          "end": 5.32
+        },
+        {
+          "text": "be",
+          "start": 5.32,
+          "end": 5.42
+        },
+        {
+          "text": "denied",
+          "start": 5.42,
+          "end": 5.78
+        },
+        {
+          "text": "that",
+          "start": 5.78,
+          "end": 6.1
+        },
+        {
+          "text": "sixteen",
+          "start": 6.1,
+          "end": 6.6
+        },
+        {
+          "text": "and",
+          "start": 6.6,
+          "end": 6.82
+        },
+        {
+          "text": "four",
+          "start": 6.82,
+          "end": 7.14
+        },
+        {
+          "text": "made",
+          "start": 7.14,
+          "end": 7.38
+        },
+        {
+          "text": "twenty--and",
+          "start": 7.38,
+          "end": 7.96
+        },
+        {
+          "text": "twenty",
+          "start": 7.96,
+          "end": 8.34
+        },
+        {
+          "text": "was",
+          "start": 8.34,
+          "end": 8.56
+        },
+        {
+          "text": "an",
+          "start": 8.56,
+          "end": 8.74
+        },
+        {
+          "text": "age",
+          "start": 8.74,
+          "end": 9.04
+        },
+        {
+          "text": "the",
+          "start": 9.04,
+          "end": 9.28
+        },
+        {
+          "text": "most",
+          "start": 9.28,
+          "end": 9.52
+        },
+        {
+          "text": "daring",
+          "start": 9.52,
+          "end": 9.96
+        },
+        {
+          "text": "were",
+          "start": 9.96,
+          "end": 10.22
+        },
+        {
+          "text": "scarcely",
+          "start": 10.22,
+          "end": 10.68
+        },
+        {
+          "text": "bold",
+          "start": 10.68,
+          "end": 11.16
+        },
+        {
+          "text": "enough",
+          "start": 11.16,
+          "end": 11.44
+        },
+        {
+          "text": "to",
+          "start": 11.44,
+          "end": 11.66
+        },
+        {
+          "text": "dream",
+          "start": 11.66,
+          "end": 11.88
+        },
+        {
+          "text": "of.",
+          "start": 11.88,
+          "end": 12.18
+        }
+      ],
+      "stats": {
+        "expected_words": 36,
+        "heard_words": 36,
+        "matched_words": 36
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.46890954300761223
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "16b96ce7ae795c61e787b311ae5fc2bdd930fd9879e12a1219a43c779c53d70a",
+  "selected_reasons": []
+}

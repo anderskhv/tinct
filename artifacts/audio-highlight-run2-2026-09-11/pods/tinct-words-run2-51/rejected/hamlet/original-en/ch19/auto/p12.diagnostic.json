@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "b504837d5d3180c828e980400d4a5d0bcc285e533bbe018aff532db586b9ce83",
+  "attempts": [
+    {
+      "asr_seconds": 0.22286136727780104,
+      "alignment_seconds": 0.00036208052188158035,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Second Clown. Was he a gentleman?",
+        "hotwords": "Second, Clown, Was"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Second, Clown, Was he a gentleman?",
+          "start": 0.08,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " Second,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.71533203125
+            },
+            {
+              "text": " Clown,",
+              "start": 1.0,
+              "end": 1.02,
+              "probability": 0.11090087890625
+            },
+            {
+              "text": " Was",
+              "start": 1.56,
+              "end": 1.62,
+              "probability": 0.1956787109375
+            },
+            {
+              "text": " he",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " a",
+              "start": 1.74,
+              "end": 1.82,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " gentleman?",
+              "start": 1.82,
+              "end": 2.1,
+              "probability": 0.4326171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Clown,",
+          "start": 1.0,
+          "end": 1.02
+        },
+        {
+          "raw": "Was",
+          "start": 1.56,
+          "end": 1.62
+        },
+        {
+          "raw": "he",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "raw": "a",
+          "start": 1.74,
+          "end": 1.82
+        },
+        {
+          "raw": "gentleman?",
+          "start": 1.82,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Clown.",
+        "Was",
+        "he",
+        "a",
+        "gentleman?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Clown,",
+          "start": 1.0,
+          "end": 1.02,
+          "key": "clown",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Was",
+          "start": 1.56,
+          "end": 1.62,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.62,
+          "end": 1.74,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.74,
+          "end": 1.82,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gentleman?",
+          "start": 1.82,
+          "end": 2.1,
+          "key": "gentleman",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Clown.",
+          "start": 1.0,
+          "end": 1.02
+        },
+        {
+          "text": "Was",
+          "start": 1.56,
+          "end": 1.62
+        },
+        {
+          "text": "he",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "text": "a",
+          "start": 1.74,
+          "end": 1.82
+        },
+        {
+          "text": "gentleman?",
+          "start": 1.82,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2233486669138074
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fe8f67c94ad1a223b29c578932540da488801a7a2e5951455a00236755beaa14",
+  "selected_reasons": []
+}
