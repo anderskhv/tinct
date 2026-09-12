@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "a3f6c589ebdd701ac11a186cc52463f5235193420b003246fe7bbc9eadd9dad0",
+  "attempts": [
+    {
+      "asr_seconds": 0.23873809538781643,
+      "alignment_seconds": 0.00035720691084861755,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sampson, let us take the law of our sides. Let them begin.",
+          "start": 0.48,
+          "end": 3.66,
+          "words": [
+            {
+              "text": " Sampson,",
+              "start": 0.48,
+              "end": 0.88,
+              "probability": 0.805419921875
+            },
+            {
+              "text": " let",
+              "start": 1.26,
+              "end": 1.42,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " us",
+              "start": 1.42,
+              "end": 1.54,
+              "probability": 0.994140625
+            },
+            {
+              "text": " take",
+              "start": 1.54,
+              "end": 1.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.74,
+              "end": 1.94,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " law",
+              "start": 1.94,
+              "end": 2.14,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " of",
+              "start": 2.14,
+              "end": 2.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " our",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sides.",
+              "start": 2.38,
+              "end": 2.72,
+              "probability": 0.96875
+            },
+            {
+              "text": " Let",
+              "start": 3.08,
+              "end": 3.16,
+              "probability": 0.990234375
+            },
+            {
+              "text": " them",
+              "start": 3.16,
+              "end": 3.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " begin.",
+              "start": 3.32,
+              "end": 3.66,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sampson,",
+          "start": 0.48,
+          "end": 0.88
+        },
+        {
+          "raw": "let",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "raw": "us",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "raw": "take",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "raw": "the",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "raw": "law",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "raw": "our",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "sides.",
+          "start": 2.38,
+          "end": 2.72
+        },
+        {
+          "raw": "Let",
+          "start": 3.08,
+          "end": 3.16
+        },
+        {
+          "raw": "them",
+          "start": 3.16,
+          "end": 3.32
+        },
+        {
+          "raw": "begin.",
+          "start": 3.32,
+          "end": 3.66
+        }
+      ],
+      "expected_tokens": [
+        "Sampson.",
+        "Let",
+        "us",
+        "take",
+        "the",
+        "law",
+        "of",
+        "our",
+        "sides;",
+        "let",
+        "them",
+        "begin."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sampson,",
+          "start": 0.48,
+          "end": 0.88,
+          "key": "sampson",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.26,
+          "end": 1.42,
+          "key": "let",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 1.42,
+          "end": 1.54,
+          "key": "us",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 1.54,
+          "end": 1.74,
+          "key": "take",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.74,
+          "end": 1.94,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "law",
+          "start": 1.94,
+          "end": 2.14,
+          "key": "law",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.26,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 2.26,
+          "end": 2.38,
+          "key": "our",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sides.",
+          "start": 2.38,
+          "end": 2.72,
+          "key": "sides",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 3.08,
+          "end": 3.16,
+          "key": "let",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 3.16,
+          "end": 3.32,
+          "key": "them",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "begin.",
+          "start": 3.32,
+          "end": 3.66,
+          "key": "begin",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sampson.",
+          "start": 0.48,
+          "end": 0.88
+        },
+        {
+          "text": "Let",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "text": "us",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "text": "take",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "text": "the",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "text": "law",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "text": "of",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "text": "our",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "sides;",
+          "start": 2.38,
+          "end": 2.72
+        },
+        {
+          "text": "let",
+          "start": 3.08,
+          "end": 3.16
+        },
+        {
+          "text": "them",
+          "start": 3.16,
+          "end": 3.32
+        },
+        {
+          "text": "begin.",
+          "start": 3.32,
+          "end": 3.66
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23940610699355602
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "590e06e7fd3ba14f33f7e07ad1e9b392050f5da1fd900cca4ef00832652c236e",
+  "selected_reasons": []
+}

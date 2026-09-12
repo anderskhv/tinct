@@ -1,0 +1,841 @@
+{
+  "complete": true,
+  "signature": "ceac4fbe1c2b9bdf725c76e198c0bbf2e9e0a747c99bec27d3993f42ce2a84b7",
+  "attempts": [
+    {
+      "asr_seconds": 0.4099754737690091,
+      "alignment_seconds": 0.0003449125215411186,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio, my Lord Bassanio, let him have the ring.",
+          "start": 0.11,
+          "end": 3.65,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.83,
+              "probability": 0.80859375
+            },
+            {
+              "text": " my",
+              "start": 1.51,
+              "end": 1.67,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " Lord",
+              "start": 1.67,
+              "end": 1.89,
+              "probability": 0.69580078125
+            },
+            {
+              "text": " Bassanio,",
+              "start": 1.89,
+              "end": 2.59,
+              "probability": 0.8465169270833334
+            },
+            {
+              "text": " let",
+              "start": 2.89,
+              "end": 2.95,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " him",
+              "start": 2.95,
+              "end": 3.09,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " have",
+              "start": 3.09,
+              "end": 3.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 3.27,
+              "end": 3.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ring.",
+              "start": 3.43,
+              "end": 3.65,
+              "probability": 0.98193359375
+            }
+          ]
+        },
+        {
+          "text": " Let his deservings and my love with all be valued",
+          "start": 4.43,
+          "end": 7.05,
+          "words": [
+            {
+              "text": " Let",
+              "start": 4.43,
+              "end": 4.53,
+              "probability": 0.9921875
+            },
+            {
+              "text": " his",
+              "start": 4.53,
+              "end": 4.69,
+              "probability": 0.994140625
+            },
+            {
+              "text": " deservings",
+              "start": 4.69,
+              "end": 5.27,
+              "probability": 0.8448893229166666
+            },
+            {
+              "text": " and",
+              "start": 5.27,
+              "end": 5.51,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " my",
+              "start": 5.51,
+              "end": 5.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " love",
+              "start": 5.67,
+              "end": 5.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 5.95,
+              "end": 6.15,
+              "probability": 0.9921875
+            },
+            {
+              "text": " all",
+              "start": 6.15,
+              "end": 6.35,
+              "probability": 0.5556640625
+            },
+            {
+              "text": " be",
+              "start": 6.35,
+              "end": 6.55,
+              "probability": 0.99609375
+            },
+            {
+              "text": " valued",
+              "start": 6.55,
+              "end": 7.05,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " against your wife's commandment.",
+          "start": 7.05,
+          "end": 8.91,
+          "words": [
+            {
+              "text": " against",
+              "start": 7.05,
+              "end": 7.67,
+              "probability": 0.248291015625
+            },
+            {
+              "text": " your",
+              "start": 7.67,
+              "end": 7.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " wife's",
+              "start": 7.89,
+              "end": 8.33,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " commandment.",
+              "start": 8.33,
+              "end": 8.91,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "raw": "my",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "raw": "Lord",
+          "start": 1.67,
+          "end": 1.89
+        },
+        {
+          "raw": "Bassanio,",
+          "start": 1.89,
+          "end": 2.59
+        },
+        {
+          "raw": "let",
+          "start": 2.89,
+          "end": 2.95
+        },
+        {
+          "raw": "him",
+          "start": 2.95,
+          "end": 3.09
+        },
+        {
+          "raw": "have",
+          "start": 3.09,
+          "end": 3.27
+        },
+        {
+          "raw": "the",
+          "start": 3.27,
+          "end": 3.43
+        },
+        {
+          "raw": "ring.",
+          "start": 3.43,
+          "end": 3.65
+        },
+        {
+          "raw": "Let",
+          "start": 4.43,
+          "end": 4.53
+        },
+        {
+          "raw": "his",
+          "start": 4.53,
+          "end": 4.69
+        },
+        {
+          "raw": "deservings",
+          "start": 4.69,
+          "end": 5.27
+        },
+        {
+          "raw": "and",
+          "start": 5.27,
+          "end": 5.51
+        },
+        {
+          "raw": "my",
+          "start": 5.51,
+          "end": 5.67
+        },
+        {
+          "raw": "love",
+          "start": 5.67,
+          "end": 5.95
+        },
+        {
+          "raw": "with",
+          "start": 5.95,
+          "end": 6.15
+        },
+        {
+          "raw": "all",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "raw": "be",
+          "start": 6.35,
+          "end": 6.55
+        },
+        {
+          "raw": "valued",
+          "start": 6.55,
+          "end": 7.05
+        },
+        {
+          "raw": "against",
+          "start": 7.05,
+          "end": 7.67
+        },
+        {
+          "raw": "your",
+          "start": 7.67,
+          "end": 7.89
+        },
+        {
+          "raw": "wife's",
+          "start": 7.89,
+          "end": 8.33
+        },
+        {
+          "raw": "commandment.",
+          "start": 8.33,
+          "end": 8.91
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "My",
+        "Lord",
+        "Bassanio,",
+        "let",
+        "him",
+        "have",
+        "the",
+        "ring.",
+        "Let",
+        "his",
+        "deservings",
+        "and",
+        "my",
+        "love",
+        "withal",
+        "Be",
+        "valued",
+        "'gainst",
+        "your",
+        "wife's",
+        "commandment."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          17
+        ],
+        [
+          "equal",
+          16,
+          18,
+          17,
+          19
+        ],
+        [
+          "replace",
+          18,
+          19,
+          19,
+          20
+        ],
+        [
+          "equal",
+          19,
+          22,
+          20,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          15,
+          16,
+          15,
+          17
+        ],
+        [
+          "replace",
+          18,
+          19,
+          19,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.83,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.51,
+          "end": 1.67,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 1.67,
+          "end": 1.89,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Bassanio,",
+          "start": 1.89,
+          "end": 2.59,
+          "key": "bassanio",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 2.89,
+          "end": 2.95,
+          "key": "let",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.95,
+          "end": 3.09,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.09,
+          "end": 3.27,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.27,
+          "end": 3.43,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ring.",
+          "start": 3.43,
+          "end": 3.65,
+          "key": "ring",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 4.43,
+          "end": 4.53,
+          "key": "let",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.53,
+          "end": 4.69,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "deservings",
+          "start": 4.69,
+          "end": 5.27,
+          "key": "deservings",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.27,
+          "end": 5.51,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.51,
+          "end": 5.67,
+          "key": "my",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 5.67,
+          "end": 5.95,
+          "key": "love",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.95,
+          "end": 6.15,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 6.15,
+          "end": 6.35,
+          "key": "all",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 6.35,
+          "end": 6.55,
+          "key": "be",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "valued",
+          "start": 6.55,
+          "end": 7.05,
+          "key": "valued",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 7.05,
+          "end": 7.67,
+          "key": "against",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 7.67,
+          "end": 7.89,
+          "key": "your",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "wife's",
+          "start": 7.89,
+          "end": 8.33,
+          "key": "wifes",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "commandment.",
+          "start": 8.33,
+          "end": 8.91,
+          "key": "commandment",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "text": "My",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "text": "Lord",
+          "start": 1.67,
+          "end": 1.89
+        },
+        {
+          "text": "Bassanio,",
+          "start": 1.89,
+          "end": 2.59
+        },
+        {
+          "text": "let",
+          "start": 2.89,
+          "end": 2.95
+        },
+        {
+          "text": "him",
+          "start": 2.95,
+          "end": 3.09
+        },
+        {
+          "text": "have",
+          "start": 3.09,
+          "end": 3.27
+        },
+        {
+          "text": "the",
+          "start": 3.27,
+          "end": 3.43
+        },
+        {
+          "text": "ring.",
+          "start": 3.43,
+          "end": 3.65
+        },
+        {
+          "text": "Let",
+          "start": 4.43,
+          "end": 4.53
+        },
+        {
+          "text": "his",
+          "start": 4.53,
+          "end": 4.69
+        },
+        {
+          "text": "deservings",
+          "start": 4.69,
+          "end": 5.27
+        },
+        {
+          "text": "and",
+          "start": 5.27,
+          "end": 5.51
+        },
+        {
+          "text": "my",
+          "start": 5.51,
+          "end": 5.67
+        },
+        {
+          "text": "love",
+          "start": 5.67,
+          "end": 5.95
+        },
+        {
+          "text": "withal",
+          "start": 5.95,
+          "end": 6.15
+        },
+        {
+          "text": "Be",
+          "start": 6.35,
+          "end": 6.55
+        },
+        {
+          "text": "valued",
+          "start": 6.55,
+          "end": 7.05
+        },
+        {
+          "text": "'gainst",
+          "start": 7.05,
+          "end": 7.36
+        },
+        {
+          "text": "your",
+          "start": 7.67,
+          "end": 7.89
+        },
+        {
+          "text": "wife's",
+          "start": 7.89,
+          "end": 8.33
+        },
+        {
+          "text": "commandment.",
+          "start": 8.33,
+          "end": 8.91
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 23,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.4104541102424264
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f5bc8ec70b6f5166e5f9ec5466e50fa13380209588cf979c608453fadf768042",
+  "selected_reasons": []
+}

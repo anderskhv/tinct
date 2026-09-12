@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "b24972f108f0f811660d054ff43470ff79b0a631b67f9b10211db32f45ffbc74",
+  "attempts": [
+    {
+      "asr_seconds": 0.1408027745783329,
+      "alignment_seconds": 0.000318208709359169,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Romeo, for your broken shin.",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Romeo,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " for",
+              "start": 1.13,
+              "end": 1.29,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " your",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " broken",
+              "start": 1.43,
+              "end": 1.69,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " shin.",
+              "start": 1.69,
+              "end": 2.01,
+              "probability": 0.93798828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Romeo,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "for",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "raw": "your",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "raw": "broken",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "raw": "shin.",
+          "start": 1.69,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "Romeo.",
+        "For",
+        "your",
+        "broken",
+        "shin."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Romeo,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "romeo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.13,
+          "end": 1.29,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.29,
+          "end": 1.43,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "broken",
+          "start": 1.43,
+          "end": 1.69,
+          "key": "broken",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shin.",
+          "start": 1.69,
+          "end": 2.01,
+          "key": "shin",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Romeo.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "For",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "text": "your",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "text": "broken",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "text": "shin.",
+          "start": 1.69,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14124659076333046
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "72a04fd737a5361e4e4a5013305c2a38dbebb7f1347c5c4efd593a4e41d8fe6a",
+  "selected_reasons": []
+}

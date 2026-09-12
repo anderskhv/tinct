@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "0420a7576da21c529ff436ea57d835ac3d7d626f72e76197cf334dfe9ff3a2ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.16343167889863253,
+      "alignment_seconds": 0.00013455748558044434,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Shylock. I have them ready.",
+        "hotwords": "Shylock, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shylock, I have them ready.",
+          "start": 0.08,
+          "end": 1.66,
+          "words": [
+            {
+              "text": " Shylock,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.8806966145833334
+            },
+            {
+              "text": " I",
+              "start": 1.08,
+              "end": 1.16,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " have",
+              "start": 1.16,
+              "end": 1.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them",
+              "start": 1.3,
+              "end": 1.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ready.",
+              "start": 1.44,
+              "end": 1.66,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shylock,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "I",
+          "start": 1.08,
+          "end": 1.16
+        },
+        {
+          "raw": "have",
+          "start": 1.16,
+          "end": 1.3
+        },
+        {
+          "raw": "them",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "raw": "ready.",
+          "start": 1.44,
+          "end": 1.66
+        }
+      ],
+      "expected_tokens": [
+        "Shylock.",
+        "I",
+        "have",
+        "them",
+        "ready."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shylock,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "shylock",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.08,
+          "end": 1.16,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.16,
+          "end": 1.3,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 1.3,
+          "end": 1.44,
+          "key": "them",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ready.",
+          "start": 1.44,
+          "end": 1.66,
+          "key": "ready",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Shylock.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "I",
+          "start": 1.08,
+          "end": 1.16
+        },
+        {
+          "text": "have",
+          "start": 1.16,
+          "end": 1.3
+        },
+        {
+          "text": "them",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "text": "ready.",
+          "start": 1.44,
+          "end": 1.66
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16360880434513092
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7cb7e26f16e3646fd6cffdf84e383fe2105b97cbda76fc3c880b84d2a15d6082",
+  "selected_reasons": []
+}

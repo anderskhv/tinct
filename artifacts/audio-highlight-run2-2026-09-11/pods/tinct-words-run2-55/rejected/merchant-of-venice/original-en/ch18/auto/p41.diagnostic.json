@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "0ee96b97b6e4bd574e5d1a62066509c38bc27301c29438ba66ff82d26f85bce2",
+  "attempts": [
+    {
+      "asr_seconds": 0.2735837120562792,
+      "alignment_seconds": 0.0005326326936483383,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "You hear the learn'd Bellario what he writes, And here, I take it, is the doctor come.",
+        "hotwords": "You, Bellario, And, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You hear the learn'd Bellario what he writes, And here, I take it, is the doctor come.",
+          "start": 0.05,
+          "end": 5.25,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.783203125
+            },
+            {
+              "text": " hear",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 0.71,
+              "end": 0.91,
+              "probability": 0.9921875
+            },
+            {
+              "text": " learn'd",
+              "start": 0.91,
+              "end": 1.31,
+              "probability": 0.016686201095581055
+            },
+            {
+              "text": " Bellario",
+              "start": 1.31,
+              "end": 1.67,
+              "probability": 0.69921875
+            },
+            {
+              "text": " what",
+              "start": 1.67,
+              "end": 1.95,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " he",
+              "start": 1.95,
+              "end": 2.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " writes,",
+              "start": 2.07,
+              "end": 2.39,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " And",
+              "start": 2.85,
+              "end": 3.07,
+              "probability": 0.036468505859375
+            },
+            {
+              "text": " here,",
+              "start": 3.07,
+              "end": 3.37,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " I",
+              "start": 3.63,
+              "end": 3.75,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " take",
+              "start": 3.75,
+              "end": 3.97,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " it,",
+              "start": 3.97,
+              "end": 4.21,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " is",
+              "start": 4.39,
+              "end": 4.49,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " the",
+              "start": 4.49,
+              "end": 4.63,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " doctor",
+              "start": 4.63,
+              "end": 4.93,
+              "probability": 0.5888671875
+            },
+            {
+              "text": " come.",
+              "start": 4.93,
+              "end": 5.25,
+              "probability": 0.151611328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "hear",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "raw": "the",
+          "start": 0.71,
+          "end": 0.91
+        },
+        {
+          "raw": "learn'd",
+          "start": 0.91,
+          "end": 1.31
+        },
+        {
+          "raw": "Bellario",
+          "start": 1.31,
+          "end": 1.67
+        },
+        {
+          "raw": "what",
+          "start": 1.67,
+          "end": 1.95
+        },
+        {
+          "raw": "he",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "raw": "writes,",
+          "start": 2.07,
+          "end": 2.39
+        },
+        {
+          "raw": "And",
+          "start": 2.85,
+          "end": 3.07
+        },
+        {
+          "raw": "here,",
+          "start": 3.07,
+          "end": 3.37
+        },
+        {
+          "raw": "I",
+          "start": 3.63,
+          "end": 3.75
+        },
+        {
+          "raw": "take",
+          "start": 3.75,
+          "end": 3.97
+        },
+        {
+          "raw": "it,",
+          "start": 3.97,
+          "end": 4.21
+        },
+        {
+          "raw": "is",
+          "start": 4.39,
+          "end": 4.49
+        },
+        {
+          "raw": "the",
+          "start": 4.49,
+          "end": 4.63
+        },
+        {
+          "raw": "doctor",
+          "start": 4.63,
+          "end": 4.93
+        },
+        {
+          "raw": "come.",
+          "start": 4.93,
+          "end": 5.25
+        }
+      ],
+      "expected_tokens": [
+        "You",
+        "hear",
+        "the",
+        "learn'd",
+        "Bellario",
+        "what",
+        "he",
+        "writes,",
+        "And",
+        "here,",
+        "I",
+        "take",
+        "it,",
+        "is",
+        "the",
+        "doctor",
+        "come."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 0.53,
+          "end": 0.71,
+          "key": "hear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.71,
+          "end": 0.91,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "learn'd",
+          "start": 0.91,
+          "end": 1.31,
+          "key": "learnd",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Bellario",
+          "start": 1.31,
+          "end": 1.67,
+          "key": "bellario",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.67,
+          "end": 1.95,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.95,
+          "end": 2.07,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "writes,",
+          "start": 2.07,
+          "end": 2.39,
+          "key": "writes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 2.85,
+          "end": 3.07,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 3.07,
+          "end": 3.37,
+          "key": "here",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.63,
+          "end": 3.75,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 3.75,
+          "end": 3.97,
+          "key": "take",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 3.97,
+          "end": 4.21,
+          "key": "it",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.39,
+          "end": 4.49,
+          "key": "is",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.49,
+          "end": 4.63,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "doctor",
+          "start": 4.63,
+          "end": 4.93,
+          "key": "doctor",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 4.93,
+          "end": 5.25,
+          "key": "come",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "You",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "hear",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "text": "the",
+          "start": 0.71,
+          "end": 0.91
+        },
+        {
+          "text": "learn'd",
+          "start": 0.91,
+          "end": 1.31
+        },
+        {
+          "text": "Bellario",
+          "start": 1.31,
+          "end": 1.67
+        },
+        {
+          "text": "what",
+          "start": 1.67,
+          "end": 1.95
+        },
+        {
+          "text": "he",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "text": "writes,",
+          "start": 2.07,
+          "end": 2.39
+        },
+        {
+          "text": "And",
+          "start": 2.85,
+          "end": 3.07
+        },
+        {
+          "text": "here,",
+          "start": 3.07,
+          "end": 3.37
+        },
+        {
+          "text": "I",
+          "start": 3.63,
+          "end": 3.75
+        },
+        {
+          "text": "take",
+          "start": 3.75,
+          "end": 3.97
+        },
+        {
+          "text": "it,",
+          "start": 3.97,
+          "end": 4.21
+        },
+        {
+          "text": "is",
+          "start": 4.39,
+          "end": 4.49
+        },
+        {
+          "text": "the",
+          "start": 4.49,
+          "end": 4.63
+        },
+        {
+          "text": "doctor",
+          "start": 4.63,
+          "end": 4.93
+        },
+        {
+          "text": "come.",
+          "start": 4.93,
+          "end": 5.25
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27432692237198353
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0c2231025164ce7c63313bc1ddefe48bb21c8c359c799efaff52cdcf0e64ff1d",
+  "selected_reasons": []
+}

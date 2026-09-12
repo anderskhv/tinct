@@ -1,0 +1,390 @@
+{
+  "complete": true,
+  "signature": "9d1c284e321bef1aac1b22029d8f523bd6b83a4caac696bc2b78df8aa2107a9f",
+  "attempts": [
+    {
+      "asr_seconds": 0.22141051851212978,
+      "alignment_seconds": 0.0004961267113685608,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Juliet, what o'clock tomorrow shall I send to thee?",
+          "start": 0.05,
+          "end": 2.91,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " what",
+              "start": 1.23,
+              "end": 1.37,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " o",
+              "start": 1.37,
+              "end": 1.45,
+              "probability": 0.8603515625
+            },
+            {
+              "text": "'clock",
+              "start": 1.45,
+              "end": 1.67,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " tomorrow",
+              "start": 1.67,
+              "end": 1.97,
+              "probability": 0.66455078125
+            },
+            {
+              "text": " shall",
+              "start": 1.97,
+              "end": 2.21,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " I",
+              "start": 2.21,
+              "end": 2.35,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " send",
+              "start": 2.35,
+              "end": 2.57,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 2.57,
+              "end": 2.71,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " thee?",
+              "start": 2.71,
+              "end": 2.91,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "what",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "raw": "o",
+          "start": 1.37,
+          "end": 1.45
+        },
+        {
+          "raw": "'clock",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "raw": "tomorrow",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "raw": "shall",
+          "start": 1.97,
+          "end": 2.21
+        },
+        {
+          "raw": "I",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "raw": "send",
+          "start": 2.35,
+          "end": 2.57
+        },
+        {
+          "raw": "to",
+          "start": 2.57,
+          "end": 2.71
+        },
+        {
+          "raw": "thee?",
+          "start": 2.71,
+          "end": 2.91
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "What",
+        "o'clock",
+        "tomorrow",
+        "Shall",
+        "I",
+        "send",
+        "to",
+        "thee?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          9,
+          4,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "juliet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.23,
+          "end": 1.37,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 1.37,
+          "end": 1.45,
+          "key": "o",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'clock",
+          "start": 1.45,
+          "end": 1.67,
+          "key": "clock",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tomorrow",
+          "start": 1.67,
+          "end": 1.97,
+          "key": "tomorrow",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.97,
+          "end": 2.21,
+          "key": "shall",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.21,
+          "end": 2.35,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "send",
+          "start": 2.35,
+          "end": 2.57,
+          "key": "send",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.57,
+          "end": 2.71,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thee?",
+          "start": 2.71,
+          "end": 2.91,
+          "key": "thee",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "What",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "text": "o'clock",
+          "start": 1.37,
+          "end": 1.52
+        },
+        {
+          "text": "tomorrow",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "text": "Shall",
+          "start": 1.97,
+          "end": 2.21
+        },
+        {
+          "text": "I",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "text": "send",
+          "start": 2.35,
+          "end": 2.57
+        },
+        {
+          "text": "to",
+          "start": 2.57,
+          "end": 2.71
+        },
+        {
+          "text": "thee?",
+          "start": 2.71,
+          "end": 2.91
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.22209978010505438
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ee4ba8e523b8080d3833d31a8c9ad0fe36cd7cb22a9f1788c6ede6a9b46c281b",
+  "selected_reasons": []
+}

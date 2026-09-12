@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "1b15de036f601feb659118c2697028018b02d6e133c7a66d364407a5e147c3c5",
+  "attempts": [
+    {
+      "asr_seconds": 0.19445614982396364,
+      "alignment_seconds": 0.00024506356567144394,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Benvolio, good morrow, cousin.",
+          "start": 0.08,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " Benvolio,",
+              "start": 0.08,
+              "end": 1.06,
+              "probability": 0.9431966145833334
+            },
+            {
+              "text": " good",
+              "start": 1.48,
+              "end": 1.56,
+              "probability": 0.56201171875
+            },
+            {
+              "text": " morrow,",
+              "start": 1.56,
+              "end": 1.96,
+              "probability": 0.861083984375
+            },
+            {
+              "text": " cousin.",
+              "start": 1.96,
+              "end": 2.16,
+              "probability": 0.92236328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Benvolio,",
+          "start": 0.08,
+          "end": 1.06
+        },
+        {
+          "raw": "good",
+          "start": 1.48,
+          "end": 1.56
+        },
+        {
+          "raw": "morrow,",
+          "start": 1.56,
+          "end": 1.96
+        },
+        {
+          "raw": "cousin.",
+          "start": 1.96,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "Benvolio.",
+        "Good",
+        "morrow,",
+        "cousin."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Benvolio,",
+          "start": 0.08,
+          "end": 1.06,
+          "key": "benvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.48,
+          "end": 1.56,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "morrow,",
+          "start": 1.56,
+          "end": 1.96,
+          "key": "morrow",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cousin.",
+          "start": 1.96,
+          "end": 2.16,
+          "key": "cousin",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Benvolio.",
+          "start": 0.08,
+          "end": 1.06
+        },
+        {
+          "text": "Good",
+          "start": 1.48,
+          "end": 1.56
+        },
+        {
+          "text": "morrow,",
+          "start": 1.56,
+          "end": 1.96
+        },
+        {
+          "text": "cousin.",
+          "start": 1.96,
+          "end": 2.16
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19478171411901712
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d3249900f6951a6ca0566ae94ee17889486a7f4cb84407a2e553dfcffc819bdc",
+  "selected_reasons": []
+}

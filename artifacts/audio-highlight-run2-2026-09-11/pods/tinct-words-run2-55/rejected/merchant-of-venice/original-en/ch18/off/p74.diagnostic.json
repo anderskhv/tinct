@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "2b26423f48d2d8a54d0e4b7933da6b3a240f2cf0c9ee991e2007d107c526ba29",
+  "attempts": [
+    {
+      "asr_seconds": 0.2333900136873126,
+      "alignment_seconds": 0.0003795195370912552,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Portia, therefore lay bare your bosom.",
+          "start": 0.05,
+          "end": 2.41,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.7305908203125
+            },
+            {
+              "text": " therefore",
+              "start": 1.21,
+              "end": 1.39,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " lay",
+              "start": 1.39,
+              "end": 1.63,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " bare",
+              "start": 1.63,
+              "end": 1.83,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " your",
+              "start": 1.83,
+              "end": 1.99,
+              "probability": 0.994140625
+            },
+            {
+              "text": " bosom.",
+              "start": 1.99,
+              "end": 2.41,
+              "probability": 0.997314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "therefore",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "raw": "lay",
+          "start": 1.39,
+          "end": 1.63
+        },
+        {
+          "raw": "bare",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "raw": "your",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "raw": "bosom.",
+          "start": 1.99,
+          "end": 2.41
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "Therefore",
+        "lay",
+        "bare",
+        "your",
+        "bosom."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "therefore",
+          "start": 1.21,
+          "end": 1.39,
+          "key": "therefore",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 1.39,
+          "end": 1.63,
+          "key": "lay",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bare",
+          "start": 1.63,
+          "end": 1.83,
+          "key": "bare",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.83,
+          "end": 1.99,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bosom.",
+          "start": 1.99,
+          "end": 2.41,
+          "key": "bosom",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Therefore",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "text": "lay",
+          "start": 1.39,
+          "end": 1.63
+        },
+        {
+          "text": "bare",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "text": "your",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "text": "bosom.",
+          "start": 1.99,
+          "end": 2.41
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2339015332981944
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b3cb6c13be42a58a02095aaa4e9a31105d79ad09d1bcb1d0e7cb928d5df5fea3",
+  "selected_reasons": []
+}

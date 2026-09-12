@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "5247ac3dca8fd6230e219d2a52d0190e02c8d9448e7bf292eb1c9856b7fa6bf8",
+  "attempts": [
+    {
+      "asr_seconds": 0.16277452278882265,
+      "alignment_seconds": 0.0002017999067902565,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antonio. Ay, so he says.",
+        "hotwords": "Antonio, Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antonio, Ay, so he says.",
+          "start": 0.55,
+          "end": 1.99,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.55,
+              "end": 0.91,
+              "probability": 0.7841796875
+            },
+            {
+              "text": " Ay,",
+              "start": 1.39,
+              "end": 1.49,
+              "probability": 0.0018024444580078125
+            },
+            {
+              "text": " so",
+              "start": 1.57,
+              "end": 1.63,
+              "probability": 0.61376953125
+            },
+            {
+              "text": " he",
+              "start": 1.63,
+              "end": 1.77,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " says.",
+              "start": 1.77,
+              "end": 1.99,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.55,
+          "end": 0.91
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "raw": "so",
+          "start": 1.57,
+          "end": 1.63
+        },
+        {
+          "raw": "he",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "raw": "says.",
+          "start": 1.77,
+          "end": 1.99
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "Ay,",
+        "so",
+        "he",
+        "says."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.55,
+          "end": 0.91,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.39,
+          "end": 1.49,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.57,
+          "end": 1.63,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.63,
+          "end": 1.77,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "says.",
+          "start": 1.77,
+          "end": 1.99,
+          "key": "says",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.55,
+          "end": 0.91
+        },
+        {
+          "text": "Ay,",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "text": "so",
+          "start": 1.57,
+          "end": 1.63
+        },
+        {
+          "text": "he",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "text": "says.",
+          "start": 1.77,
+          "end": 1.99
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16304643638432026
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9023cf3f6d297472eaf7e5c325248e1e713ab86bc78242930eb982f57e5514ef",
+  "selected_reasons": []
+}

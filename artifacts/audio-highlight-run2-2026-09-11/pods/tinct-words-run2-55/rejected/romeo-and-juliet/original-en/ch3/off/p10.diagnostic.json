@@ -1,0 +1,358 @@
+{
+  "complete": true,
+  "signature": "c9553b0698c422f7212a315d6338301578c8ba7d282dbf8949319dee5d72ed11",
+  "attempts": [
+    {
+      "asr_seconds": 0.15248082764446735,
+      "alignment_seconds": 0.00039056409150362015,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Romeo, your plant and leaf is excellent for that.",
+          "start": 0.05,
+          "end": 3.13,
+          "words": [
+            {
+              "text": " Romeo,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.943359375
+            },
+            {
+              "text": " your",
+              "start": 1.35,
+              "end": 1.45,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " plant",
+              "start": 1.45,
+              "end": 1.69,
+              "probability": 0.96484375
+            },
+            {
+              "text": " and",
+              "start": 1.69,
+              "end": 1.85,
+              "probability": 0.6337890625
+            },
+            {
+              "text": " leaf",
+              "start": 1.85,
+              "end": 2.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " is",
+              "start": 2.03,
+              "end": 2.23,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " excellent",
+              "start": 2.23,
+              "end": 2.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 2.59,
+              "end": 2.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that.",
+              "start": 2.83,
+              "end": 3.13,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Romeo,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "your",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "raw": "plant",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "raw": "and",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "raw": "leaf",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "raw": "is",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "raw": "excellent",
+          "start": 2.23,
+          "end": 2.59
+        },
+        {
+          "raw": "for",
+          "start": 2.59,
+          "end": 2.83
+        },
+        {
+          "raw": "that.",
+          "start": 2.83,
+          "end": 3.13
+        }
+      ],
+      "expected_tokens": [
+        "Romeo.",
+        "Your",
+        "plantain",
+        "leaf",
+        "is",
+        "excellent",
+        "for",
+        "that."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          8,
+          4,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Romeo,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "romeo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.35,
+          "end": 1.45,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "plant",
+          "start": 1.45,
+          "end": 1.69,
+          "key": "plant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.69,
+          "end": 1.85,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "leaf",
+          "start": 1.85,
+          "end": 2.03,
+          "key": "leaf",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.03,
+          "end": 2.23,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "excellent",
+          "start": 2.23,
+          "end": 2.59,
+          "key": "excellent",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.59,
+          "end": 2.83,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 2.83,
+          "end": 3.13,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Romeo.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Your",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "text": "plantain",
+          "start": 1.45,
+          "end": 1.65
+        },
+        {
+          "text": "leaf",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "text": "is",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "text": "excellent",
+          "start": 2.23,
+          "end": 2.59
+        },
+        {
+          "text": "for",
+          "start": 2.59,
+          "end": 2.83
+        },
+        {
+          "text": "that.",
+          "start": 2.83,
+          "end": 3.13
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.15300470311194658
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cb8d29764464406fca0c77228869f60882f7ac5d6fb012ef3e8a86307fdd7cd9",
+  "selected_reasons": []
+}

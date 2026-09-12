@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "1ed54e04ae145950fc5b952355029d4b9d55f853733e7fa2e1eed0ad45a24b0e",
+  "attempts": [
+    {
+      "asr_seconds": 0.13276573456823826,
+      "alignment_seconds": 0.00032782088965177536,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lorenzo, who comes with her.",
+          "start": 0.08,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " Lorenzo,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " who",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " comes",
+              "start": 1.36,
+              "end": 1.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 1.56,
+              "end": 1.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " her.",
+              "start": 1.76,
+              "end": 1.94,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lorenzo,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "who",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "comes",
+          "start": 1.36,
+          "end": 1.56
+        },
+        {
+          "raw": "with",
+          "start": 1.56,
+          "end": 1.76
+        },
+        {
+          "raw": "her.",
+          "start": 1.76,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "Lorenzo.",
+        "Who",
+        "comes",
+        "with",
+        "her?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lorenzo,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "lorenzo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 1.36,
+          "end": 1.56,
+          "key": "comes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.56,
+          "end": 1.76,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 1.76,
+          "end": 1.94,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lorenzo.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "Who",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "comes",
+          "start": 1.36,
+          "end": 1.56
+        },
+        {
+          "text": "with",
+          "start": 1.56,
+          "end": 1.76
+        },
+        {
+          "text": "her?",
+          "start": 1.76,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13320807926356792
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6de6565569df7b48847a1b01a971c0af2f7e650a4d6bbcd6b75add9849863235",
+  "selected_reasons": []
+}

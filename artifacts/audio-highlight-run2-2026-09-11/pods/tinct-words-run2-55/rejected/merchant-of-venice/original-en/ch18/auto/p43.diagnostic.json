@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "3177a5e23d3444792cf4b42793e6d783a6f8c86a77e6e121a349f4ac542598b6",
+  "attempts": [
+    {
+      "asr_seconds": 0.20154728274792433,
+      "alignment_seconds": 0.0005043521523475647,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Give me your hand. Come you from old Bellario?",
+        "hotwords": "Give, Come, Bellario"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Give me your hand. Come you from old Bellario?",
+          "start": 0.05,
+          "end": 2.61,
+          "words": [
+            {
+              "text": " Give",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " me",
+              "start": 0.53,
+              "end": 0.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " your",
+              "start": 0.69,
+              "end": 0.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hand.",
+              "start": 0.81,
+              "end": 1.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Come",
+              "start": 1.47,
+              "end": 1.65,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " you",
+              "start": 1.65,
+              "end": 1.81,
+              "probability": 0.7763671875
+            },
+            {
+              "text": " from",
+              "start": 1.81,
+              "end": 1.99,
+              "probability": 0.982421875
+            },
+            {
+              "text": " old",
+              "start": 1.99,
+              "end": 2.19,
+              "probability": 0.810546875
+            },
+            {
+              "text": " Bellario?",
+              "start": 2.19,
+              "end": 2.61,
+              "probability": 0.6976318359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Give",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "me",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "raw": "your",
+          "start": 0.69,
+          "end": 0.81
+        },
+        {
+          "raw": "hand.",
+          "start": 0.81,
+          "end": 1.19
+        },
+        {
+          "raw": "Come",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "raw": "you",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "raw": "from",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "raw": "old",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "raw": "Bellario?",
+          "start": 2.19,
+          "end": 2.61
+        }
+      ],
+      "expected_tokens": [
+        "Give",
+        "me",
+        "your",
+        "hand.",
+        "Come",
+        "you",
+        "from",
+        "old",
+        "Bellario?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Give",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "give",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.53,
+          "end": 0.69,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.69,
+          "end": 0.81,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hand.",
+          "start": 0.81,
+          "end": 1.19,
+          "key": "hand",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Come",
+          "start": 1.47,
+          "end": 1.65,
+          "key": "come",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.65,
+          "end": 1.81,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.81,
+          "end": 1.99,
+          "key": "from",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 1.99,
+          "end": 2.19,
+          "key": "old",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Bellario?",
+          "start": 2.19,
+          "end": 2.61,
+          "key": "bellario",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Give",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "me",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "text": "your",
+          "start": 0.69,
+          "end": 0.81
+        },
+        {
+          "text": "hand.",
+          "start": 0.81,
+          "end": 1.19
+        },
+        {
+          "text": "Come",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "text": "you",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "text": "from",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "text": "old",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "text": "Bellario?",
+          "start": 2.19,
+          "end": 2.61
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2022630237042904
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3c5d50212a86043cf806c6352837b814c64f904ad65adbecb566404e49312ae0",
+  "selected_reasons": []
+}

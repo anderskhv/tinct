@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "4011a8bc475622467f3099d1cdd5fe0dc0832ceaff5f2e11dc55ddb2097e593c",
+  "attempts": [
+    {
+      "asr_seconds": 0.28418669663369656,
+      "alignment_seconds": 0.0002505900338292122,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Bassanio. We should hold day with the Antipodes, If you would walk in absence of the sun.",
+        "hotwords": "Bassanio, We, Antipodes, If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Bassanio, We should hold day with the Antipodes, If you would walk in absence of the sun.",
+          "start": 0.54,
+          "end": 5.14,
+          "words": [
+            {
+              "text": " Bassanio,",
+              "start": 0.54,
+              "end": 1.02,
+              "probability": 0.6611328125
+            },
+            {
+              "text": " We",
+              "start": 1.4,
+              "end": 1.64,
+              "probability": 0.011627197265625
+            },
+            {
+              "text": " should",
+              "start": 1.64,
+              "end": 1.76,
+              "probability": 0.966796875
+            },
+            {
+              "text": " hold",
+              "start": 1.76,
+              "end": 2.0,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " day",
+              "start": 2.0,
+              "end": 2.26,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " with",
+              "start": 2.26,
+              "end": 2.42,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " the",
+              "start": 2.42,
+              "end": 2.56,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Antipodes,",
+              "start": 2.56,
+              "end": 3.02,
+              "probability": 0.6323649088541666
+            },
+            {
+              "text": " If",
+              "start": 3.34,
+              "end": 3.5,
+              "probability": 0.285400390625
+            },
+            {
+              "text": " you",
+              "start": 3.5,
+              "end": 3.58,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " would",
+              "start": 3.58,
+              "end": 3.7,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " walk",
+              "start": 3.7,
+              "end": 3.96,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " in",
+              "start": 3.96,
+              "end": 4.18,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " absence",
+              "start": 4.18,
+              "end": 4.52,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " of",
+              "start": 4.52,
+              "end": 4.82,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 4.82,
+              "end": 4.92,
+              "probability": 0.9921875
+            },
+            {
+              "text": " sun.",
+              "start": 4.92,
+              "end": 5.14,
+              "probability": 0.73583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bassanio,",
+          "start": 0.54,
+          "end": 1.02
+        },
+        {
+          "raw": "We",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "raw": "should",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "raw": "hold",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "raw": "day",
+          "start": 2.0,
+          "end": 2.26
+        },
+        {
+          "raw": "with",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "raw": "the",
+          "start": 2.42,
+          "end": 2.56
+        },
+        {
+          "raw": "Antipodes,",
+          "start": 2.56,
+          "end": 3.02
+        },
+        {
+          "raw": "If",
+          "start": 3.34,
+          "end": 3.5
+        },
+        {
+          "raw": "you",
+          "start": 3.5,
+          "end": 3.58
+        },
+        {
+          "raw": "would",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "raw": "walk",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "raw": "in",
+          "start": 3.96,
+          "end": 4.18
+        },
+        {
+          "raw": "absence",
+          "start": 4.18,
+          "end": 4.52
+        },
+        {
+          "raw": "of",
+          "start": 4.52,
+          "end": 4.82
+        },
+        {
+          "raw": "the",
+          "start": 4.82,
+          "end": 4.92
+        },
+        {
+          "raw": "sun.",
+          "start": 4.92,
+          "end": 5.14
+        }
+      ],
+      "expected_tokens": [
+        "Bassanio.",
+        "We",
+        "should",
+        "hold",
+        "day",
+        "with",
+        "the",
+        "Antipodes,",
+        "If",
+        "you",
+        "would",
+        "walk",
+        "in",
+        "absence",
+        "of",
+        "the",
+        "sun."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bassanio,",
+          "start": 0.54,
+          "end": 1.02,
+          "key": "bassanio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.4,
+          "end": 1.64,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 1.64,
+          "end": 1.76,
+          "key": "should",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 1.76,
+          "end": 2.0,
+          "key": "hold",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 2.0,
+          "end": 2.26,
+          "key": "day",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.26,
+          "end": 2.42,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.42,
+          "end": 2.56,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Antipodes,",
+          "start": 2.56,
+          "end": 3.02,
+          "key": "antipodes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 3.34,
+          "end": 3.5,
+          "key": "if",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.5,
+          "end": 3.58,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 3.58,
+          "end": 3.7,
+          "key": "would",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "walk",
+          "start": 3.7,
+          "end": 3.96,
+          "key": "walk",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.96,
+          "end": 4.18,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "absence",
+          "start": 4.18,
+          "end": 4.52,
+          "key": "absence",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.52,
+          "end": 4.82,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.82,
+          "end": 4.92,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "sun.",
+          "start": 4.92,
+          "end": 5.14,
+          "key": "sun",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bassanio.",
+          "start": 0.54,
+          "end": 1.02
+        },
+        {
+          "text": "We",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "text": "should",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "text": "hold",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "text": "day",
+          "start": 2.0,
+          "end": 2.26
+        },
+        {
+          "text": "with",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "text": "the",
+          "start": 2.42,
+          "end": 2.56
+        },
+        {
+          "text": "Antipodes,",
+          "start": 2.56,
+          "end": 3.02
+        },
+        {
+          "text": "If",
+          "start": 3.34,
+          "end": 3.5
+        },
+        {
+          "text": "you",
+          "start": 3.5,
+          "end": 3.58
+        },
+        {
+          "text": "would",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "text": "walk",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "text": "in",
+          "start": 3.96,
+          "end": 4.18
+        },
+        {
+          "text": "absence",
+          "start": 4.18,
+          "end": 4.52
+        },
+        {
+          "text": "of",
+          "start": 4.52,
+          "end": 4.82
+        },
+        {
+          "text": "the",
+          "start": 4.82,
+          "end": 4.92
+        },
+        {
+          "text": "sun.",
+          "start": 4.92,
+          "end": 5.14
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2845397051423788
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d40e184557b1dca8eea41a6f734bf49d4683ab0025ee12d84168a8731bdd9c31",
+  "selected_reasons": []
+}

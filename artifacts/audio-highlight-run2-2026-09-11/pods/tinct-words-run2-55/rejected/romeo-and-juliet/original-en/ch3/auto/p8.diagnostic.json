@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "3d216da07e6dc9ac9695f9f6649d0bce4b3a9ed927332b6c4b34b84292f905ad",
+  "attempts": [
+    {
+      "asr_seconds": 0.15255630109459162,
+      "alignment_seconds": 0.0003247903659939766,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Enter Benvolio and Romeo.]",
+        "hotwords": "Enter, Benvolio, Romeo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Benvolio and Romeo.",
+          "start": 0.11,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " Benvolio",
+              "start": 0.63,
+              "end": 1.21,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " and",
+              "start": 1.21,
+              "end": 1.35,
+              "probability": 0.05877685546875
+            },
+            {
+              "text": " Romeo.",
+              "start": 1.35,
+              "end": 1.63,
+              "probability": 0.970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "Benvolio",
+          "start": 0.63,
+          "end": 1.21
+        },
+        {
+          "raw": "and",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "raw": "Romeo.",
+          "start": 1.35,
+          "end": 1.63
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Benvolio",
+        "and",
+        "Romeo.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Benvolio",
+          "start": 0.63,
+          "end": 1.21,
+          "key": "benvolio",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.21,
+          "end": 1.35,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Romeo.",
+          "start": 1.35,
+          "end": 1.63,
+          "key": "romeo",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "text": "Benvolio",
+          "start": 0.63,
+          "end": 1.21
+        },
+        {
+          "text": "and",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "text": "Romeo.]",
+          "start": 1.35,
+          "end": 1.63
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1529935523867607
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d3ffa03746ece97badde99460f7fdfeccd72d650c3d05e0698920e00dd1f4de1",
+  "selected_reasons": []
+}

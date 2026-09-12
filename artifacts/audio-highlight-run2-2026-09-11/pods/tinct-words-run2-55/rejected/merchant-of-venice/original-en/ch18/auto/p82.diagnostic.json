@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "89105de6a18ae95a38f4934ec6ef4e50cca5a6eb85b7f91134369b5d4ca2793b",
+  "attempts": [
+    {
+      "asr_seconds": 0.21377556584775448,
+      "alignment_seconds": 0.0003639431670308113,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Portia. You, merchant, have you anything to say?",
+        "hotwords": "Portia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Portia, you, merchant, have you anything to say?",
+          "start": 0.47,
+          "end": 2.67,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.47,
+              "end": 0.85,
+              "probability": 0.713134765625
+            },
+            {
+              "text": " you,",
+              "start": 1.25,
+              "end": 1.37,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " merchant,",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " have",
+              "start": 1.81,
+              "end": 1.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 1.89,
+              "end": 2.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " anything",
+              "start": 2.01,
+              "end": 2.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 2.19,
+              "end": 2.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " say?",
+              "start": 2.43,
+              "end": 2.67,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.47,
+          "end": 0.85
+        },
+        {
+          "raw": "you,",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "raw": "merchant,",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "raw": "have",
+          "start": 1.81,
+          "end": 1.89
+        },
+        {
+          "raw": "you",
+          "start": 1.89,
+          "end": 2.01
+        },
+        {
+          "raw": "anything",
+          "start": 2.01,
+          "end": 2.19
+        },
+        {
+          "raw": "to",
+          "start": 2.19,
+          "end": 2.43
+        },
+        {
+          "raw": "say?",
+          "start": 2.43,
+          "end": 2.67
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "You,",
+        "merchant,",
+        "have",
+        "you",
+        "anything",
+        "to",
+        "say?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.47,
+          "end": 0.85,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.25,
+          "end": 1.37,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "merchant,",
+          "start": 1.43,
+          "end": 1.63,
+          "key": "merchant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.81,
+          "end": 1.89,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.89,
+          "end": 2.01,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "anything",
+          "start": 2.01,
+          "end": 2.19,
+          "key": "anything",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.19,
+          "end": 2.43,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "say?",
+          "start": 2.43,
+          "end": 2.67,
+          "key": "say",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.47,
+          "end": 0.85
+        },
+        {
+          "text": "You,",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "text": "merchant,",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "text": "have",
+          "start": 1.81,
+          "end": 1.89
+        },
+        {
+          "text": "you",
+          "start": 1.89,
+          "end": 2.01
+        },
+        {
+          "text": "anything",
+          "start": 2.01,
+          "end": 2.19
+        },
+        {
+          "text": "to",
+          "start": 2.19,
+          "end": 2.43
+        },
+        {
+          "text": "say?",
+          "start": 2.43,
+          "end": 2.67
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21426565386354923
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "243068e9249af4157a44ad3eafb0a265a6986e79125bf75bd8e4b74afd4ae5d6",
+  "selected_reasons": []
+}

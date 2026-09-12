@@ -1,0 +1,563 @@
+{
+  "complete": true,
+  "signature": "313a93d90a6e93c7663d05d80c4a1f4cf42c9ea29fe262ed2912a3bacc08e485",
+  "attempts": [
+    {
+      "asr_seconds": 0.1329586384817958,
+      "alignment_seconds": 0.00017238501459360123,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exeunt Portia and Nerissa._]",
+        "hotwords": "Portia, Nerissa._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt Portia and Nerissa._",
+          "start": 0.05,
+          "end": 2.39,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.625213623046875
+            },
+            {
+              "text": " Portia",
+              "start": 0.79,
+              "end": 1.21,
+              "probability": 0.867919921875
+            },
+            {
+              "text": " and",
+              "start": 1.21,
+              "end": 1.29,
+              "probability": 0.75048828125
+            },
+            {
+              "text": " Nerissa._",
+              "start": 1.29,
+              "end": 2.39,
+              "probability": 0.5491536657015482
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Portia",
+          "start": 0.79,
+          "end": 1.21
+        },
+        {
+          "raw": "and",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "raw": "Nerissa._",
+          "start": 1.29,
+          "end": 2.39
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Portia",
+        "and",
+        "Nerissa._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Portia",
+          "start": 0.79,
+          "end": 1.21,
+          "key": "portia",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.21,
+          "end": 1.29,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Nerissa._",
+          "start": 1.29,
+          "end": 2.39,
+          "key": "nerissa_",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Portia",
+          "start": 0.79,
+          "end": 1.21
+        },
+        {
+          "text": "and",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "text": "Nerissa._]",
+          "start": 1.29,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1331824380904436
+    },
+    {
+      "asr_seconds": 0.1369065549224615,
+      "alignment_seconds": 0.0003381073474884033,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Portia, Nerissa._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exeunt Portia, Nerissa._",
+          "start": 0.05,
+          "end": 2.39,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.625213623046875
+            },
+            {
+              "text": " Portia,",
+              "start": 0.79,
+              "end": 1.21,
+              "probability": 0.867919921875
+            },
+            {
+              "text": " Nerissa._",
+              "start": 1.27,
+              "end": 2.39,
+              "probability": 0.4905599355697632
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Portia,",
+          "start": 0.79,
+          "end": 1.21
+        },
+        {
+          "raw": "Nerissa._",
+          "start": 1.27,
+          "end": 2.39
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Portia",
+        "and",
+        "Nerissa._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Portia,",
+          "start": 0.79,
+          "end": 1.21,
+          "key": "portia",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Nerissa._",
+          "start": 1.27,
+          "end": 2.39,
+          "key": "nerissa_",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Portia",
+          "start": 0.79,
+          "end": 1.21
+        },
+        {
+          "text": "and",
+          "start": 1.21,
+          "end": 1.8
+        },
+        {
+          "text": "Nerissa._]",
+          "start": 1.8,
+          "end": 2.095
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1373336836695671
+    },
+    {
+      "asr_seconds": 0.13439458422362804,
+      "alignment_seconds": 0.0003016432747244835,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt Portia and Nerissa.",
+          "start": 0.05,
+          "end": 1.69,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.625213623046875
+            },
+            {
+              "text": " Portia",
+              "start": 0.79,
+              "end": 1.21,
+              "probability": 0.867919921875
+            },
+            {
+              "text": " and",
+              "start": 1.21,
+              "end": 1.29,
+              "probability": 0.75048828125
+            },
+            {
+              "text": " Nerissa.",
+              "start": 1.29,
+              "end": 1.69,
+              "probability": 0.82373046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Portia",
+          "start": 0.79,
+          "end": 1.21
+        },
+        {
+          "raw": "and",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "raw": "Nerissa.",
+          "start": 1.29,
+          "end": 1.69
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Portia",
+        "and",
+        "Nerissa._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Portia",
+          "start": 0.79,
+          "end": 1.21,
+          "key": "portia",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.21,
+          "end": 1.29,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Nerissa.",
+          "start": 1.29,
+          "end": 1.69,
+          "key": "nerissa",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Portia",
+          "start": 0.79,
+          "end": 1.21
+        },
+        {
+          "text": "and",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "text": "Nerissa._]",
+          "start": 1.29,
+          "end": 1.69
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1347901364788413
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5039271ae825ab3e0b060e198b30b568d97626aa112e5eaa128fce840911368a",
+  "selected_reasons": []
+}

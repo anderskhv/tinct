@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "08a57235177ce17cea981a0858498d1a5369f6db299312048809cbbb76af4bf1",
+  "attempts": [
+    {
+      "asr_seconds": 0.3284778166562319,
+      "alignment_seconds": 0.0004914319142699242,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gratiano. A second Daniel, a Daniel, Jew! Now, infidel, I have you on the hip.",
+        "hotwords": "Gratiano, Daniel, Jew, Now, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gratiano, a second Daniel, a Daniel, Jew! Now, infidel, I have you on the hip.",
+          "start": 0.63,
+          "end": 5.39,
+          "words": [
+            {
+              "text": " Gratiano,",
+              "start": 0.63,
+              "end": 1.03,
+              "probability": 0.5853678385416666
+            },
+            {
+              "text": " a",
+              "start": 1.63,
+              "end": 1.67,
+              "probability": 0.935546875
+            },
+            {
+              "text": " second",
+              "start": 1.67,
+              "end": 1.97,
+              "probability": 0.5166015625
+            },
+            {
+              "text": " Daniel,",
+              "start": 1.97,
+              "end": 2.35,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " a",
+              "start": 2.51,
+              "end": 2.51,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Daniel,",
+              "start": 2.51,
+              "end": 2.83,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Jew!",
+              "start": 2.91,
+              "end": 3.15,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Now,",
+              "start": 3.81,
+              "end": 3.99,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " infidel,",
+              "start": 4.23,
+              "end": 4.51,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " I",
+              "start": 4.71,
+              "end": 4.75,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " have",
+              "start": 4.75,
+              "end": 4.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 4.91,
+              "end": 5.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 5.03,
+              "end": 5.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 5.13,
+              "end": 5.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hip.",
+              "start": 5.23,
+              "end": 5.39,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gratiano,",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "raw": "a",
+          "start": 1.63,
+          "end": 1.67
+        },
+        {
+          "raw": "second",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "raw": "Daniel,",
+          "start": 1.97,
+          "end": 2.35
+        },
+        {
+          "raw": "a",
+          "start": 2.51,
+          "end": 2.51
+        },
+        {
+          "raw": "Daniel,",
+          "start": 2.51,
+          "end": 2.83
+        },
+        {
+          "raw": "Jew!",
+          "start": 2.91,
+          "end": 3.15
+        },
+        {
+          "raw": "Now,",
+          "start": 3.81,
+          "end": 3.99
+        },
+        {
+          "raw": "infidel,",
+          "start": 4.23,
+          "end": 4.51
+        },
+        {
+          "raw": "I",
+          "start": 4.71,
+          "end": 4.75
+        },
+        {
+          "raw": "have",
+          "start": 4.75,
+          "end": 4.91
+        },
+        {
+          "raw": "you",
+          "start": 4.91,
+          "end": 5.03
+        },
+        {
+          "raw": "on",
+          "start": 5.03,
+          "end": 5.13
+        },
+        {
+          "raw": "the",
+          "start": 5.13,
+          "end": 5.23
+        },
+        {
+          "raw": "hip.",
+          "start": 5.23,
+          "end": 5.39
+        }
+      ],
+      "expected_tokens": [
+        "Gratiano.",
+        "A",
+        "second",
+        "Daniel,",
+        "a",
+        "Daniel,",
+        "Jew!",
+        "Now,",
+        "infidel,",
+        "I",
+        "have",
+        "you",
+        "on",
+        "the",
+        "hip."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gratiano,",
+          "start": 0.63,
+          "end": 1.03,
+          "key": "gratiano",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.63,
+          "end": 1.67,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "second",
+          "start": 1.67,
+          "end": 1.97,
+          "key": "second",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Daniel,",
+          "start": 1.97,
+          "end": 2.35,
+          "key": "daniel",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.51,
+          "end": 2.51,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Daniel,",
+          "start": 2.51,
+          "end": 2.83,
+          "key": "daniel",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Jew!",
+          "start": 2.91,
+          "end": 3.15,
+          "key": "jew",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Now,",
+          "start": 3.81,
+          "end": 3.99,
+          "key": "now",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "infidel,",
+          "start": 4.23,
+          "end": 4.51,
+          "key": "infidel",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.71,
+          "end": 4.75,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.75,
+          "end": 4.91,
+          "key": "have",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.91,
+          "end": 5.03,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.03,
+          "end": 5.13,
+          "key": "on",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.13,
+          "end": 5.23,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "hip.",
+          "start": 5.23,
+          "end": 5.39,
+          "key": "hip",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gratiano.",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "text": "A",
+          "start": 1.63,
+          "end": 1.67
+        },
+        {
+          "text": "second",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "text": "Daniel,",
+          "start": 1.97,
+          "end": 2.35
+        },
+        {
+          "text": "a",
+          "start": 2.51,
+          "end": 2.51
+        },
+        {
+          "text": "Daniel,",
+          "start": 2.51,
+          "end": 2.83
+        },
+        {
+          "text": "Jew!",
+          "start": 2.91,
+          "end": 3.15
+        },
+        {
+          "text": "Now,",
+          "start": 3.81,
+          "end": 3.99
+        },
+        {
+          "text": "infidel,",
+          "start": 4.23,
+          "end": 4.51
+        },
+        {
+          "text": "I",
+          "start": 4.71,
+          "end": 4.75
+        },
+        {
+          "text": "have",
+          "start": 4.75,
+          "end": 4.91
+        },
+        {
+          "text": "you",
+          "start": 4.91,
+          "end": 5.03
+        },
+        {
+          "text": "on",
+          "start": 5.03,
+          "end": 5.13
+        },
+        {
+          "text": "the",
+          "start": 5.13,
+          "end": 5.23
+        },
+        {
+          "text": "hip.",
+          "start": 5.23,
+          "end": 5.39
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32908726297318935
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "004a540b80329b86db16553a47680b43d06a2a6a9d11aa1c1b3ef52ab23458d4",
+  "selected_reasons": []
+}

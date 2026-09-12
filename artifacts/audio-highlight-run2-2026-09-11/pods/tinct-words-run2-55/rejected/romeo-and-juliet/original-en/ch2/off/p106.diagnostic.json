@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "5df0a4a2767a6b5787f5ae09b7d8abc15f18c64d34784c34c4afd6657bd6addb",
+  "attempts": [
+    {
+      "asr_seconds": 0.17489439994096756,
+      "alignment_seconds": 0.0003658812493085861,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Benvolio, be rolled by me, forget to think of her.",
+          "start": 0.68,
+          "end": 3.34,
+          "words": [
+            {
+              "text": " Benvolio,",
+              "start": 0.68,
+              "end": 1.08,
+              "probability": 0.9578450520833334
+            },
+            {
+              "text": " be",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " rolled",
+              "start": 1.66,
+              "end": 1.94,
+              "probability": 0.716796875
+            },
+            {
+              "text": " by",
+              "start": 1.94,
+              "end": 2.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me,",
+              "start": 2.18,
+              "end": 2.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " forget",
+              "start": 2.54,
+              "end": 2.64,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 2.64,
+              "end": 2.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " think",
+              "start": 2.86,
+              "end": 3.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 3.02,
+              "end": 3.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her.",
+              "start": 3.16,
+              "end": 3.34,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Benvolio,",
+          "start": 0.68,
+          "end": 1.08
+        },
+        {
+          "raw": "be",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "rolled",
+          "start": 1.66,
+          "end": 1.94
+        },
+        {
+          "raw": "by",
+          "start": 1.94,
+          "end": 2.18
+        },
+        {
+          "raw": "me,",
+          "start": 2.18,
+          "end": 2.36
+        },
+        {
+          "raw": "forget",
+          "start": 2.54,
+          "end": 2.64
+        },
+        {
+          "raw": "to",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "raw": "think",
+          "start": 2.86,
+          "end": 3.02
+        },
+        {
+          "raw": "of",
+          "start": 3.02,
+          "end": 3.16
+        },
+        {
+          "raw": "her.",
+          "start": 3.16,
+          "end": 3.34
+        }
+      ],
+      "expected_tokens": [
+        "Benvolio.",
+        "Be",
+        "rul'd",
+        "by",
+        "me,",
+        "forget",
+        "to",
+        "think",
+        "of",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          10,
+          3,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Benvolio,",
+          "start": 0.68,
+          "end": 1.08,
+          "key": "benvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.46,
+          "end": 1.66,
+          "key": "be",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "rolled",
+          "start": 1.66,
+          "end": 1.94,
+          "key": "rolled",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.94,
+          "end": 2.18,
+          "key": "by",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.18,
+          "end": 2.36,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "forget",
+          "start": 2.54,
+          "end": 2.64,
+          "key": "forget",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.64,
+          "end": 2.86,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 2.86,
+          "end": 3.02,
+          "key": "think",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.02,
+          "end": 3.16,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.16,
+          "end": 3.34,
+          "key": "her",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Benvolio.",
+          "start": 0.68,
+          "end": 1.08
+        },
+        {
+          "text": "Be",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "text": "rul'd",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "text": "by",
+          "start": 1.94,
+          "end": 2.18
+        },
+        {
+          "text": "me,",
+          "start": 2.18,
+          "end": 2.36
+        },
+        {
+          "text": "forget",
+          "start": 2.54,
+          "end": 2.64
+        },
+        {
+          "text": "to",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "text": "think",
+          "start": 2.86,
+          "end": 3.02
+        },
+        {
+          "text": "of",
+          "start": 3.02,
+          "end": 3.16
+        },
+        {
+          "text": "her.",
+          "start": 3.16,
+          "end": 3.34
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.17538094148039818
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e6b0d79d1bdcecd35fd4609aa44082d65826febe9bedcfdf428ff6c1d13c0e33",
+  "selected_reasons": []
+}

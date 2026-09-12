@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "96b4c47b38cd69914cde30501d406f57ae10885d08dfead63a29f9ba66fe03e9",
+  "attempts": [
+    {
+      "asr_seconds": 0.17863641399890184,
+      "alignment_seconds": 0.00020455475896596909,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Portia. Is your name Shylock?",
+        "hotwords": "Portia, Is, Shylock"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Portia, Is your name Shylock?",
+          "start": 0.45,
+          "end": 2.03,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.45,
+              "end": 0.85,
+              "probability": 0.7646484375
+            },
+            {
+              "text": " Is",
+              "start": 1.05,
+              "end": 1.23,
+              "probability": 0.0138397216796875
+            },
+            {
+              "text": " your",
+              "start": 1.23,
+              "end": 1.35,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " name",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " Shylock?",
+              "start": 1.49,
+              "end": 2.03,
+              "probability": 0.8922526041666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.45,
+          "end": 0.85
+        },
+        {
+          "raw": "Is",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "raw": "your",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "raw": "name",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "Shylock?",
+          "start": 1.49,
+          "end": 2.03
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "Is",
+        "your",
+        "name",
+        "Shylock?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.45,
+          "end": 0.85,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 1.05,
+          "end": 1.23,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.23,
+          "end": 1.35,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "name",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "name",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Shylock?",
+          "start": 1.49,
+          "end": 2.03,
+          "key": "shylock",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.45,
+          "end": 0.85
+        },
+        {
+          "text": "Is",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "text": "your",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "text": "name",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "Shylock?",
+          "start": 1.49,
+          "end": 2.03
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17890036199241877
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f2285ee971b709919efcf4b50bf865956c101893f5055b42ca62a912bfe50656",
+  "selected_reasons": []
+}

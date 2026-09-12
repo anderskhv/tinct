@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "1b0f7de4c931dd03c55ddf1db3b302467f8b5857ca0bf8ff6afeb4509abec839",
+  "attempts": [
+    {
+      "asr_seconds": 0.21897302195429802,
+      "alignment_seconds": 0.0003849128261208534,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Portia. Sir, grieve not you. You are welcome notwithstanding.",
+        "hotwords": "Portia, Sir"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Portia, Sir, grieve not you. You are welcome notwithstanding.",
+          "start": 0.05,
+          "end": 3.71,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.71142578125
+            },
+            {
+              "text": " Sir,",
+              "start": 1.23,
+              "end": 1.29,
+              "probability": 0.68896484375
+            },
+            {
+              "text": " grieve",
+              "start": 1.45,
+              "end": 1.53,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " not",
+              "start": 1.53,
+              "end": 1.75,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " you.",
+              "start": 1.75,
+              "end": 1.99,
+              "probability": 0.994140625
+            },
+            {
+              "text": " You",
+              "start": 2.49,
+              "end": 2.57,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " are",
+              "start": 2.57,
+              "end": 2.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " welcome",
+              "start": 2.69,
+              "end": 3.05,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " notwithstanding.",
+              "start": 3.05,
+              "end": 3.71,
+              "probability": 0.38134765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.23,
+          "end": 1.29
+        },
+        {
+          "raw": "grieve",
+          "start": 1.45,
+          "end": 1.53
+        },
+        {
+          "raw": "not",
+          "start": 1.53,
+          "end": 1.75
+        },
+        {
+          "raw": "you.",
+          "start": 1.75,
+          "end": 1.99
+        },
+        {
+          "raw": "You",
+          "start": 2.49,
+          "end": 2.57
+        },
+        {
+          "raw": "are",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "raw": "welcome",
+          "start": 2.69,
+          "end": 3.05
+        },
+        {
+          "raw": "notwithstanding.",
+          "start": 3.05,
+          "end": 3.71
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "Sir,",
+        "grieve",
+        "not",
+        "you.",
+        "You",
+        "are",
+        "welcome",
+        "notwithstanding."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.23,
+          "end": 1.29,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "grieve",
+          "start": 1.45,
+          "end": 1.53,
+          "key": "grieve",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.53,
+          "end": 1.75,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.75,
+          "end": 1.99,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.49,
+          "end": 2.57,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.57,
+          "end": 2.69,
+          "key": "are",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "welcome",
+          "start": 2.69,
+          "end": 3.05,
+          "key": "welcome",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "notwithstanding.",
+          "start": 3.05,
+          "end": 3.71,
+          "key": "notwithstanding",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Sir,",
+          "start": 1.23,
+          "end": 1.29
+        },
+        {
+          "text": "grieve",
+          "start": 1.45,
+          "end": 1.53
+        },
+        {
+          "text": "not",
+          "start": 1.53,
+          "end": 1.75
+        },
+        {
+          "text": "you.",
+          "start": 1.75,
+          "end": 1.99
+        },
+        {
+          "text": "You",
+          "start": 2.49,
+          "end": 2.57
+        },
+        {
+          "text": "are",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "text": "welcome",
+          "start": 2.69,
+          "end": 3.05
+        },
+        {
+          "text": "notwithstanding.",
+          "start": 3.05,
+          "end": 3.71
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2195139080286026
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7ac5b6f9f6282dd5597f0c1f4f34a5f42d7dd7048051a322394f2e9826c3e94e",
+  "selected_reasons": []
+}

@@ -1,0 +1,181 @@
+{
+  "complete": true,
+  "signature": "76f585b7b31936a29774d2a448a2c77aa770b20be41370e48a0fa95fa59f5a83",
+  "attempts": [
+    {
+      "asr_seconds": 0.12564783543348312,
+      "alignment_seconds": 0.00011106859892606735,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lorenzo. Here!",
+        "hotwords": "Lorenzo, Here"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lorenzo, Here Lorenzo. Here!",
+          "start": 0.02,
+          "end": 2.02,
+          "words": [
+            {
+              "text": " Lorenzo,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " Here",
+              "start": 1.14,
+              "end": 1.4,
+              "probability": 0.0225067138671875
+            },
+            {
+              "text": " Lorenzo.",
+              "start": 1.4,
+              "end": 2.02,
+              "probability": 2.384185791015625e-07
+            },
+            {
+              "text": " Here!",
+              "start": 2.02,
+              "end": 2.02,
+              "probability": 0.9150390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lorenzo,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "Here",
+          "start": 1.14,
+          "end": 1.4
+        },
+        {
+          "raw": "Lorenzo.",
+          "start": 1.4,
+          "end": 2.02
+        },
+        {
+          "raw": "Here!",
+          "start": 2.02,
+          "end": 2.02
+        }
+      ],
+      "expected_tokens": [
+        "Lorenzo.",
+        "Here!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lorenzo,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "lorenzo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Here",
+          "start": 1.14,
+          "end": 1.4,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lorenzo.",
+          "start": 1.4,
+          "end": 2.02,
+          "key": "lorenzo",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Here!",
+          "start": 2.02,
+          "end": 2.02,
+          "key": "here",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lorenzo.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Here!",
+          "start": 1.14,
+          "end": 1.4
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12579894345253706
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "10c9dc88dda9f7374ec5e9142a5379489ed572e590839826b106fa193b057078",
+  "selected_reasons": []
+}

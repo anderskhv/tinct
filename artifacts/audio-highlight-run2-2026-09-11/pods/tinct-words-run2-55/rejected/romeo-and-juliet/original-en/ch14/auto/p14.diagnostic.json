@@ -1,0 +1,1310 @@
+{
+  "complete": true,
+  "signature": "41336d5a5bfce8d68d923e40ab5ef4a07930d7d4b25402e2b619bce54fab63c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.5542301954701543,
+      "alignment_seconds": 0.0006246929988265038,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Juliet. What storm is this that blows so contrary? Is Romeo slaughter'd and is Tybalt dead? My dearest cousin, and my dearer lord? Then dreadful trumpet sound the general doom, For who is living, if those two are gone?",
+        "hotwords": "Juliet, What, Romeo, Tybalt, Then, For"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Juliet, What storm is this that blows so contrary? Is Romeo slaughter'd and is Tybalt dead? My dearest cousin, and my dearer lord? Then dreadful trumpet sound the general doom, For who is living, if those two are gone?",
+          "start": 0.02,
+          "end": 14.4,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.6669921875
+            },
+            {
+              "text": " What",
+              "start": 1.3,
+              "end": 1.48,
+              "probability": 0.07611083984375
+            },
+            {
+              "text": " storm",
+              "start": 1.48,
+              "end": 1.82,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " is",
+              "start": 1.82,
+              "end": 2.02,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " this",
+              "start": 2.02,
+              "end": 2.18,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " that",
+              "start": 2.18,
+              "end": 2.4,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " blows",
+              "start": 2.4,
+              "end": 2.64,
+              "probability": 0.984375
+            },
+            {
+              "text": " so",
+              "start": 2.64,
+              "end": 2.96,
+              "probability": 0.9921875
+            },
+            {
+              "text": " contrary?",
+              "start": 2.96,
+              "end": 3.5,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Is",
+              "start": 4.14,
+              "end": 4.28,
+              "probability": 0.931640625
+            },
+            {
+              "text": " Romeo",
+              "start": 4.28,
+              "end": 4.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " slaughter'd",
+              "start": 4.68,
+              "end": 5.38,
+              "probability": 0.43449831008911133
+            },
+            {
+              "text": " and",
+              "start": 5.38,
+              "end": 5.48,
+              "probability": 0.6728515625
+            },
+            {
+              "text": " is",
+              "start": 5.48,
+              "end": 5.66,
+              "probability": 0.306884765625
+            },
+            {
+              "text": " Tybalt",
+              "start": 5.66,
+              "end": 6.06,
+              "probability": 0.9479166666666666
+            },
+            {
+              "text": " dead?",
+              "start": 6.06,
+              "end": 6.36,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " My",
+              "start": 7.0,
+              "end": 7.16,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " dearest",
+              "start": 7.16,
+              "end": 7.56,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " cousin,",
+              "start": 7.56,
+              "end": 7.84,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " and",
+              "start": 8.14,
+              "end": 8.22,
+              "probability": 0.94140625
+            },
+            {
+              "text": " my",
+              "start": 8.22,
+              "end": 8.42,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " dearer",
+              "start": 8.42,
+              "end": 8.74,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " lord?",
+              "start": 8.74,
+              "end": 9.1,
+              "probability": 0.7451171875
+            },
+            {
+              "text": " Then",
+              "start": 9.74,
+              "end": 9.9,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " dreadful",
+              "start": 9.9,
+              "end": 10.3,
+              "probability": 0.65478515625
+            },
+            {
+              "text": " trumpet",
+              "start": 10.3,
+              "end": 10.76,
+              "probability": 0.5595703125
+            },
+            {
+              "text": " sound",
+              "start": 10.76,
+              "end": 11.12,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " the",
+              "start": 11.12,
+              "end": 11.32,
+              "probability": 0.978515625
+            },
+            {
+              "text": " general",
+              "start": 11.32,
+              "end": 11.7,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " doom,",
+              "start": 11.7,
+              "end": 12.04,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " For",
+              "start": 12.46,
+              "end": 12.56,
+              "probability": 0.8203125
+            },
+            {
+              "text": " who",
+              "start": 12.56,
+              "end": 12.74,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " is",
+              "start": 12.74,
+              "end": 12.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " living,",
+              "start": 12.92,
+              "end": 13.18,
+              "probability": 0.9765625
+            },
+            {
+              "text": " if",
+              "start": 13.34,
+              "end": 13.5,
+              "probability": 0.9921875
+            },
+            {
+              "text": " those",
+              "start": 13.5,
+              "end": 13.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " two",
+              "start": 13.7,
+              "end": 13.96,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " are",
+              "start": 13.96,
+              "end": 14.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " gone?",
+              "start": 14.12,
+              "end": 14.4,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Juliet,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "What",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "raw": "storm",
+          "start": 1.48,
+          "end": 1.82
+        },
+        {
+          "raw": "is",
+          "start": 1.82,
+          "end": 2.02
+        },
+        {
+          "raw": "this",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "raw": "that",
+          "start": 2.18,
+          "end": 2.4
+        },
+        {
+          "raw": "blows",
+          "start": 2.4,
+          "end": 2.64
+        },
+        {
+          "raw": "so",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "raw": "contrary?",
+          "start": 2.96,
+          "end": 3.5
+        },
+        {
+          "raw": "Is",
+          "start": 4.14,
+          "end": 4.28
+        },
+        {
+          "raw": "Romeo",
+          "start": 4.28,
+          "end": 4.68
+        },
+        {
+          "raw": "slaughter'd",
+          "start": 4.68,
+          "end": 5.38
+        },
+        {
+          "raw": "and",
+          "start": 5.38,
+          "end": 5.48
+        },
+        {
+          "raw": "is",
+          "start": 5.48,
+          "end": 5.66
+        },
+        {
+          "raw": "Tybalt",
+          "start": 5.66,
+          "end": 6.06
+        },
+        {
+          "raw": "dead?",
+          "start": 6.06,
+          "end": 6.36
+        },
+        {
+          "raw": "My",
+          "start": 7.0,
+          "end": 7.16
+        },
+        {
+          "raw": "dearest",
+          "start": 7.16,
+          "end": 7.56
+        },
+        {
+          "raw": "cousin,",
+          "start": 7.56,
+          "end": 7.84
+        },
+        {
+          "raw": "and",
+          "start": 8.14,
+          "end": 8.22
+        },
+        {
+          "raw": "my",
+          "start": 8.22,
+          "end": 8.42
+        },
+        {
+          "raw": "dearer",
+          "start": 8.42,
+          "end": 8.74
+        },
+        {
+          "raw": "lord?",
+          "start": 8.74,
+          "end": 9.1
+        },
+        {
+          "raw": "Then",
+          "start": 9.74,
+          "end": 9.9
+        },
+        {
+          "raw": "dreadful",
+          "start": 9.9,
+          "end": 10.3
+        },
+        {
+          "raw": "trumpet",
+          "start": 10.3,
+          "end": 10.76
+        },
+        {
+          "raw": "sound",
+          "start": 10.76,
+          "end": 11.12
+        },
+        {
+          "raw": "the",
+          "start": 11.12,
+          "end": 11.32
+        },
+        {
+          "raw": "general",
+          "start": 11.32,
+          "end": 11.7
+        },
+        {
+          "raw": "doom,",
+          "start": 11.7,
+          "end": 12.04
+        },
+        {
+          "raw": "For",
+          "start": 12.46,
+          "end": 12.56
+        },
+        {
+          "raw": "who",
+          "start": 12.56,
+          "end": 12.74
+        },
+        {
+          "raw": "is",
+          "start": 12.74,
+          "end": 12.92
+        },
+        {
+          "raw": "living,",
+          "start": 12.92,
+          "end": 13.18
+        },
+        {
+          "raw": "if",
+          "start": 13.34,
+          "end": 13.5
+        },
+        {
+          "raw": "those",
+          "start": 13.5,
+          "end": 13.7
+        },
+        {
+          "raw": "two",
+          "start": 13.7,
+          "end": 13.96
+        },
+        {
+          "raw": "are",
+          "start": 13.96,
+          "end": 14.12
+        },
+        {
+          "raw": "gone?",
+          "start": 14.12,
+          "end": 14.4
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "What",
+        "storm",
+        "is",
+        "this",
+        "that",
+        "blows",
+        "so",
+        "contrary?",
+        "Is",
+        "Romeo",
+        "slaughter'd",
+        "and",
+        "is",
+        "Tybalt",
+        "dead?",
+        "My",
+        "dearest",
+        "cousin,",
+        "and",
+        "my",
+        "dearer",
+        "lord?",
+        "Then",
+        "dreadful",
+        "trumpet",
+        "sound",
+        "the",
+        "general",
+        "doom,",
+        "For",
+        "who",
+        "is",
+        "living,",
+        "if",
+        "those",
+        "two",
+        "are",
+        "gone?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          39,
+          0,
+          39
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Juliet,",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "juliet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.3,
+          "end": 1.48,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "storm",
+          "start": 1.48,
+          "end": 1.82,
+          "key": "storm",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.82,
+          "end": 2.02,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.02,
+          "end": 2.18,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.18,
+          "end": 2.4,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "blows",
+          "start": 2.4,
+          "end": 2.64,
+          "key": "blows",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.64,
+          "end": 2.96,
+          "key": "so",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "contrary?",
+          "start": 2.96,
+          "end": 3.5,
+          "key": "contrary",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 4.14,
+          "end": 4.28,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Romeo",
+          "start": 4.28,
+          "end": 4.68,
+          "key": "romeo",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "slaughter'd",
+          "start": 4.68,
+          "end": 5.38,
+          "key": "slaughterd",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.38,
+          "end": 5.48,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.48,
+          "end": 5.66,
+          "key": "is",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Tybalt",
+          "start": 5.66,
+          "end": 6.06,
+          "key": "tybalt",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "dead?",
+          "start": 6.06,
+          "end": 6.36,
+          "key": "dead",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 7.0,
+          "end": 7.16,
+          "key": "my",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "dearest",
+          "start": 7.16,
+          "end": 7.56,
+          "key": "dearest",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "cousin,",
+          "start": 7.56,
+          "end": 7.84,
+          "key": "cousin",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.14,
+          "end": 8.22,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 8.22,
+          "end": 8.42,
+          "key": "my",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "dearer",
+          "start": 8.42,
+          "end": 8.74,
+          "key": "dearer",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "lord?",
+          "start": 8.74,
+          "end": 9.1,
+          "key": "lord",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 9.74,
+          "end": 9.9,
+          "key": "then",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "dreadful",
+          "start": 9.9,
+          "end": 10.3,
+          "key": "dreadful",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "trumpet",
+          "start": 10.3,
+          "end": 10.76,
+          "key": "trumpet",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "sound",
+          "start": 10.76,
+          "end": 11.12,
+          "key": "sound",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.12,
+          "end": 11.32,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "general",
+          "start": 11.32,
+          "end": 11.7,
+          "key": "general",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "doom,",
+          "start": 11.7,
+          "end": 12.04,
+          "key": "doom",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 12.46,
+          "end": 12.56,
+          "key": "for",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 12.56,
+          "end": 12.74,
+          "key": "who",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 12.74,
+          "end": 12.92,
+          "key": "is",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "living,",
+          "start": 12.92,
+          "end": 13.18,
+          "key": "living",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 13.34,
+          "end": 13.5,
+          "key": "if",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 13.5,
+          "end": 13.7,
+          "key": "those",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 13.7,
+          "end": 13.96,
+          "key": "two",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 13.96,
+          "end": 14.12,
+          "key": "are",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "gone?",
+          "start": 14.12,
+          "end": 14.4,
+          "key": "gone",
+          "pieces": [
+            38
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "What",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "text": "storm",
+          "start": 1.48,
+          "end": 1.82
+        },
+        {
+          "text": "is",
+          "start": 1.82,
+          "end": 2.02
+        },
+        {
+          "text": "this",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "text": "that",
+          "start": 2.18,
+          "end": 2.4
+        },
+        {
+          "text": "blows",
+          "start": 2.4,
+          "end": 2.64
+        },
+        {
+          "text": "so",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "text": "contrary?",
+          "start": 2.96,
+          "end": 3.5
+        },
+        {
+          "text": "Is",
+          "start": 4.14,
+          "end": 4.28
+        },
+        {
+          "text": "Romeo",
+          "start": 4.28,
+          "end": 4.68
+        },
+        {
+          "text": "slaughter'd",
+          "start": 4.68,
+          "end": 5.38
+        },
+        {
+          "text": "and",
+          "start": 5.38,
+          "end": 5.48
+        },
+        {
+          "text": "is",
+          "start": 5.48,
+          "end": 5.66
+        },
+        {
+          "text": "Tybalt",
+          "start": 5.66,
+          "end": 6.06
+        },
+        {
+          "text": "dead?",
+          "start": 6.06,
+          "end": 6.36
+        },
+        {
+          "text": "My",
+          "start": 7.0,
+          "end": 7.16
+        },
+        {
+          "text": "dearest",
+          "start": 7.16,
+          "end": 7.56
+        },
+        {
+          "text": "cousin,",
+          "start": 7.56,
+          "end": 7.84
+        },
+        {
+          "text": "and",
+          "start": 8.14,
+          "end": 8.22
+        },
+        {
+          "text": "my",
+          "start": 8.22,
+          "end": 8.42
+        },
+        {
+          "text": "dearer",
+          "start": 8.42,
+          "end": 8.74
+        },
+        {
+          "text": "lord?",
+          "start": 8.74,
+          "end": 9.1
+        },
+        {
+          "text": "Then",
+          "start": 9.74,
+          "end": 9.9
+        },
+        {
+          "text": "dreadful",
+          "start": 9.9,
+          "end": 10.3
+        },
+        {
+          "text": "trumpet",
+          "start": 10.3,
+          "end": 10.76
+        },
+        {
+          "text": "sound",
+          "start": 10.76,
+          "end": 11.12
+        },
+        {
+          "text": "the",
+          "start": 11.12,
+          "end": 11.32
+        },
+        {
+          "text": "general",
+          "start": 11.32,
+          "end": 11.7
+        },
+        {
+          "text": "doom,",
+          "start": 11.7,
+          "end": 12.04
+        },
+        {
+          "text": "For",
+          "start": 12.46,
+          "end": 12.56
+        },
+        {
+          "text": "who",
+          "start": 12.56,
+          "end": 12.74
+        },
+        {
+          "text": "is",
+          "start": 12.74,
+          "end": 12.92
+        },
+        {
+          "text": "living,",
+          "start": 12.92,
+          "end": 13.18
+        },
+        {
+          "text": "if",
+          "start": 13.34,
+          "end": 13.5
+        },
+        {
+          "text": "those",
+          "start": 13.5,
+          "end": 13.7
+        },
+        {
+          "text": "two",
+          "start": 13.7,
+          "end": 13.96
+        },
+        {
+          "text": "are",
+          "start": 13.96,
+          "end": 14.12
+        },
+        {
+          "text": "gone?",
+          "start": 14.12,
+          "end": 14.4
+        }
+      ],
+      "stats": {
+        "expected_words": 39,
+        "heard_words": 39,
+        "matched_words": 39
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5551216322928667
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e010f05dfb6d4c4cdf63f484d6f03b95a379467eca56bcd178750efbf4c155b7",
+  "selected_reasons": []
+}

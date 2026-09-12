@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "6070a3e0ec47e1d8bd405ecb1da9597741ae25216fce2a57bfc1401b4b206119",
+  "attempts": [
+    {
+      "asr_seconds": 0.19179404061287642,
+      "alignment_seconds": 0.0002820584923028946,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Abraham quarrels, sir. No, sir.",
+          "start": 0.02,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " Abraham",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.60888671875
+            },
+            {
+              "text": " quarrels,",
+              "start": 0.76,
+              "end": 1.36,
+              "probability": 0.71142578125
+            },
+            {
+              "text": " sir.",
+              "start": 1.52,
+              "end": 1.52,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " No,",
+              "start": 1.92,
+              "end": 1.98,
+              "probability": 0.97265625
+            },
+            {
+              "text": " sir.",
+              "start": 2.14,
+              "end": 2.24,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Abraham",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "quarrels,",
+          "start": 0.76,
+          "end": 1.36
+        },
+        {
+          "raw": "sir.",
+          "start": 1.52,
+          "end": 1.52
+        },
+        {
+          "raw": "No,",
+          "start": 1.92,
+          "end": 1.98
+        },
+        {
+          "raw": "sir.",
+          "start": 2.14,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "Abram.",
+        "Quarrel,",
+        "sir?",
+        "No,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Abraham",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "abraham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "quarrels,",
+          "start": 0.76,
+          "end": 1.36,
+          "key": "quarrels",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.52,
+          "end": 1.52,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.92,
+          "end": 1.98,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 2.14,
+          "end": 2.24,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Abram.",
+          "start": 0.0,
+          "end": 0.76
+        },
+        {
+          "text": "Quarrel,",
+          "start": 0.76,
+          "end": 1.14
+        },
+        {
+          "text": "sir?",
+          "start": 1.52,
+          "end": 1.52
+        },
+        {
+          "text": "No,",
+          "start": 1.92,
+          "end": 1.98
+        },
+        {
+          "text": "sir.",
+          "start": 2.14,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19216177891939878
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "839e81ae08b2a91028cd81c18aacc2a8809676b5f21681f790f09cdfef6abf87",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

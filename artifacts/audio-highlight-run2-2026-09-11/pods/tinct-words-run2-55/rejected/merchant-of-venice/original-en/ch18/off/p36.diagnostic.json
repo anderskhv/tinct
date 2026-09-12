@@ -1,0 +1,643 @@
+{
+  "complete": true,
+  "signature": "4ffe5f33164ac39eea4e609358aaf2a3e4454d95f118733fd20004f4299244a1",
+  "attempts": [
+    {
+      "asr_seconds": 0.3429376371204853,
+      "alignment_seconds": 0.000432710163295269,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Duke, this letter from Bellario Doth commend a young and learned doctor to our court.",
+          "start": 0.08,
+          "end": 4.92,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.72998046875
+            },
+            {
+              "text": " this",
+              "start": 1.02,
+              "end": 1.3,
+              "probability": 0.970703125
+            },
+            {
+              "text": " letter",
+              "start": 1.3,
+              "end": 1.58,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " from",
+              "start": 1.58,
+              "end": 1.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Bellario",
+              "start": 1.82,
+              "end": 2.26,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " Doth",
+              "start": 2.26,
+              "end": 2.62,
+              "probability": 0.696044921875
+            },
+            {
+              "text": " commend",
+              "start": 2.62,
+              "end": 2.92,
+              "probability": 0.83203125
+            },
+            {
+              "text": " a",
+              "start": 2.92,
+              "end": 3.14,
+              "probability": 0.990234375
+            },
+            {
+              "text": " young",
+              "start": 3.14,
+              "end": 3.4,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 3.4,
+              "end": 3.62,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " learned",
+              "start": 3.62,
+              "end": 3.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " doctor",
+              "start": 3.9,
+              "end": 4.24,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " to",
+              "start": 4.24,
+              "end": 4.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " our",
+              "start": 4.48,
+              "end": 4.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " court.",
+              "start": 4.6,
+              "end": 4.92,
+              "probability": 0.96142578125
+            }
+          ]
+        },
+        {
+          "text": " Where is he?",
+          "start": 5.5,
+          "end": 6.0,
+          "words": [
+            {
+              "text": " Where",
+              "start": 5.5,
+              "end": 5.64,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " is",
+              "start": 5.64,
+              "end": 5.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he?",
+              "start": 5.8,
+              "end": 6.0,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "this",
+          "start": 1.02,
+          "end": 1.3
+        },
+        {
+          "raw": "letter",
+          "start": 1.3,
+          "end": 1.58
+        },
+        {
+          "raw": "from",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "raw": "Bellario",
+          "start": 1.82,
+          "end": 2.26
+        },
+        {
+          "raw": "Doth",
+          "start": 2.26,
+          "end": 2.62
+        },
+        {
+          "raw": "commend",
+          "start": 2.62,
+          "end": 2.92
+        },
+        {
+          "raw": "a",
+          "start": 2.92,
+          "end": 3.14
+        },
+        {
+          "raw": "young",
+          "start": 3.14,
+          "end": 3.4
+        },
+        {
+          "raw": "and",
+          "start": 3.4,
+          "end": 3.62
+        },
+        {
+          "raw": "learned",
+          "start": 3.62,
+          "end": 3.9
+        },
+        {
+          "raw": "doctor",
+          "start": 3.9,
+          "end": 4.24
+        },
+        {
+          "raw": "to",
+          "start": 4.24,
+          "end": 4.48
+        },
+        {
+          "raw": "our",
+          "start": 4.48,
+          "end": 4.6
+        },
+        {
+          "raw": "court.",
+          "start": 4.6,
+          "end": 4.92
+        },
+        {
+          "raw": "Where",
+          "start": 5.5,
+          "end": 5.64
+        },
+        {
+          "raw": "is",
+          "start": 5.64,
+          "end": 5.8
+        },
+        {
+          "raw": "he?",
+          "start": 5.8,
+          "end": 6.0
+        }
+      ],
+      "expected_tokens": [
+        "Duke.",
+        "This",
+        "letter",
+        "from",
+        "Bellario",
+        "doth",
+        "commend",
+        "A",
+        "young",
+        "and",
+        "learned",
+        "doctor",
+        "to",
+        "our",
+        "court.",
+        "Where",
+        "is",
+        "he?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.02,
+          "end": 1.3,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 1.3,
+          "end": 1.58,
+          "key": "letter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.58,
+          "end": 1.82,
+          "key": "from",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Bellario",
+          "start": 1.82,
+          "end": 2.26,
+          "key": "bellario",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Doth",
+          "start": 2.26,
+          "end": 2.62,
+          "key": "doth",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "commend",
+          "start": 2.62,
+          "end": 2.92,
+          "key": "commend",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.92,
+          "end": 3.14,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 3.14,
+          "end": 3.4,
+          "key": "young",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.4,
+          "end": 3.62,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "learned",
+          "start": 3.62,
+          "end": 3.9,
+          "key": "learned",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "doctor",
+          "start": 3.9,
+          "end": 4.24,
+          "key": "doctor",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.24,
+          "end": 4.48,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.48,
+          "end": 4.6,
+          "key": "our",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "court.",
+          "start": 4.6,
+          "end": 4.92,
+          "key": "court",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 5.5,
+          "end": 5.64,
+          "key": "where",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.64,
+          "end": 5.8,
+          "key": "is",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "he?",
+          "start": 5.8,
+          "end": 6.0,
+          "key": "he",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duke.",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "This",
+          "start": 1.02,
+          "end": 1.3
+        },
+        {
+          "text": "letter",
+          "start": 1.3,
+          "end": 1.58
+        },
+        {
+          "text": "from",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "text": "Bellario",
+          "start": 1.82,
+          "end": 2.26
+        },
+        {
+          "text": "doth",
+          "start": 2.26,
+          "end": 2.62
+        },
+        {
+          "text": "commend",
+          "start": 2.62,
+          "end": 2.92
+        },
+        {
+          "text": "A",
+          "start": 2.92,
+          "end": 3.14
+        },
+        {
+          "text": "young",
+          "start": 3.14,
+          "end": 3.4
+        },
+        {
+          "text": "and",
+          "start": 3.4,
+          "end": 3.62
+        },
+        {
+          "text": "learned",
+          "start": 3.62,
+          "end": 3.9
+        },
+        {
+          "text": "doctor",
+          "start": 3.9,
+          "end": 4.24
+        },
+        {
+          "text": "to",
+          "start": 4.24,
+          "end": 4.48
+        },
+        {
+          "text": "our",
+          "start": 4.48,
+          "end": 4.6
+        },
+        {
+          "text": "court.",
+          "start": 4.6,
+          "end": 4.92
+        },
+        {
+          "text": "Where",
+          "start": 5.5,
+          "end": 5.64
+        },
+        {
+          "text": "is",
+          "start": 5.64,
+          "end": 5.8
+        },
+        {
+          "text": "he?",
+          "start": 5.8,
+          "end": 6.0
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3435467416420579
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f96546813ecb632180cfcb3dba8f38896795a6c3304700faa7468566712afae4",
+  "selected_reasons": []
+}

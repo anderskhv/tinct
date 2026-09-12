@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "a49fbf098d74a3d98f54226dcfcb6c9af3a23a72b807c61a5a9a8e5daea61866",
+  "attempts": [
+    {
+      "asr_seconds": 0.22142439521849155,
+      "alignment_seconds": 0.00034283753484487534,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Nerissa. From both, my lord. Bellario greets your Grace.",
+        "hotwords": "Nerissa, From, Bellario, Grace"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nerissa, From both, my lord. Bellario greets your Grace.",
+          "start": 0.05,
+          "end": 3.85,
+          "words": [
+            {
+              "text": " Nerissa,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.733154296875
+            },
+            {
+              "text": " From",
+              "start": 1.17,
+              "end": 1.35,
+              "probability": 0.01558685302734375
+            },
+            {
+              "text": " both,",
+              "start": 1.35,
+              "end": 1.59,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " my",
+              "start": 1.79,
+              "end": 1.89,
+              "probability": 0.63671875
+            },
+            {
+              "text": " lord.",
+              "start": 1.89,
+              "end": 2.17,
+              "probability": 0.7099609375
+            },
+            {
+              "text": " Bellario",
+              "start": 2.79,
+              "end": 3.07,
+              "probability": 0.302642822265625
+            },
+            {
+              "text": " greets",
+              "start": 3.07,
+              "end": 3.37,
+              "probability": 0.8564453125
+            },
+            {
+              "text": " your",
+              "start": 3.37,
+              "end": 3.59,
+              "probability": 0.94140625
+            },
+            {
+              "text": " Grace.",
+              "start": 3.59,
+              "end": 3.85,
+              "probability": 0.2430419921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nerissa,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "From",
+          "start": 1.17,
+          "end": 1.35
+        },
+        {
+          "raw": "both,",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "raw": "my",
+          "start": 1.79,
+          "end": 1.89
+        },
+        {
+          "raw": "lord.",
+          "start": 1.89,
+          "end": 2.17
+        },
+        {
+          "raw": "Bellario",
+          "start": 2.79,
+          "end": 3.07
+        },
+        {
+          "raw": "greets",
+          "start": 3.07,
+          "end": 3.37
+        },
+        {
+          "raw": "your",
+          "start": 3.37,
+          "end": 3.59
+        },
+        {
+          "raw": "Grace.",
+          "start": 3.59,
+          "end": 3.85
+        }
+      ],
+      "expected_tokens": [
+        "Nerissa.",
+        "From",
+        "both,",
+        "my",
+        "lord.",
+        "Bellario",
+        "greets",
+        "your",
+        "Grace."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nerissa,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "nerissa",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "From",
+          "start": 1.17,
+          "end": 1.35,
+          "key": "from",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "both,",
+          "start": 1.35,
+          "end": 1.59,
+          "key": "both",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.79,
+          "end": 1.89,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.89,
+          "end": 2.17,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Bellario",
+          "start": 2.79,
+          "end": 3.07,
+          "key": "bellario",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "greets",
+          "start": 3.07,
+          "end": 3.37,
+          "key": "greets",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.37,
+          "end": 3.59,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Grace.",
+          "start": 3.59,
+          "end": 3.85,
+          "key": "grace",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Nerissa.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "From",
+          "start": 1.17,
+          "end": 1.35
+        },
+        {
+          "text": "both,",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "text": "my",
+          "start": 1.79,
+          "end": 1.89
+        },
+        {
+          "text": "lord.",
+          "start": 1.89,
+          "end": 2.17
+        },
+        {
+          "text": "Bellario",
+          "start": 2.79,
+          "end": 3.07
+        },
+        {
+          "text": "greets",
+          "start": 3.07,
+          "end": 3.37
+        },
+        {
+          "text": "your",
+          "start": 3.37,
+          "end": 3.59
+        },
+        {
+          "text": "Grace.",
+          "start": 3.59,
+          "end": 3.85
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22188235074281693
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "34f4443c3b69f7a7923dc13b93b9d7f48100ccaddfec093cc2184e6ffe4db7a0",
+  "selected_reasons": []
+}

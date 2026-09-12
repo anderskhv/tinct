@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "42542ae9cf3247593bc23a2c7190e3949233dfd4a3071525b960c1bf5c9aa131",
+  "attempts": [
+    {
+      "asr_seconds": 0.11471847910434008,
+      "alignment_seconds": 0.00032125506550073624,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " presents a letter.",
+          "start": 0.05,
+          "end": 1.11,
+          "words": [
+            {
+              "text": " presents",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.392333984375
+            },
+            {
+              "text": " a",
+              "start": 0.65,
+              "end": 0.87,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " letter.",
+              "start": 0.87,
+              "end": 1.11,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "presents",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "a",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "raw": "letter.",
+          "start": 0.87,
+          "end": 1.11
+        }
+      ],
+      "expected_tokens": [
+        "[_Presents",
+        "a",
+        "letter._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "presents",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "presents",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.65,
+          "end": 0.87,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "letter.",
+          "start": 0.87,
+          "end": 1.11,
+          "key": "letter",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Presents",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "a",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "text": "letter._]",
+          "start": 0.87,
+          "end": 1.11
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11514498945325613
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c3c75427b4a4e60a90cd01e2b1018bc82d70cb65279bb92da9496d35979353e9",
+  "selected_reasons": []
+}

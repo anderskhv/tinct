@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "7f0061ddd03254de2f05a1e37d10b0909cdeeea960b64442d5c07d224471a083",
+  "attempts": [
+    {
+      "asr_seconds": 0.22604504320770502,
+      "alignment_seconds": 0.00044748373329639435,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sampson, Gregory on my word will not carry coals.",
+          "start": 0.08,
+          "end": 3.34,
+          "words": [
+            {
+              "text": " Sampson,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.710205078125
+            },
+            {
+              "text": " Gregory",
+              "start": 1.28,
+              "end": 1.6,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " on",
+              "start": 1.6,
+              "end": 1.86,
+              "probability": 0.52392578125
+            },
+            {
+              "text": " my",
+              "start": 1.86,
+              "end": 2.0,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " word",
+              "start": 2.0,
+              "end": 2.22,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " will",
+              "start": 2.22,
+              "end": 2.38,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " not",
+              "start": 2.38,
+              "end": 2.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " carry",
+              "start": 2.54,
+              "end": 2.84,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " coals.",
+              "start": 2.84,
+              "end": 3.34,
+              "probability": 0.710693359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sampson,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "Gregory",
+          "start": 1.28,
+          "end": 1.6
+        },
+        {
+          "raw": "on",
+          "start": 1.6,
+          "end": 1.86
+        },
+        {
+          "raw": "my",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "raw": "word",
+          "start": 2.0,
+          "end": 2.22
+        },
+        {
+          "raw": "will",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "raw": "not",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "raw": "carry",
+          "start": 2.54,
+          "end": 2.84
+        },
+        {
+          "raw": "coals.",
+          "start": 2.84,
+          "end": 3.34
+        }
+      ],
+      "expected_tokens": [
+        "Sampson.",
+        "Gregory,",
+        "on",
+        "my",
+        "word,",
+        "we'll",
+        "not",
+        "carry",
+        "coals."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          9,
+          6,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sampson,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "sampson",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gregory",
+          "start": 1.28,
+          "end": 1.6,
+          "key": "gregory",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.6,
+          "end": 1.86,
+          "key": "on",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.86,
+          "end": 2.0,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "word",
+          "start": 2.0,
+          "end": 2.22,
+          "key": "word",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.22,
+          "end": 2.38,
+          "key": "will",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.38,
+          "end": 2.54,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "carry",
+          "start": 2.54,
+          "end": 2.84,
+          "key": "carry",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "coals.",
+          "start": 2.84,
+          "end": 3.34,
+          "key": "coals",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sampson.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "Gregory,",
+          "start": 1.28,
+          "end": 1.6
+        },
+        {
+          "text": "on",
+          "start": 1.6,
+          "end": 1.86
+        },
+        {
+          "text": "my",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "text": "word,",
+          "start": 2.0,
+          "end": 2.22
+        },
+        {
+          "text": "we'll",
+          "start": 2.22,
+          "end": 2.3
+        },
+        {
+          "text": "not",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "text": "carry",
+          "start": 2.54,
+          "end": 2.84
+        },
+        {
+          "text": "coals.",
+          "start": 2.84,
+          "end": 3.34
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.22666152752935886
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a0f730417d41646a54855838bd5abdf6ada231e884524db191863015f08f4323",
+  "selected_reasons": []
+}

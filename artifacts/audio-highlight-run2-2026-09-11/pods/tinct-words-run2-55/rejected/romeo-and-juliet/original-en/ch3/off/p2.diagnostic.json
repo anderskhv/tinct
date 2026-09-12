@@ -1,0 +1,942 @@
+{
+  "complete": true,
+  "signature": "15adc878ba7ad0b93c932e26d860ae8be7f931b8a005b480f600f193857fb56c",
+  "attempts": [
+    {
+      "asr_seconds": 0.39236003533005714,
+      "alignment_seconds": 0.0005340985953807831,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Paris, of honorable reckoning are you both, and pity tis you lived at odds so long.",
+          "start": 0.02,
+          "end": 5.44,
+          "words": [
+            {
+              "text": " Paris,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.362548828125
+            },
+            {
+              "text": " of",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " honorable",
+              "start": 1.42,
+              "end": 1.88,
+              "probability": 0.75537109375
+            },
+            {
+              "text": " reckoning",
+              "start": 1.88,
+              "end": 2.28,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " are",
+              "start": 2.28,
+              "end": 2.5,
+              "probability": 0.962890625
+            },
+            {
+              "text": " you",
+              "start": 2.5,
+              "end": 2.66,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " both,",
+              "start": 2.66,
+              "end": 2.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 3.32,
+              "end": 3.42,
+              "probability": 0.7119140625
+            },
+            {
+              "text": " pity",
+              "start": 3.42,
+              "end": 3.62,
+              "probability": 0.73388671875
+            },
+            {
+              "text": " tis",
+              "start": 3.62,
+              "end": 3.98,
+              "probability": 0.56768798828125
+            },
+            {
+              "text": " you",
+              "start": 3.98,
+              "end": 4.2,
+              "probability": 0.953125
+            },
+            {
+              "text": " lived",
+              "start": 4.2,
+              "end": 4.38,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " at",
+              "start": 4.38,
+              "end": 4.54,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " odds",
+              "start": 4.54,
+              "end": 4.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " so",
+              "start": 4.78,
+              "end": 5.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " long.",
+              "start": 5.1,
+              "end": 5.44,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " But now, my lord, what say you to my suit?",
+          "start": 6.04,
+          "end": 8.24,
+          "words": [
+            {
+              "text": " But",
+              "start": 6.04,
+              "end": 6.14,
+              "probability": 0.986328125
+            },
+            {
+              "text": " now,",
+              "start": 6.14,
+              "end": 6.34,
+              "probability": 0.98828125
+            },
+            {
+              "text": " my",
+              "start": 6.42,
+              "end": 6.52,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " lord,",
+              "start": 6.52,
+              "end": 6.82,
+              "probability": 0.82470703125
+            },
+            {
+              "text": " what",
+              "start": 7.22,
+              "end": 7.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " say",
+              "start": 7.32,
+              "end": 7.54,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 7.54,
+              "end": 7.68,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " to",
+              "start": 7.68,
+              "end": 7.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 7.78,
+              "end": 7.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " suit?",
+              "start": 7.92,
+              "end": 8.24,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Paris,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "of",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "raw": "honorable",
+          "start": 1.42,
+          "end": 1.88
+        },
+        {
+          "raw": "reckoning",
+          "start": 1.88,
+          "end": 2.28
+        },
+        {
+          "raw": "are",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "raw": "you",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "raw": "both,",
+          "start": 2.66,
+          "end": 2.96
+        },
+        {
+          "raw": "and",
+          "start": 3.32,
+          "end": 3.42
+        },
+        {
+          "raw": "pity",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "raw": "tis",
+          "start": 3.62,
+          "end": 3.98
+        },
+        {
+          "raw": "you",
+          "start": 3.98,
+          "end": 4.2
+        },
+        {
+          "raw": "lived",
+          "start": 4.2,
+          "end": 4.38
+        },
+        {
+          "raw": "at",
+          "start": 4.38,
+          "end": 4.54
+        },
+        {
+          "raw": "odds",
+          "start": 4.54,
+          "end": 4.78
+        },
+        {
+          "raw": "so",
+          "start": 4.78,
+          "end": 5.1
+        },
+        {
+          "raw": "long.",
+          "start": 5.1,
+          "end": 5.44
+        },
+        {
+          "raw": "But",
+          "start": 6.04,
+          "end": 6.14
+        },
+        {
+          "raw": "now,",
+          "start": 6.14,
+          "end": 6.34
+        },
+        {
+          "raw": "my",
+          "start": 6.42,
+          "end": 6.52
+        },
+        {
+          "raw": "lord,",
+          "start": 6.52,
+          "end": 6.82
+        },
+        {
+          "raw": "what",
+          "start": 7.22,
+          "end": 7.32
+        },
+        {
+          "raw": "say",
+          "start": 7.32,
+          "end": 7.54
+        },
+        {
+          "raw": "you",
+          "start": 7.54,
+          "end": 7.68
+        },
+        {
+          "raw": "to",
+          "start": 7.68,
+          "end": 7.78
+        },
+        {
+          "raw": "my",
+          "start": 7.78,
+          "end": 7.92
+        },
+        {
+          "raw": "suit?",
+          "start": 7.92,
+          "end": 8.24
+        }
+      ],
+      "expected_tokens": [
+        "Paris.",
+        "Of",
+        "honourable",
+        "reckoning",
+        "are",
+        "you",
+        "both,",
+        "And",
+        "pity",
+        "'tis",
+        "you",
+        "liv'd",
+        "at",
+        "odds",
+        "so",
+        "long.",
+        "But",
+        "now",
+        "my",
+        "lord,",
+        "what",
+        "say",
+        "you",
+        "to",
+        "my",
+        "suit?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          11,
+          3,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          26,
+          12,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Paris,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "paris",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.3,
+          "end": 1.42,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "honorable",
+          "start": 1.42,
+          "end": 1.88,
+          "key": "honorable",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "reckoning",
+          "start": 1.88,
+          "end": 2.28,
+          "key": "reckoning",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.28,
+          "end": 2.5,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.5,
+          "end": 2.66,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "both,",
+          "start": 2.66,
+          "end": 2.96,
+          "key": "both",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.32,
+          "end": 3.42,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "pity",
+          "start": 3.42,
+          "end": 3.62,
+          "key": "pity",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tis",
+          "start": 3.62,
+          "end": 3.98,
+          "key": "tis",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.98,
+          "end": 4.2,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "lived",
+          "start": 4.2,
+          "end": 4.38,
+          "key": "lived",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.38,
+          "end": 4.54,
+          "key": "at",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "odds",
+          "start": 4.54,
+          "end": 4.78,
+          "key": "odds",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.78,
+          "end": 5.1,
+          "key": "so",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "long.",
+          "start": 5.1,
+          "end": 5.44,
+          "key": "long",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 6.04,
+          "end": 6.14,
+          "key": "but",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 6.14,
+          "end": 6.34,
+          "key": "now",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 6.42,
+          "end": 6.52,
+          "key": "my",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 6.52,
+          "end": 6.82,
+          "key": "lord",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 7.22,
+          "end": 7.32,
+          "key": "what",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 7.32,
+          "end": 7.54,
+          "key": "say",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 7.54,
+          "end": 7.68,
+          "key": "you",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.68,
+          "end": 7.78,
+          "key": "to",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 7.78,
+          "end": 7.92,
+          "key": "my",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "suit?",
+          "start": 7.92,
+          "end": 8.24,
+          "key": "suit",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Paris.",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "Of",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "text": "honourable",
+          "start": 1.42,
+          "end": 1.65
+        },
+        {
+          "text": "reckoning",
+          "start": 1.88,
+          "end": 2.28
+        },
+        {
+          "text": "are",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "text": "you",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "text": "both,",
+          "start": 2.66,
+          "end": 2.96
+        },
+        {
+          "text": "And",
+          "start": 3.32,
+          "end": 3.42
+        },
+        {
+          "text": "pity",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "text": "'tis",
+          "start": 3.62,
+          "end": 3.98
+        },
+        {
+          "text": "you",
+          "start": 3.98,
+          "end": 4.2
+        },
+        {
+          "text": "liv'd",
+          "start": 4.2,
+          "end": 4.29
+        },
+        {
+          "text": "at",
+          "start": 4.38,
+          "end": 4.54
+        },
+        {
+          "text": "odds",
+          "start": 4.54,
+          "end": 4.78
+        },
+        {
+          "text": "so",
+          "start": 4.78,
+          "end": 5.1
+        },
+        {
+          "text": "long.",
+          "start": 5.1,
+          "end": 5.44
+        },
+        {
+          "text": "But",
+          "start": 6.04,
+          "end": 6.14
+        },
+        {
+          "text": "now",
+          "start": 6.14,
+          "end": 6.34
+        },
+        {
+          "text": "my",
+          "start": 6.42,
+          "end": 6.52
+        },
+        {
+          "text": "lord,",
+          "start": 6.52,
+          "end": 6.82
+        },
+        {
+          "text": "what",
+          "start": 7.22,
+          "end": 7.32
+        },
+        {
+          "text": "say",
+          "start": 7.32,
+          "end": 7.54
+        },
+        {
+          "text": "you",
+          "start": 7.54,
+          "end": 7.68
+        },
+        {
+          "text": "to",
+          "start": 7.68,
+          "end": 7.78
+        },
+        {
+          "text": "my",
+          "start": 7.78,
+          "end": 7.92
+        },
+        {
+          "text": "suit?",
+          "start": 7.92,
+          "end": 8.24
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 26,
+        "matched_words": 24
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.393103888258338
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c2c4de3be0b65458551ce869ef543e8a0eeb53be6898302d55a6c97efb80442b",
+  "selected_reasons": []
+}

@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "73ffa1c84decff29fe972e2baf9ae0b61cf45ccab9538c4dd677a06733e1ee37",
+  "attempts": [
+    {
+      "asr_seconds": 0.20541392173618078,
+      "alignment_seconds": 0.00020092632621526718,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Benvolio, have you importunned him by any means?",
+          "start": 0.08,
+          "end": 2.98,
+          "words": [
+            {
+              "text": " Benvolio,",
+              "start": 0.08,
+              "end": 1.02,
+              "probability": 0.9430338541666666
+            },
+            {
+              "text": " have",
+              "start": 1.48,
+              "end": 1.56,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " you",
+              "start": 1.56,
+              "end": 1.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " importunned",
+              "start": 1.68,
+              "end": 2.16,
+              "probability": 0.6852213541666666
+            },
+            {
+              "text": " him",
+              "start": 2.16,
+              "end": 2.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " by",
+              "start": 2.26,
+              "end": 2.44,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " any",
+              "start": 2.44,
+              "end": 2.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " means?",
+              "start": 2.64,
+              "end": 2.98,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Benvolio,",
+          "start": 0.08,
+          "end": 1.02
+        },
+        {
+          "raw": "have",
+          "start": 1.48,
+          "end": 1.56
+        },
+        {
+          "raw": "you",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "raw": "importunned",
+          "start": 1.68,
+          "end": 2.16
+        },
+        {
+          "raw": "him",
+          "start": 2.16,
+          "end": 2.26
+        },
+        {
+          "raw": "by",
+          "start": 2.26,
+          "end": 2.44
+        },
+        {
+          "raw": "any",
+          "start": 2.44,
+          "end": 2.64
+        },
+        {
+          "raw": "means?",
+          "start": 2.64,
+          "end": 2.98
+        }
+      ],
+      "expected_tokens": [
+        "Benvolio.",
+        "Have",
+        "you",
+        "importun'd",
+        "him",
+        "by",
+        "any",
+        "means?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Benvolio,",
+          "start": 0.08,
+          "end": 1.02,
+          "key": "benvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.48,
+          "end": 1.56,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.56,
+          "end": 1.68,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "importunned",
+          "start": 1.68,
+          "end": 2.16,
+          "key": "importunned",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.16,
+          "end": 2.26,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.26,
+          "end": 2.44,
+          "key": "by",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 2.44,
+          "end": 2.64,
+          "key": "any",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "means?",
+          "start": 2.64,
+          "end": 2.98,
+          "key": "means",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Benvolio.",
+          "start": 0.08,
+          "end": 1.02
+        },
+        {
+          "text": "Have",
+          "start": 1.48,
+          "end": 1.56
+        },
+        {
+          "text": "you",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "text": "importun'd",
+          "start": 1.68,
+          "end": 1.92
+        },
+        {
+          "text": "him",
+          "start": 2.16,
+          "end": 2.26
+        },
+        {
+          "text": "by",
+          "start": 2.26,
+          "end": 2.44
+        },
+        {
+          "text": "any",
+          "start": 2.44,
+          "end": 2.64
+        },
+        {
+          "text": "means?",
+          "start": 2.64,
+          "end": 2.98
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.20568247884511948
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "afd815830760f20a59ec2cd89cb4889f8ee0d4180ad94b8064947a2a7f274bd0",
+  "selected_reasons": []
+}

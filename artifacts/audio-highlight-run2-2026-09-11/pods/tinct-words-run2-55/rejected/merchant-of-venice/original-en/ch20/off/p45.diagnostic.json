@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "4f82b99b2472be4b2a22b8f6715a86108a06bbfc9a119ad23b7c803b7cebf6b1",
+  "attempts": [
+    {
+      "asr_seconds": 0.2113247523084283,
+      "alignment_seconds": 0.00015245750546455383,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lorenzo, dear lady, welcome home.",
+          "start": 0.05,
+          "end": 2.65,
+          "words": [
+            {
+              "text": " Lorenzo,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.904296875
+            },
+            {
+              "text": " dear",
+              "start": 1.43,
+              "end": 1.51,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " lady,",
+              "start": 1.51,
+              "end": 1.79,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " welcome",
+              "start": 2.05,
+              "end": 2.19,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " home.",
+              "start": 2.19,
+              "end": 2.65,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lorenzo,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "dear",
+          "start": 1.43,
+          "end": 1.51
+        },
+        {
+          "raw": "lady,",
+          "start": 1.51,
+          "end": 1.79
+        },
+        {
+          "raw": "welcome",
+          "start": 2.05,
+          "end": 2.19
+        },
+        {
+          "raw": "home.",
+          "start": 2.19,
+          "end": 2.65
+        }
+      ],
+      "expected_tokens": [
+        "Lorenzo.",
+        "Dear",
+        "lady,",
+        "welcome",
+        "home."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lorenzo,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "lorenzo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 1.43,
+          "end": 1.51,
+          "key": "dear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lady,",
+          "start": 1.51,
+          "end": 1.79,
+          "key": "lady",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "welcome",
+          "start": 2.05,
+          "end": 2.19,
+          "key": "welcome",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "home.",
+          "start": 2.19,
+          "end": 2.65,
+          "key": "home",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lorenzo.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Dear",
+          "start": 1.43,
+          "end": 1.51
+        },
+        {
+          "text": "lady,",
+          "start": 1.51,
+          "end": 1.79
+        },
+        {
+          "text": "welcome",
+          "start": 2.05,
+          "end": 2.19
+        },
+        {
+          "text": "home.",
+          "start": 2.19,
+          "end": 2.65
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21152825932949781
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "40f39b6ba1ee72626cb1631ab7a4441c3cd210f1c5e78dc126320e23f07f9947",
+  "selected_reasons": []
+}

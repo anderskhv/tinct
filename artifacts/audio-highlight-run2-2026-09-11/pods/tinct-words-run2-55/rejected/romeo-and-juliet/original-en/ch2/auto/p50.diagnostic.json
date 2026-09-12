@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "35230843829f38eff3c1ccb04e4ed123bd96d8ef364e3eb8f574948c7d753ffd",
+  "attempts": [
+    {
+      "asr_seconds": 0.12675622384995222,
+      "alignment_seconds": 0.0001476304605603218,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[They fight.]",
+        "hotwords": "They"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They fight.",
+          "start": 0.02,
+          "end": 0.86,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.826171875
+            },
+            {
+              "text": " fight.",
+              "start": 0.56,
+              "end": 0.86,
+              "probability": 0.8642578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "fight.",
+          "start": 0.56,
+          "end": 0.86
+        }
+      ],
+      "expected_tokens": [
+        "[They",
+        "fight.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fight.",
+          "start": 0.56,
+          "end": 0.86,
+          "key": "fight",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[They",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "fight.]",
+          "start": 0.56,
+          "end": 0.86
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12694815825670958
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b331e3e1189cb34897f32b20c8d641f65b9d26970eca1504c772c98678e99305",
+  "selected_reasons": []
+}

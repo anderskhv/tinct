@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "cc6c2cb640c7c8f57cdc37cec1d7d7bac7c33617c484f03a253e321431e2fe31",
+  "attempts": [
+    {
+      "asr_seconds": 0.23237320594489574,
+      "alignment_seconds": 0.0002580443397164345,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sampson, my naked weapon is out. Quarrel, I will back thee.",
+          "start": 0.08,
+          "end": 3.72,
+          "words": [
+            {
+              "text": " Sampson,",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.686767578125
+            },
+            {
+              "text": " my",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " naked",
+              "start": 1.4,
+              "end": 1.64,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " weapon",
+              "start": 1.64,
+              "end": 1.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 1.96,
+              "end": 2.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " out.",
+              "start": 2.14,
+              "end": 2.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Quarrel,",
+              "start": 2.84,
+              "end": 3.02,
+              "probability": 0.7872721354166666
+            },
+            {
+              "text": " I",
+              "start": 3.12,
+              "end": 3.14,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " will",
+              "start": 3.14,
+              "end": 3.24,
+              "probability": 0.99609375
+            },
+            {
+              "text": " back",
+              "start": 3.24,
+              "end": 3.44,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thee.",
+              "start": 3.44,
+              "end": 3.72,
+              "probability": 0.95361328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sampson,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "my",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "naked",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "raw": "weapon",
+          "start": 1.64,
+          "end": 1.96
+        },
+        {
+          "raw": "is",
+          "start": 1.96,
+          "end": 2.14
+        },
+        {
+          "raw": "out.",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "raw": "Quarrel,",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "raw": "I",
+          "start": 3.12,
+          "end": 3.14
+        },
+        {
+          "raw": "will",
+          "start": 3.14,
+          "end": 3.24
+        },
+        {
+          "raw": "back",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "raw": "thee.",
+          "start": 3.44,
+          "end": 3.72
+        }
+      ],
+      "expected_tokens": [
+        "Sampson.",
+        "My",
+        "naked",
+        "weapon",
+        "is",
+        "out:",
+        "quarrel,",
+        "I",
+        "will",
+        "back",
+        "thee."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sampson,",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "sampson",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "naked",
+          "start": 1.4,
+          "end": 1.64,
+          "key": "naked",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "weapon",
+          "start": 1.64,
+          "end": 1.96,
+          "key": "weapon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.96,
+          "end": 2.14,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 2.14,
+          "end": 2.4,
+          "key": "out",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Quarrel,",
+          "start": 2.84,
+          "end": 3.02,
+          "key": "quarrel",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.12,
+          "end": 3.14,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 3.14,
+          "end": 3.24,
+          "key": "will",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 3.24,
+          "end": 3.44,
+          "key": "back",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 3.44,
+          "end": 3.72,
+          "key": "thee",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sampson.",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "My",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "text": "naked",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "text": "weapon",
+          "start": 1.64,
+          "end": 1.96
+        },
+        {
+          "text": "is",
+          "start": 1.96,
+          "end": 2.14
+        },
+        {
+          "text": "out:",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "text": "quarrel,",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "text": "I",
+          "start": 3.12,
+          "end": 3.14
+        },
+        {
+          "text": "will",
+          "start": 3.14,
+          "end": 3.24
+        },
+        {
+          "text": "back",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "text": "thee.",
+          "start": 3.44,
+          "end": 3.72
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23273581452667713
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8229b35ab58b462a9a09e5df17d8477b4d9e58e69dbcbf808696f88761ff322f",
+  "selected_reasons": []
+}

@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "8acf122f9b74de459f08b1fa20f1eecdd293f527d1cc8e723199ef75b69fbb94",
+  "attempts": [
+    {
+      "asr_seconds": 0.3067511087283492,
+      "alignment_seconds": 0.00025137513875961304,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bassanio, this is no answer, thou unfeeling man, to excuse the current of thy cruelty.",
+          "start": 0.02,
+          "end": 5.82,
+          "words": [
+            {
+              "text": " Bassanio,",
+              "start": 0.02,
+              "end": 1.02,
+              "probability": 0.678955078125
+            },
+            {
+              "text": " this",
+              "start": 1.34,
+              "end": 1.68,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " is",
+              "start": 1.68,
+              "end": 1.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " no",
+              "start": 1.84,
+              "end": 2.06,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " answer,",
+              "start": 2.06,
+              "end": 2.52,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " thou",
+              "start": 2.84,
+              "end": 2.92,
+              "probability": 0.955078125
+            },
+            {
+              "text": " unfeeling",
+              "start": 2.92,
+              "end": 3.5,
+              "probability": 0.9837239583333334
+            },
+            {
+              "text": " man,",
+              "start": 3.5,
+              "end": 3.82,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " to",
+              "start": 4.08,
+              "end": 4.18,
+              "probability": 0.94921875
+            },
+            {
+              "text": " excuse",
+              "start": 4.18,
+              "end": 4.54,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " the",
+              "start": 4.54,
+              "end": 4.8,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " current",
+              "start": 4.8,
+              "end": 5.08,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 5.08,
+              "end": 5.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thy",
+              "start": 5.24,
+              "end": 5.38,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " cruelty.",
+              "start": 5.38,
+              "end": 5.82,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bassanio,",
+          "start": 0.02,
+          "end": 1.02
+        },
+        {
+          "raw": "this",
+          "start": 1.34,
+          "end": 1.68
+        },
+        {
+          "raw": "is",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "raw": "no",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "raw": "answer,",
+          "start": 2.06,
+          "end": 2.52
+        },
+        {
+          "raw": "thou",
+          "start": 2.84,
+          "end": 2.92
+        },
+        {
+          "raw": "unfeeling",
+          "start": 2.92,
+          "end": 3.5
+        },
+        {
+          "raw": "man,",
+          "start": 3.5,
+          "end": 3.82
+        },
+        {
+          "raw": "to",
+          "start": 4.08,
+          "end": 4.18
+        },
+        {
+          "raw": "excuse",
+          "start": 4.18,
+          "end": 4.54
+        },
+        {
+          "raw": "the",
+          "start": 4.54,
+          "end": 4.8
+        },
+        {
+          "raw": "current",
+          "start": 4.8,
+          "end": 5.08
+        },
+        {
+          "raw": "of",
+          "start": 5.08,
+          "end": 5.24
+        },
+        {
+          "raw": "thy",
+          "start": 5.24,
+          "end": 5.38
+        },
+        {
+          "raw": "cruelty.",
+          "start": 5.38,
+          "end": 5.82
+        }
+      ],
+      "expected_tokens": [
+        "Bassanio.",
+        "This",
+        "is",
+        "no",
+        "answer,",
+        "thou",
+        "unfeeling",
+        "man,",
+        "To",
+        "excuse",
+        "the",
+        "current",
+        "of",
+        "thy",
+        "cruelty."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bassanio,",
+          "start": 0.02,
+          "end": 1.02,
+          "key": "bassanio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.34,
+          "end": 1.68,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.68,
+          "end": 1.84,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.84,
+          "end": 2.06,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "answer,",
+          "start": 2.06,
+          "end": 2.52,
+          "key": "answer",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.84,
+          "end": 2.92,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "unfeeling",
+          "start": 2.92,
+          "end": 3.5,
+          "key": "unfeeling",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 3.5,
+          "end": 3.82,
+          "key": "man",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.08,
+          "end": 4.18,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "excuse",
+          "start": 4.18,
+          "end": 4.54,
+          "key": "excuse",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.54,
+          "end": 4.8,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "current",
+          "start": 4.8,
+          "end": 5.08,
+          "key": "current",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.08,
+          "end": 5.24,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 5.24,
+          "end": 5.38,
+          "key": "thy",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "cruelty.",
+          "start": 5.38,
+          "end": 5.82,
+          "key": "cruelty",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bassanio.",
+          "start": 0.02,
+          "end": 1.02
+        },
+        {
+          "text": "This",
+          "start": 1.34,
+          "end": 1.68
+        },
+        {
+          "text": "is",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "text": "no",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "text": "answer,",
+          "start": 2.06,
+          "end": 2.52
+        },
+        {
+          "text": "thou",
+          "start": 2.84,
+          "end": 2.92
+        },
+        {
+          "text": "unfeeling",
+          "start": 2.92,
+          "end": 3.5
+        },
+        {
+          "text": "man,",
+          "start": 3.5,
+          "end": 3.82
+        },
+        {
+          "text": "To",
+          "start": 4.08,
+          "end": 4.18
+        },
+        {
+          "text": "excuse",
+          "start": 4.18,
+          "end": 4.54
+        },
+        {
+          "text": "the",
+          "start": 4.54,
+          "end": 4.8
+        },
+        {
+          "text": "current",
+          "start": 4.8,
+          "end": 5.08
+        },
+        {
+          "text": "of",
+          "start": 5.08,
+          "end": 5.24
+        },
+        {
+          "text": "thy",
+          "start": 5.24,
+          "end": 5.38
+        },
+        {
+          "text": "cruelty.",
+          "start": 5.38,
+          "end": 5.82
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.307114009745419
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d51339ca669374fe430aa654b3a5627ff525761d93980b175c44b416f331cdac",
+  "selected_reasons": []
+}

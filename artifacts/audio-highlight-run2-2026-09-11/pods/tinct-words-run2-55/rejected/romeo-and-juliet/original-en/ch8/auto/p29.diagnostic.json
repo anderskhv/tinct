@@ -1,0 +1,7996 @@
+{
+  "complete": true,
+  "signature": "b087637932deaeb93eb0c4ef10d7d2b8cdcf04f9233c68ad22d453a522e87bc1",
+  "attempts": [
+    {
+      "asr_seconds": 1.0904131205752492,
+      "alignment_seconds": 0.0024280939251184464,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Juliet. Well, do not swear. Although I joy in thee, I have no joy of this contract tonight; It is too rash, too unadvis'd, too sudden, Too like the lightning, which doth cease to be Ere one can say \"It lightens.\" Sweet, good night. This bud of love, by summer's ripening breath, May prove a beauteous flower when next we meet. Good night, good night. As sweet repose and rest Come to thy heart as that within my breast.",
+        "hotwords": "Juliet, Well, Although, I, It, Ere, May, Come"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, do not swear. Although I joy in thee, I have no joy of this contract tonight. It is too rash, too unadvis'd, too sudden, Too like the lightning, which doth cease to be Ere one can say, It lightens. Sweet, good night. This bud of love, by summer's ripening breath, May prove a beauteous flower when next we meet. Good night, good night. As sweet repose and rest Come to thy heart as that within my breast.",
+          "start": 0.05,
+          "end": 24.05,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.0009870529174804688
+            },
+            {
+              "text": " do",
+              "start": 1.57,
+              "end": 1.63,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " not",
+              "start": 1.63,
+              "end": 1.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " swear.",
+              "start": 1.83,
+              "end": 2.25,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Although",
+              "start": 2.77,
+              "end": 2.97,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " I",
+              "start": 2.97,
+              "end": 3.13,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " joy",
+              "start": 3.13,
+              "end": 3.29,
+              "probability": 0.80126953125
+            },
+            {
+              "text": " in",
+              "start": 3.29,
+              "end": 3.45,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " thee,",
+              "start": 3.45,
+              "end": 3.57,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " I",
+              "start": 3.69,
+              "end": 3.71,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " have",
+              "start": 3.71,
+              "end": 3.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " no",
+              "start": 3.85,
+              "end": 4.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " joy",
+              "start": 4.05,
+              "end": 4.23,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " of",
+              "start": 4.23,
+              "end": 4.37,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " this",
+              "start": 4.37,
+              "end": 4.53,
+              "probability": 0.99609375
+            },
+            {
+              "text": " contract",
+              "start": 4.53,
+              "end": 4.91,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " tonight.",
+              "start": 4.91,
+              "end": 5.27,
+              "probability": 0.28125
+            },
+            {
+              "text": " It",
+              "start": 5.61,
+              "end": 5.69,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " is",
+              "start": 5.69,
+              "end": 5.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " too",
+              "start": 5.81,
+              "end": 6.05,
+              "probability": 0.990234375
+            },
+            {
+              "text": " rash,",
+              "start": 6.05,
+              "end": 6.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " too",
+              "start": 6.71,
+              "end": 6.81,
+              "probability": 0.9921875
+            },
+            {
+              "text": " unadvis'd,",
+              "start": 6.81,
+              "end": 7.53,
+              "probability": 0.671046257019043
+            },
+            {
+              "text": " too",
+              "start": 7.63,
+              "end": 7.73,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " sudden,",
+              "start": 7.73,
+              "end": 8.03,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Too",
+              "start": 8.25,
+              "end": 8.33,
+              "probability": 0.0008101463317871094
+            },
+            {
+              "text": " like",
+              "start": 8.33,
+              "end": 8.49,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " the",
+              "start": 8.49,
+              "end": 8.61,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " lightning,",
+              "start": 8.61,
+              "end": 8.91,
+              "probability": 0.7236328125
+            },
+            {
+              "text": " which",
+              "start": 9.21,
+              "end": 9.37,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " doth",
+              "start": 9.37,
+              "end": 9.57,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " cease",
+              "start": 9.57,
+              "end": 9.75,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " to",
+              "start": 9.75,
+              "end": 9.93,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " be",
+              "start": 9.93,
+              "end": 10.05,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Ere",
+              "start": 10.05,
+              "end": 10.29,
+              "probability": 0.4738311767578125
+            },
+            {
+              "text": " one",
+              "start": 10.29,
+              "end": 10.47,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " can",
+              "start": 10.47,
+              "end": 10.67,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " say,",
+              "start": 10.67,
+              "end": 10.99,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " It",
+              "start": 11.11,
+              "end": 11.25,
+              "probability": 0.70947265625
+            },
+            {
+              "text": " lightens.",
+              "start": 11.25,
+              "end": 11.75,
+              "probability": 0.96875
+            },
+            {
+              "text": " Sweet,",
+              "start": 12.47,
+              "end": 12.79,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " good",
+              "start": 13.05,
+              "end": 13.15,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " night.",
+              "start": 13.15,
+              "end": 13.41,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " This",
+              "start": 14.05,
+              "end": 14.17,
+              "probability": 0.966796875
+            },
+            {
+              "text": " bud",
+              "start": 14.17,
+              "end": 14.37,
+              "probability": 0.86328125
+            },
+            {
+              "text": " of",
+              "start": 14.37,
+              "end": 14.53,
+              "probability": 0.984375
+            },
+            {
+              "text": " love,",
+              "start": 14.53,
+              "end": 14.77,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " by",
+              "start": 14.89,
+              "end": 15.07,
+              "probability": 0.81494140625
+            },
+            {
+              "text": " summer's",
+              "start": 15.07,
+              "end": 15.51,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " ripening",
+              "start": 15.51,
+              "end": 15.85,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " breath,",
+              "start": 15.85,
+              "end": 16.17,
+              "probability": 0.978515625
+            },
+            {
+              "text": " May",
+              "start": 16.43,
+              "end": 16.51,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " prove",
+              "start": 16.51,
+              "end": 16.75,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " a",
+              "start": 16.75,
+              "end": 16.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " beauteous",
+              "start": 16.89,
+              "end": 17.29,
+              "probability": 0.74554443359375
+            },
+            {
+              "text": " flower",
+              "start": 17.29,
+              "end": 17.63,
+              "probability": 0.994140625
+            },
+            {
+              "text": " when",
+              "start": 17.63,
+              "end": 17.91,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " next",
+              "start": 17.91,
+              "end": 18.15,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " we",
+              "start": 18.15,
+              "end": 18.33,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " meet.",
+              "start": 18.33,
+              "end": 18.55,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Good",
+              "start": 19.17,
+              "end": 19.31,
+              "probability": 0.9921875
+            },
+            {
+              "text": " night,",
+              "start": 19.31,
+              "end": 19.57,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " good",
+              "start": 19.79,
+              "end": 19.89,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " night.",
+              "start": 19.89,
+              "end": 20.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " As",
+              "start": 20.77,
+              "end": 20.89,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " sweet",
+              "start": 20.89,
+              "end": 21.21,
+              "probability": 0.994140625
+            },
+            {
+              "text": " repose",
+              "start": 21.21,
+              "end": 21.73,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " and",
+              "start": 21.73,
+              "end": 21.95,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " rest",
+              "start": 21.95,
+              "end": 22.17,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Come",
+              "start": 22.17,
+              "end": 22.41,
+              "probability": 0.58544921875
+            },
+            {
+              "text": " to",
+              "start": 22.41,
+              "end": 22.57,
+              "probability": 0.994140625
+            },
+            {
+              "text": " thy",
+              "start": 22.57,
+              "end": 22.71,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " heart",
+              "start": 22.71,
+              "end": 22.93,
+              "probability": 0.99609375
+            },
+            {
+              "text": " as",
+              "start": 22.93,
+              "end": 23.11,
+              "probability": 0.958984375
+            },
+            {
+              "text": " that",
+              "start": 23.11,
+              "end": 23.33,
+              "probability": 0.98828125
+            },
+            {
+              "text": " within",
+              "start": 23.33,
+              "end": 23.53,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " my",
+              "start": 23.53,
+              "end": 23.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " breast.",
+              "start": 23.73,
+              "end": 24.05,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " .",
+          "start": 24.05,
+          "end": 24.39,
+          "words": [
+            {
+              "text": " .",
+              "start": 24.05,
+              "end": 24.39,
+              "probability": 0.01213836669921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "do",
+          "start": 1.57,
+          "end": 1.63
+        },
+        {
+          "raw": "not",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "raw": "swear.",
+          "start": 1.83,
+          "end": 2.25
+        },
+        {
+          "raw": "Although",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "raw": "I",
+          "start": 2.97,
+          "end": 3.13
+        },
+        {
+          "raw": "joy",
+          "start": 3.13,
+          "end": 3.29
+        },
+        {
+          "raw": "in",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "raw": "thee,",
+          "start": 3.45,
+          "end": 3.57
+        },
+        {
+          "raw": "I",
+          "start": 3.69,
+          "end": 3.71
+        },
+        {
+          "raw": "have",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "raw": "no",
+          "start": 3.85,
+          "end": 4.05
+        },
+        {
+          "raw": "joy",
+          "start": 4.05,
+          "end": 4.23
+        },
+        {
+          "raw": "of",
+          "start": 4.23,
+          "end": 4.37
+        },
+        {
+          "raw": "this",
+          "start": 4.37,
+          "end": 4.53
+        },
+        {
+          "raw": "contract",
+          "start": 4.53,
+          "end": 4.91
+        },
+        {
+          "raw": "tonight.",
+          "start": 4.91,
+          "end": 5.27
+        },
+        {
+          "raw": "It",
+          "start": 5.61,
+          "end": 5.69
+        },
+        {
+          "raw": "is",
+          "start": 5.69,
+          "end": 5.81
+        },
+        {
+          "raw": "too",
+          "start": 5.81,
+          "end": 6.05
+        },
+        {
+          "raw": "rash,",
+          "start": 6.05,
+          "end": 6.43
+        },
+        {
+          "raw": "too",
+          "start": 6.71,
+          "end": 6.81
+        },
+        {
+          "raw": "unadvis'd,",
+          "start": 6.81,
+          "end": 7.53
+        },
+        {
+          "raw": "too",
+          "start": 7.63,
+          "end": 7.73
+        },
+        {
+          "raw": "sudden,",
+          "start": 7.73,
+          "end": 8.03
+        },
+        {
+          "raw": "Too",
+          "start": 8.25,
+          "end": 8.33
+        },
+        {
+          "raw": "like",
+          "start": 8.33,
+          "end": 8.49
+        },
+        {
+          "raw": "the",
+          "start": 8.49,
+          "end": 8.61
+        },
+        {
+          "raw": "lightning,",
+          "start": 8.61,
+          "end": 8.91
+        },
+        {
+          "raw": "which",
+          "start": 9.21,
+          "end": 9.37
+        },
+        {
+          "raw": "doth",
+          "start": 9.37,
+          "end": 9.57
+        },
+        {
+          "raw": "cease",
+          "start": 9.57,
+          "end": 9.75
+        },
+        {
+          "raw": "to",
+          "start": 9.75,
+          "end": 9.93
+        },
+        {
+          "raw": "be",
+          "start": 9.93,
+          "end": 10.05
+        },
+        {
+          "raw": "Ere",
+          "start": 10.05,
+          "end": 10.29
+        },
+        {
+          "raw": "one",
+          "start": 10.29,
+          "end": 10.47
+        },
+        {
+          "raw": "can",
+          "start": 10.47,
+          "end": 10.67
+        },
+        {
+          "raw": "say,",
+          "start": 10.67,
+          "end": 10.99
+        },
+        {
+          "raw": "It",
+          "start": 11.11,
+          "end": 11.25
+        },
+        {
+          "raw": "lightens.",
+          "start": 11.25,
+          "end": 11.75
+        },
+        {
+          "raw": "Sweet,",
+          "start": 12.47,
+          "end": 12.79
+        },
+        {
+          "raw": "good",
+          "start": 13.05,
+          "end": 13.15
+        },
+        {
+          "raw": "night.",
+          "start": 13.15,
+          "end": 13.41
+        },
+        {
+          "raw": "This",
+          "start": 14.05,
+          "end": 14.17
+        },
+        {
+          "raw": "bud",
+          "start": 14.17,
+          "end": 14.37
+        },
+        {
+          "raw": "of",
+          "start": 14.37,
+          "end": 14.53
+        },
+        {
+          "raw": "love,",
+          "start": 14.53,
+          "end": 14.77
+        },
+        {
+          "raw": "by",
+          "start": 14.89,
+          "end": 15.07
+        },
+        {
+          "raw": "summer's",
+          "start": 15.07,
+          "end": 15.51
+        },
+        {
+          "raw": "ripening",
+          "start": 15.51,
+          "end": 15.85
+        },
+        {
+          "raw": "breath,",
+          "start": 15.85,
+          "end": 16.17
+        },
+        {
+          "raw": "May",
+          "start": 16.43,
+          "end": 16.51
+        },
+        {
+          "raw": "prove",
+          "start": 16.51,
+          "end": 16.75
+        },
+        {
+          "raw": "a",
+          "start": 16.75,
+          "end": 16.89
+        },
+        {
+          "raw": "beauteous",
+          "start": 16.89,
+          "end": 17.29
+        },
+        {
+          "raw": "flower",
+          "start": 17.29,
+          "end": 17.63
+        },
+        {
+          "raw": "when",
+          "start": 17.63,
+          "end": 17.91
+        },
+        {
+          "raw": "next",
+          "start": 17.91,
+          "end": 18.15
+        },
+        {
+          "raw": "we",
+          "start": 18.15,
+          "end": 18.33
+        },
+        {
+          "raw": "meet.",
+          "start": 18.33,
+          "end": 18.55
+        },
+        {
+          "raw": "Good",
+          "start": 19.17,
+          "end": 19.31
+        },
+        {
+          "raw": "night,",
+          "start": 19.31,
+          "end": 19.57
+        },
+        {
+          "raw": "good",
+          "start": 19.79,
+          "end": 19.89
+        },
+        {
+          "raw": "night.",
+          "start": 19.89,
+          "end": 20.21
+        },
+        {
+          "raw": "As",
+          "start": 20.77,
+          "end": 20.89
+        },
+        {
+          "raw": "sweet",
+          "start": 20.89,
+          "end": 21.21
+        },
+        {
+          "raw": "repose",
+          "start": 21.21,
+          "end": 21.73
+        },
+        {
+          "raw": "and",
+          "start": 21.73,
+          "end": 21.95
+        },
+        {
+          "raw": "rest",
+          "start": 21.95,
+          "end": 22.17
+        },
+        {
+          "raw": "Come",
+          "start": 22.17,
+          "end": 22.41
+        },
+        {
+          "raw": "to",
+          "start": 22.41,
+          "end": 22.57
+        },
+        {
+          "raw": "thy",
+          "start": 22.57,
+          "end": 22.71
+        },
+        {
+          "raw": "heart",
+          "start": 22.71,
+          "end": 22.93
+        },
+        {
+          "raw": "as",
+          "start": 22.93,
+          "end": 23.11
+        },
+        {
+          "raw": "that",
+          "start": 23.11,
+          "end": 23.33
+        },
+        {
+          "raw": "within",
+          "start": 23.33,
+          "end": 23.53
+        },
+        {
+          "raw": "my",
+          "start": 23.53,
+          "end": 23.73
+        },
+        {
+          "raw": "breast.",
+          "start": 23.73,
+          "end": 24.05
+        },
+        {
+          "raw": ".",
+          "start": 24.05,
+          "end": 24.39
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "Well,",
+        "do",
+        "not",
+        "swear.",
+        "Although",
+        "I",
+        "joy",
+        "in",
+        "thee,",
+        "I",
+        "have",
+        "no",
+        "joy",
+        "of",
+        "this",
+        "contract",
+        "tonight;",
+        "It",
+        "is",
+        "too",
+        "rash,",
+        "too",
+        "unadvis'd,",
+        "too",
+        "sudden,",
+        "Too",
+        "like",
+        "the",
+        "lightning,",
+        "which",
+        "doth",
+        "cease",
+        "to",
+        "be",
+        "Ere",
+        "one",
+        "can",
+        "say",
+        "\"It",
+        "lightens.\"",
+        "Sweet,",
+        "good",
+        "night.",
+        "This",
+        "bud",
+        "of",
+        "love,",
+        "by",
+        "summer's",
+        "ripening",
+        "breath,",
+        "May",
+        "prove",
+        "a",
+        "beauteous",
+        "flower",
+        "when",
+        "next",
+        "we",
+        "meet.",
+        "Good",
+        "night,",
+        "good",
+        "night.",
+        "As",
+        "sweet",
+        "repose",
+        "and",
+        "rest",
+        "Come",
+        "to",
+        "thy",
+        "heart",
+        "as",
+        "that",
+        "within",
+        "my",
+        "breast."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          79,
+          0,
+          78
+        ],
+        [
+          "insert",
+          79,
+          79,
+          78,
+          79
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 77
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "insert",
+          79,
+          79,
+          78,
+          79
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.57,
+          "end": 1.63,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.63,
+          "end": 1.83,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "swear.",
+          "start": 1.83,
+          "end": 2.25,
+          "key": "swear",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Although",
+          "start": 2.77,
+          "end": 2.97,
+          "key": "although",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.97,
+          "end": 3.13,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "joy",
+          "start": 3.13,
+          "end": 3.29,
+          "key": "joy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.29,
+          "end": 3.45,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 3.45,
+          "end": 3.57,
+          "key": "thee",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.69,
+          "end": 3.71,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.71,
+          "end": 3.85,
+          "key": "have",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.85,
+          "end": 4.05,
+          "key": "no",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "joy",
+          "start": 4.05,
+          "end": 4.23,
+          "key": "joy",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.23,
+          "end": 4.37,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.37,
+          "end": 4.53,
+          "key": "this",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "contract",
+          "start": 4.53,
+          "end": 4.91,
+          "key": "contract",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "tonight.",
+          "start": 4.91,
+          "end": 5.27,
+          "key": "tonight",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 5.61,
+          "end": 5.69,
+          "key": "it",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.69,
+          "end": 5.81,
+          "key": "is",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 5.81,
+          "end": 6.05,
+          "key": "too",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "rash,",
+          "start": 6.05,
+          "end": 6.43,
+          "key": "rash",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 6.71,
+          "end": 6.81,
+          "key": "too",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "unadvis'd,",
+          "start": 6.81,
+          "end": 7.53,
+          "key": "unadvisd",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 7.63,
+          "end": 7.73,
+          "key": "too",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "sudden,",
+          "start": 7.73,
+          "end": 8.03,
+          "key": "sudden",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Too",
+          "start": 8.25,
+          "end": 8.33,
+          "key": "too",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 8.33,
+          "end": 8.49,
+          "key": "like",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.49,
+          "end": 8.61,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "lightning,",
+          "start": 8.61,
+          "end": 8.91,
+          "key": "lightning",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 9.21,
+          "end": 9.37,
+          "key": "which",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 9.37,
+          "end": 9.57,
+          "key": "doth",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "cease",
+          "start": 9.57,
+          "end": 9.75,
+          "key": "cease",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.75,
+          "end": 9.93,
+          "key": "to",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 9.93,
+          "end": 10.05,
+          "key": "be",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Ere",
+          "start": 10.05,
+          "end": 10.29,
+          "key": "ere",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 10.29,
+          "end": 10.47,
+          "key": "one",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 10.47,
+          "end": 10.67,
+          "key": "can",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 10.67,
+          "end": 10.99,
+          "key": "say",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 11.11,
+          "end": 11.25,
+          "key": "it",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "lightens.",
+          "start": 11.25,
+          "end": 11.75,
+          "key": "lightens",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Sweet,",
+          "start": 12.47,
+          "end": 12.79,
+          "key": "sweet",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 13.05,
+          "end": 13.15,
+          "key": "good",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "night.",
+          "start": 13.15,
+          "end": 13.41,
+          "key": "night",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 14.05,
+          "end": 14.17,
+          "key": "this",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "bud",
+          "start": 14.17,
+          "end": 14.37,
+          "key": "bud",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.37,
+          "end": 14.53,
+          "key": "of",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "love,",
+          "start": 14.53,
+          "end": 14.77,
+          "key": "love",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 14.89,
+          "end": 15.07,
+          "key": "by",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "summer's",
+          "start": 15.07,
+          "end": 15.51,
+          "key": "summers",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "ripening",
+          "start": 15.51,
+          "end": 15.85,
+          "key": "ripening",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "breath,",
+          "start": 15.85,
+          "end": 16.17,
+          "key": "breath",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "May",
+          "start": 16.43,
+          "end": 16.51,
+          "key": "may",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "prove",
+          "start": 16.51,
+          "end": 16.75,
+          "key": "prove",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 16.75,
+          "end": 16.89,
+          "key": "a",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "beauteous",
+          "start": 16.89,
+          "end": 17.29,
+          "key": "beauteous",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "flower",
+          "start": 17.29,
+          "end": 17.63,
+          "key": "flower",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 17.63,
+          "end": 17.91,
+          "key": "when",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "next",
+          "start": 17.91,
+          "end": 18.15,
+          "key": "next",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 18.15,
+          "end": 18.33,
+          "key": "we",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "meet.",
+          "start": 18.33,
+          "end": 18.55,
+          "key": "meet",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 19.17,
+          "end": 19.31,
+          "key": "good",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "night,",
+          "start": 19.31,
+          "end": 19.57,
+          "key": "night",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 19.79,
+          "end": 19.89,
+          "key": "good",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "night.",
+          "start": 19.89,
+          "end": 20.21,
+          "key": "night",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 20.77,
+          "end": 20.89,
+          "key": "as",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 20.89,
+          "end": 21.21,
+          "key": "sweet",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "repose",
+          "start": 21.21,
+          "end": 21.73,
+          "key": "repose",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 21.73,
+          "end": 21.95,
+          "key": "and",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "rest",
+          "start": 21.95,
+          "end": 22.17,
+          "key": "rest",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "Come",
+          "start": 22.17,
+          "end": 22.41,
+          "key": "come",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 22.41,
+          "end": 22.57,
+          "key": "to",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 22.57,
+          "end": 22.71,
+          "key": "thy",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 22.71,
+          "end": 22.93,
+          "key": "heart",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 22.93,
+          "end": 23.11,
+          "key": "as",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 23.11,
+          "end": 23.33,
+          "key": "that",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 23.33,
+          "end": 23.53,
+          "key": "within",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 23.53,
+          "end": 23.73,
+          "key": "my",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "breast.",
+          "start": 23.73,
+          "end": 24.05,
+          "key": "breast",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": ".",
+          "start": 24.05,
+          "end": 24.39,
+          "key": "",
+          "pieces": [
+            78
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "Well,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "do",
+          "start": 1.57,
+          "end": 1.63
+        },
+        {
+          "text": "not",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "text": "swear.",
+          "start": 1.83,
+          "end": 2.25
+        },
+        {
+          "text": "Although",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "text": "I",
+          "start": 2.97,
+          "end": 3.13
+        },
+        {
+          "text": "joy",
+          "start": 3.13,
+          "end": 3.29
+        },
+        {
+          "text": "in",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "text": "thee,",
+          "start": 3.45,
+          "end": 3.57
+        },
+        {
+          "text": "I",
+          "start": 3.69,
+          "end": 3.71
+        },
+        {
+          "text": "have",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "text": "no",
+          "start": 3.85,
+          "end": 4.05
+        },
+        {
+          "text": "joy",
+          "start": 4.05,
+          "end": 4.23
+        },
+        {
+          "text": "of",
+          "start": 4.23,
+          "end": 4.37
+        },
+        {
+          "text": "this",
+          "start": 4.37,
+          "end": 4.53
+        },
+        {
+          "text": "contract",
+          "start": 4.53,
+          "end": 4.91
+        },
+        {
+          "text": "tonight;",
+          "start": 4.91,
+          "end": 5.27
+        },
+        {
+          "text": "It",
+          "start": 5.61,
+          "end": 5.69
+        },
+        {
+          "text": "is",
+          "start": 5.69,
+          "end": 5.81
+        },
+        {
+          "text": "too",
+          "start": 5.81,
+          "end": 6.05
+        },
+        {
+          "text": "rash,",
+          "start": 6.05,
+          "end": 6.43
+        },
+        {
+          "text": "too",
+          "start": 6.71,
+          "end": 6.81
+        },
+        {
+          "text": "unadvis'd,",
+          "start": 6.81,
+          "end": 7.53
+        },
+        {
+          "text": "too",
+          "start": 7.63,
+          "end": 7.73
+        },
+        {
+          "text": "sudden,",
+          "start": 7.73,
+          "end": 8.03
+        },
+        {
+          "text": "Too",
+          "start": 8.25,
+          "end": 8.33
+        },
+        {
+          "text": "like",
+          "start": 8.33,
+          "end": 8.49
+        },
+        {
+          "text": "the",
+          "start": 8.49,
+          "end": 8.61
+        },
+        {
+          "text": "lightning,",
+          "start": 8.61,
+          "end": 8.91
+        },
+        {
+          "text": "which",
+          "start": 9.21,
+          "end": 9.37
+        },
+        {
+          "text": "doth",
+          "start": 9.37,
+          "end": 9.57
+        },
+        {
+          "text": "cease",
+          "start": 9.57,
+          "end": 9.75
+        },
+        {
+          "text": "to",
+          "start": 9.75,
+          "end": 9.93
+        },
+        {
+          "text": "be",
+          "start": 9.93,
+          "end": 10.05
+        },
+        {
+          "text": "Ere",
+          "start": 10.05,
+          "end": 10.29
+        },
+        {
+          "text": "one",
+          "start": 10.29,
+          "end": 10.47
+        },
+        {
+          "text": "can",
+          "start": 10.47,
+          "end": 10.67
+        },
+        {
+          "text": "say",
+          "start": 10.67,
+          "end": 10.99
+        },
+        {
+          "text": "\"It",
+          "start": 11.11,
+          "end": 11.25
+        },
+        {
+          "text": "lightens.\"",
+          "start": 11.25,
+          "end": 11.75
+        },
+        {
+          "text": "Sweet,",
+          "start": 12.47,
+          "end": 12.79
+        },
+        {
+          "text": "good",
+          "start": 13.05,
+          "end": 13.15
+        },
+        {
+          "text": "night.",
+          "start": 13.15,
+          "end": 13.41
+        },
+        {
+          "text": "This",
+          "start": 14.05,
+          "end": 14.17
+        },
+        {
+          "text": "bud",
+          "start": 14.17,
+          "end": 14.37
+        },
+        {
+          "text": "of",
+          "start": 14.37,
+          "end": 14.53
+        },
+        {
+          "text": "love,",
+          "start": 14.53,
+          "end": 14.77
+        },
+        {
+          "text": "by",
+          "start": 14.89,
+          "end": 15.07
+        },
+        {
+          "text": "summer's",
+          "start": 15.07,
+          "end": 15.51
+        },
+        {
+          "text": "ripening",
+          "start": 15.51,
+          "end": 15.85
+        },
+        {
+          "text": "breath,",
+          "start": 15.85,
+          "end": 16.17
+        },
+        {
+          "text": "May",
+          "start": 16.43,
+          "end": 16.51
+        },
+        {
+          "text": "prove",
+          "start": 16.51,
+          "end": 16.75
+        },
+        {
+          "text": "a",
+          "start": 16.75,
+          "end": 16.89
+        },
+        {
+          "text": "beauteous",
+          "start": 16.89,
+          "end": 17.29
+        },
+        {
+          "text": "flower",
+          "start": 17.29,
+          "end": 17.63
+        },
+        {
+          "text": "when",
+          "start": 17.63,
+          "end": 17.91
+        },
+        {
+          "text": "next",
+          "start": 17.91,
+          "end": 18.15
+        },
+        {
+          "text": "we",
+          "start": 18.15,
+          "end": 18.33
+        },
+        {
+          "text": "meet.",
+          "start": 18.33,
+          "end": 18.55
+        },
+        {
+          "text": "Good",
+          "start": 19.17,
+          "end": 19.31
+        },
+        {
+          "text": "night,",
+          "start": 19.31,
+          "end": 19.57
+        },
+        {
+          "text": "good",
+          "start": 19.79,
+          "end": 19.89
+        },
+        {
+          "text": "night.",
+          "start": 19.89,
+          "end": 20.21
+        },
+        {
+          "text": "As",
+          "start": 20.77,
+          "end": 20.89
+        },
+        {
+          "text": "sweet",
+          "start": 20.89,
+          "end": 21.21
+        },
+        {
+          "text": "repose",
+          "start": 21.21,
+          "end": 21.73
+        },
+        {
+          "text": "and",
+          "start": 21.73,
+          "end": 21.95
+        },
+        {
+          "text": "rest",
+          "start": 21.95,
+          "end": 22.17
+        },
+        {
+          "text": "Come",
+          "start": 22.17,
+          "end": 22.41
+        },
+        {
+          "text": "to",
+          "start": 22.41,
+          "end": 22.57
+        },
+        {
+          "text": "thy",
+          "start": 22.57,
+          "end": 22.71
+        },
+        {
+          "text": "heart",
+          "start": 22.71,
+          "end": 22.93
+        },
+        {
+          "text": "as",
+          "start": 22.93,
+          "end": 23.11
+        },
+        {
+          "text": "that",
+          "start": 23.11,
+          "end": 23.33
+        },
+        {
+          "text": "within",
+          "start": 23.33,
+          "end": 23.53
+        },
+        {
+          "text": "my",
+          "start": 23.53,
+          "end": 23.73
+        },
+        {
+          "text": "breast.",
+          "start": 23.73,
+          "end": 24.05
+        }
+      ],
+      "stats": {
+        "expected_words": 79,
+        "heard_words": 79,
+        "matched_words": 78
+      },
+      "match_ratio": 0.9873417721518988,
+      "rejection_reasons": [],
+      "seconds": 1.0940513461828232
+    },
+    {
+      "asr_seconds": 1.0353389354422688,
+      "alignment_seconds": 0.002525818534195423,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Juliet, Well, Although, I, It, Ere, May, Come"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Juliet, Well, Do Not Swear, Although I Joy In Thee, I Have No Joy Of This Contract Tonight,",
+          "start": 0.05,
+          "end": 5.25,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.84765625
+            },
+            {
+              "text": " Well,",
+              "start": 1.23,
+              "end": 1.47,
+              "probability": 0.08367919921875
+            },
+            {
+              "text": " Do",
+              "start": 1.59,
+              "end": 1.65,
+              "probability": 0.0131378173828125
+            },
+            {
+              "text": " Not",
+              "start": 1.65,
+              "end": 1.83,
+              "probability": 0.253173828125
+            },
+            {
+              "text": " Swear,",
+              "start": 1.83,
+              "end": 2.35,
+              "probability": 0.92578125
+            },
+            {
+              "text": " Although",
+              "start": 2.77,
+              "end": 2.97,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " I",
+              "start": 2.97,
+              "end": 3.15,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Joy",
+              "start": 3.15,
+              "end": 3.29,
+              "probability": 0.70361328125
+            },
+            {
+              "text": " In",
+              "start": 3.29,
+              "end": 3.45,
+              "probability": 0.61279296875
+            },
+            {
+              "text": " Thee,",
+              "start": 3.45,
+              "end": 3.63,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " I",
+              "start": 3.65,
+              "end": 3.71,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Have",
+              "start": 3.71,
+              "end": 3.85,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " No",
+              "start": 3.85,
+              "end": 4.07,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " Joy",
+              "start": 4.07,
+              "end": 4.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Of",
+              "start": 4.23,
+              "end": 4.37,
+              "probability": 0.93359375
+            },
+            {
+              "text": " This",
+              "start": 4.37,
+              "end": 4.55,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Contract",
+              "start": 4.55,
+              "end": 4.89,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Tonight,",
+              "start": 4.89,
+              "end": 5.25,
+              "probability": 0.74609375
+            }
+          ]
+        },
+        {
+          "text": " It Is Too Rash, Too Unadvised, Too Sudden, Too Like The Lightning, Which Doth Cease To",
+          "start": 5.61,
+          "end": 9.93,
+          "words": [
+            {
+              "text": " It",
+              "start": 5.61,
+              "end": 5.69,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " Is",
+              "start": 5.69,
+              "end": 5.81,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " Too",
+              "start": 5.81,
+              "end": 6.07,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " Rash,",
+              "start": 6.07,
+              "end": 6.35,
+              "probability": 0.409912109375
+            },
+            {
+              "text": " Too",
+              "start": 6.71,
+              "end": 6.83,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Unadvised,",
+              "start": 6.83,
+              "end": 7.41,
+              "probability": 0.9430338541666666
+            },
+            {
+              "text": " Too",
+              "start": 7.59,
+              "end": 7.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Sudden,",
+              "start": 7.73,
+              "end": 8.03,
+              "probability": 0.971435546875
+            },
+            {
+              "text": " Too",
+              "start": 8.25,
+              "end": 8.33,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Like",
+              "start": 8.33,
+              "end": 8.49,
+              "probability": 0.984375
+            },
+            {
+              "text": " The",
+              "start": 8.49,
+              "end": 8.63,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " Lightning,",
+              "start": 8.63,
+              "end": 8.89,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " Which",
+              "start": 9.21,
+              "end": 9.37,
+              "probability": 0.962890625
+            },
+            {
+              "text": " Doth",
+              "start": 9.37,
+              "end": 9.57,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " Cease",
+              "start": 9.57,
+              "end": 9.79,
+              "probability": 0.753662109375
+            },
+            {
+              "text": " To",
+              "start": 9.79,
+              "end": 9.93,
+              "probability": 0.8896484375
+            }
+          ]
+        },
+        {
+          "text": " Be Ere One Can Say, It Lightens, Sweet Good Night, This Bud Of Love, By Summer's Ripening",
+          "start": 9.93,
+          "end": 15.83,
+          "words": [
+            {
+              "text": " Be",
+              "start": 9.93,
+              "end": 10.05,
+              "probability": 0.984375
+            },
+            {
+              "text": " Ere",
+              "start": 10.05,
+              "end": 10.29,
+              "probability": 0.491119384765625
+            },
+            {
+              "text": " One",
+              "start": 10.29,
+              "end": 10.47,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Can",
+              "start": 10.47,
+              "end": 10.67,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Say,",
+              "start": 10.67,
+              "end": 10.99,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " It",
+              "start": 11.13,
+              "end": 11.27,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Lightens,",
+              "start": 11.27,
+              "end": 11.73,
+              "probability": 0.921875
+            },
+            {
+              "text": " Sweet",
+              "start": 12.43,
+              "end": 12.77,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " Good",
+              "start": 12.77,
+              "end": 13.15,
+              "probability": 0.5419921875
+            },
+            {
+              "text": " Night,",
+              "start": 13.15,
+              "end": 13.41,
+              "probability": 0.6591796875
+            },
+            {
+              "text": " This",
+              "start": 13.97,
+              "end": 14.19,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " Bud",
+              "start": 14.19,
+              "end": 14.37,
+              "probability": 0.6328125
+            },
+            {
+              "text": " Of",
+              "start": 14.37,
+              "end": 14.53,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " Love,",
+              "start": 14.53,
+              "end": 14.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " By",
+              "start": 14.91,
+              "end": 15.09,
+              "probability": 0.94921875
+            },
+            {
+              "text": " Summer's",
+              "start": 15.09,
+              "end": 15.53,
+              "probability": 0.893798828125
+            },
+            {
+              "text": " Ripening",
+              "start": 15.53,
+              "end": 15.83,
+              "probability": 0.835205078125
+            }
+          ]
+        },
+        {
+          "text": " Breath May Prove A Beautyous Flower When Next We Meet, Good Night, Good Night, As Sweet Repose",
+          "start": 15.83,
+          "end": 21.71,
+          "words": [
+            {
+              "text": " Breath",
+              "start": 15.83,
+              "end": 16.17,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " May",
+              "start": 16.17,
+              "end": 16.53,
+              "probability": 0.1026611328125
+            },
+            {
+              "text": " Prove",
+              "start": 16.53,
+              "end": 16.77,
+              "probability": 0.959716796875
+            },
+            {
+              "text": " A",
+              "start": 16.77,
+              "end": 16.91,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Beautyous",
+              "start": 16.91,
+              "end": 17.31,
+              "probability": 0.6630859375
+            },
+            {
+              "text": " Flower",
+              "start": 17.31,
+              "end": 17.63,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " When",
+              "start": 17.63,
+              "end": 17.91,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " Next",
+              "start": 17.91,
+              "end": 18.13,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " We",
+              "start": 18.13,
+              "end": 18.33,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Meet,",
+              "start": 18.33,
+              "end": 18.55,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Good",
+              "start": 19.03,
+              "end": 19.31,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Night,",
+              "start": 19.31,
+              "end": 19.55,
+              "probability": 0.951171875
+            },
+            {
+              "text": " Good",
+              "start": 19.81,
+              "end": 19.89,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Night,",
+              "start": 19.89,
+              "end": 20.21,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " As",
+              "start": 20.75,
+              "end": 20.89,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Sweet",
+              "start": 20.89,
+              "end": 21.23,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Repose",
+              "start": 21.23,
+              "end": 21.71,
+              "probability": 0.968994140625
+            }
+          ]
+        },
+        {
+          "text": " And Rest Come To Thy Heart As That Within My Breast.",
+          "start": 21.71,
+          "end": 23.99,
+          "words": [
+            {
+              "text": " And",
+              "start": 21.71,
+              "end": 21.91,
+              "probability": 0.051055908203125
+            },
+            {
+              "text": " Rest",
+              "start": 21.91,
+              "end": 22.15,
+              "probability": 0.00995635986328125
+            },
+            {
+              "text": " Come",
+              "start": 22.15,
+              "end": 22.41,
+              "probability": 0.39794921875
+            },
+            {
+              "text": " To",
+              "start": 22.41,
+              "end": 22.57,
+              "probability": 0.356201171875
+            },
+            {
+              "text": " Thy",
+              "start": 22.57,
+              "end": 22.71,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Heart",
+              "start": 22.71,
+              "end": 22.93,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " As",
+              "start": 22.93,
+              "end": 23.13,
+              "probability": 0.67431640625
+            },
+            {
+              "text": " That",
+              "start": 23.13,
+              "end": 23.33,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Within",
+              "start": 23.33,
+              "end": 23.53,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " My",
+              "start": 23.53,
+              "end": 23.73,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " Breast.",
+              "start": 23.73,
+              "end": 23.99,
+              "probability": 0.9375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Well,",
+          "start": 1.23,
+          "end": 1.47
+        },
+        {
+          "raw": "Do",
+          "start": 1.59,
+          "end": 1.65
+        },
+        {
+          "raw": "Not",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "raw": "Swear,",
+          "start": 1.83,
+          "end": 2.35
+        },
+        {
+          "raw": "Although",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "raw": "I",
+          "start": 2.97,
+          "end": 3.15
+        },
+        {
+          "raw": "Joy",
+          "start": 3.15,
+          "end": 3.29
+        },
+        {
+          "raw": "In",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "raw": "Thee,",
+          "start": 3.45,
+          "end": 3.63
+        },
+        {
+          "raw": "I",
+          "start": 3.65,
+          "end": 3.71
+        },
+        {
+          "raw": "Have",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "raw": "No",
+          "start": 3.85,
+          "end": 4.07
+        },
+        {
+          "raw": "Joy",
+          "start": 4.07,
+          "end": 4.23
+        },
+        {
+          "raw": "Of",
+          "start": 4.23,
+          "end": 4.37
+        },
+        {
+          "raw": "This",
+          "start": 4.37,
+          "end": 4.55
+        },
+        {
+          "raw": "Contract",
+          "start": 4.55,
+          "end": 4.89
+        },
+        {
+          "raw": "Tonight,",
+          "start": 4.89,
+          "end": 5.25
+        },
+        {
+          "raw": "It",
+          "start": 5.61,
+          "end": 5.69
+        },
+        {
+          "raw": "Is",
+          "start": 5.69,
+          "end": 5.81
+        },
+        {
+          "raw": "Too",
+          "start": 5.81,
+          "end": 6.07
+        },
+        {
+          "raw": "Rash,",
+          "start": 6.07,
+          "end": 6.35
+        },
+        {
+          "raw": "Too",
+          "start": 6.71,
+          "end": 6.83
+        },
+        {
+          "raw": "Unadvised,",
+          "start": 6.83,
+          "end": 7.41
+        },
+        {
+          "raw": "Too",
+          "start": 7.59,
+          "end": 7.73
+        },
+        {
+          "raw": "Sudden,",
+          "start": 7.73,
+          "end": 8.03
+        },
+        {
+          "raw": "Too",
+          "start": 8.25,
+          "end": 8.33
+        },
+        {
+          "raw": "Like",
+          "start": 8.33,
+          "end": 8.49
+        },
+        {
+          "raw": "The",
+          "start": 8.49,
+          "end": 8.63
+        },
+        {
+          "raw": "Lightning,",
+          "start": 8.63,
+          "end": 8.89
+        },
+        {
+          "raw": "Which",
+          "start": 9.21,
+          "end": 9.37
+        },
+        {
+          "raw": "Doth",
+          "start": 9.37,
+          "end": 9.57
+        },
+        {
+          "raw": "Cease",
+          "start": 9.57,
+          "end": 9.79
+        },
+        {
+          "raw": "To",
+          "start": 9.79,
+          "end": 9.93
+        },
+        {
+          "raw": "Be",
+          "start": 9.93,
+          "end": 10.05
+        },
+        {
+          "raw": "Ere",
+          "start": 10.05,
+          "end": 10.29
+        },
+        {
+          "raw": "One",
+          "start": 10.29,
+          "end": 10.47
+        },
+        {
+          "raw": "Can",
+          "start": 10.47,
+          "end": 10.67
+        },
+        {
+          "raw": "Say,",
+          "start": 10.67,
+          "end": 10.99
+        },
+        {
+          "raw": "It",
+          "start": 11.13,
+          "end": 11.27
+        },
+        {
+          "raw": "Lightens,",
+          "start": 11.27,
+          "end": 11.73
+        },
+        {
+          "raw": "Sweet",
+          "start": 12.43,
+          "end": 12.77
+        },
+        {
+          "raw": "Good",
+          "start": 12.77,
+          "end": 13.15
+        },
+        {
+          "raw": "Night,",
+          "start": 13.15,
+          "end": 13.41
+        },
+        {
+          "raw": "This",
+          "start": 13.97,
+          "end": 14.19
+        },
+        {
+          "raw": "Bud",
+          "start": 14.19,
+          "end": 14.37
+        },
+        {
+          "raw": "Of",
+          "start": 14.37,
+          "end": 14.53
+        },
+        {
+          "raw": "Love,",
+          "start": 14.53,
+          "end": 14.77
+        },
+        {
+          "raw": "By",
+          "start": 14.91,
+          "end": 15.09
+        },
+        {
+          "raw": "Summer's",
+          "start": 15.09,
+          "end": 15.53
+        },
+        {
+          "raw": "Ripening",
+          "start": 15.53,
+          "end": 15.83
+        },
+        {
+          "raw": "Breath",
+          "start": 15.83,
+          "end": 16.17
+        },
+        {
+          "raw": "May",
+          "start": 16.17,
+          "end": 16.53
+        },
+        {
+          "raw": "Prove",
+          "start": 16.53,
+          "end": 16.77
+        },
+        {
+          "raw": "A",
+          "start": 16.77,
+          "end": 16.91
+        },
+        {
+          "raw": "Beautyous",
+          "start": 16.91,
+          "end": 17.31
+        },
+        {
+          "raw": "Flower",
+          "start": 17.31,
+          "end": 17.63
+        },
+        {
+          "raw": "When",
+          "start": 17.63,
+          "end": 17.91
+        },
+        {
+          "raw": "Next",
+          "start": 17.91,
+          "end": 18.13
+        },
+        {
+          "raw": "We",
+          "start": 18.13,
+          "end": 18.33
+        },
+        {
+          "raw": "Meet,",
+          "start": 18.33,
+          "end": 18.55
+        },
+        {
+          "raw": "Good",
+          "start": 19.03,
+          "end": 19.31
+        },
+        {
+          "raw": "Night,",
+          "start": 19.31,
+          "end": 19.55
+        },
+        {
+          "raw": "Good",
+          "start": 19.81,
+          "end": 19.89
+        },
+        {
+          "raw": "Night,",
+          "start": 19.89,
+          "end": 20.21
+        },
+        {
+          "raw": "As",
+          "start": 20.75,
+          "end": 20.89
+        },
+        {
+          "raw": "Sweet",
+          "start": 20.89,
+          "end": 21.23
+        },
+        {
+          "raw": "Repose",
+          "start": 21.23,
+          "end": 21.71
+        },
+        {
+          "raw": "And",
+          "start": 21.71,
+          "end": 21.91
+        },
+        {
+          "raw": "Rest",
+          "start": 21.91,
+          "end": 22.15
+        },
+        {
+          "raw": "Come",
+          "start": 22.15,
+          "end": 22.41
+        },
+        {
+          "raw": "To",
+          "start": 22.41,
+          "end": 22.57
+        },
+        {
+          "raw": "Thy",
+          "start": 22.57,
+          "end": 22.71
+        },
+        {
+          "raw": "Heart",
+          "start": 22.71,
+          "end": 22.93
+        },
+        {
+          "raw": "As",
+          "start": 22.93,
+          "end": 23.13
+        },
+        {
+          "raw": "That",
+          "start": 23.13,
+          "end": 23.33
+        },
+        {
+          "raw": "Within",
+          "start": 23.33,
+          "end": 23.53
+        },
+        {
+          "raw": "My",
+          "start": 23.53,
+          "end": 23.73
+        },
+        {
+          "raw": "Breast.",
+          "start": 23.73,
+          "end": 23.99
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "Well,",
+        "do",
+        "not",
+        "swear.",
+        "Although",
+        "I",
+        "joy",
+        "in",
+        "thee,",
+        "I",
+        "have",
+        "no",
+        "joy",
+        "of",
+        "this",
+        "contract",
+        "tonight;",
+        "It",
+        "is",
+        "too",
+        "rash,",
+        "too",
+        "unadvis'd,",
+        "too",
+        "sudden,",
+        "Too",
+        "like",
+        "the",
+        "lightning,",
+        "which",
+        "doth",
+        "cease",
+        "to",
+        "be",
+        "Ere",
+        "one",
+        "can",
+        "say",
+        "\"It",
+        "lightens.\"",
+        "Sweet,",
+        "good",
+        "night.",
+        "This",
+        "bud",
+        "of",
+        "love,",
+        "by",
+        "summer's",
+        "ripening",
+        "breath,",
+        "May",
+        "prove",
+        "a",
+        "beauteous",
+        "flower",
+        "when",
+        "next",
+        "we",
+        "meet.",
+        "Good",
+        "night,",
+        "good",
+        "night.",
+        "As",
+        "sweet",
+        "repose",
+        "and",
+        "rest",
+        "Come",
+        "to",
+        "thy",
+        "heart",
+        "as",
+        "that",
+        "within",
+        "my",
+        "breast."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ],
+        [
+          "equal",
+          24,
+          55,
+          24,
+          55
+        ],
+        [
+          "replace",
+          55,
+          56,
+          55,
+          56
+        ],
+        [
+          "equal",
+          56,
+          79,
+          56,
+          79
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ],
+        [
+          "replace",
+          55,
+          56,
+          55,
+          56
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "juliet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 1.23,
+          "end": 1.47,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 1.59,
+          "end": 1.65,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 1.65,
+          "end": 1.83,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Swear,",
+          "start": 1.83,
+          "end": 2.35,
+          "key": "swear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Although",
+          "start": 2.77,
+          "end": 2.97,
+          "key": "although",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.97,
+          "end": 3.15,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Joy",
+          "start": 3.15,
+          "end": 3.29,
+          "key": "joy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 3.29,
+          "end": 3.45,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Thee,",
+          "start": 3.45,
+          "end": 3.63,
+          "key": "thee",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.65,
+          "end": 3.71,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 3.71,
+          "end": 3.85,
+          "key": "have",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 3.85,
+          "end": 4.07,
+          "key": "no",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Joy",
+          "start": 4.07,
+          "end": 4.23,
+          "key": "joy",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 4.23,
+          "end": 4.37,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 4.37,
+          "end": 4.55,
+          "key": "this",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Contract",
+          "start": 4.55,
+          "end": 4.89,
+          "key": "contract",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Tonight,",
+          "start": 4.89,
+          "end": 5.25,
+          "key": "tonight",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 5.61,
+          "end": 5.69,
+          "key": "it",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 5.69,
+          "end": 5.81,
+          "key": "is",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Too",
+          "start": 5.81,
+          "end": 6.07,
+          "key": "too",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Rash,",
+          "start": 6.07,
+          "end": 6.35,
+          "key": "rash",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Too",
+          "start": 6.71,
+          "end": 6.83,
+          "key": "too",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Unadvised,",
+          "start": 6.83,
+          "end": 7.41,
+          "key": "unadvised",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Too",
+          "start": 7.59,
+          "end": 7.73,
+          "key": "too",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Sudden,",
+          "start": 7.73,
+          "end": 8.03,
+          "key": "sudden",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Too",
+          "start": 8.25,
+          "end": 8.33,
+          "key": "too",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Like",
+          "start": 8.33,
+          "end": 8.49,
+          "key": "like",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 8.49,
+          "end": 8.63,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Lightning,",
+          "start": 8.63,
+          "end": 8.89,
+          "key": "lightning",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 9.21,
+          "end": 9.37,
+          "key": "which",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Doth",
+          "start": 9.37,
+          "end": 9.57,
+          "key": "doth",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Cease",
+          "start": 9.57,
+          "end": 9.79,
+          "key": "cease",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 9.79,
+          "end": 9.93,
+          "key": "to",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 9.93,
+          "end": 10.05,
+          "key": "be",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Ere",
+          "start": 10.05,
+          "end": 10.29,
+          "key": "ere",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "One",
+          "start": 10.29,
+          "end": 10.47,
+          "key": "one",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Can",
+          "start": 10.47,
+          "end": 10.67,
+          "key": "can",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Say,",
+          "start": 10.67,
+          "end": 10.99,
+          "key": "say",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 11.13,
+          "end": 11.27,
+          "key": "it",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Lightens,",
+          "start": 11.27,
+          "end": 11.73,
+          "key": "lightens",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Sweet",
+          "start": 12.43,
+          "end": 12.77,
+          "key": "sweet",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 12.77,
+          "end": 13.15,
+          "key": "good",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Night,",
+          "start": 13.15,
+          "end": 13.41,
+          "key": "night",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 13.97,
+          "end": 14.19,
+          "key": "this",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Bud",
+          "start": 14.19,
+          "end": 14.37,
+          "key": "bud",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 14.37,
+          "end": 14.53,
+          "key": "of",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Love,",
+          "start": 14.53,
+          "end": 14.77,
+          "key": "love",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "By",
+          "start": 14.91,
+          "end": 15.09,
+          "key": "by",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Summer's",
+          "start": 15.09,
+          "end": 15.53,
+          "key": "summers",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "Ripening",
+          "start": 15.53,
+          "end": 15.83,
+          "key": "ripening",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Breath",
+          "start": 15.83,
+          "end": 16.17,
+          "key": "breath",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "May",
+          "start": 16.17,
+          "end": 16.53,
+          "key": "may",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Prove",
+          "start": 16.53,
+          "end": 16.77,
+          "key": "prove",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 16.77,
+          "end": 16.91,
+          "key": "a",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "Beautyous",
+          "start": 16.91,
+          "end": 17.31,
+          "key": "beautyous",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "Flower",
+          "start": 17.31,
+          "end": 17.63,
+          "key": "flower",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "When",
+          "start": 17.63,
+          "end": 17.91,
+          "key": "when",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "Next",
+          "start": 17.91,
+          "end": 18.13,
+          "key": "next",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 18.13,
+          "end": 18.33,
+          "key": "we",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "Meet,",
+          "start": 18.33,
+          "end": 18.55,
+          "key": "meet",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 19.03,
+          "end": 19.31,
+          "key": "good",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "Night,",
+          "start": 19.31,
+          "end": 19.55,
+          "key": "night",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 19.81,
+          "end": 19.89,
+          "key": "good",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "Night,",
+          "start": 19.89,
+          "end": 20.21,
+          "key": "night",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 20.75,
+          "end": 20.89,
+          "key": "as",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "Sweet",
+          "start": 20.89,
+          "end": 21.23,
+          "key": "sweet",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "Repose",
+          "start": 21.23,
+          "end": 21.71,
+          "key": "repose",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 21.71,
+          "end": 21.91,
+          "key": "and",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "Rest",
+          "start": 21.91,
+          "end": 22.15,
+          "key": "rest",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "Come",
+          "start": 22.15,
+          "end": 22.41,
+          "key": "come",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 22.41,
+          "end": 22.57,
+          "key": "to",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "Thy",
+          "start": 22.57,
+          "end": 22.71,
+          "key": "thy",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "Heart",
+          "start": 22.71,
+          "end": 22.93,
+          "key": "heart",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 22.93,
+          "end": 23.13,
+          "key": "as",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 23.13,
+          "end": 23.33,
+          "key": "that",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "Within",
+          "start": 23.33,
+          "end": 23.53,
+          "key": "within",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 23.53,
+          "end": 23.73,
+          "key": "my",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "Breast.",
+          "start": 23.73,
+          "end": 23.99,
+          "key": "breast",
+          "pieces": [
+            78
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Well,",
+          "start": 1.23,
+          "end": 1.47
+        },
+        {
+          "text": "do",
+          "start": 1.59,
+          "end": 1.65
+        },
+        {
+          "text": "not",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "text": "swear.",
+          "start": 1.83,
+          "end": 2.35
+        },
+        {
+          "text": "Although",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "text": "I",
+          "start": 2.97,
+          "end": 3.15
+        },
+        {
+          "text": "joy",
+          "start": 3.15,
+          "end": 3.29
+        },
+        {
+          "text": "in",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "text": "thee,",
+          "start": 3.45,
+          "end": 3.63
+        },
+        {
+          "text": "I",
+          "start": 3.65,
+          "end": 3.71
+        },
+        {
+          "text": "have",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "text": "no",
+          "start": 3.85,
+          "end": 4.07
+        },
+        {
+          "text": "joy",
+          "start": 4.07,
+          "end": 4.23
+        },
+        {
+          "text": "of",
+          "start": 4.23,
+          "end": 4.37
+        },
+        {
+          "text": "this",
+          "start": 4.37,
+          "end": 4.55
+        },
+        {
+          "text": "contract",
+          "start": 4.55,
+          "end": 4.89
+        },
+        {
+          "text": "tonight;",
+          "start": 4.89,
+          "end": 5.25
+        },
+        {
+          "text": "It",
+          "start": 5.61,
+          "end": 5.69
+        },
+        {
+          "text": "is",
+          "start": 5.69,
+          "end": 5.81
+        },
+        {
+          "text": "too",
+          "start": 5.81,
+          "end": 6.07
+        },
+        {
+          "text": "rash,",
+          "start": 6.07,
+          "end": 6.35
+        },
+        {
+          "text": "too",
+          "start": 6.71,
+          "end": 6.83
+        },
+        {
+          "text": "unadvis'd,",
+          "start": 6.83,
+          "end": 7.21
+        },
+        {
+          "text": "too",
+          "start": 7.59,
+          "end": 7.73
+        },
+        {
+          "text": "sudden,",
+          "start": 7.73,
+          "end": 8.03
+        },
+        {
+          "text": "Too",
+          "start": 8.25,
+          "end": 8.33
+        },
+        {
+          "text": "like",
+          "start": 8.33,
+          "end": 8.49
+        },
+        {
+          "text": "the",
+          "start": 8.49,
+          "end": 8.63
+        },
+        {
+          "text": "lightning,",
+          "start": 8.63,
+          "end": 8.89
+        },
+        {
+          "text": "which",
+          "start": 9.21,
+          "end": 9.37
+        },
+        {
+          "text": "doth",
+          "start": 9.37,
+          "end": 9.57
+        },
+        {
+          "text": "cease",
+          "start": 9.57,
+          "end": 9.79
+        },
+        {
+          "text": "to",
+          "start": 9.79,
+          "end": 9.93
+        },
+        {
+          "text": "be",
+          "start": 9.93,
+          "end": 10.05
+        },
+        {
+          "text": "Ere",
+          "start": 10.05,
+          "end": 10.29
+        },
+        {
+          "text": "one",
+          "start": 10.29,
+          "end": 10.47
+        },
+        {
+          "text": "can",
+          "start": 10.47,
+          "end": 10.67
+        },
+        {
+          "text": "say",
+          "start": 10.67,
+          "end": 10.99
+        },
+        {
+          "text": "\"It",
+          "start": 11.13,
+          "end": 11.27
+        },
+        {
+          "text": "lightens.\"",
+          "start": 11.27,
+          "end": 11.73
+        },
+        {
+          "text": "Sweet,",
+          "start": 12.43,
+          "end": 12.77
+        },
+        {
+          "text": "good",
+          "start": 12.77,
+          "end": 13.15
+        },
+        {
+          "text": "night.",
+          "start": 13.15,
+          "end": 13.41
+        },
+        {
+          "text": "This",
+          "start": 13.97,
+          "end": 14.19
+        },
+        {
+          "text": "bud",
+          "start": 14.19,
+          "end": 14.37
+        },
+        {
+          "text": "of",
+          "start": 14.37,
+          "end": 14.53
+        },
+        {
+          "text": "love,",
+          "start": 14.53,
+          "end": 14.77
+        },
+        {
+          "text": "by",
+          "start": 14.91,
+          "end": 15.09
+        },
+        {
+          "text": "summer's",
+          "start": 15.09,
+          "end": 15.53
+        },
+        {
+          "text": "ripening",
+          "start": 15.53,
+          "end": 15.83
+        },
+        {
+          "text": "breath,",
+          "start": 15.83,
+          "end": 16.17
+        },
+        {
+          "text": "May",
+          "start": 16.17,
+          "end": 16.53
+        },
+        {
+          "text": "prove",
+          "start": 16.53,
+          "end": 16.77
+        },
+        {
+          "text": "a",
+          "start": 16.77,
+          "end": 16.91
+        },
+        {
+          "text": "beauteous",
+          "start": 16.91,
+          "end": 17.11
+        },
+        {
+          "text": "flower",
+          "start": 17.31,
+          "end": 17.63
+        },
+        {
+          "text": "when",
+          "start": 17.63,
+          "end": 17.91
+        },
+        {
+          "text": "next",
+          "start": 17.91,
+          "end": 18.13
+        },
+        {
+          "text": "we",
+          "start": 18.13,
+          "end": 18.33
+        },
+        {
+          "text": "meet.",
+          "start": 18.33,
+          "end": 18.55
+        },
+        {
+          "text": "Good",
+          "start": 19.03,
+          "end": 19.31
+        },
+        {
+          "text": "night,",
+          "start": 19.31,
+          "end": 19.55
+        },
+        {
+          "text": "good",
+          "start": 19.81,
+          "end": 19.89
+        },
+        {
+          "text": "night.",
+          "start": 19.89,
+          "end": 20.21
+        },
+        {
+          "text": "As",
+          "start": 20.75,
+          "end": 20.89
+        },
+        {
+          "text": "sweet",
+          "start": 20.89,
+          "end": 21.23
+        },
+        {
+          "text": "repose",
+          "start": 21.23,
+          "end": 21.71
+        },
+        {
+          "text": "and",
+          "start": 21.71,
+          "end": 21.91
+        },
+        {
+          "text": "rest",
+          "start": 21.91,
+          "end": 22.15
+        },
+        {
+          "text": "Come",
+          "start": 22.15,
+          "end": 22.41
+        },
+        {
+          "text": "to",
+          "start": 22.41,
+          "end": 22.57
+        },
+        {
+          "text": "thy",
+          "start": 22.57,
+          "end": 22.71
+        },
+        {
+          "text": "heart",
+          "start": 22.71,
+          "end": 22.93
+        },
+        {
+          "text": "as",
+          "start": 22.93,
+          "end": 23.13
+        },
+        {
+          "text": "that",
+          "start": 23.13,
+          "end": 23.33
+        },
+        {
+          "text": "within",
+          "start": 23.33,
+          "end": 23.53
+        },
+        {
+          "text": "my",
+          "start": 23.53,
+          "end": 23.73
+        },
+        {
+          "text": "breast.",
+          "start": 23.73,
+          "end": 23.99
+        }
+      ],
+      "stats": {
+        "expected_words": 79,
+        "heard_words": 79,
+        "matched_words": 77
+      },
+      "match_ratio": 0.9746835443037974,
+      "rejection_reasons": [],
+      "seconds": 1.0390940299257636
+    },
+    {
+      "asr_seconds": 0.980411414988339,
+      "alignment_seconds": 0.0013487273827195168,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Juliet, well, do not swear.",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.84765625
+            },
+            {
+              "text": " well,",
+              "start": 1.23,
+              "end": 1.47,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " do",
+              "start": 1.59,
+              "end": 1.65,
+              "probability": 0.9921875
+            },
+            {
+              "text": " not",
+              "start": 1.65,
+              "end": 1.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " swear.",
+              "start": 1.83,
+              "end": 2.25,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " Although I joy in thee, I have no joy of this contract to-night.",
+          "start": 2.79,
+          "end": 5.31,
+          "words": [
+            {
+              "text": " Although",
+              "start": 2.79,
+              "end": 2.97,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " I",
+              "start": 2.97,
+              "end": 3.13,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " joy",
+              "start": 3.13,
+              "end": 3.31,
+              "probability": 0.8037109375
+            },
+            {
+              "text": " in",
+              "start": 3.31,
+              "end": 3.45,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " thee,",
+              "start": 3.45,
+              "end": 3.57,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " I",
+              "start": 3.69,
+              "end": 3.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " have",
+              "start": 3.71,
+              "end": 3.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " no",
+              "start": 3.85,
+              "end": 4.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " joy",
+              "start": 4.05,
+              "end": 4.23,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " of",
+              "start": 4.23,
+              "end": 4.37,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " this",
+              "start": 4.37,
+              "end": 4.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " contract",
+              "start": 4.53,
+              "end": 4.91,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " to",
+              "start": 4.91,
+              "end": 5.11,
+              "probability": 0.642578125
+            },
+            {
+              "text": "-night.",
+              "start": 5.11,
+              "end": 5.31,
+              "probability": 0.972900390625
+            }
+          ]
+        },
+        {
+          "text": " It is too rash, too unadvised, too sudden, too like the lightning, which doth cease to",
+          "start": 5.59,
+          "end": 9.93,
+          "words": [
+            {
+              "text": " It",
+              "start": 5.59,
+              "end": 5.69,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " is",
+              "start": 5.69,
+              "end": 5.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " too",
+              "start": 5.83,
+              "end": 6.05,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " rash,",
+              "start": 6.05,
+              "end": 6.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " too",
+              "start": 6.71,
+              "end": 6.83,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " unadvised,",
+              "start": 6.83,
+              "end": 7.43,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " too",
+              "start": 7.61,
+              "end": 7.73,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " sudden,",
+              "start": 7.73,
+              "end": 8.05,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " too",
+              "start": 8.25,
+              "end": 8.35,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " like",
+              "start": 8.35,
+              "end": 8.49,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " the",
+              "start": 8.49,
+              "end": 8.63,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " lightning,",
+              "start": 8.63,
+              "end": 8.93,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " which",
+              "start": 9.21,
+              "end": 9.37,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " doth",
+              "start": 9.37,
+              "end": 9.57,
+              "probability": 0.984375
+            },
+            {
+              "text": " cease",
+              "start": 9.57,
+              "end": 9.75,
+              "probability": 0.986328125
+            },
+            {
+              "text": " to",
+              "start": 9.75,
+              "end": 9.93,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " be air one can say it lightens.",
+          "start": 9.93,
+          "end": 11.75,
+          "words": [
+            {
+              "text": " be",
+              "start": 9.93,
+              "end": 10.03,
+              "probability": 0.9921875
+            },
+            {
+              "text": " air",
+              "start": 10.03,
+              "end": 10.25,
+              "probability": 0.49853515625
+            },
+            {
+              "text": " one",
+              "start": 10.25,
+              "end": 10.47,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " can",
+              "start": 10.47,
+              "end": 10.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " say",
+              "start": 10.67,
+              "end": 10.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it",
+              "start": 10.99,
+              "end": 11.25,
+              "probability": 0.4580078125
+            },
+            {
+              "text": " lightens.",
+              "start": 11.25,
+              "end": 11.75,
+              "probability": 0.9873046875
+            }
+          ]
+        },
+        {
+          "text": " Sweet, good night!",
+          "start": 12.47,
+          "end": 13.41,
+          "words": [
+            {
+              "text": " Sweet,",
+              "start": 12.47,
+              "end": 12.79,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " good",
+              "start": 13.05,
+              "end": 13.15,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " night!",
+              "start": 13.15,
+              "end": 13.41,
+              "probability": 0.56201171875
+            }
+          ]
+        },
+        {
+          "text": " This bud of love, by summer's ripening breath, may prove a beauteous flower when next we",
+          "start": 14.05,
+          "end": 18.33,
+          "words": [
+            {
+              "text": " This",
+              "start": 14.05,
+              "end": 14.19,
+              "probability": 0.8154296875
+            },
+            {
+              "text": " bud",
+              "start": 14.19,
+              "end": 14.37,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " of",
+              "start": 14.37,
+              "end": 14.53,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " love,",
+              "start": 14.53,
+              "end": 14.77,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " by",
+              "start": 14.87,
+              "end": 15.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " summer's",
+              "start": 15.07,
+              "end": 15.49,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " ripening",
+              "start": 15.49,
+              "end": 15.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " breath,",
+              "start": 15.83,
+              "end": 16.19,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " may",
+              "start": 16.43,
+              "end": 16.53,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " prove",
+              "start": 16.53,
+              "end": 16.75,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 16.75,
+              "end": 16.89,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " beauteous",
+              "start": 16.89,
+              "end": 17.29,
+              "probability": 0.81024169921875
+            },
+            {
+              "text": " flower",
+              "start": 17.29,
+              "end": 17.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " when",
+              "start": 17.65,
+              "end": 17.91,
+              "probability": 0.966796875
+            },
+            {
+              "text": " next",
+              "start": 17.91,
+              "end": 18.15,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " we",
+              "start": 18.15,
+              "end": 18.33,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " meet.",
+          "start": 18.33,
+          "end": 18.55,
+          "words": [
+            {
+              "text": " meet.",
+              "start": 18.33,
+              "end": 18.55,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " Good night, good night!",
+          "start": 19.13,
+          "end": 20.21,
+          "words": [
+            {
+              "text": " Good",
+              "start": 19.13,
+              "end": 19.31,
+              "probability": 0.990234375
+            },
+            {
+              "text": " night,",
+              "start": 19.31,
+              "end": 19.57,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " good",
+              "start": 19.79,
+              "end": 19.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " night!",
+              "start": 19.89,
+              "end": 20.21,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " As sweet repose and rest come to thy heart as that within my breast.",
+          "start": 20.77,
+          "end": 24.05,
+          "words": [
+            {
+              "text": " As",
+              "start": 20.77,
+              "end": 20.89,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " sweet",
+              "start": 20.89,
+              "end": 21.21,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " repose",
+              "start": 21.21,
+              "end": 21.73,
+              "probability": 0.984619140625
+            },
+            {
+              "text": " and",
+              "start": 21.73,
+              "end": 21.95,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " rest",
+              "start": 21.95,
+              "end": 22.17,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " come",
+              "start": 22.17,
+              "end": 22.43,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " to",
+              "start": 22.43,
+              "end": 22.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " thy",
+              "start": 22.57,
+              "end": 22.71,
+              "probability": 0.9921875
+            },
+            {
+              "text": " heart",
+              "start": 22.71,
+              "end": 22.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " as",
+              "start": 22.93,
+              "end": 23.11,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " that",
+              "start": 23.11,
+              "end": 23.33,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " within",
+              "start": 23.33,
+              "end": 23.53,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " my",
+              "start": 23.53,
+              "end": 23.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " breast.",
+              "start": 23.73,
+              "end": 24.05,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "well,",
+          "start": 1.23,
+          "end": 1.47
+        },
+        {
+          "raw": "do",
+          "start": 1.59,
+          "end": 1.65
+        },
+        {
+          "raw": "not",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "raw": "swear.",
+          "start": 1.83,
+          "end": 2.25
+        },
+        {
+          "raw": "Although",
+          "start": 2.79,
+          "end": 2.97
+        },
+        {
+          "raw": "I",
+          "start": 2.97,
+          "end": 3.13
+        },
+        {
+          "raw": "joy",
+          "start": 3.13,
+          "end": 3.31
+        },
+        {
+          "raw": "in",
+          "start": 3.31,
+          "end": 3.45
+        },
+        {
+          "raw": "thee,",
+          "start": 3.45,
+          "end": 3.57
+        },
+        {
+          "raw": "I",
+          "start": 3.69,
+          "end": 3.71
+        },
+        {
+          "raw": "have",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "raw": "no",
+          "start": 3.85,
+          "end": 4.05
+        },
+        {
+          "raw": "joy",
+          "start": 4.05,
+          "end": 4.23
+        },
+        {
+          "raw": "of",
+          "start": 4.23,
+          "end": 4.37
+        },
+        {
+          "raw": "this",
+          "start": 4.37,
+          "end": 4.53
+        },
+        {
+          "raw": "contract",
+          "start": 4.53,
+          "end": 4.91
+        },
+        {
+          "raw": "to",
+          "start": 4.91,
+          "end": 5.11
+        },
+        {
+          "raw": "-night.",
+          "start": 5.11,
+          "end": 5.31
+        },
+        {
+          "raw": "It",
+          "start": 5.59,
+          "end": 5.69
+        },
+        {
+          "raw": "is",
+          "start": 5.69,
+          "end": 5.83
+        },
+        {
+          "raw": "too",
+          "start": 5.83,
+          "end": 6.05
+        },
+        {
+          "raw": "rash,",
+          "start": 6.05,
+          "end": 6.39
+        },
+        {
+          "raw": "too",
+          "start": 6.71,
+          "end": 6.83
+        },
+        {
+          "raw": "unadvised,",
+          "start": 6.83,
+          "end": 7.43
+        },
+        {
+          "raw": "too",
+          "start": 7.61,
+          "end": 7.73
+        },
+        {
+          "raw": "sudden,",
+          "start": 7.73,
+          "end": 8.05
+        },
+        {
+          "raw": "too",
+          "start": 8.25,
+          "end": 8.35
+        },
+        {
+          "raw": "like",
+          "start": 8.35,
+          "end": 8.49
+        },
+        {
+          "raw": "the",
+          "start": 8.49,
+          "end": 8.63
+        },
+        {
+          "raw": "lightning,",
+          "start": 8.63,
+          "end": 8.93
+        },
+        {
+          "raw": "which",
+          "start": 9.21,
+          "end": 9.37
+        },
+        {
+          "raw": "doth",
+          "start": 9.37,
+          "end": 9.57
+        },
+        {
+          "raw": "cease",
+          "start": 9.57,
+          "end": 9.75
+        },
+        {
+          "raw": "to",
+          "start": 9.75,
+          "end": 9.93
+        },
+        {
+          "raw": "be",
+          "start": 9.93,
+          "end": 10.03
+        },
+        {
+          "raw": "air",
+          "start": 10.03,
+          "end": 10.25
+        },
+        {
+          "raw": "one",
+          "start": 10.25,
+          "end": 10.47
+        },
+        {
+          "raw": "can",
+          "start": 10.47,
+          "end": 10.67
+        },
+        {
+          "raw": "say",
+          "start": 10.67,
+          "end": 10.99
+        },
+        {
+          "raw": "it",
+          "start": 10.99,
+          "end": 11.25
+        },
+        {
+          "raw": "lightens.",
+          "start": 11.25,
+          "end": 11.75
+        },
+        {
+          "raw": "Sweet,",
+          "start": 12.47,
+          "end": 12.79
+        },
+        {
+          "raw": "good",
+          "start": 13.05,
+          "end": 13.15
+        },
+        {
+          "raw": "night!",
+          "start": 13.15,
+          "end": 13.41
+        },
+        {
+          "raw": "This",
+          "start": 14.05,
+          "end": 14.19
+        },
+        {
+          "raw": "bud",
+          "start": 14.19,
+          "end": 14.37
+        },
+        {
+          "raw": "of",
+          "start": 14.37,
+          "end": 14.53
+        },
+        {
+          "raw": "love,",
+          "start": 14.53,
+          "end": 14.77
+        },
+        {
+          "raw": "by",
+          "start": 14.87,
+          "end": 15.07
+        },
+        {
+          "raw": "summer's",
+          "start": 15.07,
+          "end": 15.49
+        },
+        {
+          "raw": "ripening",
+          "start": 15.49,
+          "end": 15.83
+        },
+        {
+          "raw": "breath,",
+          "start": 15.83,
+          "end": 16.19
+        },
+        {
+          "raw": "may",
+          "start": 16.43,
+          "end": 16.53
+        },
+        {
+          "raw": "prove",
+          "start": 16.53,
+          "end": 16.75
+        },
+        {
+          "raw": "a",
+          "start": 16.75,
+          "end": 16.89
+        },
+        {
+          "raw": "beauteous",
+          "start": 16.89,
+          "end": 17.29
+        },
+        {
+          "raw": "flower",
+          "start": 17.29,
+          "end": 17.65
+        },
+        {
+          "raw": "when",
+          "start": 17.65,
+          "end": 17.91
+        },
+        {
+          "raw": "next",
+          "start": 17.91,
+          "end": 18.15
+        },
+        {
+          "raw": "we",
+          "start": 18.15,
+          "end": 18.33
+        },
+        {
+          "raw": "meet.",
+          "start": 18.33,
+          "end": 18.55
+        },
+        {
+          "raw": "Good",
+          "start": 19.13,
+          "end": 19.31
+        },
+        {
+          "raw": "night,",
+          "start": 19.31,
+          "end": 19.57
+        },
+        {
+          "raw": "good",
+          "start": 19.79,
+          "end": 19.89
+        },
+        {
+          "raw": "night!",
+          "start": 19.89,
+          "end": 20.21
+        },
+        {
+          "raw": "As",
+          "start": 20.77,
+          "end": 20.89
+        },
+        {
+          "raw": "sweet",
+          "start": 20.89,
+          "end": 21.21
+        },
+        {
+          "raw": "repose",
+          "start": 21.21,
+          "end": 21.73
+        },
+        {
+          "raw": "and",
+          "start": 21.73,
+          "end": 21.95
+        },
+        {
+          "raw": "rest",
+          "start": 21.95,
+          "end": 22.17
+        },
+        {
+          "raw": "come",
+          "start": 22.17,
+          "end": 22.43
+        },
+        {
+          "raw": "to",
+          "start": 22.43,
+          "end": 22.57
+        },
+        {
+          "raw": "thy",
+          "start": 22.57,
+          "end": 22.71
+        },
+        {
+          "raw": "heart",
+          "start": 22.71,
+          "end": 22.93
+        },
+        {
+          "raw": "as",
+          "start": 22.93,
+          "end": 23.11
+        },
+        {
+          "raw": "that",
+          "start": 23.11,
+          "end": 23.33
+        },
+        {
+          "raw": "within",
+          "start": 23.33,
+          "end": 23.53
+        },
+        {
+          "raw": "my",
+          "start": 23.53,
+          "end": 23.73
+        },
+        {
+          "raw": "breast.",
+          "start": 23.73,
+          "end": 24.05
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "Well,",
+        "do",
+        "not",
+        "swear.",
+        "Although",
+        "I",
+        "joy",
+        "in",
+        "thee,",
+        "I",
+        "have",
+        "no",
+        "joy",
+        "of",
+        "this",
+        "contract",
+        "tonight;",
+        "It",
+        "is",
+        "too",
+        "rash,",
+        "too",
+        "unadvis'd,",
+        "too",
+        "sudden,",
+        "Too",
+        "like",
+        "the",
+        "lightning,",
+        "which",
+        "doth",
+        "cease",
+        "to",
+        "be",
+        "Ere",
+        "one",
+        "can",
+        "say",
+        "\"It",
+        "lightens.\"",
+        "Sweet,",
+        "good",
+        "night.",
+        "This",
+        "bud",
+        "of",
+        "love,",
+        "by",
+        "summer's",
+        "ripening",
+        "breath,",
+        "May",
+        "prove",
+        "a",
+        "beauteous",
+        "flower",
+        "when",
+        "next",
+        "we",
+        "meet.",
+        "Good",
+        "night,",
+        "good",
+        "night.",
+        "As",
+        "sweet",
+        "repose",
+        "and",
+        "rest",
+        "Come",
+        "to",
+        "thy",
+        "heart",
+        "as",
+        "that",
+        "within",
+        "my",
+        "breast."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          19
+        ],
+        [
+          "equal",
+          18,
+          23,
+          19,
+          24
+        ],
+        [
+          "replace",
+          23,
+          24,
+          24,
+          25
+        ],
+        [
+          "equal",
+          24,
+          35,
+          25,
+          36
+        ],
+        [
+          "replace",
+          35,
+          36,
+          36,
+          37
+        ],
+        [
+          "equal",
+          36,
+          79,
+          37,
+          80
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 79
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          17,
+          18,
+          17,
+          19
+        ],
+        [
+          "replace",
+          23,
+          24,
+          24,
+          25
+        ],
+        [
+          "replace",
+          35,
+          36,
+          36,
+          37
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "juliet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 1.23,
+          "end": 1.47,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.59,
+          "end": 1.65,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.65,
+          "end": 1.83,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "swear.",
+          "start": 1.83,
+          "end": 2.25,
+          "key": "swear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Although",
+          "start": 2.79,
+          "end": 2.97,
+          "key": "although",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.97,
+          "end": 3.13,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "joy",
+          "start": 3.13,
+          "end": 3.31,
+          "key": "joy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.31,
+          "end": 3.45,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 3.45,
+          "end": 3.57,
+          "key": "thee",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.69,
+          "end": 3.71,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.71,
+          "end": 3.85,
+          "key": "have",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.85,
+          "end": 4.05,
+          "key": "no",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "joy",
+          "start": 4.05,
+          "end": 4.23,
+          "key": "joy",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.23,
+          "end": 4.37,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.37,
+          "end": 4.53,
+          "key": "this",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "contract",
+          "start": 4.53,
+          "end": 4.91,
+          "key": "contract",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.91,
+          "end": 5.11,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "-night.",
+          "start": 5.11,
+          "end": 5.31,
+          "key": "night",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 5.59,
+          "end": 5.69,
+          "key": "it",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.69,
+          "end": 5.83,
+          "key": "is",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 5.83,
+          "end": 6.05,
+          "key": "too",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "rash,",
+          "start": 6.05,
+          "end": 6.39,
+          "key": "rash",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 6.71,
+          "end": 6.83,
+          "key": "too",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "unadvised,",
+          "start": 6.83,
+          "end": 7.43,
+          "key": "unadvised",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 7.61,
+          "end": 7.73,
+          "key": "too",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "sudden,",
+          "start": 7.73,
+          "end": 8.05,
+          "key": "sudden",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 8.25,
+          "end": 8.35,
+          "key": "too",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 8.35,
+          "end": 8.49,
+          "key": "like",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.49,
+          "end": 8.63,
+          "key": "the",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "lightning,",
+          "start": 8.63,
+          "end": 8.93,
+          "key": "lightning",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 9.21,
+          "end": 9.37,
+          "key": "which",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 9.37,
+          "end": 9.57,
+          "key": "doth",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "cease",
+          "start": 9.57,
+          "end": 9.75,
+          "key": "cease",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.75,
+          "end": 9.93,
+          "key": "to",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 9.93,
+          "end": 10.03,
+          "key": "be",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "air",
+          "start": 10.03,
+          "end": 10.25,
+          "key": "air",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 10.25,
+          "end": 10.47,
+          "key": "one",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 10.47,
+          "end": 10.67,
+          "key": "can",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 10.67,
+          "end": 10.99,
+          "key": "say",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 10.99,
+          "end": 11.25,
+          "key": "it",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "lightens.",
+          "start": 11.25,
+          "end": 11.75,
+          "key": "lightens",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Sweet,",
+          "start": 12.47,
+          "end": 12.79,
+          "key": "sweet",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 13.05,
+          "end": 13.15,
+          "key": "good",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "night!",
+          "start": 13.15,
+          "end": 13.41,
+          "key": "night",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 14.05,
+          "end": 14.19,
+          "key": "this",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "bud",
+          "start": 14.19,
+          "end": 14.37,
+          "key": "bud",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.37,
+          "end": 14.53,
+          "key": "of",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "love,",
+          "start": 14.53,
+          "end": 14.77,
+          "key": "love",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 14.87,
+          "end": 15.07,
+          "key": "by",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "summer's",
+          "start": 15.07,
+          "end": 15.49,
+          "key": "summers",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "ripening",
+          "start": 15.49,
+          "end": 15.83,
+          "key": "ripening",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "breath,",
+          "start": 15.83,
+          "end": 16.19,
+          "key": "breath",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 16.43,
+          "end": 16.53,
+          "key": "may",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "prove",
+          "start": 16.53,
+          "end": 16.75,
+          "key": "prove",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 16.75,
+          "end": 16.89,
+          "key": "a",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "beauteous",
+          "start": 16.89,
+          "end": 17.29,
+          "key": "beauteous",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "flower",
+          "start": 17.29,
+          "end": 17.65,
+          "key": "flower",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 17.65,
+          "end": 17.91,
+          "key": "when",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "next",
+          "start": 17.91,
+          "end": 18.15,
+          "key": "next",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 18.15,
+          "end": 18.33,
+          "key": "we",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "meet.",
+          "start": 18.33,
+          "end": 18.55,
+          "key": "meet",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 19.13,
+          "end": 19.31,
+          "key": "good",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "night,",
+          "start": 19.31,
+          "end": 19.57,
+          "key": "night",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 19.79,
+          "end": 19.89,
+          "key": "good",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "night!",
+          "start": 19.89,
+          "end": 20.21,
+          "key": "night",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 20.77,
+          "end": 20.89,
+          "key": "as",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 20.89,
+          "end": 21.21,
+          "key": "sweet",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "repose",
+          "start": 21.21,
+          "end": 21.73,
+          "key": "repose",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 21.73,
+          "end": 21.95,
+          "key": "and",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "rest",
+          "start": 21.95,
+          "end": 22.17,
+          "key": "rest",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 22.17,
+          "end": 22.43,
+          "key": "come",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 22.43,
+          "end": 22.57,
+          "key": "to",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 22.57,
+          "end": 22.71,
+          "key": "thy",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 22.71,
+          "end": 22.93,
+          "key": "heart",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 22.93,
+          "end": 23.11,
+          "key": "as",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 23.11,
+          "end": 23.33,
+          "key": "that",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 23.33,
+          "end": 23.53,
+          "key": "within",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 23.53,
+          "end": 23.73,
+          "key": "my",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "breast.",
+          "start": 23.73,
+          "end": 24.05,
+          "key": "breast",
+          "pieces": [
+            79
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Well,",
+          "start": 1.23,
+          "end": 1.47
+        },
+        {
+          "text": "do",
+          "start": 1.59,
+          "end": 1.65
+        },
+        {
+          "text": "not",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "text": "swear.",
+          "start": 1.83,
+          "end": 2.25
+        },
+        {
+          "text": "Although",
+          "start": 2.79,
+          "end": 2.97
+        },
+        {
+          "text": "I",
+          "start": 2.97,
+          "end": 3.13
+        },
+        {
+          "text": "joy",
+          "start": 3.13,
+          "end": 3.31
+        },
+        {
+          "text": "in",
+          "start": 3.31,
+          "end": 3.45
+        },
+        {
+          "text": "thee,",
+          "start": 3.45,
+          "end": 3.57
+        },
+        {
+          "text": "I",
+          "start": 3.69,
+          "end": 3.71
+        },
+        {
+          "text": "have",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "text": "no",
+          "start": 3.85,
+          "end": 4.05
+        },
+        {
+          "text": "joy",
+          "start": 4.05,
+          "end": 4.23
+        },
+        {
+          "text": "of",
+          "start": 4.23,
+          "end": 4.37
+        },
+        {
+          "text": "this",
+          "start": 4.37,
+          "end": 4.53
+        },
+        {
+          "text": "contract",
+          "start": 4.53,
+          "end": 4.91
+        },
+        {
+          "text": "tonight;",
+          "start": 4.91,
+          "end": 5.25
+        },
+        {
+          "text": "It",
+          "start": 5.59,
+          "end": 5.69
+        },
+        {
+          "text": "is",
+          "start": 5.69,
+          "end": 5.83
+        },
+        {
+          "text": "too",
+          "start": 5.83,
+          "end": 6.05
+        },
+        {
+          "text": "rash,",
+          "start": 6.05,
+          "end": 6.39
+        },
+        {
+          "text": "too",
+          "start": 6.71,
+          "end": 6.83
+        },
+        {
+          "text": "unadvis'd,",
+          "start": 6.83,
+          "end": 7.22
+        },
+        {
+          "text": "too",
+          "start": 7.61,
+          "end": 7.73
+        },
+        {
+          "text": "sudden,",
+          "start": 7.73,
+          "end": 8.05
+        },
+        {
+          "text": "Too",
+          "start": 8.25,
+          "end": 8.35
+        },
+        {
+          "text": "like",
+          "start": 8.35,
+          "end": 8.49
+        },
+        {
+          "text": "the",
+          "start": 8.49,
+          "end": 8.63
+        },
+        {
+          "text": "lightning,",
+          "start": 8.63,
+          "end": 8.93
+        },
+        {
+          "text": "which",
+          "start": 9.21,
+          "end": 9.37
+        },
+        {
+          "text": "doth",
+          "start": 9.37,
+          "end": 9.57
+        },
+        {
+          "text": "cease",
+          "start": 9.57,
+          "end": 9.75
+        },
+        {
+          "text": "to",
+          "start": 9.75,
+          "end": 9.93
+        },
+        {
+          "text": "be",
+          "start": 9.93,
+          "end": 10.03
+        },
+        {
+          "text": "Ere",
+          "start": 10.03,
+          "end": 10.14
+        },
+        {
+          "text": "one",
+          "start": 10.25,
+          "end": 10.47
+        },
+        {
+          "text": "can",
+          "start": 10.47,
+          "end": 10.67
+        },
+        {
+          "text": "say",
+          "start": 10.67,
+          "end": 10.99
+        },
+        {
+          "text": "\"It",
+          "start": 10.99,
+          "end": 11.25
+        },
+        {
+          "text": "lightens.\"",
+          "start": 11.25,
+          "end": 11.75
+        },
+        {
+          "text": "Sweet,",
+          "start": 12.47,
+          "end": 12.79
+        },
+        {
+          "text": "good",
+          "start": 13.05,
+          "end": 13.15
+        },
+        {
+          "text": "night.",
+          "start": 13.15,
+          "end": 13.41
+        },
+        {
+          "text": "This",
+          "start": 14.05,
+          "end": 14.19
+        },
+        {
+          "text": "bud",
+          "start": 14.19,
+          "end": 14.37
+        },
+        {
+          "text": "of",
+          "start": 14.37,
+          "end": 14.53
+        },
+        {
+          "text": "love,",
+          "start": 14.53,
+          "end": 14.77
+        },
+        {
+          "text": "by",
+          "start": 14.87,
+          "end": 15.07
+        },
+        {
+          "text": "summer's",
+          "start": 15.07,
+          "end": 15.49
+        },
+        {
+          "text": "ripening",
+          "start": 15.49,
+          "end": 15.83
+        },
+        {
+          "text": "breath,",
+          "start": 15.83,
+          "end": 16.19
+        },
+        {
+          "text": "May",
+          "start": 16.43,
+          "end": 16.53
+        },
+        {
+          "text": "prove",
+          "start": 16.53,
+          "end": 16.75
+        },
+        {
+          "text": "a",
+          "start": 16.75,
+          "end": 16.89
+        },
+        {
+          "text": "beauteous",
+          "start": 16.89,
+          "end": 17.29
+        },
+        {
+          "text": "flower",
+          "start": 17.29,
+          "end": 17.65
+        },
+        {
+          "text": "when",
+          "start": 17.65,
+          "end": 17.91
+        },
+        {
+          "text": "next",
+          "start": 17.91,
+          "end": 18.15
+        },
+        {
+          "text": "we",
+          "start": 18.15,
+          "end": 18.33
+        },
+        {
+          "text": "meet.",
+          "start": 18.33,
+          "end": 18.55
+        },
+        {
+          "text": "Good",
+          "start": 19.13,
+          "end": 19.31
+        },
+        {
+          "text": "night,",
+          "start": 19.31,
+          "end": 19.57
+        },
+        {
+          "text": "good",
+          "start": 19.79,
+          "end": 19.89
+        },
+        {
+          "text": "night.",
+          "start": 19.89,
+          "end": 20.21
+        },
+        {
+          "text": "As",
+          "start": 20.77,
+          "end": 20.89
+        },
+        {
+          "text": "sweet",
+          "start": 20.89,
+          "end": 21.21
+        },
+        {
+          "text": "repose",
+          "start": 21.21,
+          "end": 21.73
+        },
+        {
+          "text": "and",
+          "start": 21.73,
+          "end": 21.95
+        },
+        {
+          "text": "rest",
+          "start": 21.95,
+          "end": 22.17
+        },
+        {
+          "text": "Come",
+          "start": 22.17,
+          "end": 22.43
+        },
+        {
+          "text": "to",
+          "start": 22.43,
+          "end": 22.57
+        },
+        {
+          "text": "thy",
+          "start": 22.57,
+          "end": 22.71
+        },
+        {
+          "text": "heart",
+          "start": 22.71,
+          "end": 22.93
+        },
+        {
+          "text": "as",
+          "start": 22.93,
+          "end": 23.11
+        },
+        {
+          "text": "that",
+          "start": 23.11,
+          "end": 23.33
+        },
+        {
+          "text": "within",
+          "start": 23.33,
+          "end": 23.53
+        },
+        {
+          "text": "my",
+          "start": 23.53,
+          "end": 23.73
+        },
+        {
+          "text": "breast.",
+          "start": 23.73,
+          "end": 24.05
+        }
+      ],
+      "stats": {
+        "expected_words": 79,
+        "heard_words": 80,
+        "matched_words": 76
+      },
+      "match_ratio": 0.9620253164556962,
+      "rejection_reasons": [],
+      "seconds": 0.9823416844010353
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "896799c7962c80007fb9ceceb379350fc09e3a8b0744a9115d074977da4c2858",
+  "selected_reasons": []
+}

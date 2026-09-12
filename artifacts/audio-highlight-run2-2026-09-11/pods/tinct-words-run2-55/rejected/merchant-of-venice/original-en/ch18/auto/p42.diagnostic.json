@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "0bbcecf00dc025318793201bcf1a6e758332f7e03ed080ca553a279c7ac3e687",
+  "attempts": [
+    {
+      "asr_seconds": 0.20924138743430376,
+      "alignment_seconds": 0.00021358951926231384,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Portia dressed like a doctor of laws.",
+        "hotwords": "Enter, Portia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Portia dressed like a doctor of laws.",
+          "start": 0.14,
+          "end": 2.76,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.14,
+              "end": 0.66,
+              "probability": 0.892578125
+            },
+            {
+              "text": " Portia",
+              "start": 0.66,
+              "end": 1.18,
+              "probability": 0.80810546875
+            },
+            {
+              "text": " dressed",
+              "start": 1.18,
+              "end": 1.68,
+              "probability": 0.368896484375
+            },
+            {
+              "text": " like",
+              "start": 1.68,
+              "end": 1.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 1.92,
+              "end": 2.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " doctor",
+              "start": 2.04,
+              "end": 2.26,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " of",
+              "start": 2.26,
+              "end": 2.48,
+              "probability": 0.994140625
+            },
+            {
+              "text": " laws.",
+              "start": 2.48,
+              "end": 2.76,
+              "probability": 0.9697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "raw": "Portia",
+          "start": 0.66,
+          "end": 1.18
+        },
+        {
+          "raw": "dressed",
+          "start": 1.18,
+          "end": 1.68
+        },
+        {
+          "raw": "like",
+          "start": 1.68,
+          "end": 1.92
+        },
+        {
+          "raw": "a",
+          "start": 1.92,
+          "end": 2.04
+        },
+        {
+          "raw": "doctor",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "raw": "of",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "raw": "laws.",
+          "start": 2.48,
+          "end": 2.76
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Portia",
+        "dressed",
+        "like",
+        "a",
+        "doctor",
+        "of",
+        "laws."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Portia",
+          "start": 0.66,
+          "end": 1.18,
+          "key": "portia",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dressed",
+          "start": 1.18,
+          "end": 1.68,
+          "key": "dressed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.68,
+          "end": 1.92,
+          "key": "like",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.92,
+          "end": 2.04,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "doctor",
+          "start": 2.04,
+          "end": 2.26,
+          "key": "doctor",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.26,
+          "end": 2.48,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "laws.",
+          "start": 2.48,
+          "end": 2.76,
+          "key": "laws",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "text": "Portia",
+          "start": 0.66,
+          "end": 1.18
+        },
+        {
+          "text": "dressed",
+          "start": 1.18,
+          "end": 1.68
+        },
+        {
+          "text": "like",
+          "start": 1.68,
+          "end": 1.92
+        },
+        {
+          "text": "a",
+          "start": 1.92,
+          "end": 2.04
+        },
+        {
+          "text": "doctor",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "text": "of",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "text": "laws.",
+          "start": 2.48,
+          "end": 2.76
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2095314171165228
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "02aec962c98fd348c330d1d6d25518c8e7ddbcb5d49e5d343905d2bb535bd44e",
+  "selected_reasons": []
+}

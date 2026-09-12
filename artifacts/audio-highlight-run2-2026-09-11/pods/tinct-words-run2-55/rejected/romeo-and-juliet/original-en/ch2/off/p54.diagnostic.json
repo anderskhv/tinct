@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "3d4362f483bf54dfec70d889fb9cf0badf470c6cdd85892aa9f6d2f6ee1076bd",
+  "attempts": [
+    {
+      "asr_seconds": 0.2195234801620245,
+      "alignment_seconds": 0.0001793988049030304,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Capulet, what noise is this? Give me my long sword, Ho.",
+          "start": 0.05,
+          "end": 3.43,
+          "words": [
+            {
+              "text": " Capulet,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " what",
+              "start": 1.03,
+              "end": 1.15,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " noise",
+              "start": 1.15,
+              "end": 1.37,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " is",
+              "start": 1.37,
+              "end": 1.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this?",
+              "start": 1.57,
+              "end": 1.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Give",
+              "start": 2.29,
+              "end": 2.35,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " me",
+              "start": 2.35,
+              "end": 2.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 2.47,
+              "end": 2.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " long",
+              "start": 2.61,
+              "end": 2.83,
+              "probability": 0.96875
+            },
+            {
+              "text": " sword,",
+              "start": 2.83,
+              "end": 3.15,
+              "probability": 0.4716796875
+            },
+            {
+              "text": " Ho.",
+              "start": 3.43,
+              "end": 3.43,
+              "probability": 0.458984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Capulet,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "what",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "raw": "noise",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "raw": "is",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "raw": "this?",
+          "start": 1.57,
+          "end": 1.87
+        },
+        {
+          "raw": "Give",
+          "start": 2.29,
+          "end": 2.35
+        },
+        {
+          "raw": "me",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "raw": "my",
+          "start": 2.47,
+          "end": 2.61
+        },
+        {
+          "raw": "long",
+          "start": 2.61,
+          "end": 2.83
+        },
+        {
+          "raw": "sword,",
+          "start": 2.83,
+          "end": 3.15
+        },
+        {
+          "raw": "Ho.",
+          "start": 3.43,
+          "end": 3.43
+        }
+      ],
+      "expected_tokens": [
+        "Capulet.",
+        "What",
+        "noise",
+        "is",
+        "this?",
+        "Give",
+        "me",
+        "my",
+        "long",
+        "sword,",
+        "ho!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Capulet,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "capulet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.03,
+          "end": 1.15,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "noise",
+          "start": 1.15,
+          "end": 1.37,
+          "key": "noise",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.37,
+          "end": 1.57,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this?",
+          "start": 1.57,
+          "end": 1.87,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Give",
+          "start": 2.29,
+          "end": 2.35,
+          "key": "give",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.35,
+          "end": 2.47,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.47,
+          "end": 2.61,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 2.61,
+          "end": 2.83,
+          "key": "long",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sword,",
+          "start": 2.83,
+          "end": 3.15,
+          "key": "sword",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Ho.",
+          "start": 3.43,
+          "end": 3.43,
+          "key": "ho",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Capulet.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "What",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "text": "noise",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "text": "is",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "text": "this?",
+          "start": 1.57,
+          "end": 1.87
+        },
+        {
+          "text": "Give",
+          "start": 2.29,
+          "end": 2.35
+        },
+        {
+          "text": "me",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "text": "my",
+          "start": 2.47,
+          "end": 2.61
+        },
+        {
+          "text": "long",
+          "start": 2.61,
+          "end": 2.83
+        },
+        {
+          "text": "sword,",
+          "start": 2.83,
+          "end": 3.15
+        },
+        {
+          "text": "ho!",
+          "start": 3.43,
+          "end": 3.43
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21976819820702076
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b4ffb4f5995aff0c133412f245b38eb255cf52fbc5e18c15254534969dceceb4",
+  "selected_reasons": []
+}
