@@ -767,3 +767,118 @@ describe('lab ask composer: the growing field never flashes a scrollbar', () => 
     expect(field.style.overflowY).toBe('hidden')
   })
 })
+
+describe('lab ask thread and the account history that arrives late', () => {
+  const metrics = { scrollHeight: 0, clientHeight: 300 }
+  const scrollHeightDescriptor = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'scrollHeight')
+  const clientHeightDescriptor = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'clientHeight')
+  const isThread = (node: HTMLElement) => node.getAttribute('data-testid') === 'lab-ask-thread'
+
+  beforeEach(() => {
+    metrics.scrollHeight = 2000
+    Object.defineProperty(HTMLElement.prototype, 'scrollHeight', {
+      configurable: true,
+      get(this: HTMLElement) { return isThread(this) ? metrics.scrollHeight : 0 },
+    })
+    Object.defineProperty(HTMLElement.prototype, 'clientHeight', {
+      configurable: true,
+      get(this: HTMLElement) { return isThread(this) ? metrics.clientHeight : 0 },
+    })
+  })
+
+  afterEach(() => {
+    if (scrollHeightDescriptor) Object.defineProperty(HTMLElement.prototype, 'scrollHeight', scrollHeightDescriptor)
+    if (clientHeightDescriptor) Object.defineProperty(HTMLElement.prototype, 'clientHeight', clientHeightDescriptor)
+  })
+
+  const props = {
+    conversationState: 'idle' as const,
+    voiceActive: false,
+    typedLoading: false,
+    draft: '',
+    onDraftChange: () => { /* unused */ },
+    onSubmit: () => { /* unused */ },
+    onMic: () => { /* unused */ },
+    onVoiceMode: () => { /* unused */ },
+    phoneSheet: true,
+    onDone: () => { /* unused */ },
+  }
+
+  const MAY = Date.parse('2026-05-25T10:00:00Z')
+  const stale = [
+    { id: 'may-u', role: 'user' as const, content: 'Hvorfor taler Jesus om skilsmisse i vers 32?', source: 'typed' as const, timestamp: MAY, chapterNumber: 930 },
+    { id: 'may-a', role: 'assistant' as const, content: 'Fordi Bjergpraedikenen skaerper loven.', source: 'typed' as const, timestamp: MAY + 1000, chapterNumber: 930 },
+  ]
+  const today = Date.now()
+  const reconciled = [
+    ...stale,
+    { id: 'now-u', role: 'user' as const, content: 'who was it that conquered the babylonnians?', source: 'typed' as const, timestamp: today, chapterNumber: 774 },
+    { id: 'now-a', role: 'assistant' as const, content: 'Cyrus of Persia took Babylon in 539 BC.', source: 'typed' as const, timestamp: today + 1000, chapterNumber: 774 },
+  ]
+
+  it('says the thread is still being checked against the account while the cloud row is in flight', () => {
+    render(<LabAskPane {...props} turns={stale} historyStatus="loading" />)
+    expect(screen.getByTestId('lab-ask-syncing')).toBeTruthy()
+    // An empty device copy must not greet the reader as if they had no history.
+    cleanup()
+    render(<LabAskPane {...props} turns={[]} historyStatus="loading" />)
+    expect(screen.getByText('Loading your saved conversations…')).toBeTruthy()
+  })
+
+  it('drops the notice and shows the newest turn once the account history lands', () => {
+    const { rerender } = render(<LabAskPane {...props} turns={stale} historyStatus="loading" />)
+    const thread = screen.getByTestId('lab-ask-thread')
+    // The reader is reading the stale May conversation, scrolled up.
+    thread.scrollTop = 0
+    fireEvent.scroll(thread)
+    metrics.scrollHeight = 4000
+    rerender(<LabAskPane {...props} turns={reconciled} historyStatus="ready" />)
+    expect(screen.queryByTestId('lab-ask-syncing')).toBeNull()
+    // Not left parked in May: the thread ends on today's turn and is scrolled there.
+    expect(thread.scrollTop).toBe(4000)
+    const turnNodes = Array.from(document.querySelectorAll('.lab-ask-turn'))
+    expect(turnNodes[turnNodes.length - 1].textContent).toContain('Cyrus of Persia')
+  })
+
+  it('shows the newest window, not the oldest turn, when a long account history lands', () => {
+    const long = Array.from({ length: 200 }, (_, i) => ({
+      id: `t${i}`,
+      role: (i % 2 === 0 ? 'user' : 'assistant') as 'user' | 'assistant',
+      content: `Turn ${i}.`,
+      source: 'typed' as const,
+      timestamp: MAY + i * 1000,
+    }))
+    const { rerender } = render(<LabAskPane {...props} turns={long.slice(0, 60)} historyStatus="loading" />)
+    const thread = screen.getByTestId('lab-ask-thread')
+    fireEvent.click(screen.getByTestId('lab-ask-older'))
+    expect(thread.getAttribute('data-hidden-turns')).toBe('0')
+    rerender(<LabAskPane {...props} turns={long} historyStatus="ready" />)
+    expect(thread.getAttribute('data-hidden-turns')).toBe('160')
+    // The first turn the reader sees is inside the newest window, and the last
+    // turn in the DOM is the most recent one in the thread.
+    const turnNodes = Array.from(document.querySelectorAll('.lab-ask-turn'))
+    expect(turnNodes).toHaveLength(40)
+    expect(turnNodes[0].textContent).toContain('Turn 160.')
+    expect(turnNodes[turnNodes.length - 1].textContent).toContain('Turn 199.')
+    expect(thread.scrollTop).toBe(metrics.scrollHeight)
+  })
+
+  it('dates a chapter divider whose turns are not from today, and marks a question that got no answer', () => {
+    render(<LabAskPane {...props} turns={reconciled} chapterLabels={{ 930: 'Matthew 5', 774: 'Jeremiah 50' }} />)
+    const dividers = screen.getAllByTestId('lab-ask-location').map(node => node.textContent)
+    // The date's own shape follows the reader's locale; what matters is that
+    // the divider carries the day the turns under it are from.
+    expect(dividers[0]).toMatch(/^Matthew 5 · .*25/)
+    expect(dividers[0]).toMatch(/May/)
+    expect(dividers[1]).toBe('Jeremiah 50')
+    expect(screen.queryByTestId('lab-ask-unanswered')).toBeNull()
+
+    cleanup()
+    render(<LabAskPane {...props} turns={reconciled.filter(turn => turn.id !== 'now-a')} />)
+    expect(screen.getByTestId('lab-ask-unanswered')).toBeTruthy()
+    // A reply still streaming is not a failure.
+    cleanup()
+    render(<LabAskPane {...props} typedLoading turns={reconciled.filter(turn => turn.id !== 'now-a')} />)
+    expect(screen.queryByTestId('lab-ask-unanswered')).toBeNull()
+  })
+})
