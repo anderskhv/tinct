@@ -596,9 +596,13 @@ session. Kept current at every push.
   boundary and affects no clause; X.25's falls at Long's comma after "afraid",
   and that comma is **kept** on the VI.50 / VII.16 / VIII.51 practice. Four
   cross-reference spans dropped in three paragraphs (X.5, X.13 ×2, X.26).
-  **Eighteen brackets: sixteen folded, two dropped under D11** (X.2 "[social]",
+  **Eighteen brackets: fifteen folded, two dropped under D11** (X.2 "[social]",
   X.33 "[order]" — each a second English word for a Greek word whose primary
-  rendering Long has already given), **plus one further drop of the same family
+  rendering Long has already given; *this line read "sixteen folded" until Book X
+  acceptance, where finding C1 recounted it — sixteen + two + one is nineteen
+  against eighteen brackets. The accepted counts, after finding 15.1 moved X.15's
+  "[political community]" to the D11 drops, are **fourteen folded, three dropped
+  under D11, one translator's note dropped under D13**, asserted by the build*), **plus one further drop of the same family
   that is not an alternative rendering**: X.23's "[The three last words are
   omitted in the translation.]", a **translator's note** about Long's own
   handling of Plato's Greek, dropped as apparatus with the cross-references and
@@ -628,6 +632,91 @@ session. Kept current at every push.
   **Stopped for independent review** (step 4). Findings expected under
   `book10/review/`.
 
+- 2026-09-12 — **Book X accepted** (steps 4–8). Round-1 independent review
+  (`book10/review/findings-v1.md`): *Accept after corrections*, **0 substantive**,
+  6 minor (1.1, 15.1, 21.1, 23.1, 32.1 and the chapter-level C1) and 5 optional
+  preferences (9.1, 33.1, 34.1, 36.1, 36.2); 29 of the 38 paragraphs "No material
+  issue found". The reviewer calls Book X **"the cleanest book in the package so
+  far as prose"** — a token-level diff of all thirty-eight paragraphs shows
+  every difference between Long and the candidate accounted for by a documented
+  decision, and the complete list of words the candidate uses that occur nowhere
+  in Long's Book X is eleven, each documented. Accepted as
+  `book10/candidate-v2.json` (sha256 `8ba528dc…`), built from the frozen v1
+  (`95ce5f7c…`, never edited) by `scripts/build_book10_v2.py`; **six
+  substitutions in five paragraphs (X.15, X.21, X.32, X.33, X.36 ×2), 33
+  untouched**; word ratio 0.9943 → 0.9927. **All six minor findings applied and
+  three of the five optional ones; two optional findings recorded and left, both
+  of which the reviewer itself proposed as records rather than changes.**
+  - **21.1** — X.21's gloss moved **outside** Long's quotation marks: `that
+    "this or that loves"—is wont—"to be produced?"`. The fold is confirmed (the
+    meditation *is* the verb's double sense), but v1's dashes inside the
+    quotation credited common speech with words it does not use, and the
+    meditation depends on the saying being exactly what people say.
+  - **32.1** — **the one place the reviewer rules against the drafter.**
+    v1's "You, only determine…" becomes **"Only determine to live no longer
+    unless you are such."** The IX.40 vocative comma earned its place by an
+    *alternation* X.32 has not; here the fronted "You," carries nothing, reads as
+    a summons to a stranger rather than self-address, and invites the misparse
+    "only *you* determine". The IX.40 repair is **localised, not narrowed**: the
+    vocative is licensed where a fronted pronoun carries a contrast.
+  - **15.1** — X.15's "[political community]" **dropped under D11** instead of
+    folded, so the D11 line is drawn the same way as at X.2 and X.33. Same shape
+    (a second English rendering of one Greek word), same answer to the operative
+    test (the meditation's point survives the drop), and Long uses neither word
+    again in the section so nothing dangles.
+  - **23.1** — **D13 added to this ledger** for Long's bracketed translator's
+    notes, worded to generalise; `book10/continuity.md`'s X.23 entry now cites
+    D13, not D11.
+  - **C1** — the bracket arithmetic corrected in all five places (this ledger,
+    `book10/continuity.md` ×2, `book10/README.md` prose and check-block comment,
+    `book10/review-instructions.md` with a dated note, `book10/provenance.json`).
+    **The arithmetic is now asserted by `scripts/build_book10_v2.py` and by the
+    `README.md` check block from an enumerated fold list** — 14 folds + 3 D11
+    drops + 1 translator's note = the 18 brackets in the source — so a numeral
+    that disagrees with the list is a build failure rather than a reading error.
+  - **1.1** — X.1's comma removal recorded, and `book10/continuity.md` gains a
+    **punctuation tally in one place**: five commas removed, one raised to a
+    semicolon, two added, two replaced by em dashes at acceptance, one kept
+    inside a dagger clause, two spaced dashes inherited from the verse join.
+  - **Optional: 33.1 applied** (X.33's apposition set with em dashes, as X.13's
+    and X.21's are; under D8, since v1 recorded no reason for the commas),
+    **36.1 applied** ("by him" → "**beside** him"; Long means at his side and
+    the modern reading is agentive — the "shall" is untouched and stays
+    defended), **36.2 applied** ("some one" → "**someone**"; 1862 typography,
+    normalised with the spelling and the dashes, and the "least"/"last"
+    base-text ruling is untouched). **9.1 left** (X.9 "gravity" is a
+    virtue-name in a list of virtue-names and the reviewer would leave it) and
+    **34.1 left** (X.34's two spaced dashes are inherited from the verse join,
+    the paragraph is byte-identical to the staged original, and changing it
+    would mean changing a `PROVENANCE.md` §4 rule reaching five other books).
+  **All four flagged decisions are settled**, three the drafter's way: X.15
+  "Let men see" upheld on four converging grounds and still the one departure
+  from PG's letters in the book; X.9 "Mimi" upheld **ungloss'd**, with no gloss
+  exception warranted; X.25's comma inside the dagger clause confirmed kept; and
+  X.32 overruled (finding 32.1). Every base-text call was endorsed — X.6's
+  "all" and X.36's "at least" against Standard Ebooks, the "thou are" slip in
+  both texts correctly invisible, X.27's Latin names under D6, and the five SE
+  typographic breaks rightly ignored on the IX.28 ruling. The **"shall" audit
+  passed**: all 23 classified independently and matched to the drafter's report
+  exactly, with X.11's and X.32's questions confirmed **rhetorical** rather than
+  deliberative, so the clause widened at Book IX never fires in Book X, and no
+  new case added to the three third-person futures under "Open, not blocking".
+  The **step-1 no-rebuild finding was upheld by the stronger method, with the
+  reconstruction's own RULES audited** against the raw PG range before its output
+  was looked at — twelve maximal indented runs enumerated with their
+  indentation profiles (so the footnote rule cannot have swallowed Long's Homer
+  couplet at 6305–6307, indented five against the footnotes' four), the marker
+  recount reconciled exactly (16 flush-left + 1 inside the verse = 17 for 17
+  indented openers), and no flush-left footnote body and no illustration caption
+  anywhere. The **0.88 minimum ratio at X.23 was ruled on directly** (entirely
+  the dropped note; 57 source words against 58 with the note set aside) and the
+  **five byte-identical paragraphs** each checked against the accessibility
+  standard and ruled right. Flow read done, no further change. Acceptance in
+  `book10/ACCEPTANCE.md`; `changes-v1-to-v2.md`, `continuity.md`,
+  `provenance.json`, `manifest.json`, `review-instructions.md` and `README.md`
+  updated; mechanical checks re-run and passing. No new glossary rendering row
+  and no voice rule changed — one new ledger decision row (D13).
+
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
@@ -656,32 +745,20 @@ session. Kept current at every push.
 | D10 | In Book I, Long's "undeviating" is kept in all three places (I.8, I.14, I.16), not only in the dagger-marked I.14. | Dagger clauses stand verbatim (Book II rule); rendering the same Long word two ways in one book would be a worse inconsistency than keeping a slightly formal but current word. Pattern for later books: where a dagger clause fixes a word, the unmarked uses of the same word in that book follow it. |
 | D11 | Long's bracketed *alternative renderings* ("[or, practically]", III.6) are apparatus and are dropped; his bracketed *supplements* ("[deity]", "[death]", "[to other things]") are folded into prose as before. | A second translation of one Greek word is Long talking to the reader about his choices, like a cross-reference, not part of Marcus's sentence; folded, it reads as if Marcus named a third kind of good. Raised by the Book III reviewer (finding 6.3). Each drop is listed in the book's `continuity.md`. |
 | D12 | The staged original may be rebuilt to remove PG apparatus that the build missed, provided the paragraph count and every already-accepted chapter are byte-identical before and after, and the hash change is recorded here, in `PROVENANCE.md` §4 and in each affected `provenance.json`. | The staged file is this package's own artefact, and an illustration caption is not Long's text; leaving it would put "[Illustration: …]" into the edition. Chapters 1–3 unchanged, so no acceptance is reopened. |
+| D13 | Long's bracketed **translator's notes** — his remarks in his own voice about his own handling of the Greek, of which "[The three last words are omitted in the translation.]" (X.23) is the first to arise — are apparatus of the cross-reference and footnote kind and are **dropped, not folded**. The test is **whose voice the bracket is in and what it is about**: a bracket that speaks *about the translation* — what Long omitted, supplied, transposed, conjectured or could not render — is Long addressing his reader, not Marcus addressing himself, and folding it would put a comment on a translation into the mouth of a man who did not write one. This is a **third class**, beside D11's bracketed *alternative renderings* (also dropped) and the bracketed *supplements* the glossary folds. **Limit:** where such a bracket is also the only place in the English in which a sense of Marcus's own argument exists, the X.21 "[is wont]" reasoning governs instead and it is folded — the test there is whether dropping it removes a note about Long's choices or deletes the observation the section is made of. Each drop is listed in the book's `continuity.md`. | Raised by the Book X round-1 reviewer (finding 23.1): D11 as worded reaches alternative renderings only, and the glossary's bracket rule reaches supplements, cross-references and verse citations, so this class had no rule at all. A drafter of Books XI–XII reading D11 literally would have folded it, and the natural mistake is the damaging one. |
 | D9 | On a session collision, the first pushed version stands; the later session discards its duplicate, records any residual point here, and stops. | One accepted text per book and one frozen candidate per review round; two hashes for the same step would be unreadable to the coordinator and the reviewer. |
 
 ## Next
 
-**Waiting on the coordinator: independent review of Book X.**
-`book10/candidate-v1.json` (sha256 `95ce5f7c…`) is frozen, with thirteen
-packets, `review-instructions.md` and `manifest.json` in place; findings go
-under `book10/review/`. Three decisions are flagged there for an explicit ruling
-(X.15 "Let men see" for PG's "Let me see", the one departure from PG's letters
-in the book; X.9 "Mimi" kept untranslated, where Long's only explanation is a
-footnote the package drops, and where the alternatives are an opaque word or an
-imported gloss; X.32 "You, only determine to live no longer unless you are
-such", applying the vocative-comma repair the Book IX round-1 review made at
-IX.40) and one is offered for confirmation (Long's comma after "afraid" kept
-inside the X.25 dagger clause, although by modern punctuation it separates a
-subject from its verb). The reviewer is also asked to test the step-1 no-rebuild
-finding **by the stronger method rather than by re-running either script** — an
-independently written extraction of PG lines 5866–6374, diffed word for word —
-which is the method Book X's own step 1 used and the method the Book IX reviewer
-introduced. This agent does not review its own draft, and Book XI has not been
-started.
-
-Book IX is **accepted** (`book9/ACCEPTANCE.md`, `candidate-v2.json` sha256
-`56dd7d13…`). After the Book X review: Book X steps 6–8 (candidate v2, changes
-log, flow read, `ACCEPTANCE.md`), then Books XI and XII in numerical order, each
-with its own review round.
+**Book X is accepted** (`book10/ACCEPTANCE.md`, `candidate-v2.json` sha256
+`8ba528dc…`). **Book XI steps 1–3 are in progress in this session**: source
+verification by the established stronger method (an independently written
+reconstruction of PG lines 6376–6841 diffed word for word against the staged
+Book XI, with the reconstruction's own rules audited as the Book X reviewer
+audited them), then drafting and freezing `book11/candidate-v1.json` with its
+readable copy, `continuity.md`, `provenance.json`, `manifest.json`,
+`README.md`, `review-instructions.md` and review packets. Book XII is not
+started, and this agent does not review its own draft.
 
 ## Needs Anders (listed, not waited on)
 

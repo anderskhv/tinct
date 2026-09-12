@@ -1,9 +1,25 @@
-# Meditations, Book X — package (frozen for independent review)
+# Meditations, Book X — package (accepted as candidate v2)
 
-Steps 1–3 of `../WORKFLOW.md` are done for Book X. `candidate-v1.json`
-(sha256 `95ce5f7c…`) is **frozen**; corrections from the review will go to
-`candidate-v2.json`, never to v1. Step 4 (independent review) is the
-coordinator's reviewer session, not this agent.
+All eight steps of `../WORKFLOW.md` are done for Book X. The accepted text is
+`candidate-v2.json` (sha256 `8ba528dc…`), see `ACCEPTANCE.md`.
+`candidate-v1.json` (sha256 `95ce5f7c…`) stays **frozen** and was never edited.
+Step 4 (independent review) was the coordinator's reviewer session, not this
+agent; its findings are under `review/`: *Accept after corrections*, **0
+substantive**, **6 minor** (1.1, 15.1, 21.1, 23.1, 32.1 and the chapter-level
+C1) and **5 optional preferences** (9.1, 33.1, 34.1, 36.1, 36.2), with 29 of the
+38 paragraphs recorded "No material issue found". The reviewer calls it **"the
+cleanest book in the package so far as prose"**: a token-level diff of all
+thirty-eight paragraphs shows every difference between Long and the candidate
+accounted for by a documented decision, the complete list of words the candidate
+uses that occur nowhere in Long's Book X is eleven, and there is no substantive
+finding. **All six minor findings are applied and three of the five optional
+ones** (33.1, 36.1, 36.2); 9.1 and 34.1 are recorded and left, as the reviewer
+proposes. **All four flagged decisions are settled** — X.15 "Let men see"
+upheld, X.9 "Mimi" upheld, X.25's dagger comma confirmed, and X.32's vocative
+comma **rejected** in favour of the plain imperative, which is finding 32.1.
+Finding 23.1 added **D13** to `../00-progress-ledger.md` for translator's notes,
+and finding C1 corrected the bracket arithmetic, which the build and the check
+block below now assert from an enumerated list.
 
 Step 1 verified the source and **did not rebuild** the staged original — and the
 check deliberately was **not** a re-run of the build script. The file has been
@@ -62,9 +78,16 @@ futures.
 4. `continuity.md` — the step-1 source verification class by class, the two
    glossary rows extended for Book X, the glossary terms met and how they were
    rendered, the "shall" inventory, paragraph-level decisions, apparatus folded
-   or dropped (four cross-reference spans, sixteen folds, two D11 drops and one
-   translator's note dropped), the decisions flagged for the reviewer, and
-   unresolved source issues.
+   or dropped (four cross-reference spans, **fourteen folds, three D11 drops and
+   one translator's note dropped under D13 — 14 + 3 + 1 = 18**), the
+   punctuation tally, the settled rulings, and unresolved source issues. Updated
+   at acceptance.
+4a. `candidate-v2.json` / `candidate-v2-readable.md` — **the accepted text**,
+   built from the frozen v1 by `../scripts/build_book10_v2.py`.
+4b. `changes-v1-to-v2.md` — every change by paragraph ID against the finding
+   it answers, plus every finding not applied and why.
+4c. `ACCEPTANCE.md` — the step-8 record, with hashes.
+4d. `review/findings-v1.md` — the round-1 independent review.
 5. `provenance.json` — branch, hashes, source, word ratios, dagger marks,
    generation setting, apparatus counts, the "shall" inventory, base-text
    points, flagged items.
@@ -81,10 +104,13 @@ cd books/staged-replacements/meditations
 python3 - <<'PY'
 import json, hashlib, re
 src=json.load(open('book10/source-book10.json')); cand=json.load(open('book10/candidate-v1.json'))
+v2=json.load(open('book10/candidate-v2.json'))
 st=json.load(open('meditations-original-en.staged.json'))
 ch=next(c for c in st['chapters'] if c['number']==10)
 assert src['paragraphs']==ch['paragraphs'] and len(cand['paragraphs'])==38
+assert len(v2['paragraphs'])==38
 assert all(p.startswith(f'{i+1}. ') for i,p in enumerate(cand['paragraphs']))
+assert all(p.startswith(f'{i+1}. ') for i,p in enumerate(v2['paragraphs']))
 assert [len(c['paragraphs']) for c in st['chapters']]==[17,17,16,51,36,59,75,61,42,38,39,36]
 assert not any('[Illustration' in p for c in st['chapters'] for p in c['paragraphs'])
 assert not any(re.search(r'^\[[A-Z]\]|Acharnenses|From the Apologia|bad etymology|Butler|Nekuias|Davies and Vaughan|Fortunatae Insulae|Vulcatius|Theaet', p) for c in st['chapters'] for p in c['paragraphs'])
@@ -95,6 +121,7 @@ man=json.load(open('book10/manifest.json'))
 ids=[i for p in man['packets'] for i in p['assigned_paragraph_ids']]
 assert ids==[f'B10-P{i:03d}' for i in range(1,39)]
 md=open('book10/candidate-v1-readable.md').read(); assert all(p in md for p in cand['paragraphs'])
+md2=open('book10/candidate-v2-readable.md').read(); assert all(p in md2 for p in v2['paragraphs'])
 for e in man['packets']:
     t=open('book10/'+e['packet']).read()
     for pid in e['assigned_paragraph_ids']:
@@ -106,20 +133,37 @@ for k,s_,c_ in [(8,'those holy principles of thine.','those holy principles of y
                     'who is grieved or angry or afraid, is discontented'),
                 (30,'Satyron the Socratic, think of either','Satyron the Socratic, think of either')]:
     assert s_ in src['paragraphs'][k] and c_ in cand['paragraphs'][k], k
+    assert c_ in v2['paragraphs'][k], k
 # eighteen brackets in the source; none survives; the four cross-reference spans are gone
-assert sum(p.count('[') for p in src['paragraphs'])==18
-assert not any('[' in p for p in cand['paragraphs'])
-assert not any(re.search(r'\((?:i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii)\. ', p) for p in cand['paragraphs'])
-# the two D11 drops and the translator's note dropped
-assert '[social]' in src['paragraphs'][1] and 'a political being' in cand['paragraphs'][1] and 'social' not in cand['paragraphs'][1]
-assert 'law [order]' in src['paragraphs'][32] and 'order' not in cand['paragraphs'][32]
-assert 'omitted in the translation' in src['paragraphs'][22] and 'translation' not in cand['paragraphs'][22]
-# the sixteen folds, spot-checked by their folded words
-for k,s_ in [(5,'a concourse of'),(5,'is a system'),(6,'as an efficient power'),(6,'the accretion'),
-             (6,'of change'),(7,'laudable'),(10,'of philosophy'),(14,'political community'),
-             (14,'as men do'),(20,'is wont'),(30,'for your activity'),(31,'you to live'),(32,'our life')]:
-    assert s_ in cand['paragraphs'][k], (k,s_)
-assert 'a good god within—happiness' in cand['paragraphs'][12]
+brackets=sum(p.count('[') for p in src['paragraphs']); assert brackets==18
+for c_ in (cand,v2):
+    assert not any('[' in p for p in c_['paragraphs'])
+    assert not any(re.search(r'\((?:i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii)\. ', p) for p in c_['paragraphs'])
+# THE BRACKET ARITHMETIC (finding C1), asserted from the enumerated list rather
+# than from a numeral: every fold is named, and folds + D11 drops + the
+# translator's note must equal the source's own bracket count. v1 records said
+# "sixteen folded, two dropped", which with the note is nineteen; the true v1
+# count was fifteen folds, and finding 15.1 moves X.15's "[political community]"
+# to the D11 drops, so v2 is fourteen + three + one.
+FOLDS_V2=[(5,'a concourse of'),(5,'is a system'),(6,'as an efficient power'),
+          (6,'has received the accretion'),(6,'this which your mother brought forth'),
+          (6,'particular quality of change'),(7,'laudable'),(10,'this part of philosophy'),
+          (12,'a good god within—happiness'),(14,'to live thus, as men do'),(20,'is wont'),
+          (30,'for your activity'),(31,'does reason allow you to live'),(32,'our life')]
+D11_V2=[(1,'[social]','social'),(14,'[political community]','political community'),
+        (32,'law [order]','order')]
+NOTE_V2=[(22,'omitted in the translation','translation')]
+for k,s_ in FOLDS_V2: assert s_ in v2['paragraphs'][k], (k,s_)
+for k,in_src,gone in D11_V2:
+    assert in_src in src['paragraphs'][k] and gone not in v2['paragraphs'][k], k
+for k,in_src,gone in NOTE_V2:
+    assert in_src in src['paragraphs'][k] and gone not in v2['paragraphs'][k], k
+assert (len(FOLDS_V2),len(D11_V2),len(NOTE_V2))==(14,3,1)
+assert len(FOLDS_V2)+len(D11_V2)+len(NOTE_V2)==brackets
+assert 'a political being' in v2['paragraphs'][1] and 'as in a state.' in v2['paragraphs'][14]
+# v1's own dispositions, for the record: fifteen folds, two D11 drops, one note
+assert 'political community' in cand['paragraphs'][14]
+assert len(FOLDS_V2)+1+len(D11_V2)-1+len(NOTE_V2)==brackets
 # the "shall" rule: exactly two paragraphs carry "shall"; six occurrences; all licensed
 assert not any(re.search(r'\b(?:you|he|she|it|they) shall\b', p) for p in cand['paragraphs'])
 assert [i+1 for i,p in enumerate(cand['paragraphs']) if re.search(r'\bshall\b',p)]==[6,36]
@@ -131,18 +175,38 @@ assert not any(re.search(r'\b(thou|thy|thee|thyself|shalt|hast|art|dost|wilt|was
 # the one departure from PG's letters, and the PG readings followed against Standard Ebooks
 assert 'Let me see' in src['paragraphs'][14] and 'Let men see' in cand['paragraphs'][14]
 assert 'turn all my efforts' in cand['paragraphs'][5]
-assert 'at least some one' in cand['paragraphs'][35]
+assert 'at least some one' in cand['paragraphs'][35] and 'at least someone' in v2['paragraphs'][35]
 assert 'Hadrianus' in cand['paragraphs'][26] and 'Philippus' in cand['paragraphs'][26]
 assert 'Mimi' in cand['paragraphs'][8]
 assert 'You, only determine' in cand['paragraphs'][31]
+# v2: the six corrections, and only those five paragraphs, differ from v1
+diff=[i+1 for i,(a,b) in enumerate(zip(cand['paragraphs'],v2['paragraphs'])) if a!=b]
+assert diff==[15,21,32,33,36], diff
+assert 'that "this or that loves"—is wont—"to be produced?"' in v2['paragraphs'][20]
+assert 'Only determine to live no longer unless you are such.' in v2['paragraphs'][31]
+assert 'You, only determine' not in v2['paragraphs'][31]
+assert 'this material—our life—can be done' in v2['paragraphs'][32]
+assert 'shall not be beside him when he is dying' in v2['paragraphs'][35]
+# findings left as drafted, with the reason recorded
+assert 'when gravity' in v2['paragraphs'][8]                     # 9.1
+assert 'ground— So is the race of men.' in v2['paragraphs'][33]  # 34.1
+assert v2['paragraphs'][33]==cand['paragraphs'][33]
+# five paragraphs still byte-identical to Long, in v2 as in v1
+assert [i+1 for i,(s_,c_) in enumerate(zip(src['paragraphs'],v2['paragraphs'])) if s_==c_]==[16,17,18,19,35]
+# the "shall" inventory holds in v2 as in v1
+assert [i+1 for i,p in enumerate(v2['paragraphs']) if re.search(r'\bshall\b',p)]==[6,36]
+assert not any(re.search(r'\b(?:you|he|she|it|they) shall\b', p) for p in v2['paragraphs'])
+assert not any(re.search(r'\b(thou|thy|thee|thyself|shalt|hast|art|dost|wilt|wast)\b',p) for p in v2['paragraphs'])
 print('OK'); print(hashlib.sha256(open('book10/candidate-v1.json','rb').read()).hexdigest())
+print(hashlib.sha256(open('book10/candidate-v2.json','rb').read()).hexdigest())
 print(hashlib.sha256(open('book10/source-book10.json','rb').read()).hexdigest())
 print(hashlib.sha256(open('meditations-original-en.staged.json','rb').read()).hexdigest())
 PY
 ```
 
-Expected: `95ce5f7c…` (candidate v1, frozen), `db635cde…` (source-book10.json)
-and `7798607d…` (the staged original, unchanged at Book X step 1).
+Expected: `95ce5f7c…` (candidate v1, frozen), `8ba528dc…` (candidate v2, the
+accepted text), `db635cde…` (source-book10.json) and `7798607d…` (the staged
+original, unchanged at Book X step 1).
 
 The step-1 source check itself is reproducible on its own:
 
@@ -156,9 +220,4 @@ paragraphs — X.9, X.19, X.25, X.31 — each differing only by the dagger mark.
 
 ## Next action
 
-**Waiting on the coordinator: an independent review of Book X.** Findings go
-under `book10/review/`. Three decisions are flagged there for an explicit ruling
-(X.15 "Let men see" for PG's "Let me see"; X.9 "Mimi" kept untranslated; X.32's
-vocative-comma imperative) and one is offered for confirmation (Long's comma
-after "afraid" kept inside the X.25 dagger clause). This agent does not review
-its own draft and has not started Book XI.
+None for Book X. The thread continues with Book XI (`../book11/`).

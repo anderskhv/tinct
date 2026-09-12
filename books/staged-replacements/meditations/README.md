@@ -15,6 +15,5 @@ staged corrected `original-en`).
 - `GLOSSARY.md` — stable renderings fixed before drafting.
 - `bookN/` — per-book drafting, review-packet, correction and acceptance files.
 
-Books I–VIII are accepted (each `bookN/ACCEPTANCE.md` names the accepted file
-and its hash). Book IX is drafted and frozen at `book9/candidate-v1.json`,
-waiting on its independent review.
+Books I–X are accepted (each `bookN/ACCEPTANCE.md` names the accepted file and
+its hash). Book XI is next; Book XII has not been started.

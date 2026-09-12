@@ -1,10 +1,14 @@
-# Continuity sheet — Meditations, Book X (candidate v1, frozen)
+# Continuity sheet — Meditations, Book X (accepted as candidate v2)
 
 Written alongside drafting `candidate-v1.json`, after Books II, I, III, IV, V,
 VI, VII, VIII and IX were accepted, and describing what the frozen draft
-actually did. Term renderings follow `../GLOSSARY.md` (two rows extended for
-Book X **before** drafting, see below); the pattern for applying review findings
-follows the nine earlier `ACCEPTANCE.md` files (decisions D8, D10, D11 and D12
+actually did, and **updated at acceptance (2026-09-12)** to record the round-1
+rulings and the six substitutions in `candidate-v2.json`. Where an entry
+describes a change made at acceptance it says so; everything else describes the
+frozen v1, which `candidate-v2.json` leaves untouched in 33 of 38 paragraphs.
+Term renderings follow `../GLOSSARY.md` (two rows extended for Book X **before**
+drafting, see below); the pattern for applying review findings follows the nine
+earlier `ACCEPTANCE.md` files (decisions D8, D10, D11, D12 and the new **D13**
 in the ledger). Book X is the **second** book drafted under the "shall" rule
 fixed at Book VIII acceptance, and the first drafted under its widened wording
 (finding 41.1 at Book IX acceptance: "the deliberative 'shall' of a question,
@@ -176,7 +180,13 @@ was nonetheless in place before drafting, as the Book IX finding required.
 
 ## Paragraph-level decisions
 
-- **X.1** — "Wilt thou" ×5 → "Will you". "More manifest than the body" → "more
+- **X.1** — "Wilt thou" ×5 → "Will you". **One comma removed**, after the
+  pronoun: Long's "Wilt thou, then, my soul, never be good" → "Will you then,
+  my soul, never be good". Keeping it would give four comma-separated fragments
+  before the verb and now reads as fussy; "then" goes unpaired inside the
+  address instead, which is current practice. *Recorded at acceptance, finding
+  1.1: this was the only punctuation change in Book X the sheet did not list,
+  and the round-1 reviewer endorsed the wording while naming the gap.* "More manifest than the body" → "more
   plain to see than the body" ("manifest" as a predicate adjective is stiff;
   "plainly" is the edition's word for Long's "manifestly" at IX.1 and IX.42).
   "The conservation of the perfect living being" → "the **preservation** of the
@@ -257,8 +267,15 @@ was nonetheless in place before drafting, as the Book IX finding required.
   his own phrase rather than folded into the ruling-part row.
 - **X.9** — One dagger mark, between "those holy principles of yours." and "How
   many things", that is, at a sentence boundary rather than inside a clause (see
-  unresolved source issues). "Mimi" **kept** as Long prints it — flagged for the
-  reviewer below. "Each several thing" and "every several thing" → "each single
+  unresolved source issues). "Mimi" **kept** as Long prints it — ruled on at
+  round 1 and settled, see below. **"Gravity" kept** in "when will you enjoy
+  simplicity, when gravity": Marcus uses it as a **virtue-name** in a list of
+  virtue-names, and the list's own parallelism recovers the sense within two
+  words, while "seriousness" flattens a name into a description and "weight"
+  imports a reading Long does not give. *Recorded at acceptance, optional
+  finding 9.1, which the reviewer raised only so the decision would be on the
+  record and which it would itself leave; the modern physical sense of
+  "gravity" can be heard for a beat, and that is the whole cost.* "Each several thing" and "every several thing" → "each single
   thing", "every single thing". The seven-part final question keeps all seven
   of its members and its order.
 - **X.10** — "If thou examinest their opinions?" → "if you examine their
@@ -278,8 +295,18 @@ was nonetheless in place before drafting, as the Book IX finding required.
   where he puts it.
 - **X.14** — "Give what thou wilt; take back what thou wilt." → "Give what you
   will; take back what you will." Nature's address is left as Marcus reports it.
-- **X.15** — "[Political community]" folded as an apposition on "a state", and
-  "[as men do]" folded as the completion of "to live thus". **Base-text
+- **X.15** — **"[Political community]" DROPPED under D11** (changed at
+  acceptance, finding 15.1; v1 folded it as an apposition on "a state"). It is
+  the same shape as X.2's "[social]" — a second English rendering of one
+  Greek word beside the primary rendering Long has already given — and the
+  operative test is the same: the meditation's point, that the world is the
+  community one lives in so that place is indifferent, survives the drop entire
+  in "if he lives everywhere in the world as in a state." Long uses neither word
+  again in the section, so the X.33 "[order]" consideration (a primary word that
+  recurs, beside a folded gloss that would dangle) does not arise either. The
+  round-1 reviewer named the v1 fold "the one place where I think the D11 line
+  is drawn inconsistently", and it was. **"[As men do]" stays folded** as the
+  completion of "to live thus". **Base-text
   correction:** PG's "Let **me** see, let them know a real man" is a slip;
   Standard Ebooks reads "Let **men** see", which the parallel with "let them
   know" requires and which is the only reading that makes the sentence a
@@ -308,9 +335,16 @@ was nonetheless in place before drafting, as the Book IX finding required.
   the section is made of. This is the VII.13 / VIII.57 principle in another
   form — Long prints the extra words because his sentence is not a sentence
   without them — so the words are kept and set off as an apposition with em
-  dashes, as IX.24's "[such is everything]" was: "this or that loves—is
-  wont—to be produced?" Long's quotation marks and his question mark inside the
-  quotation are kept where he puts them.
+  dashes, as IX.24's "[such is everything]" was. **The dashes now stand OUTSIDE
+  Long's quotation marks** (changed at acceptance, finding 21.1): `that "this or
+  that loves"—is wont—"to be produced?"`, where v1 had `that "this or that
+  loves—is wont—to be produced?"`. Long's square brackets were the universally
+  understood signal "not part of the quoted text"; em dashes are not, so v1's
+  placement credited common speech with words common speech does not use, which
+  is the one thing this meditation cannot afford — its point is that the
+  saying is exactly what people say and that the second sense is supplied from
+  outside it. Long's quotation marks and his question mark inside the quotation
+  are kept where he puts them.
 - **X.22** — Long with the pronouns modernised. The three-limbed disjunction and
   "But besides these things there is nothing" are untouched.
 - **X.23** — **Long's bracketed translator's note "[The three last words are
@@ -319,9 +353,16 @@ was nonetheless in place before drafting, as the Book IX finding required.
   Long telling the reader what he did with Plato's Greek, which is the same kind
   of thing as a cross-reference or a footnote, and the package drops both.
   Standard Ebooks omits it outright, which corroborates the classification
-  without deciding it. Listed with the D11 drops below because it is the same
-  family — Long talking to his reader — though it is not an alternative
-  rendering. Plato's sentence itself is kept exactly as Long gives it, unmarked
+  without deciding it. **Dropped under D13** — the ledger row added at
+  acceptance in answer to finding 23.1, which upheld the drop and pointed out
+  that the package had no rule covering it: D11 reaches bracketed *alternative
+  renderings* only, and the glossary's bracket rule reaches supplements,
+  cross-references and verse citations. A translator's note about the
+  translator's own practice is a third kind, and a drafter of Books XI–XII
+  reading D11 literally would have folded it and put a sentence about the
+  translation into Marcus's mouth. Listed below with the D11 drops because it is
+  the same family — Long talking to his reader — though it is not an
+  alternative rendering. Plato's sentence itself is kept exactly as Long gives it, unmarked
   and unexplained.
 - **X.24** — "Ruling faculty" → "the ruling part" (glossary). "Loosed and rent
   asunder" → "loosed and **torn apart**" (the IX.9 and IX.23 rendering of
@@ -363,19 +404,39 @@ was nonetheless in place before drafting, as the Book IX finding required.
   such" → "unless you are such" (the "shall" rule); "who is he that shall hinder
   thee" → "who is he that **will** hinder you", a plain future in a direct
   question rather than a deliberative one. "**Do thou only determine** to live
-  no longer unless thou shalt be such" → "**You, only determine** to live no
-  longer unless you are such": Long's emphatic "do + thou" imperative has no
-  modern form, and the plain "Do you only determine…" would read as a yes/no
-  question — the exact defect the Book IX round-1 review found at IX.40 and
-  repaired with a vocative comma. The same repair is used here, for the same
-  reason, and is the reason it is used rather than "Do only determine", which is
-  a true emphatic imperative but drops the fronted second person that carries
-  the self-address. Flagged below. "[Thee to live]" folded — the completion of
+  no longer unless thou shalt be such" → "**Only determine** to live no longer
+  unless you are such" (changed at acceptance, finding 32.1; v1 read "**You,
+  only determine**"). Long's emphatic "do + thou" imperative has no modern form,
+  and the plain "Do you only determine…" would read as a yes/no question, so v1
+  borrowed the vocative comma the Book IX round-1 review introduced at IX.40.
+  **The round-1 reviewer ruled against that borrowing and the ruling is right.**
+  At IX.40 the fronted pronoun does rhetorical work: the passage is an
+  *alternation* ("One man prays thus: … You, pray thus: …") and the comma
+  preserves a contrast that would otherwise vanish. **X.32 has no contrast at
+  all**, so the fronted "You," carries nothing, and a bare vocative "You,"
+  before an imperative reads as a summons to a stranger rather than as
+  self-address — the one register Anders's brief rules out; worse, "You, only
+  determine…" invites the misparse "only *you* determine…", the reverse of the
+  sense. The plain imperative is unambiguous in mood, is self-addressed like
+  every other imperative in the edition, and keeps "only" exactly where Long has
+  it. "Do only determine", the reviewer's alternative, was declined with the
+  reviewer: it reads as a concession ("do at least"). **The IX.40 repair is
+  localised, not narrowed**: the vocative comma is licensed where a fronted
+  pronoun carries a contrast, not merely where a "do + thou" imperative needs
+  modernising. "[Thee to live]" folded — the completion of
   "does not allow". **Base-text point:** PG prints "thou **are** not simple" for
   "art"; SE has the same slip transposed to the next clause ("thou are not
   good"). Both are modernised to "you are" and the slip does not reach the
   candidate.
-- **X.33** — "[Our life]" folded as an apposition on "this material". **"[Order]"
+- **X.33** — "[Our life]" folded as an apposition on "this material", **set
+  with em dashes** — "What is that which, as to this material—our
+  life—can be done or said…" (changed at acceptance, optional finding 33.1; v1
+  set it with commas). Four commas in eleven words held the relative "which …
+  can be done" open across two nested appositives before the reader reached the
+  verb; the dashes are the same device X.13's and X.21's appositions use, and
+  every word and Long's order are kept. Applied under D8: v1 recorded no
+  considered reason for preferring commas here, so there was none on record
+  better than the reviewer's. **"[Order]"
   is DROPPED under D11**: it is a second English rendering of Long's "law", and
   unlike X.21's "[is wont]" nothing in the meditation turns on the second sense
   — Long himself then uses "law" three more times in the next two clauses, so
@@ -393,12 +454,36 @@ was nonetheless in place before drafting, as the Book IX finding required.
   not preserved as lines anywhere in this package). "Those who shall receive and
   transmit a man's fame" → "will receive"; "thou shalt close thy eyes" → "you
   will close your eyes"; "thou avoidest and pursuest" → "you avoid and pursue".
-  "After-times" **kept** as Long's compound. The second quotation, "are produced
+  "After-times" **kept** as Long's compound. **The two spaced em dashes in the
+  Homer quotation — "For example:— \"Leaves, some the wind scatters on the
+  ground— So is the race of men.\"" — are inherited from the verse join
+  and are deliberate** (recorded at acceptance, optional finding 34.1, which
+  asks for the record and not for a change). The paragraph is byte-identical to
+  the staged original here: the first dash is Long's own after "For example:"
+  and the second is his line-end dash at PG 6305, and the spaces are what
+  `../PROVENANCE.md` §4's verse rule produces when it joins verse lines with
+  spaces. The glossary's "em dashes without spaces" governs the candidate's own
+  dashes, not the source's. Changing it would mean changing the verse-joining
+  rule, which reaches V.31, V.33, five places in Book VII, XI.6, XI.31, XI.32
+  and XII.3, five of them in accepted books. The second quotation, "are produced
   in the season of spring," and "as the poet says" are kept and not identified.
 - **X.35** — Long with the pronouns modernised; nothing else. The four healthy
   organs and the fifth term they build to are in Long's order.
-- **X.36** — "There shall not be by him" **kept** (negative consecutive clause;
-  see the "shall" section). "**Perchance**" → "**perhaps**": unlike IX.3, where
+- **X.36** — "There shall not be **by him**" → "there shall not be **beside
+  him**" (changed at acceptance, optional finding 36.1). The **"shall" is
+  untouched and stays defended** (negative consecutive clause; see the "shall"
+  section); the word repaired is the preposition. Long means *at his side*, and
+  "be by him" in modern English reads first as agentive — something done
+  **by** him — and only on a second pass as locative, at the opening of the
+  longest meditation in the second half of the book and inside a long
+  correlative the reader is already holding open. The same class of change as
+  "like to an axe" → "like an axe" at X.38 and "in fine" → "in short" at
+  X.26. "At least **some one**" → "at least **someone**" (changed at
+  acceptance, optional finding 36.2): PG's two-word pronoun is a typographic
+  convention of 1862, not a reading, and is normalised with the American
+  spelling, the straight quotation marks and the em dashes. **The base-text
+  ruling at X.36 is untouched by it** — it is about "least" against Standard
+  Ebooks' "last", and the candidate still reads "at least". "**Perchance**" → "**perhaps**": unlike IX.3, where
   "perchance" stands inside Marcus's one heightened sentence, a quoted cry to
   death, here it sits in a plain reported reflection about associates hoping for
   a small advantage, where the archaic word has no work to do. "Benevolent" →
@@ -422,9 +507,25 @@ was nonetheless in place before drafting, as the Book IX finding required.
 - X.13 "(vi. 32; viii. 55)" and "(vii. 17)".
 - X.26 "(vii. 85)".
 
-**Brackets in Long's Book X: eighteen.** Sixteen folded, two dropped.
+**Brackets in Long's Book X: eighteen. Fourteen folded, three dropped under
+D11, one translator's note dropped under D13 — 14 + 3 + 1 = 18.**
 
-*Folded — sixteen*, of which the ones marked **referent** are supplements that
+*Corrected at acceptance (finding C1, and finding 15.1).* Two things were wrong
+in v1's records. The numeral said **sixteen** folded against two dropped, which
+with the translator's note makes nineteen, one more than the eighteen brackets
+the same sentences assert and the mechanical check verifies; the **list below
+was right all along** and only the numeral above it was wrong, and v1's
+`README.md` check block was labelled "the sixteen folds" while spot-checking
+thirteen of them, which is how the error survived a draft, a freeze and a
+self-check. The true v1 count was **fifteen** folded. Applying finding 15.1
+moves X.15's "[political community]" from the folds to the D11 drops, so the
+accepted count is **fourteen folded, three dropped under D11, one translator's
+note**. `../scripts/build_book10_v2.py` and the `README.md` check block now
+**enumerate every fold individually and assert that folds + D11 drops +
+translator's note equals the source's own bracket count**, so a numeral that
+disagrees with the list is a build failure rather than a reading error.
+
+*Folded — fourteen*, of which the ones marked **referent** are supplements that
 supply a word the sentence's syntax needs, under the VI.50 / VII.2 rulings and
 the Books VIII and IX applications:
 
@@ -439,8 +540,9 @@ the Books VIII and IX applications:
 - X.11 "[of philosophy]" — **referent**: which part.
 - X.13 "[happiness]" — Long's own gloss on "a good daemon", folded as an
   apposition (the VII.17 practice; see the glossary row extended for this book).
-- X.15 "[political community]" — an apposition on "a state"; "[as men do]" —
-  the completion of "to live thus".
+- X.15 "[as men do]" — the completion of "to live thus". (X.15's
+  "[political community]" was folded in v1 and is **dropped under D11** in v2;
+  see below and the X.15 entry.)
 - X.21 "[is wont]" — the second sense of the one verb the meditation is about;
   folded rather than dropped, for the reason given at X.21 above.
 - X.31 "[for thy activity]" — **referent**: what the matter and opportunity are
@@ -448,21 +550,28 @@ the Books VIII and IX applications:
 - X.32 "[thee to live]" — the completion of "does not allow".
 - X.33 "[our life]" — an apposition on "this material".
 
-*Dropped — two, both Long addressing his reader rather than Marcus addressing
-himself:*
+*Dropped under D11 — three, each Long addressing his reader rather than
+Marcus addressing himself:*
 
 - **X.2 "[social]"** — a D11 alternative rendering: Long's second English word
   for the one Greek adjective he has already translated "political". His
   primary word stands.
 - **X.33 "[order]"** — the same, for "law". His primary word stands, and stands
   three more times in the sentences that follow.
+- **X.15 "[political community]"** — the same, for "a state" (moved here at
+  acceptance, finding 15.1). Long uses neither word again in the section, so
+  nothing dangles, and the meditation's point survives the drop entire.
 
-*And one further drop of the same family, not an alternative rendering:*
+*And one further drop of the same family under **D13**, not an alternative
+rendering:*
 
 - **X.23 "[The three last words are omitted in the translation.]"** — a
   translator's note about Long's own handling of Plato's Greek. Apparatus, of
   the cross-reference and footnote kind, and dropped with them. Standard Ebooks
-  omits it too.
+  omits it too. **D13** is the ledger row added at acceptance in answer to
+  finding 23.1, which upheld the drop and pointed out that no rule covered it;
+  it is worded to generalise to any bracket in Long's own voice about his own
+  handling of the Greek, with the X.21 limit written into it.
 
 **Verse:** one quotation, Homer at X.34, joined into the paragraph with spaces
 as the staged original has it. **Verse citations:** none in the body (Long's
@@ -472,13 +581,47 @@ as the staged original has it. **Verse citations:** none in the body (Long's
 X.16, X.17, X.18, X.20, X.22, X.29, X.37 are all within a word or two of the
 source, and **five are byte-identical to Long** — X.16, X.17, X.18, X.19 and
 X.35 (X.19 including its dagger-marked clause, since the dagger falls where the
-candidate changes nothing). The
-word ratio for the book is **0.994** (4,537 → 4,511); the minimum paragraph
-ratio is **0.88** at X.23, whose whole difference is the nine-word translator's
-note dropped; next lowest are X.5 (0.90, a dropped cross-reference of four
-tokens out of forty) and X.13 (0.95, two dropped cross-references). The maximum
-is 1.08 at X.29, a twenty-six-word meditation where "Severally" becomes "One by
-one". Twenty-six of the thirty-eight paragraphs sit between 0.99 and 1.02.
+candidate changes nothing) **in v2 as in v1**. The word ratio for the
+book is **0.9927** in v2 (4,537 → 4,504; 0.9943 in v1, the six acceptance
+substitutions removing five tokens between them). The minimum paragraph ratio is
+**0.88** at X.23, whose whole difference is the nine-word translator's note
+dropped — the round-1 reviewer ruled on it directly rather than accepting the
+explanation, and found that with the note set aside the meditation is 57 source
+words against the candidate's 58, so "the 0.88 is entirely the dropped note;
+there is no compression anywhere in the book". Next lowest are X.5 (0.90, a
+dropped cross-reference of four tokens out of forty), X.13 (0.95, two dropped
+cross-references) and X.32 (0.95). The maximum is 1.08 at X.29, a twenty-six-word
+meditation where "Severally" becomes "One by one". Twenty-five of the
+thirty-eight paragraphs sit between 0.99 and 1.02.
+
+## Punctuation changed
+
+The whole tally, corrected at acceptance (finding 1.1 added the first row, which
+v1 had made in the text and listed nowhere).
+
+**Five of Long's commas removed.** X.1, after the pronoun in the address ("Will
+you then, my soul"). X.6, X.20 and X.33 ×2, each before a restrictive relative
+that Long's comma turns into an aside ("the life of a citizen is happy who
+continues a course of action"; "the good of each thing which the universal
+nature brings to each"; "nothing harms him who is really a citizen which does
+not harm the state"; "anything harm the state which does not harm law").
+
+**One comma raised to a semicolon.** X.7, where Long splices two independent
+clauses ("the particular quality of change; this is nothing in fact").
+
+**Two commas added.** X.37, round the long adverbial "on the occasion of
+anything being done by any person", which without them reads as attaching to
+"possible".
+
+**Two commas replaced by em dashes at acceptance.** X.33's apposition "as to
+this material—our life—" (finding 33.1).
+
+**One of Long's commas deliberately kept although it separates a subject from
+its verb.** X.25's "who is grieved or angry or afraid, is discontented", because
+it falls at a dagger; confirmed at round 1.
+
+**Two spaced em dashes inherited, not authored.** X.34's, from the verse join;
+recorded, not changed (finding 34.1).
 
 ## Nothing imported from other translations
 
@@ -556,35 +699,103 @@ Ebooks' Long (fetched 2026-09-12):**
   break the 487-paragraph alignment the whole package is built on. The same
   point arose at IX.28 and was ruled the same way at round 1.
 
-## Decisions flagged for the reviewer
+## Decisions flagged for the reviewer — all settled at round 1
 
-Three, each argued above and each open to an explicit ruling:
+Three were flagged for an explicit ruling and one offered for confirmation. The
+round-1 reviewer ruled on all four and **none is left open**; the drafter is
+upheld on three and overruled on one (X.32), which is finding 32.1, applied.
 
-1. **X.15 "Let men see" for PG's "Let me see"** — the one place in Book X where
-   the candidate departs from PG's letters. The ground is that "let me see" is a
-   slip rather than a reading: it breaks the parallel with "let them know" and
-   leaves "them" without an antecedent, and Standard Ebooks reads "men". Same
-   class as VIII.37 and IX.34, both of which round 1 upheld. Is it right here?
-2. **X.9 "Mimi" kept as Long prints it.** Long leaves the Latin word
-   untranslated and explains it only in a footnote ("Roman plays in which action
-   and gesticulation were all or nearly all") — apparatus, which this package
-   drops. Keeping the word leaves a modern reader with an opaque first word to a
-   section; rendering it "mimes" would import the footnote's content and would
-   also mislead, since an English "mime" today is a silent performer rather than
-   a broad farce. The candidate keeps Long's word on the ground that it is his
-   text and not apparatus, as "the next best voyage, as the saying is" was kept
-   at IX.2. A ruling is wanted, including on whether an exception to the
-   no-glosses rule is warranted here.
-3. **X.32 "You, only determine to live no longer unless you are such"** for
-   Long's "Do thou only determine…". This applies the repair the Book IX round-1
-   review made at IX.40, where "Do you pray thus:" was found to read as a yes/no
-   question and was given a vocative comma. The alternative, "Do only determine
-   to live no longer…", is a true emphatic imperative in modern English but
-   drops the fronted second person. Confirm the choice, or rule for the other.
+1. **X.15 "Let men see" for PG's "Let me see" — UPHELD.** Four independent
+   grounds converge: the clause is one half of a parallel pair with "let them
+   know" and changing subject mid-pair is motiveless; "them" is left without an
+   antecedent under "let me see"; the section is about how Marcus is *seen* by
+   those among whom he lives, not about what he sees; and a dropped single
+   letter is the commonest class of transcription slip. Standard Ebooks reads
+   "men". Same class as VIII.37 "Fergamus"/"Pergamus" and IX.34 "pool
+   souls"/"poor souls", both upheld at round 1 of their books. It stays **the
+   one departure from PG's letters in Book X**.
+2. **X.9 "Mimi" kept as Long prints it — UPHELD, and no gloss exception is
+   warranted.** It is Long's text, not apparatus; "mimes" would import the
+   dropped footnote's content *and* mislead, since a modern "mime" is a silent
+   performer rather than the broad farce Marcus means, and a bracketed or
+   appositive gloss would be exactly the imported-footnote content the
+   no-glosses rule exists to prevent. The reader meets an unfamiliar proper noun
+   first in a list of five distractions and takes it as a kind of show, which is
+   close enough to right. Kept ungloss'd, on the IX.2 "the next best voyage, as
+   the saying is" precedent.
+3. **X.32's vocative-comma imperative — REJECTED; the reviewer rules for the
+   other option, modified.** Finding 32.1, applied: "**Only determine** to live
+   no longer unless you are such." See the X.32 entry above for the reasoning
+   and for what it settles about the IX.40 repair, which is localised rather
+   than narrowed.
+4. **Long's comma after "afraid" inside the X.25 dagger clause — CONFIRMED,
+   kept.** The comma closes a long relative subject, ordinary nineteenth-century
+   practice, and creates no misreading for a modern reader; it is a rhythm mark,
+   not a syntax error waiting to trip anyone. And it falls at the dagger, where
+   the VI.50 / VII.16 / VIII.51 / IX.6-26-27 practice is that the clause stands
+   as Long has it with only pronouns and glossary renderings changed. Removing
+   it would be a stylistic change inside a dagger clause, the exact thing the
+   Book VIII reviewer reverted at VIII.51.
 
-A fourth point is offered for confirmation rather than ruling: **Long's comma
-after "afraid" at X.25 is kept inside the dagger clause**, although it separates
-a subject from its verb, because the VI.50 / VII.16 / VIII.51 practice is that
-dagger clauses stand as Long has them with only pronouns and glossary renderings
-changed. If the reviewer reads the comma as a modernisable accidental rather
-than part of the uncertain text, it goes.
+## Further rulings recorded at acceptance
+
+Not flagged by the drafter, but ruled on by the reviewer and recorded so they do
+not reopen:
+
+- **X.21's "[is wont]" folded rather than dropped — CONFIRMED** (the
+  execution repaired; finding 21.1). In form a D11 case, in substance not one.
+- **X.2's "[social]" and X.33's "[order]" dropped — CONFIRMED**, on the
+  drafter's own test; X.15 is now decided the same way (finding 15.1).
+- **X.6 and X.36, PG right against Standard Ebooks — both CONFIRMED.** SE's
+  "turn **an** my efforts" is not English and is plainly a slip for "all", which
+  is also what the argument needs; SE's "at **last** someone" would put "at
+  last" twice inside eleven words and flattens Long's concessive "at least" into
+  a temporal.
+- **The "thou are" slip present in both base texts — correctly invisible**,
+  and recording it anyway is the right call, so a later collator does not think
+  one text was silently preferred.
+- **X.27's Latin name forms — CONFIRMED** under D6, with IX.29's "Philippus"
+  as the precedent; modernising two of five would produce a mixed roll.
+- **Standard Ebooks' five typographic paragraph breaks — CONFIRMED ignored**,
+  the IX.28 ruling; none is a section break and a 39th or 43rd paragraph would
+  break the 487-paragraph alignment.
+- **The three terms kept out of glossary rows — all three right**: X.7's
+  "the universal reason" (Long's own adjective + noun, of the same shape as "the
+  universal nature"), X.8's "the intelligent part" (not one of the five variants
+  the ruling-part row collects, and a different thing), X.33's "irrational soul"
+  (current English and Long's own).
+- **The "shall" audit passed.** All 23 classified independently and matched to
+  the drafter's report exactly: six kept, seventeen removed, every removal a
+  plain future. X.11's indirect "what any man shall say" and X.32's direct "who
+  is he that shall hinder thee" are both **rhetorical** futures, not deliberative
+  questions, so the clause widened at Book IX acceptance never fires in Book X.
+  The rule's edge — X.1's *positive* consecutive clause removed while X.36's
+  *negative* one is kept — is consistent under the rule's letter and its
+  spirit; no finding. Book X adds no new case to the three third-person plain
+  futures standing in accepted books (III.9, VII.8, VII.24).
+- **The step-1 no-rebuild finding — UPHELD by the stronger method**, with
+  `../scripts/verify_book10_source.py`'s own *rules* audited against the raw PG
+  range before its output was looked at. The three rules that can fail silently
+  were each tested: the footnote-consumption rule cannot have swallowed Long's
+  Homer couplet (twelve maximal indented runs in the range, eleven footnote runs
+  at four spaces with the footnote-[B] Odyssey quatrain at seven, and the
+  twelfth — 6305–6307 — at **five**, containing no footnote opener and
+  adjacent to no footnote run); the join-unnumbered-blocks rule cannot hide a
+  running head, page number or catchword, and there are no standalone short
+  flush-left lines **inside** the range at all (the drafter's "exactly one"
+  counted the `X.` header at 5865, which sits outside it — noted, no
+  consequence); and a flush-left footnote body of the VII.45 kind would have
+  shown as a diff. The marker recount reconciles exactly: 16 flush-left markers
+  + 1 inside the verse at 6306 = 17, for 17 indented openers in eleven runs.
+  Four differing paragraphs, each differing only by one `+`. **No rebuild, no
+  accepted book reopened.**
+- **The word ratio and the five byte-identical paragraphs — ruled on
+  directly.** The 0.88 minimum at X.23 is entirely the dropped note; the five
+  identical paragraphs are a real result, each checked against the accessibility
+  standard on its own and containing no thou-form, no archaic inflection, no
+  glossary term, no bracket, no cross-reference and no dagger-affected wording.
+  "Changing them would have been the error."
+- **Nothing imported** — the complete list of words the candidate uses that
+  occur nowhere in Long's Book X is eleven, each documented, and the seven
+  passages most likely to attract a familiar modern rendering each keep a
+  Long-specific turn that Hays, Farquharson and Staniforth do not have.
