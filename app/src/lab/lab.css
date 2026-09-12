@@ -3732,6 +3732,12 @@
   background: var(--lab-paper, #f2ecdf);
 }
 
+/* The desk the spread sits on. Light themes only — the night desktop keeps
+   its own paper/leaf relationship untouched. */
+.lab.is-desktop:not(.is-night) {
+  background: color-mix(in srgb, var(--lab-paper) 92%, #8a7856);
+}
+
 .lab.is-desktop .lab-header {
   height: 72px;
   min-height: 72px;
@@ -3826,7 +3832,13 @@
   overflow: hidden;
   border: 1px solid rgba(130, 116, 94, .12);
   border-radius: 4px;
-  background: color-mix(in srgb, var(--lab-paper, #f2ecdf) 94%, white);
+  /* The reading leaf is the product's paper — exactly --lab-paper, the same
+     cream the narrow single-column layout shows. It used to be mixed 6%
+     towards white, which is a surface only the wide layout paints: narrowing
+     the window past the desktop/phone-chrome switch changed the colour of the
+     page under the text. The separation the sheet needs comes from the desk
+     behind it (below), not from lightening the paper. */
+  background: var(--lab-paper, #ece7db);
   box-shadow: 0 10px 40px rgba(57, 47, 34, .045);
 }
 
@@ -4672,6 +4684,46 @@
     font-size: 0.78rem;
   }
 }
+
+/* ── Page-turn buttons follow the POINTER, not the window width ──────────
+   A half-screen desktop window gets the narrow single-column layout (that is
+   a layout decision, and correct), but it is still a mouse with hover and a
+   keyboard, so the visible previous/next buttons stay. They take the same
+   floating-disc treatment the wide spread uses, pinned to the window edges,
+   so the affordance is identical at every width. Edge tap-to-turn is the
+   finger's affordance and is switched off for the mouse — see
+   `labPageTurnAffordance`. */
+.lab.has-phone-chrome.has-page-buttons .lab-page-turn.is-phone-rail {
+  pointer-events: none;
+}
+
+.lab.has-phone-chrome.has-page-buttons .lab-page-turn-btn {
+  pointer-events: auto;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  line-height: 1;
+  border: 1px solid color-mix(in srgb, var(--lab-border) 55%, transparent);
+  background: color-mix(in srgb, var(--lab-paper) 65%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--lab-ink);
+  z-index: 190;
+}
+
+.lab.has-phone-chrome.has-page-buttons .lab-page-turn-btn:hover,
+.lab.has-phone-chrome.has-page-buttons .lab-page-turn-btn:focus-visible {
+  background: color-mix(in srgb, var(--lab-paper) 88%, var(--lab-ink) 8%);
+}
+
+.lab.has-phone-chrome.has-page-buttons [data-testid="lab-page-prev"] { left: 8px; }
+.lab.has-phone-chrome.has-page-buttons [data-testid="lab-page-next"] { right: 8px; }
 
 /* ─────────────────────────────────────────────────────────────────────────
    Reader chrome V2 — the preview shell behind `?chrome=v2`.

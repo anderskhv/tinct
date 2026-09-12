@@ -419,6 +419,66 @@ describe('mouse word lookup and dragging', () => {
     fireEvent.pointerUp(screen.getByTestId('lab-book'), { pointerType: 'mouse', clientX: 105, clientY: 45 })
     expect(select).toHaveBeenCalledWith(expect.objectContaining({ text: 'one two three' }), 105, 45, undefined)
   })
+  /**
+   * The precedence rule: a click or tap that lands in a live page-turn zone
+   * turns the page and nothing else. One click can never both turn the page
+   * and pop a definition card.
+   */
+  describe('page-turn zones take precedence over word lookup', () => {
+    const surface = () => vi.spyOn(screen.getByTestId('lab-book'), 'getBoundingClientRect')
+      .mockReturnValue({ left: 0, right: 800, top: 0, bottom: 600, width: 800, height: 600, x: 0, y: 0, toJSON: () => ({}) } as DOMRect)
+
+    it('turns the page and opens no definition when the zone is live for this pointer', () => {
+      const select = vi.fn(), turn = vi.fn()
+      render(<LabPassage {...props()} tapZones="all" onSelectRange={select} onPageTurn={turn} />)
+      surface()
+      const word = screen.getAllByTestId('lab-word')[1]
+      fireEvent.pointerDown(word, { pointerType: 'mouse', button: 0, clientX: 20, clientY: 100 })
+      fireEvent.pointerUp(word, { pointerType: 'mouse', clientX: 20, clientY: 100 })
+      expect(turn).toHaveBeenCalledWith(-1)
+      expect(select).not.toHaveBeenCalled()
+    })
+
+    it('still defines a word clicked away from the zones', () => {
+      const select = vi.fn(), turn = vi.fn()
+      render(<LabPassage {...props()} tapZones="all" onSelectRange={select} onPageTurn={turn} />)
+      surface()
+      const word = screen.getAllByTestId('lab-word')[1]
+      fireEvent.pointerDown(word, { pointerType: 'mouse', button: 0, clientX: 400, clientY: 100 })
+      fireEvent.pointerUp(word, { pointerType: 'mouse', clientX: 400, clientY: 100 })
+      expect(turn).not.toHaveBeenCalled()
+      expect(select).toHaveBeenCalledWith(expect.objectContaining({ text: 'two' }), 400, 100, undefined, 'lookup')
+    })
+
+    it('defines at the edge when the mouse has buttons instead of zones', () => {
+      const select = vi.fn(), turn = vi.fn()
+      render(<LabPassage {...props()} tapZones="none" onSelectRange={select} onPageTurn={turn} />)
+      surface()
+      const word = screen.getAllByTestId('lab-word')[1]
+      fireEvent.pointerDown(word, { pointerType: 'mouse', button: 0, clientX: 20, clientY: 100 })
+      fireEvent.pointerUp(word, { pointerType: 'mouse', clientX: 20, clientY: 100 })
+      expect(turn).not.toHaveBeenCalled()
+      expect(select).toHaveBeenCalledWith(expect.objectContaining({ text: 'two' }), 20, 100, undefined, 'lookup')
+    })
+
+    it('on a machine with both, the finger turns the page and the mouse defines', () => {
+      const select = vi.fn(), turn = vi.fn()
+      render(<LabPassage {...props()} tapZones="touch" onSelectRange={select} onPageTurn={turn} />)
+      surface()
+      const word = screen.getAllByTestId('lab-word')[1]
+      fireEvent.pointerDown(word, { pointerType: 'touch', clientX: 780, clientY: 100 })
+      fireEvent.pointerUp(word, { pointerType: 'touch', clientX: 780, clientY: 100 })
+      expect(turn).toHaveBeenCalledWith(1)
+      expect(select).not.toHaveBeenCalled()
+
+      turn.mockClear()
+      fireEvent.pointerDown(word, { pointerType: 'mouse', button: 0, clientX: 780, clientY: 100 })
+      fireEvent.pointerUp(word, { pointerType: 'mouse', clientX: 780, clientY: 100 })
+      expect(turn).not.toHaveBeenCalled()
+      expect(select).toHaveBeenCalledWith(expect.objectContaining({ text: 'two' }), 780, 100, undefined, 'lookup')
+    })
+  })
+
   it('leaves short touch taps and secondary mouse buttons out of lookup', () => {
     const select = vi.fn()
     render(<LabPassage {...props()} onSelectRange={select} />)
