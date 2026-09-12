@@ -9,7 +9,7 @@ Written by `scripts/build_book04_v2.py`. Round 1's section M listed six classes 
 | accepted Book 1 | 132 → 159 | +20.5% | 10 → 0 | 100% |
 | accepted Book 2 | 137 → 159 | +16.1% | 7 → 4 | 43% |
 | accepted Book 3 | 164 → 173 | +5.5% | 9 → 6 | 33% |
-| **Book 4 v2** | **281 → 306** | **+8.9%** | **17 → 4** | **76%** |
+| **Book 4 v2** | **281 → 306** | **+8.9%** | **17 → 3** | **82%** |
 
 The build FAILS if the rate falls below half the accepted floor, or if more than three quarters of the source's sixty-word sentences survive. Book 4 v1 would have failed both.
 

@@ -63,12 +63,13 @@ CORRECTIONS = [
      "They took the sweating horses from under the yoke",
      "They took their sweating horses from under the yoke"),
     # --- B04-P009 -----------------------------------------------------------
-    (8, "S-1 — division at Butler's own semicolon, 1 of 2",
+    # The second joint of this 71-word sentence is NOT divided: step 7's flow
+    # read (book04/flow-read.md, finding F-1) found that dividing both left two
+    # consecutive sentences opening `But`. One division takes the surviving
+    # sentence to 48 words, which is the point of the finding.
+    (8, "S-1 — division at Butler's own first semicolon",
      "everything about him is immortal; but among mortal men",
      "everything about him is immortal. But among mortal men"),
-    (8, "S-1 — division at Butler's own semicolon, 2 of 2",
-     "or there may not; but at all events I have traveled much",
-     "or there may not. But at all events I have traveled much"),
     (8, "9.1 (optional, applied) — Butler's scale word is not archaic",
      "in the ruin of a stately house, fully and magnificently furnished",
      "in the ruin of a stately mansion, fully and magnificently furnished"),
