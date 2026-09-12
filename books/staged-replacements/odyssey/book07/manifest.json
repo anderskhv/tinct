@@ -93,7 +93,9 @@
  "checks": {
   "written_by": "scripts/checks.py",
   "file": "book07/checks-v1.md",
-  "sha256": "88952e2be44200d9a44584a7364911e35841cd364221282bc00cf2a9b2bf15c9",
+  "sha256": "da19d4a10861197d2db5060da3ee0cc85d9af0c628b500b418b9d6930afbfe78",
+  "candidate_file": "book07/candidate-v1.json",
+  "candidate_sha256": "bf8cf2f76f4670daab55daf1da265ba7b1839c0cd6680e3c5691fac8d382dc33",
   "basis": "all 29 paragraphs",
   "retention": 0.93943,
   "sentences": [
@@ -102,6 +104,7 @@
   ],
   "splitting_rate_raw_pct": 25.2,
   "norm_rate_pct": 7.5,
+  "norm_rate_butler_pct": 3.0,
   "sixty_word": [
    7,
    0
@@ -109,6 +112,10 @@
   "semicolons": [
    30,
    14
+  ],
+  "semicolons_kept_added": [
+   8,
+   6
   ],
   "move_gap": 0.01277,
   "all_gates_passed": true

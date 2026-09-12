@@ -84,25 +84,32 @@
  "candidate_v1_json_sha256": "9391ca16778a8225c1710b24296c51a2d3ba33f26ed3ac9fcf7c677c3c0413f0",
  "checks": {
   "written_by": "scripts/checks.py",
-  "file": "book06/checks-v1.md",
-  "sha256": "5cc7aaa3bb1bc322e3f16e054a38d6ddf860e263d4519e6de2b9d5dce249820c",
+  "file": "book06/checks-v2.md",
+  "sha256": "a1141adfb8a8c06aa5a109153d5fc8f15520f398d2b427539781bbd0c40ec3ed",
+  "candidate_file": "book06/candidate-v2.json",
+  "candidate_sha256": "0e435458f6c30384415559af86b49ee01c402308bd9d36fdfea5462887bde2be",
   "basis": "all 26 paragraphs",
-  "retention": 0.93669,
+  "retention": 0.93408,
   "sentences": [
    116,
    148
   ],
   "splitting_rate_raw_pct": 27.6,
-  "norm_rate_pct": 6.3,
+  "norm_rate_pct": 7.0,
+  "norm_rate_butler_pct": 5.6,
   "sixty_word": [
    7,
    1
   ],
   "semicolons": [
    27,
-   4
+   5
   ],
-  "move_gap": 0.00925,
+  "semicolons_kept_added": [
+   3,
+   2
+  ],
+  "move_gap": 0.01156,
   "all_gates_passed": true
  }
 }

@@ -30,14 +30,27 @@ one for three Books.
 | sentences, source → candidate | 103 → 129 |
 | **splitting rate** (D17, raw) | **+25.2%** |
 | semicolon-normalized sentences | 133 → 143 |
-| **NORM RATE** (D20) | **+7.5%** |
+| NORM RATE as published (D20) | +7.5% |
+| semicolon-normalized, on Butler's pointing | 133 → 137 |
+| **NORM RATE on Butler's own pointing** (D20, S-1) | **+3.0%** |
 | sixty-word sentences | 7 → 0 (100% broken) |
 | **semicolons, Butler → candidate** (D19) | **30 → 14** |
+| **of which KEPT of Butler's / ADDED by the draft** (S-1) | **8 kept + 6 added** |
 
 Of the +26 sentences added, at most **16** are a semicolon
 rewritten as a period — the operation that adds a sentence, moves no
 clause, drops no word and costs no retention. That is what NORM RATE
 prices out, and why **D19 is a rate and not a count** (D20).
+
+**And the mirror operation, which is the one D20 never priced.**
+Substantive finding **S-1** of Book 7's round 1: a comma raised to a
+semicolon adds nothing to the sentence count, adds one to the
+candidate's semicolon count, and therefore scores under D20 exactly
+what a real period scores — while leaving the clause chain inside one
+sentence. A period costs a recast; a semicolon costs a keystroke.
+**6 of this candidate's 14 semicolons are its own**, and the figure
+that is COMPARED from Book 7 forward is **NORM RATE on Butler's own
+pointing**, +3.0% here against the +7.5% the unsplit measure gives.
 
 ## 3. The cross-Book table, with every basis stated (R-1)
 

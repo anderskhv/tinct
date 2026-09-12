@@ -257,21 +257,24 @@ def main():
             "manifest was NOT written, so this package is not frozen. See "
             "book%02d/checks-v1.md."
             % (len(gate.failures), book_num, book_num))
-    manifest["checks"] = {
-        "written_by": "scripts/checks.py",
-        "file": figs["checks_md"],
-        "sha256": figs["checks_md_sha256"],
-        "basis": figs["basis"],
-        "retention": round(figs["retention"], 5),
-        "sentences": list(figs["sent"]),
-        "splitting_rate_raw_pct": round(figs["raw"], 1),
-        "norm_rate_pct": round(figs["norm"], 1),
-        "sixty_word": list(figs["sixty"]),
-        "semicolons": list(figs["semi"]),
-        "move_gap": round(figs["movegap"], 5),
-        "all_gates_passed": True,
-    }
+    # The block is composed by `checks.manifest_checks_block()` and by nothing
+    # else in the package. It RAISES unless the Gate it is handed both
+    # evaluated every gate and carries no failure — substantive finding S-2 of
+    # Book 7's round 1, whose point was that the enforcement had a write side
+    # and no read side, so "the checks passed" decayed into a claim about the
+    # past. This script no longer builds the dict itself, so there is one
+    # writer, it is the one that owns the refusal, and `checks.py --manifests`
+    # verifies afterwards what it wrote.
+    manifest["checks"] = checks.manifest_checks_block(figs, gate)
     manifest_path.write_text(dump_json(manifest), encoding="utf-8")
+
+    # And read it back, immediately, with the same read side `--manifests`
+    # uses. A manifest that cannot survive its own verifier is not written.
+    bad = checks.verify_manifest(book_num, figs, gate)
+    if bad:
+        manifest_path.unlink()
+        sys.exit("\nbuild_book_package.py: the manifest just written does not "
+                 "verify and has been removed:\n  " + "\n  ".join(bad))
 
     print(f"Book {book_num}: {n} paragraphs")
     print(f"word ratio total: {total_cand}/{total_src} = {total_cand/total_src:.3f}")

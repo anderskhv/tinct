@@ -132,6 +132,107 @@ def semicolons(paragraphs):
     return sum(p.count(";") for p in paragraphs)
 
 
+_WORD = re.compile(r"[A-Za-z]+(?:['\u2019][A-Za-z]+)?")
+# How strong a mark is, for picking Butler's pointing out of a span.
+_MARK_RANK = {";": 3, ".": 2, ":": 2, "!": 2, "?": 2, ",": 1, "\u2014": 1, "": 0}
+
+
+def _marked(t):
+    """(normalized word, the three characters that follow it) for every word."""
+    out = []
+    for m in _WORD.finditer(t):
+        w = m.group(0).lower().replace("\u2019", "'").split("'")[0]
+        out.append((NAME_MAP.get(w, w), t[m.end():m.end() + 4]))
+    return out
+
+
+def _mark_of(tail):
+    for ch in tail:
+        if ch in ";,.:!?\u2014":
+            return ch
+        if ch in "\u201d\"\u2019')":
+            continue
+        break
+    return ""
+
+
+def semicolon_provenance(src, cand):
+    """**Substantive finding S-1 of Book 7's round 1, made mechanical.**
+
+    D20 clause (a) adds each text's own semicolon count to its own sentence
+    count so that converting a semicolon into a period is worth exactly zero.
+    The corollary was never stated and nobody had tested it: **converting a
+    comma into a semicolon is worth a full division.** It adds nothing to the
+    sentence count, adds one to the candidate's semicolon count, and therefore
+    scores exactly what a real period scores — while leaving the clause chain
+    inside one sentence, which is the thing D17, D19 and D20 exist to detect
+    the absence of. It is the mirror of the operation D20 was written to price
+    out, and it is *cheaper*: a period costs a recast, a semicolon costs a
+    keystroke.
+
+    So D19's count is split into the two things it was conflating. For every
+    semicolon in the candidate, find what Butler pointed at the same place and
+    return `(paragraph, anchor, butler's mark)`.
+
+    **The alignment is not a four-word anchor.** The review's table was built
+    by anchoring on the four words before each mark, and that method silently
+    misses the case where the candidate changed those very words — B07-P007,
+    where Butler's `without male issue;` became `without a son;`, has no
+    four-word anchor in the source at all. Here the candidate's word stream is
+    aligned to the source's with `SequenceMatcher`, the semicolon is located
+    between the last source token aligned before it and the first aligned
+    after, and the strongest mark Butler wrote inside that span is his pointing
+    there. That reproduces the review's fourteen rows exactly and gets P007
+    right: **8 kept, 6 added.**"""
+    rows = []
+    for i, (s, c) in enumerate(zip(src, cand), 1):
+        S, C = _marked(s), _marked(c)
+        sw = [w for w, _ in S]
+        cw = [w for w, _ in C]
+        sm = difflib.SequenceMatcher(a=cw, b=sw, autojunk=False)
+        c2s = {}
+        for a, b, n in sm.get_matching_blocks():
+            for k in range(n):
+                c2s[a + k] = b + k
+        for j, (w, tail) in enumerate(C):
+            if _mark_of(tail) != ";":
+                continue
+            before = [c2s[k] for k in range(j, -1, -1) if k in c2s]
+            after = [c2s[k] for k in range(j + 1, len(C)) if k in c2s]
+            A = before[0] if before else 0
+            B = after[0] if after else len(S) - 1
+            span = [_mark_of(S[k][1])
+                    for k in range(max(A, 0), min(B, len(S) - 1) + 1)]
+            best = max(span, key=lambda m: _MARK_RANK.get(m, 0)) if span else ""
+            rows.append((i, " ".join(cw[max(0, j - 3):j + 1]), best))
+    return rows
+
+
+def kept_added(src, cand):
+    """(semicolons of Butler's the candidate still carries, semicolons the
+    candidate added where Butler wrote something weaker). D19's numerator was
+    always meant to be the first of these."""
+    rows = semicolon_provenance(src, cand)
+    kept = sum(1 for r in rows if r[2] == ";")
+    return kept, len(rows) - kept
+
+
+def norm_rate_butler(src, cand):
+    """**NORM RATE scored on Butler's own pointing** — the candidate's added
+    semicolons counted as the commas Butler actually wrote there.
+
+    This is the figure that is COMPARED from Book 7 forward. The published
+    NORM RATE credits a comma raised to a semicolon with a full division; this
+    one does not, which is what D20 clause (a) meant on the other side of the
+    ledger. Returns (src_norm, cand_norm, pct)."""
+    sn, _ = sentence_profile(src)
+    cn, _ = sentence_profile(cand)
+    kept, _added = kept_added(src, cand)
+    a = sn + semicolons(src)
+    b = cn + kept
+    return a, b, 100.0 * (b - a) / a
+
+
 def sentence_profile(paragraphs):
     ss = [s for p in paragraphs for s in sentences(p)]
     return len(ss), sum(1 for s in ss if len(s.split()) >= 60)
@@ -393,69 +494,119 @@ ACCEPTED = {
 # MOVE-GAP (5 dp).
 PUBLISHED = {
     1: dict(retention=0.72703, sent=(132, 159), sixty=(10, 0), semi=(47, 13),
-            norm=-3.9, movegap=0.05088),
+            norm=-3.9, movegap=0.05088, norm_butler=-4.5, kept_added=(12, 1)),
     2: dict(retention=0.90232, sent=(137, 159), sixty=(7, 4), semi=(36, 21),
-            norm=+4.0, movegap=0.01632),
+            norm=+4.0, movegap=0.01632, norm_butler=+1.2, kept_added=(16, 5)),
     3: dict(retention=0.89641, sent=(164, 173), sixty=(9, 6), semi=(39, 32),
-            norm=+1.0, movegap=0.02156),
+            norm=+1.0, movegap=0.02156, norm_butler=-2.0, kept_added=(26, 6)),
     4: dict(retention=0.95872, sent=(281, 306), sixty=(17, 3), semi=(68, 50),
-            norm=+2.0, movegap=0.00431),
+            norm=+2.0, movegap=0.00431, norm_butler=+2.0, kept_added=(50, 0)),
     5: dict(retention=0.93808, sent=(153, 189), sixty=(9, 1), semi=(34, 13),
-            norm=+8.0, movegap=0.00891),
+            norm=+8.0, movegap=0.00891, norm_butler=+7.5, kept_added=(12, 1)),
     6: dict(retention=0.93408, sent=(116, 148), sixty=(7, 1), semi=(27, 5),
-            norm=+7.0, movegap=0.01156),
+            norm=+7.0, movegap=0.01156, norm_butler=+5.6, kept_added=(3, 2)),
 }
 
 
-# Paragraphs each Book declares byte-identical to Butler, examined one by one
-# and left because they are already plain modern English. Asserted exactly, so
-# a later edit cannot silently add one. A Book absent from this table declares
-# none.
-BYTE_IDENTICAL = {
-    4: [39, 54, 61, 63, 70, 79, 80],
-}
-
-# **What `scripts/checks.py --all` surfaced the first time it was run over the
-# accepted Books, and the honest disposition of it.**
+# ------------------------------------------------- THE DECLARATIONS (S-3, R-1)
+# **What an accepted file carries that a gate would otherwise fire on, keyed by
+# the FILE and enumerated exactly.**
 #
-# Two of the gates this module carries were Book 5's assertions about Book 5,
-# promoted to package rules — the per-paragraph length floor at 0.90 and the
-# growth gate — and when they were finally run over Books 1-4 they fired
-# eleven times and five times. **None of it is new damage. All of it is the
-# S-2 disease measured**: the gates were written into Books 4's and 5's
-# correction scripts and never ran anywhere else, so nobody knew.
+# Three things converged on this table.
 #
-# The gates are NOT weakened. What each accepted Book carries is **enumerated
-# and asserted**, exactly as Book 4 already did for its seven byte-identical
-# paragraphs, so a Book can never quietly acquire a twelfth instance and new
-# work gets the gate at full strength. Each entry carries its reason.
+# * **Substantive finding S-3 of Book 7's round 1.** `MIN_PARA_RATIO = {1: 0.86}`
+#   was a lowered threshold wearing an enumeration's name: Book 1 carried five
+#   paragraphs under 0.90, and a sixth, a seventh and a tenth, anywhere in the
+#   Book, at any depth down to 0.86, would have passed in silence — in the one
+#   place the package's own disposition said the door was shut.
+# * **Records finding R-5.** `LEGACY_GROWTH`'s comparison was membership rather
+#   than multiplicity, so a second identical growth in the same paragraph was
+#   excluded by the declaration of the first.
+# * **Records finding R-1, found here by making `--all` evaluate the gates
+#   (R-4).** `LEGACY_GROWTH[4]` declared `(18, 53, 54)`. **That is the figure of
+#   Book 4's SUCCESSOR**, `candidate-v3.json`; the accepted `candidate-v2.json`,
+#   which is the file `PUBLISHED` is computed over and the file `--all` scores,
+#   carries `(18, 53, 55)`. A book-keyed table cannot say which file it
+#   enumerates, so it silently mixed two, and nothing could notice while the
+#   gates ran for no accepted Book. Book 1's thin ratios differ between v1 and
+#   v2 in the same way.
 #
-# The dispositions are recorded in the ledger as records finding **R-6** and
-# are a coordinator matter, not a drafter's: repairing any of them costs a
-# successor to an accepted Book.
+# So the key is the file, the equality is exact in both directions, and every
+# comparison is a multiset. A file absent from this table declares nothing and
+# therefore gets every gate **at full strength** — which is what a new
+# candidate must get.
+#
+# Repairing any declared instance costs a successor to an accepted Book and is
+# a coordinator matter, not a drafter's (ledger R-6).
 
-# Per-paragraph length floor. Default 0.90; a Book may declare a lower one,
-# with its reason, where its own review examined it.
-MIN_PARA_RATIO = {
-    # Book 1 is the most heavily rewritten Book in the package (retention
-    # 0.72703) and its acceptance record states the figure by name: "minimum
-    # paragraph ratio 0.8621 at B01-P017, which the round-1 reviewer" examined.
-    # Five paragraphs sit between 0.862 and 0.889. Declared, not exempted.
-    1: 0.86,
+MIN_PARA_FLOOR = 0.90        # for every Book. No Book has a lowered threshold.
+MIN_PARA_TOL = 0.0002
+
+
+def _decl(byte_identical=(), thin=(), growth=(), compound=(), reason=""):
+    return dict(byte_identical=list(byte_identical), thin=list(thin),
+                growth=list(growth), compound=list(compound), reason=reason)
+
+
+DECLARED = {
+    "book01/candidate-v2.json": _decl(
+        thin=[(1, 0.8850), (9, 0.8889), (11, 0.8659), (16, 0.8878),
+              (17, 0.8621)],
+        growth=[(5, 49, 50), (30, 48, 52)],
+        reason="Book 1 is the most heavily rewritten Book in the package "
+               "(retention 0.72703) and its acceptance record states the "
+               "shallowest of its five thin paragraphs by name: 'minimum "
+               "paragraph ratio 0.8621 at B01-P017, which the round-1 reviewer' "
+               "examined. Both growths are 1-4 words on a sentence Butler "
+               "already wrote at or near 50."),
+    "book01/candidate-v3.json": _decl(
+        thin=[(1, 0.8850), (9, 0.8889), (11, 0.8659), (16, 0.8878),
+              (17, 0.8621)],
+        growth=[(5, 49, 50), (30, 48, 52)],
+        reason="the compound successor; identical to v2 on all four measures."),
+    "book02/candidate-v2.json": _decl(
+        growth=[(19, 49, 50), (28, 57, 58)],
+        compound=["mixingbowls", "seashore", "waterside"],
+        reason="the three compounds are what the SUCCESSORS v3-v5 exist to "
+               "correct, so the accepted file necessarily disagrees with the "
+               "shipping corpus; that is the successor working, not drift "
+               "arriving. Both growths are on sentences Butler wrote at 49 "
+               "and 57."),
+    "book02/candidate-v3.json": _decl(growth=[(19, 49, 50), (28, 57, 58)]),
+    "book02/candidate-v4.json": _decl(growth=[(19, 49, 50), (28, 57, 58)]),
+    "book02/candidate-v5.json": _decl(growth=[(19, 49, 50), (28, 57, 58)]),
+    "book03/candidate-v2.json": _decl(
+        growth=[(11, 64, 66), (13, 69, 72), (24, 56, 58), (24, 73, 74)],
+        compound=["seashore"],
+        reason="`seashore` is corrected in the successor v3. Every growth is "
+               "on a sentence Butler already wrote between 56 and 73 words."),
+    "book03/candidate-v3.json": _decl(
+        growth=[(11, 64, 66), (13, 69, 72), (24, 56, 58), (24, 73, 74)]),
+    "book04/candidate-v2.json": _decl(
+        byte_identical=[39, 54, 61, 63, 70, 79, 80],
+        growth=[(18, 53, 55), (28, 54, 56), (76, 61, 62)],
+        compound=["lowlying", "seashore", "welldisposed"],
+        reason="the seven byte-identical paragraphs were examined one by one "
+               "and left because they are already plain modern English in "
+               "Butler (`book04/continuity.md` \u00a76). P018's growth is "
+               "**53 \u2192 55 in this file**; the 53 \u2192 54 the old "
+               "book-keyed table declared is the successor's figure."),
+    "book04/candidate-v3.json": _decl(
+        byte_identical=[39, 54, 61, 63, 70, 79, 80],
+        growth=[(18, 53, 54), (28, 54, 56), (76, 61, 62)]),
+    "book04/candidate-v4.json": _decl(
+        byte_identical=[39, 54, 61, 63, 70, 79, 80],
+        growth=[(18, 53, 54), (28, 54, 56), (76, 61, 62)],
+        reason="the fifth successor (ledger A4(i)); the arrow-B repair at "
+               "B04-P010 moves no sentence length."),
+    "book05/candidate-v2.json": _decl(),
+    "book06/candidate-v2.json": _decl(),
+    "book07/candidate-v1.json": _decl(),
 }
 
-# Sentences an accepted Book already grows past 50 words, aligned source
-# sentence to candidate sentence. Every one is a growth of 1 to 4 words on a
-# sentence BUTLER ALREADY WROTE at or near 50 — the class Book 5's finding
-# 30.2 named ("a recast GROWS a long sentence of Butler's"), which the
-# maximum-against-maximum gate could not see and which therefore ran in no
-# Book before Book 5. (paragraph, source words, candidate words).
-LEGACY_GROWTH = {
-    1: [(5, 49, 50), (30, 48, 52)],
-    2: [(19, 49, 50), (28, 57, 58)],
-    3: [(11, 64, 66), (13, 69, 72), (24, 73, 74), (24, 56, 58)],
-    4: [(18, 53, 54), (28, 54, 56), (76, 61, 62)],
-}
+
+def declared(cand_rel):
+    return DECLARED.get(str(cand_rel), _decl())
 
 
 def load(rel):
@@ -473,24 +624,223 @@ def figures(book, src, cand):
     s, c = scored(book, src), scored(book, cand)
     sn, cn, raw, s60, c60, broken = splitting_rate(s, c)
     nr = norm_rate(s, c)
+    nb = norm_rate_butler(s, c)
     return dict(basis=BASIS[book][1], n=len(s),
                 retention=token_retention(s, c),
                 order=order_retention(s, c), bag=bag_retention(s, c),
                 movegap=move_gap(s, c),
                 sent=(sn, cn), raw=raw, sixty=(s60, c60), broken=broken,
                 semi=(semicolons(s), semicolons(c)),
-                norm=nr[5], normpair=(nr[3], nr[4]))
+                kept_added=kept_added(s, c),
+                norm=nr[5], normpair=(nr[3], nr[4]),
+                norm_butler=nb[2], norm_butler_pair=(nb[0], nb[1]))
 
 
 # ------------------------------------------------------------------- the gates
 class Gate:
+    """The gates, and the token that says they ran.
+
+    `evaluated` is False until `run_book()` has put every gate to the
+    candidate. It is the difference between *"nothing failed"* and *"nothing
+    was asked"*, and it is what makes the manifest unwriteable by anything
+    that did not actually evaluate: `manifest_checks_block()` refuses a Gate
+    whose `evaluated` is False, so an empty failure list is not by itself a
+    licence to write. **Substantive finding S-2 of Book 7's round 1.**"""
+
     def __init__(self):
         self.failures = []
+        # Manifest-consistency failures are kept APART from the content gates,
+        # and the reason is a real one rather than tidiness: a stale manifest
+        # must not be able to block its own repair. `manifest_checks_block()`
+        # refuses on `failures` — what the candidate itself did — while
+        # `--write-manifest` is precisely the operation that fixes
+        # `manifest_failures`. Both are printed, and both make `checks.py N`
+        # exit non-zero, so neither is quiet.
+        self.manifest_failures = []
+        self.evaluated = False
 
     def check(self, ok, msg):
         if not ok:
             self.failures.append(msg)
         return ok
+
+    @property
+    def passed(self):
+        return self.evaluated and not self.failures
+
+
+# ------------------------------------------------------- the manifest (S-2)
+# **Substantive finding S-2 of Book 7's round 1: the manifest was write-only,
+# and it was already wrong.** `build_book_package.py` wrote `manifest.json`
+# only when the gates passed and recorded the sha256 of the `checks-vN.md`
+# that run produced, and the package described that as structural enforcement:
+# *"a package directory whose checks did not run has no manifest."*
+#
+# Two things were false about it as implemented.
+#
+# 1. **Nothing ever read a manifest**, so the record decayed into a claim about
+#    the past. It had already decayed on the first Book it was ever built for:
+#    `book07/manifest.json` recorded `checks.sha256 = 88952e2b…` while the
+#    frozen `book07/checks-v1.md` hashed to `6ecfeeb4…`, at the working tree,
+#    at HEAD and at trunk, because a later commit changed how the file renders,
+#    regenerated it, and did not rebuild the manifest.
+# 2. **A manifest survived a candidate that fails the gates.** `checks.py` did
+#    not touch the manifest; only `build_book_package.py` removed it, and only
+#    when re-run — which it refuses for a frozen Book without `--force`. So a
+#    directory could carry `all_gates_passed: true` beside a candidate failing
+#    two gates, which is exactly the state the mechanism existed to forbid.
+#
+# The repair has two halves and they are the same size:
+#
+# * **Unwriteable unless the gates evaluated and passed.** `manifest_checks_block()`
+#   is the only thing in the package that composes a `checks` block, and it
+#   raises unless it is handed a `Gate` whose `evaluated` token is set AND
+#   whose failure list is empty. An empty failure list on its own is not a
+#   licence: a Gate that was never asked anything has one too.
+# * **Verifiable after the fact.** `verify_manifest()` runs on EVERY
+#   `checks.py N`, and `--manifests` runs it for every Book at once. It fails
+#   on a stale checks hash, on a candidate whose bytes have moved under the
+#   manifest, on `all_gates_passed: true` beside a non-empty gate list, and on
+#   a Book that should carry a `checks` block and does not.
+
+# Books whose manifest predates the rule and carries no `checks` key. ENUMERATED
+# for the same reason `BYTE_IDENTICAL` is: so that a NEW Book cannot quietly
+# join them. A Book not in this list must carry a `checks` block.
+MANIFEST_PREDATES_CHECKS = frozenset({1, 2, 3, 4, 5})
+
+
+def manifest_checks_block(figs, gate):
+    """The only writer of a manifest `checks` block in the package.
+
+    Refuses unless the gates were actually **evaluated** and actually
+    **passed**. This is the half of S-2 that makes the claim true as
+    implemented rather than as described."""
+    if not gate.evaluated:
+        raise RuntimeError(
+            "manifest_checks_block: the gates were never evaluated for this "
+            "candidate. A manifest may not be written from a Gate that was "
+            "not asked anything — an empty failure list is not a pass.")
+    if gate.failures:
+        raise RuntimeError(
+            "manifest_checks_block: %d gate(s) FAILED; no manifest may be "
+            "written.\n  " % len(gate.failures) + "\n  ".join(gate.failures))
+    return {
+        "written_by": "scripts/checks.py",
+        "file": figs["checks_md"],
+        "sha256": figs["checks_md_sha256"],
+        "candidate_file": figs["candidate_file"],
+        "candidate_sha256": figs["candidate_sha256"],
+        "basis": figs["basis"],
+        "retention": round(figs["retention"], 5),
+        "sentences": list(figs["sent"]),
+        "splitting_rate_raw_pct": round(figs["raw"], 1),
+        "norm_rate_pct": round(figs["norm"], 1),
+        "norm_rate_butler_pct": round(figs["norm_butler"], 1),
+        "sixty_word": list(figs["sixty"]),
+        "semicolons": list(figs["semi"]),
+        "semicolons_kept_added": list(figs["kept_added"]),
+        "move_gap": round(figs["movegap"], 5),
+        "all_gates_passed": True,
+    }
+
+
+def verify_manifest(book, figs=None, gate=None):
+    """The read side. Returns a list of failure messages, empty when sound.
+
+    `figs` is the figures of the run that just happened, when there was one;
+    without it the manifest is checked against the files on disk alone, which
+    is what `--manifests` does."""
+    bad = []
+    mp = ROOT / ("book%02d/manifest.json" % book)
+    if not mp.exists():
+        return ["manifest: book%02d has no manifest.json — a package whose "
+                "checks did not run has no manifest, so this directory is not "
+                "frozen" % book]
+    try:
+        m = json.loads(mp.read_text(encoding="utf-8"))
+    except Exception as e:                                   # noqa: BLE001
+        return ["manifest: book%02d/manifest.json does not parse: %s" % (book, e)]
+
+    ck = m.get("checks")
+    if ck is None:
+        if book not in MANIFEST_PREDATES_CHECKS:
+            bad.append("manifest: book%02d carries no `checks` block and is "
+                       "not declared in MANIFEST_PREDATES_CHECKS" % book)
+        return bad
+    if book in MANIFEST_PREDATES_CHECKS:
+        bad.append("manifest: book%02d is declared as predating the checks "
+                   "rule but now carries a `checks` block — remove it from "
+                   "MANIFEST_PREDATES_CHECKS" % book)
+
+    # (a) the checks file it names must exist and hash to what it recorded.
+    cf = ROOT / ck.get("file", "")
+    if not ck.get("file") or not cf.exists():
+        bad.append("manifest: book%02d names a checks file that does not "
+                   "exist: %r" % (book, ck.get("file")))
+    else:
+        actual = hashlib.sha256(cf.read_bytes()).hexdigest()
+        if actual != ck.get("sha256"):
+            bad.append("manifest: book%02d records checks.sha256 %s but %s "
+                       "hashes to %s — STALE"
+                       % (book, str(ck.get("sha256"))[:8], ck["file"],
+                          actual[:8]))
+
+    # (b) the candidate it was computed over must not have moved underneath it.
+    if ck.get("candidate_file"):
+        cp = ROOT / ck["candidate_file"]
+        if not cp.exists():
+            bad.append("manifest: book%02d names a candidate that does not "
+                       "exist: %r" % (book, ck["candidate_file"]))
+        else:
+            actual = hashlib.sha256(cp.read_bytes()).hexdigest()
+            if actual != ck.get("candidate_sha256"):
+                bad.append("manifest: book%02d records candidate_sha256 %s but "
+                           "%s hashes to %s — the candidate moved under the "
+                           "manifest"
+                           % (book, str(ck.get("candidate_sha256"))[:8],
+                              ck["candidate_file"], actual[:8]))
+    else:
+        bad.append("manifest: book%02d's checks block names no candidate, so "
+                   "it asserts nothing about what was scored" % book)
+
+    # (c) `all_gates_passed: true` beside a run that failed.
+    if gate is not None and ck.get("all_gates_passed") and gate.failures:
+        bad.append("manifest: book%02d asserts all_gates_passed: true, and %d "
+                   "gate(s) just failed" % (book, len(gate.failures)))
+    if figs is not None and ck.get("sha256") and figs.get("checks_md_sha256") \
+            and ck["sha256"] != figs["checks_md_sha256"]:
+        bad.append("manifest: book%02d records a checks hash that this run did "
+                   "not produce (%s vs %s)"
+                   % (book, str(ck["sha256"])[:8],
+                      figs["checks_md_sha256"][:8]))
+    return bad
+
+
+def run_manifests():
+    """`--manifests`: the read side for every Book at once."""
+    print("checks.py --manifests — verifying every Book's manifest against the "
+          "files it names\n")
+    bad = []
+    for bkdir in sorted((ROOT).glob("book[0-9][0-9]")):
+        book = int(bkdir.name[4:])
+        msgs = verify_manifest(book)
+        if msgs:
+            bad += msgs
+            for m in msgs:
+                print("  \u2717 %s" % m)
+        else:
+            mp = json.loads((bkdir / "manifest.json").read_text(encoding="utf-8"))
+            ck = mp.get("checks")
+            print("  \u2713 book%02d  %s" % (
+                book, "checks %s over %s" % (ck["sha256"][:8],
+                                             ck.get("candidate_file", "?"))
+                if ck else "no checks block (predates the rule, declared)"))
+    print()
+    if bad:
+        print("%d manifest failure(s)." % len(bad))
+        return 1
+    print("Every manifest names files that exist and hash to what it recorded.")
+    return 0
 
 
 def d17_floor():
@@ -509,7 +859,7 @@ def d17_floor():
 
 
 # --------------------------------------------------------------- the run itself
-def run_book(book, version=None, write=True, quiet=False):
+def run_book(book, version=None, write=True, quiet=False, candidate=None):
     """Run every check for one Book, write `bookNN/checks-vN.md`, and return
     (figures, gate). The caller exits non-zero if `gate.failures`."""
     bd = ROOT / ("book%02d" % book)
@@ -519,10 +869,15 @@ def run_book(book, version=None, write=True, quiet=False):
         if not vs:
             sys.exit("checks.py: book%02d has no candidate-v*.json" % book)
         version = vs[-1]
-    cand_path = bd / ("candidate-v%d.json" % version)
+    cand_path = (ROOT / candidate) if candidate else bd / ("candidate-v%d.json" % version)
+    if candidate:
+        version = int(cand_path.stem.split("-v")[1])
     cand = load(str(cand_path.relative_to(ROOT)))
     if book not in BASIS:
         BASIS[book] = (None, "all %d paragraphs" % len(src))
+
+    cand_rel = str(cand_path.relative_to(ROOT))
+    D = declared(cand_rel)
 
     g = Gate()
     g.check(len(src) == len(cand),
@@ -545,26 +900,42 @@ def run_book(book, version=None, write=True, quiet=False):
 
     # --- the growth gate, D20 -----------------------------------------------
     grown, grown_fail = growth(s, c)
-    legacy = LEGACY_GROWTH.get(book, [])
-    unexpected = [r for r in grown_fail if (r[0], r[1], r[2]) not in legacy]
-    missing = [r for r in legacy
-               if r not in [(a, b, d) for a, b, d, _ in grown_fail]]
+    # **Records finding R-5 of Book 7's round 1.** The comparison used to be
+    # membership — `r not in legacy` — so a Book that declares one 49→50 growth
+    # at P5 and then acquires a SECOND 49→50 growth in the same paragraph had
+    # both excluded. Multisets, so multiplicity is asserted too, and the two
+    # directions are one equality.
+    legacy = Counter(D["growth"])
+    got = Counter((a, b, d) for a, b, d, _ in grown_fail)
+    unexpected = sorted((got - legacy).elements())
+    missing = sorted((legacy - got).elements())
     g.check(not unexpected,
             "D20 growth gate: a sentence grew past 50 words — "
-            + "; ".join("P%03d %d→%d" % (a, b, d) for a, b, d, _ in unexpected))
+            + "; ".join("P%03d %d→%d" % r for r in unexpected))
     g.check(not missing,
             "D20 growth gate: this Book declares growths it no longer carries "
-            "(update LEGACY_GROWTH): %s" % (missing,))
+            "(update DECLARED[%r]['growth']): %s" % (cand_rel, missing))
 
     # --- word ratio ----------------------------------------------------------
     sw = [len(p.split()) for p in s]
     cw = [len(p.split()) for p in c]
     ratio = sum(cw) / sum(sw)
     g.check(0.90 <= ratio <= 1.10, "word ratio %.5f outside 0.90–1.10" % ratio)
-    floor_ratio = MIN_PARA_RATIO.get(book, 0.90)
-    thin = [i + 1 for i, (a, b) in enumerate(zip(sw, cw)) if b / a < floor_ratio]
-    g.check(not thin, "paragraphs below %.2f of their source's length: %s"
-            % (floor_ratio, thin))
+    # S-3: exact-list equality in both directions, on indices AND ratios.
+    thin = sorted((i + 1, round(b / a, 4))
+                  for i, (a, b) in enumerate(zip(sw, cw))
+                  if b / a < MIN_PARA_FLOOR)
+    thin_declared = sorted(D["thin"])
+    g.check([i for i, _ in thin] == [i for i, _ in thin_declared],
+            "paragraphs below %.2f of their source's length: %s, but %s "
+            "declares %s" % (MIN_PARA_FLOOR, [i for i, _ in thin], cand_rel,
+                             [i for i, _ in thin_declared]))
+    if [i for i, _ in thin] == [i for i, _ in thin_declared]:
+        moved = ["P%03d %.4f declared %.4f" % (i, got, want)
+                 for (i, got), (_, want) in zip(thin, thin_declared)
+                 if abs(got - want) > MIN_PARA_TOL]
+        g.check(not moved, "a declared thin paragraph's ratio has moved: %s"
+                % "; ".join(moved))
 
     # --- hygiene: D9, D12, whitespace, and the byte-identity rule -----------
     joined = "\n".join(cand)
@@ -586,9 +957,9 @@ def run_book(book, version=None, write=True, quiet=False):
     # shape and it is what this gate now is: the list must match what the Book
     # declares. A Book that declares none fails the moment one appears.
     same = [i + 1 for i, (a, b) in enumerate(zip(src, cand)) if a == b]
-    g.check(same == BYTE_IDENTICAL.get(book, []),
-            "byte-identical paragraphs %s, but this Book declares %s"
-            % (same, BYTE_IDENTICAL.get(book, [])))
+    g.check(same == sorted(D["byte_identical"]),
+            "byte-identical paragraphs %s, but %s declares %s"
+            % (same, cand_rel, sorted(D["byte_identical"])))
 
     # --- cross-Book compound drift (the hyphen_drift lesson) ----------------
     books = {}
@@ -604,8 +975,14 @@ def run_book(book, version=None, write=True, quiet=False):
         if p.exists():
             attest.append(json.loads(p.read_bytes().decode("utf-8"))["paragraphs"])
     drift = compound_drift(books, attest=attest)
-    g.check(not drift, "cross-Book compound drift: "
-            + "; ".join("%s %s" % (k, v) for k, v in drift))
+    # Exact-list equality, both directions, like every other declaration: an
+    # undeclared drift fails, and a declared drift that has been repaired fails
+    # too, so a successor cannot be built without its declaration being updated.
+    seen = sorted(k for k, _ in drift)
+    g.check(seen == sorted(D["compound"]),
+            "cross-Book compound drift %s, but %s declares %s — %s"
+            % (seen, cand_rel, sorted(D["compound"]),
+               "; ".join("%s %s" % (k, v) for k, v in drift)))
 
     # --- reports, not gates --------------------------------------------------
     near = near_identical(s, c)
@@ -615,6 +992,8 @@ def run_book(book, version=None, write=True, quiet=False):
     dr = [(i, t) for i, (a, b) in enumerate(zip(s, c), 1)
           for _, _, t in displaced_runs(a, b)]
 
+    g.evaluated = True                       # every gate above has now run
+
     if write:
         path = bd / ("checks-v%d.md" % version)
         path.write_text(_render(book, version, cand_path, f, g, grown,
@@ -623,6 +1002,14 @@ def run_book(book, version=None, write=True, quiet=False):
                         encoding="utf-8")
         f["checks_md"] = str(path.relative_to(ROOT))
         f["checks_md_sha256"] = hashlib.sha256(path.read_bytes()).hexdigest()
+    f["candidate_sha256"] = hashlib.sha256(cand_path.read_bytes()).hexdigest()
+    f["candidate_file"] = str(cand_path.relative_to(ROOT))
+
+    # --- THE MANIFEST READ SIDE (S-2) ---------------------------------------
+    # The manifest is checked against the files it names, on every run, so a
+    # manifest that has decayed fails here and not three Books later.
+    g.manifest_failures = verify_manifest(book, f if write else None, g)
+
     if not quiet:
         _print(book, version, f, g, grown, grown_fail, longs, pairs, dr)
     return f, g
@@ -684,15 +1071,32 @@ def _render(book, version, cand_path, f, g, grown, grown_fail, near, tw,
           "| sentences, source → candidate | %d → %d |" % f["sent"],
           "| **splitting rate** (D17, raw) | **%+.1f%%** |" % f["raw"],
           "| semicolon-normalized sentences | %d → %d |" % f["normpair"],
-          "| **NORM RATE** (D20) | **%+.1f%%** |" % f["norm"],
+          "| NORM RATE as published (D20) | %+.1f%% |" % f["norm"],
+          "| semicolon-normalized, on Butler's pointing | %d → %d |"
+          % f["norm_butler_pair"],
+          "| **NORM RATE on Butler's own pointing** (D20, S-1) | **%+.1f%%** |"
+          % f["norm_butler"],
           "| sixty-word sentences | %d → %d (%.0f%% broken) |"
           % (f["sixty"][0], f["sixty"][1], f["broken"]),
           "| **semicolons, Butler → candidate** (D19) | **%d → %d** |" % f["semi"],
+          "| **of which KEPT of Butler's / ADDED by the draft** (S-1) | "
+          "**%d kept + %d added** |" % f["kept_added"],
           "", "Of the %+d sentences added, at most **%d** are a semicolon"
           % (f["sent"][1] - f["sent"][0], max(0, f["semi"][0] - f["semi"][1])),
           "rewritten as a period — the operation that adds a sentence, moves no",
           "clause, drops no word and costs no retention. That is what NORM RATE",
           "prices out, and why **D19 is a rate and not a count** (D20).", "",
+          "**And the mirror operation, which is the one D20 never priced.**",
+          "Substantive finding **S-1** of Book 7's round 1: a comma raised to a",
+          "semicolon adds nothing to the sentence count, adds one to the",
+          "candidate's semicolon count, and therefore scores under D20 exactly",
+          "what a real period scores — while leaving the clause chain inside one",
+          "sentence. A period costs a recast; a semicolon costs a keystroke.",
+          "**%d of this candidate's %d semicolons are its own**, and the figure"
+          % (f["kept_added"][1], f["semi"][1]),
+          "that is COMPARED from Book 7 forward is **NORM RATE on Butler's own",
+          "pointing**, %+.1f%% here against the %+.1f%% the unsplit measure gives."
+          % (f["norm_butler"], f["norm"]), "",
           "## 3. The cross-Book table, with every basis stated (R-1)", "",
           "| Book | basis | retention | sentences | raw D17 | 60+ | semicolons "
           "| NORM RATE | MOVE-GAP |",
@@ -819,11 +1223,20 @@ def _print(book, version, f, g, grown, grown_fail, longs, pairs, dr):
           % (f["norm"], f["normpair"][0], f["normpair"][1]))
     print("  60+ word sentences         %d → %d  (%.0f%% broken)"
           % (f["sixty"][0], f["sixty"][1], f["broken"]))
+    print("  NORM RATE on Butler's own  %+.1f%%  (%d → %d normalized, S-1)"
+          % (f["norm_butler"], f["norm_butler_pair"][0],
+             f["norm_butler_pair"][1]))
     print("  semicolons Butler → cand   %d → %d  (D19)" % f["semi"])
+    print("  of which kept / added      %d kept + %d added  (S-1)"
+          % f["kept_added"])
     print("  sentences grown to 40+     %d (0 may fail at 50+)" % len(grown))
     print("  candidate sentences 40+    %d (absolute)" % len(longs))
     print("  displaced runs             %d" % len(dr))
     print("  H.1 head-noun pairs        %d" % len(pairs))
+    if g.manifest_failures:
+        print("  MANIFEST FAILED (S-2 read side):")
+        for m in g.manifest_failures:
+            print("    \u2717 %s" % m)
     if g.failures:
         print("  GATES FAILED:")
         for x in g.failures:
@@ -856,11 +1269,33 @@ def run_all():
                 ("sixty", f["sixty"], p["sixty"], "%s"),
                 ("semicolons", f["semi"], p["semi"], "%s"),
                 ("NORM RATE", round(f["norm"], 1), p["norm"], "%s"),
+                ("NORM RATE (Butler's pointing)",
+                 round(f["norm_butler"], 1), p["norm_butler"], "%s"),
+                ("semicolons kept+added", f["kept_added"], p["kept_added"], "%s"),
                 ("MOVE-GAP", round(f["movegap"], 5), p["movegap"], "%.5f")):
             g = round(got, 5) if isinstance(got, float) else got
             if g != want:
                 bad.append("Book %d %s: published %s, recomputed %s"
                            % (bk, key, fmt % (want,), fmt % (g,)))
+    # **Records finding R-4 of Book 7's round 1: `--all` re-asserted FIGURES
+    # and never evaluated the GATES.** Every entry of `DECLARED` and
+    # `DECLARED` lived only inside `run_book()`, which `--all` did not
+    # call, so a change that preserved all six pinned figures to the printed
+    # precision while adding a byte-identical paragraph passed `--all` in
+    # silence. Now every accepted Book's gates are put to it, and its manifest
+    # with them.
+    print("\ngates and manifests, for every accepted Book:")
+    for bk in sorted(ACCEPTED):
+        _f, gg = run_book(bk, version=None, write=False, quiet=True,
+                          candidate=ACCEPTED[bk][1])
+        msgs = ["Book %d gate: %s" % (bk, m) for m in gg.failures] + \
+               ["Book %d %s" % (bk, m) for m in gg.manifest_failures]
+        if msgs:
+            bad += msgs
+            print("  \u2717 Book %d — %d failure(s)" % (bk, len(msgs)))
+        else:
+            print("  \u2713 Book %d — every gate passes, manifest verifies" % bk)
+
     print()
     # Book 3 on the other basis, so the two can never again be confused.
     saved = BASIS[3]
@@ -899,6 +1334,24 @@ def audit():
         for i, p in enumerate(out):
             if ";" in p:
                 out[i] = p.replace("; ", ". ", 1)
+                break
+        return out
+
+    def raise_a_comma_to_a_semicolon(ps):
+        """**The mutation substantive finding S-1 turns on, and the control the
+        audit did not have.** The suite had *"cashing a semicolon leaves NORM
+        RATE exactly where it was"* and *"the raw rate DOES move under the same
+        mutation"*, and nothing at all in the other direction — so the one
+        operation that moves a published figure without moving anything a
+        reader experiences was untested. It is the mirror of the positive
+        control already there and it costs three lines.
+
+        Precondition asserted under D18 clause (a): the paragraph chosen must
+        actually contain `, and ` and the mutation must change the text."""
+        out = list(ps)
+        for i, para in enumerate(out):
+            if ", and " in para:
+                out[i] = para.replace(", and ", "; and ", 1)
                 break
         return out
 
@@ -1003,6 +1456,25 @@ def audit():
             "RATE is not D17 written twice",
             cand, cash_a_semicolon(cand),
             verdict=lambda ps: r5(norm_rate(src, ps)[2]))
+    control("NORM RATE as published MOVES when a comma is raised to a "
+            "semicolon — the S-1 defect, priced at a full division for one "
+            "keystroke",
+            cand, raise_a_comma_to_a_semicolon(cand),
+            verdict=lambda ps: r5(norm_rate(src, ps)[5]))
+    control("NORM RATE on Butler's own pointing does NOT move under that same "
+            "mutation (positive control — this is why it is the figure that is "
+            "compared from Book 7 forward)",
+            cand, raise_a_comma_to_a_semicolon(cand),
+            verdict=lambda ps: r5(norm_rate_butler(src, ps)[2]),
+            expect_same=True)
+    control("semicolon provenance names the added mark: kept stays, added "
+            "rises by one",
+            cand, raise_a_comma_to_a_semicolon(cand),
+            verdict=lambda ps: kept_added(src, ps))
+    control("and it does NOT mistake a semicolon of Butler's cashed for a "
+            "period as an addition — kept falls, added stays",
+            cand, cash_a_semicolon(cand),
+            verdict=lambda ps: kept_added(src, ps))
     control("MOVE-GAP: moving a clause without changing a word raises it",
             cand, swap_two_clauses(cand),
             verdict=lambda ps: r5(move_gap(src, ps)))
@@ -1055,17 +1527,37 @@ def main():
     ap.add_argument("--version", type=int, default=None)
     ap.add_argument("--all", action="store_true")
     ap.add_argument("--audit", action="store_true")
+    ap.add_argument("--manifests", action="store_true",
+                    help="verify every Book's manifest against the files it "
+                         "names (the S-2 read side)")
+    ap.add_argument("--write-manifest", action="store_true",
+                    help="run the gates for one Book and, ONLY if they "
+                         "evaluated and passed, write its manifest `checks` "
+                         "block. The only writer in the package.")
     ap.add_argument("--no-write", action="store_true")
     a = ap.parse_args()
     if a.audit:
         audit()
         return 0
+    if a.manifests:
+        return run_manifests()
     if a.all:
         return run_all()
     if a.book is None:
-        ap.error("give a book number, or --all, or --audit")
+        ap.error("give a book number, or --all, or --audit, or --manifests")
+    if a.write_manifest:
+        f, g = run_book(a.book, a.version, write=True)
+        block = manifest_checks_block(f, g)     # raises unless evaluated+passed
+        mp = ROOT / ("book%02d/manifest.json" % a.book)
+        m = json.loads(mp.read_text(encoding="utf-8")) if mp.exists() else {}
+        m["checks"] = block
+        mp.write_text(json.dumps(m, indent=1, ensure_ascii=False) + "\n",
+                      encoding="utf-8")
+        print("\nbook%02d/manifest.json: checks block written over %s"
+              % (a.book, block["candidate_file"]))
+        return 0
     f, g = run_book(a.book, a.version, write=not a.no_write)
-    return 1 if g.failures else 0
+    return 1 if (g.failures or g.manifest_failures) else 0
 
 
 if __name__ == "__main__":
