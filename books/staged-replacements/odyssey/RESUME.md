@@ -3,8 +3,11 @@
 Updated continuously. Read this first, then `WORKFLOW.md`.
 
 **Last updated:** 2026-09-12, session `session_01K5bL9oWzAagjTMExsyUADi`
-(worker 5). Book 5 accepted; four successors built; Book 6 drafted and frozen,
-waiting on its review.
+(worker 6, **review role**). Book 6's round 1 is **back**:
+`book06/review/findings-v1.md`, verdict **accept after corrections** —
+2 substantive, 9 minor, 6 optional, 5 records, coverage complete
+(13 of 26 paragraphs with no material issue). Book 6 step 5 is done;
+**step 6, applying the corrections into `candidate-v2.json`, is next.**
 
 ## State
 
@@ -15,7 +18,7 @@ waiting on its review.
 | 3 | 8 — accepted, successor `candidate-v3.json` | `candidate-v2.json` (successor v3) | v3 `a79bacf6…8554ce1e` | 0.897 | +5.5%, 60+ 9 → 6 | 39 → 32 |
 | 4 | 8 — accepted, successor `candidate-v3.json` | `candidate-v2.json` (successor v3) | v3 `6926b9f9…f8304534` | **0.95872** | +8.9%, 60+ 17 → 3 | 68 → 50 |
 | 5 | **8 — accepted** | **`candidate-v2.json`** | **`acbfcb03…b51479e9`** | **0.93808** | **+23.5%, 60+ 9 → 1** | **34 → 13** |
-| 6 | **3 — drafted and frozen; step 4, the review, is next** | — | v1 **`9391ca16…3c0413f0`** | **0.93669** | **+27.6%, 60+ 7 → 1** | **27 → 4** |
+| 6 | **5 — round 1 returned; step 6 next** | — | v1 **`9391ca16…3c0413f0`** | **0.93669** | **+27.6% raw / +6.3% NORM**, 60+ 7 → 1 | **27 → 4** |
 
 Successor hashes in full: v2-successor `book02/candidate-v4.json`
 `3aa8c4f27f7f6b3fabd1447a32852f1507ead3a9710efc6373f43416428773fc`;
@@ -34,6 +37,107 @@ package's own `token_retention()` gives **0.72703** for the accepted
 `candidate-v2.json` and **0.72751** for the successor v3. The measure is the
 aggregate-join form and only that form — see `GLOSSARY.md`, "The retention
 measure".
+
+## Book 6 round 1 — what came back
+
+`book06/review/findings-v1.md`. **Accept after corrections.** The round is the
+semicolon question, and the answer has two halves that must not be collapsed.
+
+**The drafter's claim is right and its argument is wrong.** The argument offered
+— retention 0.93669 is below Book 5 v1's 0.94211, and division costs no
+retention, so clauses moved — **does not follow**: D17 was written about the
+*other* thing that costs retention and moves nothing, a vocabulary swap with no
+syntax work. Decomposed, Book 6's retention deficit is **0.05406 substitution
+against 0.00925 movement** — 85% vocabulary. Of the 0.00542 by which it sits
+below Book 5 v1, only 0.00204 is clause movement.
+
+**Two measures were built and audited** (`book06/review/clause_movement.py`,
+7 controls under D18, 2 declared blindnesses):
+
+- **NORM RATE** — add each text's own semicolon count to its own sentence count,
+  on both sides, so converting one to the other is worth zero. Book 6's
+  **+27.6% becomes +6.3%**; Book 1 +20.5% → **−3.9%**, Book 2 +16.1% → +4.0%,
+  Book 3 −1.1% → −5.1%, Book 4 +8.9% → +2.0%, Book 5 v2 +23.5% → +8.0%.
+  **D19 should become a reported RATE, not a reported count.**
+- **MOVE-GAP** — bag retention minus order retention, so substitution cancels
+  and only relocation shows. Book 1 0.05088, Book 2 0.01632, Book 3 0.02065,
+  Book 4 0.00431, Book 5 v1 0.00721, Book 5 v2 0.00891, **Book 6 0.00925**.
+  Book 5 v1 → v2 is the controlled experiment (three recasts, three reversals)
+  and Book 6 v1 already sits past where Book 5 landed after its round.
+
+**Ruling: a modernization, not a proofread — but the splitting rate is
+bookkeeping and must never again be reported without its denominator.**
+23 of 32 added sentences are bought by a semicolon; **17 of 26 paragraphs gain
+no boundary a semicolon did not pay for**, and P012 alone supplies 4 of the 9
+that are real. Three of the drafter's four named paragraphs hold up; **P005's
+clause movement is exactly 0.0000** — a supplied name is a repair, not a recast.
+
+**The two substantive findings.**
+
+- **S-1 — three paragraphs where Butler's period still governs and nothing was
+  done.** **B06-P018's silver-plate sentence** is the hardest in the Book —
+  subject and verb eleven words apart, and every reader garden-paths at
+  *"under Hephaestus and Athena enriches"* — and the same paragraph cashed
+  **three** semicolons for three easy divisions and left it alone. **B06-P016**
+  is 141 words, two edits, one cashed semicolon, and two untouched chains of 43
+  and 38 words: plain lexically, not syntactically. B06-P006 is answered, not
+  owed.
+- **S-2 — none of the package's checks is executed for Book 6, by anything in
+  the repository.** There is no `scripts/build_book06*.py`;
+  `build_book_package.py` calls **no check at all**. D17's gate, the 50-word
+  growth gate and D19 live in Books 4's and 5's *correction* scripts, which
+  never run for a new Book's v1 — **D17 has never gated a v1 candidate** — and
+  Book 6 has no `checks-v1.md`. Every published figure reproduces; **none is
+  reproducible by running anything in the repo.** The `hyphen_drift()` disease
+  recurred at the very next Book, as all of the checks rather than one.
+  **The enforcement asked for:** one `scripts/checks.py` holding every measure,
+  writing `bookNN/checks-vN.md` and exiting non-zero on any gate, called at the
+  end of `build_book_package.py`, plus `--all` to re-assert every accepted
+  Book's published figures.
+
+**The class the drafter said could not be mechanized, can be.**
+`book06/review/rendering_collisions.py` is `one_word_two_ways()` run **across
+Books** and **in both directions**, gated to Butler's rare words. Arrow B — one
+*rendering* carrying two Butler words — has never existed in the package. It
+finds `grass ← grass (B6-P011) | herbage (B6-P009)` (the drift, question 2, and
+the collision the drafter refused at `scion` but took here), **the fifth call
+the drafter missed — `topes` → `drinks`, colliding with accepted B04-P020's own
+`drinks`** — and **a defect in accepted Book 4**: B04-P010 renders Butler's
+`doubted whether` as `was in two minds`, Butler's own other phrase, one
+paragraph before his real `in two minds` becomes `still undecided`. B06-P012 is
+the better rendering; the repair is a **fifth successor** and is escalated.
+
+**Source verification holds, by a ninth kind of rule**
+(`book06/review/verify_source_book6_review.py`): **letter-blind typographic
+shape**. Every letter destroyed, PG's footnote numerals deleted, all other
+pointing kept exactly. The chapter's 17 732-character shape occurs in PG
+**exactly once**; letters restored at the span the shape index gave are
+character-for-character identical, both ends printed; the longest shape shared
+with anywhere else in the file is **155 characters**. **The audit failed the
+rule three times** — digits levelled instead of deleted (and the resulting
+**zero** was *reported as a count*), the shape index used as a character index,
+and a verdict blind to truncation because a prefix of a unique string is unique.
+
+**R-1 is the records finding that matters beyond this Book:** the D17/D19
+comparison table is **not six comparable numbers**. Book 3's row is computed on
+**37 of 38 paragraphs** — the D14 splice excluded — and nothing says so. The
+package's own measures on accepted Book 3 give **0.86053** and **176 → 174
+(−1.1%)**, not 0.897 and +5.5%; dropping P038 reproduces the published figures
+to five places. `scripts/checks.py --all` is what catches this class.
+
+**H.1 cannot be closed with the package's own materials, and that was run rather
+than assumed:** the closed form of every content-word pair in Book 6's candidate
+was looked for in PG plus all twelve staged files — **zero hits**. Butler never
+writes `mountaintop`. Full closure needs a vendored word list (a new dependency,
+escalated); the cheap instrument that works now is a head-noun filter, which
+takes Book 6's **482** pairs down to **23** and surfaces the live instance,
+`mountain tops`.
+
+**D19's growth gate gap is real and cost nothing here:** it compares maximum
+against maximum, so dividing a paragraph's longest sentence buys cover for
+growing a different one. In Book 6, 14 sentences grew, largest growth 2 words,
+largest result 40. Close it by aligning sentences, keep the 50-word threshold,
+report at 40.
 
 ## Done since the last RESUME
 
@@ -152,16 +256,25 @@ source's longest).
 
 ## Next, in order
 
-1. **Book 6 step 4**: the independent review, by a separate reviewer session,
-   following `book06/review-instructions.md`. Findings under `book06/review/`.
-   Then steps 5–8 in the established pattern.
-2. **Book 7** after that, in numerical order. Verify its source by a **ninth**
-   kind of rule — the eight used are listed below — **audit the rule before
-   trusting it** (four drafters/reviewers have now audited theirs and all four
-   audits *failed* the rule as first written), then diff word for word.
-   Byte-identity to a re-run of your own build script is not verification.
-3. **Report three numbers**: retention, splitting rate (**D17**), and the
-   semicolon count against Butler's (**D19**).
+1. **Book 6 step 6**: apply the corrections into `book06/candidate-v2.json`
+   (2 substantive, 9 minor, 6 optional, 5 records — answer each either way,
+   **D11**), then steps 7–8. Note that **M-3 and the S-1(b) repairs move the
+   sentence count in opposite directions**, which is correct: NORM RATE, not the
+   raw rate, is what should improve.
+2. **Before Book 7, build `scripts/checks.py`** and wire it into
+   `build_book_package.py` (**S-2**). Nothing else in the package is worth doing
+   first, because it is the blind spot that hides the others.
+3. **Book 7** after that, in numerical order. Verify its source by a **tenth**
+   kind of rule — nine are now used, listed below — **audit the rule before
+   trusting it** (five drafters/reviewers have now audited theirs and all five
+   audits *failed* the rule as first written; Book 6's review audit failed its
+   rule **three times**), then diff word for word. Byte-identity to a re-run of
+   your own build script is not verification.
+4. **Report four numbers**: retention, the raw splitting rate (**D17**), the
+   semicolon count (**D19**) and the **semicolon-normalized splitting rate**,
+   which is what the count is for. Book 6's round 1 asks that D19 become a
+   reported rate. And state the paragraph set each figure is computed over —
+   records finding **R-1**.
 4. **Every control under D18.** Use `scripts/controls.py`; do not hand-roll.
 5. **Run `scripts/compound_drift.py`** before freezing, with the new Book
    included. The lesson of `hyphen_drift()` is that a check nobody runs is not
@@ -170,7 +283,7 @@ source's longest).
 6. Book 10's disposition still needs a coordinator decision — see
    `00-progress-ledger.md`, A2.
 
-### The eight source rules already used
+### The nine source rules already used
 
 1. **Book 2 drafter** — PG's footnote-entry list, positionally.
 2. **Book 3 drafter** — the `BOOK III`/`BOOK IV` headings, bytes,
@@ -188,8 +301,12 @@ source's longest).
    automaton, asking not *is the chapter here?* but *is there anywhere else it
    could have come from?* — and **reporting the second-best match** rather than
    bounding it.
+9. **Book 6 reviewer** — **letter-blind typographic shape**: every letter
+   destroyed, PG's footnote numerals deleted, all other pointing kept exactly,
+   and the chapter located by word lengths and punctuation alone. The first rule
+   that does not read Butler's letters at all; the other eight all do.
 
-All eight so far have been about *location* or *resemblance*. A ninth might go
+All nine so far have been about *location* or *resemblance*. A ninth might go
 at it from a different direction entirely: the **edition's own internal
 evidence** (Butler's footnote numbering, his own cross-references, the
 apparatus he prints), or **PG's file structure** as a published artefact

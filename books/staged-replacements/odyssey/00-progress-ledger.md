@@ -249,12 +249,48 @@ Kept current at every push.
 | **D17** | **Every Book reports a sentence-splitting rate beside its retention, and the build FAILS if the rate falls below half the weakest accepted Book's or if more than three quarters of the source's sixty-word sentences survive.** Sentences source → candidate as a percentage added, and sixty-word sentences source → candidate as a percentage broken. Implemented in `scripts/build_book04_v2.py`; the splitter is the round-1 reviewer's own, taken verbatim, so the numbers stay comparable across Books. Accepted Books: **+20.5% / 100%**, **+16.1% / 43%**, **+5.5% / 33%**, and Book 4 v2 **+8.9% / 82%**. | Substantive finding **S-1** of Book 4's round 1, and the answer to the question Book 4 was sent to review with. Book 4 v1 satisfied **every** mechanical check in the package perfectly — retention to ±0.001, word ratio to ±0.0005, name census, hazard list, formula assertions, the exact list of byte-identical paragraphs — while breaking **one of its source's seventeen** sixty-word sentences and adding **0.4%** to its sentence count, against a source carrying the densest supply of sixty-word periods in the package. Nothing in the checks counted a sentence, so a thorough vocabulary swap with no syntax work at all passed as a modernization. **Two limits are part of the decision, not footnotes to it.** The gate is a floor to clear, not a target: Book 4's flow read reverted a division the gate would have counted (two consecutive sentences opening `But`). And the measure convicts on **sentence division only** — the reviewer's own audit found that chain load predicts splitting in accepted work (ρ = +0.380, n = 98) and does **not** predict clause order (ρ = +0.048), so order retention was refused as grounds for a finding. A draft that divides Butler's sentences and leaves every clause in his order passes the gate, and only a continuous read sees it. |
 | **D18** | **A negative control asserts, in two clauses, (a) that its mutation changed the input AND (b) that the check's own verdict changed. Where (b) cannot be made to hold, the blindness is declared by name and a second check is made to carry that class.** Implemented once, as `scripts/controls.py` (`control()` and `declare_blind()`, which requires the name of the check that carries the class). Applied to **every** verification script in the package, not only new ones: `scripts/verify_source_book2.py` (which had none — its controls were prose-described), `verify_source_book3.py`, `verify_source_book4.py`, `verify_source_book5.py`, `book03/review/…`, `book04/review/…`, and `scripts/compound_drift.py`. Written out with the table of scripts in `WORKFLOW.md`. | Records findings **R-1** and **R-2** of Book 5's round 1. Clause (a) is what Book 5's drafter found in its own script: two controls written `paragraph.replace("the", …)`, a no-op on a paragraph that happens not to contain `the`. Round 1 found the same shape in three further scripts (`verify_source_book4.py:234`, `book04/review/…:275`, `book03/review/…:135`) and two unasserted-precondition variants — none a no-op today, none saying so; a control that is sound by luck is not sound. **Clause (b) is the half that survives the fix, and the reviewer demonstrated it rather than asserting it**: its own rule had a control that deleted a twelve-word run, asserted that the text had changed, and still did not fire, because the measure counted only the fraction of chapter-5 tokens that aligned and every surviving token still did. A control that cannot fail and a control whose measure cannot see it are indistinguishable from outside. **The rule caught a third instance while it was being applied**: `book04/review/…`'s one-letter control took the paragraph's longest whitespace token, `understanding.”`, and doubled its last character — a real mutation, invisible to a fingerprint that normalizes punctuation. Clause (a) passed; clause (b) failed; the control was rebuilt on the paragraph's own letter runs. |
 | **D19** | **Every Book reports its semicolon count against Butler's, beside the retention and the splitting rate.** Three numbers, not two. Computed by `semicolons()` in `scripts/build_book05_v2.py` and printed in each Book's `checks-vN.md`. Butler → candidate: Book 1 47 → 13, Book 2 36 → 21, Book 3 39 → 32, Book 4 68 → 50, **Book 5 34 → 13**. | Substantive finding **S-1** and records finding **R-6** of Book 5's round 1. Book 5 v1 reported the package's highest splitting rate (+23.5%) and its second-highest retention (0.94211), and those two facts had one cause: Butler's 34 semicolons became **12**, so **22 of the 36 added sentences were a semicolon rewritten as a period** — an operation that adds a sentence, moves no clause, drops no word and costs no retention, and therefore scores at full value on **both** of D17's axes while leaving the architecture exactly as Butler built it. That is precisely the blindness D17 declares of itself. The semicolon count is the denominator D17 is missing: it says how much of the added sentence count came from the operation that moves nothing. It is a *report*, not a gate — breaking Butler's semicolons is the correct first move, they are the true seams of his periods, and a Book with few semicolons in its source cannot be convicted for not converting them. |
+| **D20** | **PROPOSED at Book 6's round 1, for the coordinator: D19 becomes a reported RATE, not a reported count — the semicolon-normalized splitting rate, which adds each text's own semicolon count to its own sentence count on both sides, so that converting one into the other is worth exactly zero. Book 6 v1: +27.6% raw, **+6.3%** normalized. Books 1–5: −3.9%, +4.0%, −5.1%, +2.0%, +8.0%. Implemented and audited as `norm_rate()` in `book06/review/clause_movement.py`. Beside it, **MOVE-GAP** (bag retention minus order retention) prices clause movement with vocabulary substitution divided out: Book 1 0.05088 … Book 4 0.00431, Book 5 v2 0.00891, Book 6 v1 0.00925. | Substantive ruling of Book 6's round 1. D19 gives D17 its denominator but leaves the division to the reader; a rate does it. The count alone let Book 6 report the package's highest splitting rate for a draft whose real division rate is third. MOVE-GAP exists because the retention figure cannot do the job the drafter asked it to do: D17 was written about a vocabulary swap that lowers retention and moves nothing, so 'retention fell, therefore clauses moved' is invalid, and Book 6's deficit is 85% vocabulary. |
 
+
+- 2026-09-12 — **Round 1 of Book 6's independent review came back**
+  (`book06/review/findings-v1.md`): *Accept after corrections* — **2
+  substantive, 9 minor, 6 optional, 5 records**, 13 of 26 paragraphs with no
+  material issue, coverage complete. Every published figure was recomputed and
+  all reproduce. **Source verified a second time, by a ninth kind of rule** —
+  letter-blind typographic shape, `book06/review/verify_source_book6_review.py`
+  — whose own audit failed it three times as first written. The round's ruling
+  on D19: Book 6 is a modernization, but its +27.6% splitting rate is **+6.3%**
+  once semicolon conversion is priced out, and the retention argument the
+  drafter offered for the remainder is invalid (85% of the deficit is
+  vocabulary, not clause movement). Two new instruments, both audited under
+  D18: `book06/review/clause_movement.py` (NORM RATE and MOVE-GAP) and
+  `book06/review/rendering_collisions.py` (`one_word_two_ways()` across Books
+  and **in both directions**).
+- 2026-09-12 — **S-2: none of the package's checks runs for a new Book.** There
+  is no `scripts/build_book06*.py`, and `scripts/build_book_package.py` calls no
+  check at all. **D17's gate has never gated a v1 candidate** — it lives in
+  Books 4's and 5's *correction* scripts — nor has the 50-word growth gate, nor
+  D19; Book 6 has no `checks-v1.md`. The `hyphen_drift()` disease recurred at the
+  next Book as all of the checks rather than one. Enforcement asked for: one
+  `scripts/checks.py`, writing `bookNN/checks-vN.md`, exiting non-zero on any
+  gate, called by `build_book_package.py`, with `--all` to re-assert every
+  accepted Book's published figures.
+- 2026-09-12 — **R-1: the D17/D19 comparison table is not six comparable
+  numbers.** Book 3's row is computed on **37 of its 38 paragraphs** (the D14
+  splice at B03-P038 excluded) with no note. The package's own measures on
+  accepted `book03/candidate-v2.json` give **0.86053** and **176 → 174
+  (−1.1%)**, not 0.897 and +5.5%; dropping P038 reproduces the published figures
+  to five places.
+- 2026-09-12 — **A fifth successor is on the table, and it is escalated.**
+  Accepted **B04-P010** renders Butler's `doubted whether` as `was in two
+  minds` — Butler's *own other phrase* — one paragraph before his real `in two
+  minds` becomes `still undecided`. Found by arrow B of the new check. B06-P012's
+  `he did not know what to do` is the better rendering and should not be changed
+  to match the defect. **Needs a coordinator decision (see A4).**
 
 ## Next
 
-**Books 1–5 are accepted. Book 6 is drafted and frozen and waits on its
-independent review** (`book06/review-instructions.md`, five questions put
+**Books 1–5 are accepted. Book 6's round 1 is back and step 6 is next** (`book06/review-instructions.md`, five questions put
 explicitly). After that, steps 5–8, then **Book 7**: a **ninth** kind of source
 rule (the eight used are listed in `RESUME.md`), audited before it is trusted,
 and **three** numbers — retention, splitting rate (**D17**) and semicolons
@@ -336,6 +372,27 @@ against Butler's (**D19**). Every control under **D18**; run
    now narrowed.
 
 ## Needs Anders (listed, not waited on)
+
+- **A4. A fifth successor, and a new dependency — both raised by Book 6's
+  round 1.**
+  (i) **Accepted Book 4 carries a rendering collision.** B04-P010 renders
+  Butler's `doubted whether` as `was in two minds`, which is Butler's *own
+  other phrase*, one paragraph before his real `in two minds` at B04-P011 is
+  rendered `still undecided`. One rendering carrying two Butler words is the
+  package's characteristic defect and has already cost four successors. The fix
+  is one clause in `book04/candidate-v3.json` (`he did not know whether to let
+  him choose his own time for speaking`). **Book 6 must not be changed to
+  match it.**
+  (ii) **Closing compound blind spot H.1 needs a vendored English word list.**
+  Demonstrated rather than assumed: the closed form of every content-word pair
+  in Book 6's candidate was looked for across PG #1727 and all twelve staged
+  files — **zero hits**. Butler never writes `mountaintop`, so the corpus cannot
+  be its own dictionary. One ~100 KB list would settle **D15** mechanically for
+  all 24 Books; it is a new external dependency and therefore not the reviewer's
+  call. The interim instrument needs no dependency: filter candidate word pairs
+  to a common-compound-head list, which takes Book 6's 482 pairs to 23 and
+  surfaces the live instance (`mountain tops`).
+  (iii) **D20 is proposed, not decided** — see the decisions table.
 
 - **A3. The served `original-en`'s Book 3 ¶38 is defective, and only a change
   to a production file can really fix it.** 196 of its 208 words are the served
