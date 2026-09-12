@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "1a95a84fc30eebc6cfe620191734c41e27b957507a4f442f6e35952213a3caee",
+  "attempts": [
+    {
+      "asr_seconds": 0.10471909586340189,
+      "alignment_seconds": 0.00013238005340099335,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassius. What news?",
+        "hotwords": "Cassius, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassius, What news?",
+          "start": 0.05,
+          "end": 1.47,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.893310546875
+            },
+            {
+              "text": " What",
+              "start": 1.15,
+              "end": 1.23,
+              "probability": 0.443603515625
+            },
+            {
+              "text": " news?",
+              "start": 1.23,
+              "end": 1.47,
+              "probability": 0.01230621337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "What",
+          "start": 1.15,
+          "end": 1.23
+        },
+        {
+          "raw": "news?",
+          "start": 1.23,
+          "end": 1.47
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "What",
+        "news?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.15,
+          "end": 1.23,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "news?",
+          "start": 1.23,
+          "end": 1.47,
+          "key": "news",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "What",
+          "start": 1.15,
+          "end": 1.23
+        },
+        {
+          "text": "news?",
+          "start": 1.23,
+          "end": 1.47
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10489899013191462
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5d7e3f53d23f85eb92c59c79ca70157ef439d16999c8c37299a528f0d3a0d336",
+  "selected_reasons": []
+}

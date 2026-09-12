@@ -1,0 +1,633 @@
+{
+  "complete": true,
+  "signature": "290fb94a95e1b46b47e10de87a42e6b1e28b5e809f39609db06962f7f9938613",
+  "attempts": [
+    {
+      "asr_seconds": 0.2982370322570205,
+      "alignment_seconds": 0.0002880934625864029,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lucilius, so Brutus should be found.",
+          "start": 0.05,
+          "end": 2.47,
+          "words": [
+            {
+              "text": " Lucilius,",
+              "start": 0.05,
+              "end": 1.09,
+              "probability": 0.8546549479166666
+            },
+            {
+              "text": " so",
+              "start": 1.37,
+              "end": 1.55,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " Brutus",
+              "start": 1.55,
+              "end": 1.89,
+              "probability": 0.776123046875
+            },
+            {
+              "text": " should",
+              "start": 1.89,
+              "end": 2.03,
+              "probability": 0.994140625
+            },
+            {
+              "text": " be",
+              "start": 2.03,
+              "end": 2.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " found.",
+              "start": 2.17,
+              "end": 2.47,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " I thank thee, Brutus, that thou hast proved Lucilius saying true.",
+          "start": 3.11,
+          "end": 6.57,
+          "words": [
+            {
+              "text": " I",
+              "start": 3.11,
+              "end": 3.21,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " thank",
+              "start": 3.21,
+              "end": 3.37,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " thee,",
+              "start": 3.37,
+              "end": 3.59,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Brutus,",
+              "start": 3.67,
+              "end": 4.05,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " that",
+              "start": 4.09,
+              "end": 4.21,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " thou",
+              "start": 4.21,
+              "end": 4.39,
+              "probability": 0.9921875
+            },
+            {
+              "text": " hast",
+              "start": 4.39,
+              "end": 4.77,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " proved",
+              "start": 4.77,
+              "end": 5.21,
+              "probability": 0.599853515625
+            },
+            {
+              "text": " Lucilius",
+              "start": 5.21,
+              "end": 5.85,
+              "probability": 0.9905598958333334
+            },
+            {
+              "text": " saying",
+              "start": 5.85,
+              "end": 6.17,
+              "probability": 0.787109375
+            },
+            {
+              "text": " true.",
+              "start": 6.17,
+              "end": 6.57,
+              "probability": 0.9111328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucilius,",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "raw": "so",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "raw": "Brutus",
+          "start": 1.55,
+          "end": 1.89
+        },
+        {
+          "raw": "should",
+          "start": 1.89,
+          "end": 2.03
+        },
+        {
+          "raw": "be",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "raw": "found.",
+          "start": 2.17,
+          "end": 2.47
+        },
+        {
+          "raw": "I",
+          "start": 3.11,
+          "end": 3.21
+        },
+        {
+          "raw": "thank",
+          "start": 3.21,
+          "end": 3.37
+        },
+        {
+          "raw": "thee,",
+          "start": 3.37,
+          "end": 3.59
+        },
+        {
+          "raw": "Brutus,",
+          "start": 3.67,
+          "end": 4.05
+        },
+        {
+          "raw": "that",
+          "start": 4.09,
+          "end": 4.21
+        },
+        {
+          "raw": "thou",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "raw": "hast",
+          "start": 4.39,
+          "end": 4.77
+        },
+        {
+          "raw": "proved",
+          "start": 4.77,
+          "end": 5.21
+        },
+        {
+          "raw": "Lucilius",
+          "start": 5.21,
+          "end": 5.85
+        },
+        {
+          "raw": "saying",
+          "start": 5.85,
+          "end": 6.17
+        },
+        {
+          "raw": "true.",
+          "start": 6.17,
+          "end": 6.57
+        }
+      ],
+      "expected_tokens": [
+        "Lucilius.",
+        "So",
+        "Brutus",
+        "should",
+        "be",
+        "found.",
+        "I",
+        "thank",
+        "thee,",
+        "Brutus,",
+        "That",
+        "thou",
+        "hast",
+        "prov'd",
+        "Lucilius'",
+        "saying",
+        "true."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "equal",
+          14,
+          17,
+          14,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucilius,",
+          "start": 0.05,
+          "end": 1.09,
+          "key": "lucilius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.37,
+          "end": 1.55,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Brutus",
+          "start": 1.55,
+          "end": 1.89,
+          "key": "brutus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 1.89,
+          "end": 2.03,
+          "key": "should",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.03,
+          "end": 2.17,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "found.",
+          "start": 2.17,
+          "end": 2.47,
+          "key": "found",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.11,
+          "end": 3.21,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 3.21,
+          "end": 3.37,
+          "key": "thank",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 3.37,
+          "end": 3.59,
+          "key": "thee",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Brutus,",
+          "start": 3.67,
+          "end": 4.05,
+          "key": "brutus",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.09,
+          "end": 4.21,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 4.21,
+          "end": 4.39,
+          "key": "thou",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 4.39,
+          "end": 4.77,
+          "key": "hast",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "proved",
+          "start": 4.77,
+          "end": 5.21,
+          "key": "proved",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Lucilius",
+          "start": 5.21,
+          "end": 5.85,
+          "key": "lucilius",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "saying",
+          "start": 5.85,
+          "end": 6.17,
+          "key": "saying",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "true.",
+          "start": 6.17,
+          "end": 6.57,
+          "key": "true",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lucilius.",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "text": "So",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "text": "Brutus",
+          "start": 1.55,
+          "end": 1.89
+        },
+        {
+          "text": "should",
+          "start": 1.89,
+          "end": 2.03
+        },
+        {
+          "text": "be",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "text": "found.",
+          "start": 2.17,
+          "end": 2.47
+        },
+        {
+          "text": "I",
+          "start": 3.11,
+          "end": 3.21
+        },
+        {
+          "text": "thank",
+          "start": 3.21,
+          "end": 3.37
+        },
+        {
+          "text": "thee,",
+          "start": 3.37,
+          "end": 3.59
+        },
+        {
+          "text": "Brutus,",
+          "start": 3.67,
+          "end": 4.05
+        },
+        {
+          "text": "That",
+          "start": 4.09,
+          "end": 4.21
+        },
+        {
+          "text": "thou",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "text": "hast",
+          "start": 4.39,
+          "end": 4.77
+        },
+        {
+          "text": "prov'd",
+          "start": 4.77,
+          "end": 4.99
+        },
+        {
+          "text": "Lucilius'",
+          "start": 5.21,
+          "end": 5.85
+        },
+        {
+          "text": "saying",
+          "start": 5.85,
+          "end": 6.17
+        },
+        {
+          "text": "true.",
+          "start": 6.17,
+          "end": 6.57
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.2986358245834708
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "df1924920547036d2903a8903d7823edd421133d65a433cd147a3efaaa76566f",
+  "selected_reasons": []
+}

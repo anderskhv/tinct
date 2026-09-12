@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "3aca7631a43219a5673c373fd210b7940d5401e85d27205236c7ef468533aba8",
+  "attempts": [
+    {
+      "asr_seconds": 0.11688753589987755,
+      "alignment_seconds": 0.0002641649916768074,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Calphurnia.",
+        "hotwords": "Enter, Calphurnia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Calphurnia.",
+          "start": 0.05,
+          "end": 1.37,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.86328125
+            },
+            {
+              "text": " Calphurnia.",
+              "start": 0.85,
+              "end": 1.37,
+              "probability": 0.40167236328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Calphurnia.",
+          "start": 0.85,
+          "end": 1.37
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Calphurnia."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Calphurnia.",
+          "start": 0.85,
+          "end": 1.37,
+          "key": "calphurnia",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Calphurnia.",
+          "start": 0.85,
+          "end": 1.37
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1172460038214922
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c2d8be3db58f487fb7cd3bbd15fe95a1f744a70c5a2d0474f4c29782479bebea",
+  "selected_reasons": []
+}

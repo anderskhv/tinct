@@ -1,0 +1,618 @@
+{
+  "complete": true,
+  "signature": "272f7c246aa81413acf8466dd8900416e48bdfe35682ed12a755804d16c9b587",
+  "attempts": [
+    {
+      "asr_seconds": 0.3174129631370306,
+      "alignment_seconds": 0.00044104084372520447,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassius, I think we are too bold upon your rest.",
+          "start": 0.05,
+          "end": 2.97,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " I",
+              "start": 1.23,
+              "end": 1.45,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " think",
+              "start": 1.45,
+              "end": 1.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " we",
+              "start": 1.57,
+              "end": 1.69,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " are",
+              "start": 1.69,
+              "end": 1.79,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " too",
+              "start": 1.79,
+              "end": 1.97,
+              "probability": 0.98828125
+            },
+            {
+              "text": " bold",
+              "start": 1.97,
+              "end": 2.27,
+              "probability": 0.994140625
+            },
+            {
+              "text": " upon",
+              "start": 2.27,
+              "end": 2.51,
+              "probability": 0.99609375
+            },
+            {
+              "text": " your",
+              "start": 2.51,
+              "end": 2.65,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " rest.",
+              "start": 2.65,
+              "end": 2.97,
+              "probability": 0.9853515625
+            }
+          ]
+        },
+        {
+          "text": " Good morrow, Brutus.",
+          "start": 3.49,
+          "end": 4.51,
+          "words": [
+            {
+              "text": " Good",
+              "start": 3.49,
+              "end": 3.61,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " morrow,",
+              "start": 3.61,
+              "end": 4.03,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " Brutus.",
+              "start": 4.17,
+              "end": 4.51,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " Do we trouble you?",
+          "start": 4.73,
+          "end": 5.47,
+          "words": [
+            {
+              "text": " Do",
+              "start": 4.73,
+              "end": 4.79,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " we",
+              "start": 4.79,
+              "end": 4.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " trouble",
+              "start": 4.91,
+              "end": 5.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you?",
+              "start": 5.15,
+              "end": 5.47,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "I",
+          "start": 1.23,
+          "end": 1.45
+        },
+        {
+          "raw": "think",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "raw": "we",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "raw": "are",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "raw": "too",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "raw": "bold",
+          "start": 1.97,
+          "end": 2.27
+        },
+        {
+          "raw": "upon",
+          "start": 2.27,
+          "end": 2.51
+        },
+        {
+          "raw": "your",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "raw": "rest.",
+          "start": 2.65,
+          "end": 2.97
+        },
+        {
+          "raw": "Good",
+          "start": 3.49,
+          "end": 3.61
+        },
+        {
+          "raw": "morrow,",
+          "start": 3.61,
+          "end": 4.03
+        },
+        {
+          "raw": "Brutus.",
+          "start": 4.17,
+          "end": 4.51
+        },
+        {
+          "raw": "Do",
+          "start": 4.73,
+          "end": 4.79
+        },
+        {
+          "raw": "we",
+          "start": 4.79,
+          "end": 4.91
+        },
+        {
+          "raw": "trouble",
+          "start": 4.91,
+          "end": 5.15
+        },
+        {
+          "raw": "you?",
+          "start": 5.15,
+          "end": 5.47
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "I",
+        "think",
+        "we",
+        "are",
+        "too",
+        "bold",
+        "upon",
+        "your",
+        "rest:",
+        "Good",
+        "morrow,",
+        "Brutus;",
+        "do",
+        "we",
+        "trouble",
+        "you?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.23,
+          "end": 1.45,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.45,
+          "end": 1.57,
+          "key": "think",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.57,
+          "end": 1.69,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.69,
+          "end": 1.79,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 1.79,
+          "end": 1.97,
+          "key": "too",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bold",
+          "start": 1.97,
+          "end": 2.27,
+          "key": "bold",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.27,
+          "end": 2.51,
+          "key": "upon",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.51,
+          "end": 2.65,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "rest.",
+          "start": 2.65,
+          "end": 2.97,
+          "key": "rest",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 3.49,
+          "end": 3.61,
+          "key": "good",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "morrow,",
+          "start": 3.61,
+          "end": 4.03,
+          "key": "morrow",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Brutus.",
+          "start": 4.17,
+          "end": 4.51,
+          "key": "brutus",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 4.73,
+          "end": 4.79,
+          "key": "do",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 4.79,
+          "end": 4.91,
+          "key": "we",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "trouble",
+          "start": 4.91,
+          "end": 5.15,
+          "key": "trouble",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 5.15,
+          "end": 5.47,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "I",
+          "start": 1.23,
+          "end": 1.45
+        },
+        {
+          "text": "think",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "text": "we",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "text": "are",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "text": "too",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "text": "bold",
+          "start": 1.97,
+          "end": 2.27
+        },
+        {
+          "text": "upon",
+          "start": 2.27,
+          "end": 2.51
+        },
+        {
+          "text": "your",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "text": "rest:",
+          "start": 2.65,
+          "end": 2.97
+        },
+        {
+          "text": "Good",
+          "start": 3.49,
+          "end": 3.61
+        },
+        {
+          "text": "morrow,",
+          "start": 3.61,
+          "end": 4.03
+        },
+        {
+          "text": "Brutus;",
+          "start": 4.17,
+          "end": 4.51
+        },
+        {
+          "text": "do",
+          "start": 4.73,
+          "end": 4.79
+        },
+        {
+          "text": "we",
+          "start": 4.79,
+          "end": 4.91
+        },
+        {
+          "text": "trouble",
+          "start": 4.91,
+          "end": 5.15
+        },
+        {
+          "text": "you?",
+          "start": 5.15,
+          "end": 5.47
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3180410321801901
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "10c97294f565cc1999487b314ae1fe388a7fcb665477c8c653291933f0ba51b6",
+  "selected_reasons": []
+}

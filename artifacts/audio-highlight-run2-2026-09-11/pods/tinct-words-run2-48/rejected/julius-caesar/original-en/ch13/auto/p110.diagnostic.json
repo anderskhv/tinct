@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "f97a31d4a069be9eba78df732bd4fa293783021c20033fdae72b145680d31c9f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1569634797051549,
+      "alignment_seconds": 0.00031574349850416183,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. Your reason?",
+        "hotwords": "Brutus, Your"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, Your Reason.",
+          "start": 0.05,
+          "end": 1.57,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Your",
+              "start": 1.11,
+              "end": 1.23,
+              "probability": 0.052886962890625
+            },
+            {
+              "text": " Reason.",
+              "start": 1.23,
+              "end": 1.57,
+              "probability": 0.83056640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Your",
+          "start": 1.11,
+          "end": 1.23
+        },
+        {
+          "raw": "Reason.",
+          "start": 1.23,
+          "end": 1.57
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Your",
+        "reason?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 1.11,
+          "end": 1.23,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Reason.",
+          "start": 1.23,
+          "end": 1.57,
+          "key": "reason",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Your",
+          "start": 1.11,
+          "end": 1.23
+        },
+        {
+          "text": "reason?",
+          "start": 1.23,
+          "end": 1.57
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15739117469638586
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1290ff27b68d200037794a4c407fe51aa92f2f976b60559dff5c7c03fb3ece0b",
+  "selected_reasons": []
+}

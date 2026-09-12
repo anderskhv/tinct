@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "e9eeeaf791b1dab21c51f86af0265f0764f40d4d3a0c62acb7f4193ef2ecf142",
+  "attempts": [
+    {
+      "asr_seconds": 0.1951187215745449,
+      "alignment_seconds": 0.0003234799951314926,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Trebonius. 'Tis time to part.",
+        "hotwords": "Trebonius, Tis"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Trebonius, Tis time to part.",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " Trebonius,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.7097981770833334
+            },
+            {
+              "text": " Tis",
+              "start": 1.45,
+              "end": 1.63,
+              "probability": 0.037914276123046875
+            },
+            {
+              "text": " time",
+              "start": 1.63,
+              "end": 1.83,
+              "probability": 0.69677734375
+            },
+            {
+              "text": " to",
+              "start": 1.83,
+              "end": 1.99,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " part.",
+              "start": 1.99,
+              "end": 2.25,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Trebonius,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "Tis",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "raw": "time",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "raw": "to",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "raw": "part.",
+          "start": 1.99,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "Trebonius.",
+        "'Tis",
+        "time",
+        "to",
+        "part."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Trebonius,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "trebonius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 1.45,
+          "end": 1.63,
+          "key": "tis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 1.63,
+          "end": 1.83,
+          "key": "time",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.83,
+          "end": 1.99,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "part.",
+          "start": 1.99,
+          "end": 2.25,
+          "key": "part",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Trebonius.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "'Tis",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "text": "time",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "text": "to",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "text": "part.",
+          "start": 1.99,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1955607859417796
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e4f6401eb0f29eca717c317821043fe1233bbf8df74eddc2a93830ee10e612da",
+  "selected_reasons": []
+}

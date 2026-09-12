@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "2e12f2025b97aac11900a4c5ca10a1b3f46ca983c5723ccb14069c7df36fb74a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1924526635557413,
+      "alignment_seconds": 0.00012162793427705765,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Decius, and Cassius II.",
+          "start": 0.05,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " Decius,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.6688232421875
+            },
+            {
+              "text": " and",
+              "start": 1.25,
+              "end": 1.47,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Cassius",
+              "start": 1.47,
+              "end": 1.77,
+              "probability": 0.966796875
+            },
+            {
+              "text": " II.",
+              "start": 1.77,
+              "end": 2.11,
+              "probability": 0.375732421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Decius,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "and",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "raw": "Cassius",
+          "start": 1.47,
+          "end": 1.77
+        },
+        {
+          "raw": "II.",
+          "start": 1.77,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "Decius.",
+        "And",
+        "Cassius",
+        "too."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Decius,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "decius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.25,
+          "end": 1.47,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Cassius",
+          "start": 1.47,
+          "end": 1.77,
+          "key": "cassius",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "II.",
+          "start": 1.77,
+          "end": 2.11,
+          "key": "ii",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Decius.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "And",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "text": "Cassius",
+          "start": 1.47,
+          "end": 1.77
+        },
+        {
+          "text": "too.",
+          "start": 1.77,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1926123984158039
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ab843801e5ab41866568104512e92e2635b8cf10d84660eead5f2f3814742c90",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

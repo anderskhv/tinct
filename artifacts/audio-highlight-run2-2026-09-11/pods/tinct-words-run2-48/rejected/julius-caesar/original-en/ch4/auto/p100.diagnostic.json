@@ -1,0 +1,310 @@
+{
+  "complete": true,
+  "signature": "b4aa41949d910cb86001b1cc6843de2bc689de08f36e087367336b458902b6f7",
+  "attempts": [
+    {
+      "asr_seconds": 0.20044726319611073,
+      "alignment_seconds": 0.00016144756227731705,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ligarius. Vouchsafe good-morrow from a feeble tongue.",
+        "hotwords": "Ligarius, Vouchsafe"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ligarius, Vouchsafe good-morrow from a feeble tongue.",
+          "start": 0.05,
+          "end": 3.21,
+          "words": [
+            {
+              "text": " Ligarius,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.39886474609375
+            },
+            {
+              "text": " Vouchsafe",
+              "start": 1.49,
+              "end": 1.81,
+              "probability": 0.5024871826171875
+            },
+            {
+              "text": " good",
+              "start": 1.81,
+              "end": 2.03,
+              "probability": 0.62353515625
+            },
+            {
+              "text": "-morrow",
+              "start": 2.03,
+              "end": 2.27,
+              "probability": 0.58709716796875
+            },
+            {
+              "text": " from",
+              "start": 2.27,
+              "end": 2.51,
+              "probability": 0.927734375
+            },
+            {
+              "text": " a",
+              "start": 2.51,
+              "end": 2.63,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " feeble",
+              "start": 2.63,
+              "end": 2.83,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " tongue.",
+              "start": 2.83,
+              "end": 3.21,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ligarius,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Vouchsafe",
+          "start": 1.49,
+          "end": 1.81
+        },
+        {
+          "raw": "good",
+          "start": 1.81,
+          "end": 2.03
+        },
+        {
+          "raw": "-morrow",
+          "start": 2.03,
+          "end": 2.27
+        },
+        {
+          "raw": "from",
+          "start": 2.27,
+          "end": 2.51
+        },
+        {
+          "raw": "a",
+          "start": 2.51,
+          "end": 2.63
+        },
+        {
+          "raw": "feeble",
+          "start": 2.63,
+          "end": 2.83
+        },
+        {
+          "raw": "tongue.",
+          "start": 2.83,
+          "end": 3.21
+        }
+      ],
+      "expected_tokens": [
+        "Ligarius.",
+        "Vouchsafe",
+        "good-morrow",
+        "from",
+        "a",
+        "feeble",
+        "tongue."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ligarius,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "ligarius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Vouchsafe",
+          "start": 1.49,
+          "end": 1.81,
+          "key": "vouchsafe",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good -morrow",
+          "start": 1.81,
+          "end": 2.27,
+          "key": "goodmorrow",
+          "pieces": [
+            2,
+            3
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.27,
+          "end": 2.51,
+          "key": "from",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.51,
+          "end": 2.63,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "feeble",
+          "start": 2.63,
+          "end": 2.83,
+          "key": "feeble",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "tongue.",
+          "start": 2.83,
+          "end": 3.21,
+          "key": "tongue",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 2,
+          "text": "good-morrow",
+          "heard": "good -morrow",
+          "heard_indexes": [
+            2,
+            3
+          ],
+          "start": 1.81,
+          "end": 2.27
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Ligarius.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Vouchsafe",
+          "start": 1.49,
+          "end": 1.81
+        },
+        {
+          "text": "good-morrow",
+          "start": 1.81,
+          "end": 2.27
+        },
+        {
+          "text": "from",
+          "start": 2.27,
+          "end": 2.51
+        },
+        {
+          "text": "a",
+          "start": 2.51,
+          "end": 2.63
+        },
+        {
+          "text": "feeble",
+          "start": 2.63,
+          "end": 2.83
+        },
+        {
+          "text": "tongue.",
+          "start": 2.83,
+          "end": 3.21
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20065734907984734
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6f007f83672d219bb7e28a10481a3f7d959829ccab7493c753534985b68a1b1e",
+  "selected_reasons": []
+}

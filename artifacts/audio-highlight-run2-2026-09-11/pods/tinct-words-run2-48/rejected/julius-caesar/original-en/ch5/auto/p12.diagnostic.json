@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "38ef8b97ef1400551b9919e9787df5ae3671402d6c2648f2ba8ce9e16c219fb9",
+  "attempts": [
+    {
+      "asr_seconds": 0.32435411121696234,
+      "alignment_seconds": 0.0005268556997179985,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Calphurnia. When beggars die, there are no comets seen; The heavens themselves blaze forth the death of princes.",
+        "hotwords": "Calphurnia, When"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Calphurnia. When beggars die, there are no comets seen. The heavens themselves blaze forth the death of princes.",
+          "start": 0.05,
+          "end": 6.95,
+          "words": [
+            {
+              "text": " Calphurnia.",
+              "start": 0.05,
+              "end": 1.07,
+              "probability": 0.555389404296875
+            },
+            {
+              "text": " When",
+              "start": 1.67,
+              "end": 1.75,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " beggars",
+              "start": 1.75,
+              "end": 2.15,
+              "probability": 0.992431640625
+            },
+            {
+              "text": " die,",
+              "start": 2.15,
+              "end": 2.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " there",
+              "start": 2.69,
+              "end": 2.77,
+              "probability": 0.990234375
+            },
+            {
+              "text": " are",
+              "start": 2.77,
+              "end": 2.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " no",
+              "start": 2.87,
+              "end": 3.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " comets",
+              "start": 3.07,
+              "end": 3.45,
+              "probability": 0.968994140625
+            },
+            {
+              "text": " seen.",
+              "start": 3.45,
+              "end": 3.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " The",
+              "start": 4.37,
+              "end": 4.41,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " heavens",
+              "start": 4.41,
+              "end": 4.63,
+              "probability": 0.8515625
+            },
+            {
+              "text": " themselves",
+              "start": 4.63,
+              "end": 5.19,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " blaze",
+              "start": 5.19,
+              "end": 5.67,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " forth",
+              "start": 5.67,
+              "end": 6.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.03,
+              "end": 6.27,
+              "probability": 0.99609375
+            },
+            {
+              "text": " death",
+              "start": 6.27,
+              "end": 6.47,
+              "probability": 0.982421875
+            },
+            {
+              "text": " of",
+              "start": 6.47,
+              "end": 6.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " princes.",
+              "start": 6.71,
+              "end": 6.95,
+              "probability": 0.92529296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Calphurnia.",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "raw": "When",
+          "start": 1.67,
+          "end": 1.75
+        },
+        {
+          "raw": "beggars",
+          "start": 1.75,
+          "end": 2.15
+        },
+        {
+          "raw": "die,",
+          "start": 2.15,
+          "end": 2.45
+        },
+        {
+          "raw": "there",
+          "start": 2.69,
+          "end": 2.77
+        },
+        {
+          "raw": "are",
+          "start": 2.77,
+          "end": 2.87
+        },
+        {
+          "raw": "no",
+          "start": 2.87,
+          "end": 3.07
+        },
+        {
+          "raw": "comets",
+          "start": 3.07,
+          "end": 3.45
+        },
+        {
+          "raw": "seen.",
+          "start": 3.45,
+          "end": 3.77
+        },
+        {
+          "raw": "The",
+          "start": 4.37,
+          "end": 4.41
+        },
+        {
+          "raw": "heavens",
+          "start": 4.41,
+          "end": 4.63
+        },
+        {
+          "raw": "themselves",
+          "start": 4.63,
+          "end": 5.19
+        },
+        {
+          "raw": "blaze",
+          "start": 5.19,
+          "end": 5.67
+        },
+        {
+          "raw": "forth",
+          "start": 5.67,
+          "end": 6.03
+        },
+        {
+          "raw": "the",
+          "start": 6.03,
+          "end": 6.27
+        },
+        {
+          "raw": "death",
+          "start": 6.27,
+          "end": 6.47
+        },
+        {
+          "raw": "of",
+          "start": 6.47,
+          "end": 6.71
+        },
+        {
+          "raw": "princes.",
+          "start": 6.71,
+          "end": 6.95
+        }
+      ],
+      "expected_tokens": [
+        "Calphurnia.",
+        "When",
+        "beggars",
+        "die,",
+        "there",
+        "are",
+        "no",
+        "comets",
+        "seen;",
+        "The",
+        "heavens",
+        "themselves",
+        "blaze",
+        "forth",
+        "the",
+        "death",
+        "of",
+        "princes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Calphurnia.",
+          "start": 0.05,
+          "end": 1.07,
+          "key": "calphurnia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "When",
+          "start": 1.67,
+          "end": 1.75,
+          "key": "when",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "beggars",
+          "start": 1.75,
+          "end": 2.15,
+          "key": "beggars",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "die,",
+          "start": 2.15,
+          "end": 2.45,
+          "key": "die",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 2.69,
+          "end": 2.77,
+          "key": "there",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.77,
+          "end": 2.87,
+          "key": "are",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.87,
+          "end": 3.07,
+          "key": "no",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "comets",
+          "start": 3.07,
+          "end": 3.45,
+          "key": "comets",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "seen.",
+          "start": 3.45,
+          "end": 3.77,
+          "key": "seen",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.37,
+          "end": 4.41,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "heavens",
+          "start": 4.41,
+          "end": 4.63,
+          "key": "heavens",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "themselves",
+          "start": 4.63,
+          "end": 5.19,
+          "key": "themselves",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "blaze",
+          "start": 5.19,
+          "end": 5.67,
+          "key": "blaze",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "forth",
+          "start": 5.67,
+          "end": 6.03,
+          "key": "forth",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.03,
+          "end": 6.27,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "death",
+          "start": 6.27,
+          "end": 6.47,
+          "key": "death",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.47,
+          "end": 6.71,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "princes.",
+          "start": 6.71,
+          "end": 6.95,
+          "key": "princes",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Calphurnia.",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "text": "When",
+          "start": 1.67,
+          "end": 1.75
+        },
+        {
+          "text": "beggars",
+          "start": 1.75,
+          "end": 2.15
+        },
+        {
+          "text": "die,",
+          "start": 2.15,
+          "end": 2.45
+        },
+        {
+          "text": "there",
+          "start": 2.69,
+          "end": 2.77
+        },
+        {
+          "text": "are",
+          "start": 2.77,
+          "end": 2.87
+        },
+        {
+          "text": "no",
+          "start": 2.87,
+          "end": 3.07
+        },
+        {
+          "text": "comets",
+          "start": 3.07,
+          "end": 3.45
+        },
+        {
+          "text": "seen;",
+          "start": 3.45,
+          "end": 3.77
+        },
+        {
+          "text": "The",
+          "start": 4.37,
+          "end": 4.41
+        },
+        {
+          "text": "heavens",
+          "start": 4.41,
+          "end": 4.63
+        },
+        {
+          "text": "themselves",
+          "start": 4.63,
+          "end": 5.19
+        },
+        {
+          "text": "blaze",
+          "start": 5.19,
+          "end": 5.67
+        },
+        {
+          "text": "forth",
+          "start": 5.67,
+          "end": 6.03
+        },
+        {
+          "text": "the",
+          "start": 6.03,
+          "end": 6.27
+        },
+        {
+          "text": "death",
+          "start": 6.27,
+          "end": 6.47
+        },
+        {
+          "text": "of",
+          "start": 6.47,
+          "end": 6.71
+        },
+        {
+          "text": "princes.",
+          "start": 6.71,
+          "end": 6.95
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3251373115926981
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "49d09fdc5615984df14bac4149727ed065529846311a4ef43d8fde2ae1782d2c",
+  "selected_reasons": []
+}

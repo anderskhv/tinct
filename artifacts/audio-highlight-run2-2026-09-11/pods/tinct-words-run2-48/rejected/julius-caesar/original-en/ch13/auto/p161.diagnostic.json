@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "d82f881c8df35e223cf755bc2911685077d61c06eb8a6137e2553d80f0ef8dd9",
+  "attempts": [
+    {
+      "asr_seconds": 0.22814748343080282,
+      "alignment_seconds": 0.0003750864416360855,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. He thinks he still is at his instrument. Lucius, awake!",
+        "hotwords": "Brutus, Lucius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, he thinks he still is at his instrument. Lucius, awake!",
+          "start": 0.51,
+          "end": 3.95,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.51,
+              "end": 0.91,
+              "probability": 0.973876953125
+            },
+            {
+              "text": " he",
+              "start": 1.11,
+              "end": 1.31,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " thinks",
+              "start": 1.31,
+              "end": 1.45,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " he",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " still",
+              "start": 1.61,
+              "end": 1.81,
+              "probability": 0.953125
+            },
+            {
+              "text": " is",
+              "start": 1.81,
+              "end": 1.93,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " at",
+              "start": 1.93,
+              "end": 2.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 2.03,
+              "end": 2.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " instrument.",
+              "start": 2.15,
+              "end": 2.57,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Lucius,",
+              "start": 3.27,
+              "end": 3.45,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " awake!",
+              "start": 3.67,
+              "end": 3.95,
+              "probability": 0.97802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.51,
+          "end": 0.91
+        },
+        {
+          "raw": "he",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "raw": "thinks",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "raw": "he",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "still",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "raw": "is",
+          "start": 1.81,
+          "end": 1.93
+        },
+        {
+          "raw": "at",
+          "start": 1.93,
+          "end": 2.03
+        },
+        {
+          "raw": "his",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "raw": "instrument.",
+          "start": 2.15,
+          "end": 2.57
+        },
+        {
+          "raw": "Lucius,",
+          "start": 3.27,
+          "end": 3.45
+        },
+        {
+          "raw": "awake!",
+          "start": 3.67,
+          "end": 3.95
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "He",
+        "thinks",
+        "he",
+        "still",
+        "is",
+        "at",
+        "his",
+        "instrument.",
+        "Lucius,",
+        "awake!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.51,
+          "end": 0.91,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.11,
+          "end": 1.31,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thinks",
+          "start": 1.31,
+          "end": 1.45,
+          "key": "thinks",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.45,
+          "end": 1.61,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 1.61,
+          "end": 1.81,
+          "key": "still",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.81,
+          "end": 1.93,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.93,
+          "end": 2.03,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.03,
+          "end": 2.15,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "instrument.",
+          "start": 2.15,
+          "end": 2.57,
+          "key": "instrument",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Lucius,",
+          "start": 3.27,
+          "end": 3.45,
+          "key": "lucius",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "awake!",
+          "start": 3.67,
+          "end": 3.95,
+          "key": "awake",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.51,
+          "end": 0.91
+        },
+        {
+          "text": "He",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "text": "thinks",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "text": "he",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "text": "still",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "text": "is",
+          "start": 1.81,
+          "end": 1.93
+        },
+        {
+          "text": "at",
+          "start": 1.93,
+          "end": 2.03
+        },
+        {
+          "text": "his",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "text": "instrument.",
+          "start": 2.15,
+          "end": 2.57
+        },
+        {
+          "text": "Lucius,",
+          "start": 3.27,
+          "end": 3.45
+        },
+        {
+          "text": "awake!",
+          "start": 3.67,
+          "end": 3.95
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2286486243829131
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0ed2967d7ea234d6b27c2dffa11c8ed4c8cb8bf745037a8070d3874f3e4ea0bc",
+  "selected_reasons": []
+}

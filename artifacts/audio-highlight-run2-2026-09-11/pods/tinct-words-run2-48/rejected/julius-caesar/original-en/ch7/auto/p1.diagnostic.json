@@ -1,0 +1,2400 @@
+{
+  "complete": true,
+  "signature": "081783ce615ebb4346e8a5f660eff49041cfeb9dfc552b62b7139271434d59f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.37062065955251455,
+      "alignment_seconds": 0.0009864484891295433,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Portia. I pr'ythee, boy, run to the Senate-house; Stay not to answer me, but get thee gone. Why dost thou stay?",
+        "hotwords": "Portia, I, Senate-house, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Portia, I pr'ythee, boy, run to the Senate-house. Stay not to answer me, but get thee gone. Why",
+          "start": 0.05,
+          "end": 6.45,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.6900634765625
+            },
+            {
+              "text": " I",
+              "start": 1.25,
+              "end": 1.35,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " pr",
+              "start": 1.35,
+              "end": 1.69,
+              "probability": 0.043914794921875
+            },
+            {
+              "text": "'ythee,",
+              "start": 1.69,
+              "end": 2.13,
+              "probability": 0.05903434753417969
+            },
+            {
+              "text": " boy,",
+              "start": 2.13,
+              "end": 2.29,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " run",
+              "start": 2.55,
+              "end": 2.59,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " to",
+              "start": 2.59,
+              "end": 2.77,
+              "probability": 0.927734375
+            },
+            {
+              "text": " the",
+              "start": 2.77,
+              "end": 2.91,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Senate",
+              "start": 2.91,
+              "end": 3.07,
+              "probability": 0.609375
+            },
+            {
+              "text": "-house.",
+              "start": 3.07,
+              "end": 3.43,
+              "probability": 0.286468505859375
+            },
+            {
+              "text": " Stay",
+              "start": 3.99,
+              "end": 4.07,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " not",
+              "start": 4.07,
+              "end": 4.29,
+              "probability": 0.919921875
+            },
+            {
+              "text": " to",
+              "start": 4.29,
+              "end": 4.45,
+              "probability": 0.978515625
+            },
+            {
+              "text": " answer",
+              "start": 4.45,
+              "end": 4.71,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " me,",
+              "start": 4.71,
+              "end": 4.95,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " but",
+              "start": 5.03,
+              "end": 5.13,
+              "probability": 0.982421875
+            },
+            {
+              "text": " get",
+              "start": 5.13,
+              "end": 5.27,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " thee",
+              "start": 5.27,
+              "end": 5.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " gone.",
+              "start": 5.41,
+              "end": 5.73,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " Why",
+              "start": 6.33,
+              "end": 6.45,
+              "probability": 0.982421875
+            }
+          ]
+        },
+        {
+          "text": " dost thou stay?",
+          "start": 6.45,
+          "end": 7.23,
+          "words": [
+            {
+              "text": " dost",
+              "start": 6.45,
+              "end": 6.71,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " thou",
+              "start": 6.71,
+              "end": 6.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " stay?",
+              "start": 6.89,
+              "end": 7.23,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "raw": "pr",
+          "start": 1.35,
+          "end": 1.69
+        },
+        {
+          "raw": "'ythee,",
+          "start": 1.69,
+          "end": 2.13
+        },
+        {
+          "raw": "boy,",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "raw": "run",
+          "start": 2.55,
+          "end": 2.59
+        },
+        {
+          "raw": "to",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "raw": "the",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "raw": "Senate",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "raw": "-house.",
+          "start": 3.07,
+          "end": 3.43
+        },
+        {
+          "raw": "Stay",
+          "start": 3.99,
+          "end": 4.07
+        },
+        {
+          "raw": "not",
+          "start": 4.07,
+          "end": 4.29
+        },
+        {
+          "raw": "to",
+          "start": 4.29,
+          "end": 4.45
+        },
+        {
+          "raw": "answer",
+          "start": 4.45,
+          "end": 4.71
+        },
+        {
+          "raw": "me,",
+          "start": 4.71,
+          "end": 4.95
+        },
+        {
+          "raw": "but",
+          "start": 5.03,
+          "end": 5.13
+        },
+        {
+          "raw": "get",
+          "start": 5.13,
+          "end": 5.27
+        },
+        {
+          "raw": "thee",
+          "start": 5.27,
+          "end": 5.41
+        },
+        {
+          "raw": "gone.",
+          "start": 5.41,
+          "end": 5.73
+        },
+        {
+          "raw": "Why",
+          "start": 6.33,
+          "end": 6.45
+        },
+        {
+          "raw": "dost",
+          "start": 6.45,
+          "end": 6.71
+        },
+        {
+          "raw": "thou",
+          "start": 6.71,
+          "end": 6.89
+        },
+        {
+          "raw": "stay?",
+          "start": 6.89,
+          "end": 7.23
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "I",
+        "pr'ythee,",
+        "boy,",
+        "run",
+        "to",
+        "the",
+        "Senate-house;",
+        "Stay",
+        "not",
+        "to",
+        "answer",
+        "me,",
+        "but",
+        "get",
+        "thee",
+        "gone.",
+        "Why",
+        "dost",
+        "thou",
+        "stay?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          21,
+          4,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.35,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pr",
+          "start": 1.35,
+          "end": 1.69,
+          "key": "pr",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'ythee,",
+          "start": 1.69,
+          "end": 2.13,
+          "key": "ythee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "boy,",
+          "start": 2.13,
+          "end": 2.29,
+          "key": "boy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "run",
+          "start": 2.55,
+          "end": 2.59,
+          "key": "run",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.59,
+          "end": 2.77,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.77,
+          "end": 2.91,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Senate -house.",
+          "start": 2.91,
+          "end": 3.43,
+          "key": "senatehouse",
+          "pieces": [
+            8,
+            9
+          ]
+        },
+        {
+          "raw": "Stay",
+          "start": 3.99,
+          "end": 4.07,
+          "key": "stay",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.07,
+          "end": 4.29,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.29,
+          "end": 4.45,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "answer",
+          "start": 4.45,
+          "end": 4.71,
+          "key": "answer",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 4.71,
+          "end": 4.95,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.03,
+          "end": 5.13,
+          "key": "but",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 5.13,
+          "end": 5.27,
+          "key": "get",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 5.27,
+          "end": 5.41,
+          "key": "thee",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "gone.",
+          "start": 5.41,
+          "end": 5.73,
+          "key": "gone",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 6.33,
+          "end": 6.45,
+          "key": "why",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 6.45,
+          "end": 6.71,
+          "key": "dost",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 6.71,
+          "end": 6.89,
+          "key": "thou",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "stay?",
+          "start": 6.89,
+          "end": 7.23,
+          "key": "stay",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "Senate-house;",
+          "heard": "Senate -house.",
+          "heard_indexes": [
+            8,
+            9
+          ],
+          "start": 2.91,
+          "end": 3.43
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "I",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "text": "pr'ythee,",
+          "start": 1.35,
+          "end": 1.74
+        },
+        {
+          "text": "boy,",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "text": "run",
+          "start": 2.55,
+          "end": 2.59
+        },
+        {
+          "text": "to",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "text": "the",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "text": "Senate-house;",
+          "start": 2.91,
+          "end": 3.43
+        },
+        {
+          "text": "Stay",
+          "start": 3.99,
+          "end": 4.07
+        },
+        {
+          "text": "not",
+          "start": 4.07,
+          "end": 4.29
+        },
+        {
+          "text": "to",
+          "start": 4.29,
+          "end": 4.45
+        },
+        {
+          "text": "answer",
+          "start": 4.45,
+          "end": 4.71
+        },
+        {
+          "text": "me,",
+          "start": 4.71,
+          "end": 4.95
+        },
+        {
+          "text": "but",
+          "start": 5.03,
+          "end": 5.13
+        },
+        {
+          "text": "get",
+          "start": 5.13,
+          "end": 5.27
+        },
+        {
+          "text": "thee",
+          "start": 5.27,
+          "end": 5.41
+        },
+        {
+          "text": "gone.",
+          "start": 5.41,
+          "end": 5.73
+        },
+        {
+          "text": "Why",
+          "start": 6.33,
+          "end": 6.45
+        },
+        {
+          "text": "dost",
+          "start": 6.45,
+          "end": 6.71
+        },
+        {
+          "text": "thou",
+          "start": 6.71,
+          "end": 6.89
+        },
+        {
+          "text": "stay?",
+          "start": 6.89,
+          "end": 7.23
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.3719351068139076
+    },
+    {
+      "asr_seconds": 0.3641667328774929,
+      "alignment_seconds": 0.0006782906129956245,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Portia, I, Senate-house, Why"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Portia, I PR-ithy boy run to the Senate-house. Stay not to answer me, but get thee gone.",
+          "start": 0.05,
+          "end": 5.73,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.6900634765625
+            },
+            {
+              "text": " I",
+              "start": 1.25,
+              "end": 1.35,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " PR",
+              "start": 1.35,
+              "end": 1.71,
+              "probability": 0.91357421875
+            },
+            {
+              "text": "-ithy",
+              "start": 1.71,
+              "end": 2.07,
+              "probability": 0.4746907552083333
+            },
+            {
+              "text": " boy",
+              "start": 2.07,
+              "end": 2.29,
+              "probability": 0.73828125
+            },
+            {
+              "text": " run",
+              "start": 2.29,
+              "end": 2.59,
+              "probability": 0.76953125
+            },
+            {
+              "text": " to",
+              "start": 2.59,
+              "end": 2.77,
+              "probability": 0.982421875
+            },
+            {
+              "text": " the",
+              "start": 2.77,
+              "end": 2.91,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Senate",
+              "start": 2.91,
+              "end": 3.07,
+              "probability": 0.76953125
+            },
+            {
+              "text": "-house.",
+              "start": 3.07,
+              "end": 3.45,
+              "probability": 0.34151172637939453
+            },
+            {
+              "text": " Stay",
+              "start": 3.91,
+              "end": 4.07,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " not",
+              "start": 4.07,
+              "end": 4.29,
+              "probability": 0.966796875
+            },
+            {
+              "text": " to",
+              "start": 4.29,
+              "end": 4.45,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " answer",
+              "start": 4.45,
+              "end": 4.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me,",
+              "start": 4.69,
+              "end": 4.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " but",
+              "start": 5.03,
+              "end": 5.13,
+              "probability": 0.990234375
+            },
+            {
+              "text": " get",
+              "start": 5.13,
+              "end": 5.27,
+              "probability": 0.984375
+            },
+            {
+              "text": " thee",
+              "start": 5.27,
+              "end": 5.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gone.",
+              "start": 5.41,
+              "end": 5.73,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " Why dost thou stay?",
+          "start": 6.33,
+          "end": 7.23,
+          "words": [
+            {
+              "text": " Why",
+              "start": 6.33,
+              "end": 6.45,
+              "probability": 0.98828125
+            },
+            {
+              "text": " dost",
+              "start": 6.45,
+              "end": 6.71,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " thou",
+              "start": 6.71,
+              "end": 6.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " stay?",
+              "start": 6.89,
+              "end": 7.23,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "raw": "PR",
+          "start": 1.35,
+          "end": 1.71
+        },
+        {
+          "raw": "-ithy",
+          "start": 1.71,
+          "end": 2.07
+        },
+        {
+          "raw": "boy",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "raw": "run",
+          "start": 2.29,
+          "end": 2.59
+        },
+        {
+          "raw": "to",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "raw": "the",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "raw": "Senate",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "raw": "-house.",
+          "start": 3.07,
+          "end": 3.45
+        },
+        {
+          "raw": "Stay",
+          "start": 3.91,
+          "end": 4.07
+        },
+        {
+          "raw": "not",
+          "start": 4.07,
+          "end": 4.29
+        },
+        {
+          "raw": "to",
+          "start": 4.29,
+          "end": 4.45
+        },
+        {
+          "raw": "answer",
+          "start": 4.45,
+          "end": 4.69
+        },
+        {
+          "raw": "me,",
+          "start": 4.69,
+          "end": 4.95
+        },
+        {
+          "raw": "but",
+          "start": 5.03,
+          "end": 5.13
+        },
+        {
+          "raw": "get",
+          "start": 5.13,
+          "end": 5.27
+        },
+        {
+          "raw": "thee",
+          "start": 5.27,
+          "end": 5.41
+        },
+        {
+          "raw": "gone.",
+          "start": 5.41,
+          "end": 5.73
+        },
+        {
+          "raw": "Why",
+          "start": 6.33,
+          "end": 6.45
+        },
+        {
+          "raw": "dost",
+          "start": 6.45,
+          "end": 6.71
+        },
+        {
+          "raw": "thou",
+          "start": 6.71,
+          "end": 6.89
+        },
+        {
+          "raw": "stay?",
+          "start": 6.89,
+          "end": 7.23
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "I",
+        "pr'ythee,",
+        "boy,",
+        "run",
+        "to",
+        "the",
+        "Senate-house;",
+        "Stay",
+        "not",
+        "to",
+        "answer",
+        "me,",
+        "but",
+        "get",
+        "thee",
+        "gone.",
+        "Why",
+        "dost",
+        "thou",
+        "stay?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          21,
+          4,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.35,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "PR",
+          "start": 1.35,
+          "end": 1.71,
+          "key": "pr",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "-ithy",
+          "start": 1.71,
+          "end": 2.07,
+          "key": "ithy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "boy",
+          "start": 2.07,
+          "end": 2.29,
+          "key": "boy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "run",
+          "start": 2.29,
+          "end": 2.59,
+          "key": "run",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.59,
+          "end": 2.77,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.77,
+          "end": 2.91,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Senate -house.",
+          "start": 2.91,
+          "end": 3.45,
+          "key": "senatehouse",
+          "pieces": [
+            8,
+            9
+          ]
+        },
+        {
+          "raw": "Stay",
+          "start": 3.91,
+          "end": 4.07,
+          "key": "stay",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.07,
+          "end": 4.29,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.29,
+          "end": 4.45,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "answer",
+          "start": 4.45,
+          "end": 4.69,
+          "key": "answer",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 4.69,
+          "end": 4.95,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.03,
+          "end": 5.13,
+          "key": "but",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 5.13,
+          "end": 5.27,
+          "key": "get",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 5.27,
+          "end": 5.41,
+          "key": "thee",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "gone.",
+          "start": 5.41,
+          "end": 5.73,
+          "key": "gone",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 6.33,
+          "end": 6.45,
+          "key": "why",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 6.45,
+          "end": 6.71,
+          "key": "dost",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 6.71,
+          "end": 6.89,
+          "key": "thou",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "stay?",
+          "start": 6.89,
+          "end": 7.23,
+          "key": "stay",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "Senate-house;",
+          "heard": "Senate -house.",
+          "heard_indexes": [
+            8,
+            9
+          ],
+          "start": 2.91,
+          "end": 3.45
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "I",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "text": "pr'ythee,",
+          "start": 1.35,
+          "end": 1.71
+        },
+        {
+          "text": "boy,",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "text": "run",
+          "start": 2.29,
+          "end": 2.59
+        },
+        {
+          "text": "to",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "text": "the",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "text": "Senate-house;",
+          "start": 2.91,
+          "end": 3.45
+        },
+        {
+          "text": "Stay",
+          "start": 3.91,
+          "end": 4.07
+        },
+        {
+          "text": "not",
+          "start": 4.07,
+          "end": 4.29
+        },
+        {
+          "text": "to",
+          "start": 4.29,
+          "end": 4.45
+        },
+        {
+          "text": "answer",
+          "start": 4.45,
+          "end": 4.69
+        },
+        {
+          "text": "me,",
+          "start": 4.69,
+          "end": 4.95
+        },
+        {
+          "text": "but",
+          "start": 5.03,
+          "end": 5.13
+        },
+        {
+          "text": "get",
+          "start": 5.13,
+          "end": 5.27
+        },
+        {
+          "text": "thee",
+          "start": 5.27,
+          "end": 5.41
+        },
+        {
+          "text": "gone.",
+          "start": 5.41,
+          "end": 5.73
+        },
+        {
+          "text": "Why",
+          "start": 6.33,
+          "end": 6.45
+        },
+        {
+          "text": "dost",
+          "start": 6.45,
+          "end": 6.71
+        },
+        {
+          "text": "thou",
+          "start": 6.71,
+          "end": 6.89
+        },
+        {
+          "text": "stay?",
+          "start": 6.89,
+          "end": 7.23
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.3650785246863961
+    },
+    {
+      "asr_seconds": 0.2967933854088187,
+      "alignment_seconds": 0.00035949796438217163,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Portia, I PR-ithy boy run to the Senate House. Stay not to answer me, but get thee gone.",
+          "start": 0.05,
+          "end": 5.73,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.6900634765625
+            },
+            {
+              "text": " I",
+              "start": 1.25,
+              "end": 1.35,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " PR",
+              "start": 1.35,
+              "end": 1.71,
+              "probability": 0.91357421875
+            },
+            {
+              "text": "-ithy",
+              "start": 1.71,
+              "end": 2.07,
+              "probability": 0.4746907552083333
+            },
+            {
+              "text": " boy",
+              "start": 2.07,
+              "end": 2.29,
+              "probability": 0.73828125
+            },
+            {
+              "text": " run",
+              "start": 2.29,
+              "end": 2.59,
+              "probability": 0.76953125
+            },
+            {
+              "text": " to",
+              "start": 2.59,
+              "end": 2.77,
+              "probability": 0.982421875
+            },
+            {
+              "text": " the",
+              "start": 2.77,
+              "end": 2.91,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Senate",
+              "start": 2.91,
+              "end": 3.07,
+              "probability": 0.76953125
+            },
+            {
+              "text": " House.",
+              "start": 3.07,
+              "end": 3.47,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " Stay",
+              "start": 3.89,
+              "end": 4.07,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " not",
+              "start": 4.07,
+              "end": 4.29,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " to",
+              "start": 4.29,
+              "end": 4.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " answer",
+              "start": 4.45,
+              "end": 4.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me,",
+              "start": 4.69,
+              "end": 4.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " but",
+              "start": 5.03,
+              "end": 5.13,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " get",
+              "start": 5.13,
+              "end": 5.27,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " thee",
+              "start": 5.27,
+              "end": 5.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " gone.",
+              "start": 5.41,
+              "end": 5.73,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " Why dost thou stay?",
+          "start": 6.33,
+          "end": 7.23,
+          "words": [
+            {
+              "text": " Why",
+              "start": 6.33,
+              "end": 6.45,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " dost",
+              "start": 6.45,
+              "end": 6.71,
+              "probability": 0.974609375
+            },
+            {
+              "text": " thou",
+              "start": 6.71,
+              "end": 6.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " stay?",
+              "start": 6.89,
+              "end": 7.23,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "raw": "PR",
+          "start": 1.35,
+          "end": 1.71
+        },
+        {
+          "raw": "-ithy",
+          "start": 1.71,
+          "end": 2.07
+        },
+        {
+          "raw": "boy",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "raw": "run",
+          "start": 2.29,
+          "end": 2.59
+        },
+        {
+          "raw": "to",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "raw": "the",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "raw": "Senate",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "raw": "House.",
+          "start": 3.07,
+          "end": 3.47
+        },
+        {
+          "raw": "Stay",
+          "start": 3.89,
+          "end": 4.07
+        },
+        {
+          "raw": "not",
+          "start": 4.07,
+          "end": 4.29
+        },
+        {
+          "raw": "to",
+          "start": 4.29,
+          "end": 4.45
+        },
+        {
+          "raw": "answer",
+          "start": 4.45,
+          "end": 4.69
+        },
+        {
+          "raw": "me,",
+          "start": 4.69,
+          "end": 4.95
+        },
+        {
+          "raw": "but",
+          "start": 5.03,
+          "end": 5.13
+        },
+        {
+          "raw": "get",
+          "start": 5.13,
+          "end": 5.27
+        },
+        {
+          "raw": "thee",
+          "start": 5.27,
+          "end": 5.41
+        },
+        {
+          "raw": "gone.",
+          "start": 5.41,
+          "end": 5.73
+        },
+        {
+          "raw": "Why",
+          "start": 6.33,
+          "end": 6.45
+        },
+        {
+          "raw": "dost",
+          "start": 6.45,
+          "end": 6.71
+        },
+        {
+          "raw": "thou",
+          "start": 6.71,
+          "end": 6.89
+        },
+        {
+          "raw": "stay?",
+          "start": 6.89,
+          "end": 7.23
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "I",
+        "pr'ythee,",
+        "boy,",
+        "run",
+        "to",
+        "the",
+        "Senate-house;",
+        "Stay",
+        "not",
+        "to",
+        "answer",
+        "me,",
+        "but",
+        "get",
+        "thee",
+        "gone.",
+        "Why",
+        "dost",
+        "thou",
+        "stay?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          21,
+          4,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.35,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "PR",
+          "start": 1.35,
+          "end": 1.71,
+          "key": "pr",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "-ithy",
+          "start": 1.71,
+          "end": 2.07,
+          "key": "ithy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "boy",
+          "start": 2.07,
+          "end": 2.29,
+          "key": "boy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "run",
+          "start": 2.29,
+          "end": 2.59,
+          "key": "run",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.59,
+          "end": 2.77,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.77,
+          "end": 2.91,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Senate House.",
+          "start": 2.91,
+          "end": 3.47,
+          "key": "senatehouse",
+          "pieces": [
+            8,
+            9
+          ]
+        },
+        {
+          "raw": "Stay",
+          "start": 3.89,
+          "end": 4.07,
+          "key": "stay",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.07,
+          "end": 4.29,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.29,
+          "end": 4.45,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "answer",
+          "start": 4.45,
+          "end": 4.69,
+          "key": "answer",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 4.69,
+          "end": 4.95,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.03,
+          "end": 5.13,
+          "key": "but",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 5.13,
+          "end": 5.27,
+          "key": "get",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 5.27,
+          "end": 5.41,
+          "key": "thee",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "gone.",
+          "start": 5.41,
+          "end": 5.73,
+          "key": "gone",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 6.33,
+          "end": 6.45,
+          "key": "why",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 6.45,
+          "end": 6.71,
+          "key": "dost",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 6.71,
+          "end": 6.89,
+          "key": "thou",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "stay?",
+          "start": 6.89,
+          "end": 7.23,
+          "key": "stay",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "Senate-house;",
+          "heard": "Senate House.",
+          "heard_indexes": [
+            8,
+            9
+          ],
+          "start": 2.91,
+          "end": 3.47
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "I",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "text": "pr'ythee,",
+          "start": 1.35,
+          "end": 1.71
+        },
+        {
+          "text": "boy,",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "text": "run",
+          "start": 2.29,
+          "end": 2.59
+        },
+        {
+          "text": "to",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "text": "the",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "text": "Senate-house;",
+          "start": 2.91,
+          "end": 3.47
+        },
+        {
+          "text": "Stay",
+          "start": 3.89,
+          "end": 4.07
+        },
+        {
+          "text": "not",
+          "start": 4.07,
+          "end": 4.29
+        },
+        {
+          "text": "to",
+          "start": 4.29,
+          "end": 4.45
+        },
+        {
+          "text": "answer",
+          "start": 4.45,
+          "end": 4.69
+        },
+        {
+          "text": "me,",
+          "start": 4.69,
+          "end": 4.95
+        },
+        {
+          "text": "but",
+          "start": 5.03,
+          "end": 5.13
+        },
+        {
+          "text": "get",
+          "start": 5.13,
+          "end": 5.27
+        },
+        {
+          "text": "thee",
+          "start": 5.27,
+          "end": 5.41
+        },
+        {
+          "text": "gone.",
+          "start": 5.41,
+          "end": 5.73
+        },
+        {
+          "text": "Why",
+          "start": 6.33,
+          "end": 6.45
+        },
+        {
+          "text": "dost",
+          "start": 6.45,
+          "end": 6.71
+        },
+        {
+          "text": "thou",
+          "start": 6.71,
+          "end": 6.89
+        },
+        {
+          "text": "stay?",
+          "start": 6.89,
+          "end": 7.23
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.29728544037789106
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "34df4ce226aee0e1dcb3788da1437d47cd1fdac311a2b62ad4122b30fccb7f71",
+  "selected_reasons": []
+}

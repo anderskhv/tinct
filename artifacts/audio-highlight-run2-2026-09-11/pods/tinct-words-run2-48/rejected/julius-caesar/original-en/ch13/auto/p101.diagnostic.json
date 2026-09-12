@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "500798da6a3e13f90da94ebf924c91b940ceb495ec8c3d07b30a6335a9030d73",
+  "attempts": [
+    {
+      "asr_seconds": 0.27053298987448215,
+      "alignment_seconds": 0.0005134148523211479,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. Why ask you? Hear you aught of her in yours?",
+        "hotwords": "Brutus, Why, Hear"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, Why ask you? Hear you aught of her in yours?",
+          "start": 0.54,
+          "end": 2.94,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.54,
+              "end": 0.9,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " Why",
+              "start": 1.14,
+              "end": 1.18,
+              "probability": 0.00732421875
+            },
+            {
+              "text": " ask",
+              "start": 1.18,
+              "end": 1.42,
+              "probability": 0.62109375
+            },
+            {
+              "text": " you?",
+              "start": 1.42,
+              "end": 1.72,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Hear",
+              "start": 2.04,
+              "end": 2.14,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " you",
+              "start": 2.14,
+              "end": 2.26,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " aught",
+              "start": 2.26,
+              "end": 2.4,
+              "probability": 0.27617332339286804
+            },
+            {
+              "text": " of",
+              "start": 2.4,
+              "end": 2.46,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " her",
+              "start": 2.46,
+              "end": 2.58,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " in",
+              "start": 2.58,
+              "end": 2.72,
+              "probability": 0.49609375
+            },
+            {
+              "text": " yours?",
+              "start": 2.72,
+              "end": 2.94,
+              "probability": 0.71630859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.54,
+          "end": 0.9
+        },
+        {
+          "raw": "Why",
+          "start": 1.14,
+          "end": 1.18
+        },
+        {
+          "raw": "ask",
+          "start": 1.18,
+          "end": 1.42
+        },
+        {
+          "raw": "you?",
+          "start": 1.42,
+          "end": 1.72
+        },
+        {
+          "raw": "Hear",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "raw": "you",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "raw": "aught",
+          "start": 2.26,
+          "end": 2.4
+        },
+        {
+          "raw": "of",
+          "start": 2.4,
+          "end": 2.46
+        },
+        {
+          "raw": "her",
+          "start": 2.46,
+          "end": 2.58
+        },
+        {
+          "raw": "in",
+          "start": 2.58,
+          "end": 2.72
+        },
+        {
+          "raw": "yours?",
+          "start": 2.72,
+          "end": 2.94
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Why",
+        "ask",
+        "you?",
+        "Hear",
+        "you",
+        "aught",
+        "of",
+        "her",
+        "in",
+        "yours?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.54,
+          "end": 0.9,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 1.14,
+          "end": 1.18,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 1.18,
+          "end": 1.42,
+          "key": "ask",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 1.42,
+          "end": 1.72,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Hear",
+          "start": 2.04,
+          "end": 2.14,
+          "key": "hear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.14,
+          "end": 2.26,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "aught",
+          "start": 2.26,
+          "end": 2.4,
+          "key": "aught",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.4,
+          "end": 2.46,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.46,
+          "end": 2.58,
+          "key": "her",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.58,
+          "end": 2.72,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "yours?",
+          "start": 2.72,
+          "end": 2.94,
+          "key": "yours",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.54,
+          "end": 0.9
+        },
+        {
+          "text": "Why",
+          "start": 1.14,
+          "end": 1.18
+        },
+        {
+          "text": "ask",
+          "start": 1.18,
+          "end": 1.42
+        },
+        {
+          "text": "you?",
+          "start": 1.42,
+          "end": 1.72
+        },
+        {
+          "text": "Hear",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "text": "you",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "text": "aught",
+          "start": 2.26,
+          "end": 2.4
+        },
+        {
+          "text": "of",
+          "start": 2.4,
+          "end": 2.46
+        },
+        {
+          "text": "her",
+          "start": 2.46,
+          "end": 2.58
+        },
+        {
+          "text": "in",
+          "start": 2.58,
+          "end": 2.72
+        },
+        {
+          "text": "yours?",
+          "start": 2.72,
+          "end": 2.94
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2712579071521759
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5c4fa7b6d7ed44ade4e956401940649130fe940b5db454f0a8a2efc2eccc868a",
+  "selected_reasons": []
+}

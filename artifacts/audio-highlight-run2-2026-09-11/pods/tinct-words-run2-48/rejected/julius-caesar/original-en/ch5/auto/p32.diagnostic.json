@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "869a78ee054207f7cc2cd99ca1290d52213c7bfe65ccc27e429ec178a2c30fdf",
+  "attempts": [
+    {
+      "asr_seconds": 0.3189334701746702,
+      "alignment_seconds": 0.0004842858761548996,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Brutus, Ligarius, Metellus, Casca, Trebonius, Cinna and Publius.",
+        "hotwords": "Enter, Brutus, Ligarius, Metellus, Casca, Trebonius, Cinna, Publius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Brutus, Ligarius, Metellus, Casca, Trebonius, Cinna and Publius.",
+          "start": 0.11,
+          "end": 4.83,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " Brutus,",
+              "start": 0.65,
+              "end": 1.17,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " Ligarius,",
+              "start": 1.55,
+              "end": 1.95,
+              "probability": 0.6117350260416666
+            },
+            {
+              "text": " Metellus,",
+              "start": 2.19,
+              "end": 2.53,
+              "probability": 0.4869893391927083
+            },
+            {
+              "text": " Casca,",
+              "start": 2.75,
+              "end": 2.97,
+              "probability": 0.939697265625
+            },
+            {
+              "text": " Trebonius,",
+              "start": 3.31,
+              "end": 3.75,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " Cinna",
+              "start": 4.03,
+              "end": 4.19,
+              "probability": 0.80078125
+            },
+            {
+              "text": " and",
+              "start": 4.19,
+              "end": 4.37,
+              "probability": 0.48095703125
+            },
+            {
+              "text": " Publius.",
+              "start": 4.37,
+              "end": 4.83,
+              "probability": 0.9638671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Brutus,",
+          "start": 0.65,
+          "end": 1.17
+        },
+        {
+          "raw": "Ligarius,",
+          "start": 1.55,
+          "end": 1.95
+        },
+        {
+          "raw": "Metellus,",
+          "start": 2.19,
+          "end": 2.53
+        },
+        {
+          "raw": "Casca,",
+          "start": 2.75,
+          "end": 2.97
+        },
+        {
+          "raw": "Trebonius,",
+          "start": 3.31,
+          "end": 3.75
+        },
+        {
+          "raw": "Cinna",
+          "start": 4.03,
+          "end": 4.19
+        },
+        {
+          "raw": "and",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "raw": "Publius.",
+          "start": 4.37,
+          "end": 4.83
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Brutus,",
+        "Ligarius,",
+        "Metellus,",
+        "Casca,",
+        "Trebonius,",
+        "Cinna",
+        "and",
+        "Publius."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Brutus,",
+          "start": 0.65,
+          "end": 1.17,
+          "key": "brutus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ligarius,",
+          "start": 1.55,
+          "end": 1.95,
+          "key": "ligarius",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Metellus,",
+          "start": 2.19,
+          "end": 2.53,
+          "key": "metellus",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Casca,",
+          "start": 2.75,
+          "end": 2.97,
+          "key": "casca",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Trebonius,",
+          "start": 3.31,
+          "end": 3.75,
+          "key": "trebonius",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Cinna",
+          "start": 4.03,
+          "end": 4.19,
+          "key": "cinna",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.19,
+          "end": 4.37,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Publius.",
+          "start": 4.37,
+          "end": 4.83,
+          "key": "publius",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Brutus,",
+          "start": 0.65,
+          "end": 1.17
+        },
+        {
+          "text": "Ligarius,",
+          "start": 1.55,
+          "end": 1.95
+        },
+        {
+          "text": "Metellus,",
+          "start": 2.19,
+          "end": 2.53
+        },
+        {
+          "text": "Casca,",
+          "start": 2.75,
+          "end": 2.97
+        },
+        {
+          "text": "Trebonius,",
+          "start": 3.31,
+          "end": 3.75
+        },
+        {
+          "text": "Cinna",
+          "start": 4.03,
+          "end": 4.19
+        },
+        {
+          "text": "and",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "text": "Publius.",
+          "start": 4.37,
+          "end": 4.83
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3196004582569003
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bc3d78fa4536973dc87fba146ec325cd58068253a7fb6e46c6bb626ca4c780ba",
+  "selected_reasons": []
+}

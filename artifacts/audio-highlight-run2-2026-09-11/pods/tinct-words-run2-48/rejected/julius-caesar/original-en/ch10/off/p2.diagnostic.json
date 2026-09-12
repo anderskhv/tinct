@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "475c91bdc55211cd93d3ac05ab02ff5a7e31968040246e432745e130f9ab02d6",
+  "attempts": [
+    {
+      "asr_seconds": 0.14426374156028032,
+      "alignment_seconds": 0.00016098003834486008,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First Citizen, what is your name?",
+          "start": 0.08,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " Citizen,",
+              "start": 0.64,
+              "end": 1.0,
+              "probability": 0.77490234375
+            },
+            {
+              "text": " what",
+              "start": 1.48,
+              "end": 1.58,
+              "probability": 0.94921875
+            },
+            {
+              "text": " is",
+              "start": 1.58,
+              "end": 1.68,
+              "probability": 0.990234375
+            },
+            {
+              "text": " your",
+              "start": 1.68,
+              "end": 1.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " name?",
+              "start": 1.8,
+              "end": 2.0,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Citizen,",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "raw": "what",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "raw": "is",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "raw": "your",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "raw": "name?",
+          "start": 1.8,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Citizen.",
+        "What",
+        "is",
+        "your",
+        "name?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Citizen,",
+          "start": 0.64,
+          "end": 1.0,
+          "key": "citizen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.48,
+          "end": 1.58,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.58,
+          "end": 1.68,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.68,
+          "end": 1.8,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "name?",
+          "start": 1.8,
+          "end": 2.0,
+          "key": "name",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Citizen.",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "text": "What",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "text": "is",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "text": "your",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "text": "name?",
+          "start": 1.8,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.144473385065794
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "df52951970da78eb35ab7b880217279f18114ea00894e020f0117ee564ca1ced",
+  "selected_reasons": []
+}

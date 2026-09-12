@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "23655ff5108bcc6d8d124d135b338f0358965cebee0e554846d1b99d664f45d0",
+  "attempts": [
+    {
+      "asr_seconds": 0.2494004126638174,
+      "alignment_seconds": 0.00020207371562719345,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassius. But what of Cicero? Shall we sound him? I think he will stand very strong with us.",
+        "hotwords": "Cassius, But, Cicero, Shall, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassius, But what of Cicero? Shall we sound him? I think he will stand very strong with us.",
+          "start": 0.05,
+          "end": 5.43,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " But",
+              "start": 1.17,
+              "end": 1.27,
+              "probability": 0.0024261474609375
+            },
+            {
+              "text": " what",
+              "start": 1.27,
+              "end": 1.41,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " of",
+              "start": 1.41,
+              "end": 1.55,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Cicero?",
+              "start": 1.55,
+              "end": 1.95,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " Shall",
+              "start": 2.37,
+              "end": 2.47,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " we",
+              "start": 2.47,
+              "end": 2.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sound",
+              "start": 2.61,
+              "end": 2.85,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " him?",
+              "start": 2.85,
+              "end": 3.09,
+              "probability": 0.994140625
+            },
+            {
+              "text": " I",
+              "start": 3.53,
+              "end": 3.65,
+              "probability": 0.970703125
+            },
+            {
+              "text": " think",
+              "start": 3.65,
+              "end": 3.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 3.77,
+              "end": 3.91,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " will",
+              "start": 3.91,
+              "end": 4.03,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " stand",
+              "start": 4.03,
+              "end": 4.29,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " very",
+              "start": 4.29,
+              "end": 4.63,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " strong",
+              "start": 4.63,
+              "end": 4.97,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " with",
+              "start": 4.97,
+              "end": 5.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " us.",
+              "start": 5.17,
+              "end": 5.43,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "But",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "raw": "what",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "raw": "of",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "raw": "Cicero?",
+          "start": 1.55,
+          "end": 1.95
+        },
+        {
+          "raw": "Shall",
+          "start": 2.37,
+          "end": 2.47
+        },
+        {
+          "raw": "we",
+          "start": 2.47,
+          "end": 2.61
+        },
+        {
+          "raw": "sound",
+          "start": 2.61,
+          "end": 2.85
+        },
+        {
+          "raw": "him?",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "raw": "I",
+          "start": 3.53,
+          "end": 3.65
+        },
+        {
+          "raw": "think",
+          "start": 3.65,
+          "end": 3.77
+        },
+        {
+          "raw": "he",
+          "start": 3.77,
+          "end": 3.91
+        },
+        {
+          "raw": "will",
+          "start": 3.91,
+          "end": 4.03
+        },
+        {
+          "raw": "stand",
+          "start": 4.03,
+          "end": 4.29
+        },
+        {
+          "raw": "very",
+          "start": 4.29,
+          "end": 4.63
+        },
+        {
+          "raw": "strong",
+          "start": 4.63,
+          "end": 4.97
+        },
+        {
+          "raw": "with",
+          "start": 4.97,
+          "end": 5.17
+        },
+        {
+          "raw": "us.",
+          "start": 5.17,
+          "end": 5.43
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "But",
+        "what",
+        "of",
+        "Cicero?",
+        "Shall",
+        "we",
+        "sound",
+        "him?",
+        "I",
+        "think",
+        "he",
+        "will",
+        "stand",
+        "very",
+        "strong",
+        "with",
+        "us."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 1.17,
+          "end": 1.27,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.27,
+          "end": 1.41,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.41,
+          "end": 1.55,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Cicero?",
+          "start": 1.55,
+          "end": 1.95,
+          "key": "cicero",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 2.37,
+          "end": 2.47,
+          "key": "shall",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.47,
+          "end": 2.61,
+          "key": "we",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sound",
+          "start": 2.61,
+          "end": 2.85,
+          "key": "sound",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him?",
+          "start": 2.85,
+          "end": 3.09,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.53,
+          "end": 3.65,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.65,
+          "end": 3.77,
+          "key": "think",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.77,
+          "end": 3.91,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 3.91,
+          "end": 4.03,
+          "key": "will",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "stand",
+          "start": 4.03,
+          "end": 4.29,
+          "key": "stand",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 4.29,
+          "end": 4.63,
+          "key": "very",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "strong",
+          "start": 4.63,
+          "end": 4.97,
+          "key": "strong",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.97,
+          "end": 5.17,
+          "key": "with",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "us.",
+          "start": 5.17,
+          "end": 5.43,
+          "key": "us",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "But",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "text": "what",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "text": "of",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "text": "Cicero?",
+          "start": 1.55,
+          "end": 1.95
+        },
+        {
+          "text": "Shall",
+          "start": 2.37,
+          "end": 2.47
+        },
+        {
+          "text": "we",
+          "start": 2.47,
+          "end": 2.61
+        },
+        {
+          "text": "sound",
+          "start": 2.61,
+          "end": 2.85
+        },
+        {
+          "text": "him?",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "text": "I",
+          "start": 3.53,
+          "end": 3.65
+        },
+        {
+          "text": "think",
+          "start": 3.65,
+          "end": 3.77
+        },
+        {
+          "text": "he",
+          "start": 3.77,
+          "end": 3.91
+        },
+        {
+          "text": "will",
+          "start": 3.91,
+          "end": 4.03
+        },
+        {
+          "text": "stand",
+          "start": 4.03,
+          "end": 4.29
+        },
+        {
+          "text": "very",
+          "start": 4.29,
+          "end": 4.63
+        },
+        {
+          "text": "strong",
+          "start": 4.63,
+          "end": 4.97
+        },
+        {
+          "text": "with",
+          "start": 4.97,
+          "end": 5.17
+        },
+        {
+          "text": "us.",
+          "start": 5.17,
+          "end": 5.43
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24968562088906765
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "57306b4e5046ebcfc30dd8a011f95e9079777604446c32a75e81cb12f486b98d",
+  "selected_reasons": []
+}

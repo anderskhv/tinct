@@ -1,0 +1,285 @@
+{
+  "complete": true,
+  "signature": "63a74fbc89336973122576038508ee785e1f4ad414f676b5c96b5101160a1c4c",
+  "attempts": [
+    {
+      "asr_seconds": 0.16578873991966248,
+      "alignment_seconds": 0.00019804853945970535,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_He runs on his sword, and dies._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He runs on his sword, and dies.",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " runs",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " on",
+              "start": 0.71,
+              "end": 0.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 0.93,
+              "end": 1.05,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " sword,",
+              "start": 1.05,
+              "end": 1.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " dies.",
+              "start": 1.75,
+              "end": 2.07,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "runs",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "raw": "on",
+          "start": 0.71,
+          "end": 0.93
+        },
+        {
+          "raw": "his",
+          "start": 0.93,
+          "end": 1.05
+        },
+        {
+          "raw": "sword,",
+          "start": 1.05,
+          "end": 1.31
+        },
+        {
+          "raw": "and",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "raw": "dies.",
+          "start": 1.75,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "[_He",
+        "runs",
+        "on",
+        "his",
+        "sword,",
+        "and",
+        "dies._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "runs",
+          "start": 0.53,
+          "end": 0.71,
+          "key": "runs",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 0.71,
+          "end": 0.93,
+          "key": "on",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.93,
+          "end": 1.05,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sword,",
+          "start": 1.05,
+          "end": 1.31,
+          "key": "sword",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.59,
+          "end": 1.75,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dies.",
+          "start": 1.75,
+          "end": 2.07,
+          "key": "dies",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "runs",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "text": "on",
+          "start": 0.71,
+          "end": 0.93
+        },
+        {
+          "text": "his",
+          "start": 0.93,
+          "end": 1.05
+        },
+        {
+          "text": "sword,",
+          "start": 1.05,
+          "end": 1.31
+        },
+        {
+          "text": "and",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "text": "dies._]",
+          "start": 1.75,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16605871636420488
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "450b981b388b6a369f9e0bdf2c61e1a69da3253af9205f92f263d5df75062c72",
+  "selected_reasons": []
+}

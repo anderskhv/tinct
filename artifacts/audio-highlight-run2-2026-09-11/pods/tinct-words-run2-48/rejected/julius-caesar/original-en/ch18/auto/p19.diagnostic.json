@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "862ce390864dc838b9dfcadcaa3c4eefb776504924d2f31babe12ead21fb0b6b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1804036032408476,
+      "alignment_seconds": 0.00038797222077846527,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Volumnius. Not so, my lord.",
+        "hotwords": "Volumnius, Not"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Volumnius, Not so, my lord.",
+          "start": 0.7,
+          "end": 2.04,
+          "words": [
+            {
+              "text": " Volumnius,",
+              "start": 0.7,
+              "end": 1.08,
+              "probability": 0.4939371744791667
+            },
+            {
+              "text": " Not",
+              "start": 1.42,
+              "end": 1.5,
+              "probability": 0.01513671875
+            },
+            {
+              "text": " so,",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.2349853515625
+            },
+            {
+              "text": " my",
+              "start": 1.78,
+              "end": 1.82,
+              "probability": 0.6376953125
+            },
+            {
+              "text": " lord.",
+              "start": 1.82,
+              "end": 2.04,
+              "probability": 0.73486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Volumnius,",
+          "start": 0.7,
+          "end": 1.08
+        },
+        {
+          "raw": "Not",
+          "start": 1.42,
+          "end": 1.5
+        },
+        {
+          "raw": "so,",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "my",
+          "start": 1.78,
+          "end": 1.82
+        },
+        {
+          "raw": "lord.",
+          "start": 1.82,
+          "end": 2.04
+        }
+      ],
+      "expected_tokens": [
+        "Volumnius.",
+        "Not",
+        "so,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Volumnius,",
+          "start": 0.7,
+          "end": 1.08,
+          "key": "volumnius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 1.42,
+          "end": 1.5,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 1.5,
+          "end": 1.66,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.78,
+          "end": 1.82,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.82,
+          "end": 2.04,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Volumnius.",
+          "start": 0.7,
+          "end": 1.08
+        },
+        {
+          "text": "Not",
+          "start": 1.42,
+          "end": 1.5
+        },
+        {
+          "text": "so,",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "text": "my",
+          "start": 1.78,
+          "end": 1.82
+        },
+        {
+          "text": "lord.",
+          "start": 1.82,
+          "end": 2.04
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18092001136392355
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "92c495a7bcb3cf3bc8c23dca45f476850241eef2cf941983db04b9f536abbd65",
+  "selected_reasons": []
+}

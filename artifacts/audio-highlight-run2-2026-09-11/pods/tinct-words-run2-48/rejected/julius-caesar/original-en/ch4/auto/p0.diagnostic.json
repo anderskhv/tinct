@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "e05299fa326731d98c872f9fbd5a4987fc28165628912232efb811f6c8a43151",
+  "attempts": [
+    {
+      "asr_seconds": 0.09481935761868954,
+      "alignment_seconds": 0.00014260970056056976,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Brutus.",
+        "hotwords": "Enter, Brutus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Brutus.",
+          "start": 0.05,
+          "end": 1.23,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " Brutus.",
+              "start": 0.69,
+              "end": 1.23,
+              "probability": 0.9453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Brutus.",
+          "start": 0.69,
+          "end": 1.23
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Brutus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Brutus.",
+          "start": 0.69,
+          "end": 1.23,
+          "key": "brutus",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Brutus.",
+          "start": 0.69,
+          "end": 1.23
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09500316437333822
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9302798ace8c94eba406910ce73a79956a40abe56a32a762a1eaca88f3881ea6",
+  "selected_reasons": []
+}

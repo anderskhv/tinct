@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "f01013d47f4c877c8725b13d95ccb7cedc65617d2eb4cdbe681fba29a460d4d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.29944741260260344,
+      "alignment_seconds": 0.00018894579261541367,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. They are all welcome. What watchful cares do interpose themselves Betwixt your eyes and night?",
+        "hotwords": "Brutus, They, What, Betwixt"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, They are all welcome. What watchful cares do interpose themselves Betwixt your eyes and night?",
+          "start": 0.05,
+          "end": 6.43,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " They",
+              "start": 1.23,
+              "end": 1.45,
+              "probability": 0.027008056640625
+            },
+            {
+              "text": " are",
+              "start": 1.45,
+              "end": 1.57,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " all",
+              "start": 1.57,
+              "end": 1.77,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " welcome.",
+              "start": 1.77,
+              "end": 2.13,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " What",
+              "start": 2.75,
+              "end": 2.91,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " watchful",
+              "start": 2.91,
+              "end": 3.43,
+              "probability": 0.99609375
+            },
+            {
+              "text": " cares",
+              "start": 3.43,
+              "end": 3.71,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " do",
+              "start": 3.71,
+              "end": 4.03,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " interpose",
+              "start": 4.03,
+              "end": 4.49,
+              "probability": 0.849853515625
+            },
+            {
+              "text": " themselves",
+              "start": 4.49,
+              "end": 4.93,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " Betwixt",
+              "start": 4.93,
+              "end": 5.45,
+              "probability": 0.6619328657786051
+            },
+            {
+              "text": " your",
+              "start": 5.45,
+              "end": 5.63,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " eyes",
+              "start": 5.63,
+              "end": 5.93,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 5.93,
+              "end": 6.17,
+              "probability": 0.7265625
+            },
+            {
+              "text": " night?",
+              "start": 6.17,
+              "end": 6.43,
+              "probability": 0.9482421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "They",
+          "start": 1.23,
+          "end": 1.45
+        },
+        {
+          "raw": "are",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "raw": "all",
+          "start": 1.57,
+          "end": 1.77
+        },
+        {
+          "raw": "welcome.",
+          "start": 1.77,
+          "end": 2.13
+        },
+        {
+          "raw": "What",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "raw": "watchful",
+          "start": 2.91,
+          "end": 3.43
+        },
+        {
+          "raw": "cares",
+          "start": 3.43,
+          "end": 3.71
+        },
+        {
+          "raw": "do",
+          "start": 3.71,
+          "end": 4.03
+        },
+        {
+          "raw": "interpose",
+          "start": 4.03,
+          "end": 4.49
+        },
+        {
+          "raw": "themselves",
+          "start": 4.49,
+          "end": 4.93
+        },
+        {
+          "raw": "Betwixt",
+          "start": 4.93,
+          "end": 5.45
+        },
+        {
+          "raw": "your",
+          "start": 5.45,
+          "end": 5.63
+        },
+        {
+          "raw": "eyes",
+          "start": 5.63,
+          "end": 5.93
+        },
+        {
+          "raw": "and",
+          "start": 5.93,
+          "end": 6.17
+        },
+        {
+          "raw": "night?",
+          "start": 6.17,
+          "end": 6.43
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "They",
+        "are",
+        "all",
+        "welcome.",
+        "What",
+        "watchful",
+        "cares",
+        "do",
+        "interpose",
+        "themselves",
+        "Betwixt",
+        "your",
+        "eyes",
+        "and",
+        "night?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 1.23,
+          "end": 1.45,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.45,
+          "end": 1.57,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.57,
+          "end": 1.77,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "welcome.",
+          "start": 1.77,
+          "end": 2.13,
+          "key": "welcome",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 2.75,
+          "end": 2.91,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "watchful",
+          "start": 2.91,
+          "end": 3.43,
+          "key": "watchful",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cares",
+          "start": 3.43,
+          "end": 3.71,
+          "key": "cares",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.71,
+          "end": 4.03,
+          "key": "do",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "interpose",
+          "start": 4.03,
+          "end": 4.49,
+          "key": "interpose",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "themselves",
+          "start": 4.49,
+          "end": 4.93,
+          "key": "themselves",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Betwixt",
+          "start": 4.93,
+          "end": 5.45,
+          "key": "betwixt",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.45,
+          "end": 5.63,
+          "key": "your",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 5.63,
+          "end": 5.93,
+          "key": "eyes",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.93,
+          "end": 6.17,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "night?",
+          "start": 6.17,
+          "end": 6.43,
+          "key": "night",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "They",
+          "start": 1.23,
+          "end": 1.45
+        },
+        {
+          "text": "are",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "text": "all",
+          "start": 1.57,
+          "end": 1.77
+        },
+        {
+          "text": "welcome.",
+          "start": 1.77,
+          "end": 2.13
+        },
+        {
+          "text": "What",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "text": "watchful",
+          "start": 2.91,
+          "end": 3.43
+        },
+        {
+          "text": "cares",
+          "start": 3.43,
+          "end": 3.71
+        },
+        {
+          "text": "do",
+          "start": 3.71,
+          "end": 4.03
+        },
+        {
+          "text": "interpose",
+          "start": 4.03,
+          "end": 4.49
+        },
+        {
+          "text": "themselves",
+          "start": 4.49,
+          "end": 4.93
+        },
+        {
+          "text": "Betwixt",
+          "start": 4.93,
+          "end": 5.45
+        },
+        {
+          "text": "your",
+          "start": 5.45,
+          "end": 5.63
+        },
+        {
+          "text": "eyes",
+          "start": 5.63,
+          "end": 5.93
+        },
+        {
+          "text": "and",
+          "start": 5.93,
+          "end": 6.17
+        },
+        {
+          "text": "night?",
+          "start": 6.17,
+          "end": 6.43
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2997140157967806
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "27d086c92b6a30c5f36f7ef612c8f5662e71dc1f0e9452cd61c7d311c029d0f6",
+  "selected_reasons": []
+}

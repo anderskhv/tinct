@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "5022419e5b2962d6b103c6c27a5ede814899f6b90c067b18126243d1e7dbbcf0",
+  "attempts": [
+    {
+      "asr_seconds": 0.18466466385871172,
+      "alignment_seconds": 0.00025461241602897644,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, prepare the body then and follow us.",
+          "start": 0.08,
+          "end": 2.82,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " prepare",
+              "start": 1.24,
+              "end": 1.44,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " the",
+              "start": 1.44,
+              "end": 1.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " body",
+              "start": 1.62,
+              "end": 1.86,
+              "probability": 0.9921875
+            },
+            {
+              "text": " then",
+              "start": 1.86,
+              "end": 2.1,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " and",
+              "start": 2.1,
+              "end": 2.26,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " follow",
+              "start": 2.26,
+              "end": 2.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " us.",
+              "start": 2.5,
+              "end": 2.82,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "prepare",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "raw": "the",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "raw": "body",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "raw": "then",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "raw": "and",
+          "start": 2.1,
+          "end": 2.26
+        },
+        {
+          "raw": "follow",
+          "start": 2.26,
+          "end": 2.5
+        },
+        {
+          "raw": "us.",
+          "start": 2.5,
+          "end": 2.82
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Prepare",
+        "the",
+        "body,",
+        "then,",
+        "and",
+        "follow",
+        "us."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "prepare",
+          "start": 1.24,
+          "end": 1.44,
+          "key": "prepare",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.44,
+          "end": 1.62,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "body",
+          "start": 1.62,
+          "end": 1.86,
+          "key": "body",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.86,
+          "end": 2.1,
+          "key": "then",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.1,
+          "end": 2.26,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "follow",
+          "start": 2.26,
+          "end": 2.5,
+          "key": "follow",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "us.",
+          "start": 2.5,
+          "end": 2.82,
+          "key": "us",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "Prepare",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "text": "the",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "text": "body,",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "text": "then,",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "text": "and",
+          "start": 2.1,
+          "end": 2.26
+        },
+        {
+          "text": "follow",
+          "start": 2.26,
+          "end": 2.5
+        },
+        {
+          "text": "us.",
+          "start": 2.5,
+          "end": 2.82
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18502818513661623
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aae86a881f4848a273f380e4687106184804cac8a366d7fd36b2f5c45bd63c51",
+  "selected_reasons": []
+}

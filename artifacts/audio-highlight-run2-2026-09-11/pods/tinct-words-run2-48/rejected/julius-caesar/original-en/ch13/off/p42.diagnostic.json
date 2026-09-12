@@ -1,0 +1,390 @@
+{
+  "complete": true,
+  "signature": "b409ae838d9d1298e5f36d4232439dd39ebc6611deb3ee34f73d9162c0306682",
+  "attempts": [
+    {
+      "asr_seconds": 0.19191511441022158,
+      "alignment_seconds": 0.0006060907617211342,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, when I spoke that, I was ill-tempered too.",
+          "start": 0.05,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.969482421875
+            },
+            {
+              "text": " when",
+              "start": 1.13,
+              "end": 1.37,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " I",
+              "start": 1.37,
+              "end": 1.47,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " spoke",
+              "start": 1.47,
+              "end": 1.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that,",
+              "start": 1.67,
+              "end": 1.93,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 2.11,
+              "end": 2.13,
+              "probability": 0.99609375
+            },
+            {
+              "text": " was",
+              "start": 2.13,
+              "end": 2.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ill",
+              "start": 2.23,
+              "end": 2.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": "-tempered",
+              "start": 2.43,
+              "end": 2.79,
+              "probability": 0.9684244791666666
+            },
+            {
+              "text": " too.",
+              "start": 2.79,
+              "end": 3.11,
+              "probability": 0.61962890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "when",
+          "start": 1.13,
+          "end": 1.37
+        },
+        {
+          "raw": "I",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "raw": "spoke",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "raw": "that,",
+          "start": 1.67,
+          "end": 1.93
+        },
+        {
+          "raw": "I",
+          "start": 2.11,
+          "end": 2.13
+        },
+        {
+          "raw": "was",
+          "start": 2.13,
+          "end": 2.23
+        },
+        {
+          "raw": "ill",
+          "start": 2.23,
+          "end": 2.43
+        },
+        {
+          "raw": "-tempered",
+          "start": 2.43,
+          "end": 2.79
+        },
+        {
+          "raw": "too.",
+          "start": 2.79,
+          "end": 3.11
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "When",
+        "I",
+        "spoke",
+        "that,",
+        "I",
+        "was",
+        "ill-temper'd",
+        "too."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "equal",
+          8,
+          9,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 1.13,
+          "end": 1.37,
+          "key": "when",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.37,
+          "end": 1.47,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "spoke",
+          "start": 1.47,
+          "end": 1.67,
+          "key": "spoke",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 1.67,
+          "end": 1.93,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.11,
+          "end": 2.13,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.13,
+          "end": 2.23,
+          "key": "was",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ill",
+          "start": 2.23,
+          "end": 2.43,
+          "key": "ill",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "-tempered",
+          "start": 2.43,
+          "end": 2.79,
+          "key": "tempered",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 2.79,
+          "end": 3.11,
+          "key": "too",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "When",
+          "start": 1.13,
+          "end": 1.37
+        },
+        {
+          "text": "I",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "text": "spoke",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "text": "that,",
+          "start": 1.67,
+          "end": 1.93
+        },
+        {
+          "text": "I",
+          "start": 2.11,
+          "end": 2.13
+        },
+        {
+          "text": "was",
+          "start": 2.13,
+          "end": 2.23
+        },
+        {
+          "text": "ill-temper'd",
+          "start": 2.23,
+          "end": 2.51
+        },
+        {
+          "text": "too.",
+          "start": 2.79,
+          "end": 3.11
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.1927419090643525
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "baf608e90f01227f0ca7127a86fe2aa8a7116ab9a72b7ed6e32f2d76a3c0f988",
+  "selected_reasons": []
+}

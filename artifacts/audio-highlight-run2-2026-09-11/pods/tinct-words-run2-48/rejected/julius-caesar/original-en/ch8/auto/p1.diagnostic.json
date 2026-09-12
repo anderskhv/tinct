@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "4024678117b1d987ad3b53f8a20a147b0228552dfc15326a36faf3d89183480f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2008908586576581,
+      "alignment_seconds": 0.00042125117033720016,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Caesar. The Ides of March are come.",
+        "hotwords": "Caesar, The, Ides, March"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caesar, The Ides of March are come.",
+          "start": 0.11,
+          "end": 2.39,
+          "words": [
+            {
+              "text": " Caesar,",
+              "start": 0.11,
+              "end": 0.77,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " The",
+              "start": 1.29,
+              "end": 1.33,
+              "probability": 0.02288818359375
+            },
+            {
+              "text": " Ides",
+              "start": 1.33,
+              "end": 1.65,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " of",
+              "start": 1.65,
+              "end": 1.75,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " March",
+              "start": 1.75,
+              "end": 1.97,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " are",
+              "start": 1.97,
+              "end": 2.13,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " come.",
+              "start": 2.13,
+              "end": 2.39,
+              "probability": 0.9169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar,",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "raw": "The",
+          "start": 1.29,
+          "end": 1.33
+        },
+        {
+          "raw": "Ides",
+          "start": 1.33,
+          "end": 1.65
+        },
+        {
+          "raw": "of",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "raw": "March",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "raw": "are",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "raw": "come.",
+          "start": 2.13,
+          "end": 2.39
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "The",
+        "Ides",
+        "of",
+        "March",
+        "are",
+        "come."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar,",
+          "start": 0.11,
+          "end": 0.77,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.29,
+          "end": 1.33,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ides",
+          "start": 1.33,
+          "end": 1.65,
+          "key": "ides",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.65,
+          "end": 1.75,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "March",
+          "start": 1.75,
+          "end": 1.97,
+          "key": "march",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.97,
+          "end": 2.13,
+          "key": "are",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 2.13,
+          "end": 2.39,
+          "key": "come",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "text": "The",
+          "start": 1.29,
+          "end": 1.33
+        },
+        {
+          "text": "Ides",
+          "start": 1.33,
+          "end": 1.65
+        },
+        {
+          "text": "of",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "text": "March",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "text": "are",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "text": "come.",
+          "start": 2.13,
+          "end": 2.39
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20146418549120426
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6777df42f34a4b80cda10bb48a9e72179bb2f7595e0c93294299c58d0ea812e2",
+  "selected_reasons": []
+}

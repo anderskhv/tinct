@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "104ba0da4d62ad755b8da0d1191f9c4ae21238e8d5908f3ac63c81a1e14e133f",
+  "attempts": [
+    {
+      "asr_seconds": 0.12302283849567175,
+      "alignment_seconds": 0.00011649169027805328,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exeunt with Caesar's body._]",
+        "hotwords": "Caesar's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt with Caesar's body.",
+          "start": 0.08,
+          "end": 1.58,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.5213521321614584
+            },
+            {
+              "text": " with",
+              "start": 0.8,
+              "end": 0.92,
+              "probability": 0.978515625
+            },
+            {
+              "text": " Caesar's",
+              "start": 0.92,
+              "end": 1.36,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " body.",
+              "start": 1.36,
+              "end": 1.58,
+              "probability": 0.54052734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "with",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "raw": "Caesar's",
+          "start": 0.92,
+          "end": 1.36
+        },
+        {
+          "raw": "body.",
+          "start": 1.36,
+          "end": 1.58
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "with",
+        "Caesar's",
+        "body._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.8,
+          "end": 0.92,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Caesar's",
+          "start": 0.92,
+          "end": 1.36,
+          "key": "caesars",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "body.",
+          "start": 1.36,
+          "end": 1.58,
+          "key": "body",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "with",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "text": "Caesar's",
+          "start": 0.92,
+          "end": 1.36
+        },
+        {
+          "text": "body._]",
+          "start": 1.36,
+          "end": 1.58
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12317776121199131
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "684c76ce319fe6f0b68ea270f9951c3ce99d1e4812ab1836053689344348373e",
+  "selected_reasons": []
+}

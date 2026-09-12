@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "741da6197a833b229262dace2d594b032fcbbc95216dd89d52cc8853572ab5a8",
+  "attempts": [
+    {
+      "asr_seconds": 0.1878324318677187,
+      "alignment_seconds": 0.00013894680887460709,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Seeing the body. Oh Caesar.",
+          "start": 0.08,
+          "end": 1.9,
+          "words": [
+            {
+              "text": " Seeing",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.75244140625
+            },
+            {
+              "text": " the",
+              "start": 0.6,
+              "end": 0.76,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " body.",
+              "start": 0.76,
+              "end": 1.08,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " Oh",
+              "start": 1.6,
+              "end": 1.64,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " Caesar.",
+              "start": 1.64,
+              "end": 1.9,
+              "probability": 0.484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Seeing",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "the",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "raw": "body.",
+          "start": 0.76,
+          "end": 1.08
+        },
+        {
+          "raw": "Oh",
+          "start": 1.6,
+          "end": 1.64
+        },
+        {
+          "raw": "Caesar.",
+          "start": 1.64,
+          "end": 1.9
+        }
+      ],
+      "expected_tokens": [
+        "[_Seeing",
+        "the",
+        "body._]",
+        "O",
+        "Caesar!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Seeing",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "seeing",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.6,
+          "end": 0.76,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "body.",
+          "start": 0.76,
+          "end": 1.08,
+          "key": "body",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Oh",
+          "start": 1.6,
+          "end": 1.64,
+          "key": "oh",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Caesar.",
+          "start": 1.64,
+          "end": 1.9,
+          "key": "caesar",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Seeing",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "the",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "text": "body._]",
+          "start": 0.76,
+          "end": 1.08
+        },
+        {
+          "text": "O",
+          "start": 1.08,
+          "end": 1.36
+        },
+        {
+          "text": "Caesar!",
+          "start": 1.64,
+          "end": 1.9
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18801365979015827
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4be897546dd4b9e2d7dc7954393baac3ccb827ad4a7be00d4ab5566edb7cc897",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

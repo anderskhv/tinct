@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "1895137f4aad26eb8087dd2374cc820cf0dfd774a16ce2745458dae394180093",
+  "attempts": [
+    {
+      "asr_seconds": 0.1889588888734579,
+      "alignment_seconds": 0.00041744112968444824,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. Come, poor remains of friends, rest on this rock.",
+        "hotwords": "Brutus, Come"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, Come, poor remains of friends, rest on this rock.",
+          "start": 0.08,
+          "end": 3.62,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.97265625
+            },
+            {
+              "text": " Come,",
+              "start": 1.22,
+              "end": 1.52,
+              "probability": 0.0892333984375
+            },
+            {
+              "text": " poor",
+              "start": 1.74,
+              "end": 1.82,
+              "probability": 0.82666015625
+            },
+            {
+              "text": " remains",
+              "start": 1.82,
+              "end": 2.16,
+              "probability": 0.833984375
+            },
+            {
+              "text": " of",
+              "start": 2.16,
+              "end": 2.36,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " friends,",
+              "start": 2.36,
+              "end": 2.64,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " rest",
+              "start": 2.96,
+              "end": 3.0,
+              "probability": 0.6708984375
+            },
+            {
+              "text": " on",
+              "start": 3.0,
+              "end": 3.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this",
+              "start": 3.2,
+              "end": 3.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " rock.",
+              "start": 3.34,
+              "end": 3.62,
+              "probability": 0.96044921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "Come,",
+          "start": 1.22,
+          "end": 1.52
+        },
+        {
+          "raw": "poor",
+          "start": 1.74,
+          "end": 1.82
+        },
+        {
+          "raw": "remains",
+          "start": 1.82,
+          "end": 2.16
+        },
+        {
+          "raw": "of",
+          "start": 2.16,
+          "end": 2.36
+        },
+        {
+          "raw": "friends,",
+          "start": 2.36,
+          "end": 2.64
+        },
+        {
+          "raw": "rest",
+          "start": 2.96,
+          "end": 3.0
+        },
+        {
+          "raw": "on",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "raw": "this",
+          "start": 3.2,
+          "end": 3.34
+        },
+        {
+          "raw": "rock.",
+          "start": 3.34,
+          "end": 3.62
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Come,",
+        "poor",
+        "remains",
+        "of",
+        "friends,",
+        "rest",
+        "on",
+        "this",
+        "rock."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 1.22,
+          "end": 1.52,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 1.74,
+          "end": 1.82,
+          "key": "poor",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "remains",
+          "start": 1.82,
+          "end": 2.16,
+          "key": "remains",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.16,
+          "end": 2.36,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "friends,",
+          "start": 2.36,
+          "end": 2.64,
+          "key": "friends",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "rest",
+          "start": 2.96,
+          "end": 3.0,
+          "key": "rest",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.0,
+          "end": 3.2,
+          "key": "on",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.2,
+          "end": 3.34,
+          "key": "this",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "rock.",
+          "start": 3.34,
+          "end": 3.62,
+          "key": "rock",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "Come,",
+          "start": 1.22,
+          "end": 1.52
+        },
+        {
+          "text": "poor",
+          "start": 1.74,
+          "end": 1.82
+        },
+        {
+          "text": "remains",
+          "start": 1.82,
+          "end": 2.16
+        },
+        {
+          "text": "of",
+          "start": 2.16,
+          "end": 2.36
+        },
+        {
+          "text": "friends,",
+          "start": 2.36,
+          "end": 2.64
+        },
+        {
+          "text": "rest",
+          "start": 2.96,
+          "end": 3.0
+        },
+        {
+          "text": "on",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "text": "this",
+          "start": 3.2,
+          "end": 3.34
+        },
+        {
+          "text": "rock.",
+          "start": 3.34,
+          "end": 3.62
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1895322185009718
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1faea9ff373e887f7ec7978d1aedfa3ff2fe6d7bc2bda5814c0380ccfba66325",
+  "selected_reasons": []
+}

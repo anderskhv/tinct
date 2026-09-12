@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "64218af2db9fb2a361b9e83ef77788a301a4f227de3085e64afa7e86d5f2baf5",
+  "attempts": [
+    {
+      "asr_seconds": 0.227494640275836,
+      "alignment_seconds": 0.0001548565924167633,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Messala. My master's man. Strato, where is thy master?",
+        "hotwords": "Messala, My, Strato"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Messala, My master's man. Strato, where is thy master?",
+          "start": 0.05,
+          "end": 3.95,
+          "words": [
+            {
+              "text": " Messala,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.4737091064453125
+            },
+            {
+              "text": " My",
+              "start": 1.21,
+              "end": 1.35,
+              "probability": 0.0718994140625
+            },
+            {
+              "text": " master's",
+              "start": 1.35,
+              "end": 1.83,
+              "probability": 0.604736328125
+            },
+            {
+              "text": " man.",
+              "start": 1.83,
+              "end": 2.09,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " Strato,",
+              "start": 2.71,
+              "end": 2.93,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " where",
+              "start": 3.13,
+              "end": 3.25,
+              "probability": 0.68505859375
+            },
+            {
+              "text": " is",
+              "start": 3.25,
+              "end": 3.39,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " thy",
+              "start": 3.39,
+              "end": 3.55,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " master?",
+              "start": 3.55,
+              "end": 3.95,
+              "probability": 0.91357421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messala,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "My",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "raw": "master's",
+          "start": 1.35,
+          "end": 1.83
+        },
+        {
+          "raw": "man.",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "raw": "Strato,",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "raw": "where",
+          "start": 3.13,
+          "end": 3.25
+        },
+        {
+          "raw": "is",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "raw": "thy",
+          "start": 3.39,
+          "end": 3.55
+        },
+        {
+          "raw": "master?",
+          "start": 3.55,
+          "end": 3.95
+        }
+      ],
+      "expected_tokens": [
+        "Messala.",
+        "My",
+        "master's",
+        "man.",
+        "Strato,",
+        "where",
+        "is",
+        "thy",
+        "master?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messala,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "messala",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.21,
+          "end": 1.35,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "master's",
+          "start": 1.35,
+          "end": 1.83,
+          "key": "masters",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "man.",
+          "start": 1.83,
+          "end": 2.09,
+          "key": "man",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Strato,",
+          "start": 2.71,
+          "end": 2.93,
+          "key": "strato",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 3.13,
+          "end": 3.25,
+          "key": "where",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.25,
+          "end": 3.39,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 3.39,
+          "end": 3.55,
+          "key": "thy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "master?",
+          "start": 3.55,
+          "end": 3.95,
+          "key": "master",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messala.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "My",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "text": "master's",
+          "start": 1.35,
+          "end": 1.83
+        },
+        {
+          "text": "man.",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "text": "Strato,",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "text": "where",
+          "start": 3.13,
+          "end": 3.25
+        },
+        {
+          "text": "is",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "text": "thy",
+          "start": 3.39,
+          "end": 3.55
+        },
+        {
+          "text": "master?",
+          "start": 3.55,
+          "end": 3.95
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22770650126039982
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2d2a76c608e6048064562bcf2b6d875cd99f95932e11e9453c5ed00e664a0d30",
+  "selected_reasons": []
+}

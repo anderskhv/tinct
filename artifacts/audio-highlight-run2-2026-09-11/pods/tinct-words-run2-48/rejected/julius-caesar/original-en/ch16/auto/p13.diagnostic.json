@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "bb52944e50de305e1f8f36f87a08c83f3c33838154033858c3dcf582652f02af",
+  "attempts": [
+    {
+      "asr_seconds": 0.09121642354875803,
+      "alignment_seconds": 8.269958198070526e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Pindarus.",
+        "hotwords": "Pindarus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pindarus.",
+          "start": 0.05,
+          "end": 0.85,
+          "words": [
+            {
+              "text": " Pindarus.",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.5646769205729166
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pindarus.",
+          "start": 0.05,
+          "end": 0.85
+        }
+      ],
+      "expected_tokens": [
+        "Pindarus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pindarus.",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "pindarus",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pindarus.",
+          "start": 0.05,
+          "end": 0.85
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0913250120356679
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0f8a7703ee6b9a9afe71e1ba7ced0b7dc1c08bcbfcbfb0acc78307510e46766e",
+  "selected_reasons": []
+}

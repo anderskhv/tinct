@@ -1,0 +1,645 @@
+{
+  "complete": true,
+  "signature": "6d0e11c580cc54b90728f721ff2c54636342f58050236fa2c61cb82a4811bd3e",
+  "attempts": [
+    {
+      "asr_seconds": 0.40266848634928465,
+      "alignment_seconds": 0.0007671983912587166,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassius. Flatterers! Now, Brutus, thank yourself. This tongue had not offended so today, If Cassius might have rul'd.",
+        "hotwords": "Cassius, Flatterers, Now, Brutus, This, If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassius, Flatterers, Now, Brutus, Thank Yourself. This tongue had not offended so today, If Cassius",
+          "start": 0.02,
+          "end": 6.66,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.78076171875
+            },
+            {
+              "text": " Flatterers,",
+              "start": 1.12,
+              "end": 1.6,
+              "probability": 0.688232421875
+            },
+            {
+              "text": " Now,",
+              "start": 2.24,
+              "end": 2.4,
+              "probability": 0.37353515625
+            },
+            {
+              "text": " Brutus,",
+              "start": 2.6,
+              "end": 2.86,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Thank",
+              "start": 3.08,
+              "end": 3.18,
+              "probability": 0.1849365234375
+            },
+            {
+              "text": " Yourself.",
+              "start": 3.18,
+              "end": 3.54,
+              "probability": 0.75830078125
+            },
+            {
+              "text": " This",
+              "start": 4.16,
+              "end": 4.32,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " tongue",
+              "start": 4.32,
+              "end": 4.58,
+              "probability": 0.658203125
+            },
+            {
+              "text": " had",
+              "start": 4.58,
+              "end": 4.74,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " not",
+              "start": 4.74,
+              "end": 4.92,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " offended",
+              "start": 4.92,
+              "end": 5.22,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " so",
+              "start": 5.22,
+              "end": 5.54,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " today,",
+              "start": 5.54,
+              "end": 5.86,
+              "probability": 0.8046875
+            },
+            {
+              "text": " If",
+              "start": 6.02,
+              "end": 6.14,
+              "probability": 0.64111328125
+            },
+            {
+              "text": " Cassius",
+              "start": 6.14,
+              "end": 6.66,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " might have rul'd.",
+          "start": 6.66,
+          "end": 7.5,
+          "words": [
+            {
+              "text": " might",
+              "start": 6.66,
+              "end": 6.86,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " have",
+              "start": 6.86,
+              "end": 7.02,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " rul'd.",
+              "start": 7.02,
+              "end": 7.5,
+              "probability": 0.048004150390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "raw": "Flatterers,",
+          "start": 1.12,
+          "end": 1.6
+        },
+        {
+          "raw": "Now,",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "raw": "Brutus,",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "raw": "Thank",
+          "start": 3.08,
+          "end": 3.18
+        },
+        {
+          "raw": "Yourself.",
+          "start": 3.18,
+          "end": 3.54
+        },
+        {
+          "raw": "This",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "raw": "tongue",
+          "start": 4.32,
+          "end": 4.58
+        },
+        {
+          "raw": "had",
+          "start": 4.58,
+          "end": 4.74
+        },
+        {
+          "raw": "not",
+          "start": 4.74,
+          "end": 4.92
+        },
+        {
+          "raw": "offended",
+          "start": 4.92,
+          "end": 5.22
+        },
+        {
+          "raw": "so",
+          "start": 5.22,
+          "end": 5.54
+        },
+        {
+          "raw": "today,",
+          "start": 5.54,
+          "end": 5.86
+        },
+        {
+          "raw": "If",
+          "start": 6.02,
+          "end": 6.14
+        },
+        {
+          "raw": "Cassius",
+          "start": 6.14,
+          "end": 6.66
+        },
+        {
+          "raw": "might",
+          "start": 6.66,
+          "end": 6.86
+        },
+        {
+          "raw": "have",
+          "start": 6.86,
+          "end": 7.02
+        },
+        {
+          "raw": "rul'd.",
+          "start": 7.02,
+          "end": 7.5
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "Flatterers!",
+        "Now,",
+        "Brutus,",
+        "thank",
+        "yourself.",
+        "This",
+        "tongue",
+        "had",
+        "not",
+        "offended",
+        "so",
+        "today,",
+        "If",
+        "Cassius",
+        "might",
+        "have",
+        "rul'd."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Flatterers,",
+          "start": 1.12,
+          "end": 1.6,
+          "key": "flatterers",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Now,",
+          "start": 2.24,
+          "end": 2.4,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Brutus,",
+          "start": 2.6,
+          "end": 2.86,
+          "key": "brutus",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Thank",
+          "start": 3.08,
+          "end": 3.18,
+          "key": "thank",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Yourself.",
+          "start": 3.18,
+          "end": 3.54,
+          "key": "yourself",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 4.16,
+          "end": 4.32,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "tongue",
+          "start": 4.32,
+          "end": 4.58,
+          "key": "tongue",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 4.58,
+          "end": 4.74,
+          "key": "had",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.74,
+          "end": 4.92,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "offended",
+          "start": 4.92,
+          "end": 5.22,
+          "key": "offended",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 5.22,
+          "end": 5.54,
+          "key": "so",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "today,",
+          "start": 5.54,
+          "end": 5.86,
+          "key": "today",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 6.02,
+          "end": 6.14,
+          "key": "if",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Cassius",
+          "start": 6.14,
+          "end": 6.66,
+          "key": "cassius",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 6.66,
+          "end": 6.86,
+          "key": "might",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.86,
+          "end": 7.02,
+          "key": "have",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "rul'd.",
+          "start": 7.02,
+          "end": 7.5,
+          "key": "ruld",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "text": "Flatterers!",
+          "start": 1.12,
+          "end": 1.6
+        },
+        {
+          "text": "Now,",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "text": "Brutus,",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "text": "thank",
+          "start": 3.08,
+          "end": 3.18
+        },
+        {
+          "text": "yourself.",
+          "start": 3.18,
+          "end": 3.54
+        },
+        {
+          "text": "This",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "text": "tongue",
+          "start": 4.32,
+          "end": 4.58
+        },
+        {
+          "text": "had",
+          "start": 4.58,
+          "end": 4.74
+        },
+        {
+          "text": "not",
+          "start": 4.74,
+          "end": 4.92
+        },
+        {
+          "text": "offended",
+          "start": 4.92,
+          "end": 5.22
+        },
+        {
+          "text": "so",
+          "start": 5.22,
+          "end": 5.54
+        },
+        {
+          "text": "today,",
+          "start": 5.54,
+          "end": 5.86
+        },
+        {
+          "text": "If",
+          "start": 6.02,
+          "end": 6.14
+        },
+        {
+          "text": "Cassius",
+          "start": 6.14,
+          "end": 6.66
+        },
+        {
+          "text": "might",
+          "start": 6.66,
+          "end": 6.86
+        },
+        {
+          "text": "have",
+          "start": 6.86,
+          "end": 7.02
+        },
+        {
+          "text": "rul'd.",
+          "start": 7.02,
+          "end": 7.5
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4037872804328799
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8ae4f69c3e11a8a0da71d3426a64e6059803b86b03616552222ce06b6f0ae4ff",
+  "selected_reasons": []
+}

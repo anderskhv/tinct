@@ -1,0 +1,613 @@
+{
+  "complete": true,
+  "signature": "d000f198f16fd586af9ff96ec7400411585cda43f2e22d6138c72ec31abfe859",
+  "attempts": [
+    {
+      "asr_seconds": 0.283860863186419,
+      "alignment_seconds": 0.0002307407557964325,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. Farewell, good Strato.—Caesar, now be still: I kill'd not thee with half so good a will.",
+        "hotwords": "Brutus, Farewell, Strato.—Caesar, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, Farewell, good Strato.—Caesar, now be still. I kill'd not thee with half so good",
+          "start": 0.87,
+          "end": 5.71,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.87,
+              "end": 1.23,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " Farewell,",
+              "start": 1.23,
+              "end": 1.59,
+              "probability": 0.5670166015625
+            },
+            {
+              "text": " good",
+              "start": 1.77,
+              "end": 1.83,
+              "probability": 0.4990234375
+            },
+            {
+              "text": " Strato.—Caesar,",
+              "start": 1.83,
+              "end": 3.37,
+              "probability": 0.5861822962760925
+            },
+            {
+              "text": " now",
+              "start": 3.47,
+              "end": 3.61,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " be",
+              "start": 3.61,
+              "end": 3.77,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " still.",
+              "start": 3.77,
+              "end": 4.03,
+              "probability": 0.9921875
+            },
+            {
+              "text": " I",
+              "start": 4.43,
+              "end": 4.55,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " kill'd",
+              "start": 4.55,
+              "end": 4.87,
+              "probability": 0.39626312255859375
+            },
+            {
+              "text": " not",
+              "start": 4.87,
+              "end": 4.93,
+              "probability": 0.943359375
+            },
+            {
+              "text": " thee",
+              "start": 4.93,
+              "end": 5.05,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " with",
+              "start": 5.05,
+              "end": 5.17,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " half",
+              "start": 5.17,
+              "end": 5.35,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " so",
+              "start": 5.35,
+              "end": 5.57,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " good",
+              "start": 5.57,
+              "end": 5.71,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " a will.",
+          "start": 5.71,
+          "end": 6.01,
+          "words": [
+            {
+              "text": " a",
+              "start": 5.71,
+              "end": 5.83,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " will.",
+              "start": 5.83,
+              "end": 6.01,
+              "probability": 0.97314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.87,
+          "end": 1.23
+        },
+        {
+          "raw": "Farewell,",
+          "start": 1.23,
+          "end": 1.59
+        },
+        {
+          "raw": "good",
+          "start": 1.77,
+          "end": 1.83
+        },
+        {
+          "raw": "Strato.—Caesar,",
+          "start": 1.83,
+          "end": 3.37
+        },
+        {
+          "raw": "now",
+          "start": 3.47,
+          "end": 3.61
+        },
+        {
+          "raw": "be",
+          "start": 3.61,
+          "end": 3.77
+        },
+        {
+          "raw": "still.",
+          "start": 3.77,
+          "end": 4.03
+        },
+        {
+          "raw": "I",
+          "start": 4.43,
+          "end": 4.55
+        },
+        {
+          "raw": "kill'd",
+          "start": 4.55,
+          "end": 4.87
+        },
+        {
+          "raw": "not",
+          "start": 4.87,
+          "end": 4.93
+        },
+        {
+          "raw": "thee",
+          "start": 4.93,
+          "end": 5.05
+        },
+        {
+          "raw": "with",
+          "start": 5.05,
+          "end": 5.17
+        },
+        {
+          "raw": "half",
+          "start": 5.17,
+          "end": 5.35
+        },
+        {
+          "raw": "so",
+          "start": 5.35,
+          "end": 5.57
+        },
+        {
+          "raw": "good",
+          "start": 5.57,
+          "end": 5.71
+        },
+        {
+          "raw": "a",
+          "start": 5.71,
+          "end": 5.83
+        },
+        {
+          "raw": "will.",
+          "start": 5.83,
+          "end": 6.01
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Farewell,",
+        "good",
+        "Strato.—Caesar,",
+        "now",
+        "be",
+        "still:",
+        "I",
+        "kill'd",
+        "not",
+        "thee",
+        "with",
+        "half",
+        "so",
+        "good",
+        "a",
+        "will."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.87,
+          "end": 1.23,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Farewell,",
+          "start": 1.23,
+          "end": 1.59,
+          "key": "farewell",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.77,
+          "end": 1.83,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Strato.—Caesar,",
+          "start": 1.83,
+          "end": 3.37,
+          "key": "stratocaesar",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 3.47,
+          "end": 3.61,
+          "key": "now",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.61,
+          "end": 3.77,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "still.",
+          "start": 3.77,
+          "end": 4.03,
+          "key": "still",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.43,
+          "end": 4.55,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "kill'd",
+          "start": 4.55,
+          "end": 4.87,
+          "key": "killd",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.87,
+          "end": 4.93,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 4.93,
+          "end": 5.05,
+          "key": "thee",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.05,
+          "end": 5.17,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "half",
+          "start": 5.17,
+          "end": 5.35,
+          "key": "half",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 5.35,
+          "end": 5.57,
+          "key": "so",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 5.57,
+          "end": 5.71,
+          "key": "good",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.71,
+          "end": 5.83,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "will.",
+          "start": 5.83,
+          "end": 6.01,
+          "key": "will",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.87,
+          "end": 1.23
+        },
+        {
+          "text": "Farewell,",
+          "start": 1.23,
+          "end": 1.59
+        },
+        {
+          "text": "good",
+          "start": 1.77,
+          "end": 1.83
+        },
+        {
+          "text": "Strato.—Caesar,",
+          "start": 1.83,
+          "end": 3.37
+        },
+        {
+          "text": "now",
+          "start": 3.47,
+          "end": 3.61
+        },
+        {
+          "text": "be",
+          "start": 3.61,
+          "end": 3.77
+        },
+        {
+          "text": "still:",
+          "start": 3.77,
+          "end": 4.03
+        },
+        {
+          "text": "I",
+          "start": 4.43,
+          "end": 4.55
+        },
+        {
+          "text": "kill'd",
+          "start": 4.55,
+          "end": 4.87
+        },
+        {
+          "text": "not",
+          "start": 4.87,
+          "end": 4.93
+        },
+        {
+          "text": "thee",
+          "start": 4.93,
+          "end": 5.05
+        },
+        {
+          "text": "with",
+          "start": 5.05,
+          "end": 5.17
+        },
+        {
+          "text": "half",
+          "start": 5.17,
+          "end": 5.35
+        },
+        {
+          "text": "so",
+          "start": 5.35,
+          "end": 5.57
+        },
+        {
+          "text": "good",
+          "start": 5.57,
+          "end": 5.71
+        },
+        {
+          "text": "a",
+          "start": 5.71,
+          "end": 5.83
+        },
+        {
+          "text": "will.",
+          "start": 5.83,
+          "end": 6.01
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28417166601866484
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5d7874eae018c19d8c0e885e9d9af9d7b57dab3ba011a8bd494cf69a9fd9e2d3",
+  "selected_reasons": []
+}

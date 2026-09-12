@@ -1,0 +1,658 @@
+{
+  "complete": true,
+  "signature": "a2b3135f57d5899071cb90d1d66c4973af9ce1e2f0f3762f4b309e4308b49294",
+  "attempts": [
+    {
+      "asr_seconds": 0.8409760007634759,
+      "alignment_seconds": 0.0003837812691926956,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Calphurnia. Say he is sick.",
+        "hotwords": "Calphurnia, Say"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " California, say he is sick.",
+          "start": 0.05,
+          "end": 1.91,
+          "words": [
+            {
+              "text": " California,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.412109375
+            },
+            {
+              "text": " say",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " he",
+              "start": 1.43,
+              "end": 1.55,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " is",
+              "start": 1.55,
+              "end": 1.67,
+              "probability": 0.677734375
+            },
+            {
+              "text": " sick.",
+              "start": 1.67,
+              "end": 1.91,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "California,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "say",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "he",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "raw": "is",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "raw": "sick.",
+          "start": 1.67,
+          "end": 1.91
+        }
+      ],
+      "expected_tokens": [
+        "Calphurnia.",
+        "Say",
+        "he",
+        "is",
+        "sick."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "California,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "california",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "say",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.43,
+          "end": 1.55,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.55,
+          "end": 1.67,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sick.",
+          "start": 1.67,
+          "end": 1.91,
+          "key": "sick",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Calphurnia.",
+          "start": 0.0,
+          "end": 0.625
+        },
+        {
+          "text": "Say",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "text": "he",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "text": "is",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "text": "sick.",
+          "start": 1.67,
+          "end": 1.91
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.8414885010570288
+    },
+    {
+      "asr_seconds": 0.099330585449934,
+      "alignment_seconds": 0.00011246278882026672,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Calphurnia, Say"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " He is Sick.",
+          "start": 0.05,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.000823974609375
+            },
+            {
+              "text": " is",
+              "start": 0.87,
+              "end": 1.61,
+              "probability": 0.2437744140625
+            },
+            {
+              "text": " Sick.",
+              "start": 1.61,
+              "end": 1.89,
+              "probability": 0.0017919540405273438
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "is",
+          "start": 0.87,
+          "end": 1.61
+        },
+        {
+          "raw": "Sick.",
+          "start": 1.61,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "Calphurnia.",
+        "Say",
+        "he",
+        "is",
+        "sick."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "equal",
+          2,
+          5,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.87,
+          "end": 1.61,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sick.",
+          "start": 1.61,
+          "end": 1.89,
+          "key": "sick",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Calphurnia.",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "Say",
+          "start": 0.025,
+          "end": 0.038
+        },
+        {
+          "text": "he",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "is",
+          "start": 0.87,
+          "end": 1.61
+        },
+        {
+          "text": "sick.",
+          "start": 1.61,
+          "end": 1.89
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09947256743907928
+    },
+    {
+      "asr_seconds": 0.10992251709103584,
+      "alignment_seconds": 0.00011471565812826157,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " California, say he is sick.",
+          "start": 0.05,
+          "end": 1.91,
+          "words": [
+            {
+              "text": " California,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.412109375
+            },
+            {
+              "text": " say",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " he",
+              "start": 1.43,
+              "end": 1.55,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " is",
+              "start": 1.55,
+              "end": 1.67,
+              "probability": 0.677734375
+            },
+            {
+              "text": " sick.",
+              "start": 1.67,
+              "end": 1.91,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "California,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "say",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "he",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "raw": "is",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "raw": "sick.",
+          "start": 1.67,
+          "end": 1.91
+        }
+      ],
+      "expected_tokens": [
+        "Calphurnia.",
+        "Say",
+        "he",
+        "is",
+        "sick."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "California,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "california",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "say",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.43,
+          "end": 1.55,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.55,
+          "end": 1.67,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sick.",
+          "start": 1.67,
+          "end": 1.91,
+          "key": "sick",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Calphurnia.",
+          "start": 0.0,
+          "end": 0.625
+        },
+        {
+          "text": "Say",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "text": "he",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "text": "is",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "text": "sick.",
+          "start": 1.67,
+          "end": 1.91
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11007372848689556
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3cced565c1e0cc19b5e99952086d8c5c607c8b59951a3abae00dd0ccffb9f8f6",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "acc714b09ce548514b28e8f41bce04d162484967cb05309435d77858a6461410",
+  "attempts": [
+    {
+      "asr_seconds": 0.2031727647408843,
+      "alignment_seconds": 0.00018800608813762665,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, look in the calendar and bring me word.",
+          "start": 0.08,
+          "end": 2.8,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.983642578125
+            },
+            {
+              "text": " look",
+              "start": 1.28,
+              "end": 1.4,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " in",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 1.52,
+              "end": 1.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " calendar",
+              "start": 1.62,
+              "end": 1.92,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " and",
+              "start": 1.92,
+              "end": 2.28,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " bring",
+              "start": 2.28,
+              "end": 2.42,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " me",
+              "start": 2.42,
+              "end": 2.58,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " word.",
+              "start": 2.58,
+              "end": 2.8,
+              "probability": 0.9609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "look",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "raw": "in",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "the",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "raw": "calendar",
+          "start": 1.62,
+          "end": 1.92
+        },
+        {
+          "raw": "and",
+          "start": 1.92,
+          "end": 2.28
+        },
+        {
+          "raw": "bring",
+          "start": 2.28,
+          "end": 2.42
+        },
+        {
+          "raw": "me",
+          "start": 2.42,
+          "end": 2.58
+        },
+        {
+          "raw": "word.",
+          "start": 2.58,
+          "end": 2.8
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Look",
+        "in",
+        "the",
+        "calendar,",
+        "and",
+        "bring",
+        "me",
+        "word."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 1.28,
+          "end": 1.4,
+          "key": "look",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.4,
+          "end": 1.52,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.52,
+          "end": 1.62,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "calendar",
+          "start": 1.62,
+          "end": 1.92,
+          "key": "calendar",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.92,
+          "end": 2.28,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 2.28,
+          "end": 2.42,
+          "key": "bring",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.42,
+          "end": 2.58,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "word.",
+          "start": 2.58,
+          "end": 2.8,
+          "key": "word",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "Look",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "text": "in",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "the",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "text": "calendar,",
+          "start": 1.62,
+          "end": 1.92
+        },
+        {
+          "text": "and",
+          "start": 1.92,
+          "end": 2.28
+        },
+        {
+          "text": "bring",
+          "start": 2.28,
+          "end": 2.42
+        },
+        {
+          "text": "me",
+          "start": 2.42,
+          "end": 2.58
+        },
+        {
+          "text": "word.",
+          "start": 2.58,
+          "end": 2.8
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2034318409860134
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ef1a251e775f4781896fabbaa5c0671bfcaa46183e8f58071b6ec986bdacc341",
+  "selected_reasons": []
+}

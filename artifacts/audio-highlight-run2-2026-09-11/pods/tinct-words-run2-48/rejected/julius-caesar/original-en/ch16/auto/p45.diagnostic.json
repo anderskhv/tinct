@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "af9485d235fd351f38ded57ecb7d8c3c5aa4bfc7dfcb28d0bed4e4897fa2415a",
+  "attempts": [
+    {
+      "asr_seconds": 0.23019430972635746,
+      "alignment_seconds": 0.00043221190571784973,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Messala. Lo, yonder, and Titinius mourning it.",
+        "hotwords": "Messala, Lo, Titinius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Messala, Lo, yonder, and Titinius mourning it.",
+          "start": 0.05,
+          "end": 3.39,
+          "words": [
+            {
+              "text": " Messala,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.4877777099609375
+            },
+            {
+              "text": " Lo,",
+              "start": 1.33,
+              "end": 1.59,
+              "probability": 0.0028247833251953125
+            },
+            {
+              "text": " yonder,",
+              "start": 1.85,
+              "end": 2.15,
+              "probability": 0.757568359375
+            },
+            {
+              "text": " and",
+              "start": 2.29,
+              "end": 2.35,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " Titinius",
+              "start": 2.35,
+              "end": 2.83,
+              "probability": 0.639404296875
+            },
+            {
+              "text": " mourning",
+              "start": 2.83,
+              "end": 3.05,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " it.",
+              "start": 3.05,
+              "end": 3.39,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messala,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "Lo,",
+          "start": 1.33,
+          "end": 1.59
+        },
+        {
+          "raw": "yonder,",
+          "start": 1.85,
+          "end": 2.15
+        },
+        {
+          "raw": "and",
+          "start": 2.29,
+          "end": 2.35
+        },
+        {
+          "raw": "Titinius",
+          "start": 2.35,
+          "end": 2.83
+        },
+        {
+          "raw": "mourning",
+          "start": 2.83,
+          "end": 3.05
+        },
+        {
+          "raw": "it.",
+          "start": 3.05,
+          "end": 3.39
+        }
+      ],
+      "expected_tokens": [
+        "Messala.",
+        "Lo,",
+        "yonder,",
+        "and",
+        "Titinius",
+        "mourning",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messala,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "messala",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lo,",
+          "start": 1.33,
+          "end": 1.59,
+          "key": "lo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "yonder,",
+          "start": 1.85,
+          "end": 2.15,
+          "key": "yonder",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.29,
+          "end": 2.35,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Titinius",
+          "start": 2.35,
+          "end": 2.83,
+          "key": "titinius",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mourning",
+          "start": 2.83,
+          "end": 3.05,
+          "key": "mourning",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 3.05,
+          "end": 3.39,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messala.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Lo,",
+          "start": 1.33,
+          "end": 1.59
+        },
+        {
+          "text": "yonder,",
+          "start": 1.85,
+          "end": 2.15
+        },
+        {
+          "text": "and",
+          "start": 2.29,
+          "end": 2.35
+        },
+        {
+          "text": "Titinius",
+          "start": 2.35,
+          "end": 2.83
+        },
+        {
+          "text": "mourning",
+          "start": 2.83,
+          "end": 3.05
+        },
+        {
+          "text": "it.",
+          "start": 3.05,
+          "end": 3.39
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23078022710978985
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "66a948a267405b88af7e6174bf8bb7a0890ed8b32fa9bbf4f5ca7ac5ee2a9246",
+  "selected_reasons": []
+}

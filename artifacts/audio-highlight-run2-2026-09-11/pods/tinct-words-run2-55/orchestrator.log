@@ -1,0 +1,27 @@
+[2026-09-12T06:24:05Z] created g8acp60w1yiu9q tinct-words-run2-55 gpu=None $0.49/hr
+[2026-09-12T06:24:06Z] waiting: pod RUNNING agent HTTP 404
+[2026-09-12T06:24:24Z] phase cohort at 0.3 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T06:24:24Z] 0.3 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T06:24:55Z] 0.8 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T06:25:25Z] 1.3 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T06:25:56Z] phase aligning at 1.8 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T06:25:56Z] 1.8 min: aligning {"arm_chapters_passed": 2, "arm_chapters_rejected": 0, "arm_chapters_running": 1, "paragraph_diagnostics": 48}
+[2026-09-12T06:26:27Z] 2.4 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 107}
+[2026-09-12T06:26:58Z] 2.9 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 180}
+[2026-09-12T06:27:28Z] 3.4 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 2, "arm_chapters_running": 1, "paragraph_diagnostics": 261}
+[2026-09-12T06:27:59Z] 3.9 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 2, "arm_chapters_running": 1, "paragraph_diagnostics": 291}
+[2026-09-12T06:28:34Z] snapshot 867540 bytes
+[2026-09-12T06:28:34Z] 4.4 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 2, "arm_chapters_running": 1, "paragraph_diagnostics": 335}
+[2026-09-12T06:29:05Z] 5.0 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 2, "arm_chapters_running": 1, "paragraph_diagnostics": 399}
+[2026-09-12T06:29:36Z] 5.5 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 4, "arm_chapters_running": 1, "paragraph_diagnostics": 500}
+[2026-09-12T06:30:07Z] 6.0 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 5, "arm_chapters_running": 1, "paragraph_diagnostics": 572}
+[2026-09-12T06:30:38Z] 6.5 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 5, "arm_chapters_running": 1, "paragraph_diagnostics": 609}
+[2026-09-12T06:31:09Z] 7.1 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 6, "arm_chapters_running": 1, "paragraph_diagnostics": 664}
+[2026-09-12T06:31:43Z] 7.6 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 7, "arm_chapters_running": 1, "paragraph_diagnostics": 759}
+[2026-09-12T06:32:14Z] 8.1 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 7, "arm_chapters_running": 1, "paragraph_diagnostics": 822}
+[2026-09-12T06:32:50Z] snapshot 2037548 bytes
+[2026-09-12T06:32:50Z] 8.7 min: aligning {"arm_chapters_passed": 5, "arm_chapters_rejected": 8, "arm_chapters_running": 1, "paragraph_diagnostics": 883}
+[2026-09-12T06:33:21Z] 9.2 min: aligning {"arm_chapters_passed": 6, "arm_chapters_rejected": 9, "arm_chapters_running": 1, "paragraph_diagnostics": 975}
+[2026-09-12T06:33:51Z] 9.8 min: aligning {"arm_chapters_passed": 6, "arm_chapters_rejected": 9, "arm_chapters_running": 1, "paragraph_diagnostics": 1016}
+[2026-09-12T06:34:22Z] 10.3 min: aligning {"arm_chapters_passed": 7, "arm_chapters_rejected": 9, "arm_chapters_running": 1, "paragraph_diagnostics": 1063}
+[2026-09-12T06:34:53Z] 10.8 min: aligning {"arm_chapters_passed": 7, "arm_chapters_rejected": 10, "arm_chapters_running": 1, "paragraph_diagnostics": 1092}

@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "c469e904697d5d1c7eb6e62910b396e9fe812cf26f85ec6c13a9780f1a96055c",
+  "attempts": [
+    {
+      "asr_seconds": 0.15364652127027512,
+      "alignment_seconds": 0.00017775967717170715,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Decius, what shall we forth?",
+          "start": 0.52,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Decius,",
+              "start": 0.52,
+              "end": 0.92,
+              "probability": 0.39111328125
+            },
+            {
+              "text": " what",
+              "start": 1.22,
+              "end": 1.36,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " shall",
+              "start": 1.36,
+              "end": 1.52,
+              "probability": 0.99609375
+            },
+            {
+              "text": " we",
+              "start": 1.52,
+              "end": 1.66,
+              "probability": 0.9921875
+            },
+            {
+              "text": " forth?",
+              "start": 1.66,
+              "end": 1.86,
+              "probability": 0.8251953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Decius,",
+          "start": 0.52,
+          "end": 0.92
+        },
+        {
+          "raw": "what",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "raw": "shall",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "raw": "we",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "raw": "forth?",
+          "start": 1.66,
+          "end": 1.86
+        }
+      ],
+      "expected_tokens": [
+        "Decius.",
+        "What,",
+        "shall",
+        "we",
+        "forth?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Decius,",
+          "start": 0.52,
+          "end": 0.92,
+          "key": "decius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.22,
+          "end": 1.36,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.36,
+          "end": 1.52,
+          "key": "shall",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.52,
+          "end": 1.66,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "forth?",
+          "start": 1.66,
+          "end": 1.86,
+          "key": "forth",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Decius.",
+          "start": 0.52,
+          "end": 0.92
+        },
+        {
+          "text": "What,",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "text": "shall",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "text": "we",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "text": "forth?",
+          "start": 1.66,
+          "end": 1.86
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15388682950288057
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e67f83f9aff297d6914e61f218a46062107b6b13eab22ebccfa5573b67a2724d",
+  "selected_reasons": []
+}

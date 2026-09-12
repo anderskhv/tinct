@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "86b91bbbd4a4bc6f8df4f365e03f59dbf6eb6f12465c1adfc4db7d3141122913",
+  "attempts": [
+    {
+      "asr_seconds": 0.16618252266198397,
+      "alignment_seconds": 0.00038108043372631073,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Cinna, the poet, and after him the citizens.",
+        "hotwords": "Enter, Cinna"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Cinna, the poet, and after him the citizens.",
+          "start": 0.08,
+          "end": 3.12,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " Cinna,",
+              "start": 0.64,
+              "end": 1.1,
+              "probability": 0.534637451171875
+            },
+            {
+              "text": " the",
+              "start": 1.34,
+              "end": 1.42,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " poet,",
+              "start": 1.42,
+              "end": 1.72,
+              "probability": 0.955078125
+            },
+            {
+              "text": " and",
+              "start": 2.04,
+              "end": 2.1,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " after",
+              "start": 2.1,
+              "end": 2.34,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " him",
+              "start": 2.34,
+              "end": 2.54,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 2.54,
+              "end": 2.74,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " citizens.",
+              "start": 2.74,
+              "end": 3.12,
+              "probability": 0.95654296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Cinna,",
+          "start": 0.64,
+          "end": 1.1
+        },
+        {
+          "raw": "the",
+          "start": 1.34,
+          "end": 1.42
+        },
+        {
+          "raw": "poet,",
+          "start": 1.42,
+          "end": 1.72
+        },
+        {
+          "raw": "and",
+          "start": 2.04,
+          "end": 2.1
+        },
+        {
+          "raw": "after",
+          "start": 2.1,
+          "end": 2.34
+        },
+        {
+          "raw": "him",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "raw": "the",
+          "start": 2.54,
+          "end": 2.74
+        },
+        {
+          "raw": "citizens.",
+          "start": 2.74,
+          "end": 3.12
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Cinna,",
+        "the",
+        "poet,",
+        "and",
+        "after",
+        "him",
+        "the",
+        "citizens."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cinna,",
+          "start": 0.64,
+          "end": 1.1,
+          "key": "cinna",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.34,
+          "end": 1.42,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "poet,",
+          "start": 1.42,
+          "end": 1.72,
+          "key": "poet",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.04,
+          "end": 2.1,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 2.1,
+          "end": 2.34,
+          "key": "after",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.34,
+          "end": 2.54,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.54,
+          "end": 2.74,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "citizens.",
+          "start": 2.74,
+          "end": 3.12,
+          "key": "citizens",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Cinna,",
+          "start": 0.64,
+          "end": 1.1
+        },
+        {
+          "text": "the",
+          "start": 1.34,
+          "end": 1.42
+        },
+        {
+          "text": "poet,",
+          "start": 1.42,
+          "end": 1.72
+        },
+        {
+          "text": "and",
+          "start": 2.04,
+          "end": 2.1
+        },
+        {
+          "text": "after",
+          "start": 2.1,
+          "end": 2.34
+        },
+        {
+          "text": "him",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "text": "the",
+          "start": 2.54,
+          "end": 2.74
+        },
+        {
+          "text": "citizens.",
+          "start": 2.74,
+          "end": 3.12
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1667059911414981
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d4f969a370388d8f43721fdc45bd47dbac8296ee6e3224bfac93fffee0a794b4",
+  "selected_reasons": []
+}

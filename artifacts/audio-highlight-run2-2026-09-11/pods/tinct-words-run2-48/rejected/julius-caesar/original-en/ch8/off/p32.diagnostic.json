@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "02a7b60f4f1c1e0794072111953565a7c6e10209f13ae9615b84f9112f979ae4",
+  "attempts": [
+    {
+      "asr_seconds": 0.11327503435313702,
+      "alignment_seconds": 0.00031220074743032455,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Caesar, what Brutus?",
+          "start": 0.11,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Caesar,",
+              "start": 0.11,
+              "end": 0.77,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " what",
+              "start": 1.09,
+              "end": 1.17,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " Brutus?",
+              "start": 1.17,
+              "end": 1.63,
+              "probability": 0.6552734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar,",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "raw": "what",
+          "start": 1.09,
+          "end": 1.17
+        },
+        {
+          "raw": "Brutus?",
+          "start": 1.17,
+          "end": 1.63
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "What,",
+        "Brutus?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar,",
+          "start": 0.11,
+          "end": 0.77,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.09,
+          "end": 1.17,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Brutus?",
+          "start": 1.17,
+          "end": 1.63,
+          "key": "brutus",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "text": "What,",
+          "start": 1.09,
+          "end": 1.17
+        },
+        {
+          "text": "Brutus?",
+          "start": 1.17,
+          "end": 1.63
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11369362100958824
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7546fb57bf7fc2870d02639ff921e94e5a04e01a149054db96cf88ef23bba204",
+  "selected_reasons": []
+}

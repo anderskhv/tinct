@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "276aca4edcfb697c3cad2838c73b6196d04a6003d1095bfcff05920e95bad7bd",
+  "attempts": [
+    {
+      "asr_seconds": 0.1865536030381918,
+      "alignment_seconds": 0.0002899104729294777,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassius. Stand fast, Titinius; we must out and talk.",
+        "hotwords": "Cassius, Stand, Titinius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassius, Stand fast, Titinius. We must out and talk.",
+          "start": 0.05,
+          "end": 3.65,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.961669921875
+            },
+            {
+              "text": " Stand",
+              "start": 1.51,
+              "end": 1.57,
+              "probability": 0.048309326171875
+            },
+            {
+              "text": " fast,",
+              "start": 1.57,
+              "end": 1.89,
+              "probability": 0.53857421875
+            },
+            {
+              "text": " Titinius.",
+              "start": 2.11,
+              "end": 2.49,
+              "probability": 0.6509602864583334
+            },
+            {
+              "text": " We",
+              "start": 2.75,
+              "end": 2.81,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " must",
+              "start": 2.81,
+              "end": 2.95,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " out",
+              "start": 2.95,
+              "end": 3.21,
+              "probability": 0.939453125
+            },
+            {
+              "text": " and",
+              "start": 3.21,
+              "end": 3.39,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " talk.",
+              "start": 3.39,
+              "end": 3.65,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Stand",
+          "start": 1.51,
+          "end": 1.57
+        },
+        {
+          "raw": "fast,",
+          "start": 1.57,
+          "end": 1.89
+        },
+        {
+          "raw": "Titinius.",
+          "start": 2.11,
+          "end": 2.49
+        },
+        {
+          "raw": "We",
+          "start": 2.75,
+          "end": 2.81
+        },
+        {
+          "raw": "must",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "raw": "out",
+          "start": 2.95,
+          "end": 3.21
+        },
+        {
+          "raw": "and",
+          "start": 3.21,
+          "end": 3.39
+        },
+        {
+          "raw": "talk.",
+          "start": 3.39,
+          "end": 3.65
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "Stand",
+        "fast,",
+        "Titinius;",
+        "we",
+        "must",
+        "out",
+        "and",
+        "talk."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Stand",
+          "start": 1.51,
+          "end": 1.57,
+          "key": "stand",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fast,",
+          "start": 1.57,
+          "end": 1.89,
+          "key": "fast",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Titinius.",
+          "start": 2.11,
+          "end": 2.49,
+          "key": "titinius",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 2.75,
+          "end": 2.81,
+          "key": "we",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.81,
+          "end": 2.95,
+          "key": "must",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.95,
+          "end": 3.21,
+          "key": "out",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.21,
+          "end": 3.39,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "talk.",
+          "start": 3.39,
+          "end": 3.65,
+          "key": "talk",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Stand",
+          "start": 1.51,
+          "end": 1.57
+        },
+        {
+          "text": "fast,",
+          "start": 1.57,
+          "end": 1.89
+        },
+        {
+          "text": "Titinius;",
+          "start": 2.11,
+          "end": 2.49
+        },
+        {
+          "text": "we",
+          "start": 2.75,
+          "end": 2.81
+        },
+        {
+          "text": "must",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "text": "out",
+          "start": 2.95,
+          "end": 3.21
+        },
+        {
+          "text": "and",
+          "start": 3.21,
+          "end": 3.39
+        },
+        {
+          "text": "talk.",
+          "start": 3.39,
+          "end": 3.65
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1869666138663888
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "43e805294917fa8423583ea97648a000a80ab7f3e07d78c9ab3cd6ffa8b915b0",
+  "selected_reasons": []
+}

@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "fb440be78ee8045f7244c025c75367c26411b999f7a7597604057d52cf650e88",
+  "attempts": [
+    {
+      "asr_seconds": 0.21623938344419003,
+      "alignment_seconds": 0.00016310159116983414,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Servant, he lies tonight within seven leagues of Rome.",
+          "start": 0.08,
+          "end": 3.28,
+          "words": [
+            {
+              "text": " Servant,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " he",
+              "start": 1.18,
+              "end": 1.36,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " lies",
+              "start": 1.36,
+              "end": 1.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " tonight",
+              "start": 1.58,
+              "end": 1.9,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " within",
+              "start": 1.9,
+              "end": 2.18,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " seven",
+              "start": 2.18,
+              "end": 2.58,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " leagues",
+              "start": 2.58,
+              "end": 2.84,
+              "probability": 0.90234375
+            },
+            {
+              "text": " of",
+              "start": 2.84,
+              "end": 3.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Rome.",
+              "start": 3.04,
+              "end": 3.28,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Servant,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "he",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "raw": "lies",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "raw": "tonight",
+          "start": 1.58,
+          "end": 1.9
+        },
+        {
+          "raw": "within",
+          "start": 1.9,
+          "end": 2.18
+        },
+        {
+          "raw": "seven",
+          "start": 2.18,
+          "end": 2.58
+        },
+        {
+          "raw": "leagues",
+          "start": 2.58,
+          "end": 2.84
+        },
+        {
+          "raw": "of",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "raw": "Rome.",
+          "start": 3.04,
+          "end": 3.28
+        }
+      ],
+      "expected_tokens": [
+        "Servant.",
+        "He",
+        "lies",
+        "tonight",
+        "within",
+        "seven",
+        "leagues",
+        "of",
+        "Rome."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Servant,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "servant",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.18,
+          "end": 1.36,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lies",
+          "start": 1.36,
+          "end": 1.58,
+          "key": "lies",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tonight",
+          "start": 1.58,
+          "end": 1.9,
+          "key": "tonight",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 1.9,
+          "end": 2.18,
+          "key": "within",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "seven",
+          "start": 2.18,
+          "end": 2.58,
+          "key": "seven",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "leagues",
+          "start": 2.58,
+          "end": 2.84,
+          "key": "leagues",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.84,
+          "end": 3.04,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Rome.",
+          "start": 3.04,
+          "end": 3.28,
+          "key": "rome",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Servant.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "He",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "text": "lies",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "text": "tonight",
+          "start": 1.58,
+          "end": 1.9
+        },
+        {
+          "text": "within",
+          "start": 1.9,
+          "end": 2.18
+        },
+        {
+          "text": "seven",
+          "start": 2.18,
+          "end": 2.58
+        },
+        {
+          "text": "leagues",
+          "start": 2.58,
+          "end": 2.84
+        },
+        {
+          "text": "of",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "text": "Rome.",
+          "start": 3.04,
+          "end": 3.28
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21646071318536997
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "df65df96648bf49387f569713cea5b994f4244c231412d98a92df5690cb0c6e5",
+  "selected_reasons": []
+}

@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "7fa870979f445228acc7a3cf0a570e8f5ed98fc79ca81940e9c42ecf6ba9429a",
+  "attempts": [
+    {
+      "asr_seconds": 0.18952338956296444,
+      "alignment_seconds": 0.0004382086917757988,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First soldier, I'll tell the news. Here comes the general",
+          "start": 0.05,
+          "end": 3.45,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.8515625
+            },
+            {
+              "text": " soldier,",
+              "start": 0.61,
+              "end": 1.03,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " I'll",
+              "start": 1.27,
+              "end": 1.51,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " tell",
+              "start": 1.51,
+              "end": 1.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.65,
+              "end": 1.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " news.",
+              "start": 1.83,
+              "end": 2.13,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Here",
+              "start": 2.67,
+              "end": 2.73,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " comes",
+              "start": 2.73,
+              "end": 2.95,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 2.95,
+              "end": 3.15,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " general",
+              "start": 3.15,
+              "end": 3.45,
+              "probability": 0.6640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "soldier,",
+          "start": 0.61,
+          "end": 1.03
+        },
+        {
+          "raw": "I'll",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "raw": "tell",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "raw": "the",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "raw": "news.",
+          "start": 1.83,
+          "end": 2.13
+        },
+        {
+          "raw": "Here",
+          "start": 2.67,
+          "end": 2.73
+        },
+        {
+          "raw": "comes",
+          "start": 2.73,
+          "end": 2.95
+        },
+        {
+          "raw": "the",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "raw": "general",
+          "start": 3.15,
+          "end": 3.45
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Soldier.",
+        "I'll",
+        "tell",
+        "the",
+        "news.",
+        "Here",
+        "comes",
+        "the",
+        "General."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "soldier,",
+          "start": 0.61,
+          "end": 1.03,
+          "key": "soldier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.27,
+          "end": 1.51,
+          "key": "ill",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 1.51,
+          "end": 1.65,
+          "key": "tell",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.65,
+          "end": 1.83,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "news.",
+          "start": 1.83,
+          "end": 2.13,
+          "key": "news",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Here",
+          "start": 2.67,
+          "end": 2.73,
+          "key": "here",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 2.73,
+          "end": 2.95,
+          "key": "comes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.95,
+          "end": 3.15,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "general",
+          "start": 3.15,
+          "end": 3.45,
+          "key": "general",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Soldier.",
+          "start": 0.61,
+          "end": 1.03
+        },
+        {
+          "text": "I'll",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "text": "tell",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "text": "the",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "text": "news.",
+          "start": 1.83,
+          "end": 2.13
+        },
+        {
+          "text": "Here",
+          "start": 2.67,
+          "end": 2.73
+        },
+        {
+          "text": "comes",
+          "start": 2.73,
+          "end": 2.95
+        },
+        {
+          "text": "the",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "text": "General.",
+          "start": 3.15,
+          "end": 3.45
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19013602752238512
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "43e669f6a5e803f546ca7d53c3b352d20a24dc791408fe4f5985b7c0d5da16cc",
+  "selected_reasons": []
+}

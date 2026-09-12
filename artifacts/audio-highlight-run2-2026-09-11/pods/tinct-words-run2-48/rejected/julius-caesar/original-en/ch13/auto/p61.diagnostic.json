@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "2c40946b4bc91cebc973fd62dec981d81abb853424176c52d85f4391d5229c7d",
+  "attempts": [
+    {
+      "asr_seconds": 0.22170308511704206,
+      "alignment_seconds": 0.0004479149356484413,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassius. Bear with him, Brutus; 'tis his fashion.",
+        "hotwords": "Cassius, Bear, Brutus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassius, Bear with him, Brutus, Tis his fashion.",
+          "start": 0.05,
+          "end": 3.23,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " Bear",
+              "start": 1.23,
+              "end": 1.31,
+              "probability": 0.01934814453125
+            },
+            {
+              "text": " with",
+              "start": 1.31,
+              "end": 1.49,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " him,",
+              "start": 1.49,
+              "end": 1.69,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " Brutus,",
+              "start": 1.69,
+              "end": 2.15,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Tis",
+              "start": 2.53,
+              "end": 2.69,
+              "probability": 0.07773590087890625
+            },
+            {
+              "text": " his",
+              "start": 2.69,
+              "end": 2.87,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " fashion.",
+              "start": 2.87,
+              "end": 3.23,
+              "probability": 0.88525390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Bear",
+          "start": 1.23,
+          "end": 1.31
+        },
+        {
+          "raw": "with",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "raw": "him,",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "raw": "Brutus,",
+          "start": 1.69,
+          "end": 2.15
+        },
+        {
+          "raw": "Tis",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "raw": "his",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "raw": "fashion.",
+          "start": 2.87,
+          "end": 3.23
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "Bear",
+        "with",
+        "him,",
+        "Brutus;",
+        "'tis",
+        "his",
+        "fashion."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Bear",
+          "start": 1.23,
+          "end": 1.31,
+          "key": "bear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.31,
+          "end": 1.49,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 1.49,
+          "end": 1.69,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Brutus,",
+          "start": 1.69,
+          "end": 2.15,
+          "key": "brutus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 2.53,
+          "end": 2.69,
+          "key": "tis",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.69,
+          "end": 2.87,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fashion.",
+          "start": 2.87,
+          "end": 3.23,
+          "key": "fashion",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Bear",
+          "start": 1.23,
+          "end": 1.31
+        },
+        {
+          "text": "with",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "text": "him,",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "text": "Brutus;",
+          "start": 1.69,
+          "end": 2.15
+        },
+        {
+          "text": "'tis",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "text": "his",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "text": "fashion.",
+          "start": 2.87,
+          "end": 3.23
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22231680061668158
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "602f3d3c9361e5138b0c8bb10110f16c59e68277d79eba3fd22b03f7763dd1ff",
+  "selected_reasons": []
+}

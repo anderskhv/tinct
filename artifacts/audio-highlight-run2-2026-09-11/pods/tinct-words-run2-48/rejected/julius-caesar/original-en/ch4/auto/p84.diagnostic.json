@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "5c79ed91765399a47b5b7254f8f757df0a9de981e60d9dc40628efb62aed7bce",
+  "attempts": [
+    {
+      "asr_seconds": 0.1743697850033641,
+      "alignment_seconds": 0.0003083711490035057,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. I am not well in health, and that is all.",
+        "hotwords": "Brutus, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, I am not well in health, and that is all.",
+          "start": 0.57,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.57,
+              "end": 0.91,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " I",
+              "start": 1.11,
+              "end": 1.29,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " am",
+              "start": 1.29,
+              "end": 1.37,
+              "probability": 0.0653076171875
+            },
+            {
+              "text": " not",
+              "start": 1.37,
+              "end": 1.47,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " well",
+              "start": 1.47,
+              "end": 1.63,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 1.63,
+              "end": 1.75,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " health,",
+              "start": 1.75,
+              "end": 1.99,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " and",
+              "start": 2.19,
+              "end": 2.25,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " that",
+              "start": 2.25,
+              "end": 2.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 2.37,
+              "end": 2.49,
+              "probability": 0.9921875
+            },
+            {
+              "text": " all.",
+              "start": 2.49,
+              "end": 2.75,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.57,
+          "end": 0.91
+        },
+        {
+          "raw": "I",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "raw": "am",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "raw": "not",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "raw": "well",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "raw": "in",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "raw": "health,",
+          "start": 1.75,
+          "end": 1.99
+        },
+        {
+          "raw": "and",
+          "start": 2.19,
+          "end": 2.25
+        },
+        {
+          "raw": "that",
+          "start": 2.25,
+          "end": 2.37
+        },
+        {
+          "raw": "is",
+          "start": 2.37,
+          "end": 2.49
+        },
+        {
+          "raw": "all.",
+          "start": 2.49,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "I",
+        "am",
+        "not",
+        "well",
+        "in",
+        "health,",
+        "and",
+        "that",
+        "is",
+        "all."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.57,
+          "end": 0.91,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.11,
+          "end": 1.29,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.29,
+          "end": 1.37,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.37,
+          "end": 1.47,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.47,
+          "end": 1.63,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.63,
+          "end": 1.75,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "health,",
+          "start": 1.75,
+          "end": 1.99,
+          "key": "health",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.19,
+          "end": 2.25,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.25,
+          "end": 2.37,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.37,
+          "end": 2.49,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "all.",
+          "start": 2.49,
+          "end": 2.75,
+          "key": "all",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.57,
+          "end": 0.91
+        },
+        {
+          "text": "I",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "text": "am",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "text": "not",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "text": "well",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "text": "in",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "text": "health,",
+          "start": 1.75,
+          "end": 1.99
+        },
+        {
+          "text": "and",
+          "start": 2.19,
+          "end": 2.25
+        },
+        {
+          "text": "that",
+          "start": 2.25,
+          "end": 2.37
+        },
+        {
+          "text": "is",
+          "start": 2.37,
+          "end": 2.49
+        },
+        {
+          "text": "all.",
+          "start": 2.49,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17484215553849936
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c18eab0cb65aa49d1ef935f19a56d7c0c788597212015e084ec34d980a44b38f",
+  "selected_reasons": []
+}

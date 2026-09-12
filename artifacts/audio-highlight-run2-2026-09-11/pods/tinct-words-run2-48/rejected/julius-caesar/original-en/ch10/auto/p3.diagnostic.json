@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "ac74118db20206a90d02bfd034f37750226fc63ec091c94927e151d30c37c409",
+  "attempts": [
+    {
+      "asr_seconds": 0.1790386252105236,
+      "alignment_seconds": 0.0003828480839729309,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Second Citizen. Whither are you going?",
+        "hotwords": "Second, Citizen, Whither"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Second, Citizen, Whither are you going?",
+          "start": 0.08,
+          "end": 2.18,
+          "words": [
+            {
+              "text": " Second,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " Citizen,",
+              "start": 0.88,
+              "end": 1.02,
+              "probability": 0.50634765625
+            },
+            {
+              "text": " Whither",
+              "start": 1.5,
+              "end": 1.68,
+              "probability": 0.5011768341064453
+            },
+            {
+              "text": " are",
+              "start": 1.68,
+              "end": 1.82,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " you",
+              "start": 1.82,
+              "end": 1.94,
+              "probability": 0.98828125
+            },
+            {
+              "text": " going?",
+              "start": 1.94,
+              "end": 2.18,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Citizen,",
+          "start": 0.88,
+          "end": 1.02
+        },
+        {
+          "raw": "Whither",
+          "start": 1.5,
+          "end": 1.68
+        },
+        {
+          "raw": "are",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "raw": "you",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "raw": "going?",
+          "start": 1.94,
+          "end": 2.18
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Citizen.",
+        "Whither",
+        "are",
+        "you",
+        "going?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Citizen,",
+          "start": 0.88,
+          "end": 1.02,
+          "key": "citizen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Whither",
+          "start": 1.5,
+          "end": 1.68,
+          "key": "whither",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.68,
+          "end": 1.82,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.82,
+          "end": 1.94,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "going?",
+          "start": 1.94,
+          "end": 2.18,
+          "key": "going",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Citizen.",
+          "start": 0.88,
+          "end": 1.02
+        },
+        {
+          "text": "Whither",
+          "start": 1.5,
+          "end": 1.68
+        },
+        {
+          "text": "are",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "text": "you",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "text": "going?",
+          "start": 1.94,
+          "end": 2.18
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17960678320378065
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "292b4e4283d362a8a5fc063b701228516764a8db2a204e655bcc0bdd976770dd",
+  "selected_reasons": []
+}

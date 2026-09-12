@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "671012a047c7a023358b829495ad0e3f0255eab0ce91a5355bbc7b58f2072853",
+  "attempts": [
+    {
+      "asr_seconds": 0.10922961961477995,
+      "alignment_seconds": 0.0002357885241508484,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassius. Cicero one!",
+        "hotwords": "Cassius, Cicero"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassius, Cicero one!",
+          "start": 0.05,
+          "end": 1.69,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " Cicero",
+              "start": 1.21,
+              "end": 1.45,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " one!",
+              "start": 1.45,
+              "end": 1.69,
+              "probability": 0.10296630859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Cicero",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "raw": "one!",
+          "start": 1.45,
+          "end": 1.69
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "Cicero",
+        "one!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cicero",
+          "start": 1.21,
+          "end": 1.45,
+          "key": "cicero",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "one!",
+          "start": 1.45,
+          "end": 1.69,
+          "key": "one",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Cicero",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "text": "one!",
+          "start": 1.45,
+          "end": 1.69
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10954746510833502
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b17265a4d5c71c7d85421e17ab68679b544957d4053376c408e80f4d67dfd135",
+  "selected_reasons": []
+}

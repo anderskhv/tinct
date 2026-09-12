@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "78c629109d544eb5602bba45df331bdff2a15d5c2d089ef3a2119beac9deb9e5",
+  "attempts": [
+    {
+      "asr_seconds": 0.11254826374351978,
+      "alignment_seconds": 0.0003124549984931946,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Pindarus goes up._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pindarus goes up.",
+          "start": 0.05,
+          "end": 1.37,
+          "words": [
+            {
+              "text": " Pindarus",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.5493570963541666
+            },
+            {
+              "text": " goes",
+              "start": 0.79,
+              "end": 1.05,
+              "probability": 0.796875
+            },
+            {
+              "text": " up.",
+              "start": 1.05,
+              "end": 1.37,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pindarus",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "goes",
+          "start": 0.79,
+          "end": 1.05
+        },
+        {
+          "raw": "up.",
+          "start": 1.05,
+          "end": 1.37
+        }
+      ],
+      "expected_tokens": [
+        "[_Pindarus",
+        "goes",
+        "up._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pindarus",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "pindarus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "goes",
+          "start": 0.79,
+          "end": 1.05,
+          "key": "goes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "up.",
+          "start": 1.05,
+          "end": 1.37,
+          "key": "up",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Pindarus",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "goes",
+          "start": 0.79,
+          "end": 1.05
+        },
+        {
+          "text": "up._]",
+          "start": 1.05,
+          "end": 1.37
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1129715209826827
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "647541dc50cfcfd812518b52533ed5a19805e8a329cc4fcd794b767ee9bd0a62",
+  "selected_reasons": []
+}

@@ -1,0 +1,741 @@
+{
+  "complete": true,
+  "signature": "d2351740116f3014b226cdd7e853191afeb734bc6efde76a87ba5e6f5fe00c30",
+  "attempts": [
+    {
+      "asr_seconds": 0.27366629242897034,
+      "alignment_seconds": 0.0003344602882862091,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Trebonius. Caesar, I will. [_Aside._] and so near will I be, That your best friends shall wish I had been further.",
+        "hotwords": "Trebonius, Caesar, I, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Trebonius, Caesar, I will. Aside. And so near will I be, That your best friends shall wish",
+          "start": 0.61,
+          "end": 6.49,
+          "words": [
+            {
+              "text": " Trebonius,",
+              "start": 0.61,
+              "end": 1.01,
+              "probability": 0.6669921875
+            },
+            {
+              "text": " Caesar,",
+              "start": 1.57,
+              "end": 1.75,
+              "probability": 0.98828125
+            },
+            {
+              "text": " I",
+              "start": 2.07,
+              "end": 2.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " will.",
+              "start": 2.09,
+              "end": 2.37,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Aside.",
+              "start": 3.09,
+              "end": 3.11,
+              "probability": 0.580078125
+            },
+            {
+              "text": " And",
+              "start": 3.91,
+              "end": 4.01,
+              "probability": 0.984375
+            },
+            {
+              "text": " so",
+              "start": 4.01,
+              "end": 4.21,
+              "probability": 0.990234375
+            },
+            {
+              "text": " near",
+              "start": 4.21,
+              "end": 4.39,
+              "probability": 0.974609375
+            },
+            {
+              "text": " will",
+              "start": 4.39,
+              "end": 4.59,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I",
+              "start": 4.59,
+              "end": 4.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be,",
+              "start": 4.77,
+              "end": 5.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " That",
+              "start": 5.21,
+              "end": 5.29,
+              "probability": 0.05560302734375
+            },
+            {
+              "text": " your",
+              "start": 5.29,
+              "end": 5.43,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " best",
+              "start": 5.43,
+              "end": 5.69,
+              "probability": 0.994140625
+            },
+            {
+              "text": " friends",
+              "start": 5.69,
+              "end": 5.99,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " shall",
+              "start": 5.99,
+              "end": 6.29,
+              "probability": 0.70703125
+            },
+            {
+              "text": " wish",
+              "start": 6.29,
+              "end": 6.49,
+              "probability": 0.9873046875
+            }
+          ]
+        },
+        {
+          "text": " I had been further.",
+          "start": 6.49,
+          "end": 7.25,
+          "words": [
+            {
+              "text": " I",
+              "start": 6.49,
+              "end": 6.69,
+              "probability": 0.990234375
+            },
+            {
+              "text": " had",
+              "start": 6.69,
+              "end": 6.79,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " been",
+              "start": 6.79,
+              "end": 6.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " further.",
+              "start": 6.97,
+              "end": 7.25,
+              "probability": 0.94189453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Trebonius,",
+          "start": 0.61,
+          "end": 1.01
+        },
+        {
+          "raw": "Caesar,",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "raw": "I",
+          "start": 2.07,
+          "end": 2.09
+        },
+        {
+          "raw": "will.",
+          "start": 2.09,
+          "end": 2.37
+        },
+        {
+          "raw": "Aside.",
+          "start": 3.09,
+          "end": 3.11
+        },
+        {
+          "raw": "And",
+          "start": 3.91,
+          "end": 4.01
+        },
+        {
+          "raw": "so",
+          "start": 4.01,
+          "end": 4.21
+        },
+        {
+          "raw": "near",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "raw": "will",
+          "start": 4.39,
+          "end": 4.59
+        },
+        {
+          "raw": "I",
+          "start": 4.59,
+          "end": 4.77
+        },
+        {
+          "raw": "be,",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "raw": "That",
+          "start": 5.21,
+          "end": 5.29
+        },
+        {
+          "raw": "your",
+          "start": 5.29,
+          "end": 5.43
+        },
+        {
+          "raw": "best",
+          "start": 5.43,
+          "end": 5.69
+        },
+        {
+          "raw": "friends",
+          "start": 5.69,
+          "end": 5.99
+        },
+        {
+          "raw": "shall",
+          "start": 5.99,
+          "end": 6.29
+        },
+        {
+          "raw": "wish",
+          "start": 6.29,
+          "end": 6.49
+        },
+        {
+          "raw": "I",
+          "start": 6.49,
+          "end": 6.69
+        },
+        {
+          "raw": "had",
+          "start": 6.69,
+          "end": 6.79
+        },
+        {
+          "raw": "been",
+          "start": 6.79,
+          "end": 6.97
+        },
+        {
+          "raw": "further.",
+          "start": 6.97,
+          "end": 7.25
+        }
+      ],
+      "expected_tokens": [
+        "Trebonius.",
+        "Caesar,",
+        "I",
+        "will.",
+        "[_Aside._]",
+        "and",
+        "so",
+        "near",
+        "will",
+        "I",
+        "be,",
+        "That",
+        "your",
+        "best",
+        "friends",
+        "shall",
+        "wish",
+        "I",
+        "had",
+        "been",
+        "further."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Trebonius,",
+          "start": 0.61,
+          "end": 1.01,
+          "key": "trebonius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Caesar,",
+          "start": 1.57,
+          "end": 1.75,
+          "key": "caesar",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.07,
+          "end": 2.09,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "will.",
+          "start": 2.09,
+          "end": 2.37,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Aside.",
+          "start": 3.09,
+          "end": 3.11,
+          "key": "aside",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.91,
+          "end": 4.01,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.01,
+          "end": 4.21,
+          "key": "so",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "near",
+          "start": 4.21,
+          "end": 4.39,
+          "key": "near",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.39,
+          "end": 4.59,
+          "key": "will",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.59,
+          "end": 4.77,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "be,",
+          "start": 4.77,
+          "end": 5.01,
+          "key": "be",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 5.21,
+          "end": 5.29,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.29,
+          "end": 5.43,
+          "key": "your",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 5.43,
+          "end": 5.69,
+          "key": "best",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "friends",
+          "start": 5.69,
+          "end": 5.99,
+          "key": "friends",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 5.99,
+          "end": 6.29,
+          "key": "shall",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "wish",
+          "start": 6.29,
+          "end": 6.49,
+          "key": "wish",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.49,
+          "end": 6.69,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 6.69,
+          "end": 6.79,
+          "key": "had",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 6.79,
+          "end": 6.97,
+          "key": "been",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "further.",
+          "start": 6.97,
+          "end": 7.25,
+          "key": "further",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Trebonius.",
+          "start": 0.61,
+          "end": 1.01
+        },
+        {
+          "text": "Caesar,",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "text": "I",
+          "start": 2.07,
+          "end": 2.09
+        },
+        {
+          "text": "will.",
+          "start": 2.09,
+          "end": 2.37
+        },
+        {
+          "text": "[_Aside._]",
+          "start": 3.09,
+          "end": 3.11
+        },
+        {
+          "text": "and",
+          "start": 3.91,
+          "end": 4.01
+        },
+        {
+          "text": "so",
+          "start": 4.01,
+          "end": 4.21
+        },
+        {
+          "text": "near",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "text": "will",
+          "start": 4.39,
+          "end": 4.59
+        },
+        {
+          "text": "I",
+          "start": 4.59,
+          "end": 4.77
+        },
+        {
+          "text": "be,",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "text": "That",
+          "start": 5.21,
+          "end": 5.29
+        },
+        {
+          "text": "your",
+          "start": 5.29,
+          "end": 5.43
+        },
+        {
+          "text": "best",
+          "start": 5.43,
+          "end": 5.69
+        },
+        {
+          "text": "friends",
+          "start": 5.69,
+          "end": 5.99
+        },
+        {
+          "text": "shall",
+          "start": 5.99,
+          "end": 6.29
+        },
+        {
+          "text": "wish",
+          "start": 6.29,
+          "end": 6.49
+        },
+        {
+          "text": "I",
+          "start": 6.49,
+          "end": 6.69
+        },
+        {
+          "text": "had",
+          "start": 6.69,
+          "end": 6.79
+        },
+        {
+          "text": "been",
+          "start": 6.79,
+          "end": 6.97
+        },
+        {
+          "text": "further.",
+          "start": 6.97,
+          "end": 7.25
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2741359621286392
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "23f9d9b80d81aae20c6a0d75417b233e782f3c1296ef5f6137bbef787a992701",
+  "selected_reasons": []
+}

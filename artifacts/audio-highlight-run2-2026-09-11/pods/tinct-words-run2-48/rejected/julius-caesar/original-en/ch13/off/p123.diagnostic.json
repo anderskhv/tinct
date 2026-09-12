@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "4e1bd47d1b4486d511a2e460744d56c96dd333fb970a3b08cb8ededcbadba90b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1379774333909154,
+      "alignment_seconds": 0.0002765180543065071,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Lucius with the gown.",
+          "start": 0.11,
+          "end": 1.55,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.91015625
+            },
+            {
+              "text": " Lucius",
+              "start": 0.65,
+              "end": 0.95,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " with",
+              "start": 0.95,
+              "end": 1.21,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 1.21,
+              "end": 1.33,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " gown.",
+              "start": 1.33,
+              "end": 1.55,
+              "probability": 0.86328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Lucius",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "raw": "with",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "raw": "the",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "raw": "gown.",
+          "start": 1.33,
+          "end": 1.55
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Lucius",
+        "with",
+        "the",
+        "gown."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lucius",
+          "start": 0.65,
+          "end": 0.95,
+          "key": "lucius",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.95,
+          "end": 1.21,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.21,
+          "end": 1.33,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "gown.",
+          "start": 1.33,
+          "end": 1.55,
+          "key": "gown",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Lucius",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "text": "with",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "text": "the",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "text": "gown.",
+          "start": 1.33,
+          "end": 1.55
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13835831359028816
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e301482939cdc3b3e3a2079d1cd98e98a110ad316319af181845c13145a7041e",
+  "selected_reasons": []
+}

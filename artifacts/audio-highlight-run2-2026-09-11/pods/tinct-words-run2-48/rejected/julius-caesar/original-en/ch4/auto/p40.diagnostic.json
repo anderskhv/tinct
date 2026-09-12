@@ -1,0 +1,277 @@
+{
+  "complete": true,
+  "signature": "c99241b2d9e0c08c3c99c0092075ed93e6b81e95cff91e0ecdf07bc5b37a4bf8",
+  "attempts": [
+    {
+      "asr_seconds": 2.4931173184886575,
+      "alignment_seconds": 0.00012869853526353836,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. He is welcome too.",
+        "hotwords": "Brutus, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, He Brutus. He is welcome too.",
+          "start": 0.52,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.52,
+              "end": 0.92,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " He",
+              "start": 1.12,
+              "end": 1.24,
+              "probability": 0.0479736328125
+            },
+            {
+              "text": " Brutus.",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.49755859375
+            },
+            {
+              "text": " He",
+              "start": 1.36,
+              "end": 1.36,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " is",
+              "start": 1.36,
+              "end": 1.36,
+              "probability": 0.9453125
+            },
+            {
+              "text": " welcome",
+              "start": 1.36,
+              "end": 1.56,
+              "probability": 0.72216796875
+            },
+            {
+              "text": " too.",
+              "start": 1.56,
+              "end": 1.98,
+              "probability": 0.70263671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.52,
+          "end": 0.92
+        },
+        {
+          "raw": "He",
+          "start": 1.12,
+          "end": 1.24
+        },
+        {
+          "raw": "Brutus.",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "He",
+          "start": 1.36,
+          "end": 1.36
+        },
+        {
+          "raw": "is",
+          "start": 1.36,
+          "end": 1.36
+        },
+        {
+          "raw": "welcome",
+          "start": 1.36,
+          "end": 1.56
+        },
+        {
+          "raw": "too.",
+          "start": 1.56,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "He",
+        "is",
+        "welcome",
+        "too."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "equal",
+          0,
+          5,
+          2,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.52,
+          "end": 0.92,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.12,
+          "end": 1.24,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Brutus.",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "brutus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.36,
+          "end": 1.36,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.36,
+          "end": 1.36,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "welcome",
+          "start": 1.36,
+          "end": 1.56,
+          "key": "welcome",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 1.56,
+          "end": 1.98,
+          "key": "too",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "He",
+          "start": 1.36,
+          "end": 1.36
+        },
+        {
+          "text": "is",
+          "start": 1.36,
+          "end": 1.36
+        },
+        {
+          "text": "welcome",
+          "start": 1.36,
+          "end": 1.56
+        },
+        {
+          "text": "too.",
+          "start": 1.56,
+          "end": 1.98
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.49329814594239
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5be0bbd5047c95d2e2dd76bd49f825e6cf8bafc197c7f568fe658f4e5055530f",
+  "selected_reasons": []
+}

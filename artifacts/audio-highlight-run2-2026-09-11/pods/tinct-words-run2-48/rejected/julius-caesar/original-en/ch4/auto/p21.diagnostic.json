@@ -1,0 +1,125 @@
+{
+  "complete": true,
+  "signature": "fad7cf410ea841bc0f1940dd780273d0c3c6700ebaba8a620ed5d9c4afe4a0ff",
+  "attempts": [
+    {
+      "asr_seconds": 0.11690700706094503,
+      "alignment_seconds": 0.0001250430941581726,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Knock within._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Knock within.",
+          "start": 0.02,
+          "end": 0.98,
+          "words": [
+            {
+              "text": " Knock",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.462890625
+            },
+            {
+              "text": " within.",
+              "start": 0.62,
+              "end": 0.98,
+              "probability": 0.64306640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Knock",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "within.",
+          "start": 0.62,
+          "end": 0.98
+        }
+      ],
+      "expected_tokens": [
+        "[_Knock",
+        "within._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Knock",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "knock",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "within.",
+          "start": 0.62,
+          "end": 0.98,
+          "key": "within",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Knock",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "within._]",
+          "start": 0.62,
+          "end": 0.98
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11707206815481186
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ae8faca67ddf5176375b2e6fe57ad199d5852234f4133bd0768dd882ca2cb4c2",
+  "selected_reasons": []
+}
