@@ -301,3 +301,7 @@ dagger mark.
 of the work. **Twelve of twelve are accepted.** What follows the twelfth
 acceptance is the whole-work pass — recorded in `../README.md` as the package's
 completion record, and in `../00-progress-ledger.md` under "Next".
+
+---
+
+**Superseded by the cross-book v3 pass (2026-09-12).** Book XII's accepted `candidate-v2.json` is unchanged on disk and keeps its hash; the current text of this book is **`candidate-v3.json`, sha256 `31d91dbd…`**, produced by `../scripts/build_v3_crossbook.py` as part of one change set across the whole work, ordered by class and not by book. `changes-v2-to-v3.md` lists this book's share of it with the class and the reason for each. The pass, its order, all eleven classes and the two it deliberately did not normalise are recorded in `../README.md`; the assembled edition built from the twelve v3 files is `../meditations-modern-en.staged.json`.

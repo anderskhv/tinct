@@ -33,5 +33,7 @@
   "min_paragraph_ratio": 0.9,
   "note": "screening signal only; not evidence of semantic completeness. The lowest ratios are the dropped six-token cross-reference in VI.9 (0.90 after finding 9.1 added two words) and the D11 drop in VI.41 (0.92)."
  },
- "accepted": "candidate-v2.json, see ACCEPTANCE.md"
+ "accepted": "candidate-v2.json, see ACCEPTANCE.md",
+ "candidate_v3_json_sha256": "52e9bcb66f341b9bc54029cafc2b892b1e000c0ca9cb4ec8911dccd38869b88a",
+ "candidate_v3_note": "Produced by the cross-book v3 pass (2026-09-12), scripts/build_v3_crossbook.py, as one change set across all twelve books ordered by class. The accepted candidate-v2.json is unchanged and keeps its hash; candidate-v3.json is the current text. See changes-v2-to-v3.md and ../README.md."
 }

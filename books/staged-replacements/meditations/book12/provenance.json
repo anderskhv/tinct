@@ -73,5 +73,7 @@
   "D13 fires nowhere in Book XII: AGREED, tested bracket by bracket. X.23 remains its only instance in the work.",
   "The XII.12 stray '18' never reaches the candidate: CONFIRMED.",
   "The step-1 no-rebuild finding: UPHELD by a THIRD reconstruction of a THIRD kind (review/verify_book12_source_review.py, which uses no indentation magnitude at all and decides each indented run by sentence continuity in the body accumulated so far): 36 paragraphs, one differing paragraph, XII.16, differing only by the documented dagger. One correction: the nine-space leak lands in XII.4, not XII.3 (finding C1); the conclusion is kept verbatim."
- ]
+ ],
+ "candidate_v3_json_sha256": "31d91dbdd4b4fe7cd8d6372f41bc3739670709437bfed33b01b79a097a6ad506",
+ "candidate_v3_note": "Produced by the cross-book v3 pass (2026-09-12), scripts/build_v3_crossbook.py, as one change set across all twelve books ordered by class. The accepted candidate-v2.json is unchanged and keeps its hash; candidate-v3.json is the current text. See changes-v2-to-v3.md and ../README.md."
 }

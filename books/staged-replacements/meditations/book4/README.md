@@ -82,3 +82,7 @@ Expected: `d85924d1…` (v1, frozen), `20d2b4df…` (v2, accepted) and `b0ecf3da
 ## Next action
 
 None for Book IV. The thread continues with Book V (`../book5/`).
+
+---
+
+**Superseded by the cross-book v3 pass (2026-09-12).** Book IV's accepted `candidate-v2.json` is unchanged on disk and keeps its hash; the current text of this book is **`candidate-v3.json`, sha256 `e75f9a5c…`**, produced by `../scripts/build_v3_crossbook.py` as part of one change set across the whole work, ordered by class and not by book. `changes-v2-to-v3.md` lists this book's share of it with the class and the reason for each. The pass, its order, all eleven classes and the two it deliberately did not normalise are recorded in `../README.md`; the assembled edition built from the twelve v3 files is `../meditations-modern-en.staged.json`.

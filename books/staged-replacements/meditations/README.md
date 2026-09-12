@@ -20,8 +20,9 @@ edition assessment, rights, and the staged corrected `original-en`).
   `source/pg15877-long-1862.txt` by `scripts/build_original_en_from_pg15877.py`.
 - `meditations-modern-en.staged.json` — **the assembled modern edition**, 12
   chapters, 487 paragraphs, 45,451 words, sha256
-  `e2cc6090b4cde62db3f991dd5f6714c5d194232c499de3bbe8ddd04915803d10`. Built from
-  the twelve accepted candidates by `scripts/assemble_modern_en.py`, which also
+  `e2cc6090b4cde62db3f991dd5f6714c5d194232c499de3bbe8ddd04915803d10`. Built by
+  `scripts/assemble_modern_en.py` from the twelve current candidates (the v3 files
+  of the cross-book pass, which is v2 plus its class changes), which also
   asserts the whole-work invariants.
 - `GLOSSARY.md` — stable renderings, fixed before drafting and corrected at the
   cross-book pass to describe the edition that exists.

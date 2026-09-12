@@ -33,5 +33,7 @@
   "min_paragraph_ratio": 0.95,
   "note": "screening signal only; not evidence of semantic completeness. The lowest ratio (V.4 0.95) is Long's 'out of which' three times becoming 'from which'."
  },
- "accepted": "candidate-v2.json, see ACCEPTANCE.md"
+ "accepted": "candidate-v2.json, see ACCEPTANCE.md",
+ "candidate_v3_json_sha256": "e31987592bdaebf0bc26e81405964edb201560f2f9d4fb22b4f7fa296b17c99e",
+ "candidate_v3_note": "Produced by the cross-book v3 pass (2026-09-12), scripts/build_v3_crossbook.py, as one change set across all twelve books ordered by class. The accepted candidate-v2.json is unchanged and keeps its hash; candidate-v3.json is the current text. See changes-v2-to-v3.md and ../README.md."
 }

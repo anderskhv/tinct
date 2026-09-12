@@ -221,3 +221,7 @@ paragraphs — X.9, X.19, X.25, X.31 — each differing only by the dagger mark.
 ## Next action
 
 None for Book X. The thread continues with Book XI (`../book11/`).
+
+---
+
+**Superseded by the cross-book v3 pass (2026-09-12).** Book X's accepted `candidate-v2.json` is unchanged on disk and keeps its hash; the current text of this book is **`candidate-v3.json`, sha256 `d1206f13…`**, produced by `../scripts/build_v3_crossbook.py` as part of one change set across the whole work, ordered by class and not by book. `changes-v2-to-v3.md` lists this book's share of it with the class and the reason for each. The pass, its order, all eleven classes and the two it deliberately did not normalise are recorded in `../README.md`; the assembled edition built from the twelve v3 files is `../meditations-modern-en.staged.json`.
