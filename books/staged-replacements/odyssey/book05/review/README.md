@@ -13,4 +13,8 @@ Subject: `book05/candidate-v1.json`, sha256
 - `checks_review.py` — the package's mechanical checks, re-run by the reviewer
   from the frozen files rather than reported from the drafter's numbers.
 
-Status: in progress.
+Status: **complete** — round 1 returned *accept after corrections* (1 substantive,
+14 minor, 18 optional, 8 records).
+
+- `verify-output.txt` — the output of the reviewer's source rule, including the
+  control that caught a blindness in the rule itself.
