@@ -1,11 +1,11 @@
 # The Histories character package — IN PROGRESS
 
-**Books 1–3 (Clio, Euterpe and Thalia, sections 1–557) are authored. Books 4–9
-are not.** Status stays `in-progress` and the package must not be integrated
-until all nine books are covered.
+**Books 1–4 (Clio, Euterpe, Thalia and Melpomene, sections 1–761) are
+authored. Books 5–9 are not.** Status stays `in-progress` and the package must
+not be integrated until all nine books are covered.
 
-Current state: 272 entities authored, 270 bound in the older translation and all
-272 in the modern edition, 7,718 and 7,625 exact mentions. The mention counts are
+Current state: 364 entities authored, 362 bound in the older translation and all
+364 in the modern edition, 8,306 and 8,213 exact mentions. The mention counts are
 already the highest in the library, because the nations Herodotus names —
 Persians, Hellenes, Athenians, Lacedaemonians — recur through all nine books and
 are bound wherever they appear, not only in Book 1. Content revision 2026-09-12.1.
@@ -52,7 +52,7 @@ entity: **Heracleidai / Heraclids**, **Mermnadai**, **Alcaios**, **Ninos**,
 **Lacedemonians**, **Aiolians**, **Lykians**, **Phocaians**, **Massagetae**. A
 test pins eleven of them.
 
-## Editorial checks — Books 1 to 3
+## Editorial checks — Books 1 to 4
 
 **1. Namesakes.** The four resolved above (Atys, Lycurgus, Cambyses, Alexander),
 plus Leon, Ninus and Bias against their later namesakes, plus **Artembares** the
@@ -114,11 +114,11 @@ No edition byte was touched.
 
 ## Remaining work
 
-- Books 3–9 (sections 398–1525): Cambyses and the Magian, Darius and the seven,
-  the Scythian campaign, the Ionian revolt, Marathon, Thermopylae, Salamis and
-  Plataea. Several hundred more people and nations.
+- Books 5–9 (sections 762–1525): the Ionian revolt, Marathon, Thermopylae,
+  Salamis and Plataea. Several hundred more people and nations — and the
+  Macedonian Alexander, who is still deliberately unbound.
 
-  Book 3 is done. Books 4–9 remain.
+  Books 3 and 4 are done. Books 5–9 remain.
 
 - The namesake tables extended as each book is authored, and the `None` defaults
   replaced only where the later man is actually carded.
@@ -178,8 +178,38 @@ identity updates released at the paragraph where the text itself releases them �
 Magophonia. A reader at section 430 is not told by a card what only section 458
 reveals.
 
+## The royal house of Cyrene
+
+Book 4's namesake cluster is a dynasty, and the oracle in the text names the
+problem for you: *"For four named Battus and four named Arcesilaus — eight
+generations of men — Loxias grants you to be kings of Cyrene."*
+
+Herodotus narrates three of each, and they are three men each:
+
+| Entity | Who | Where |
+|---|---|---|
+| `battus-i` | the founder, the stammerer sent to Libya, forty years | 706–715 |
+| `battus-ii` | Battus the Fortunate, the third king, who invited all Greece | 715, 716 |
+| `battus-iii` | Battus the Lame, for whom Demonax wrote a constitution | 717, 718, 761 |
+| `arcesilaus-i` | the founder's son, sixteen years | 715 |
+| `arcesilaus-ii` | who lost seven thousand hoplites and was strangled by his brother | 716, 717 |
+| `arcesilaus-iii` | exiled to Samos, burnt his enemies in a tower, murdered at Barca | 718–758 |
+| `battiadae` | the house itself, where the name stands for the line | 719, 758 |
+
+**Section 715 names two different Battuses in one sentence** — "the first settler
+Battus, who reigned forty years… but in the time of the third king, called Battus
+the Fortunate" — so it carries an occurrence list, and a test walks that sentence
+in source order and asserts the two are different men. Section 719 is the oracle,
+where both names mean the dynasty and neither means a king; a test asserts that
+too. Macaulay spells them Battos and Arkesilaos, and calls Battus II the
+Prosperous rather than the Fortunate.
+
+**Two kings called Etearchus**: the Ammonian who told the Nasamonian story in
+Book 2, and the Cretan of Oaxus in Book 4 who swore his own daughter away. The
+Book 2 entity lost its alias so that a table could own both.
+
 ## Validation
 
 `python3 books/characters/build_the_histories.py --check`, then
-`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Nineteen focused
-tests so far. No edition changes, no network generation.
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Twenty-two
+focused tests so far. No edition changes, no network generation.

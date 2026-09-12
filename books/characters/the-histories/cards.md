@@ -828,7 +828,7 @@ Whom Herodotus judges to be Egyptian by descent on three grounds — their skin,
 
 ## The Nasamonians · supporting
 
-The Libyan people of the Syrtis whose five adventurous young men crossed the desert and found a city of small dark men by a great river running east.
+The Libyan people of the Syrtis whose five adventurous young men crossed the desert and found a city of small dark men by a great river running east; Book 4 calls them the Nasamones and describes their year — inland for the dates, the coast for the summer.
 
 ## The Ammonians · reference
 
@@ -1095,3 +1095,371 @@ The most numerous nation Herodotus knows, whose Callatians eat their dead and wh
 ## The tribute nations · major
 
 Darius’s twenty provinces, named in a roll of some forty peoples — Chorasmians, Sogdians, Bactrians, Caspians, Parthians, Sarangians, Paricanians and the rest — each with its assessment in talents. The list is Herodotus’s proof of what the empire actually was: not a conquest story but an accounts book.
+
+## Targitaos · major
+
+The first man in the Scythian account of themselves, born of Zeus and a daughter of the Borysthenes; his three sons divided the kingdom by which of them could pick up the golden plough, yoke, axe and cup without being burnt.
+
+## Lipoxaïs · supporting
+
+The eldest of Targitaos’s three sons, from whom the Auchatai are descended.
+
+## Arpoxaïs · supporting
+
+The middle son, from whom the Catiaroi and Traspians come.
+
+## Colaxaïs · supporting
+
+The youngest, who alone could take up the burning gold, and from whom the Royal tribe descends.
+
+## Agathyrsos · supporting
+
+One of the three sons Heracles begot on the snake-woman in Hylaia, in the Pontic Greeks’ version of the Scythian origin.
+
+## Gelonos · supporting
+
+The second of those three sons.
+
+## Skythes · supporting
+
+The youngest of the three, the only one who could draw the bow and put on the belt, and the ancestor of all the Scythian kings.
+
+## Aristeas · major
+
+The poet of Proconnesos who wrote the Arimaspeia, died in a fuller’s shop, was seen the same day on the road to Kyzicos, and turned up again two hundred and forty years later at Metapontion telling them to set up an altar to Apollo.
+
+## Caÿstrobios · reference
+
+Aristeas’s father.
+
+## Anacharsis · major
+
+The one Scythian the Greeks admire, killed by his own king for keeping a Greek festival — Herodotus’s single exception, with Skyles, to the rule that Scythians want nothing Greek.
+
+## Saulios · supporting
+
+King of the Scythians, who shot his brother Anacharsis with an arrow for celebrating the rites of the Mother of the Gods.
+
+## Skyles · major
+
+A Scythian king by a Greek mother, who kept a house at Borysthenes and was initiated into the rites of Bacchus; his own people made his brother king instead and cut off his head.
+
+## Ariapeithes · supporting
+
+Skyles’s father, a Scythian king with a Greek wife from Istria.
+
+## Tymnes · supporting
+
+Ariapeithes’s steward, and one of Herodotus’s named sources for Scythian genealogy.
+
+## Idanthyrsos · major
+
+King of the Scythians in Darius’s invasion, who would not fight, sent back a mouse, a frog, a bird and five arrows, and told Darius to weep when he found the tombs of his fathers.
+
+## Octamasades · supporting
+
+Skyles’s brother, made king in his place, who cut off Skyles’s head — and who traded a hostage uncle with Sitalkes rather than fight him.
+
+## Sitalkes · supporting
+
+The Thracian king who offered Octamasades his own brother in exchange for the one Octamasades held, so that neither had to give battle.
+
+## Salmoxis · major
+
+The divinity of the Getai, whom some of them call Gebeleizis, and whom the Greeks say was a man — a freed slave of Pythagoras who built an underground chamber, disappeared into it for three years, and came back to prove immortality.
+
+## Pythagoras · supporting
+
+Son of Mnesarchos, named as the master whose slave Salmoxis is supposed to have been — a story Herodotus reports and does not believe.
+
+## Mnesarchos · reference
+
+Pythagoras’s father.
+
+## Mandrocles · supporting
+
+The Samian who built the bridge of boats across the Bosphorus, was richly rewarded, and spent the money on a painting of the crossing dedicated in the temple of Hera.
+
+## Sataspes · supporting
+
+The Achaemenid sent to sail round Libya instead of being impaled, who turned back in fear and was impaled after all; his eunuch ran off to Samos with a great sum.
+
+## Teaspis · reference
+
+Sataspes’s father.
+
+## Megabazos · major
+
+The Persian Darius left to command in Europe — the man whose praise Darius rated above a pomegranate’s seeds; he subdued the Hellespont and told the Persians the Chalcedonians must have been blind.
+
+## Histiaeus · major
+
+Tyrant of Miletus, who talked the Ionians out of breaking Darius’s bridge over the Ister on the argument that their own tyrannies depended on him. The two editions spell him Histiaeus and Histiaios.
+
+## The Amazons · major
+
+Whom the Scythians call Oiorpata, man-slayers; the ones taken at the Thermodon killed their crews, drifted to the Maeotian lake, and became the Sauromatai by marrying Scythian youths on terms.
+
+## Theras · major
+
+The Spartan regent who would not be a subject when his nephews came of age, and led the colony to Callista, which took his name — Thera.
+
+## Autesion · reference
+
+Theras’s father.
+
+## Tisamenus · reference
+
+Autesion’s father, in the descent from Cadmus.
+
+## Membliarus · reference
+
+The Phoenician left on Callista by Cadmus, whose descendants Theras found there eight generations later.
+
+## Poikiles · reference
+
+Membliarus’s father.
+
+## The Minyae · supporting
+
+The children of the Argonauts, driven from Lemnos, who camped on Taÿgetus, were taken in by Sparta, plotted, and were saved by their Spartan wives smuggling them out in their own clothes.
+
+## Grinnus · supporting
+
+King of Thera, who went to Delphi about something else and was told to found a city in Libya, and answered that he was too old — pointing at Battus.
+
+## Aesanius · reference
+
+Grinnus’s father.
+
+## Etearchus · major
+
+King of Oaxus in Crete, who let his second wife persuade him to swear away his own daughter Phronime — and handed her to a merchant to be drowned. A different man from the Etearchus of the Ammonians in Book 2.
+
+## Phronime · major
+
+Etearchus’s daughter, sworn away by her father, saved at sea by the Theraean who had contracted to drown her, and the mother of Battus.
+
+## Themison · supporting
+
+The Theraean merchant who took the oath to throw Phronime into the sea, kept it to the letter by lowering her over the side and pulling her straight back up, and then kept her.
+
+## Polymnestus · supporting
+
+A Theraean of good family, Phronime’s husband and Battus’s father.
+
+## Corobius · supporting
+
+The murex-fisher of Crete who had once been blown to Platea and could pilot the Theraeans there; they left him on the island with rations and forgot him for longer than the rations lasted.
+
+## Battus · major
+
+The founder of Cyrene, who went to Delphi about his stammer and was told to found a city in Libya instead. He reigned forty years. The older translation spells him Battos throughout.
+
+## Battus the Fortunate · supporting
+
+The third king of Cyrene, in whose reign the oracle invited all Greeks to come and share out Libyan land.
+
+## Battus the Lame · major
+
+Arcesilaus’s son, lame and unsound in his feet, in whose reign Cyrene sent to Delphi for a constitution and got Demonax of Mantineia. Pheretime was his wife.
+
+## Arcesilaus · supporting
+
+Battus the founder’s son, who reigned sixteen years.
+
+## Arcesilaus · major
+
+Battus the Fortunate’s son, who quarrelled with his brothers until they founded Barca, lost seven thousand hoplites at Leucon, and was strangled by his own brother Haliarchus while sick.
+
+## Arcesilaus · major
+
+Battus the Lame’s son by Pheretime, who would not keep Demonax’s constitution, was exiled to Samos, came back on a promise of land, burnt his opponents alive in a tower, and was murdered at Barca with his father-in-law.
+
+## The house of Battus · major
+
+The royal line of Cyrene. The oracle told Arcesilaus that Loxias granted his family four named Battus and four named Arcesilaus, eight generations, and no more — which is exactly how many there were.
+
+## Haliarchus · supporting
+
+Arcesilaus’s brother, who strangled him while he was sick from a potion, and was himself killed by treachery by Arcesilaus’s wife.
+
+## Eryxo · supporting
+
+Arcesilaus’s wife, who had Haliarchus killed for murdering her husband.
+
+## Demonax · major
+
+The most respected man in Mantineia, sent to Cyrene to write it a constitution; he divided the people into three tribes, left the king his estates and priesthoods, and gave everything else to the people.
+
+## Pheretime · major
+
+Battus the Lame’s wife and Arcesilaus’s mother, who sat as a suppliant of one Persian governor after another until she got an army, took Barca, impaled the men on the wall and cut off their wives’ breasts to nail up beside them — and then died eaten by worms.
+
+## Euelthon · supporting
+
+Ruler of Salamis in Cyprus, who gave Pheretime every fine gift except the army she kept asking for, and observed that a spindle was a more suitable present for a woman.
+
+## Aglomachus · reference
+
+The private citizen whose tower Arcesilaus’s enemies took refuge in, and which Arcesilaus burnt down around them.
+
+## Alazeir · supporting
+
+Arcesilaus’s father-in-law, the ruler of Barca, killed in the marketplace along with him.
+
+## Aryandes · supporting
+
+The Persian governor of Egypt who gave Pheretime her army, and who was afterwards put to death by Darius for coining silver as pure as the king’s gold.
+
+## Jason · supporting
+
+Whose ship, driven to Libya by a gale, is one of the origins Herodotus gives for the lake Tritonis story.
+
+## Hyperoche · reference
+
+One of the two Hyperborean maidens who brought the sacred offerings to Delos and died there.
+
+## Laodike · reference
+
+The other Hyperborean maiden, buried with Hyperoche on Delos.
+
+## Arge · reference
+
+One of two earlier Hyperborean maidens who came to Delos with the gods themselves.
+
+## Opis · reference
+
+Arge’s companion, named with her in Olen’s hymn.
+
+## Olen · reference
+
+The Lycian who composed the Delian hymn in which the Hyperborean maidens are named.
+
+## The Sauromatai · major
+
+Descended, the story says, from the Amazons and the Scythian youths; their women ride, shoot and hunt, and no woman marries until she has killed an enemy.
+
+## The Budinoi · supporting
+
+A great and numerous nation with grey eyes and red hair, in a country wholly of forest, whose city Gelonos is built of wood.
+
+## The Gelonians · supporting
+
+Greeks by descent who left the trading stations and settled among the Budinoi, speaking half Scythian and half Greek.
+
+## The Neuroi · supporting
+
+Who left their country because of snakes, and who are said by their neighbours — and by themselves — to become wolves once a year.
+
+## The Androphagoi · supporting
+
+The man-eaters, the most savage manners of all men, with no law and no justice and a language of their own.
+
+## The Melanchlainoi · supporting
+
+The Black-cloaks, who wear black and follow Scythian customs without being Scythian.
+
+## The Agathyrsians · supporting
+
+A most delicate people, great wearers of gold, who hold their women in common so that they may all be brothers.
+
+## The Issedonians · supporting
+
+Beyond the Argippaioi, who eat their dead fathers at a feast and gild the skull to sacrifice at yearly; their women have equal power with the men.
+
+## The Arimaspians · supporting
+
+The one-eyed men beyond the Issedonians who fight the gold-guarding griffins for it — a story Herodotus repeats from Aristeas and does not vouch for.
+
+## The Hyperboreans · supporting
+
+Beyond the griffins, extending to the sea; they send the sacred offerings wrapped in wheat-straw on from nation to nation until they reach Delos.
+
+## The Alazonians · reference
+
+Above the Callipidai on the Hypanis, who sow and eat grain, onions, leeks, lentils and millet.
+
+## The Callipidai · reference
+
+Greek Scythians on the Hypanis, above the trading station of the Borysthenites.
+
+## The Tauroi · supporting
+
+Who sacrifice shipwrecked men and any Greek they catch to the Maiden, and nail the heads up over their houses.
+
+## The Getai · supporting
+
+The bravest and most law-abiding of the Thracians, who believe they do not die but go to Salmoxis, and who shoot arrows at the sky when it thunders.
+
+## The Garamantes · supporting
+
+Who flee from every man, own no weapon of war, and hunt the Cave-dwelling Ethiopians in four-horse chariots.
+
+## The Lotus-eaters · supporting
+
+Who live entirely on the fruit of the lotus, about the size of a mastich-berry and as sweet as a date, and make wine of it.
+
+## The Machlyes · supporting
+
+Who use the lotus too, though less, and who live round Lake Tritonis and hold the yearly festival of Athene where the maidens fight.
+
+## The Auseans · supporting
+
+Neighbours of the Machlyes, who have no marriage but couple like cattle, and bring up a child in whichever house the man it resembles lives in.
+
+## The Atlanteans · reference
+
+Named after their mountain, who are said to eat nothing that has life and never to dream.
+
+## The Gindanes · reference
+
+Whose women wear an anklet of hide for every man they have lain with, and the one with the most is thought best.
+
+## The Asbystae · reference
+
+Above Cyrene, the greatest drivers of four-horse chariots in Libya.
+
+## The Auschisae · reference
+
+Above Barca, reaching down to the sea at Euesperides.
+
+## The Giligamae · reference
+
+Westward from the Adyrmachidae as far as the island of Aphrodisias, where the silphium begins.
+
+## The Adyrmachidae · reference
+
+The Libyans nearest Egypt, who follow Egyptian customs but dress like the rest, and whose brides are shown first to the king.
+
+## The Cyrenaeans · major
+
+Battus’s colony and the richest Greek city in Libya, who invited the whole of Greece to come and take a share of land.
+
+## The Theraeans · major
+
+Theras’s colonists on Callista, who sent Battus to Libya because the oracle would not let them alone, and whose own account of him differs from the Cyrenaean one.
+
+## The Barcaeans · major
+
+The Cyrenaean breakaways who founded Barca, killed Arcesilaus, and were besieged nine months by the Persians and tricked out of the city by a covered pit and an oath sworn over it.
+
+## The Delians · supporting
+
+Who tell more than anyone about the Hyperborean offerings and the graves of the maidens.
+
+## The Borysthenites · supporting
+
+The Greeks of the trading station at the Borysthenes, who call themselves Milesians and among whom Skyles kept a house.
+
+## The Royal Scythians · supporting
+
+The bravest and most numerous Scythians, who hold the rest for slaves, and whose kings are buried at Gerros with a strangled concubine, a cup-bearer, a cook and a horse.
+
+## The Saspeirians · reference
+
+Above the Medes, in Herodotus’s reckoning of the four nations that fill Asia northward.
+
+## The Hellespontians · reference
+
+Named with the Ionians and Aeolians in the fleet Darius took up the Ister.

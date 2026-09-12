@@ -51,6 +51,31 @@ SPLIT={
  'Mo(?:e|i)ris':({(221,0):'moeris-king',(228,0):'moeris-king',
                  (316,0):'moeris-king'},None),
  # Paris again, in Egypt with Helen and the stolen goods.
+ # BOOK 4. The royal house of Cyrene, where the oracle itself says there will
+ # be "four named Battus and four named Arcesilaus". The founder, his grandson
+ # the Fortunate, and his great-great-grandson the Lame are three men; so are
+ # the three Arcesilauses. Where the name stands for the dynasty rather than a
+ # man — the oracle at 719, the spared kinsmen at 758 — it goes to the house.
+ 'Batt(?:us|os)':({(706,0):'battus-i',(709,0):'battus-i',(710,0):'battus-i',(711,0):'battus-i',(711,1):'battus-i',(711,2):'battus-i',(712,0):'battus-i',(713,2):'battus-i',
+              (715,0):['battus-i','battus-ii'],
+              (716,0):'battus-ii',
+              (717,0):'battus-iii',(718,0):'battus-iii',(761,0):'battus-iii',
+              (719,0):'battiadae',(758,0):'battiadae'},None),
+ 'Ar(?:cesilaus|kesilaos)':({(715,0):'arcesilaus-i',
+              (716,0):'arcesilaus-ii',(717,0):'arcesilaus-ii',
+              (718,0):'arcesilaus-iii',(720,0):'arcesilaus-iii',
+              (721,0):'arcesilaus-iii',(723,0):'arcesilaus-iii',
+              (756,0):'arcesilaus-iii',(758,0):'arcesilaus-iii'},None),
+ # Two kings called Etearchus: the Ammonian of Book 2, and the Cretan of Oaxus
+ # who swore his own daughter away.
+ 'Etearch(?:us|os)':({(247,0):'etearchus',(248,0):'etearchus',
+                      (710,0):'etearchus-oaxos'},None),
+ # Anacharsis the Scythian, killed by his brother the king; Book 10 of the
+ # Republic's Anacharsis is the same man but belongs to another book entirely.
+ 'Anacharsis':({(602,0):'anacharsis-scythian',(632,0):'anacharsis-scythian',
+                (633,0):'anacharsis-scythian'},None),
+ # Pythagoras named only as the master Salmoxis is supposed to have served.
+ 'Pythagoras':({(651,0):'pythagoras-samos'},None),
  # Two men called Archias in one paragraph: the Lacedaemonian who died inside
  # Samos, and his grandson of the same name, whom Herodotus met at Pitane. Only
  # the fourth occurrence is the grandson.
@@ -75,6 +100,8 @@ SPLIT={
 # translations distribute the plural differently inside the paragraph, so this
 # one paragraph needs a list per edition.
 EDITION_SPLIT={
+ ('modern-en','Ar(?:cesilaus|kesilaos)'):{(719,0):['arcesilaus-iii','battiadae']},
+ ('original-en','Ar(?:cesilaus|kesilaos)'):{(719,0):['arcesilaus-iii','arcesilaus-iii','battiadae']},
  ('modern-en','Magians'):{(476,0):['magian-brothers','magian-brothers','magian-brothers',
                                    'magians','magians']},
  ('original-en','Magians'):{(476,0):['magian-brothers','magian-brothers','magians',

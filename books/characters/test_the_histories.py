@@ -1,5 +1,5 @@
-"""Focused checks for the Histories. AUTHORING IN PROGRESS: Books 1-3
-(sections 1-557) are authored; Books 4-9 are not."""
+"""Focused checks for the Histories. AUTHORING IN PROGRESS: Books 1-4
+(sections 1-761) are authored; Books 5-9 are not."""
 import unittest
 from build_the_histories import compile_package
 
@@ -52,7 +52,8 @@ class TheHistories(unittest.TestCase):
                   'Thrasybulos','Alcmaion','Athene','Kimmerians','Phenicians','Adrastos',
                   'Ladike','Esop','Etearchos','Hecataios','Menelaos','Lynkeus','Linos',
                   'Dioscuroi','Samothrakians','Keltoi','Kilikians','Hephaistos','Dionysos',
-                  'Oroites','Eginetans','Dareios']:
+                  'Oroites','Eginetans','Dareios','Battos','Arkesilaos','Kyrenians','Theraians',
+                  'Minyai','Lotophagoi','Machlyans','Atlantians']:
             self.assertIn(t,texts,t)
 
     def test_the_peoples_carry_across_all_nine_books(self):
@@ -133,6 +134,37 @@ class TheHistories(unittest.TestCase):
             for cid in ['otanes','intaphrenes','gobryas','megabyzos','aspathines',
                         'hydarnes','darius']:
                 self.assertTrue(where(ed,cid),f'{cid} {ed}')
+
+    def test_the_royal_house_of_cyrene_is_seven_entities(self):
+        # The oracle promises four named Battus and four named Arcesilaus. The
+        # three Battuses and three Arcesilauses Herodotus actually narrates are
+        # separate men, and the dynasty itself is a seventh card.
+        for ed in ['original-en','modern-en']:
+            self.assertTrue(all(c<=715 for c,_ in where(ed,'battus-i')),ed)
+            self.assertEqual(sorted(set(where(ed,'battus-ii'))),[(715,0),(716,0)],ed)
+            self.assertTrue(all(c in (717,718,761) for c,_ in where(ed,'battus-iii')),ed)
+            self.assertEqual(where(ed,'arcesilaus-i'),[(715,0)],ed)
+            self.assertTrue(all(c in (716,717) for c,_ in where(ed,'arcesilaus-ii')),ed)
+            self.assertTrue(all(c>=718 for c,_ in where(ed,'arcesilaus-iii')),ed)
+            # 715 names two different Battuses in one sentence.
+            ids=[m['characterId'] for m in sorted(
+                (m for m in mentions(ed) if m['chapterNumber']==715
+                 and m['characterId'].startswith('battus')),
+                key=lambda m:m['startOffset'])]
+            self.assertEqual(ids,['battus-i','battus-ii'],ed)
+
+    def test_the_oracle_names_the_dynasty_not_a_man(self):
+        # "four named Battus and four named Arcesilaus" goes to the house.
+        for ed in ['original-en','modern-en']:
+            self.assertIn((719,0),where(ed,'battiadae'),ed)
+            self.assertIn((758,0),where(ed,'battiadae'),ed)
+            self.assertNotIn((719,0),where(ed,'battus-i'),ed)
+
+    def test_the_two_kings_called_etearchus(self):
+        # The Ammonian of Book 2, and the Cretan of Oaxus in Book 4.
+        for ed in ['original-en','modern-en']:
+            self.assertTrue(all(c in (247,248) for c,_ in where(ed,'etearchus')),ed)
+            self.assertEqual(set(where(ed,'etearchus-oaxos')),{(710,0)},ed)
 
     def test_no_entity_is_missing_from_both_editions(self):
         o=set(REPORT['editions']['original-en']['omittedEntities'])
