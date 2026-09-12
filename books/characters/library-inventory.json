@@ -370,9 +370,12 @@
     {
       "bookId": "the-republic",
       "title": "The Republic",
-      "contentStatus": "not-started",
+      "contentStatus": "validated-package",
       "appStatus": "not-integrated",
-      "reviewedEditions": [],
+      "reviewedEditions": [
+        "original-en",
+        "modern-en"
+      ],
       "sources": [
         {
           "edition": "modern-en",
@@ -390,7 +393,7 @@
         }
       ],
       "existingThreadCandidates": 6,
-      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
+      "nextAction": "Awaiting integration by the release owner. 143 entities across 10 books. Content review is the authoring agent's own; independent editorial approval and production verification are still outstanding."
     },
     {
       "bookId": "meditations",

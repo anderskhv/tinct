@@ -904,3 +904,51 @@ Register both English editions, version the immutable asset URL, run the normal 
 4. 20:0 "Marearet" in the original edition shows Margaret's card.
 
 Report live evidence back to the package `status.json` and the generated inventory only after those checks pass. Validated is not deployed.
+
+## Opus batch 9: The Republic
+
+Authored on branch `claude/tinct-character-content-1n5iqq`. Queued, not production verified.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---|---:|---|
+| The Republic | COMMIT | 139 / 143 | build_the_republic.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| The Republic | 338cc5908ed34b108c6775dad4e437feccb19ba86f6fdcd868ea5821d777b0a6 | 02082bbef9bf9026cdcdb11c0bc60e0e518a832d63f19dcbcab65ca794078f57 |
+
+143 authored entities, 620 exact mentions in the original and 652 in the modern, across 10 books and 4,308 paragraphs per edition. Commands: `python3 books/characters/build_the_republic.py --check`, then `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Shared dependencies: `build_reviewed.py` and `reviewed_aliases.py`; neither was changed.
+
+### Release review points
+
+A dialogue with no speaker tags — Socrates narrates and everyone else is "he said" — so nothing here is inferred from position. Every binding is a name the text prints.
+
+**Two translation divergences needed position rules rather than aliases**, and both are worth a reviewer's eye because the alternative was unsafe:
+
+- **Jowett spells Hera "Here."** That cannot be an alias; the goddess is bound at the three paragraphs where the word is her name (2:245, 2:309, 3:92) and nowhere else. A test pins all three.
+- **Jowett writes "idea" where the modern edition writes "Form."** The Forms are bound in the older translation only at the four passages that define them (6:330, 6:332, 6:396, 10:14), each pattern written so it cannot also match the modern wording. A plain alias on "idea" would have carded several hundred ordinary uses of the word.
+
+Jowett also writes **Athene**, **Cheiron**, and **Love** for Eros; all carried as aliases.
+
+Spot-check, in order of risk: 10:278 Glaucus the sea-god against Glaucon the interlocutor (one letter apart); 6:143 "the necessity of Diomede" against Diomedes the hero (one entity, two spellings); 1:18, where Ariston and Aristonymus are named one clause apart.
+
+**One decision to confirm.** *The Forms* are cast although they are not a person. They are what Books 5 to 7 are about, and a reader meeting "the Forms are known but not seen" with no card is stuck. If the release owner would rather the cast stayed strictly to persons, this is the entity to drop.
+
+### Deliberately unbound, documented
+
+The anonymous "he said" speakers, since a dialogue's attribution cannot be recovered from a name that is not printed; "the Muse of Philosophy" at 6:210, a figure of speech rather than one of the nine; the planets at 10:313 (Saturn, Mercury, Venus, Mars, Jupiter), which are the translator's parenthetical gloss on the colours of the whorls, not gods.
+
+### Source defects, none blocking enablement
+
+None. Both editions parse cleanly into 10 books and 4,308 paragraphs and align paragraph for paragraph. Four entities are absent from the original — Insolence, Anarchy, Waste and Shamelessness, which the modern edition capitalises into persons in Book 8 and Jowett leaves as lower-case nouns — and none from the modern. **No entity is absent from both.** No edition byte was touched.
+
+### Required production checks
+
+Register both English editions, version the immutable asset URL, run the normal app gates and deploy, then open the production reader and confirm on the fetched asset:
+
+1. Book 1 shows a distinct card for each of the eleven men in Cephalus's house, including the four silent ones at 1:18.
+2. 10:278 shows Glaucus the sea-god, not Glaucon.
+3. In the original edition, 2:245 "Here" shows Hera's card, and an ordinary "Here" elsewhere in the same book shows none.
+4. 6:332 shows the Forms card in both editions.
+
+Report live evidence back to the package `status.json` and the generated inventory only after those checks pass. Validated is not deployed.

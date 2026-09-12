@@ -19,7 +19,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | The Art of War (`the-art-of-war`) | validated-package | Restored by main95029ffe2; preserve both English character editions. Audio eligibility is independent. |
 | Pride and Prejudice (`pride-and-prejudice`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Crime and Punishment (`crime-and-punishment`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| The Republic (`the-republic`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| The Republic (`the-republic`) | validated-package | Awaiting integration by the release owner. 143 entities across 10 books. Content review is the authoring agent's own; independent editorial approval and production verification are still outstanding. |
 | Meditations (`meditations`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Divine Comedy (`divine-comedy`) | validated-package | Awaiting integration by the release owner. 589 entities across all 100 cantos; the largest package in the library. Content review is the authoring agent's own; independent editorial approval and production verification are still outstanding. |
 | Jane Eyre (`jane-eyre`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
