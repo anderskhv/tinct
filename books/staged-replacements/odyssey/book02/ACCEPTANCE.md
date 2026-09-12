@@ -163,3 +163,41 @@ OK — accepted at v2: 15 paragraphs differ from v1, Butler token retention 0.90
 ```
 
 Nothing in this package is merged, registered or deployed.
+
+
+---
+
+## D20 backfill — NORM RATE, MOVE-GAP, and the basis (2026-09-12)
+
+Added at Book 6's step 6, when **D20** made the semicolon-normalized splitting
+rate and MOVE-GAP standard for every Book and asked that they be backfilled.
+Nothing in this record is changed; this is added beside it. All of it is
+produced by `python3 scripts/checks.py --all`, from the accepted file.
+
+**Basis: all 35 paragraphs** — records finding **R-1** of Book 6's round 1. A figure without
+the paragraph set it is computed over is not a figure, and the package
+published one for three Books.
+
+| measure | value |
+|---|---|
+| Butler token retention (canonical, aggregate-join) | 0.90232 |
+| bag retention (order-blind) | 0.91864 |
+| **MOVE-GAP** (bag − order) | **0.01632** |
+| displaced runs (the strict clause-movement witness) | 0 |
+| sentences, source → candidate | 137 → 159 |
+| splitting rate, raw (D17) | +16.1% |
+| semicolon-normalized sentences | 173 → 180 |
+| **NORM RATE** (D20) | **+4.0%** |
+| semicolons, Butler → candidate (D19) | 36 → 21 |
+| sentences grown into the 40s (D20 aligned gate; none past 50) | 3 |
+| candidate sentences of 40 words or more (absolute) | 23 |
+
+**MOVE-GAP is an upper bound on clause movement** — it counts any relocation of
+a surviving token, phrase-internal ones included. The displaced-runs count is
+the lower bound: a run of four or more consecutive Butler tokens, occurring
+exactly once on each side, surviving verbatim outside the monotone alignment.
+
+**NORM RATE** adds each text's own semicolon count to its own sentence count on
+**both** sides, so a semicolon and a period score the same and converting one
+into the other is worth exactly zero. It is what D19's count was for, and what
+D17's raw rate is worth once the bookkeeping is priced out.

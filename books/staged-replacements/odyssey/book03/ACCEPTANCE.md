@@ -250,3 +250,43 @@ python3 book03/review/verify_source_book3_review.py   # the reviewer's rule
 ```
 
 Nothing in this package is merged, registered or deployed.
+
+
+---
+
+## D20 backfill — NORM RATE, MOVE-GAP, and the basis (2026-09-12)
+
+Added at Book 6's step 6, when **D20** made the semicolon-normalized splitting
+rate and MOVE-GAP standard for every Book and asked that they be backfilled.
+Nothing in this record is changed; this is added beside it. All of it is
+produced by `python3 scripts/checks.py --all`, from the accepted file.
+
+**Basis: 37 of 38 — B03-P038 excluded, the **D14** splice: 196 of the served source paragraph's 208 words are the replaced `modern-en`'s own ¶38 and the candidate renders Butler's 12. Scoring a candidate against a source that is not its source measures the defect in the other file. The exclusion is correct and was never stated; both bases are printed here.** — records finding **R-1** of Book 6's round 1. A figure without
+the paragraph set it is computed over is not a figure, and the package
+published one for three Books.
+
+**The 37-of-38 exclusion is the whole of R-1.** On all 38 paragraphs the same measures give retention 0.86053, sentences 176 → 174 (−1.1%), semicolons 41 → 32, NORM RATE −5.1% and MOVE-GAP 0.02065 — and the D17 floor derived from a −1.1% rate would be negative, which is to say the gate would be vacuous. The exclusion is right; its silence was not.
+
+| measure | value |
+|---|---|
+| Butler token retention (canonical, aggregate-join) | 0.89641 |
+| bag retention (order-blind) | 0.91797 |
+| **MOVE-GAP** (bag − order) | **0.02156** |
+| displaced runs (the strict clause-movement witness) | 0 |
+| sentences, source → candidate | 164 → 173 |
+| splitting rate, raw (D17) | +5.5% |
+| semicolon-normalized sentences | 203 → 205 |
+| **NORM RATE** (D20) | **+1.0%** |
+| semicolons, Butler → candidate (D19) | 39 → 32 |
+| sentences grown into the 40s (D20 aligned gate; none past 50) | 3 |
+| candidate sentences of 40 words or more (absolute) | 26 |
+
+**MOVE-GAP is an upper bound on clause movement** — it counts any relocation of
+a surviving token, phrase-internal ones included. The displaced-runs count is
+the lower bound: a run of four or more consecutive Butler tokens, occurring
+exactly once on each side, surviving verbatim outside the monotone alignment.
+
+**NORM RATE** adds each text's own semicolon count to its own sentence count on
+**both** sides, so a semicolon and a period score the same and converting one
+into the other is worth exactly zero. It is what D19's count was for, and what
+D17's raw rate is worth once the bookkeeping is priced out.

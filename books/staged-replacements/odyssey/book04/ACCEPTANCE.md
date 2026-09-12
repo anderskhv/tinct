@@ -171,3 +171,41 @@ report:
   nothing in the accepted corpus. A draft that divides Butler's sentences and
   leaves every clause in his order will pass the new gate. Only a reader can
   see that, and the flow read is where it must be seen.
+
+
+---
+
+## D20 backfill — NORM RATE, MOVE-GAP, and the basis (2026-09-12)
+
+Added at Book 6's step 6, when **D20** made the semicolon-normalized splitting
+rate and MOVE-GAP standard for every Book and asked that they be backfilled.
+Nothing in this record is changed; this is added beside it. All of it is
+produced by `python3 scripts/checks.py --all`, from the accepted file.
+
+**Basis: all 81 paragraphs** — records finding **R-1** of Book 6's round 1. A figure without
+the paragraph set it is computed over is not a figure, and the package
+published one for three Books.
+
+| measure | value |
+|---|---|
+| Butler token retention (canonical, aggregate-join) | 0.95872 |
+| bag retention (order-blind) | 0.96303 |
+| **MOVE-GAP** (bag − order) | **0.00431** |
+| displaced runs (the strict clause-movement witness) | 0 |
+| sentences, source → candidate | 281 → 306 |
+| splitting rate, raw (D17) | +8.9% |
+| semicolon-normalized sentences | 349 → 356 |
+| **NORM RATE** (D20) | **+2.0%** |
+| semicolons, Butler → candidate (D19) | 68 → 50 |
+| sentences grown into the 40s (D20 aligned gate; none past 50) | 6 |
+| candidate sentences of 40 words or more (absolute) | 52 |
+
+**MOVE-GAP is an upper bound on clause movement** — it counts any relocation of
+a surviving token, phrase-internal ones included. The displaced-runs count is
+the lower bound: a run of four or more consecutive Butler tokens, occurring
+exactly once on each side, surviving verbatim outside the monotone alignment.
+
+**NORM RATE** adds each text's own semicolon count to its own sentence count on
+**both** sides, so a semicolon and a period score the same and converting one
+into the other is worth exactly zero. It is what D19's count was for, and what
+D17's raw rate is worth once the bookkeeping is priced out.
