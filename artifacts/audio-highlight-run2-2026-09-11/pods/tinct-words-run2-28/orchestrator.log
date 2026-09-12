@@ -38,3 +38,11 @@
 [2026-09-12T05:58:03Z] 15.8 min: aligning {"arm_chapters_passed": 2, "arm_chapters_rejected": 2, "arm_chapters_running": 1, "paragraph_diagnostics": 342}
 [2026-09-12T05:58:33Z] 16.3 min: aligning {"arm_chapters_passed": 2, "arm_chapters_rejected": 3, "arm_chapters_running": 1, "paragraph_diagnostics": 362}
 [2026-09-12T05:59:04Z] 16.8 min: aligning {"arm_chapters_passed": 2, "arm_chapters_rejected": 3, "arm_chapters_running": 1, "paragraph_diagnostics": 375}
+[2026-09-12T05:59:45Z] snapshot 8404312 bytes
+[2026-09-12T05:59:45Z] 17.3 min: aligning {"arm_chapters_passed": 2, "arm_chapters_rejected": 3, "arm_chapters_running": 1, "paragraph_diagnostics": 382}
+[2026-09-12T06:00:16Z] phase done at 18.0 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T06:00:16Z] 18.0 min: done {"arm_chapters_passed": 2, "arm_chapters_rejected": 4, "arm_chapters_running": 0, "paragraph_diagnostics": 392}
+[2026-09-12T06:00:30Z] fetched out.tar.gz (8564663 bytes)
+[2026-09-12T06:00:32Z] stop dso2s0ffsaniv5: HTTP 200
+[2026-09-12T06:00:34Z] terminate dso2s0ffsaniv5: HTTP 204
+[2026-09-12T06:00:34Z] pod dso2s0ffsaniv5 done: outcome=done uptime=18.3m est $0.15

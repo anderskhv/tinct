@@ -1,0 +1,6 @@
+[2026-09-12T06:00:43Z] created bbemmo0afy3k3x tinct-words-run2-38 gpu=None $0.74/hr
+[2026-09-12T06:00:45Z] waiting: pod RUNNING agent HTTP 404
+[2026-09-12T06:01:03Z] phase model at 0.3 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e"}
+[2026-09-12T06:01:03Z] 0.3 min: model {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T06:01:34Z] phase cohort at 0.8 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T06:01:34Z] 0.8 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}

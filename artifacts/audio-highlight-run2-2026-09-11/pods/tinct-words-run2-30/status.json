@@ -1,0 +1,54 @@
+{
+ "phase": "done",
+ "started": 1789191938.0801036,
+ "setup": {
+  "versions": {
+   "faster-whisper": "1.2.1",
+   "ctranslate2": "4.8.2",
+   "av": "18.1.0"
+  },
+  "commit": "f53d744782e3c369fffd2980a013a7f199c0476e",
+  "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5",
+  "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cuda_cupti/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cuda_nvrtc/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cuda_runtime/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cudnn/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cufft/lib:/usr/local/lib/python3.11/dist-packages/nvidia/curand/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cusolver/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cusparse/lib:/usr/local/lib/python3.11/dist-packages/nvidia/nccl/lib:/usr/local/lib/python3.11/dist-packages/nvidia/nvjitlink/lib:/usr/local/lib/python3.11/dist-packages/nvidia/nvtx/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64",
+  "gpu": "NVIDIA GeForce RTX 4090, 24564 MiB, 580.178.04",
+  "cuda_probe": "cuda devices 1\nmodel loaded on cuda\n",
+  "setup_seconds": 13.2
+ },
+ "job": {
+  "started": 1789191951.2595458,
+  "targets": 14,
+  "cohort_exit": 0,
+  "cohort_seconds": 100.1,
+  "cohort_chapters": 14,
+  "cohort_audio_seconds": 8597.3,
+  "align_started": 1789192051.370648,
+  "command": [
+   "/usr/bin/python3",
+   "/workspace/run/tools/audio-highlight/aligner/trial.py",
+   "--input",
+   "/workspace/run/cohort/cohort.json",
+   "--output",
+   "/workspace/run/out",
+   "--model-path",
+   "/workspace/run/model",
+   "--model-sha256",
+   "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5",
+   "--device",
+   "cuda",
+   "--compute-type",
+   "float16",
+   "--arms",
+   "off",
+   "auto",
+   "--max-seconds",
+   "2100",
+   "--helper",
+   "v2",
+   "--run"
+  ],
+  "trial_exit": 0,
+  "align_seconds": 773.0,
+  "run_status": "complete",
+  "finished": 1789192824.3888893
+ }
+}
