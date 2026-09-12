@@ -11,7 +11,7 @@ Updated continuously. Read this first, then `WORKFLOW.md`.
 | 1 | 8 — accepted, with recorded successor `candidate-v3.json` | `candidate-v2.json` (successor v3) | v3 `c97e20f5…4807b57c` | 0.721 |
 | 2 | 8 — accepted, with recorded successor `candidate-v3.json` | `candidate-v2.json` (successor v3) | v3 `dcf1e301…6f24088ac` | 0.902 |
 | 3 | **8 — accepted** | `candidate-v2.json` | `7095ef4f…4989b905` | 0.897 |
-| 4 | **1–3 done, frozen at v1; step-4 packets built** | `candidate-v1.json` | `9c7d54af…b912e6553` | 0.960 |
+| 4 | **step 4 done — round 1 returned, accept after corrections; awaiting steps 5–8** | `candidate-v1.json` (frozen) | `9c7d54af…b912e6553` | 0.960 |
 
 ## Done
 
@@ -43,15 +43,26 @@ Updated continuously. Read this first, then `WORKFLOW.md`.
 
 ## Next, in order
 
-1. **Book 4 step 4 — the independent review.** A **separate reviewer session**,
-   following `book04/review-instructions.md`; findings go under
-   `book04/review/`. This task does not review its own draft. The first thing
-   put to that reviewer is the **retention figure 0.960**, the package's
-   highest — `book04/continuity.md` §6 states the evidence both ways and does
-   not defend it.
-2. **Book 4 steps 5–8** on the findings: `candidate-v2.json` via a
-   `build_book04_v2.py` in the established pattern, verification, flow read,
-   `ACCEPTANCE.md`.
+1. **Book 4 steps 5–8.** Round 1 is **done** — `book04/review/findings-v1.md`,
+   by a separate reviewer session: **accept after corrections**, 1 substantive,
+   16 minor, 11 optional, 7 records findings, coverage complete. Apply at
+   `candidate-v2.json` via a `build_book04_v2.py` in the established pattern,
+   then verification, flow read, `ACCEPTANCE.md`.
+   - **The substantive one is S-1, the answer to the retention question.**
+     0.960 is half the source's and half the drafter's: Book 4's Butler is less
+     archaic per word than Book 3's but carries the package's densest supply of
+     sixty-word sentences (17 in 8,042 words), and the draft breaks **one of
+     seventeen** where accepted Books 1–3 broke 100%, 43% and 33%. Nine
+     paragraphs to recast (B04-P009, P021, P029, P035, P037, P040, P041, P045,
+     P050), three to look at (P011, P064, P066), and **B04-P038 deliberately
+     left long**. Every recast is a division of a sentence Butler already
+     wrote; no new wording. Retention should barely move — do not chase 0.897.
+   - All five flagged decisions **upheld**; the three name rows keep their
+     rows but their recorded *warrant* is corrected (records finding R3).
+   - Seven records findings R1–R7 touch `README.md`, `continuity.md`,
+     `provenance.json`, `GLOSSARY.md`, `PUNCTUATION.md`, `PROVENANCE.md` and
+     `RESUME.md`'s own 0.721 baseline (R2: not reproducible; the package's own
+     `token_retention()` gives 0.727).
 3. **Book 5** after that, in numerical order. Nothing blocks it: D12 class C
    is settled, and D14 covers the served-original defect class.
 
