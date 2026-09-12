@@ -1,0 +1,1991 @@
+{
+  "complete": true,
+  "signature": "0a3150bee9d942e3f71bd534b5743b9e325771301b9c9d8a7eb80f64cc9960c1",
+  "attempts": [
+    {
+      "asr_seconds": 1.7792344980116468,
+      "alignment_seconds": 0.0006966310029383749,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Herald. The hero and his bark were rapt away Far from the Grecian fleet? 'tis truth I say.",
+        "hotwords": "Herald, Far, Grecian, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Herald, The hero and his bark were rapt away Far from the Grecian fleet?",
+          "start": 0.05,
+          "end": 4.11,
+          "words": [
+            {
+              "text": " Herald,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.01404571533203125
+            },
+            {
+              "text": " The",
+              "start": 1.17,
+              "end": 1.33,
+              "probability": 0.0614013671875
+            },
+            {
+              "text": " hero",
+              "start": 1.33,
+              "end": 1.55,
+              "probability": 0.353271484375
+            },
+            {
+              "text": " and",
+              "start": 1.55,
+              "end": 1.77,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " his",
+              "start": 1.77,
+              "end": 1.91,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " bark",
+              "start": 1.91,
+              "end": 2.13,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " were",
+              "start": 2.13,
+              "end": 2.31,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " rapt",
+              "start": 2.31,
+              "end": 2.51,
+              "probability": 0.0010576248168945312
+            },
+            {
+              "text": " away",
+              "start": 2.51,
+              "end": 2.77,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Far",
+              "start": 2.77,
+              "end": 3.13,
+              "probability": 0.057098388671875
+            },
+            {
+              "text": " from",
+              "start": 3.13,
+              "end": 3.35,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 3.35,
+              "end": 3.47,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Grecian",
+              "start": 3.47,
+              "end": 3.79,
+              "probability": 0.9015299479166666
+            },
+            {
+              "text": " fleet?",
+              "start": 3.79,
+              "end": 4.11,
+              "probability": 0.81787109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Herald,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "The",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "raw": "hero",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "raw": "and",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "raw": "his",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "raw": "bark",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "raw": "were",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "raw": "rapt",
+          "start": 2.31,
+          "end": 2.51
+        },
+        {
+          "raw": "away",
+          "start": 2.51,
+          "end": 2.77
+        },
+        {
+          "raw": "Far",
+          "start": 2.77,
+          "end": 3.13
+        },
+        {
+          "raw": "from",
+          "start": 3.13,
+          "end": 3.35
+        },
+        {
+          "raw": "the",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "raw": "Grecian",
+          "start": 3.47,
+          "end": 3.79
+        },
+        {
+          "raw": "fleet?",
+          "start": 3.79,
+          "end": 4.11
+        }
+      ],
+      "expected_tokens": [
+        "Herald.",
+        "The",
+        "hero",
+        "and",
+        "his",
+        "bark",
+        "were",
+        "rapt",
+        "away",
+        "Far",
+        "from",
+        "the",
+        "Grecian",
+        "fleet?",
+        "'tis",
+        "truth",
+        "I",
+        "say."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "delete",
+          14,
+          18,
+          14,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          14,
+          18,
+          14,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Herald,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "herald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.17,
+          "end": 1.33,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hero",
+          "start": 1.33,
+          "end": 1.55,
+          "key": "hero",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.55,
+          "end": 1.77,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.77,
+          "end": 1.91,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bark",
+          "start": 1.91,
+          "end": 2.13,
+          "key": "bark",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 2.13,
+          "end": 2.31,
+          "key": "were",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "rapt",
+          "start": 2.31,
+          "end": 2.51,
+          "key": "rapt",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 2.51,
+          "end": 2.77,
+          "key": "away",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Far",
+          "start": 2.77,
+          "end": 3.13,
+          "key": "far",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.13,
+          "end": 3.35,
+          "key": "from",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.35,
+          "end": 3.47,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Grecian",
+          "start": 3.47,
+          "end": 3.79,
+          "key": "grecian",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "fleet?",
+          "start": 3.79,
+          "end": 4.11,
+          "key": "fleet",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Herald.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "The",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "text": "hero",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "text": "and",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "text": "his",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "text": "bark",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "text": "were",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "text": "rapt",
+          "start": 2.31,
+          "end": 2.51
+        },
+        {
+          "text": "away",
+          "start": 2.51,
+          "end": 2.77
+        },
+        {
+          "text": "Far",
+          "start": 2.77,
+          "end": 3.13
+        },
+        {
+          "text": "from",
+          "start": 3.13,
+          "end": 3.35
+        },
+        {
+          "text": "the",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "text": "Grecian",
+          "start": 3.47,
+          "end": 3.79
+        },
+        {
+          "text": "fleet?",
+          "start": 3.79,
+          "end": 4.11
+        },
+        {
+          "text": "'tis",
+          "start": 4.11,
+          "end": 4.11
+        },
+        {
+          "text": "truth",
+          "start": 4.11,
+          "end": 4.11
+        },
+        {
+          "text": "I",
+          "start": 4.11,
+          "end": 4.11
+        },
+        {
+          "text": "say.",
+          "start": 4.11,
+          "end": 4.11
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 1.7801838910090737
+    },
+    {
+      "asr_seconds": 0.3398300030094106,
+      "alignment_seconds": 0.0005739719781558961,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Herald, Far, Grecian, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " say.",
+          "start": 0.05,
+          "end": 0.69,
+          "words": [
+            {
+              "text": " say.",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 3.3974647521972656e-06
+            }
+          ]
+        },
+        {
+          "text": " Harold, the hero and his bark were wrapped away far from the Grecian fleet.",
+          "start": 0.69,
+          "end": 4.11,
+          "words": [
+            {
+              "text": " Harold,",
+              "start": 0.69,
+              "end": 0.73,
+              "probability": 0.1329345703125
+            },
+            {
+              "text": " the",
+              "start": 1.17,
+              "end": 1.33,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " hero",
+              "start": 1.33,
+              "end": 1.55,
+              "probability": 0.8203125
+            },
+            {
+              "text": " and",
+              "start": 1.55,
+              "end": 1.77,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " his",
+              "start": 1.77,
+              "end": 1.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bark",
+              "start": 1.91,
+              "end": 2.13,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " were",
+              "start": 2.13,
+              "end": 2.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wrapped",
+              "start": 2.31,
+              "end": 2.55,
+              "probability": 0.98828125
+            },
+            {
+              "text": " away",
+              "start": 2.55,
+              "end": 2.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " far",
+              "start": 2.79,
+              "end": 3.13,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " from",
+              "start": 3.13,
+              "end": 3.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.35,
+              "end": 3.47,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Grecian",
+              "start": 3.47,
+              "end": 3.79,
+              "probability": 0.9143880208333334
+            },
+            {
+              "text": " fleet.",
+              "start": 3.79,
+              "end": 4.11,
+              "probability": 0.8955078125
+            }
+          ]
+        },
+        {
+          "text": " Tease truth, I say.",
+          "start": 4.75,
+          "end": 5.69,
+          "words": [
+            {
+              "text": " Tease",
+              "start": 4.75,
+              "end": 5.05,
+              "probability": 0.66552734375
+            },
+            {
+              "text": " truth,",
+              "start": 5.05,
+              "end": 5.21,
+              "probability": 0.916015625
+            },
+            {
+              "text": " I",
+              "start": 5.37,
+              "end": 5.43,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " say.",
+              "start": 5.43,
+              "end": 5.69,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "say.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Harold,",
+          "start": 0.69,
+          "end": 0.73
+        },
+        {
+          "raw": "the",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "raw": "hero",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "raw": "and",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "raw": "his",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "raw": "bark",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "raw": "were",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "raw": "wrapped",
+          "start": 2.31,
+          "end": 2.55
+        },
+        {
+          "raw": "away",
+          "start": 2.55,
+          "end": 2.79
+        },
+        {
+          "raw": "far",
+          "start": 2.79,
+          "end": 3.13
+        },
+        {
+          "raw": "from",
+          "start": 3.13,
+          "end": 3.35
+        },
+        {
+          "raw": "the",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "raw": "Grecian",
+          "start": 3.47,
+          "end": 3.79
+        },
+        {
+          "raw": "fleet.",
+          "start": 3.79,
+          "end": 4.11
+        },
+        {
+          "raw": "Tease",
+          "start": 4.75,
+          "end": 5.05
+        },
+        {
+          "raw": "truth,",
+          "start": 5.05,
+          "end": 5.21
+        },
+        {
+          "raw": "I",
+          "start": 5.37,
+          "end": 5.43
+        },
+        {
+          "raw": "say.",
+          "start": 5.43,
+          "end": 5.69
+        }
+      ],
+      "expected_tokens": [
+        "Herald.",
+        "The",
+        "hero",
+        "and",
+        "his",
+        "bark",
+        "were",
+        "rapt",
+        "away",
+        "Far",
+        "from",
+        "the",
+        "Grecian",
+        "fleet?",
+        "'tis",
+        "truth",
+        "I",
+        "say."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          7,
+          2,
+          8
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          9
+        ],
+        [
+          "equal",
+          8,
+          14,
+          9,
+          15
+        ],
+        [
+          "replace",
+          14,
+          15,
+          15,
+          16
+        ],
+        [
+          "equal",
+          15,
+          18,
+          16,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          9
+        ],
+        [
+          "replace",
+          14,
+          15,
+          15,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "say.",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "say",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Harold,",
+          "start": 0.69,
+          "end": 0.73,
+          "key": "harold",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.17,
+          "end": 1.33,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hero",
+          "start": 1.33,
+          "end": 1.55,
+          "key": "hero",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.55,
+          "end": 1.77,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.77,
+          "end": 1.91,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bark",
+          "start": 1.91,
+          "end": 2.13,
+          "key": "bark",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 2.13,
+          "end": 2.31,
+          "key": "were",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wrapped",
+          "start": 2.31,
+          "end": 2.55,
+          "key": "wrapped",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 2.55,
+          "end": 2.79,
+          "key": "away",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 2.79,
+          "end": 3.13,
+          "key": "far",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.13,
+          "end": 3.35,
+          "key": "from",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.35,
+          "end": 3.47,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Grecian",
+          "start": 3.47,
+          "end": 3.79,
+          "key": "grecian",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "fleet.",
+          "start": 3.79,
+          "end": 4.11,
+          "key": "fleet",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 4.75,
+          "end": 5.05,
+          "key": "tease",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "truth,",
+          "start": 5.05,
+          "end": 5.21,
+          "key": "truth",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.37,
+          "end": 5.43,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "say.",
+          "start": 5.43,
+          "end": 5.69,
+          "key": "say",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Herald.",
+          "start": 0.0,
+          "end": 0.585
+        },
+        {
+          "text": "The",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "text": "hero",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "text": "and",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "text": "his",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "text": "bark",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "text": "were",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "text": "rapt",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "away",
+          "start": 2.55,
+          "end": 2.79
+        },
+        {
+          "text": "Far",
+          "start": 2.79,
+          "end": 3.13
+        },
+        {
+          "text": "from",
+          "start": 3.13,
+          "end": 3.35
+        },
+        {
+          "text": "the",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "text": "Grecian",
+          "start": 3.47,
+          "end": 3.79
+        },
+        {
+          "text": "fleet?",
+          "start": 3.79,
+          "end": 4.11
+        },
+        {
+          "text": "'tis",
+          "start": 4.11,
+          "end": 4.58
+        },
+        {
+          "text": "truth",
+          "start": 5.05,
+          "end": 5.21
+        },
+        {
+          "text": "I",
+          "start": 5.37,
+          "end": 5.43
+        },
+        {
+          "text": "say.",
+          "start": 5.43,
+          "end": 5.69
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3406329569988884
+    },
+    {
+      "asr_seconds": 0.3013052919995971,
+      "alignment_seconds": 0.0005720060144085437,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Harold, the hero and his bark were wrapped away far from the Grecian fleet.",
+          "start": 0.05,
+          "end": 4.09,
+          "words": [
+            {
+              "text": " Harold,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.2734375
+            },
+            {
+              "text": " the",
+              "start": 1.23,
+              "end": 1.33,
+              "probability": 0.962890625
+            },
+            {
+              "text": " hero",
+              "start": 1.33,
+              "end": 1.53,
+              "probability": 0.77490234375
+            },
+            {
+              "text": " and",
+              "start": 1.53,
+              "end": 1.77,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " his",
+              "start": 1.77,
+              "end": 1.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bark",
+              "start": 1.91,
+              "end": 2.13,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " were",
+              "start": 2.13,
+              "end": 2.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wrapped",
+              "start": 2.31,
+              "end": 2.55,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " away",
+              "start": 2.55,
+              "end": 2.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " far",
+              "start": 2.79,
+              "end": 3.13,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " from",
+              "start": 3.13,
+              "end": 3.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.35,
+              "end": 3.47,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Grecian",
+              "start": 3.47,
+              "end": 3.79,
+              "probability": 0.9192708333333334
+            },
+            {
+              "text": " fleet.",
+              "start": 3.79,
+              "end": 4.09,
+              "probability": 0.8095703125
+            }
+          ]
+        },
+        {
+          "text": " Tease truth, I say.",
+          "start": 4.77,
+          "end": 5.69,
+          "words": [
+            {
+              "text": " Tease",
+              "start": 4.77,
+              "end": 5.05,
+              "probability": 0.638916015625
+            },
+            {
+              "text": " truth,",
+              "start": 5.05,
+              "end": 5.23,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " I",
+              "start": 5.35,
+              "end": 5.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " say.",
+              "start": 5.43,
+              "end": 5.69,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Harold,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "the",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "raw": "hero",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "raw": "and",
+          "start": 1.53,
+          "end": 1.77
+        },
+        {
+          "raw": "his",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "raw": "bark",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "raw": "were",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "raw": "wrapped",
+          "start": 2.31,
+          "end": 2.55
+        },
+        {
+          "raw": "away",
+          "start": 2.55,
+          "end": 2.79
+        },
+        {
+          "raw": "far",
+          "start": 2.79,
+          "end": 3.13
+        },
+        {
+          "raw": "from",
+          "start": 3.13,
+          "end": 3.35
+        },
+        {
+          "raw": "the",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "raw": "Grecian",
+          "start": 3.47,
+          "end": 3.79
+        },
+        {
+          "raw": "fleet.",
+          "start": 3.79,
+          "end": 4.09
+        },
+        {
+          "raw": "Tease",
+          "start": 4.77,
+          "end": 5.05
+        },
+        {
+          "raw": "truth,",
+          "start": 5.05,
+          "end": 5.23
+        },
+        {
+          "raw": "I",
+          "start": 5.35,
+          "end": 5.43
+        },
+        {
+          "raw": "say.",
+          "start": 5.43,
+          "end": 5.69
+        }
+      ],
+      "expected_tokens": [
+        "Herald.",
+        "The",
+        "hero",
+        "and",
+        "his",
+        "bark",
+        "were",
+        "rapt",
+        "away",
+        "Far",
+        "from",
+        "the",
+        "Grecian",
+        "fleet?",
+        "'tis",
+        "truth",
+        "I",
+        "say."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          14,
+          8,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          18,
+          15,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Harold,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "harold",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.23,
+          "end": 1.33,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hero",
+          "start": 1.33,
+          "end": 1.53,
+          "key": "hero",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.53,
+          "end": 1.77,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.77,
+          "end": 1.91,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bark",
+          "start": 1.91,
+          "end": 2.13,
+          "key": "bark",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 2.13,
+          "end": 2.31,
+          "key": "were",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "wrapped",
+          "start": 2.31,
+          "end": 2.55,
+          "key": "wrapped",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 2.55,
+          "end": 2.79,
+          "key": "away",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 2.79,
+          "end": 3.13,
+          "key": "far",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.13,
+          "end": 3.35,
+          "key": "from",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.35,
+          "end": 3.47,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Grecian",
+          "start": 3.47,
+          "end": 3.79,
+          "key": "grecian",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "fleet.",
+          "start": 3.79,
+          "end": 4.09,
+          "key": "fleet",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 4.77,
+          "end": 5.05,
+          "key": "tease",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "truth,",
+          "start": 5.05,
+          "end": 5.23,
+          "key": "truth",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.35,
+          "end": 5.43,
+          "key": "i",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "say.",
+          "start": 5.43,
+          "end": 5.69,
+          "key": "say",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Herald.",
+          "start": 0.0,
+          "end": 0.615
+        },
+        {
+          "text": "The",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "text": "hero",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "text": "and",
+          "start": 1.53,
+          "end": 1.77
+        },
+        {
+          "text": "his",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "text": "bark",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "text": "were",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "text": "rapt",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "away",
+          "start": 2.55,
+          "end": 2.79
+        },
+        {
+          "text": "Far",
+          "start": 2.79,
+          "end": 3.13
+        },
+        {
+          "text": "from",
+          "start": 3.13,
+          "end": 3.35
+        },
+        {
+          "text": "the",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "text": "Grecian",
+          "start": 3.47,
+          "end": 3.79
+        },
+        {
+          "text": "fleet?",
+          "start": 3.79,
+          "end": 4.09
+        },
+        {
+          "text": "'tis",
+          "start": 4.09,
+          "end": 4.57
+        },
+        {
+          "text": "truth",
+          "start": 5.05,
+          "end": 5.23
+        },
+        {
+          "text": "I",
+          "start": 5.35,
+          "end": 5.43
+        },
+        {
+          "text": "say.",
+          "start": 5.43,
+          "end": 5.69
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3020991869852878
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "5fdefc69913674bdcc53ecff447a7c345446233987ccc295fe7b4a827175a689",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

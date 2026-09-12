@@ -1,0 +1,633 @@
+{
+  "complete": true,
+  "signature": "73171d9875a9f48260811ffa694ac2b853f02c1ddab75a35af6c49db52379ad3",
+  "attempts": [
+    {
+      "asr_seconds": 0.3459233920148108,
+      "alignment_seconds": 0.0003898850118275732,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Chorus, thou bittest, I will speak my soul's thought out,",
+          "start": 0.0,
+          "end": 3.86,
+          "words": [
+            {
+              "text": " Chorus,",
+              "start": 0.0,
+              "end": 0.8,
+              "probability": 0.6964111328125
+            },
+            {
+              "text": " thou",
+              "start": 1.34,
+              "end": 1.42,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " bittest,",
+              "start": 1.42,
+              "end": 1.9,
+              "probability": 0.7312825520833334
+            },
+            {
+              "text": " I",
+              "start": 2.36,
+              "end": 2.44,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " will",
+              "start": 2.44,
+              "end": 2.56,
+              "probability": 0.994140625
+            },
+            {
+              "text": " speak",
+              "start": 2.56,
+              "end": 2.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 2.78,
+              "end": 3.0,
+              "probability": 0.986328125
+            },
+            {
+              "text": " soul's",
+              "start": 3.0,
+              "end": 3.4,
+              "probability": 0.985107421875
+            },
+            {
+              "text": " thought",
+              "start": 3.4,
+              "end": 3.54,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " out,",
+              "start": 3.54,
+              "end": 3.86,
+              "probability": 0.98193359375
+            }
+          ]
+        },
+        {
+          "text": " Revering as a shrine thy father's grave.",
+          "start": 4.06,
+          "end": 6.0,
+          "words": [
+            {
+              "text": " Revering",
+              "start": 4.06,
+              "end": 4.4,
+              "probability": 0.7151692708333334
+            },
+            {
+              "text": " as",
+              "start": 4.4,
+              "end": 4.56,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " a",
+              "start": 4.56,
+              "end": 4.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shrine",
+              "start": 4.72,
+              "end": 5.0,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " thy",
+              "start": 5.0,
+              "end": 5.26,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " father's",
+              "start": 5.26,
+              "end": 5.72,
+              "probability": 0.944580078125
+            },
+            {
+              "text": " grave.",
+              "start": 5.72,
+              "end": 6.0,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chorus,",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "raw": "thou",
+          "start": 1.34,
+          "end": 1.42
+        },
+        {
+          "raw": "bittest,",
+          "start": 1.42,
+          "end": 1.9
+        },
+        {
+          "raw": "I",
+          "start": 2.36,
+          "end": 2.44
+        },
+        {
+          "raw": "will",
+          "start": 2.44,
+          "end": 2.56
+        },
+        {
+          "raw": "speak",
+          "start": 2.56,
+          "end": 2.78
+        },
+        {
+          "raw": "my",
+          "start": 2.78,
+          "end": 3.0
+        },
+        {
+          "raw": "soul's",
+          "start": 3.0,
+          "end": 3.4
+        },
+        {
+          "raw": "thought",
+          "start": 3.4,
+          "end": 3.54
+        },
+        {
+          "raw": "out,",
+          "start": 3.54,
+          "end": 3.86
+        },
+        {
+          "raw": "Revering",
+          "start": 4.06,
+          "end": 4.4
+        },
+        {
+          "raw": "as",
+          "start": 4.4,
+          "end": 4.56
+        },
+        {
+          "raw": "a",
+          "start": 4.56,
+          "end": 4.72
+        },
+        {
+          "raw": "shrine",
+          "start": 4.72,
+          "end": 5.0
+        },
+        {
+          "raw": "thy",
+          "start": 5.0,
+          "end": 5.26
+        },
+        {
+          "raw": "father's",
+          "start": 5.26,
+          "end": 5.72
+        },
+        {
+          "raw": "grave.",
+          "start": 5.72,
+          "end": 6.0
+        }
+      ],
+      "expected_tokens": [
+        "Chorus.",
+        "Thou",
+        "biddest;",
+        "I",
+        "will",
+        "speak",
+        "my",
+        "soul's",
+        "thought",
+        "out,",
+        "Revering",
+        "as",
+        "a",
+        "shrine",
+        "thy",
+        "father's",
+        "grave."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          17,
+          3,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chorus,",
+          "start": 0.0,
+          "end": 0.8,
+          "key": "chorus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.34,
+          "end": 1.42,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bittest,",
+          "start": 1.42,
+          "end": 1.9,
+          "key": "bittest",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.36,
+          "end": 2.44,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.44,
+          "end": 2.56,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 2.56,
+          "end": 2.78,
+          "key": "speak",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.78,
+          "end": 3.0,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "soul's",
+          "start": 3.0,
+          "end": 3.4,
+          "key": "souls",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 3.4,
+          "end": 3.54,
+          "key": "thought",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "out,",
+          "start": 3.54,
+          "end": 3.86,
+          "key": "out",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Revering",
+          "start": 4.06,
+          "end": 4.4,
+          "key": "revering",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.4,
+          "end": 4.56,
+          "key": "as",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.56,
+          "end": 4.72,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "shrine",
+          "start": 4.72,
+          "end": 5.0,
+          "key": "shrine",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 5.0,
+          "end": 5.26,
+          "key": "thy",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "father's",
+          "start": 5.26,
+          "end": 5.72,
+          "key": "fathers",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "grave.",
+          "start": 5.72,
+          "end": 6.0,
+          "key": "grave",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Chorus.",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "text": "Thou",
+          "start": 1.34,
+          "end": 1.42
+        },
+        {
+          "text": "biddest;",
+          "start": 1.42,
+          "end": 1.89
+        },
+        {
+          "text": "I",
+          "start": 2.36,
+          "end": 2.44
+        },
+        {
+          "text": "will",
+          "start": 2.44,
+          "end": 2.56
+        },
+        {
+          "text": "speak",
+          "start": 2.56,
+          "end": 2.78
+        },
+        {
+          "text": "my",
+          "start": 2.78,
+          "end": 3.0
+        },
+        {
+          "text": "soul's",
+          "start": 3.0,
+          "end": 3.4
+        },
+        {
+          "text": "thought",
+          "start": 3.4,
+          "end": 3.54
+        },
+        {
+          "text": "out,",
+          "start": 3.54,
+          "end": 3.86
+        },
+        {
+          "text": "Revering",
+          "start": 4.06,
+          "end": 4.4
+        },
+        {
+          "text": "as",
+          "start": 4.4,
+          "end": 4.56
+        },
+        {
+          "text": "a",
+          "start": 4.56,
+          "end": 4.72
+        },
+        {
+          "text": "shrine",
+          "start": 4.72,
+          "end": 5.0
+        },
+        {
+          "text": "thy",
+          "start": 5.0,
+          "end": 5.26
+        },
+        {
+          "text": "father's",
+          "start": 5.26,
+          "end": 5.72
+        },
+        {
+          "text": "grave.",
+          "start": 5.72,
+          "end": 6.0
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.34645965200616047
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ff06ac484f231626301afda7c18e93f44e3177f58dd7856d5f76a9759c54ef93",
+  "selected_reasons": []
+}

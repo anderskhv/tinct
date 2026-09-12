@@ -1,0 +1,356 @@
+{
+  "complete": true,
+  "signature": "6d0227d320ea35dae6644f34793c55af04b354f3b6bc26893ed40b1986f0c6cb",
+  "attempts": [
+    {
+      "asr_seconds": 0.22126278499490581,
+      "alignment_seconds": 0.00044328198418952525,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Kaska, whoever knew the heavens meant it so.",
+          "start": 0.05,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " Kaska,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.6068115234375
+            },
+            {
+              "text": " whoever",
+              "start": 1.43,
+              "end": 1.43,
+              "probability": 0.919921875
+            },
+            {
+              "text": " knew",
+              "start": 1.43,
+              "end": 1.67,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 1.67,
+              "end": 1.83,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " heavens",
+              "start": 1.83,
+              "end": 2.09,
+              "probability": 0.8564453125
+            },
+            {
+              "text": " meant",
+              "start": 2.09,
+              "end": 2.31,
+              "probability": 0.63623046875
+            },
+            {
+              "text": " it",
+              "start": 2.31,
+              "end": 2.51,
+              "probability": 0.5634765625
+            },
+            {
+              "text": " so.",
+              "start": 2.51,
+              "end": 2.75,
+              "probability": 0.974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kaska,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "whoever",
+          "start": 1.43,
+          "end": 1.43
+        },
+        {
+          "raw": "knew",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "raw": "the",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "raw": "heavens",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "raw": "meant",
+          "start": 2.09,
+          "end": 2.31
+        },
+        {
+          "raw": "it",
+          "start": 2.31,
+          "end": 2.51
+        },
+        {
+          "raw": "so.",
+          "start": 2.51,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "Casca.",
+        "Who",
+        "ever",
+        "knew",
+        "the",
+        "heavens",
+        "menace",
+        "so?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ],
+        [
+          "equal",
+          3,
+          6,
+          2,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          5,
+          7
+        ],
+        [
+          "equal",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ],
+        [
+          "replace",
+          6,
+          7,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kaska,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "kaska",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "whoever",
+          "start": 1.43,
+          "end": 1.43,
+          "key": "whoever",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "knew",
+          "start": 1.43,
+          "end": 1.67,
+          "key": "knew",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.67,
+          "end": 1.83,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "heavens",
+          "start": 1.83,
+          "end": 2.09,
+          "key": "heavens",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "meant",
+          "start": 2.09,
+          "end": 2.31,
+          "key": "meant",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.31,
+          "end": 2.51,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 2.51,
+          "end": 2.75,
+          "key": "so",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Casca.",
+          "start": 0.0,
+          "end": 0.715
+        },
+        {
+          "text": "Who",
+          "start": 0.715,
+          "end": 1.073
+        },
+        {
+          "text": "ever",
+          "start": 1.073,
+          "end": 1.252
+        },
+        {
+          "text": "knew",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "text": "the",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "text": "heavens",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "text": "menace",
+          "start": 2.09,
+          "end": 2.3
+        },
+        {
+          "text": "so?",
+          "start": 2.51,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 4
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2218763020064216
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f3ca52282bde8fae5aaba3059b1623bab3be5acf0200edc8d4ef5b406422838b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

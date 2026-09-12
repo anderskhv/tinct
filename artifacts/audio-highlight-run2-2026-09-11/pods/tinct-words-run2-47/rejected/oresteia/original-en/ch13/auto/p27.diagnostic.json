@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "5e30c08109413b3ca5420ae381f6227772751006c83cad4032e0fdd25cd8cb6a",
+  "attempts": [
+    {
+      "asr_seconds": 0.22646609199000522,
+      "alignment_seconds": 0.00047595700016245246,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Electra. I see upon the tomb a curl new shorn.",
+        "hotwords": "Electra, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Electra, I see upon the tomb a curl new shorn.",
+          "start": 0.05,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " Electra,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.7890625
+            },
+            {
+              "text": " I",
+              "start": 1.27,
+              "end": 1.33,
+              "probability": 0.986328125
+            },
+            {
+              "text": " see",
+              "start": 1.33,
+              "end": 1.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " upon",
+              "start": 1.49,
+              "end": 1.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 1.69,
+              "end": 1.83,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " tomb",
+              "start": 1.83,
+              "end": 2.01,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " a",
+              "start": 2.01,
+              "end": 2.25,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " curl",
+              "start": 2.25,
+              "end": 2.49,
+              "probability": 0.72314453125
+            },
+            {
+              "text": " new",
+              "start": 2.49,
+              "end": 2.73,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " shorn.",
+              "start": 2.73,
+              "end": 3.11,
+              "probability": 0.766357421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Electra,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "I",
+          "start": 1.27,
+          "end": 1.33
+        },
+        {
+          "raw": "see",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "raw": "upon",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "raw": "the",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "raw": "tomb",
+          "start": 1.83,
+          "end": 2.01
+        },
+        {
+          "raw": "a",
+          "start": 2.01,
+          "end": 2.25
+        },
+        {
+          "raw": "curl",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "raw": "new",
+          "start": 2.49,
+          "end": 2.73
+        },
+        {
+          "raw": "shorn.",
+          "start": 2.73,
+          "end": 3.11
+        }
+      ],
+      "expected_tokens": [
+        "Electra.",
+        "I",
+        "see",
+        "upon",
+        "the",
+        "tomb",
+        "a",
+        "curl",
+        "new",
+        "shorn."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Electra,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "electra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.27,
+          "end": 1.33,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.33,
+          "end": 1.49,
+          "key": "see",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 1.49,
+          "end": 1.69,
+          "key": "upon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.69,
+          "end": 1.83,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tomb",
+          "start": 1.83,
+          "end": 2.01,
+          "key": "tomb",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.01,
+          "end": 2.25,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "curl",
+          "start": 2.25,
+          "end": 2.49,
+          "key": "curl",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "new",
+          "start": 2.49,
+          "end": 2.73,
+          "key": "new",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "shorn.",
+          "start": 2.73,
+          "end": 3.11,
+          "key": "shorn",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Electra.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "I",
+          "start": 1.27,
+          "end": 1.33
+        },
+        {
+          "text": "see",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "text": "upon",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "text": "the",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "text": "tomb",
+          "start": 1.83,
+          "end": 2.01
+        },
+        {
+          "text": "a",
+          "start": 2.01,
+          "end": 2.25
+        },
+        {
+          "text": "curl",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "text": "new",
+          "start": 2.49,
+          "end": 2.73
+        },
+        {
+          "text": "shorn.",
+          "start": 2.73,
+          "end": 3.11
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2271348150097765
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8bf0d915cb0c9493bd8e6d5c7d49aa2cde4d5ade34260577034f86da406bbb0e",
+  "selected_reasons": []
+}

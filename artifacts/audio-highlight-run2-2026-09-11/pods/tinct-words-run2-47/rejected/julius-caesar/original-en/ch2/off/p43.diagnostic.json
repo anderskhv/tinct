@@ -1,0 +1,771 @@
+{
+  "complete": true,
+  "signature": "f6fd214a490c0bdb2e12d1bbd48f20296c1c3fc3b8bdcc6a21a687d81dfead0e",
+  "attempts": [
+    {
+      "asr_seconds": 0.3777346190181561,
+      "alignment_seconds": 0.0005763400113210082,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, another general shout. I do believe that these applause are for some new honors",
+          "start": 0.05,
+          "end": 5.73,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.852783203125
+            },
+            {
+              "text": " another",
+              "start": 1.39,
+              "end": 1.63,
+              "probability": 0.96484375
+            },
+            {
+              "text": " general",
+              "start": 1.63,
+              "end": 2.09,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " shout.",
+              "start": 2.09,
+              "end": 2.45,
+              "probability": 0.994140625
+            },
+            {
+              "text": " I",
+              "start": 3.07,
+              "end": 3.15,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " do",
+              "start": 3.15,
+              "end": 3.31,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " believe",
+              "start": 3.31,
+              "end": 3.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 3.63,
+              "end": 3.87,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " these",
+              "start": 3.87,
+              "end": 4.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " applause",
+              "start": 4.07,
+              "end": 4.41,
+              "probability": 0.460205078125
+            },
+            {
+              "text": " are",
+              "start": 4.41,
+              "end": 4.85,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " for",
+              "start": 4.85,
+              "end": 5.01,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " some",
+              "start": 5.01,
+              "end": 5.19,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " new",
+              "start": 5.19,
+              "end": 5.41,
+              "probability": 0.9921875
+            },
+            {
+              "text": " honors",
+              "start": 5.41,
+              "end": 5.73,
+              "probability": 0.76171875
+            }
+          ]
+        },
+        {
+          "text": " that are heaped on Caesar.",
+          "start": 5.73,
+          "end": 6.89,
+          "words": [
+            {
+              "text": " that",
+              "start": 5.73,
+              "end": 5.99,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " are",
+              "start": 5.99,
+              "end": 6.11,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " heaped",
+              "start": 6.11,
+              "end": 6.41,
+              "probability": 0.990234375
+            },
+            {
+              "text": " on",
+              "start": 6.41,
+              "end": 6.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Caesar.",
+              "start": 6.57,
+              "end": 6.89,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "another",
+          "start": 1.39,
+          "end": 1.63
+        },
+        {
+          "raw": "general",
+          "start": 1.63,
+          "end": 2.09
+        },
+        {
+          "raw": "shout.",
+          "start": 2.09,
+          "end": 2.45
+        },
+        {
+          "raw": "I",
+          "start": 3.07,
+          "end": 3.15
+        },
+        {
+          "raw": "do",
+          "start": 3.15,
+          "end": 3.31
+        },
+        {
+          "raw": "believe",
+          "start": 3.31,
+          "end": 3.63
+        },
+        {
+          "raw": "that",
+          "start": 3.63,
+          "end": 3.87
+        },
+        {
+          "raw": "these",
+          "start": 3.87,
+          "end": 4.07
+        },
+        {
+          "raw": "applause",
+          "start": 4.07,
+          "end": 4.41
+        },
+        {
+          "raw": "are",
+          "start": 4.41,
+          "end": 4.85
+        },
+        {
+          "raw": "for",
+          "start": 4.85,
+          "end": 5.01
+        },
+        {
+          "raw": "some",
+          "start": 5.01,
+          "end": 5.19
+        },
+        {
+          "raw": "new",
+          "start": 5.19,
+          "end": 5.41
+        },
+        {
+          "raw": "honors",
+          "start": 5.41,
+          "end": 5.73
+        },
+        {
+          "raw": "that",
+          "start": 5.73,
+          "end": 5.99
+        },
+        {
+          "raw": "are",
+          "start": 5.99,
+          "end": 6.11
+        },
+        {
+          "raw": "heaped",
+          "start": 6.11,
+          "end": 6.41
+        },
+        {
+          "raw": "on",
+          "start": 6.41,
+          "end": 6.57
+        },
+        {
+          "raw": "Caesar.",
+          "start": 6.57,
+          "end": 6.89
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Another",
+        "general",
+        "shout?",
+        "I",
+        "do",
+        "believe",
+        "that",
+        "these",
+        "applauses",
+        "are",
+        "For",
+        "some",
+        "new",
+        "honours",
+        "that",
+        "are",
+        "heap'd",
+        "on",
+        "Caesar."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          14,
+          10,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          17,
+          15,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ],
+        [
+          "equal",
+          18,
+          20,
+          18,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 1.39,
+          "end": 1.63,
+          "key": "another",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "general",
+          "start": 1.63,
+          "end": 2.09,
+          "key": "general",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shout.",
+          "start": 2.09,
+          "end": 2.45,
+          "key": "shout",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.07,
+          "end": 3.15,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.15,
+          "end": 3.31,
+          "key": "do",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "believe",
+          "start": 3.31,
+          "end": 3.63,
+          "key": "believe",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.63,
+          "end": 3.87,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 3.87,
+          "end": 4.07,
+          "key": "these",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "applause",
+          "start": 4.07,
+          "end": 4.41,
+          "key": "applause",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 4.41,
+          "end": 4.85,
+          "key": "are",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.85,
+          "end": 5.01,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 5.01,
+          "end": 5.19,
+          "key": "some",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "new",
+          "start": 5.19,
+          "end": 5.41,
+          "key": "new",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "honors",
+          "start": 5.41,
+          "end": 5.73,
+          "key": "honors",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.73,
+          "end": 5.99,
+          "key": "that",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.99,
+          "end": 6.11,
+          "key": "are",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "heaped",
+          "start": 6.11,
+          "end": 6.41,
+          "key": "heaped",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 6.41,
+          "end": 6.57,
+          "key": "on",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Caesar.",
+          "start": 6.57,
+          "end": 6.89,
+          "key": "caesar",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "Another",
+          "start": 1.39,
+          "end": 1.63
+        },
+        {
+          "text": "general",
+          "start": 1.63,
+          "end": 2.09
+        },
+        {
+          "text": "shout?",
+          "start": 2.09,
+          "end": 2.45
+        },
+        {
+          "text": "I",
+          "start": 3.07,
+          "end": 3.15
+        },
+        {
+          "text": "do",
+          "start": 3.15,
+          "end": 3.31
+        },
+        {
+          "text": "believe",
+          "start": 3.31,
+          "end": 3.63
+        },
+        {
+          "text": "that",
+          "start": 3.63,
+          "end": 3.87
+        },
+        {
+          "text": "these",
+          "start": 3.87,
+          "end": 4.07
+        },
+        {
+          "text": "applauses",
+          "start": 4.07,
+          "end": 4.24
+        },
+        {
+          "text": "are",
+          "start": 4.41,
+          "end": 4.85
+        },
+        {
+          "text": "For",
+          "start": 4.85,
+          "end": 5.01
+        },
+        {
+          "text": "some",
+          "start": 5.01,
+          "end": 5.19
+        },
+        {
+          "text": "new",
+          "start": 5.19,
+          "end": 5.41
+        },
+        {
+          "text": "honours",
+          "start": 5.41,
+          "end": 5.57
+        },
+        {
+          "text": "that",
+          "start": 5.73,
+          "end": 5.99
+        },
+        {
+          "text": "are",
+          "start": 5.99,
+          "end": 6.11
+        },
+        {
+          "text": "heap'd",
+          "start": 6.11,
+          "end": 6.26
+        },
+        {
+          "text": "on",
+          "start": 6.41,
+          "end": 6.57
+        },
+        {
+          "text": "Caesar.",
+          "start": 6.57,
+          "end": 6.89
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 17
+      },
+      "match_ratio": 0.85,
+      "rejection_reasons": [],
+      "seconds": 0.3785629940102808
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7a7c97d020a1373c250515de875423ca67b8a01567888e9cc64b793a01d29f8e",
+  "selected_reasons": []
+}

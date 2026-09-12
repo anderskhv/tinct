@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "fecfc1db498c354a37a2fc413ad7c1af9c3e71d2454837681799946bbe6e6df5",
+  "attempts": [
+    {
+      "asr_seconds": 0.28706192001118325,
+      "alignment_seconds": 0.0004861379857175052,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Caesar, stand you directly in Antonius' way when he doth run his course, Antonius.",
+          "start": 0.11,
+          "end": 5.69,
+          "words": [
+            {
+              "text": " Caesar,",
+              "start": 0.11,
+              "end": 0.75,
+              "probability": 0.90234375
+            },
+            {
+              "text": " stand",
+              "start": 1.21,
+              "end": 1.49,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " you",
+              "start": 1.49,
+              "end": 1.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " directly",
+              "start": 1.69,
+              "end": 1.99,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " in",
+              "start": 1.99,
+              "end": 2.31,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Antonius'",
+              "start": 2.31,
+              "end": 2.83,
+              "probability": 0.847412109375
+            },
+            {
+              "text": " way",
+              "start": 2.91,
+              "end": 3.17,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " when",
+              "start": 3.17,
+              "end": 3.41,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " he",
+              "start": 3.41,
+              "end": 3.55,
+              "probability": 0.9921875
+            },
+            {
+              "text": " doth",
+              "start": 3.55,
+              "end": 3.71,
+              "probability": 0.990478515625
+            },
+            {
+              "text": " run",
+              "start": 3.71,
+              "end": 3.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 3.91,
+              "end": 4.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " course,",
+              "start": 4.09,
+              "end": 4.39,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Antonius.",
+              "start": 5.03,
+              "end": 5.69,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar,",
+          "start": 0.11,
+          "end": 0.75
+        },
+        {
+          "raw": "stand",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "raw": "you",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "raw": "directly",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "raw": "in",
+          "start": 1.99,
+          "end": 2.31
+        },
+        {
+          "raw": "Antonius'",
+          "start": 2.31,
+          "end": 2.83
+        },
+        {
+          "raw": "way",
+          "start": 2.91,
+          "end": 3.17
+        },
+        {
+          "raw": "when",
+          "start": 3.17,
+          "end": 3.41
+        },
+        {
+          "raw": "he",
+          "start": 3.41,
+          "end": 3.55
+        },
+        {
+          "raw": "doth",
+          "start": 3.55,
+          "end": 3.71
+        },
+        {
+          "raw": "run",
+          "start": 3.71,
+          "end": 3.91
+        },
+        {
+          "raw": "his",
+          "start": 3.91,
+          "end": 4.09
+        },
+        {
+          "raw": "course,",
+          "start": 4.09,
+          "end": 4.39
+        },
+        {
+          "raw": "Antonius.",
+          "start": 5.03,
+          "end": 5.69
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "Stand",
+        "you",
+        "directly",
+        "in",
+        "Antonius'",
+        "way,",
+        "When",
+        "he",
+        "doth",
+        "run",
+        "his",
+        "course.",
+        "Antonius."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar,",
+          "start": 0.11,
+          "end": 0.75,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "stand",
+          "start": 1.21,
+          "end": 1.49,
+          "key": "stand",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.49,
+          "end": 1.69,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "directly",
+          "start": 1.69,
+          "end": 1.99,
+          "key": "directly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.99,
+          "end": 2.31,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Antonius'",
+          "start": 2.31,
+          "end": 2.83,
+          "key": "antonius",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 2.91,
+          "end": 3.17,
+          "key": "way",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 3.17,
+          "end": 3.41,
+          "key": "when",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.41,
+          "end": 3.55,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.55,
+          "end": 3.71,
+          "key": "doth",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "run",
+          "start": 3.71,
+          "end": 3.91,
+          "key": "run",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.91,
+          "end": 4.09,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "course,",
+          "start": 4.09,
+          "end": 4.39,
+          "key": "course",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Antonius.",
+          "start": 5.03,
+          "end": 5.69,
+          "key": "antonius",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.11,
+          "end": 0.75
+        },
+        {
+          "text": "Stand",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "text": "you",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "text": "directly",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "text": "in",
+          "start": 1.99,
+          "end": 2.31
+        },
+        {
+          "text": "Antonius'",
+          "start": 2.31,
+          "end": 2.83
+        },
+        {
+          "text": "way,",
+          "start": 2.91,
+          "end": 3.17
+        },
+        {
+          "text": "When",
+          "start": 3.17,
+          "end": 3.41
+        },
+        {
+          "text": "he",
+          "start": 3.41,
+          "end": 3.55
+        },
+        {
+          "text": "doth",
+          "start": 3.55,
+          "end": 3.71
+        },
+        {
+          "text": "run",
+          "start": 3.71,
+          "end": 3.91
+        },
+        {
+          "text": "his",
+          "start": 3.91,
+          "end": 4.09
+        },
+        {
+          "text": "course.",
+          "start": 4.09,
+          "end": 4.39
+        },
+        {
+          "text": "Antonius.",
+          "start": 5.03,
+          "end": 5.69
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2877429930085782
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7c1f9c09ce3484bec6a822d18a2d96e1c5d7ef31c170630252dc6ec32bdbe255",
+  "selected_reasons": []
+}

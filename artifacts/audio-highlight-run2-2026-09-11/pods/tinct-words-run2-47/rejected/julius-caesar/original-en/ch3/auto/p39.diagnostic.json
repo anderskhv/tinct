@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "c0ae0d47f783cce3f6705be0fbf6010ffe9142079350cb1be6fb790234931210",
+  "attempts": [
+    {
+      "asr_seconds": 0.23831104699638672,
+      "alignment_seconds": 0.00017638600547797978,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassius. That done, repair to Pompey's theatre.",
+        "hotwords": "Cassius, That, Pompey's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassius, That done, repair to Pompey's theatre.",
+          "start": 0.05,
+          "end": 3.05,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.947998046875
+            },
+            {
+              "text": " That",
+              "start": 1.29,
+              "end": 1.55,
+              "probability": 0.0428466796875
+            },
+            {
+              "text": " done,",
+              "start": 1.55,
+              "end": 1.79,
+              "probability": 0.336669921875
+            },
+            {
+              "text": " repair",
+              "start": 1.95,
+              "end": 2.17,
+              "probability": 0.046539306640625
+            },
+            {
+              "text": " to",
+              "start": 2.17,
+              "end": 2.39,
+              "probability": 0.77490234375
+            },
+            {
+              "text": " Pompey's",
+              "start": 2.39,
+              "end": 2.83,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " theatre.",
+              "start": 2.83,
+              "end": 3.05,
+              "probability": 0.087158203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "That",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "raw": "done,",
+          "start": 1.55,
+          "end": 1.79
+        },
+        {
+          "raw": "repair",
+          "start": 1.95,
+          "end": 2.17
+        },
+        {
+          "raw": "to",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "raw": "Pompey's",
+          "start": 2.39,
+          "end": 2.83
+        },
+        {
+          "raw": "theatre.",
+          "start": 2.83,
+          "end": 3.05
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "That",
+        "done,",
+        "repair",
+        "to",
+        "Pompey's",
+        "theatre."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 1.29,
+          "end": 1.55,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "done,",
+          "start": 1.55,
+          "end": 1.79,
+          "key": "done",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "repair",
+          "start": 1.95,
+          "end": 2.17,
+          "key": "repair",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.17,
+          "end": 2.39,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Pompey's",
+          "start": 2.39,
+          "end": 2.83,
+          "key": "pompeys",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "theatre.",
+          "start": 2.83,
+          "end": 3.05,
+          "key": "theatre",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "That",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "text": "done,",
+          "start": 1.55,
+          "end": 1.79
+        },
+        {
+          "text": "repair",
+          "start": 1.95,
+          "end": 2.17
+        },
+        {
+          "text": "to",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "text": "Pompey's",
+          "start": 2.39,
+          "end": 2.83
+        },
+        {
+          "text": "theatre.",
+          "start": 2.83,
+          "end": 3.05
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23855178500525653
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "322010fd1917b4209d367423b989b50671aaa9239404cf47801d1a8f71662e88",
+  "selected_reasons": []
+}

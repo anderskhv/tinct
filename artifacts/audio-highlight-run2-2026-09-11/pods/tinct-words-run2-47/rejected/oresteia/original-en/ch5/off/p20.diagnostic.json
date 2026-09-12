@@ -1,0 +1,167 @@
+{
+  "complete": true,
+  "signature": "b93419eed57628fc4a85fad84f37f11737fb6622bf63331a05536fcb421f223a",
+  "attempts": [
+    {
+      "asr_seconds": 0.15816505000111647,
+      "alignment_seconds": 0.00025172499590553343,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Re-enter Klytenestra.",
+          "start": 0.05,
+          "end": 1.61,
+          "words": [
+            {
+              "text": " Re",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.92431640625
+            },
+            {
+              "text": "-enter",
+              "start": 0.57,
+              "end": 0.81,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " Klytenestra.",
+              "start": 0.81,
+              "end": 1.61,
+              "probability": 0.619384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Re",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "-enter",
+          "start": 0.57,
+          "end": 0.81
+        },
+        {
+          "raw": "Klytenestra.",
+          "start": 0.81,
+          "end": 1.61
+        }
+      ],
+      "expected_tokens": [
+        "[Re-enter",
+        "Clytemnestra]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Re -enter",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "reenter",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "Klytenestra.",
+          "start": 0.81,
+          "end": 1.61,
+          "key": "klytenestra",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "[Re-enter",
+          "heard": "Re -enter",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.05,
+          "end": 0.81
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "[Re-enter",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Clytemnestra]",
+          "start": 0.81,
+          "end": 1.21
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1584833269880619
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b9f448a5d23dba7b3c54a2ea396a4381a048a20854312a27c928be1720674c54",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

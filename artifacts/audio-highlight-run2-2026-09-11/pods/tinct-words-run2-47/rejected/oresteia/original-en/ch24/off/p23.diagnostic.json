@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "74dabf70d3a6e08ba1334cf6bcbf2261e3b4a6fc4070eb3758c208aeb6f5d6b5",
+  "attempts": [
+    {
+      "asr_seconds": 0.18908381700748578,
+      "alignment_seconds": 0.0005273419956211001,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Orestes, then while she lived why didst thou hunt her not?",
+          "start": 0.53,
+          "end": 3.25,
+          "words": [
+            {
+              "text": " Orestes,",
+              "start": 0.53,
+              "end": 0.97,
+              "probability": 0.8484700520833334
+            },
+            {
+              "text": " then",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.861328125
+            },
+            {
+              "text": " while",
+              "start": 1.53,
+              "end": 1.67,
+              "probability": 0.73388671875
+            },
+            {
+              "text": " she",
+              "start": 1.67,
+              "end": 1.87,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " lived",
+              "start": 1.87,
+              "end": 2.09,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " why",
+              "start": 2.09,
+              "end": 2.31,
+              "probability": 0.6806640625
+            },
+            {
+              "text": " didst",
+              "start": 2.31,
+              "end": 2.59,
+              "probability": 0.983642578125
+            },
+            {
+              "text": " thou",
+              "start": 2.59,
+              "end": 2.71,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " hunt",
+              "start": 2.71,
+              "end": 2.91,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " her",
+              "start": 2.91,
+              "end": 3.03,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " not?",
+              "start": 3.03,
+              "end": 3.25,
+              "probability": 0.59423828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Orestes,",
+          "start": 0.53,
+          "end": 0.97
+        },
+        {
+          "raw": "then",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "while",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "raw": "she",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "raw": "lived",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "raw": "why",
+          "start": 2.09,
+          "end": 2.31
+        },
+        {
+          "raw": "didst",
+          "start": 2.31,
+          "end": 2.59
+        },
+        {
+          "raw": "thou",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "raw": "hunt",
+          "start": 2.71,
+          "end": 2.91
+        },
+        {
+          "raw": "her",
+          "start": 2.91,
+          "end": 3.03
+        },
+        {
+          "raw": "not?",
+          "start": 3.03,
+          "end": 3.25
+        }
+      ],
+      "expected_tokens": [
+        "Orestes.",
+        "Then",
+        "while",
+        "she",
+        "lived",
+        "why",
+        "didst",
+        "thou",
+        "hunt",
+        "her",
+        "not?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Orestes,",
+          "start": 0.53,
+          "end": 0.97,
+          "key": "orestes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.41,
+          "end": 1.53,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "while",
+          "start": 1.53,
+          "end": 1.67,
+          "key": "while",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.67,
+          "end": 1.87,
+          "key": "she",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lived",
+          "start": 1.87,
+          "end": 2.09,
+          "key": "lived",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 2.09,
+          "end": 2.31,
+          "key": "why",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "didst",
+          "start": 2.31,
+          "end": 2.59,
+          "key": "didst",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.59,
+          "end": 2.71,
+          "key": "thou",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hunt",
+          "start": 2.71,
+          "end": 2.91,
+          "key": "hunt",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.91,
+          "end": 3.03,
+          "key": "her",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not?",
+          "start": 3.03,
+          "end": 3.25,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Orestes.",
+          "start": 0.53,
+          "end": 0.97
+        },
+        {
+          "text": "Then",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "text": "while",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "text": "she",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "text": "lived",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "text": "why",
+          "start": 2.09,
+          "end": 2.31
+        },
+        {
+          "text": "didst",
+          "start": 2.31,
+          "end": 2.59
+        },
+        {
+          "text": "thou",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "text": "hunt",
+          "start": 2.71,
+          "end": 2.91
+        },
+        {
+          "text": "her",
+          "start": 2.91,
+          "end": 3.03
+        },
+        {
+          "text": "not?",
+          "start": 3.03,
+          "end": 3.25
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18981723202159628
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "de5488c0b706a3b2870740f6591d8d8b9b1622e635c2674c5efda1f7a72e0e6e",
+  "selected_reasons": []
+}

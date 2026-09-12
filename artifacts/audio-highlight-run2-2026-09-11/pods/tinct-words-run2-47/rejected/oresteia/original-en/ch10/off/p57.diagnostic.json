@@ -1,0 +1,543 @@
+{
+  "complete": true,
+  "signature": "0c79d13f1e07d8c4848895c1c77ce3ed3be767e0b2f76a0c3461a1059569f56e",
+  "attempts": [
+    {
+      "asr_seconds": 0.33693629200570285,
+      "alignment_seconds": 0.0004556200001388788,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Adjust this. Low. I too am standing ready, hand on hilt for death or life.",
+          "start": 0.02,
+          "end": 4.92,
+          "words": [
+            {
+              "text": " Adjust",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.166259765625
+            },
+            {
+              "text": " this.",
+              "start": 0.64,
+              "end": 1.08,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Low.",
+              "start": 1.36,
+              "end": 1.6,
+              "probability": 0.8037109375
+            },
+            {
+              "text": " I",
+              "start": 2.12,
+              "end": 2.2,
+              "probability": 0.9765625
+            },
+            {
+              "text": " too",
+              "start": 2.2,
+              "end": 2.4,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " am",
+              "start": 2.4,
+              "end": 2.52,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " standing",
+              "start": 2.52,
+              "end": 2.8,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " ready,",
+              "start": 2.8,
+              "end": 3.14,
+              "probability": 0.978515625
+            },
+            {
+              "text": " hand",
+              "start": 3.4,
+              "end": 3.52,
+              "probability": 0.94921875
+            },
+            {
+              "text": " on",
+              "start": 3.52,
+              "end": 3.7,
+              "probability": 0.958984375
+            },
+            {
+              "text": " hilt",
+              "start": 3.7,
+              "end": 3.92,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " for",
+              "start": 3.92,
+              "end": 4.16,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " death",
+              "start": 4.16,
+              "end": 4.38,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " or",
+              "start": 4.38,
+              "end": 4.64,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " life.",
+              "start": 4.64,
+              "end": 4.92,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Adjust",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "this.",
+          "start": 0.64,
+          "end": 1.08
+        },
+        {
+          "raw": "Low.",
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.2
+        },
+        {
+          "raw": "too",
+          "start": 2.2,
+          "end": 2.4
+        },
+        {
+          "raw": "am",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "raw": "standing",
+          "start": 2.52,
+          "end": 2.8
+        },
+        {
+          "raw": "ready,",
+          "start": 2.8,
+          "end": 3.14
+        },
+        {
+          "raw": "hand",
+          "start": 3.4,
+          "end": 3.52
+        },
+        {
+          "raw": "on",
+          "start": 3.52,
+          "end": 3.7
+        },
+        {
+          "raw": "hilt",
+          "start": 3.7,
+          "end": 3.92
+        },
+        {
+          "raw": "for",
+          "start": 3.92,
+          "end": 4.16
+        },
+        {
+          "raw": "death",
+          "start": 4.16,
+          "end": 4.38
+        },
+        {
+          "raw": "or",
+          "start": 4.38,
+          "end": 4.64
+        },
+        {
+          "raw": "life.",
+          "start": 4.64,
+          "end": 4.92
+        }
+      ],
+      "expected_tokens": [
+        "Aegisthus.",
+        "Lo!",
+        "I",
+        "too",
+        "am",
+        "standing",
+        "ready,",
+        "hand",
+        "on",
+        "hilt",
+        "for",
+        "death",
+        "or",
+        "life."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "equal",
+          2,
+          14,
+          3,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Adjust",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "adjust",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this.",
+          "start": 0.64,
+          "end": 1.08,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Low.",
+          "start": 1.36,
+          "end": 1.6,
+          "key": "low",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.2,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 2.2,
+          "end": 2.4,
+          "key": "too",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.4,
+          "end": 2.52,
+          "key": "am",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "standing",
+          "start": 2.52,
+          "end": 2.8,
+          "key": "standing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ready,",
+          "start": 2.8,
+          "end": 3.14,
+          "key": "ready",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 3.4,
+          "end": 3.52,
+          "key": "hand",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.52,
+          "end": 3.7,
+          "key": "on",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "hilt",
+          "start": 3.7,
+          "end": 3.92,
+          "key": "hilt",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.92,
+          "end": 4.16,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "death",
+          "start": 4.16,
+          "end": 4.38,
+          "key": "death",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 4.38,
+          "end": 4.64,
+          "key": "or",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "life.",
+          "start": 4.64,
+          "end": 4.92,
+          "key": "life",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Aegisthus.",
+          "start": 0.0,
+          "end": 1.06
+        },
+        {
+          "text": "Lo!",
+          "start": 1.06,
+          "end": 1.59
+        },
+        {
+          "text": "I",
+          "start": 2.12,
+          "end": 2.2
+        },
+        {
+          "text": "too",
+          "start": 2.2,
+          "end": 2.4
+        },
+        {
+          "text": "am",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "text": "standing",
+          "start": 2.52,
+          "end": 2.8
+        },
+        {
+          "text": "ready,",
+          "start": 2.8,
+          "end": 3.14
+        },
+        {
+          "text": "hand",
+          "start": 3.4,
+          "end": 3.52
+        },
+        {
+          "text": "on",
+          "start": 3.52,
+          "end": 3.7
+        },
+        {
+          "text": "hilt",
+          "start": 3.7,
+          "end": 3.92
+        },
+        {
+          "text": "for",
+          "start": 3.92,
+          "end": 4.16
+        },
+        {
+          "text": "death",
+          "start": 4.16,
+          "end": 4.38
+        },
+        {
+          "text": "or",
+          "start": 4.38,
+          "end": 4.64
+        },
+        {
+          "text": "life.",
+          "start": 4.64,
+          "end": 4.92
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.3375799649802502
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c877c2e54ad7fd8b53c97d2d0d2a5d68b83fbef94efb397986af6a94658a6bd7",
+  "selected_reasons": []
+}

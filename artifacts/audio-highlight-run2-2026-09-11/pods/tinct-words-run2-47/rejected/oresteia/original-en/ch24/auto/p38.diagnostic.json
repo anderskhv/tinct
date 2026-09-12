@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "f6af0d57f7fb2498fd029f7c8dbbc92574d604565591167b2a4c05b350d7a8fd",
+  "attempts": [
+    {
+      "asr_seconds": 0.3830833350075409,
+      "alignment_seconds": 0.00034852500539273024,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Apollo. I spake, ye heard; enough. O stranger men, Heed well your oath as ye decide the cause.",
+        "hotwords": "Apollo, I, O, Heed"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Apollo, I spake, ye heard enough. O stranger men, Heed well your oath as ye decide the cause.",
+          "start": 0.02,
+          "end": 6.08,
+          "words": [
+            {
+              "text": " Apollo,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.449951171875
+            },
+            {
+              "text": " I",
+              "start": 1.12,
+              "end": 1.22,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " spake,",
+              "start": 1.22,
+              "end": 1.62,
+              "probability": 0.984619140625
+            },
+            {
+              "text": " ye",
+              "start": 1.92,
+              "end": 1.96,
+              "probability": 0.982421875
+            },
+            {
+              "text": " heard",
+              "start": 1.96,
+              "end": 2.24,
+              "probability": 0.462890625
+            },
+            {
+              "text": " enough.",
+              "start": 2.24,
+              "end": 2.58,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " O",
+              "start": 3.26,
+              "end": 3.34,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " stranger",
+              "start": 3.34,
+              "end": 3.68,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " men,",
+              "start": 3.68,
+              "end": 4.1,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Heed",
+              "start": 4.38,
+              "end": 4.48,
+              "probability": 0.06773567199707031
+            },
+            {
+              "text": " well",
+              "start": 4.48,
+              "end": 4.62,
+              "probability": 0.916015625
+            },
+            {
+              "text": " your",
+              "start": 4.62,
+              "end": 4.8,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " oath",
+              "start": 4.8,
+              "end": 5.04,
+              "probability": 0.98046875
+            },
+            {
+              "text": " as",
+              "start": 5.04,
+              "end": 5.24,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " ye",
+              "start": 5.24,
+              "end": 5.36,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " decide",
+              "start": 5.36,
+              "end": 5.64,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " the",
+              "start": 5.64,
+              "end": 5.8,
+              "probability": 0.994140625
+            },
+            {
+              "text": " cause.",
+              "start": 5.8,
+              "end": 6.08,
+              "probability": 0.96435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Apollo,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "I",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "raw": "spake,",
+          "start": 1.22,
+          "end": 1.62
+        },
+        {
+          "raw": "ye",
+          "start": 1.92,
+          "end": 1.96
+        },
+        {
+          "raw": "heard",
+          "start": 1.96,
+          "end": 2.24
+        },
+        {
+          "raw": "enough.",
+          "start": 2.24,
+          "end": 2.58
+        },
+        {
+          "raw": "O",
+          "start": 3.26,
+          "end": 3.34
+        },
+        {
+          "raw": "stranger",
+          "start": 3.34,
+          "end": 3.68
+        },
+        {
+          "raw": "men,",
+          "start": 3.68,
+          "end": 4.1
+        },
+        {
+          "raw": "Heed",
+          "start": 4.38,
+          "end": 4.48
+        },
+        {
+          "raw": "well",
+          "start": 4.48,
+          "end": 4.62
+        },
+        {
+          "raw": "your",
+          "start": 4.62,
+          "end": 4.8
+        },
+        {
+          "raw": "oath",
+          "start": 4.8,
+          "end": 5.04
+        },
+        {
+          "raw": "as",
+          "start": 5.04,
+          "end": 5.24
+        },
+        {
+          "raw": "ye",
+          "start": 5.24,
+          "end": 5.36
+        },
+        {
+          "raw": "decide",
+          "start": 5.36,
+          "end": 5.64
+        },
+        {
+          "raw": "the",
+          "start": 5.64,
+          "end": 5.8
+        },
+        {
+          "raw": "cause.",
+          "start": 5.8,
+          "end": 6.08
+        }
+      ],
+      "expected_tokens": [
+        "Apollo.",
+        "I",
+        "spake,",
+        "ye",
+        "heard;",
+        "enough.",
+        "O",
+        "stranger",
+        "men,",
+        "Heed",
+        "well",
+        "your",
+        "oath",
+        "as",
+        "ye",
+        "decide",
+        "the",
+        "cause."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Apollo,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "apollo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.12,
+          "end": 1.22,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "spake,",
+          "start": 1.22,
+          "end": 1.62,
+          "key": "spake",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ye",
+          "start": 1.92,
+          "end": 1.96,
+          "key": "ye",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 1.96,
+          "end": 2.24,
+          "key": "heard",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "enough.",
+          "start": 2.24,
+          "end": 2.58,
+          "key": "enough",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 3.26,
+          "end": 3.34,
+          "key": "o",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "stranger",
+          "start": 3.34,
+          "end": 3.68,
+          "key": "stranger",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "men,",
+          "start": 3.68,
+          "end": 4.1,
+          "key": "men",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Heed",
+          "start": 4.38,
+          "end": 4.48,
+          "key": "heed",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 4.48,
+          "end": 4.62,
+          "key": "well",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.62,
+          "end": 4.8,
+          "key": "your",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "oath",
+          "start": 4.8,
+          "end": 5.04,
+          "key": "oath",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 5.04,
+          "end": 5.24,
+          "key": "as",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "ye",
+          "start": 5.24,
+          "end": 5.36,
+          "key": "ye",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "decide",
+          "start": 5.36,
+          "end": 5.64,
+          "key": "decide",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.64,
+          "end": 5.8,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "cause.",
+          "start": 5.8,
+          "end": 6.08,
+          "key": "cause",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Apollo.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "I",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "text": "spake,",
+          "start": 1.22,
+          "end": 1.62
+        },
+        {
+          "text": "ye",
+          "start": 1.92,
+          "end": 1.96
+        },
+        {
+          "text": "heard;",
+          "start": 1.96,
+          "end": 2.24
+        },
+        {
+          "text": "enough.",
+          "start": 2.24,
+          "end": 2.58
+        },
+        {
+          "text": "O",
+          "start": 3.26,
+          "end": 3.34
+        },
+        {
+          "text": "stranger",
+          "start": 3.34,
+          "end": 3.68
+        },
+        {
+          "text": "men,",
+          "start": 3.68,
+          "end": 4.1
+        },
+        {
+          "text": "Heed",
+          "start": 4.38,
+          "end": 4.48
+        },
+        {
+          "text": "well",
+          "start": 4.48,
+          "end": 4.62
+        },
+        {
+          "text": "your",
+          "start": 4.62,
+          "end": 4.8
+        },
+        {
+          "text": "oath",
+          "start": 4.8,
+          "end": 5.04
+        },
+        {
+          "text": "as",
+          "start": 5.04,
+          "end": 5.24
+        },
+        {
+          "text": "ye",
+          "start": 5.24,
+          "end": 5.36
+        },
+        {
+          "text": "decide",
+          "start": 5.36,
+          "end": 5.64
+        },
+        {
+          "text": "the",
+          "start": 5.64,
+          "end": 5.8
+        },
+        {
+          "text": "cause.",
+          "start": 5.8,
+          "end": 6.08
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3835656830051448
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c8c4fad3e82176cfea93988e170c16c648c99f8621c66b9fadf41e8b746fd017",
+  "selected_reasons": []
+}

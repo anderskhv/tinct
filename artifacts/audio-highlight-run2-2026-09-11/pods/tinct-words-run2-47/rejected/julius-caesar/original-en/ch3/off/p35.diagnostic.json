@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "69c94bc134ba9f1812dd2dc0e80177163023ab4e4de47eff1badb1cd54b9c058",
+  "attempts": [
+    {
+      "asr_seconds": 0.22350792601355352,
+      "alignment_seconds": 0.00043221801752224565,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassius, am I not staid for? Tell me.",
+          "start": 0.05,
+          "end": 2.59,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.947021484375
+            },
+            {
+              "text": " am",
+              "start": 1.11,
+              "end": 1.11,
+              "probability": 0.98046875
+            },
+            {
+              "text": " I",
+              "start": 1.11,
+              "end": 1.21,
+              "probability": 0.986328125
+            },
+            {
+              "text": " not",
+              "start": 1.21,
+              "end": 1.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " staid",
+              "start": 1.33,
+              "end": 1.63,
+              "probability": 0.6583251953125
+            },
+            {
+              "text": " for?",
+              "start": 1.63,
+              "end": 1.85,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Tell",
+              "start": 2.23,
+              "end": 2.35,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " me.",
+              "start": 2.35,
+              "end": 2.59,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "am",
+          "start": 1.11,
+          "end": 1.11
+        },
+        {
+          "raw": "I",
+          "start": 1.11,
+          "end": 1.21
+        },
+        {
+          "raw": "not",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "raw": "staid",
+          "start": 1.33,
+          "end": 1.63
+        },
+        {
+          "raw": "for?",
+          "start": 1.63,
+          "end": 1.85
+        },
+        {
+          "raw": "Tell",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "raw": "me.",
+          "start": 2.35,
+          "end": 2.59
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "Am",
+        "I",
+        "not",
+        "stay'd",
+        "for?",
+        "tell",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          8,
+          5,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.11,
+          "end": 1.11,
+          "key": "am",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.11,
+          "end": 1.21,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.21,
+          "end": 1.33,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "staid",
+          "start": 1.33,
+          "end": 1.63,
+          "key": "staid",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for?",
+          "start": 1.63,
+          "end": 1.85,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Tell",
+          "start": 2.23,
+          "end": 2.35,
+          "key": "tell",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.35,
+          "end": 2.59,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Am",
+          "start": 1.11,
+          "end": 1.11
+        },
+        {
+          "text": "I",
+          "start": 1.11,
+          "end": 1.21
+        },
+        {
+          "text": "not",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "text": "stay'd",
+          "start": 1.33,
+          "end": 1.48
+        },
+        {
+          "text": "for?",
+          "start": 1.63,
+          "end": 1.85
+        },
+        {
+          "text": "tell",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "text": "me.",
+          "start": 2.35,
+          "end": 2.59
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.22408766602165997
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8a9f4d8a3726dc514a890732ee09f62811ee79519639685ab70dc14924a1ba80",
+  "selected_reasons": []
+}

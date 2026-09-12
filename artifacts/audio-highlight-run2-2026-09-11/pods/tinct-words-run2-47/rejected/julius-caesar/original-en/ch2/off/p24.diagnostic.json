@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "a21106b0c94f393601a18899322f2c8cca78859f04e01519c15a8f207c27d41e",
+  "attempts": [
+    {
+      "asr_seconds": 0.2136148849967867,
+      "alignment_seconds": 0.0003547260130289942,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Caesar he is a dreamer. Let us leave him pass",
+          "start": 0.08,
+          "end": 3.16,
+          "words": [
+            {
+              "text": " Caesar",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " he",
+              "start": 0.72,
+              "end": 1.18,
+              "probability": 0.221923828125
+            },
+            {
+              "text": " is",
+              "start": 1.18,
+              "end": 1.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 1.3,
+              "end": 1.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dreamer.",
+              "start": 1.4,
+              "end": 1.78,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Let",
+              "start": 1.84,
+              "end": 1.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " us",
+              "start": 1.92,
+              "end": 2.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " leave",
+              "start": 2.06,
+              "end": 2.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 2.24,
+              "end": 2.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pass",
+              "start": 2.52,
+              "end": 3.16,
+              "probability": 0.95068359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "he",
+          "start": 0.72,
+          "end": 1.18
+        },
+        {
+          "raw": "is",
+          "start": 1.18,
+          "end": 1.3
+        },
+        {
+          "raw": "a",
+          "start": 1.3,
+          "end": 1.4
+        },
+        {
+          "raw": "dreamer.",
+          "start": 1.4,
+          "end": 1.78
+        },
+        {
+          "raw": "Let",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "raw": "us",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "raw": "leave",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "raw": "him",
+          "start": 2.24,
+          "end": 2.52
+        },
+        {
+          "raw": "pass",
+          "start": 2.52,
+          "end": 3.16
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "He",
+        "is",
+        "a",
+        "dreamer;",
+        "let",
+        "us",
+        "leave",
+        "him.",
+        "Pass."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.72,
+          "end": 1.18,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.18,
+          "end": 1.3,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.3,
+          "end": 1.4,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dreamer.",
+          "start": 1.4,
+          "end": 1.78,
+          "key": "dreamer",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 1.84,
+          "end": 1.92,
+          "key": "let",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 1.92,
+          "end": 2.06,
+          "key": "us",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 2.06,
+          "end": 2.24,
+          "key": "leave",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.24,
+          "end": 2.52,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "pass",
+          "start": 2.52,
+          "end": 3.16,
+          "key": "pass",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "He",
+          "start": 0.72,
+          "end": 1.18
+        },
+        {
+          "text": "is",
+          "start": 1.18,
+          "end": 1.3
+        },
+        {
+          "text": "a",
+          "start": 1.3,
+          "end": 1.4
+        },
+        {
+          "text": "dreamer;",
+          "start": 1.4,
+          "end": 1.78
+        },
+        {
+          "text": "let",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "text": "us",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "text": "leave",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "text": "him.",
+          "start": 2.24,
+          "end": 2.52
+        },
+        {
+          "text": "Pass.",
+          "start": 2.52,
+          "end": 3.16
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21411358899786137
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4d74712650c9b0253c02cb865ea56ed1ac964ad54a22a79b97ab55c3e2bba6e6",
+  "selected_reasons": []
+}

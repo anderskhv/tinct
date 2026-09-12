@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "252f1522c918f251927677dc4fe0e7dfd54cf20299cce4c9c5631d495d64ad3a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1775140819954686,
+      "alignment_seconds": 0.0002973429800476879,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Casca. Farewell, Cicero.",
+        "hotwords": "Casca, Farewell, Cicero"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Casca, Farewell, Cicero.",
+          "start": 0.05,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " Casca,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.602783203125
+            },
+            {
+              "text": " Farewell,",
+              "start": 1.15,
+              "end": 1.65,
+              "probability": 0.7149658203125
+            },
+            {
+              "text": " Cicero.",
+              "start": 1.77,
+              "end": 2.09,
+              "probability": 0.9658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Casca,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Farewell,",
+          "start": 1.15,
+          "end": 1.65
+        },
+        {
+          "raw": "Cicero.",
+          "start": 1.77,
+          "end": 2.09
+        }
+      ],
+      "expected_tokens": [
+        "Casca.",
+        "Farewell,",
+        "Cicero."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Casca,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "casca",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Farewell,",
+          "start": 1.15,
+          "end": 1.65,
+          "key": "farewell",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Cicero.",
+          "start": 1.77,
+          "end": 2.09,
+          "key": "cicero",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Casca.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Farewell,",
+          "start": 1.15,
+          "end": 1.65
+        },
+        {
+          "text": "Cicero.",
+          "start": 1.77,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17791926499921829
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "84516362e267779a1eee2f2e9e33086266d3546fdcdb8fda904052020aed8a52",
+  "selected_reasons": []
+}

@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "48e9a2713773006d87cabccd7808b90306dbd6f12a2111ffd4493d20deaef90c",
+  "attempts": [
+    {
+      "asr_seconds": 0.194950932986103,
+      "alignment_seconds": 0.00041199199040420353,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Harald, thy kings afar couldst thou fear other men.",
+          "start": 0.05,
+          "end": 3.29,
+          "words": [
+            {
+              "text": " Harald,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.506103515625
+            },
+            {
+              "text": " thy",
+              "start": 1.27,
+              "end": 1.35,
+              "probability": 0.962890625
+            },
+            {
+              "text": " kings",
+              "start": 1.35,
+              "end": 1.59,
+              "probability": 0.75439453125
+            },
+            {
+              "text": " afar",
+              "start": 1.59,
+              "end": 1.95,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " couldst",
+              "start": 1.95,
+              "end": 2.37,
+              "probability": 0.918701171875
+            },
+            {
+              "text": " thou",
+              "start": 2.37,
+              "end": 2.57,
+              "probability": 0.990234375
+            },
+            {
+              "text": " fear",
+              "start": 2.57,
+              "end": 2.75,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " other",
+              "start": 2.75,
+              "end": 2.99,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " men.",
+              "start": 2.99,
+              "end": 3.29,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Harald,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "thy",
+          "start": 1.27,
+          "end": 1.35
+        },
+        {
+          "raw": "kings",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "raw": "afar",
+          "start": 1.59,
+          "end": 1.95
+        },
+        {
+          "raw": "couldst",
+          "start": 1.95,
+          "end": 2.37
+        },
+        {
+          "raw": "thou",
+          "start": 2.37,
+          "end": 2.57
+        },
+        {
+          "raw": "fear",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "raw": "other",
+          "start": 2.75,
+          "end": 2.99
+        },
+        {
+          "raw": "men.",
+          "start": 2.99,
+          "end": 3.29
+        }
+      ],
+      "expected_tokens": [
+        "Herald.",
+        "Thy",
+        "kings",
+        "afar,",
+        "couldst",
+        "thou",
+        "fear",
+        "other",
+        "men?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          9,
+          1,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Harald,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "harald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.27,
+          "end": 1.35,
+          "key": "thy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "kings",
+          "start": 1.35,
+          "end": 1.59,
+          "key": "kings",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "afar",
+          "start": 1.59,
+          "end": 1.95,
+          "key": "afar",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "couldst",
+          "start": 1.95,
+          "end": 2.37,
+          "key": "couldst",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.37,
+          "end": 2.57,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fear",
+          "start": 2.57,
+          "end": 2.75,
+          "key": "fear",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 2.75,
+          "end": 2.99,
+          "key": "other",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "men.",
+          "start": 2.99,
+          "end": 3.29,
+          "key": "men",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Herald.",
+          "start": 0.0,
+          "end": 0.635
+        },
+        {
+          "text": "Thy",
+          "start": 1.27,
+          "end": 1.35
+        },
+        {
+          "text": "kings",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "text": "afar,",
+          "start": 1.59,
+          "end": 1.95
+        },
+        {
+          "text": "couldst",
+          "start": 1.95,
+          "end": 2.37
+        },
+        {
+          "text": "thou",
+          "start": 2.37,
+          "end": 2.57
+        },
+        {
+          "text": "fear",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "text": "other",
+          "start": 2.75,
+          "end": 2.99
+        },
+        {
+          "text": "men?",
+          "start": 2.99,
+          "end": 3.29
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.19551050098380074
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9afafcf2ffc2c2b9aa03ec6680fe69851b79dc3ea32532694fee252d849fe073",
+  "selected_reasons": []
+}

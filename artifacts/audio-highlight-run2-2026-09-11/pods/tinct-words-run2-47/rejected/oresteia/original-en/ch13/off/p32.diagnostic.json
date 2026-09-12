@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "337ef5dcbc455953c477ea66f90ac74fbe2dc5c2afd80926acc107ea2b787728",
+  "attempts": [
+    {
+      "asr_seconds": 0.27199673000723124,
+      "alignment_seconds": 0.00045734900049865246,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Chorus, for they who thus should mourn him hate him sore.",
+          "start": 0.0,
+          "end": 3.16,
+          "words": [
+            {
+              "text": " Chorus,",
+              "start": 0.0,
+              "end": 0.78,
+              "probability": 0.780517578125
+            },
+            {
+              "text": " for",
+              "start": 1.2,
+              "end": 1.34,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " they",
+              "start": 1.34,
+              "end": 1.48,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " who",
+              "start": 1.48,
+              "end": 1.66,
+              "probability": 0.990234375
+            },
+            {
+              "text": " thus",
+              "start": 1.66,
+              "end": 1.88,
+              "probability": 0.9765625
+            },
+            {
+              "text": " should",
+              "start": 1.88,
+              "end": 2.08,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " mourn",
+              "start": 2.08,
+              "end": 2.26,
+              "probability": 0.986328125
+            },
+            {
+              "text": " him",
+              "start": 2.26,
+              "end": 2.48,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " hate",
+              "start": 2.48,
+              "end": 2.7,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " him",
+              "start": 2.7,
+              "end": 2.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sore.",
+              "start": 2.9,
+              "end": 3.16,
+              "probability": 0.67724609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chorus,",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "raw": "for",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "raw": "they",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "raw": "who",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "raw": "thus",
+          "start": 1.66,
+          "end": 1.88
+        },
+        {
+          "raw": "should",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "raw": "mourn",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "raw": "him",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "raw": "hate",
+          "start": 2.48,
+          "end": 2.7
+        },
+        {
+          "raw": "him",
+          "start": 2.7,
+          "end": 2.9
+        },
+        {
+          "raw": "sore.",
+          "start": 2.9,
+          "end": 3.16
+        }
+      ],
+      "expected_tokens": [
+        "Chorus.",
+        "For",
+        "they",
+        "who",
+        "thus",
+        "should",
+        "mourn",
+        "him",
+        "hate",
+        "him",
+        "sore."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chorus,",
+          "start": 0.0,
+          "end": 0.78,
+          "key": "chorus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.2,
+          "end": 1.34,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.34,
+          "end": 1.48,
+          "key": "they",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.48,
+          "end": 1.66,
+          "key": "who",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 1.66,
+          "end": 1.88,
+          "key": "thus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 1.88,
+          "end": 2.08,
+          "key": "should",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "mourn",
+          "start": 2.08,
+          "end": 2.26,
+          "key": "mourn",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.26,
+          "end": 2.48,
+          "key": "him",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hate",
+          "start": 2.48,
+          "end": 2.7,
+          "key": "hate",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.7,
+          "end": 2.9,
+          "key": "him",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sore.",
+          "start": 2.9,
+          "end": 3.16,
+          "key": "sore",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Chorus.",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "text": "For",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "text": "they",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "text": "who",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "text": "thus",
+          "start": 1.66,
+          "end": 1.88
+        },
+        {
+          "text": "should",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "text": "mourn",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "text": "him",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "text": "hate",
+          "start": 2.48,
+          "end": 2.7
+        },
+        {
+          "text": "him",
+          "start": 2.7,
+          "end": 2.9
+        },
+        {
+          "text": "sore.",
+          "start": 2.9,
+          "end": 3.16
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27263816000777297
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "83642c3eb7fe74207436c3c633305dd1440b594eda663fcf92ad1857da330a52",
+  "selected_reasons": []
+}

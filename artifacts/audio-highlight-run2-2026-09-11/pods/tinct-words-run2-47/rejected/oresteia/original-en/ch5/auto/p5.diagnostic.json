@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "fbf70aa22933b82b9cb61293d25b1a41fbed984fb9c00ad2c9a74f761297641c",
+  "attempts": [
+    {
+      "asr_seconds": 0.209821816009935,
+      "alignment_seconds": 0.0004702230216935277,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Herald. All hail! not death itself can fright me now.",
+        "hotwords": "Herald, All"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Herald, All hail! not death itself can fright me now.",
+          "start": 0.05,
+          "end": 3.55,
+          "words": [
+            {
+              "text": " Herald,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.0286865234375
+            },
+            {
+              "text": " All",
+              "start": 1.07,
+              "end": 1.29,
+              "probability": 0.038330078125
+            },
+            {
+              "text": " hail!",
+              "start": 1.29,
+              "end": 1.55,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " not",
+              "start": 2.03,
+              "end": 2.15,
+              "probability": 0.0526123046875
+            },
+            {
+              "text": " death",
+              "start": 2.15,
+              "end": 2.35,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " itself",
+              "start": 2.35,
+              "end": 2.61,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " can",
+              "start": 2.61,
+              "end": 2.87,
+              "probability": 0.98046875
+            },
+            {
+              "text": " fright",
+              "start": 2.87,
+              "end": 3.09,
+              "probability": 0.97265625
+            },
+            {
+              "text": " me",
+              "start": 3.09,
+              "end": 3.27,
+              "probability": 0.943359375
+            },
+            {
+              "text": " now.",
+              "start": 3.27,
+              "end": 3.55,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Herald,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "All",
+          "start": 1.07,
+          "end": 1.29
+        },
+        {
+          "raw": "hail!",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "raw": "not",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "raw": "death",
+          "start": 2.15,
+          "end": 2.35
+        },
+        {
+          "raw": "itself",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "raw": "can",
+          "start": 2.61,
+          "end": 2.87
+        },
+        {
+          "raw": "fright",
+          "start": 2.87,
+          "end": 3.09
+        },
+        {
+          "raw": "me",
+          "start": 3.09,
+          "end": 3.27
+        },
+        {
+          "raw": "now.",
+          "start": 3.27,
+          "end": 3.55
+        }
+      ],
+      "expected_tokens": [
+        "Herald.",
+        "All",
+        "hail!",
+        "not",
+        "death",
+        "itself",
+        "can",
+        "fright",
+        "me",
+        "now."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Herald,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "herald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 1.07,
+          "end": 1.29,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hail!",
+          "start": 1.29,
+          "end": 1.55,
+          "key": "hail",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.03,
+          "end": 2.15,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "death",
+          "start": 2.15,
+          "end": 2.35,
+          "key": "death",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "itself",
+          "start": 2.35,
+          "end": 2.61,
+          "key": "itself",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 2.61,
+          "end": 2.87,
+          "key": "can",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fright",
+          "start": 2.87,
+          "end": 3.09,
+          "key": "fright",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.09,
+          "end": 3.27,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 3.27,
+          "end": 3.55,
+          "key": "now",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Herald.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "All",
+          "start": 1.07,
+          "end": 1.29
+        },
+        {
+          "text": "hail!",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "text": "not",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "text": "death",
+          "start": 2.15,
+          "end": 2.35
+        },
+        {
+          "text": "itself",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "text": "can",
+          "start": 2.61,
+          "end": 2.87
+        },
+        {
+          "text": "fright",
+          "start": 2.87,
+          "end": 3.09
+        },
+        {
+          "text": "me",
+          "start": 3.09,
+          "end": 3.27
+        },
+        {
+          "text": "now.",
+          "start": 3.27,
+          "end": 3.55
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2104830130119808
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b08b0240c23dfa6d45460f3f2828bd63cfd45ebbf69d90d7785d792bf9e00951",
+  "selected_reasons": []
+}

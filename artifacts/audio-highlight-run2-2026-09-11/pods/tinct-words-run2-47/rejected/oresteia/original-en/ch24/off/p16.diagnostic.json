@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "603181bb2fff0135a7d4ebdda6b6debd6820147e9eefa44369b7b03deb784e0b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1903300799895078,
+      "alignment_seconds": 0.00031383399618789554,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Chorus, if the vote grip thee, thou shalt change that word.",
+          "start": 0.0,
+          "end": 3.5,
+          "words": [
+            {
+              "text": " Chorus,",
+              "start": 0.0,
+              "end": 0.76,
+              "probability": 0.854736328125
+            },
+            {
+              "text": " if",
+              "start": 1.16,
+              "end": 1.36,
+              "probability": 0.7099609375
+            },
+            {
+              "text": " the",
+              "start": 1.36,
+              "end": 1.48,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " vote",
+              "start": 1.48,
+              "end": 1.7,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " grip",
+              "start": 1.7,
+              "end": 1.92,
+              "probability": 0.7236328125
+            },
+            {
+              "text": " thee,",
+              "start": 1.92,
+              "end": 2.18,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " thou",
+              "start": 2.42,
+              "end": 2.44,
+              "probability": 0.986328125
+            },
+            {
+              "text": " shalt",
+              "start": 2.44,
+              "end": 2.62,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " change",
+              "start": 2.62,
+              "end": 2.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 2.96,
+              "end": 3.24,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " word.",
+              "start": 3.24,
+              "end": 3.5,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chorus,",
+          "start": 0.0,
+          "end": 0.76
+        },
+        {
+          "raw": "if",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "raw": "the",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "raw": "vote",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "raw": "grip",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "raw": "thee,",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "raw": "thou",
+          "start": 2.42,
+          "end": 2.44
+        },
+        {
+          "raw": "shalt",
+          "start": 2.44,
+          "end": 2.62
+        },
+        {
+          "raw": "change",
+          "start": 2.62,
+          "end": 2.96
+        },
+        {
+          "raw": "that",
+          "start": 2.96,
+          "end": 3.24
+        },
+        {
+          "raw": "word.",
+          "start": 3.24,
+          "end": 3.5
+        }
+      ],
+      "expected_tokens": [
+        "Chorus.",
+        "If",
+        "the",
+        "vote",
+        "grip",
+        "thee,",
+        "thou",
+        "shalt",
+        "change",
+        "that",
+        "word."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chorus,",
+          "start": 0.0,
+          "end": 0.76,
+          "key": "chorus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.16,
+          "end": 1.36,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.36,
+          "end": 1.48,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "vote",
+          "start": 1.48,
+          "end": 1.7,
+          "key": "vote",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "grip",
+          "start": 1.7,
+          "end": 1.92,
+          "key": "grip",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 1.92,
+          "end": 2.18,
+          "key": "thee",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.42,
+          "end": 2.44,
+          "key": "thou",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "shalt",
+          "start": 2.44,
+          "end": 2.62,
+          "key": "shalt",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "change",
+          "start": 2.62,
+          "end": 2.96,
+          "key": "change",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.96,
+          "end": 3.24,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "word.",
+          "start": 3.24,
+          "end": 3.5,
+          "key": "word",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Chorus.",
+          "start": 0.0,
+          "end": 0.76
+        },
+        {
+          "text": "If",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "text": "the",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "text": "vote",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "text": "grip",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "text": "thee,",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "text": "thou",
+          "start": 2.42,
+          "end": 2.44
+        },
+        {
+          "text": "shalt",
+          "start": 2.44,
+          "end": 2.62
+        },
+        {
+          "text": "change",
+          "start": 2.62,
+          "end": 2.96
+        },
+        {
+          "text": "that",
+          "start": 2.96,
+          "end": 3.24
+        },
+        {
+          "text": "word.",
+          "start": 3.24,
+          "end": 3.5
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19076551098260097
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "70ae6cf1c6fd3b725691e3a0ce604ce7cdaad6734599291ba76b1dee579693d6",
+  "selected_reasons": []
+}

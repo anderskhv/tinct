@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "27058094103c545c305d07ba987db5ae96370ddf6fc5e93552a694d57f402c2a",
+  "attempts": [
+    {
+      "asr_seconds": 0.15349593799328431,
+      "alignment_seconds": 0.0002917529782280326,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassius. Who's there?",
+        "hotwords": "Cassius, Who's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassius, Who's there?",
+          "start": 0.05,
+          "end": 1.51,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.949951171875
+            },
+            {
+              "text": " Who's",
+              "start": 1.11,
+              "end": 1.31,
+              "probability": 0.4800872802734375
+            },
+            {
+              "text": " there?",
+              "start": 1.31,
+              "end": 1.51,
+              "probability": 0.39794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Who's",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "raw": "there?",
+          "start": 1.31,
+          "end": 1.51
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "Who's",
+        "there?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Who's",
+          "start": 1.11,
+          "end": 1.31,
+          "key": "whos",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "there?",
+          "start": 1.31,
+          "end": 1.51,
+          "key": "there",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Who's",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "text": "there?",
+          "start": 1.31,
+          "end": 1.51
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15389100200263783
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d7def00cbf0162ad761e662af4b204593806b59f5c01d268d292526f363fa519",
+  "selected_reasons": []
+}

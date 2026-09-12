@@ -1,0 +1,422 @@
+{
+  "complete": true,
+  "signature": "255712ace39bf4c127bbeef8ba27ea63a48ce3b38052ce12892bf21f4cd5cbff",
+  "attempts": [
+    {
+      "asr_seconds": 0.2208555040124338,
+      "alignment_seconds": 0.0005200799787417054,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Caesar, what says doth thou to me now? Speak once again.",
+          "start": 0.11,
+          "end": 3.47,
+          "words": [
+            {
+              "text": " Caesar,",
+              "start": 0.11,
+              "end": 0.75,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " what",
+              "start": 1.07,
+              "end": 1.25,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " says",
+              "start": 1.25,
+              "end": 1.53,
+              "probability": 0.373779296875
+            },
+            {
+              "text": " doth",
+              "start": 1.53,
+              "end": 1.81,
+              "probability": 0.372802734375
+            },
+            {
+              "text": " thou",
+              "start": 1.81,
+              "end": 1.97,
+              "probability": 0.48974609375
+            },
+            {
+              "text": " to",
+              "start": 1.97,
+              "end": 2.07,
+              "probability": 0.947265625
+            },
+            {
+              "text": " me",
+              "start": 2.07,
+              "end": 2.17,
+              "probability": 0.994140625
+            },
+            {
+              "text": " now?",
+              "start": 2.17,
+              "end": 2.43,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Speak",
+              "start": 2.83,
+              "end": 2.91,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " once",
+              "start": 2.91,
+              "end": 3.15,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " again.",
+              "start": 3.15,
+              "end": 3.47,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar,",
+          "start": 0.11,
+          "end": 0.75
+        },
+        {
+          "raw": "what",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "raw": "says",
+          "start": 1.25,
+          "end": 1.53
+        },
+        {
+          "raw": "doth",
+          "start": 1.53,
+          "end": 1.81
+        },
+        {
+          "raw": "thou",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "raw": "to",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "raw": "me",
+          "start": 2.07,
+          "end": 2.17
+        },
+        {
+          "raw": "now?",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "raw": "Speak",
+          "start": 2.83,
+          "end": 2.91
+        },
+        {
+          "raw": "once",
+          "start": 2.91,
+          "end": 3.15
+        },
+        {
+          "raw": "again.",
+          "start": 3.15,
+          "end": 3.47
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "What",
+        "say'st",
+        "thou",
+        "to",
+        "me",
+        "now?",
+        "Speak",
+        "once",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          10,
+          4,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar,",
+          "start": 0.11,
+          "end": 0.75,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.07,
+          "end": 1.25,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 1.25,
+          "end": 1.53,
+          "key": "says",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 1.53,
+          "end": 1.81,
+          "key": "doth",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.81,
+          "end": 1.97,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.97,
+          "end": 2.07,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.07,
+          "end": 2.17,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "now?",
+          "start": 2.17,
+          "end": 2.43,
+          "key": "now",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Speak",
+          "start": 2.83,
+          "end": 2.91,
+          "key": "speak",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 2.91,
+          "end": 3.15,
+          "key": "once",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 3.15,
+          "end": 3.47,
+          "key": "again",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.11,
+          "end": 0.75
+        },
+        {
+          "text": "What",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "text": "say'st",
+          "start": 1.25,
+          "end": 1.53
+        },
+        {
+          "text": "thou",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "text": "to",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "text": "me",
+          "start": 2.07,
+          "end": 2.17
+        },
+        {
+          "text": "now?",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "text": "Speak",
+          "start": 2.83,
+          "end": 2.91
+        },
+        {
+          "text": "once",
+          "start": 2.91,
+          "end": 3.15
+        },
+        {
+          "text": "again.",
+          "start": 3.15,
+          "end": 3.47
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.22158271601074375
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f8c20cd1d1249902405dff091f915ceb89432d63f34bc05e92bbb1ed177bd630",
+  "selected_reasons": []
+}

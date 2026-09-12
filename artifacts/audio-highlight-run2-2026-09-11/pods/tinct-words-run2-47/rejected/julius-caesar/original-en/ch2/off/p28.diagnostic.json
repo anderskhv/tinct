@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "b45bea3e966353537dc7750d072c0edeb03018fe57110207fec5d3a87c98b2cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.14296000698232092,
+      "alignment_seconds": 0.0003794539952650666,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassius, I pray you do.",
+          "start": 0.05,
+          "end": 1.81,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " I",
+              "start": 1.19,
+              "end": 1.21,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " pray",
+              "start": 1.21,
+              "end": 1.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 1.37,
+              "end": 1.55,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " do.",
+              "start": 1.55,
+              "end": 1.81,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "I",
+          "start": 1.19,
+          "end": 1.21
+        },
+        {
+          "raw": "pray",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "raw": "you",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "raw": "do.",
+          "start": 1.55,
+          "end": 1.81
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "I",
+        "pray",
+        "you,",
+        "do."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.19,
+          "end": 1.21,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.21,
+          "end": 1.37,
+          "key": "pray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.37,
+          "end": 1.55,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do.",
+          "start": 1.55,
+          "end": 1.81,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "I",
+          "start": 1.19,
+          "end": 1.21
+        },
+        {
+          "text": "pray",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "text": "you,",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "text": "do.",
+          "start": 1.55,
+          "end": 1.81
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1434606929833535
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "76a242f615b925efc4accee3fe6ddc61782c0300a6c47118d517a89498233c32",
+  "selected_reasons": []
+}

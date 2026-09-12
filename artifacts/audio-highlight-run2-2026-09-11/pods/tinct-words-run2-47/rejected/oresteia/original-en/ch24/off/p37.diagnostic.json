@@ -1,0 +1,544 @@
+{
+  "complete": true,
+  "signature": "07df3cda45c5b038504e2ce9726e9843fb8df0537e37298cd4204c995ebb8c39",
+  "attempts": [
+    {
+      "asr_seconds": 0.2678224920236971,
+      "alignment_seconds": 0.0004493400047067553,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Athena to Apollo and arrestees say how ordining shall I escape your blame?",
+          "start": 0.14,
+          "end": 4.9,
+          "words": [
+            {
+              "text": " Athena",
+              "start": 0.14,
+              "end": 0.7,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " to",
+              "start": 0.7,
+              "end": 1.06,
+              "probability": 0.7255859375
+            },
+            {
+              "text": " Apollo",
+              "start": 1.06,
+              "end": 1.4,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " and",
+              "start": 1.4,
+              "end": 1.62,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " arrestees",
+              "start": 1.62,
+              "end": 2.2,
+              "probability": 0.70947265625
+            },
+            {
+              "text": " say",
+              "start": 2.2,
+              "end": 2.86,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " how",
+              "start": 2.86,
+              "end": 3.42,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " ordining",
+              "start": 3.42,
+              "end": 3.84,
+              "probability": 0.5147705078125
+            },
+            {
+              "text": " shall",
+              "start": 3.84,
+              "end": 4.0,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " I",
+              "start": 4.0,
+              "end": 4.14,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " escape",
+              "start": 4.14,
+              "end": 4.4,
+              "probability": 0.69775390625
+            },
+            {
+              "text": " your",
+              "start": 4.4,
+              "end": 4.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " blame?",
+              "start": 4.6,
+              "end": 4.9,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Athena",
+          "start": 0.14,
+          "end": 0.7
+        },
+        {
+          "raw": "to",
+          "start": 0.7,
+          "end": 1.06
+        },
+        {
+          "raw": "Apollo",
+          "start": 1.06,
+          "end": 1.4
+        },
+        {
+          "raw": "and",
+          "start": 1.4,
+          "end": 1.62
+        },
+        {
+          "raw": "arrestees",
+          "start": 1.62,
+          "end": 2.2
+        },
+        {
+          "raw": "say",
+          "start": 2.2,
+          "end": 2.86
+        },
+        {
+          "raw": "how",
+          "start": 2.86,
+          "end": 3.42
+        },
+        {
+          "raw": "ordining",
+          "start": 3.42,
+          "end": 3.84
+        },
+        {
+          "raw": "shall",
+          "start": 3.84,
+          "end": 4.0
+        },
+        {
+          "raw": "I",
+          "start": 4.0,
+          "end": 4.14
+        },
+        {
+          "raw": "escape",
+          "start": 4.14,
+          "end": 4.4
+        },
+        {
+          "raw": "your",
+          "start": 4.4,
+          "end": 4.6
+        },
+        {
+          "raw": "blame?",
+          "start": 4.6,
+          "end": 4.9
+        }
+      ],
+      "expected_tokens": [
+        "Athena",
+        "(_to",
+        "Apollo",
+        "and",
+        "Orestes_)",
+        "Say,",
+        "how",
+        "ordaining",
+        "shall",
+        "I",
+        "'scape",
+        "your",
+        "blame?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          7,
+          5,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          10,
+          8,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          13,
+          11,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Athena",
+          "start": 0.14,
+          "end": 0.7,
+          "key": "athena",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.7,
+          "end": 1.06,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Apollo",
+          "start": 1.06,
+          "end": 1.4,
+          "key": "apollo",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.4,
+          "end": 1.62,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "arrestees",
+          "start": 1.62,
+          "end": 2.2,
+          "key": "arrestees",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 2.2,
+          "end": 2.86,
+          "key": "say",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 2.86,
+          "end": 3.42,
+          "key": "how",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ordining",
+          "start": 3.42,
+          "end": 3.84,
+          "key": "ordining",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 3.84,
+          "end": 4.0,
+          "key": "shall",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.0,
+          "end": 4.14,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "escape",
+          "start": 4.14,
+          "end": 4.4,
+          "key": "escape",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.4,
+          "end": 4.6,
+          "key": "your",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "blame?",
+          "start": 4.6,
+          "end": 4.9,
+          "key": "blame",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Athena",
+          "start": 0.14,
+          "end": 0.7
+        },
+        {
+          "text": "(_to",
+          "start": 0.7,
+          "end": 1.06
+        },
+        {
+          "text": "Apollo",
+          "start": 1.06,
+          "end": 1.4
+        },
+        {
+          "text": "and",
+          "start": 1.4,
+          "end": 1.62
+        },
+        {
+          "text": "Orestes_)",
+          "start": 1.62,
+          "end": 1.91
+        },
+        {
+          "text": "Say,",
+          "start": 2.2,
+          "end": 2.86
+        },
+        {
+          "text": "how",
+          "start": 2.86,
+          "end": 3.42
+        },
+        {
+          "text": "ordaining",
+          "start": 3.42,
+          "end": 3.63
+        },
+        {
+          "text": "shall",
+          "start": 3.84,
+          "end": 4.0
+        },
+        {
+          "text": "I",
+          "start": 4.0,
+          "end": 4.14
+        },
+        {
+          "text": "'scape",
+          "start": 4.14,
+          "end": 4.27
+        },
+        {
+          "text": "your",
+          "start": 4.4,
+          "end": 4.6
+        },
+        {
+          "text": "blame?",
+          "start": 4.6,
+          "end": 4.9
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 10
+      },
+      "match_ratio": 0.7692307692307693,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2684303749992978
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "db455ddbabf02d708a1b08877e87c8e9012fb4ac97c9770ca5eed02ed05016b0",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

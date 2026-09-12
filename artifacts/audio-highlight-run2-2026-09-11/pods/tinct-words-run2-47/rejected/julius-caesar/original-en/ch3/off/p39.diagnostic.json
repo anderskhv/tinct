@@ -1,0 +1,324 @@
+{
+  "complete": true,
+  "signature": "fb6c78f34c15e5cb846d621f0576e9e5907512cbf6a743d14d30ee7f879dc26c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1623842979897745,
+      "alignment_seconds": 0.00033239598269574344,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassius, that done, repaired a Pompey's theater.",
+          "start": 0.05,
+          "end": 3.05,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.947998046875
+            },
+            {
+              "text": " that",
+              "start": 1.29,
+              "end": 1.53,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " done,",
+              "start": 1.53,
+              "end": 1.79,
+              "probability": 0.880859375
+            },
+            {
+              "text": " repaired",
+              "start": 1.95,
+              "end": 2.23,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " a",
+              "start": 2.23,
+              "end": 2.39,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " Pompey's",
+              "start": 2.39,
+              "end": 2.83,
+              "probability": 0.9391276041666666
+            },
+            {
+              "text": " theater.",
+              "start": 2.83,
+              "end": 3.05,
+              "probability": 0.64599609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "that",
+          "start": 1.29,
+          "end": 1.53
+        },
+        {
+          "raw": "done,",
+          "start": 1.53,
+          "end": 1.79
+        },
+        {
+          "raw": "repaired",
+          "start": 1.95,
+          "end": 2.23
+        },
+        {
+          "raw": "a",
+          "start": 2.23,
+          "end": 2.39
+        },
+        {
+          "raw": "Pompey's",
+          "start": 2.39,
+          "end": 2.83
+        },
+        {
+          "raw": "theater.",
+          "start": 2.83,
+          "end": 3.05
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "That",
+        "done,",
+        "repair",
+        "to",
+        "Pompey's",
+        "theatre."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.29,
+          "end": 1.53,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "done,",
+          "start": 1.53,
+          "end": 1.79,
+          "key": "done",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "repaired",
+          "start": 1.95,
+          "end": 2.23,
+          "key": "repaired",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.23,
+          "end": 2.39,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Pompey's",
+          "start": 2.39,
+          "end": 2.83,
+          "key": "pompeys",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "theater.",
+          "start": 2.83,
+          "end": 3.05,
+          "key": "theater",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "That",
+          "start": 1.29,
+          "end": 1.53
+        },
+        {
+          "text": "done,",
+          "start": 1.53,
+          "end": 1.79
+        },
+        {
+          "text": "repair",
+          "start": 1.79,
+          "end": 2.09
+        },
+        {
+          "text": "to",
+          "start": 2.09,
+          "end": 2.24
+        },
+        {
+          "text": "Pompey's",
+          "start": 2.39,
+          "end": 2.83
+        },
+        {
+          "text": "theatre.",
+          "start": 2.83,
+          "end": 2.94
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 4
+      },
+      "match_ratio": 0.5714285714285714,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16283044501324184
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "322010fd1917b4209d367423b989b50671aaa9239404cf47801d1a8f71662e88",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

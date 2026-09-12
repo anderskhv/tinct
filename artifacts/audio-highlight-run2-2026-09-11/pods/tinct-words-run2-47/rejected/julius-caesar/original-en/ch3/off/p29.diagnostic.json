@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "f9f36689c5804496fae7bcb95c5161bd7e2af85fbcbc2caad57c045d89b5e3d5",
+  "attempts": [
+    {
+      "asr_seconds": 0.14490135200321674,
+      "alignment_seconds": 0.00024424699950031936,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Cinna.",
+          "start": 0.02,
+          "end": 1.16,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " Cinna.",
+              "start": 0.68,
+              "end": 1.16,
+              "probability": 0.5664876302083334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Cinna.",
+          "start": 0.68,
+          "end": 1.16
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Cinna."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cinna.",
+          "start": 0.68,
+          "end": 1.16,
+          "key": "cinna",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Cinna.",
+          "start": 0.68,
+          "end": 1.16
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1452278920041863
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "68bcb9f16c35bff651034febcffdb195079cc5875c4fde5512df4d40f297aa7c",
+  "selected_reasons": []
+}
