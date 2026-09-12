@@ -1,0 +1,555 @@
+{
+  "complete": true,
+  "signature": "8b7b60f019634c755bee2964ae85c145f1b198ab59f957dec4e83f3377915124",
+  "attempts": [
+    {
+      "asr_seconds": 0.28576473612338305,
+      "alignment_seconds": 0.0006308120209723711,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ms. Minchin came to her side and looked at the parcels with an excited expression.",
+          "start": 0.05,
+          "end": 4.77,
+          "words": [
+            {
+              "text": " Ms.",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.1875
+            },
+            {
+              "text": " Minchin",
+              "start": 0.81,
+              "end": 0.99,
+              "probability": 0.765380859375
+            },
+            {
+              "text": " came",
+              "start": 0.99,
+              "end": 1.45,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " to",
+              "start": 1.45,
+              "end": 1.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 1.63,
+              "end": 1.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " side",
+              "start": 1.75,
+              "end": 2.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 2.15,
+              "end": 2.71,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " looked",
+              "start": 2.71,
+              "end": 2.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 2.87,
+              "end": 3.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.03,
+              "end": 3.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " parcels",
+              "start": 3.15,
+              "end": 3.47,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " with",
+              "start": 3.47,
+              "end": 3.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " an",
+              "start": 3.77,
+              "end": 3.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " excited",
+              "start": 3.89,
+              "end": 4.29,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " expression.",
+              "start": 4.29,
+              "end": 4.77,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ms.",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "Minchin",
+          "start": 0.81,
+          "end": 0.99
+        },
+        {
+          "raw": "came",
+          "start": 0.99,
+          "end": 1.45
+        },
+        {
+          "raw": "to",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "raw": "her",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "raw": "side",
+          "start": 1.75,
+          "end": 2.15
+        },
+        {
+          "raw": "and",
+          "start": 2.15,
+          "end": 2.71
+        },
+        {
+          "raw": "looked",
+          "start": 2.71,
+          "end": 2.87
+        },
+        {
+          "raw": "at",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "raw": "the",
+          "start": 3.03,
+          "end": 3.15
+        },
+        {
+          "raw": "parcels",
+          "start": 3.15,
+          "end": 3.47
+        },
+        {
+          "raw": "with",
+          "start": 3.47,
+          "end": 3.77
+        },
+        {
+          "raw": "an",
+          "start": 3.77,
+          "end": 3.89
+        },
+        {
+          "raw": "excited",
+          "start": 3.89,
+          "end": 4.29
+        },
+        {
+          "raw": "expression.",
+          "start": 4.29,
+          "end": 4.77
+        }
+      ],
+      "expected_tokens": [
+        "Miss",
+        "Minchin",
+        "came",
+        "to",
+        "her",
+        "side",
+        "and",
+        "looked",
+        "at",
+        "the",
+        "parcels",
+        "with",
+        "an",
+        "excited",
+        "expression."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          15,
+          1,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ms.",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "ms",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Minchin",
+          "start": 0.81,
+          "end": 0.99,
+          "key": "minchin",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 0.99,
+          "end": 1.45,
+          "key": "came",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.45,
+          "end": 1.63,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.63,
+          "end": 1.75,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "side",
+          "start": 1.75,
+          "end": 2.15,
+          "key": "side",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.15,
+          "end": 2.71,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 2.71,
+          "end": 2.87,
+          "key": "looked",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.87,
+          "end": 3.03,
+          "key": "at",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.03,
+          "end": 3.15,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "parcels",
+          "start": 3.15,
+          "end": 3.47,
+          "key": "parcels",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.47,
+          "end": 3.77,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 3.77,
+          "end": 3.89,
+          "key": "an",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "excited",
+          "start": 3.89,
+          "end": 4.29,
+          "key": "excited",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "expression.",
+          "start": 4.29,
+          "end": 4.77,
+          "key": "expression",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Miss",
+          "start": 0.0,
+          "end": 0.405
+        },
+        {
+          "text": "Minchin",
+          "start": 0.81,
+          "end": 0.99
+        },
+        {
+          "text": "came",
+          "start": 0.99,
+          "end": 1.45
+        },
+        {
+          "text": "to",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "text": "her",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "text": "side",
+          "start": 1.75,
+          "end": 2.15
+        },
+        {
+          "text": "and",
+          "start": 2.15,
+          "end": 2.71
+        },
+        {
+          "text": "looked",
+          "start": 2.71,
+          "end": 2.87
+        },
+        {
+          "text": "at",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "text": "the",
+          "start": 3.03,
+          "end": 3.15
+        },
+        {
+          "text": "parcels",
+          "start": 3.15,
+          "end": 3.47
+        },
+        {
+          "text": "with",
+          "start": 3.47,
+          "end": 3.77
+        },
+        {
+          "text": "an",
+          "start": 3.77,
+          "end": 3.89
+        },
+        {
+          "text": "excited",
+          "start": 3.89,
+          "end": 4.29
+        },
+        {
+          "text": "expression.",
+          "start": 4.29,
+          "end": 4.77
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.28665810101665556
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "421575ea36b015fedfb9e95d3b4521f48f5b4057f21cc944503db75136d4248a",
+  "selected_reasons": []
+}

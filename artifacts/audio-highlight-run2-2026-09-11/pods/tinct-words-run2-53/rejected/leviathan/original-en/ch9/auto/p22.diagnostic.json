@@ -1,0 +1,4629 @@
+{
+  "complete": true,
+  "signature": "03d6058fb73b95bd0daa631116404992d1c2888b773361767abcce9e56efa1ae",
+  "attempts": [
+    {
+      "asr_seconds": 1.4867605748586357,
+      "alignment_seconds": 0.005108103156089783,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Again, that Madnesse is nothing else, but too much appearing Passion, may be gathered out of the effects of Wine, which are the same with those of the evill disposition of the organs. For the variety of behaviour in men that have drunk too much, is the same with that of Mad-men: some of them Raging, others Loving, others laughing, all extravagantly, but according to their severall domineering Passions: For the effect of the wine, does but remove Dissimulation; and take from them the sight of the deformity of their Passions. For, (I believe) the most sober men, when they walk alone without care and employment of the mind, would be unwilling the vanity and Extravagance of their thoughts at that time should be publiquely seen: which is a confession, that Passions unguided, are for the most part meere Madnesse.",
+        "hotwords": "Again, Madnesse, Passion, Mad-men, Raging, Loving, Passions, Dissimulation, I, Extravagance"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Again, that Madnesse is nothing else, but too much appearing Passion, may be gathered out",
+          "start": 0.05,
+          "end": 5.85,
+          "words": [
+            {
+              "text": " Again,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.257080078125
+            },
+            {
+              "text": " that",
+              "start": 1.01,
+              "end": 1.11,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Madnesse",
+              "start": 1.11,
+              "end": 1.71,
+              "probability": 0.003893693288167318
+            },
+            {
+              "text": " is",
+              "start": 1.71,
+              "end": 1.83,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " nothing",
+              "start": 1.83,
+              "end": 2.13,
+              "probability": 0.97265625
+            },
+            {
+              "text": " else,",
+              "start": 2.13,
+              "end": 2.49,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " but",
+              "start": 2.97,
+              "end": 3.13,
+              "probability": 0.98828125
+            },
+            {
+              "text": " too",
+              "start": 3.13,
+              "end": 3.33,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " much",
+              "start": 3.33,
+              "end": 3.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " appearing",
+              "start": 3.55,
+              "end": 3.97,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " Passion,",
+              "start": 3.97,
+              "end": 4.51,
+              "probability": 0.4619140625
+            },
+            {
+              "text": " may",
+              "start": 5.05,
+              "end": 5.13,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " be",
+              "start": 5.13,
+              "end": 5.31,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " gathered",
+              "start": 5.31,
+              "end": 5.57,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " out",
+              "start": 5.57,
+              "end": 5.85,
+              "probability": 0.97314453125
+            }
+          ]
+        },
+        {
+          "text": " of the effects of Wine, which are the same with those of the evill disposition of the",
+          "start": 5.85,
+          "end": 10.37,
+          "words": [
+            {
+              "text": " of",
+              "start": 5.85,
+              "end": 5.99,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 5.99,
+              "end": 6.15,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " effects",
+              "start": 6.15,
+              "end": 6.39,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " of",
+              "start": 6.39,
+              "end": 6.69,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Wine,",
+              "start": 6.69,
+              "end": 6.95,
+              "probability": 0.394287109375
+            },
+            {
+              "text": " which",
+              "start": 7.55,
+              "end": 7.65,
+              "probability": 0.986328125
+            },
+            {
+              "text": " are",
+              "start": 7.65,
+              "end": 7.79,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 7.79,
+              "end": 7.93,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " same",
+              "start": 7.93,
+              "end": 8.21,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " with",
+              "start": 8.21,
+              "end": 8.45,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " those",
+              "start": 8.45,
+              "end": 8.71,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 8.71,
+              "end": 8.91,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 8.91,
+              "end": 9.01,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " evill",
+              "start": 9.01,
+              "end": 9.39,
+              "probability": 0.013608694076538086
+            },
+            {
+              "text": " disposition",
+              "start": 9.39,
+              "end": 9.79,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " of",
+              "start": 9.79,
+              "end": 10.21,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 10.21,
+              "end": 10.37,
+              "probability": 0.990234375
+            }
+          ]
+        },
+        {
+          "text": " organs. For the variety of behaviour in men that have drunk too much, is the same with",
+          "start": 10.37,
+          "end": 15.93,
+          "words": [
+            {
+              "text": " organs.",
+              "start": 10.37,
+              "end": 10.65,
+              "probability": 0.2086181640625
+            },
+            {
+              "text": " For",
+              "start": 11.81,
+              "end": 11.97,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " the",
+              "start": 11.97,
+              "end": 12.07,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " variety",
+              "start": 12.07,
+              "end": 12.39,
+              "probability": 0.953125
+            },
+            {
+              "text": " of",
+              "start": 12.39,
+              "end": 12.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " behaviour",
+              "start": 12.75,
+              "end": 13.05,
+              "probability": 0.248046875
+            },
+            {
+              "text": " in",
+              "start": 13.05,
+              "end": 13.45,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " men",
+              "start": 13.45,
+              "end": 13.63,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " that",
+              "start": 13.63,
+              "end": 13.81,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " have",
+              "start": 13.81,
+              "end": 13.97,
+              "probability": 0.98828125
+            },
+            {
+              "text": " drunk",
+              "start": 13.97,
+              "end": 14.15,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " too",
+              "start": 14.15,
+              "end": 14.45,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " much,",
+              "start": 14.45,
+              "end": 14.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " is",
+              "start": 15.19,
+              "end": 15.29,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " the",
+              "start": 15.29,
+              "end": 15.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " same",
+              "start": 15.45,
+              "end": 15.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 15.69,
+              "end": 15.93,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " that of Mad-men, some of them Raging, others Loving, others laughing, all extravagantly,",
+          "start": 15.93,
+          "end": 21.91,
+          "words": [
+            {
+              "text": " that",
+              "start": 15.93,
+              "end": 16.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 16.11,
+              "end": 16.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Mad",
+              "start": 16.23,
+              "end": 16.49,
+              "probability": 0.97705078125
+            },
+            {
+              "text": "-men,",
+              "start": 16.49,
+              "end": 16.71,
+              "probability": 0.21048831939697266
+            },
+            {
+              "text": " some",
+              "start": 17.43,
+              "end": 17.61,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " of",
+              "start": 17.61,
+              "end": 17.73,
+              "probability": 0.99609375
+            },
+            {
+              "text": " them",
+              "start": 17.73,
+              "end": 17.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Raging,",
+              "start": 17.89,
+              "end": 18.25,
+              "probability": 0.5095291137695312
+            },
+            {
+              "text": " others",
+              "start": 18.69,
+              "end": 18.87,
+              "probability": 0.939453125
+            },
+            {
+              "text": " Loving,",
+              "start": 18.87,
+              "end": 19.27,
+              "probability": 0.8408203125
+            },
+            {
+              "text": " others",
+              "start": 19.79,
+              "end": 19.99,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " laughing,",
+              "start": 19.99,
+              "end": 20.49,
+              "probability": 0.0609130859375
+            },
+            {
+              "text": " all",
+              "start": 20.87,
+              "end": 21.05,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " extravagantly,",
+              "start": 21.05,
+              "end": 21.91,
+              "probability": 0.640869140625
+            }
+          ]
+        },
+        {
+          "text": " but according to their severall domineering Passions. For the effect of the wine, does",
+          "start": 22.39,
+          "end": 27.47,
+          "words": [
+            {
+              "text": " but",
+              "start": 22.39,
+              "end": 22.51,
+              "probability": 0.98046875
+            },
+            {
+              "text": " according",
+              "start": 22.51,
+              "end": 22.77,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " to",
+              "start": 22.77,
+              "end": 23.09,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " their",
+              "start": 23.09,
+              "end": 23.23,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " severall",
+              "start": 23.23,
+              "end": 23.87,
+              "probability": 0.3603515625
+            },
+            {
+              "text": " domineering",
+              "start": 23.87,
+              "end": 24.51,
+              "probability": 0.7972005208333334
+            },
+            {
+              "text": " Passions.",
+              "start": 24.51,
+              "end": 25.07,
+              "probability": 0.6959228515625
+            },
+            {
+              "text": " For",
+              "start": 25.63,
+              "end": 25.85,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " the",
+              "start": 25.85,
+              "end": 25.99,
+              "probability": 0.98828125
+            },
+            {
+              "text": " effect",
+              "start": 25.99,
+              "end": 26.25,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " of",
+              "start": 26.25,
+              "end": 26.43,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 26.43,
+              "end": 26.55,
+              "probability": 0.9765625
+            },
+            {
+              "text": " wine,",
+              "start": 26.55,
+              "end": 26.89,
+              "probability": 0.10150146484375
+            },
+            {
+              "text": " does",
+              "start": 27.19,
+              "end": 27.47,
+              "probability": 0.9853515625
+            }
+          ]
+        },
+        {
+          "text": " but remove Dissimulation, and take from them the sight of the deformity of their Passions.",
+          "start": 27.47,
+          "end": 32.45,
+          "words": [
+            {
+              "text": " but",
+              "start": 27.47,
+              "end": 27.73,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " remove",
+              "start": 27.73,
+              "end": 28.13,
+              "probability": 0.97265625
+            },
+            {
+              "text": " Dissimulation,",
+              "start": 28.13,
+              "end": 28.97,
+              "probability": 0.6503026882807413
+            },
+            {
+              "text": " and",
+              "start": 29.49,
+              "end": 29.73,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " take",
+              "start": 29.73,
+              "end": 29.93,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " from",
+              "start": 29.93,
+              "end": 30.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them",
+              "start": 30.15,
+              "end": 30.35,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " the",
+              "start": 30.35,
+              "end": 30.53,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sight",
+              "start": 30.53,
+              "end": 30.75,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " of",
+              "start": 30.75,
+              "end": 30.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 30.89,
+              "end": 31.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " deformity",
+              "start": 31.03,
+              "end": 31.57,
+              "probability": 0.957275390625
+            },
+            {
+              "text": " of",
+              "start": 31.57,
+              "end": 31.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " their",
+              "start": 31.73,
+              "end": 31.89,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Passions.",
+              "start": 31.89,
+              "end": 32.45,
+              "probability": 0.54815673828125
+            }
+          ]
+        },
+        {
+          "text": " For I believe, the most sober men, when they walk alone without care and employment of",
+          "start": 33.13,
+          "end": 38.67,
+          "words": [
+            {
+              "text": " For",
+              "start": 33.13,
+              "end": 33.69,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " I",
+              "start": 33.69,
+              "end": 33.97,
+              "probability": 0.265380859375
+            },
+            {
+              "text": " believe,",
+              "start": 33.97,
+              "end": 34.39,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 34.85,
+              "end": 34.95,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " most",
+              "start": 34.95,
+              "end": 35.19,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " sober",
+              "start": 35.19,
+              "end": 35.63,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " men,",
+              "start": 35.63,
+              "end": 35.97,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " when",
+              "start": 36.23,
+              "end": 36.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " they",
+              "start": 36.31,
+              "end": 36.47,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " walk",
+              "start": 36.47,
+              "end": 36.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " alone",
+              "start": 36.71,
+              "end": 37.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " without",
+              "start": 37.07,
+              "end": 37.43,
+              "probability": 0.9765625
+            },
+            {
+              "text": " care",
+              "start": 37.43,
+              "end": 37.83,
+              "probability": 0.958984375
+            },
+            {
+              "text": " and",
+              "start": 37.83,
+              "end": 38.07,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " employment",
+              "start": 38.07,
+              "end": 38.45,
+              "probability": 0.986328125
+            },
+            {
+              "text": " of",
+              "start": 38.45,
+              "end": 38.67,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " the mind, would be unwilling the vanity and Extravagance of their thoughts at that time",
+          "start": 38.67,
+          "end": 43.37,
+          "words": [
+            {
+              "text": " the",
+              "start": 38.67,
+              "end": 38.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " mind,",
+              "start": 38.77,
+              "end": 39.07,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " would",
+              "start": 39.55,
+              "end": 39.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 39.73,
+              "end": 39.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " unwilling",
+              "start": 39.85,
+              "end": 40.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 40.29,
+              "end": 40.63,
+              "probability": 0.99609375
+            },
+            {
+              "text": " vanity",
+              "start": 40.63,
+              "end": 40.97,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " and",
+              "start": 40.97,
+              "end": 41.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Extravagance",
+              "start": 41.29,
+              "end": 42.01,
+              "probability": 0.7321878671646118
+            },
+            {
+              "text": " of",
+              "start": 42.01,
+              "end": 42.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " their",
+              "start": 42.13,
+              "end": 42.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thoughts",
+              "start": 42.29,
+              "end": 42.57,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " at",
+              "start": 42.57,
+              "end": 42.81,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " that",
+              "start": 42.81,
+              "end": 43.05,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " time",
+              "start": 43.05,
+              "end": 43.37,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " should be publiquely seen, which is a confession, that Passions unguided, are for the most part",
+          "start": 43.37,
+          "end": 49.61,
+          "words": [
+            {
+              "text": " should",
+              "start": 43.37,
+              "end": 43.59,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " be",
+              "start": 43.59,
+              "end": 43.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " publiquely",
+              "start": 43.79,
+              "end": 44.35,
+              "probability": 0.621191660563151
+            },
+            {
+              "text": " seen,",
+              "start": 44.35,
+              "end": 44.67,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " which",
+              "start": 45.29,
+              "end": 45.55,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " is",
+              "start": 45.55,
+              "end": 45.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 45.71,
+              "end": 45.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " confession,",
+              "start": 45.85,
+              "end": 46.35,
+              "probability": 0.875
+            },
+            {
+              "text": " that",
+              "start": 46.77,
+              "end": 47.05,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Passions",
+              "start": 47.05,
+              "end": 47.55,
+              "probability": 0.960205078125
+            },
+            {
+              "text": " unguided,",
+              "start": 47.55,
+              "end": 48.15,
+              "probability": 0.989990234375
+            },
+            {
+              "text": " are",
+              "start": 48.69,
+              "end": 48.85,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " for",
+              "start": 48.85,
+              "end": 48.97,
+              "probability": 0.982421875
+            },
+            {
+              "text": " the",
+              "start": 48.97,
+              "end": 49.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " most",
+              "start": 49.07,
+              "end": 49.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " part",
+              "start": 49.29,
+              "end": 49.61,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " meere Madnesse.",
+          "start": 49.61,
+          "end": 50.57,
+          "words": [
+            {
+              "text": " meere",
+              "start": 49.61,
+              "end": 49.91,
+              "probability": 0.020746707916259766
+            },
+            {
+              "text": " Madnesse.",
+              "start": 49.91,
+              "end": 50.57,
+              "probability": 0.011507670084635416
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Again,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "that",
+          "start": 1.01,
+          "end": 1.11
+        },
+        {
+          "raw": "Madnesse",
+          "start": 1.11,
+          "end": 1.71
+        },
+        {
+          "raw": "is",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "raw": "nothing",
+          "start": 1.83,
+          "end": 2.13
+        },
+        {
+          "raw": "else,",
+          "start": 2.13,
+          "end": 2.49
+        },
+        {
+          "raw": "but",
+          "start": 2.97,
+          "end": 3.13
+        },
+        {
+          "raw": "too",
+          "start": 3.13,
+          "end": 3.33
+        },
+        {
+          "raw": "much",
+          "start": 3.33,
+          "end": 3.55
+        },
+        {
+          "raw": "appearing",
+          "start": 3.55,
+          "end": 3.97
+        },
+        {
+          "raw": "Passion,",
+          "start": 3.97,
+          "end": 4.51
+        },
+        {
+          "raw": "may",
+          "start": 5.05,
+          "end": 5.13
+        },
+        {
+          "raw": "be",
+          "start": 5.13,
+          "end": 5.31
+        },
+        {
+          "raw": "gathered",
+          "start": 5.31,
+          "end": 5.57
+        },
+        {
+          "raw": "out",
+          "start": 5.57,
+          "end": 5.85
+        },
+        {
+          "raw": "of",
+          "start": 5.85,
+          "end": 5.99
+        },
+        {
+          "raw": "the",
+          "start": 5.99,
+          "end": 6.15
+        },
+        {
+          "raw": "effects",
+          "start": 6.15,
+          "end": 6.39
+        },
+        {
+          "raw": "of",
+          "start": 6.39,
+          "end": 6.69
+        },
+        {
+          "raw": "Wine,",
+          "start": 6.69,
+          "end": 6.95
+        },
+        {
+          "raw": "which",
+          "start": 7.55,
+          "end": 7.65
+        },
+        {
+          "raw": "are",
+          "start": 7.65,
+          "end": 7.79
+        },
+        {
+          "raw": "the",
+          "start": 7.79,
+          "end": 7.93
+        },
+        {
+          "raw": "same",
+          "start": 7.93,
+          "end": 8.21
+        },
+        {
+          "raw": "with",
+          "start": 8.21,
+          "end": 8.45
+        },
+        {
+          "raw": "those",
+          "start": 8.45,
+          "end": 8.71
+        },
+        {
+          "raw": "of",
+          "start": 8.71,
+          "end": 8.91
+        },
+        {
+          "raw": "the",
+          "start": 8.91,
+          "end": 9.01
+        },
+        {
+          "raw": "evill",
+          "start": 9.01,
+          "end": 9.39
+        },
+        {
+          "raw": "disposition",
+          "start": 9.39,
+          "end": 9.79
+        },
+        {
+          "raw": "of",
+          "start": 9.79,
+          "end": 10.21
+        },
+        {
+          "raw": "the",
+          "start": 10.21,
+          "end": 10.37
+        },
+        {
+          "raw": "organs.",
+          "start": 10.37,
+          "end": 10.65
+        },
+        {
+          "raw": "For",
+          "start": 11.81,
+          "end": 11.97
+        },
+        {
+          "raw": "the",
+          "start": 11.97,
+          "end": 12.07
+        },
+        {
+          "raw": "variety",
+          "start": 12.07,
+          "end": 12.39
+        },
+        {
+          "raw": "of",
+          "start": 12.39,
+          "end": 12.75
+        },
+        {
+          "raw": "behaviour",
+          "start": 12.75,
+          "end": 13.05
+        },
+        {
+          "raw": "in",
+          "start": 13.05,
+          "end": 13.45
+        },
+        {
+          "raw": "men",
+          "start": 13.45,
+          "end": 13.63
+        },
+        {
+          "raw": "that",
+          "start": 13.63,
+          "end": 13.81
+        },
+        {
+          "raw": "have",
+          "start": 13.81,
+          "end": 13.97
+        },
+        {
+          "raw": "drunk",
+          "start": 13.97,
+          "end": 14.15
+        },
+        {
+          "raw": "too",
+          "start": 14.15,
+          "end": 14.45
+        },
+        {
+          "raw": "much,",
+          "start": 14.45,
+          "end": 14.75
+        },
+        {
+          "raw": "is",
+          "start": 15.19,
+          "end": 15.29
+        },
+        {
+          "raw": "the",
+          "start": 15.29,
+          "end": 15.45
+        },
+        {
+          "raw": "same",
+          "start": 15.45,
+          "end": 15.69
+        },
+        {
+          "raw": "with",
+          "start": 15.69,
+          "end": 15.93
+        },
+        {
+          "raw": "that",
+          "start": 15.93,
+          "end": 16.11
+        },
+        {
+          "raw": "of",
+          "start": 16.11,
+          "end": 16.23
+        },
+        {
+          "raw": "Mad",
+          "start": 16.23,
+          "end": 16.49
+        },
+        {
+          "raw": "-men,",
+          "start": 16.49,
+          "end": 16.71
+        },
+        {
+          "raw": "some",
+          "start": 17.43,
+          "end": 17.61
+        },
+        {
+          "raw": "of",
+          "start": 17.61,
+          "end": 17.73
+        },
+        {
+          "raw": "them",
+          "start": 17.73,
+          "end": 17.89
+        },
+        {
+          "raw": "Raging,",
+          "start": 17.89,
+          "end": 18.25
+        },
+        {
+          "raw": "others",
+          "start": 18.69,
+          "end": 18.87
+        },
+        {
+          "raw": "Loving,",
+          "start": 18.87,
+          "end": 19.27
+        },
+        {
+          "raw": "others",
+          "start": 19.79,
+          "end": 19.99
+        },
+        {
+          "raw": "laughing,",
+          "start": 19.99,
+          "end": 20.49
+        },
+        {
+          "raw": "all",
+          "start": 20.87,
+          "end": 21.05
+        },
+        {
+          "raw": "extravagantly,",
+          "start": 21.05,
+          "end": 21.91
+        },
+        {
+          "raw": "but",
+          "start": 22.39,
+          "end": 22.51
+        },
+        {
+          "raw": "according",
+          "start": 22.51,
+          "end": 22.77
+        },
+        {
+          "raw": "to",
+          "start": 22.77,
+          "end": 23.09
+        },
+        {
+          "raw": "their",
+          "start": 23.09,
+          "end": 23.23
+        },
+        {
+          "raw": "severall",
+          "start": 23.23,
+          "end": 23.87
+        },
+        {
+          "raw": "domineering",
+          "start": 23.87,
+          "end": 24.51
+        },
+        {
+          "raw": "Passions.",
+          "start": 24.51,
+          "end": 25.07
+        },
+        {
+          "raw": "For",
+          "start": 25.63,
+          "end": 25.85
+        },
+        {
+          "raw": "the",
+          "start": 25.85,
+          "end": 25.99
+        },
+        {
+          "raw": "effect",
+          "start": 25.99,
+          "end": 26.25
+        },
+        {
+          "raw": "of",
+          "start": 26.25,
+          "end": 26.43
+        },
+        {
+          "raw": "the",
+          "start": 26.43,
+          "end": 26.55
+        },
+        {
+          "raw": "wine,",
+          "start": 26.55,
+          "end": 26.89
+        },
+        {
+          "raw": "does",
+          "start": 27.19,
+          "end": 27.47
+        },
+        {
+          "raw": "but",
+          "start": 27.47,
+          "end": 27.73
+        },
+        {
+          "raw": "remove",
+          "start": 27.73,
+          "end": 28.13
+        },
+        {
+          "raw": "Dissimulation,",
+          "start": 28.13,
+          "end": 28.97
+        },
+        {
+          "raw": "and",
+          "start": 29.49,
+          "end": 29.73
+        },
+        {
+          "raw": "take",
+          "start": 29.73,
+          "end": 29.93
+        },
+        {
+          "raw": "from",
+          "start": 29.93,
+          "end": 30.15
+        },
+        {
+          "raw": "them",
+          "start": 30.15,
+          "end": 30.35
+        },
+        {
+          "raw": "the",
+          "start": 30.35,
+          "end": 30.53
+        },
+        {
+          "raw": "sight",
+          "start": 30.53,
+          "end": 30.75
+        },
+        {
+          "raw": "of",
+          "start": 30.75,
+          "end": 30.89
+        },
+        {
+          "raw": "the",
+          "start": 30.89,
+          "end": 31.03
+        },
+        {
+          "raw": "deformity",
+          "start": 31.03,
+          "end": 31.57
+        },
+        {
+          "raw": "of",
+          "start": 31.57,
+          "end": 31.73
+        },
+        {
+          "raw": "their",
+          "start": 31.73,
+          "end": 31.89
+        },
+        {
+          "raw": "Passions.",
+          "start": 31.89,
+          "end": 32.45
+        },
+        {
+          "raw": "For",
+          "start": 33.13,
+          "end": 33.69
+        },
+        {
+          "raw": "I",
+          "start": 33.69,
+          "end": 33.97
+        },
+        {
+          "raw": "believe,",
+          "start": 33.97,
+          "end": 34.39
+        },
+        {
+          "raw": "the",
+          "start": 34.85,
+          "end": 34.95
+        },
+        {
+          "raw": "most",
+          "start": 34.95,
+          "end": 35.19
+        },
+        {
+          "raw": "sober",
+          "start": 35.19,
+          "end": 35.63
+        },
+        {
+          "raw": "men,",
+          "start": 35.63,
+          "end": 35.97
+        },
+        {
+          "raw": "when",
+          "start": 36.23,
+          "end": 36.31
+        },
+        {
+          "raw": "they",
+          "start": 36.31,
+          "end": 36.47
+        },
+        {
+          "raw": "walk",
+          "start": 36.47,
+          "end": 36.71
+        },
+        {
+          "raw": "alone",
+          "start": 36.71,
+          "end": 37.07
+        },
+        {
+          "raw": "without",
+          "start": 37.07,
+          "end": 37.43
+        },
+        {
+          "raw": "care",
+          "start": 37.43,
+          "end": 37.83
+        },
+        {
+          "raw": "and",
+          "start": 37.83,
+          "end": 38.07
+        },
+        {
+          "raw": "employment",
+          "start": 38.07,
+          "end": 38.45
+        },
+        {
+          "raw": "of",
+          "start": 38.45,
+          "end": 38.67
+        },
+        {
+          "raw": "the",
+          "start": 38.67,
+          "end": 38.77
+        },
+        {
+          "raw": "mind,",
+          "start": 38.77,
+          "end": 39.07
+        },
+        {
+          "raw": "would",
+          "start": 39.55,
+          "end": 39.73
+        },
+        {
+          "raw": "be",
+          "start": 39.73,
+          "end": 39.85
+        },
+        {
+          "raw": "unwilling",
+          "start": 39.85,
+          "end": 40.29
+        },
+        {
+          "raw": "the",
+          "start": 40.29,
+          "end": 40.63
+        },
+        {
+          "raw": "vanity",
+          "start": 40.63,
+          "end": 40.97
+        },
+        {
+          "raw": "and",
+          "start": 40.97,
+          "end": 41.29
+        },
+        {
+          "raw": "Extravagance",
+          "start": 41.29,
+          "end": 42.01
+        },
+        {
+          "raw": "of",
+          "start": 42.01,
+          "end": 42.13
+        },
+        {
+          "raw": "their",
+          "start": 42.13,
+          "end": 42.29
+        },
+        {
+          "raw": "thoughts",
+          "start": 42.29,
+          "end": 42.57
+        },
+        {
+          "raw": "at",
+          "start": 42.57,
+          "end": 42.81
+        },
+        {
+          "raw": "that",
+          "start": 42.81,
+          "end": 43.05
+        },
+        {
+          "raw": "time",
+          "start": 43.05,
+          "end": 43.37
+        },
+        {
+          "raw": "should",
+          "start": 43.37,
+          "end": 43.59
+        },
+        {
+          "raw": "be",
+          "start": 43.59,
+          "end": 43.79
+        },
+        {
+          "raw": "publiquely",
+          "start": 43.79,
+          "end": 44.35
+        },
+        {
+          "raw": "seen,",
+          "start": 44.35,
+          "end": 44.67
+        },
+        {
+          "raw": "which",
+          "start": 45.29,
+          "end": 45.55
+        },
+        {
+          "raw": "is",
+          "start": 45.55,
+          "end": 45.71
+        },
+        {
+          "raw": "a",
+          "start": 45.71,
+          "end": 45.85
+        },
+        {
+          "raw": "confession,",
+          "start": 45.85,
+          "end": 46.35
+        },
+        {
+          "raw": "that",
+          "start": 46.77,
+          "end": 47.05
+        },
+        {
+          "raw": "Passions",
+          "start": 47.05,
+          "end": 47.55
+        },
+        {
+          "raw": "unguided,",
+          "start": 47.55,
+          "end": 48.15
+        },
+        {
+          "raw": "are",
+          "start": 48.69,
+          "end": 48.85
+        },
+        {
+          "raw": "for",
+          "start": 48.85,
+          "end": 48.97
+        },
+        {
+          "raw": "the",
+          "start": 48.97,
+          "end": 49.07
+        },
+        {
+          "raw": "most",
+          "start": 49.07,
+          "end": 49.29
+        },
+        {
+          "raw": "part",
+          "start": 49.29,
+          "end": 49.61
+        },
+        {
+          "raw": "meere",
+          "start": 49.61,
+          "end": 49.91
+        },
+        {
+          "raw": "Madnesse.",
+          "start": 49.91,
+          "end": 50.57
+        }
+      ],
+      "expected_tokens": [
+        "Again,",
+        "that",
+        "Madnesse",
+        "is",
+        "nothing",
+        "else,",
+        "but",
+        "too",
+        "much",
+        "appearing",
+        "Passion,",
+        "may",
+        "be",
+        "gathered",
+        "out",
+        "of",
+        "the",
+        "effects",
+        "of",
+        "Wine,",
+        "which",
+        "are",
+        "the",
+        "same",
+        "with",
+        "those",
+        "of",
+        "the",
+        "evill",
+        "disposition",
+        "of",
+        "the",
+        "organs.",
+        "For",
+        "the",
+        "variety",
+        "of",
+        "behaviour",
+        "in",
+        "men",
+        "that",
+        "have",
+        "drunk",
+        "too",
+        "much,",
+        "is",
+        "the",
+        "same",
+        "with",
+        "that",
+        "of",
+        "Mad-men:",
+        "some",
+        "of",
+        "them",
+        "Raging,",
+        "others",
+        "Loving,",
+        "others",
+        "laughing,",
+        "all",
+        "extravagantly,",
+        "but",
+        "according",
+        "to",
+        "their",
+        "severall",
+        "domineering",
+        "Passions:",
+        "For",
+        "the",
+        "effect",
+        "of",
+        "the",
+        "wine,",
+        "does",
+        "but",
+        "remove",
+        "Dissimulation;",
+        "and",
+        "take",
+        "from",
+        "them",
+        "the",
+        "sight",
+        "of",
+        "the",
+        "deformity",
+        "of",
+        "their",
+        "Passions.",
+        "For,",
+        "(I",
+        "believe)",
+        "the",
+        "most",
+        "sober",
+        "men,",
+        "when",
+        "they",
+        "walk",
+        "alone",
+        "without",
+        "care",
+        "and",
+        "employment",
+        "of",
+        "the",
+        "mind,",
+        "would",
+        "be",
+        "unwilling",
+        "the",
+        "vanity",
+        "and",
+        "Extravagance",
+        "of",
+        "their",
+        "thoughts",
+        "at",
+        "that",
+        "time",
+        "should",
+        "be",
+        "publiquely",
+        "seen:",
+        "which",
+        "is",
+        "a",
+        "confession,",
+        "that",
+        "Passions",
+        "unguided,",
+        "are",
+        "for",
+        "the",
+        "most",
+        "part",
+        "meere",
+        "Madnesse."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          140,
+          0,
+          140
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 107
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 108
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 109
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 110
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 111
+        },
+        {
+          "index": 112,
+          "source": "observed",
+          "heard_index": 112
+        },
+        {
+          "index": 113,
+          "source": "observed",
+          "heard_index": 113
+        },
+        {
+          "index": 114,
+          "source": "observed",
+          "heard_index": 114
+        },
+        {
+          "index": 115,
+          "source": "observed",
+          "heard_index": 115
+        },
+        {
+          "index": 116,
+          "source": "observed",
+          "heard_index": 116
+        },
+        {
+          "index": 117,
+          "source": "observed",
+          "heard_index": 117
+        },
+        {
+          "index": 118,
+          "source": "observed",
+          "heard_index": 118
+        },
+        {
+          "index": 119,
+          "source": "observed",
+          "heard_index": 119
+        },
+        {
+          "index": 120,
+          "source": "observed",
+          "heard_index": 120
+        },
+        {
+          "index": 121,
+          "source": "observed",
+          "heard_index": 121
+        },
+        {
+          "index": 122,
+          "source": "observed",
+          "heard_index": 122
+        },
+        {
+          "index": 123,
+          "source": "observed",
+          "heard_index": 123
+        },
+        {
+          "index": 124,
+          "source": "observed",
+          "heard_index": 124
+        },
+        {
+          "index": 125,
+          "source": "observed",
+          "heard_index": 125
+        },
+        {
+          "index": 126,
+          "source": "observed",
+          "heard_index": 126
+        },
+        {
+          "index": 127,
+          "source": "observed",
+          "heard_index": 127
+        },
+        {
+          "index": 128,
+          "source": "observed",
+          "heard_index": 128
+        },
+        {
+          "index": 129,
+          "source": "observed",
+          "heard_index": 129
+        },
+        {
+          "index": 130,
+          "source": "observed",
+          "heard_index": 130
+        },
+        {
+          "index": 131,
+          "source": "observed",
+          "heard_index": 131
+        },
+        {
+          "index": 132,
+          "source": "observed",
+          "heard_index": 132
+        },
+        {
+          "index": 133,
+          "source": "observed",
+          "heard_index": 133
+        },
+        {
+          "index": 134,
+          "source": "observed",
+          "heard_index": 134
+        },
+        {
+          "index": 135,
+          "source": "observed",
+          "heard_index": 135
+        },
+        {
+          "index": 136,
+          "source": "observed",
+          "heard_index": 136
+        },
+        {
+          "index": 137,
+          "source": "observed",
+          "heard_index": 137
+        },
+        {
+          "index": 138,
+          "source": "observed",
+          "heard_index": 138
+        },
+        {
+          "index": 139,
+          "source": "observed",
+          "heard_index": 139
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Again,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "again",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.01,
+          "end": 1.11,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Madnesse",
+          "start": 1.11,
+          "end": 1.71,
+          "key": "madnesse",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.71,
+          "end": 1.83,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 1.83,
+          "end": 2.13,
+          "key": "nothing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "else,",
+          "start": 2.13,
+          "end": 2.49,
+          "key": "else",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.97,
+          "end": 3.13,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 3.13,
+          "end": 3.33,
+          "key": "too",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 3.33,
+          "end": 3.55,
+          "key": "much",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "appearing",
+          "start": 3.55,
+          "end": 3.97,
+          "key": "appearing",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Passion,",
+          "start": 3.97,
+          "end": 4.51,
+          "key": "passion",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 5.05,
+          "end": 5.13,
+          "key": "may",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.13,
+          "end": 5.31,
+          "key": "be",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "gathered",
+          "start": 5.31,
+          "end": 5.57,
+          "key": "gathered",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 5.57,
+          "end": 5.85,
+          "key": "out",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.85,
+          "end": 5.99,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.99,
+          "end": 6.15,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "effects",
+          "start": 6.15,
+          "end": 6.39,
+          "key": "effects",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.39,
+          "end": 6.69,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Wine,",
+          "start": 6.69,
+          "end": 6.95,
+          "key": "wine",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 7.55,
+          "end": 7.65,
+          "key": "which",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 7.65,
+          "end": 7.79,
+          "key": "are",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.79,
+          "end": 7.93,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 7.93,
+          "end": 8.21,
+          "key": "same",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 8.21,
+          "end": 8.45,
+          "key": "with",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 8.45,
+          "end": 8.71,
+          "key": "those",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.71,
+          "end": 8.91,
+          "key": "of",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.91,
+          "end": 9.01,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "evill",
+          "start": 9.01,
+          "end": 9.39,
+          "key": "evill",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "disposition",
+          "start": 9.39,
+          "end": 9.79,
+          "key": "disposition",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.79,
+          "end": 10.21,
+          "key": "of",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.21,
+          "end": 10.37,
+          "key": "the",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "organs.",
+          "start": 10.37,
+          "end": 10.65,
+          "key": "organs",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 11.81,
+          "end": 11.97,
+          "key": "for",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.97,
+          "end": 12.07,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "variety",
+          "start": 12.07,
+          "end": 12.39,
+          "key": "variety",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.39,
+          "end": 12.75,
+          "key": "of",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "behaviour",
+          "start": 12.75,
+          "end": 13.05,
+          "key": "behaviour",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 13.05,
+          "end": 13.45,
+          "key": "in",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 13.45,
+          "end": 13.63,
+          "key": "men",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 13.63,
+          "end": 13.81,
+          "key": "that",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 13.81,
+          "end": 13.97,
+          "key": "have",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "drunk",
+          "start": 13.97,
+          "end": 14.15,
+          "key": "drunk",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 14.15,
+          "end": 14.45,
+          "key": "too",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "much,",
+          "start": 14.45,
+          "end": 14.75,
+          "key": "much",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 15.19,
+          "end": 15.29,
+          "key": "is",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.29,
+          "end": 15.45,
+          "key": "the",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 15.45,
+          "end": 15.69,
+          "key": "same",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 15.69,
+          "end": 15.93,
+          "key": "with",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 15.93,
+          "end": 16.11,
+          "key": "that",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.11,
+          "end": 16.23,
+          "key": "of",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Mad -men,",
+          "start": 16.23,
+          "end": 16.71,
+          "key": "madmen",
+          "pieces": [
+            51,
+            52
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 17.43,
+          "end": 17.61,
+          "key": "some",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 17.61,
+          "end": 17.73,
+          "key": "of",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 17.73,
+          "end": 17.89,
+          "key": "them",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "Raging,",
+          "start": 17.89,
+          "end": 18.25,
+          "key": "raging",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "others",
+          "start": 18.69,
+          "end": 18.87,
+          "key": "others",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "Loving,",
+          "start": 18.87,
+          "end": 19.27,
+          "key": "loving",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "others",
+          "start": 19.79,
+          "end": 19.99,
+          "key": "others",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "laughing,",
+          "start": 19.99,
+          "end": 20.49,
+          "key": "laughing",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 20.87,
+          "end": 21.05,
+          "key": "all",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "extravagantly,",
+          "start": 21.05,
+          "end": 21.91,
+          "key": "extravagantly",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 22.39,
+          "end": 22.51,
+          "key": "but",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "according",
+          "start": 22.51,
+          "end": 22.77,
+          "key": "according",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 22.77,
+          "end": 23.09,
+          "key": "to",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 23.09,
+          "end": 23.23,
+          "key": "their",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "severall",
+          "start": 23.23,
+          "end": 23.87,
+          "key": "severall",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "domineering",
+          "start": 23.87,
+          "end": 24.51,
+          "key": "domineering",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "Passions.",
+          "start": 24.51,
+          "end": 25.07,
+          "key": "passions",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 25.63,
+          "end": 25.85,
+          "key": "for",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 25.85,
+          "end": 25.99,
+          "key": "the",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "effect",
+          "start": 25.99,
+          "end": 26.25,
+          "key": "effect",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 26.25,
+          "end": 26.43,
+          "key": "of",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 26.43,
+          "end": 26.55,
+          "key": "the",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "wine,",
+          "start": 26.55,
+          "end": 26.89,
+          "key": "wine",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 27.19,
+          "end": 27.47,
+          "key": "does",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 27.47,
+          "end": 27.73,
+          "key": "but",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "remove",
+          "start": 27.73,
+          "end": 28.13,
+          "key": "remove",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "Dissimulation,",
+          "start": 28.13,
+          "end": 28.97,
+          "key": "dissimulation",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 29.49,
+          "end": 29.73,
+          "key": "and",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 29.73,
+          "end": 29.93,
+          "key": "take",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 29.93,
+          "end": 30.15,
+          "key": "from",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 30.15,
+          "end": 30.35,
+          "key": "them",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 30.35,
+          "end": 30.53,
+          "key": "the",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "sight",
+          "start": 30.53,
+          "end": 30.75,
+          "key": "sight",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 30.75,
+          "end": 30.89,
+          "key": "of",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 30.89,
+          "end": 31.03,
+          "key": "the",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "deformity",
+          "start": 31.03,
+          "end": 31.57,
+          "key": "deformity",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 31.57,
+          "end": 31.73,
+          "key": "of",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 31.73,
+          "end": 31.89,
+          "key": "their",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "Passions.",
+          "start": 31.89,
+          "end": 32.45,
+          "key": "passions",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 33.13,
+          "end": 33.69,
+          "key": "for",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 33.69,
+          "end": 33.97,
+          "key": "i",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "believe,",
+          "start": 33.97,
+          "end": 34.39,
+          "key": "believe",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 34.85,
+          "end": 34.95,
+          "key": "the",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 34.95,
+          "end": 35.19,
+          "key": "most",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "sober",
+          "start": 35.19,
+          "end": 35.63,
+          "key": "sober",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "men,",
+          "start": 35.63,
+          "end": 35.97,
+          "key": "men",
+          "pieces": [
+            98
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 36.23,
+          "end": 36.31,
+          "key": "when",
+          "pieces": [
+            99
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 36.31,
+          "end": 36.47,
+          "key": "they",
+          "pieces": [
+            100
+          ]
+        },
+        {
+          "raw": "walk",
+          "start": 36.47,
+          "end": 36.71,
+          "key": "walk",
+          "pieces": [
+            101
+          ]
+        },
+        {
+          "raw": "alone",
+          "start": 36.71,
+          "end": 37.07,
+          "key": "alone",
+          "pieces": [
+            102
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 37.07,
+          "end": 37.43,
+          "key": "without",
+          "pieces": [
+            103
+          ]
+        },
+        {
+          "raw": "care",
+          "start": 37.43,
+          "end": 37.83,
+          "key": "care",
+          "pieces": [
+            104
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 37.83,
+          "end": 38.07,
+          "key": "and",
+          "pieces": [
+            105
+          ]
+        },
+        {
+          "raw": "employment",
+          "start": 38.07,
+          "end": 38.45,
+          "key": "employment",
+          "pieces": [
+            106
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 38.45,
+          "end": 38.67,
+          "key": "of",
+          "pieces": [
+            107
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 38.67,
+          "end": 38.77,
+          "key": "the",
+          "pieces": [
+            108
+          ]
+        },
+        {
+          "raw": "mind,",
+          "start": 38.77,
+          "end": 39.07,
+          "key": "mind",
+          "pieces": [
+            109
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 39.55,
+          "end": 39.73,
+          "key": "would",
+          "pieces": [
+            110
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 39.73,
+          "end": 39.85,
+          "key": "be",
+          "pieces": [
+            111
+          ]
+        },
+        {
+          "raw": "unwilling",
+          "start": 39.85,
+          "end": 40.29,
+          "key": "unwilling",
+          "pieces": [
+            112
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 40.29,
+          "end": 40.63,
+          "key": "the",
+          "pieces": [
+            113
+          ]
+        },
+        {
+          "raw": "vanity",
+          "start": 40.63,
+          "end": 40.97,
+          "key": "vanity",
+          "pieces": [
+            114
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 40.97,
+          "end": 41.29,
+          "key": "and",
+          "pieces": [
+            115
+          ]
+        },
+        {
+          "raw": "Extravagance",
+          "start": 41.29,
+          "end": 42.01,
+          "key": "extravagance",
+          "pieces": [
+            116
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 42.01,
+          "end": 42.13,
+          "key": "of",
+          "pieces": [
+            117
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 42.13,
+          "end": 42.29,
+          "key": "their",
+          "pieces": [
+            118
+          ]
+        },
+        {
+          "raw": "thoughts",
+          "start": 42.29,
+          "end": 42.57,
+          "key": "thoughts",
+          "pieces": [
+            119
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 42.57,
+          "end": 42.81,
+          "key": "at",
+          "pieces": [
+            120
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 42.81,
+          "end": 43.05,
+          "key": "that",
+          "pieces": [
+            121
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 43.05,
+          "end": 43.37,
+          "key": "time",
+          "pieces": [
+            122
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 43.37,
+          "end": 43.59,
+          "key": "should",
+          "pieces": [
+            123
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 43.59,
+          "end": 43.79,
+          "key": "be",
+          "pieces": [
+            124
+          ]
+        },
+        {
+          "raw": "publiquely",
+          "start": 43.79,
+          "end": 44.35,
+          "key": "publiquely",
+          "pieces": [
+            125
+          ]
+        },
+        {
+          "raw": "seen,",
+          "start": 44.35,
+          "end": 44.67,
+          "key": "seen",
+          "pieces": [
+            126
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 45.29,
+          "end": 45.55,
+          "key": "which",
+          "pieces": [
+            127
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 45.55,
+          "end": 45.71,
+          "key": "is",
+          "pieces": [
+            128
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 45.71,
+          "end": 45.85,
+          "key": "a",
+          "pieces": [
+            129
+          ]
+        },
+        {
+          "raw": "confession,",
+          "start": 45.85,
+          "end": 46.35,
+          "key": "confession",
+          "pieces": [
+            130
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 46.77,
+          "end": 47.05,
+          "key": "that",
+          "pieces": [
+            131
+          ]
+        },
+        {
+          "raw": "Passions",
+          "start": 47.05,
+          "end": 47.55,
+          "key": "passions",
+          "pieces": [
+            132
+          ]
+        },
+        {
+          "raw": "unguided,",
+          "start": 47.55,
+          "end": 48.15,
+          "key": "unguided",
+          "pieces": [
+            133
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 48.69,
+          "end": 48.85,
+          "key": "are",
+          "pieces": [
+            134
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 48.85,
+          "end": 48.97,
+          "key": "for",
+          "pieces": [
+            135
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 48.97,
+          "end": 49.07,
+          "key": "the",
+          "pieces": [
+            136
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 49.07,
+          "end": 49.29,
+          "key": "most",
+          "pieces": [
+            137
+          ]
+        },
+        {
+          "raw": "part",
+          "start": 49.29,
+          "end": 49.61,
+          "key": "part",
+          "pieces": [
+            138
+          ]
+        },
+        {
+          "raw": "meere",
+          "start": 49.61,
+          "end": 49.91,
+          "key": "meere",
+          "pieces": [
+            139
+          ]
+        },
+        {
+          "raw": "Madnesse.",
+          "start": 49.91,
+          "end": 50.57,
+          "key": "madnesse",
+          "pieces": [
+            140
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 51,
+          "text": "Mad-men:",
+          "heard": "Mad -men,",
+          "heard_indexes": [
+            51,
+            52
+          ],
+          "start": 16.23,
+          "end": 16.71
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Again,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "that",
+          "start": 1.01,
+          "end": 1.11
+        },
+        {
+          "text": "Madnesse",
+          "start": 1.11,
+          "end": 1.71
+        },
+        {
+          "text": "is",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "text": "nothing",
+          "start": 1.83,
+          "end": 2.13
+        },
+        {
+          "text": "else,",
+          "start": 2.13,
+          "end": 2.49
+        },
+        {
+          "text": "but",
+          "start": 2.97,
+          "end": 3.13
+        },
+        {
+          "text": "too",
+          "start": 3.13,
+          "end": 3.33
+        },
+        {
+          "text": "much",
+          "start": 3.33,
+          "end": 3.55
+        },
+        {
+          "text": "appearing",
+          "start": 3.55,
+          "end": 3.97
+        },
+        {
+          "text": "Passion,",
+          "start": 3.97,
+          "end": 4.51
+        },
+        {
+          "text": "may",
+          "start": 5.05,
+          "end": 5.13
+        },
+        {
+          "text": "be",
+          "start": 5.13,
+          "end": 5.31
+        },
+        {
+          "text": "gathered",
+          "start": 5.31,
+          "end": 5.57
+        },
+        {
+          "text": "out",
+          "start": 5.57,
+          "end": 5.85
+        },
+        {
+          "text": "of",
+          "start": 5.85,
+          "end": 5.99
+        },
+        {
+          "text": "the",
+          "start": 5.99,
+          "end": 6.15
+        },
+        {
+          "text": "effects",
+          "start": 6.15,
+          "end": 6.39
+        },
+        {
+          "text": "of",
+          "start": 6.39,
+          "end": 6.69
+        },
+        {
+          "text": "Wine,",
+          "start": 6.69,
+          "end": 6.95
+        },
+        {
+          "text": "which",
+          "start": 7.55,
+          "end": 7.65
+        },
+        {
+          "text": "are",
+          "start": 7.65,
+          "end": 7.79
+        },
+        {
+          "text": "the",
+          "start": 7.79,
+          "end": 7.93
+        },
+        {
+          "text": "same",
+          "start": 7.93,
+          "end": 8.21
+        },
+        {
+          "text": "with",
+          "start": 8.21,
+          "end": 8.45
+        },
+        {
+          "text": "those",
+          "start": 8.45,
+          "end": 8.71
+        },
+        {
+          "text": "of",
+          "start": 8.71,
+          "end": 8.91
+        },
+        {
+          "text": "the",
+          "start": 8.91,
+          "end": 9.01
+        },
+        {
+          "text": "evill",
+          "start": 9.01,
+          "end": 9.39
+        },
+        {
+          "text": "disposition",
+          "start": 9.39,
+          "end": 9.79
+        },
+        {
+          "text": "of",
+          "start": 9.79,
+          "end": 10.21
+        },
+        {
+          "text": "the",
+          "start": 10.21,
+          "end": 10.37
+        },
+        {
+          "text": "organs.",
+          "start": 10.37,
+          "end": 10.65
+        },
+        {
+          "text": "For",
+          "start": 11.81,
+          "end": 11.97
+        },
+        {
+          "text": "the",
+          "start": 11.97,
+          "end": 12.07
+        },
+        {
+          "text": "variety",
+          "start": 12.07,
+          "end": 12.39
+        },
+        {
+          "text": "of",
+          "start": 12.39,
+          "end": 12.75
+        },
+        {
+          "text": "behaviour",
+          "start": 12.75,
+          "end": 13.05
+        },
+        {
+          "text": "in",
+          "start": 13.05,
+          "end": 13.45
+        },
+        {
+          "text": "men",
+          "start": 13.45,
+          "end": 13.63
+        },
+        {
+          "text": "that",
+          "start": 13.63,
+          "end": 13.81
+        },
+        {
+          "text": "have",
+          "start": 13.81,
+          "end": 13.97
+        },
+        {
+          "text": "drunk",
+          "start": 13.97,
+          "end": 14.15
+        },
+        {
+          "text": "too",
+          "start": 14.15,
+          "end": 14.45
+        },
+        {
+          "text": "much,",
+          "start": 14.45,
+          "end": 14.75
+        },
+        {
+          "text": "is",
+          "start": 15.19,
+          "end": 15.29
+        },
+        {
+          "text": "the",
+          "start": 15.29,
+          "end": 15.45
+        },
+        {
+          "text": "same",
+          "start": 15.45,
+          "end": 15.69
+        },
+        {
+          "text": "with",
+          "start": 15.69,
+          "end": 15.93
+        },
+        {
+          "text": "that",
+          "start": 15.93,
+          "end": 16.11
+        },
+        {
+          "text": "of",
+          "start": 16.11,
+          "end": 16.23
+        },
+        {
+          "text": "Mad-men:",
+          "start": 16.23,
+          "end": 16.71
+        },
+        {
+          "text": "some",
+          "start": 17.43,
+          "end": 17.61
+        },
+        {
+          "text": "of",
+          "start": 17.61,
+          "end": 17.73
+        },
+        {
+          "text": "them",
+          "start": 17.73,
+          "end": 17.89
+        },
+        {
+          "text": "Raging,",
+          "start": 17.89,
+          "end": 18.25
+        },
+        {
+          "text": "others",
+          "start": 18.69,
+          "end": 18.87
+        },
+        {
+          "text": "Loving,",
+          "start": 18.87,
+          "end": 19.27
+        },
+        {
+          "text": "others",
+          "start": 19.79,
+          "end": 19.99
+        },
+        {
+          "text": "laughing,",
+          "start": 19.99,
+          "end": 20.49
+        },
+        {
+          "text": "all",
+          "start": 20.87,
+          "end": 21.05
+        },
+        {
+          "text": "extravagantly,",
+          "start": 21.05,
+          "end": 21.91
+        },
+        {
+          "text": "but",
+          "start": 22.39,
+          "end": 22.51
+        },
+        {
+          "text": "according",
+          "start": 22.51,
+          "end": 22.77
+        },
+        {
+          "text": "to",
+          "start": 22.77,
+          "end": 23.09
+        },
+        {
+          "text": "their",
+          "start": 23.09,
+          "end": 23.23
+        },
+        {
+          "text": "severall",
+          "start": 23.23,
+          "end": 23.87
+        },
+        {
+          "text": "domineering",
+          "start": 23.87,
+          "end": 24.51
+        },
+        {
+          "text": "Passions:",
+          "start": 24.51,
+          "end": 25.07
+        },
+        {
+          "text": "For",
+          "start": 25.63,
+          "end": 25.85
+        },
+        {
+          "text": "the",
+          "start": 25.85,
+          "end": 25.99
+        },
+        {
+          "text": "effect",
+          "start": 25.99,
+          "end": 26.25
+        },
+        {
+          "text": "of",
+          "start": 26.25,
+          "end": 26.43
+        },
+        {
+          "text": "the",
+          "start": 26.43,
+          "end": 26.55
+        },
+        {
+          "text": "wine,",
+          "start": 26.55,
+          "end": 26.89
+        },
+        {
+          "text": "does",
+          "start": 27.19,
+          "end": 27.47
+        },
+        {
+          "text": "but",
+          "start": 27.47,
+          "end": 27.73
+        },
+        {
+          "text": "remove",
+          "start": 27.73,
+          "end": 28.13
+        },
+        {
+          "text": "Dissimulation;",
+          "start": 28.13,
+          "end": 28.97
+        },
+        {
+          "text": "and",
+          "start": 29.49,
+          "end": 29.73
+        },
+        {
+          "text": "take",
+          "start": 29.73,
+          "end": 29.93
+        },
+        {
+          "text": "from",
+          "start": 29.93,
+          "end": 30.15
+        },
+        {
+          "text": "them",
+          "start": 30.15,
+          "end": 30.35
+        },
+        {
+          "text": "the",
+          "start": 30.35,
+          "end": 30.53
+        },
+        {
+          "text": "sight",
+          "start": 30.53,
+          "end": 30.75
+        },
+        {
+          "text": "of",
+          "start": 30.75,
+          "end": 30.89
+        },
+        {
+          "text": "the",
+          "start": 30.89,
+          "end": 31.03
+        },
+        {
+          "text": "deformity",
+          "start": 31.03,
+          "end": 31.57
+        },
+        {
+          "text": "of",
+          "start": 31.57,
+          "end": 31.73
+        },
+        {
+          "text": "their",
+          "start": 31.73,
+          "end": 31.89
+        },
+        {
+          "text": "Passions.",
+          "start": 31.89,
+          "end": 32.45
+        },
+        {
+          "text": "For,",
+          "start": 33.13,
+          "end": 33.69
+        },
+        {
+          "text": "(I",
+          "start": 33.69,
+          "end": 33.97
+        },
+        {
+          "text": "believe)",
+          "start": 33.97,
+          "end": 34.39
+        },
+        {
+          "text": "the",
+          "start": 34.85,
+          "end": 34.95
+        },
+        {
+          "text": "most",
+          "start": 34.95,
+          "end": 35.19
+        },
+        {
+          "text": "sober",
+          "start": 35.19,
+          "end": 35.63
+        },
+        {
+          "text": "men,",
+          "start": 35.63,
+          "end": 35.97
+        },
+        {
+          "text": "when",
+          "start": 36.23,
+          "end": 36.31
+        },
+        {
+          "text": "they",
+          "start": 36.31,
+          "end": 36.47
+        },
+        {
+          "text": "walk",
+          "start": 36.47,
+          "end": 36.71
+        },
+        {
+          "text": "alone",
+          "start": 36.71,
+          "end": 37.07
+        },
+        {
+          "text": "without",
+          "start": 37.07,
+          "end": 37.43
+        },
+        {
+          "text": "care",
+          "start": 37.43,
+          "end": 37.83
+        },
+        {
+          "text": "and",
+          "start": 37.83,
+          "end": 38.07
+        },
+        {
+          "text": "employment",
+          "start": 38.07,
+          "end": 38.45
+        },
+        {
+          "text": "of",
+          "start": 38.45,
+          "end": 38.67
+        },
+        {
+          "text": "the",
+          "start": 38.67,
+          "end": 38.77
+        },
+        {
+          "text": "mind,",
+          "start": 38.77,
+          "end": 39.07
+        },
+        {
+          "text": "would",
+          "start": 39.55,
+          "end": 39.73
+        },
+        {
+          "text": "be",
+          "start": 39.73,
+          "end": 39.85
+        },
+        {
+          "text": "unwilling",
+          "start": 39.85,
+          "end": 40.29
+        },
+        {
+          "text": "the",
+          "start": 40.29,
+          "end": 40.63
+        },
+        {
+          "text": "vanity",
+          "start": 40.63,
+          "end": 40.97
+        },
+        {
+          "text": "and",
+          "start": 40.97,
+          "end": 41.29
+        },
+        {
+          "text": "Extravagance",
+          "start": 41.29,
+          "end": 42.01
+        },
+        {
+          "text": "of",
+          "start": 42.01,
+          "end": 42.13
+        },
+        {
+          "text": "their",
+          "start": 42.13,
+          "end": 42.29
+        },
+        {
+          "text": "thoughts",
+          "start": 42.29,
+          "end": 42.57
+        },
+        {
+          "text": "at",
+          "start": 42.57,
+          "end": 42.81
+        },
+        {
+          "text": "that",
+          "start": 42.81,
+          "end": 43.05
+        },
+        {
+          "text": "time",
+          "start": 43.05,
+          "end": 43.37
+        },
+        {
+          "text": "should",
+          "start": 43.37,
+          "end": 43.59
+        },
+        {
+          "text": "be",
+          "start": 43.59,
+          "end": 43.79
+        },
+        {
+          "text": "publiquely",
+          "start": 43.79,
+          "end": 44.35
+        },
+        {
+          "text": "seen:",
+          "start": 44.35,
+          "end": 44.67
+        },
+        {
+          "text": "which",
+          "start": 45.29,
+          "end": 45.55
+        },
+        {
+          "text": "is",
+          "start": 45.55,
+          "end": 45.71
+        },
+        {
+          "text": "a",
+          "start": 45.71,
+          "end": 45.85
+        },
+        {
+          "text": "confession,",
+          "start": 45.85,
+          "end": 46.35
+        },
+        {
+          "text": "that",
+          "start": 46.77,
+          "end": 47.05
+        },
+        {
+          "text": "Passions",
+          "start": 47.05,
+          "end": 47.55
+        },
+        {
+          "text": "unguided,",
+          "start": 47.55,
+          "end": 48.15
+        },
+        {
+          "text": "are",
+          "start": 48.69,
+          "end": 48.85
+        },
+        {
+          "text": "for",
+          "start": 48.85,
+          "end": 48.97
+        },
+        {
+          "text": "the",
+          "start": 48.97,
+          "end": 49.07
+        },
+        {
+          "text": "most",
+          "start": 49.07,
+          "end": 49.29
+        },
+        {
+          "text": "part",
+          "start": 49.29,
+          "end": 49.61
+        },
+        {
+          "text": "meere",
+          "start": 49.61,
+          "end": 49.91
+        },
+        {
+          "text": "Madnesse.",
+          "start": 49.91,
+          "end": 50.57
+        }
+      ],
+      "stats": {
+        "expected_words": 140,
+        "heard_words": 140,
+        "matched_words": 140
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.4938693710137159
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b1e3f66a021a217adb49d5e3b85377ea0d7328b6298fa7ff4d12fdbb19d075b6",
+  "selected_reasons": []
+}

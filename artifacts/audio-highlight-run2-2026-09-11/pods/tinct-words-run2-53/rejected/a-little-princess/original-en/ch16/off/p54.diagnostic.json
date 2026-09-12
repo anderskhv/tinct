@@ -1,0 +1,484 @@
+{
+  "complete": true,
+  "signature": "342a0f22a4eb5273aee4d176cfc99b6ee9a83a7926f80a5a494e30a0fe2854f6",
+  "attempts": [
+    {
+      "asr_seconds": 0.2778998108115047,
+      "alignment_seconds": 0.00048648915253579617,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sarah crew looks wonderfully well. Miss mentioned remarked disapprovingly to her sister",
+          "start": 0.08,
+          "end": 5.2,
+          "words": [
+            {
+              "text": " Sarah",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.31103515625
+            },
+            {
+              "text": " crew",
+              "start": 0.66,
+              "end": 0.96,
+              "probability": 0.1898193359375
+            },
+            {
+              "text": " looks",
+              "start": 0.96,
+              "end": 1.24,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " wonderfully",
+              "start": 1.24,
+              "end": 1.68,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " well.",
+              "start": 1.68,
+              "end": 2.18,
+              "probability": 0.767578125
+            },
+            {
+              "text": " Miss",
+              "start": 2.76,
+              "end": 2.84,
+              "probability": 0.7265625
+            },
+            {
+              "text": " mentioned",
+              "start": 2.84,
+              "end": 3.16,
+              "probability": 0.1365966796875
+            },
+            {
+              "text": " remarked",
+              "start": 3.16,
+              "end": 3.74,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " disapprovingly",
+              "start": 3.74,
+              "end": 4.64,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 4.64,
+              "end": 4.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " her",
+              "start": 4.78,
+              "end": 4.92,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sister",
+              "start": 4.92,
+              "end": 5.2,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sarah",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "crew",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "raw": "looks",
+          "start": 0.96,
+          "end": 1.24
+        },
+        {
+          "raw": "wonderfully",
+          "start": 1.24,
+          "end": 1.68
+        },
+        {
+          "raw": "well.",
+          "start": 1.68,
+          "end": 2.18
+        },
+        {
+          "raw": "Miss",
+          "start": 2.76,
+          "end": 2.84
+        },
+        {
+          "raw": "mentioned",
+          "start": 2.84,
+          "end": 3.16
+        },
+        {
+          "raw": "remarked",
+          "start": 3.16,
+          "end": 3.74
+        },
+        {
+          "raw": "disapprovingly",
+          "start": 3.74,
+          "end": 4.64
+        },
+        {
+          "raw": "to",
+          "start": 4.64,
+          "end": 4.78
+        },
+        {
+          "raw": "her",
+          "start": 4.78,
+          "end": 4.92
+        },
+        {
+          "raw": "sister",
+          "start": 4.92,
+          "end": 5.2
+        }
+      ],
+      "expected_tokens": [
+        "\"Sara",
+        "Crewe",
+        "looks",
+        "wonderfully",
+        "well,\"",
+        "Miss",
+        "Minchin",
+        "remarked",
+        "disapprovingly",
+        "to",
+        "her",
+        "sister."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          12,
+          7,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sarah",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "sarah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "crew",
+          "start": 0.66,
+          "end": 0.96,
+          "key": "crew",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "looks",
+          "start": 0.96,
+          "end": 1.24,
+          "key": "looks",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wonderfully",
+          "start": 1.24,
+          "end": 1.68,
+          "key": "wonderfully",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 1.68,
+          "end": 2.18,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 2.76,
+          "end": 2.84,
+          "key": "miss",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "mentioned",
+          "start": 2.84,
+          "end": 3.16,
+          "key": "mentioned",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "remarked",
+          "start": 3.16,
+          "end": 3.74,
+          "key": "remarked",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "disapprovingly",
+          "start": 3.74,
+          "end": 4.64,
+          "key": "disapprovingly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.64,
+          "end": 4.78,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.78,
+          "end": 4.92,
+          "key": "her",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sister",
+          "start": 4.92,
+          "end": 5.2,
+          "key": "sister",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Sara",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "text": "Crewe",
+          "start": 0.48,
+          "end": 0.72
+        },
+        {
+          "text": "looks",
+          "start": 0.96,
+          "end": 1.24
+        },
+        {
+          "text": "wonderfully",
+          "start": 1.24,
+          "end": 1.68
+        },
+        {
+          "text": "well,\"",
+          "start": 1.68,
+          "end": 2.18
+        },
+        {
+          "text": "Miss",
+          "start": 2.76,
+          "end": 2.84
+        },
+        {
+          "text": "Minchin",
+          "start": 2.84,
+          "end": 3.0
+        },
+        {
+          "text": "remarked",
+          "start": 3.16,
+          "end": 3.74
+        },
+        {
+          "text": "disapprovingly",
+          "start": 3.74,
+          "end": 4.64
+        },
+        {
+          "text": "to",
+          "start": 4.64,
+          "end": 4.78
+        },
+        {
+          "text": "her",
+          "start": 4.78,
+          "end": 4.92
+        },
+        {
+          "text": "sister.",
+          "start": 4.92,
+          "end": 5.2
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 9
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2785708799492568
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b164ccb3503356d7d62f185d918cdd27c51d0616e8acb82cafb11eb4768d7b25",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

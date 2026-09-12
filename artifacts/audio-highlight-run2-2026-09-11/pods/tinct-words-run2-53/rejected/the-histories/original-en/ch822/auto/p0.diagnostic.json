@@ -1,0 +1,349 @@
+{
+  "complete": true,
+  "signature": "fb5157fee27aeaafeeb7da7ac5606c8d6df89d891fe7d225a57c40c46fac5ef3",
+  "attempts": [
+    {
+      "asr_seconds": 0.21784806391224265,
+      "alignment_seconds": 0.0003978370223194361,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "and the third tripod, also in hexameter rhythm, says:"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And the third tripod, also in hexameter rhythm, says...",
+          "start": 0.08,
+          "end": 4.02,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.68994140625
+            },
+            {
+              "text": " the",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " third",
+              "start": 0.6,
+              "end": 0.84,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " tripod,",
+              "start": 0.84,
+              "end": 1.32,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " also",
+              "start": 1.84,
+              "end": 2.06,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 2.06,
+              "end": 2.22,
+              "probability": 0.067138671875
+            },
+            {
+              "text": " hexameter",
+              "start": 2.22,
+              "end": 2.72,
+              "probability": 0.6421101888020834
+            },
+            {
+              "text": " rhythm,",
+              "start": 2.72,
+              "end": 3.02,
+              "probability": 0.96875
+            },
+            {
+              "text": " says...",
+              "start": 3.02,
+              "end": 4.02,
+              "probability": 0.749267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "third",
+          "start": 0.6,
+          "end": 0.84
+        },
+        {
+          "raw": "tripod,",
+          "start": 0.84,
+          "end": 1.32
+        },
+        {
+          "raw": "also",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "raw": "in",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "raw": "hexameter",
+          "start": 2.22,
+          "end": 2.72
+        },
+        {
+          "raw": "rhythm,",
+          "start": 2.72,
+          "end": 3.02
+        },
+        {
+          "raw": "says...",
+          "start": 3.02,
+          "end": 4.02
+        }
+      ],
+      "expected_tokens": [
+        "and",
+        "the",
+        "third",
+        "tripod,",
+        "also",
+        "in",
+        "hexameter",
+        "rhythm,",
+        "says:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.6,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "third",
+          "start": 0.6,
+          "end": 0.84,
+          "key": "third",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tripod,",
+          "start": 0.84,
+          "end": 1.32,
+          "key": "tripod",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "also",
+          "start": 1.84,
+          "end": 2.06,
+          "key": "also",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.06,
+          "end": 2.22,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hexameter",
+          "start": 2.22,
+          "end": 2.72,
+          "key": "hexameter",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "rhythm,",
+          "start": 2.72,
+          "end": 3.02,
+          "key": "rhythm",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "says...",
+          "start": 3.02,
+          "end": 4.02,
+          "key": "says",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "and",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "the",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "third",
+          "start": 0.6,
+          "end": 0.84
+        },
+        {
+          "text": "tripod,",
+          "start": 0.84,
+          "end": 1.32
+        },
+        {
+          "text": "also",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "text": "in",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "text": "hexameter",
+          "start": 2.22,
+          "end": 2.72
+        },
+        {
+          "text": "rhythm,",
+          "start": 2.72,
+          "end": 3.02
+        },
+        {
+          "text": "says:",
+          "start": 3.02,
+          "end": 4.02
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2183924149721861
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c27d1dad5c644b9a7ad45ce207787d0168a792e69a2819f8e058552b7a88ab4a",
+  "selected_reasons": []
+}

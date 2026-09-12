@@ -1,0 +1,679 @@
+{
+  "complete": true,
+  "signature": "5d1d4e4421d3cfbc50fea276223482e47f9df88d84920922b21c0bd2c9a62dec",
+  "attempts": [
+    {
+      "asr_seconds": 0.37374535179696977,
+      "alignment_seconds": 0.0006820368580520153,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes,\" Sarah answered joyfully.",
+          "start": 0.74,
+          "end": 2.14,
+          "words": [
+            {
+              "text": " Yes,\"",
+              "start": 0.74,
+              "end": 1.22,
+              "probability": 0.303497314453125
+            },
+            {
+              "text": " Sarah",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.80810546875
+            },
+            {
+              "text": " answered",
+              "start": 1.34,
+              "end": 1.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " joyfully.",
+              "start": 1.7,
+              "end": 2.14,
+              "probability": 0.996337890625
+            }
+          ]
+        },
+        {
+          "text": " \"'It's too cold for monkeys to be out.",
+          "start": 2.74,
+          "end": 4.5,
+          "words": [
+            {
+              "text": " \"'It's",
+              "start": 2.74,
+              "end": 2.98,
+              "probability": 0.6609477996826172
+            },
+            {
+              "text": " too",
+              "start": 2.98,
+              "end": 3.14,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " cold",
+              "start": 3.14,
+              "end": 3.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " for",
+              "start": 3.44,
+              "end": 3.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " monkeys",
+              "start": 3.64,
+              "end": 3.88,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " to",
+              "start": 3.88,
+              "end": 4.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 4.14,
+              "end": 4.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " out.",
+              "start": 4.26,
+              "end": 4.5,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " They're delicate.",
+          "start": 4.76,
+          "end": 5.22,
+          "words": [
+            {
+              "text": " They're",
+              "start": 4.76,
+              "end": 4.92,
+              "probability": 0.985595703125
+            },
+            {
+              "text": " delicate.",
+              "start": 4.92,
+              "end": 5.22,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " I'll coax him in.'\"",
+          "start": 5.6,
+          "end": 6.78,
+          "words": [
+            {
+              "text": " I'll",
+              "start": 5.6,
+              "end": 5.74,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " coax",
+              "start": 5.74,
+              "end": 5.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " him",
+              "start": 5.88,
+              "end": 6.08,
+              "probability": 0.46435546875
+            },
+            {
+              "text": " in.'\"",
+              "start": 6.08,
+              "end": 6.78,
+              "probability": 0.8720703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,\"",
+          "start": 0.74,
+          "end": 1.22
+        },
+        {
+          "raw": "Sarah",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "answered",
+          "start": 1.34,
+          "end": 1.7
+        },
+        {
+          "raw": "joyfully.",
+          "start": 1.7,
+          "end": 2.14
+        },
+        {
+          "raw": "\"'It's",
+          "start": 2.74,
+          "end": 2.98
+        },
+        {
+          "raw": "too",
+          "start": 2.98,
+          "end": 3.14
+        },
+        {
+          "raw": "cold",
+          "start": 3.14,
+          "end": 3.44
+        },
+        {
+          "raw": "for",
+          "start": 3.44,
+          "end": 3.64
+        },
+        {
+          "raw": "monkeys",
+          "start": 3.64,
+          "end": 3.88
+        },
+        {
+          "raw": "to",
+          "start": 3.88,
+          "end": 4.14
+        },
+        {
+          "raw": "be",
+          "start": 4.14,
+          "end": 4.26
+        },
+        {
+          "raw": "out.",
+          "start": 4.26,
+          "end": 4.5
+        },
+        {
+          "raw": "They're",
+          "start": 4.76,
+          "end": 4.92
+        },
+        {
+          "raw": "delicate.",
+          "start": 4.92,
+          "end": 5.22
+        },
+        {
+          "raw": "I'll",
+          "start": 5.6,
+          "end": 5.74
+        },
+        {
+          "raw": "coax",
+          "start": 5.74,
+          "end": 5.88
+        },
+        {
+          "raw": "him",
+          "start": 5.88,
+          "end": 6.08
+        },
+        {
+          "raw": "in.'\"",
+          "start": 6.08,
+          "end": 6.78
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,\"",
+        "Sara",
+        "answered",
+        "joyfully.",
+        "\"It's",
+        "too",
+        "cold",
+        "for",
+        "monkeys",
+        "to",
+        "be",
+        "out.",
+        "They're",
+        "delicate.",
+        "I'll",
+        "coax",
+        "him",
+        "in.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          18,
+          2,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,\"",
+          "start": 0.74,
+          "end": 1.22,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sarah",
+          "start": 1.22,
+          "end": 1.34,
+          "key": "sarah",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "answered",
+          "start": 1.34,
+          "end": 1.7,
+          "key": "answered",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "joyfully.",
+          "start": 1.7,
+          "end": 2.14,
+          "key": "joyfully",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "\"'It's",
+          "start": 2.74,
+          "end": 2.98,
+          "key": "its",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 2.98,
+          "end": 3.14,
+          "key": "too",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cold",
+          "start": 3.14,
+          "end": 3.44,
+          "key": "cold",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.44,
+          "end": 3.64,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "monkeys",
+          "start": 3.64,
+          "end": 3.88,
+          "key": "monkeys",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.88,
+          "end": 4.14,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.14,
+          "end": 4.26,
+          "key": "be",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 4.26,
+          "end": 4.5,
+          "key": "out",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "They're",
+          "start": 4.76,
+          "end": 4.92,
+          "key": "theyre",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "delicate.",
+          "start": 4.92,
+          "end": 5.22,
+          "key": "delicate",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 5.6,
+          "end": 5.74,
+          "key": "ill",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "coax",
+          "start": 5.74,
+          "end": 5.88,
+          "key": "coax",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 5.88,
+          "end": 6.08,
+          "key": "him",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "in.'\"",
+          "start": 6.08,
+          "end": 6.78,
+          "key": "in",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,\"",
+          "start": 0.74,
+          "end": 1.22
+        },
+        {
+          "text": "Sara",
+          "start": 1.22,
+          "end": 1.28
+        },
+        {
+          "text": "answered",
+          "start": 1.34,
+          "end": 1.7
+        },
+        {
+          "text": "joyfully.",
+          "start": 1.7,
+          "end": 2.14
+        },
+        {
+          "text": "\"It's",
+          "start": 2.74,
+          "end": 2.98
+        },
+        {
+          "text": "too",
+          "start": 2.98,
+          "end": 3.14
+        },
+        {
+          "text": "cold",
+          "start": 3.14,
+          "end": 3.44
+        },
+        {
+          "text": "for",
+          "start": 3.44,
+          "end": 3.64
+        },
+        {
+          "text": "monkeys",
+          "start": 3.64,
+          "end": 3.88
+        },
+        {
+          "text": "to",
+          "start": 3.88,
+          "end": 4.14
+        },
+        {
+          "text": "be",
+          "start": 4.14,
+          "end": 4.26
+        },
+        {
+          "text": "out.",
+          "start": 4.26,
+          "end": 4.5
+        },
+        {
+          "text": "They're",
+          "start": 4.76,
+          "end": 4.92
+        },
+        {
+          "text": "delicate.",
+          "start": 4.92,
+          "end": 5.22
+        },
+        {
+          "text": "I'll",
+          "start": 5.6,
+          "end": 5.74
+        },
+        {
+          "text": "coax",
+          "start": 5.74,
+          "end": 5.88
+        },
+        {
+          "text": "him",
+          "start": 5.88,
+          "end": 6.08
+        },
+        {
+          "text": "in.\"",
+          "start": 6.08,
+          "end": 6.78
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.3746960568241775
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a26a11ac259e896678d5bc4c14d2107511cd4f6124d71d115bf866808f850f27",
+  "selected_reasons": []
+}

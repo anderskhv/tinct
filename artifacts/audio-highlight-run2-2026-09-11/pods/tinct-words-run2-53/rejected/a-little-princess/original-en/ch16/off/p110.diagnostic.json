@@ -1,0 +1,604 @@
+{
+  "complete": true,
+  "signature": "5dabd22dad42bd5ed6a02e5b651899d55d3957350dbb89836c1739d9109609eb",
+  "attempts": [
+    {
+      "asr_seconds": 0.2676134000066668,
+      "alignment_seconds": 0.0005192060489207506,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Nice monkey nice monkey she crooned kissing his funny head. Oh, I do love little animal things",
+          "start": 0.05,
+          "end": 6.59,
+          "words": [
+            {
+              "text": " Nice",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.246337890625
+            },
+            {
+              "text": " monkey",
+              "start": 0.67,
+              "end": 1.09,
+              "probability": 0.966796875
+            },
+            {
+              "text": " nice",
+              "start": 1.09,
+              "end": 1.45,
+              "probability": 0.345458984375
+            },
+            {
+              "text": " monkey",
+              "start": 1.45,
+              "end": 1.93,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " she",
+              "start": 1.93,
+              "end": 2.51,
+              "probability": 0.4833984375
+            },
+            {
+              "text": " crooned",
+              "start": 2.51,
+              "end": 2.99,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " kissing",
+              "start": 2.99,
+              "end": 3.25,
+              "probability": 0.9921875
+            },
+            {
+              "text": " his",
+              "start": 3.25,
+              "end": 3.49,
+              "probability": 0.994140625
+            },
+            {
+              "text": " funny",
+              "start": 3.49,
+              "end": 3.71,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " head.",
+              "start": 3.71,
+              "end": 4.05,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " Oh,",
+              "start": 4.13,
+              "end": 4.81,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " I",
+              "start": 4.81,
+              "end": 5.03,
+              "probability": 1.0
+            },
+            {
+              "text": " do",
+              "start": 5.03,
+              "end": 5.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " love",
+              "start": 5.23,
+              "end": 5.47,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " little",
+              "start": 5.47,
+              "end": 5.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " animal",
+              "start": 5.71,
+              "end": 6.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " things",
+              "start": 6.05,
+              "end": 6.59,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nice",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "monkey",
+          "start": 0.67,
+          "end": 1.09
+        },
+        {
+          "raw": "nice",
+          "start": 1.09,
+          "end": 1.45
+        },
+        {
+          "raw": "monkey",
+          "start": 1.45,
+          "end": 1.93
+        },
+        {
+          "raw": "she",
+          "start": 1.93,
+          "end": 2.51
+        },
+        {
+          "raw": "crooned",
+          "start": 2.51,
+          "end": 2.99
+        },
+        {
+          "raw": "kissing",
+          "start": 2.99,
+          "end": 3.25
+        },
+        {
+          "raw": "his",
+          "start": 3.25,
+          "end": 3.49
+        },
+        {
+          "raw": "funny",
+          "start": 3.49,
+          "end": 3.71
+        },
+        {
+          "raw": "head.",
+          "start": 3.71,
+          "end": 4.05
+        },
+        {
+          "raw": "Oh,",
+          "start": 4.13,
+          "end": 4.81
+        },
+        {
+          "raw": "I",
+          "start": 4.81,
+          "end": 5.03
+        },
+        {
+          "raw": "do",
+          "start": 5.03,
+          "end": 5.23
+        },
+        {
+          "raw": "love",
+          "start": 5.23,
+          "end": 5.47
+        },
+        {
+          "raw": "little",
+          "start": 5.47,
+          "end": 5.71
+        },
+        {
+          "raw": "animal",
+          "start": 5.71,
+          "end": 6.05
+        },
+        {
+          "raw": "things",
+          "start": 6.05,
+          "end": 6.59
+        }
+      ],
+      "expected_tokens": [
+        "\"Nice",
+        "monkey!",
+        "Nice",
+        "monkey!\"",
+        "she",
+        "crooned,",
+        "kissing",
+        "his",
+        "funny",
+        "head.",
+        "\"Oh,",
+        "I",
+        "do",
+        "love",
+        "little",
+        "animal",
+        "things.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nice",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "nice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "monkey",
+          "start": 0.67,
+          "end": 1.09,
+          "key": "monkey",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nice",
+          "start": 1.09,
+          "end": 1.45,
+          "key": "nice",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "monkey",
+          "start": 1.45,
+          "end": 1.93,
+          "key": "monkey",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.93,
+          "end": 2.51,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "crooned",
+          "start": 2.51,
+          "end": 2.99,
+          "key": "crooned",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "kissing",
+          "start": 2.99,
+          "end": 3.25,
+          "key": "kissing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.25,
+          "end": 3.49,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "funny",
+          "start": 3.49,
+          "end": 3.71,
+          "key": "funny",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "head.",
+          "start": 3.71,
+          "end": 4.05,
+          "key": "head",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 4.13,
+          "end": 4.81,
+          "key": "oh",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.81,
+          "end": 5.03,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 5.03,
+          "end": 5.23,
+          "key": "do",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 5.23,
+          "end": 5.47,
+          "key": "love",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 5.47,
+          "end": 5.71,
+          "key": "little",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "animal",
+          "start": 5.71,
+          "end": 6.05,
+          "key": "animal",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 6.05,
+          "end": 6.59,
+          "key": "things",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Nice",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "monkey!",
+          "start": 0.67,
+          "end": 1.09
+        },
+        {
+          "text": "Nice",
+          "start": 1.09,
+          "end": 1.45
+        },
+        {
+          "text": "monkey!\"",
+          "start": 1.45,
+          "end": 1.93
+        },
+        {
+          "text": "she",
+          "start": 1.93,
+          "end": 2.51
+        },
+        {
+          "text": "crooned,",
+          "start": 2.51,
+          "end": 2.99
+        },
+        {
+          "text": "kissing",
+          "start": 2.99,
+          "end": 3.25
+        },
+        {
+          "text": "his",
+          "start": 3.25,
+          "end": 3.49
+        },
+        {
+          "text": "funny",
+          "start": 3.49,
+          "end": 3.71
+        },
+        {
+          "text": "head.",
+          "start": 3.71,
+          "end": 4.05
+        },
+        {
+          "text": "\"Oh,",
+          "start": 4.13,
+          "end": 4.81
+        },
+        {
+          "text": "I",
+          "start": 4.81,
+          "end": 5.03
+        },
+        {
+          "text": "do",
+          "start": 5.03,
+          "end": 5.23
+        },
+        {
+          "text": "love",
+          "start": 5.23,
+          "end": 5.47
+        },
+        {
+          "text": "little",
+          "start": 5.47,
+          "end": 5.71
+        },
+        {
+          "text": "animal",
+          "start": 5.71,
+          "end": 6.05
+        },
+        {
+          "text": "things.\"",
+          "start": 6.05,
+          "end": 6.59
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26834826613776386
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fd7baaa8ab298ac556c2b8bf3b9f4e5ab1b2373ca268f69f93c601296f3968c0",
+  "selected_reasons": []
+}

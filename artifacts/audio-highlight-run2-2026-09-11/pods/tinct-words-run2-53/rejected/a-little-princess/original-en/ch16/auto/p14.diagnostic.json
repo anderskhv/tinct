@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "d8a4f5d6007f70986a3518e73a793f0194842b87b58efc5bcacb8808dbefaea8",
+  "attempts": [
+    {
+      "asr_seconds": 0.2529778250027448,
+      "alignment_seconds": 0.00046883895993232727,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"If she was turned out where would she go?\" inquired Jessie, a trifle anxiously.",
+        "hotwords": "If, Jessie"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " If she was turned out where would she go? inquired Jessie, a trifle anxiously.",
+          "start": 0.08,
+          "end": 4.68,
+          "words": [
+            {
+              "text": " If",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.54541015625
+            },
+            {
+              "text": " she",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " was",
+              "start": 0.68,
+              "end": 0.8,
+              "probability": 0.98828125
+            },
+            {
+              "text": " turned",
+              "start": 0.8,
+              "end": 1.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " out",
+              "start": 1.04,
+              "end": 1.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " where",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.306396484375
+            },
+            {
+              "text": " would",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " she",
+              "start": 1.52,
+              "end": 1.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " go?",
+              "start": 1.66,
+              "end": 2.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " inquired",
+              "start": 2.88,
+              "end": 2.88,
+              "probability": 0.426513671875
+            },
+            {
+              "text": " Jessie,",
+              "start": 2.88,
+              "end": 3.34,
+              "probability": 0.4931640625
+            },
+            {
+              "text": " a",
+              "start": 3.68,
+              "end": 3.74,
+              "probability": 0.990234375
+            },
+            {
+              "text": " trifle",
+              "start": 3.74,
+              "end": 4.08,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " anxiously.",
+              "start": 4.08,
+              "end": 4.68,
+              "probability": 0.997802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "If",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "she",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "was",
+          "start": 0.68,
+          "end": 0.8
+        },
+        {
+          "raw": "turned",
+          "start": 0.8,
+          "end": 1.04
+        },
+        {
+          "raw": "out",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "raw": "where",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "would",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "she",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "raw": "go?",
+          "start": 1.66,
+          "end": 2.08
+        },
+        {
+          "raw": "inquired",
+          "start": 2.88,
+          "end": 2.88
+        },
+        {
+          "raw": "Jessie,",
+          "start": 2.88,
+          "end": 3.34
+        },
+        {
+          "raw": "a",
+          "start": 3.68,
+          "end": 3.74
+        },
+        {
+          "raw": "trifle",
+          "start": 3.74,
+          "end": 4.08
+        },
+        {
+          "raw": "anxiously.",
+          "start": 4.08,
+          "end": 4.68
+        }
+      ],
+      "expected_tokens": [
+        "\"If",
+        "she",
+        "was",
+        "turned",
+        "out",
+        "where",
+        "would",
+        "she",
+        "go?\"",
+        "inquired",
+        "Jessie,",
+        "a",
+        "trifle",
+        "anxiously."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "If",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "if",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.54,
+          "end": 0.68,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.68,
+          "end": 0.8,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 0.8,
+          "end": 1.04,
+          "key": "turned",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.04,
+          "end": 1.26,
+          "key": "out",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "where",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.4,
+          "end": 1.52,
+          "key": "would",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.52,
+          "end": 1.66,
+          "key": "she",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "go?",
+          "start": 1.66,
+          "end": 2.08,
+          "key": "go",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "inquired",
+          "start": 2.88,
+          "end": 2.88,
+          "key": "inquired",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Jessie,",
+          "start": 2.88,
+          "end": 3.34,
+          "key": "jessie",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.68,
+          "end": 3.74,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "trifle",
+          "start": 3.74,
+          "end": 4.08,
+          "key": "trifle",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "anxiously.",
+          "start": 4.08,
+          "end": 4.68,
+          "key": "anxiously",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"If",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "she",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "was",
+          "start": 0.68,
+          "end": 0.8
+        },
+        {
+          "text": "turned",
+          "start": 0.8,
+          "end": 1.04
+        },
+        {
+          "text": "out",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "text": "where",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "text": "would",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "she",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "text": "go?\"",
+          "start": 1.66,
+          "end": 2.08
+        },
+        {
+          "text": "inquired",
+          "start": 2.88,
+          "end": 2.88
+        },
+        {
+          "text": "Jessie,",
+          "start": 2.88,
+          "end": 3.34
+        },
+        {
+          "text": "a",
+          "start": 3.68,
+          "end": 3.74
+        },
+        {
+          "text": "trifle",
+          "start": 3.74,
+          "end": 4.08
+        },
+        {
+          "text": "anxiously.",
+          "start": 4.08,
+          "end": 4.68
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2536406060680747
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "04b879130b307b1920a5b3fbd0cf297a504e784d7c34eaac3d9e296803e9e3ea",
+  "selected_reasons": []
+}

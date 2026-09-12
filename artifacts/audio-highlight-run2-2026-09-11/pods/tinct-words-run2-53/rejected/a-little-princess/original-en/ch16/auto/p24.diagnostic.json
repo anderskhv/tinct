@@ -1,0 +1,3024 @@
+{
+  "complete": true,
+  "signature": "763cfb2cb8626ea09ae144c12057164e1ba7cd242ba6cd4e1a7b46ff7df7b0fc",
+  "attempts": [
+    {
+      "asr_seconds": 1.1806157031096518,
+      "alignment_seconds": 0.00270648580044508,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Miss Minchin saw her for the first time when she entered the schoolroom to hear the little French class recite its lessons and superintend its exercises. And she came in with a springing step, color in her cheeks, and a smile hovering about the corners of her mouth. It was the most astonishing thing Miss Minchin had ever known. It gave her quite a shock. What was the child made of? What could such a thing mean? She called her at once to her desk.",
+        "hotwords": "Miss, Minchin, French, It, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Miss Minchin saw her for the first time when she entered the schoolroom to hear the little French class recite its lessons and superintend its exercises, and she came in with a springing step, color in her cheeks, and a smile hovering about the corners of her mouth. It was the most astonishing thing Miss Minchin had ever known. It gave her quite a shock. What was the child made of? What could such a thing mean? She called her at once to her desk.",
+          "start": 0.05,
+          "end": 24.21,
+          "words": [
+            {
+              "text": " Miss",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.7041015625
+            },
+            {
+              "text": " Minchin",
+              "start": 0.59,
+              "end": 0.87,
+              "probability": 0.81591796875
+            },
+            {
+              "text": " saw",
+              "start": 0.87,
+              "end": 1.17,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " her",
+              "start": 1.17,
+              "end": 1.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 1.49,
+              "end": 1.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " first",
+              "start": 1.61,
+              "end": 1.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " time",
+              "start": 1.81,
+              "end": 2.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " when",
+              "start": 2.15,
+              "end": 2.33,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " she",
+              "start": 2.33,
+              "end": 2.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " entered",
+              "start": 2.49,
+              "end": 2.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.71,
+              "end": 2.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " schoolroom",
+              "start": 2.85,
+              "end": 3.37,
+              "probability": 0.845947265625
+            },
+            {
+              "text": " to",
+              "start": 3.37,
+              "end": 3.53,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " hear",
+              "start": 3.53,
+              "end": 3.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 3.69,
+              "end": 3.87,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " little",
+              "start": 3.87,
+              "end": 4.05,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " French",
+              "start": 4.05,
+              "end": 4.35,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " class",
+              "start": 4.35,
+              "end": 4.79,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " recite",
+              "start": 4.79,
+              "end": 5.13,
+              "probability": 0.98046875
+            },
+            {
+              "text": " its",
+              "start": 5.13,
+              "end": 5.35,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " lessons",
+              "start": 5.35,
+              "end": 5.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 5.73,
+              "end": 6.27,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " superintend",
+              "start": 6.27,
+              "end": 6.83,
+              "probability": 0.77734375
+            },
+            {
+              "text": " its",
+              "start": 6.83,
+              "end": 7.03,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " exercises,",
+              "start": 7.03,
+              "end": 7.57,
+              "probability": 0.98046875
+            },
+            {
+              "text": " and",
+              "start": 7.85,
+              "end": 8.55,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " she",
+              "start": 8.55,
+              "end": 8.69,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " came",
+              "start": 8.69,
+              "end": 8.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 8.89,
+              "end": 9.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 9.07,
+              "end": 9.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 9.21,
+              "end": 9.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " springing",
+              "start": 9.33,
+              "end": 9.79,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " step,",
+              "start": 9.79,
+              "end": 10.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " color",
+              "start": 10.61,
+              "end": 10.69,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " in",
+              "start": 10.69,
+              "end": 10.87,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " her",
+              "start": 10.87,
+              "end": 11.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " cheeks,",
+              "start": 11.01,
+              "end": 11.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 11.63,
+              "end": 11.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 11.79,
+              "end": 11.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " smile",
+              "start": 11.91,
+              "end": 12.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hovering",
+              "start": 12.31,
+              "end": 12.69,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " about",
+              "start": 12.69,
+              "end": 13.01,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 13.01,
+              "end": 13.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " corners",
+              "start": 13.15,
+              "end": 13.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 13.47,
+              "end": 13.67,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " her",
+              "start": 13.67,
+              "end": 13.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " mouth.",
+              "start": 13.77,
+              "end": 14.05,
+              "probability": 1.0
+            },
+            {
+              "text": " It",
+              "start": 14.73,
+              "end": 14.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " was",
+              "start": 14.89,
+              "end": 14.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 14.97,
+              "end": 15.11,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " most",
+              "start": 15.11,
+              "end": 15.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " astonishing",
+              "start": 15.25,
+              "end": 15.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thing",
+              "start": 15.81,
+              "end": 16.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Miss",
+              "start": 16.19,
+              "end": 16.45,
+              "probability": 0.984375
+            },
+            {
+              "text": " Minchin",
+              "start": 16.45,
+              "end": 16.81,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " had",
+              "start": 16.81,
+              "end": 17.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ever",
+              "start": 17.01,
+              "end": 17.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " known.",
+              "start": 17.25,
+              "end": 17.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " It",
+              "start": 18.07,
+              "end": 18.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " gave",
+              "start": 18.29,
+              "end": 18.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " her",
+              "start": 18.43,
+              "end": 18.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " quite",
+              "start": 18.59,
+              "end": 18.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 18.79,
+              "end": 18.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " shock.",
+              "start": 18.97,
+              "end": 19.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " What",
+              "start": 19.77,
+              "end": 19.89,
+              "probability": 0.98046875
+            },
+            {
+              "text": " was",
+              "start": 19.89,
+              "end": 19.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 19.99,
+              "end": 20.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " child",
+              "start": 20.13,
+              "end": 20.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " made",
+              "start": 20.39,
+              "end": 20.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of?",
+              "start": 20.63,
+              "end": 20.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " What",
+              "start": 21.25,
+              "end": 21.41,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " could",
+              "start": 21.41,
+              "end": 21.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " such",
+              "start": 21.53,
+              "end": 21.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 21.75,
+              "end": 21.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thing",
+              "start": 21.89,
+              "end": 22.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mean?",
+              "start": 22.05,
+              "end": 22.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " She",
+              "start": 22.79,
+              "end": 22.91,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " called",
+              "start": 22.91,
+              "end": 23.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 23.15,
+              "end": 23.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 23.31,
+              "end": 23.41,
+              "probability": 0.994140625
+            },
+            {
+              "text": " once",
+              "start": 23.41,
+              "end": 23.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 23.59,
+              "end": 23.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 23.79,
+              "end": 23.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " desk.",
+              "start": 23.91,
+              "end": 24.21,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Miss Minchin saw her for the first time in her desk.",
+          "start": 24.21,
+          "end": 24.37,
+          "words": [
+            {
+              "text": " Miss",
+              "start": 24.21,
+              "end": 24.23,
+              "probability": 7.867813110351562e-05
+            },
+            {
+              "text": " Minchin",
+              "start": 24.23,
+              "end": 24.37,
+              "probability": 0.00036516785621643066
+            },
+            {
+              "text": " saw",
+              "start": 24.37,
+              "end": 24.37,
+              "probability": 7.790327072143555e-05
+            },
+            {
+              "text": " her",
+              "start": 24.37,
+              "end": 24.37,
+              "probability": 0.12017822265625
+            },
+            {
+              "text": " for",
+              "start": 24.37,
+              "end": 24.37,
+              "probability": 0.0011768341064453125
+            },
+            {
+              "text": " the",
+              "start": 24.37,
+              "end": 24.37,
+              "probability": 0.2039794921875
+            },
+            {
+              "text": " first",
+              "start": 24.37,
+              "end": 24.37,
+              "probability": 0.282958984375
+            },
+            {
+              "text": " time",
+              "start": 24.37,
+              "end": 24.37,
+              "probability": 0.75
+            },
+            {
+              "text": " in",
+              "start": 24.37,
+              "end": 24.37,
+              "probability": 0.29296875
+            },
+            {
+              "text": " her",
+              "start": 24.37,
+              "end": 24.37,
+              "probability": 0.10211181640625
+            },
+            {
+              "text": " desk.",
+              "start": 24.37,
+              "end": 24.37,
+              "probability": 0.00014400482177734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Miss",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "Minchin",
+          "start": 0.59,
+          "end": 0.87
+        },
+        {
+          "raw": "saw",
+          "start": 0.87,
+          "end": 1.17
+        },
+        {
+          "raw": "her",
+          "start": 1.17,
+          "end": 1.35
+        },
+        {
+          "raw": "for",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "the",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "raw": "first",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "raw": "time",
+          "start": 1.81,
+          "end": 2.15
+        },
+        {
+          "raw": "when",
+          "start": 2.15,
+          "end": 2.33
+        },
+        {
+          "raw": "she",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "raw": "entered",
+          "start": 2.49,
+          "end": 2.71
+        },
+        {
+          "raw": "the",
+          "start": 2.71,
+          "end": 2.85
+        },
+        {
+          "raw": "schoolroom",
+          "start": 2.85,
+          "end": 3.37
+        },
+        {
+          "raw": "to",
+          "start": 3.37,
+          "end": 3.53
+        },
+        {
+          "raw": "hear",
+          "start": 3.53,
+          "end": 3.69
+        },
+        {
+          "raw": "the",
+          "start": 3.69,
+          "end": 3.87
+        },
+        {
+          "raw": "little",
+          "start": 3.87,
+          "end": 4.05
+        },
+        {
+          "raw": "French",
+          "start": 4.05,
+          "end": 4.35
+        },
+        {
+          "raw": "class",
+          "start": 4.35,
+          "end": 4.79
+        },
+        {
+          "raw": "recite",
+          "start": 4.79,
+          "end": 5.13
+        },
+        {
+          "raw": "its",
+          "start": 5.13,
+          "end": 5.35
+        },
+        {
+          "raw": "lessons",
+          "start": 5.35,
+          "end": 5.73
+        },
+        {
+          "raw": "and",
+          "start": 5.73,
+          "end": 6.27
+        },
+        {
+          "raw": "superintend",
+          "start": 6.27,
+          "end": 6.83
+        },
+        {
+          "raw": "its",
+          "start": 6.83,
+          "end": 7.03
+        },
+        {
+          "raw": "exercises,",
+          "start": 7.03,
+          "end": 7.57
+        },
+        {
+          "raw": "and",
+          "start": 7.85,
+          "end": 8.55
+        },
+        {
+          "raw": "she",
+          "start": 8.55,
+          "end": 8.69
+        },
+        {
+          "raw": "came",
+          "start": 8.69,
+          "end": 8.89
+        },
+        {
+          "raw": "in",
+          "start": 8.89,
+          "end": 9.07
+        },
+        {
+          "raw": "with",
+          "start": 9.07,
+          "end": 9.21
+        },
+        {
+          "raw": "a",
+          "start": 9.21,
+          "end": 9.33
+        },
+        {
+          "raw": "springing",
+          "start": 9.33,
+          "end": 9.79
+        },
+        {
+          "raw": "step,",
+          "start": 9.79,
+          "end": 10.07
+        },
+        {
+          "raw": "color",
+          "start": 10.61,
+          "end": 10.69
+        },
+        {
+          "raw": "in",
+          "start": 10.69,
+          "end": 10.87
+        },
+        {
+          "raw": "her",
+          "start": 10.87,
+          "end": 11.01
+        },
+        {
+          "raw": "cheeks,",
+          "start": 11.01,
+          "end": 11.29
+        },
+        {
+          "raw": "and",
+          "start": 11.63,
+          "end": 11.79
+        },
+        {
+          "raw": "a",
+          "start": 11.79,
+          "end": 11.91
+        },
+        {
+          "raw": "smile",
+          "start": 11.91,
+          "end": 12.31
+        },
+        {
+          "raw": "hovering",
+          "start": 12.31,
+          "end": 12.69
+        },
+        {
+          "raw": "about",
+          "start": 12.69,
+          "end": 13.01
+        },
+        {
+          "raw": "the",
+          "start": 13.01,
+          "end": 13.15
+        },
+        {
+          "raw": "corners",
+          "start": 13.15,
+          "end": 13.47
+        },
+        {
+          "raw": "of",
+          "start": 13.47,
+          "end": 13.67
+        },
+        {
+          "raw": "her",
+          "start": 13.67,
+          "end": 13.77
+        },
+        {
+          "raw": "mouth.",
+          "start": 13.77,
+          "end": 14.05
+        },
+        {
+          "raw": "It",
+          "start": 14.73,
+          "end": 14.89
+        },
+        {
+          "raw": "was",
+          "start": 14.89,
+          "end": 14.97
+        },
+        {
+          "raw": "the",
+          "start": 14.97,
+          "end": 15.11
+        },
+        {
+          "raw": "most",
+          "start": 15.11,
+          "end": 15.25
+        },
+        {
+          "raw": "astonishing",
+          "start": 15.25,
+          "end": 15.81
+        },
+        {
+          "raw": "thing",
+          "start": 15.81,
+          "end": 16.19
+        },
+        {
+          "raw": "Miss",
+          "start": 16.19,
+          "end": 16.45
+        },
+        {
+          "raw": "Minchin",
+          "start": 16.45,
+          "end": 16.81
+        },
+        {
+          "raw": "had",
+          "start": 16.81,
+          "end": 17.01
+        },
+        {
+          "raw": "ever",
+          "start": 17.01,
+          "end": 17.25
+        },
+        {
+          "raw": "known.",
+          "start": 17.25,
+          "end": 17.61
+        },
+        {
+          "raw": "It",
+          "start": 18.07,
+          "end": 18.29
+        },
+        {
+          "raw": "gave",
+          "start": 18.29,
+          "end": 18.43
+        },
+        {
+          "raw": "her",
+          "start": 18.43,
+          "end": 18.59
+        },
+        {
+          "raw": "quite",
+          "start": 18.59,
+          "end": 18.79
+        },
+        {
+          "raw": "a",
+          "start": 18.79,
+          "end": 18.97
+        },
+        {
+          "raw": "shock.",
+          "start": 18.97,
+          "end": 19.23
+        },
+        {
+          "raw": "What",
+          "start": 19.77,
+          "end": 19.89
+        },
+        {
+          "raw": "was",
+          "start": 19.89,
+          "end": 19.99
+        },
+        {
+          "raw": "the",
+          "start": 19.99,
+          "end": 20.13
+        },
+        {
+          "raw": "child",
+          "start": 20.13,
+          "end": 20.39
+        },
+        {
+          "raw": "made",
+          "start": 20.39,
+          "end": 20.63
+        },
+        {
+          "raw": "of?",
+          "start": 20.63,
+          "end": 20.87
+        },
+        {
+          "raw": "What",
+          "start": 21.25,
+          "end": 21.41
+        },
+        {
+          "raw": "could",
+          "start": 21.41,
+          "end": 21.53
+        },
+        {
+          "raw": "such",
+          "start": 21.53,
+          "end": 21.75
+        },
+        {
+          "raw": "a",
+          "start": 21.75,
+          "end": 21.89
+        },
+        {
+          "raw": "thing",
+          "start": 21.89,
+          "end": 22.05
+        },
+        {
+          "raw": "mean?",
+          "start": 22.05,
+          "end": 22.35
+        },
+        {
+          "raw": "She",
+          "start": 22.79,
+          "end": 22.91
+        },
+        {
+          "raw": "called",
+          "start": 22.91,
+          "end": 23.15
+        },
+        {
+          "raw": "her",
+          "start": 23.15,
+          "end": 23.31
+        },
+        {
+          "raw": "at",
+          "start": 23.31,
+          "end": 23.41
+        },
+        {
+          "raw": "once",
+          "start": 23.41,
+          "end": 23.59
+        },
+        {
+          "raw": "to",
+          "start": 23.59,
+          "end": 23.79
+        },
+        {
+          "raw": "her",
+          "start": 23.79,
+          "end": 23.91
+        },
+        {
+          "raw": "desk.",
+          "start": 23.91,
+          "end": 24.21
+        },
+        {
+          "raw": "Miss",
+          "start": 24.21,
+          "end": 24.23
+        },
+        {
+          "raw": "Minchin",
+          "start": 24.23,
+          "end": 24.37
+        },
+        {
+          "raw": "saw",
+          "start": 24.37,
+          "end": 24.37
+        },
+        {
+          "raw": "her",
+          "start": 24.37,
+          "end": 24.37
+        },
+        {
+          "raw": "for",
+          "start": 24.37,
+          "end": 24.37
+        },
+        {
+          "raw": "the",
+          "start": 24.37,
+          "end": 24.37
+        },
+        {
+          "raw": "first",
+          "start": 24.37,
+          "end": 24.37
+        },
+        {
+          "raw": "time",
+          "start": 24.37,
+          "end": 24.37
+        },
+        {
+          "raw": "in",
+          "start": 24.37,
+          "end": 24.37
+        },
+        {
+          "raw": "her",
+          "start": 24.37,
+          "end": 24.37
+        },
+        {
+          "raw": "desk.",
+          "start": 24.37,
+          "end": 24.37
+        }
+      ],
+      "expected_tokens": [
+        "Miss",
+        "Minchin",
+        "saw",
+        "her",
+        "for",
+        "the",
+        "first",
+        "time",
+        "when",
+        "she",
+        "entered",
+        "the",
+        "schoolroom",
+        "to",
+        "hear",
+        "the",
+        "little",
+        "French",
+        "class",
+        "recite",
+        "its",
+        "lessons",
+        "and",
+        "superintend",
+        "its",
+        "exercises.",
+        "And",
+        "she",
+        "came",
+        "in",
+        "with",
+        "a",
+        "springing",
+        "step,",
+        "color",
+        "in",
+        "her",
+        "cheeks,",
+        "and",
+        "a",
+        "smile",
+        "hovering",
+        "about",
+        "the",
+        "corners",
+        "of",
+        "her",
+        "mouth.",
+        "It",
+        "was",
+        "the",
+        "most",
+        "astonishing",
+        "thing",
+        "Miss",
+        "Minchin",
+        "had",
+        "ever",
+        "known.",
+        "It",
+        "gave",
+        "her",
+        "quite",
+        "a",
+        "shock.",
+        "What",
+        "was",
+        "the",
+        "child",
+        "made",
+        "of?",
+        "What",
+        "could",
+        "such",
+        "a",
+        "thing",
+        "mean?",
+        "She",
+        "called",
+        "her",
+        "at",
+        "once",
+        "to",
+        "her",
+        "desk."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          85,
+          0,
+          85
+        ],
+        [
+          "insert",
+          85,
+          85,
+          85,
+          96
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          85,
+          85,
+          85,
+          96
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Miss",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "miss",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Minchin",
+          "start": 0.59,
+          "end": 0.87,
+          "key": "minchin",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "saw",
+          "start": 0.87,
+          "end": 1.17,
+          "key": "saw",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.17,
+          "end": 1.35,
+          "key": "her",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.49,
+          "end": 1.61,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 1.61,
+          "end": 1.81,
+          "key": "first",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 1.81,
+          "end": 2.15,
+          "key": "time",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 2.15,
+          "end": 2.33,
+          "key": "when",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.33,
+          "end": 2.49,
+          "key": "she",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "entered",
+          "start": 2.49,
+          "end": 2.71,
+          "key": "entered",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.71,
+          "end": 2.85,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "schoolroom",
+          "start": 2.85,
+          "end": 3.37,
+          "key": "schoolroom",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.37,
+          "end": 3.53,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 3.53,
+          "end": 3.69,
+          "key": "hear",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.69,
+          "end": 3.87,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 3.87,
+          "end": 4.05,
+          "key": "little",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "French",
+          "start": 4.05,
+          "end": 4.35,
+          "key": "french",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "class",
+          "start": 4.35,
+          "end": 4.79,
+          "key": "class",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "recite",
+          "start": 4.79,
+          "end": 5.13,
+          "key": "recite",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 5.13,
+          "end": 5.35,
+          "key": "its",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "lessons",
+          "start": 5.35,
+          "end": 5.73,
+          "key": "lessons",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.73,
+          "end": 6.27,
+          "key": "and",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "superintend",
+          "start": 6.27,
+          "end": 6.83,
+          "key": "superintend",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 6.83,
+          "end": 7.03,
+          "key": "its",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "exercises,",
+          "start": 7.03,
+          "end": 7.57,
+          "key": "exercises",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.85,
+          "end": 8.55,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 8.55,
+          "end": 8.69,
+          "key": "she",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 8.69,
+          "end": 8.89,
+          "key": "came",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.89,
+          "end": 9.07,
+          "key": "in",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 9.07,
+          "end": 9.21,
+          "key": "with",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.21,
+          "end": 9.33,
+          "key": "a",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "springing",
+          "start": 9.33,
+          "end": 9.79,
+          "key": "springing",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "step,",
+          "start": 9.79,
+          "end": 10.07,
+          "key": "step",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "color",
+          "start": 10.61,
+          "end": 10.69,
+          "key": "color",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 10.69,
+          "end": 10.87,
+          "key": "in",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 10.87,
+          "end": 11.01,
+          "key": "her",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "cheeks,",
+          "start": 11.01,
+          "end": 11.29,
+          "key": "cheeks",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.63,
+          "end": 11.79,
+          "key": "and",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.79,
+          "end": 11.91,
+          "key": "a",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "smile",
+          "start": 11.91,
+          "end": 12.31,
+          "key": "smile",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "hovering",
+          "start": 12.31,
+          "end": 12.69,
+          "key": "hovering",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 12.69,
+          "end": 13.01,
+          "key": "about",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.01,
+          "end": 13.15,
+          "key": "the",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "corners",
+          "start": 13.15,
+          "end": 13.47,
+          "key": "corners",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.47,
+          "end": 13.67,
+          "key": "of",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 13.67,
+          "end": 13.77,
+          "key": "her",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "mouth.",
+          "start": 13.77,
+          "end": 14.05,
+          "key": "mouth",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 14.73,
+          "end": 14.89,
+          "key": "it",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 14.89,
+          "end": 14.97,
+          "key": "was",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.97,
+          "end": 15.11,
+          "key": "the",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 15.11,
+          "end": 15.25,
+          "key": "most",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "astonishing",
+          "start": 15.25,
+          "end": 15.81,
+          "key": "astonishing",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 15.81,
+          "end": 16.19,
+          "key": "thing",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 16.19,
+          "end": 16.45,
+          "key": "miss",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "Minchin",
+          "start": 16.45,
+          "end": 16.81,
+          "key": "minchin",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 16.81,
+          "end": 17.01,
+          "key": "had",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 17.01,
+          "end": 17.25,
+          "key": "ever",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "known.",
+          "start": 17.25,
+          "end": 17.61,
+          "key": "known",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 18.07,
+          "end": 18.29,
+          "key": "it",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 18.29,
+          "end": 18.43,
+          "key": "gave",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 18.43,
+          "end": 18.59,
+          "key": "her",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 18.59,
+          "end": 18.79,
+          "key": "quite",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 18.79,
+          "end": 18.97,
+          "key": "a",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "shock.",
+          "start": 18.97,
+          "end": 19.23,
+          "key": "shock",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 19.77,
+          "end": 19.89,
+          "key": "what",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 19.89,
+          "end": 19.99,
+          "key": "was",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.99,
+          "end": 20.13,
+          "key": "the",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "child",
+          "start": 20.13,
+          "end": 20.39,
+          "key": "child",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 20.39,
+          "end": 20.63,
+          "key": "made",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "of?",
+          "start": 20.63,
+          "end": 20.87,
+          "key": "of",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 21.25,
+          "end": 21.41,
+          "key": "what",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 21.41,
+          "end": 21.53,
+          "key": "could",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 21.53,
+          "end": 21.75,
+          "key": "such",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 21.75,
+          "end": 21.89,
+          "key": "a",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 21.89,
+          "end": 22.05,
+          "key": "thing",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "mean?",
+          "start": 22.05,
+          "end": 22.35,
+          "key": "mean",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 22.79,
+          "end": 22.91,
+          "key": "she",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "called",
+          "start": 22.91,
+          "end": 23.15,
+          "key": "called",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 23.15,
+          "end": 23.31,
+          "key": "her",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 23.31,
+          "end": 23.41,
+          "key": "at",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 23.41,
+          "end": 23.59,
+          "key": "once",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 23.59,
+          "end": 23.79,
+          "key": "to",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 23.79,
+          "end": 23.91,
+          "key": "her",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "desk.",
+          "start": 23.91,
+          "end": 24.21,
+          "key": "desk",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 24.21,
+          "end": 24.23,
+          "key": "miss",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "Minchin",
+          "start": 24.23,
+          "end": 24.37,
+          "key": "minchin",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "saw",
+          "start": 24.37,
+          "end": 24.37,
+          "key": "saw",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 24.37,
+          "end": 24.37,
+          "key": "her",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 24.37,
+          "end": 24.37,
+          "key": "for",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 24.37,
+          "end": 24.37,
+          "key": "the",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 24.37,
+          "end": 24.37,
+          "key": "first",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 24.37,
+          "end": 24.37,
+          "key": "time",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 24.37,
+          "end": 24.37,
+          "key": "in",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 24.37,
+          "end": 24.37,
+          "key": "her",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "desk.",
+          "start": 24.37,
+          "end": 24.37,
+          "key": "desk",
+          "pieces": [
+            95
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Miss",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "Minchin",
+          "start": 0.59,
+          "end": 0.87
+        },
+        {
+          "text": "saw",
+          "start": 0.87,
+          "end": 1.17
+        },
+        {
+          "text": "her",
+          "start": 1.17,
+          "end": 1.35
+        },
+        {
+          "text": "for",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "the",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "text": "first",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "text": "time",
+          "start": 1.81,
+          "end": 2.15
+        },
+        {
+          "text": "when",
+          "start": 2.15,
+          "end": 2.33
+        },
+        {
+          "text": "she",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "text": "entered",
+          "start": 2.49,
+          "end": 2.71
+        },
+        {
+          "text": "the",
+          "start": 2.71,
+          "end": 2.85
+        },
+        {
+          "text": "schoolroom",
+          "start": 2.85,
+          "end": 3.37
+        },
+        {
+          "text": "to",
+          "start": 3.37,
+          "end": 3.53
+        },
+        {
+          "text": "hear",
+          "start": 3.53,
+          "end": 3.69
+        },
+        {
+          "text": "the",
+          "start": 3.69,
+          "end": 3.87
+        },
+        {
+          "text": "little",
+          "start": 3.87,
+          "end": 4.05
+        },
+        {
+          "text": "French",
+          "start": 4.05,
+          "end": 4.35
+        },
+        {
+          "text": "class",
+          "start": 4.35,
+          "end": 4.79
+        },
+        {
+          "text": "recite",
+          "start": 4.79,
+          "end": 5.13
+        },
+        {
+          "text": "its",
+          "start": 5.13,
+          "end": 5.35
+        },
+        {
+          "text": "lessons",
+          "start": 5.35,
+          "end": 5.73
+        },
+        {
+          "text": "and",
+          "start": 5.73,
+          "end": 6.27
+        },
+        {
+          "text": "superintend",
+          "start": 6.27,
+          "end": 6.83
+        },
+        {
+          "text": "its",
+          "start": 6.83,
+          "end": 7.03
+        },
+        {
+          "text": "exercises.",
+          "start": 7.03,
+          "end": 7.57
+        },
+        {
+          "text": "And",
+          "start": 7.85,
+          "end": 8.55
+        },
+        {
+          "text": "she",
+          "start": 8.55,
+          "end": 8.69
+        },
+        {
+          "text": "came",
+          "start": 8.69,
+          "end": 8.89
+        },
+        {
+          "text": "in",
+          "start": 8.89,
+          "end": 9.07
+        },
+        {
+          "text": "with",
+          "start": 9.07,
+          "end": 9.21
+        },
+        {
+          "text": "a",
+          "start": 9.21,
+          "end": 9.33
+        },
+        {
+          "text": "springing",
+          "start": 9.33,
+          "end": 9.79
+        },
+        {
+          "text": "step,",
+          "start": 9.79,
+          "end": 10.07
+        },
+        {
+          "text": "color",
+          "start": 10.61,
+          "end": 10.69
+        },
+        {
+          "text": "in",
+          "start": 10.69,
+          "end": 10.87
+        },
+        {
+          "text": "her",
+          "start": 10.87,
+          "end": 11.01
+        },
+        {
+          "text": "cheeks,",
+          "start": 11.01,
+          "end": 11.29
+        },
+        {
+          "text": "and",
+          "start": 11.63,
+          "end": 11.79
+        },
+        {
+          "text": "a",
+          "start": 11.79,
+          "end": 11.91
+        },
+        {
+          "text": "smile",
+          "start": 11.91,
+          "end": 12.31
+        },
+        {
+          "text": "hovering",
+          "start": 12.31,
+          "end": 12.69
+        },
+        {
+          "text": "about",
+          "start": 12.69,
+          "end": 13.01
+        },
+        {
+          "text": "the",
+          "start": 13.01,
+          "end": 13.15
+        },
+        {
+          "text": "corners",
+          "start": 13.15,
+          "end": 13.47
+        },
+        {
+          "text": "of",
+          "start": 13.47,
+          "end": 13.67
+        },
+        {
+          "text": "her",
+          "start": 13.67,
+          "end": 13.77
+        },
+        {
+          "text": "mouth.",
+          "start": 13.77,
+          "end": 14.05
+        },
+        {
+          "text": "It",
+          "start": 14.73,
+          "end": 14.89
+        },
+        {
+          "text": "was",
+          "start": 14.89,
+          "end": 14.97
+        },
+        {
+          "text": "the",
+          "start": 14.97,
+          "end": 15.11
+        },
+        {
+          "text": "most",
+          "start": 15.11,
+          "end": 15.25
+        },
+        {
+          "text": "astonishing",
+          "start": 15.25,
+          "end": 15.81
+        },
+        {
+          "text": "thing",
+          "start": 15.81,
+          "end": 16.19
+        },
+        {
+          "text": "Miss",
+          "start": 16.19,
+          "end": 16.45
+        },
+        {
+          "text": "Minchin",
+          "start": 16.45,
+          "end": 16.81
+        },
+        {
+          "text": "had",
+          "start": 16.81,
+          "end": 17.01
+        },
+        {
+          "text": "ever",
+          "start": 17.01,
+          "end": 17.25
+        },
+        {
+          "text": "known.",
+          "start": 17.25,
+          "end": 17.61
+        },
+        {
+          "text": "It",
+          "start": 18.07,
+          "end": 18.29
+        },
+        {
+          "text": "gave",
+          "start": 18.29,
+          "end": 18.43
+        },
+        {
+          "text": "her",
+          "start": 18.43,
+          "end": 18.59
+        },
+        {
+          "text": "quite",
+          "start": 18.59,
+          "end": 18.79
+        },
+        {
+          "text": "a",
+          "start": 18.79,
+          "end": 18.97
+        },
+        {
+          "text": "shock.",
+          "start": 18.97,
+          "end": 19.23
+        },
+        {
+          "text": "What",
+          "start": 19.77,
+          "end": 19.89
+        },
+        {
+          "text": "was",
+          "start": 19.89,
+          "end": 19.99
+        },
+        {
+          "text": "the",
+          "start": 19.99,
+          "end": 20.13
+        },
+        {
+          "text": "child",
+          "start": 20.13,
+          "end": 20.39
+        },
+        {
+          "text": "made",
+          "start": 20.39,
+          "end": 20.63
+        },
+        {
+          "text": "of?",
+          "start": 20.63,
+          "end": 20.87
+        },
+        {
+          "text": "What",
+          "start": 21.25,
+          "end": 21.41
+        },
+        {
+          "text": "could",
+          "start": 21.41,
+          "end": 21.53
+        },
+        {
+          "text": "such",
+          "start": 21.53,
+          "end": 21.75
+        },
+        {
+          "text": "a",
+          "start": 21.75,
+          "end": 21.89
+        },
+        {
+          "text": "thing",
+          "start": 21.89,
+          "end": 22.05
+        },
+        {
+          "text": "mean?",
+          "start": 22.05,
+          "end": 22.35
+        },
+        {
+          "text": "She",
+          "start": 22.79,
+          "end": 22.91
+        },
+        {
+          "text": "called",
+          "start": 22.91,
+          "end": 23.15
+        },
+        {
+          "text": "her",
+          "start": 23.15,
+          "end": 23.31
+        },
+        {
+          "text": "at",
+          "start": 23.31,
+          "end": 23.41
+        },
+        {
+          "text": "once",
+          "start": 23.41,
+          "end": 23.59
+        },
+        {
+          "text": "to",
+          "start": 23.59,
+          "end": 23.79
+        },
+        {
+          "text": "her",
+          "start": 23.79,
+          "end": 23.91
+        },
+        {
+          "text": "desk.",
+          "start": 23.91,
+          "end": 24.21
+        }
+      ],
+      "stats": {
+        "expected_words": 85,
+        "heard_words": 96,
+        "matched_words": 85
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.1846722681075335
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f92a02392ff16db787edb00980611ae3ba7ab0e49d4ffceb36f8daa76133af21",
+  "selected_reasons": []
+}
