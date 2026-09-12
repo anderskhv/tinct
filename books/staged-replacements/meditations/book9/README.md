@@ -1,9 +1,19 @@
-# Meditations, Book IX — package (frozen for independent review)
+# Meditations, Book IX — package (accepted as candidate v2)
 
-Steps 1–3 of `../WORKFLOW.md` are done for Book IX. `candidate-v1.json`
-(sha256 `b02cf135…`) is **frozen**; corrections from the review will go to
-`candidate-v2.json`, never to v1. Step 4 (independent review) is the
-coordinator's reviewer session, not this agent.
+All eight steps of `../WORKFLOW.md` are done for Book IX. The accepted text is
+`candidate-v2.json` (sha256 `56dd7d13…`), see `ACCEPTANCE.md`.
+`candidate-v1.json` (sha256 `b02cf135…`) stays **frozen** and was never edited.
+Step 4 (independent review) was the coordinator's reviewer session, not this
+agent; its findings are under `review/`: *Accept after corrections*, **1
+substantive** (40.1, IX.40's three corrective turns restored to imperatives),
+3 minor (1.1, 9.1, 41.1) and 5 optional preferences, with 35 of the 42
+paragraphs recorded "No material issue found". Every base-text call in the book
+was endorsed, the "shall" audit passed, and **all three flagged decisions are
+settled** — IX.34 "poor souls" upheld, IX.29 "insolence" **closed** in PG's
+favour on the argument of the meditation rather than on D6 alone, and IX.29's
+emphatic "shall" confirmed. Finding 41.1 widened the `../GLOSSARY.md` "shall"
+rule to indirect deliberative questions, in its own commit **before Book X was
+drafted**.
 
 Step 1 verified the source and **did not rebuild** the staged original — and in
 this book that was a live question, not a formality. The file had been rebuilt
@@ -53,6 +63,13 @@ acceptance: three plain futures rendered without "shall" (all in IX.3) and eight
    with the source, same schema. **Frozen.**
 3. `candidate-v1-readable.md` — the same text with `B09-Pnnn` IDs outside the
    prose.
+3a. `candidate-v2.json` and `candidate-v2-readable.md` — **the accepted text**,
+   v1 with the round-1 corrections applied by `../scripts/build_book9_v2.py`
+   (three paragraphs changed: IX.1, IX.9, IX.40).
+3b. `changes-v1-to-v2.md` — every change by paragraph ID against the finding it
+   answers, plus the four declined findings with their reasons, the reviewer's
+   rulings, and the flow read.
+3c. `ACCEPTANCE.md` — the step-8 record, with hashes.
 4. `continuity.md` — the step-1 source verification class by class, the glossary
    row extended for Book IX, the glossary terms met and how they were rendered,
    paragraph-level decisions, apparatus folded or dropped (six cross-reference
@@ -74,10 +91,12 @@ cd books/staged-replacements/meditations
 python3 - <<'PY'
 import json, hashlib, re
 src=json.load(open('book9/source-book9.json')); cand=json.load(open('book9/candidate-v1.json'))
+v2=json.load(open('book9/candidate-v2.json'))
 st=json.load(open('meditations-original-en.staged.json'))
 ch=next(c for c in st['chapters'] if c['number']==9)
-assert src['paragraphs']==ch['paragraphs'] and len(cand['paragraphs'])==42
+assert src['paragraphs']==ch['paragraphs'] and len(cand['paragraphs'])==42==len(v2['paragraphs'])
 assert all(p.startswith(f'{i+1}. ') for i,p in enumerate(cand['paragraphs']))
+assert all(p.startswith(f'{i+1}. ') for i,p in enumerate(v2['paragraphs']))
 assert [len(c['paragraphs']) for c in st['chapters']]==[17,17,16,51,36,59,75,61,42,38,39,36]
 assert not any('[Illustration' in p for c in st['chapters'] for p in c['paragraphs'])
 assert not any(re.search(r'^\[[A-Z]\]|Acharnenses|From the Apologia|bad etymology|Butler|Nekuias|Davies and Vaughan', p) for c in st['chapters'] for p in c['paragraphs'])
@@ -88,6 +107,7 @@ man=json.load(open('book9/manifest.json'))
 ids=[i for p in man['packets'] for i in p['assigned_paragraph_ids']]
 assert ids==[f'B09-P{i:03d}' for i in range(1,43)]
 md=open('book9/candidate-v1-readable.md').read(); assert all(p in md for p in cand['paragraphs'])
+md2=open('book9/candidate-v2-readable.md').read(); assert all(p in md2 for p in v2['paragraphs'])
 for e in man['packets']:
     t=open('book9/'+e['packet']).read()
     for pid in e['assigned_paragraph_ids']:
@@ -99,9 +119,10 @@ for k,s_,c_ in [(5,'present disposition of contentment with everything which hap
                 (26,'towards the attainment of those things on which they set a value.',
                     'towards the attainment of those things on which they set a value.')]:
     assert s_ in src['paragraphs'][k] and c_ in cand['paragraphs'][k], k
+    assert c_ in v2['paragraphs'][k], k
 # all four brackets folded, all six cross-reference spans dropped
 assert sum(p.count('[') for p in src['paragraphs'])==4
-assert not any('[' in p for p in cand['paragraphs'])
+assert not any('[' in p for p in cand['paragraphs']) and not any('[' in p for p in v2['paragraphs'])
 assert not any(re.search(r'\((?:i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii)\. ', p) for p in cand['paragraphs'])
 for k,s_ in [(8,'this union'),(21,'to examine'),(23,'such is everything'),(25,'of this')]:
     assert f'[{s_}]' in src['paragraphs'][k] or f'[{s_.capitalize()}]' in src['paragraphs'][k], k
@@ -119,20 +140,33 @@ assert 'poor souls' in src['paragraphs'][26] and 'poor souls' in cand['paragraph
 assert 'bound in never ceasing evil' in cand['paragraphs'][34]
 assert 'insolence and pride' in cand['paragraphs'][28]
 assert 'You pray thus: How shall I not desire to be released?' in cand['paragraphs'][39]
+# v2: the three corrections, and only those paragraphs, differ from v1
+diff=[i+1 for i,(a,b) in enumerate(zip(cand['paragraphs'],v2['paragraphs'])) if a!=b]
+assert diff==[1,9,40], diff
+assert 'contrary to truth, for he had received powers' in v2['paragraphs'][0]
+assert 'the nature of the things that are; and the things that are have' in v2['paragraphs'][0]
+assert v2['paragraphs'][0].count('since ')==4
+assert 'and, in a way, loves;' in v2['paragraphs'][8]
+# IX.40's three corrective turns are imperatives, and the diminuendo holds
+assert 'You, pray thus: How shall I not desire to lie with her?' in v2['paragraphs'][39]
+assert 'You, pray: How shall I not desire to be released?' in v2['paragraphs'][39]
+assert 'You thus: How shall I not be afraid to lose him?' in v2['paragraphs'][39]
+assert 'Do you pray thus' not in v2['paragraphs'][39] and 'You pray thus' not in v2['paragraphs'][39]
+assert v2['paragraphs'][39].count('How shall I')==6
+# the "shall" rule holds in v2 as in v1
+assert not any(re.search(r'\b(?:you|he|she|it|they|there) shall\b', p) for p in v2['paragraphs'])
+assert [i+1 for i,p in enumerate(v2['paragraphs']) if re.search(r'\bshall\b',p)]==[29,40,41]
 print('OK'); print(hashlib.sha256(open('book9/candidate-v1.json','rb').read()).hexdigest())
+print(hashlib.sha256(open('book9/candidate-v2.json','rb').read()).hexdigest())
 print(hashlib.sha256(open('book9/source-book9.json','rb').read()).hexdigest())
 print(hashlib.sha256(open('meditations-original-en.staged.json','rb').read()).hexdigest())
 PY
 ```
 
-Expected: `b02cf135…` (candidate v1, frozen), `aca874d0…` (source-book9.json)
-and `7798607d…` (the staged original, unchanged at Book IX step 1).
+Expected: `b02cf135…` (candidate v1, frozen), `56dd7d13…` (candidate v2, the
+accepted text), `aca874d0…` (source-book9.json) and `7798607d…` (the staged
+original, unchanged at Book IX step 1).
 
 ## Next action
 
-**Waiting on the coordinator: an independent review of Book IX.** Findings go
-under `book9/review/`. Two decisions are flagged there for an explicit ruling
-(IX.34 "poor souls" for PG's "pool souls"; IX.29 "insolence" against Standard
-Ebooks' "indolence") and one is offered for confirmation (IX.29 "They
-themselves shall judge" kept as the emphatic "shall"). This agent does not
-review its own draft and has not started Book X.
+None for Book IX. The thread continues with Book X (`../book10/`).

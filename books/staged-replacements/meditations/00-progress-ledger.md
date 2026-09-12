@@ -484,6 +484,74 @@ session. Kept current at every push.
   Mechanical checks in `book9/README.md` pass. **Stopped for independent review**
   (step 4). Findings expected under `book9/review/`.
 
+- 2026-09-12 — **Book IX accepted** (steps 4–8). Round-1 independent review
+  (`book9/review/findings-v1.md`): *Accept after corrections*, **1 substantive**
+  (40.1), 3 minor (1.1, 9.1, 41.1) and 5 optional preferences (1.2, 3.1, 7.1,
+  28.1, 29.1); 35 of the 42 paragraphs "No material issue found". Accepted as
+  `book9/candidate-v2.json` (sha256 `56dd7d13…`), built from the frozen v1 by
+  `scripts/build_book9_v2.py`; **three paragraphs changed (IX.1, IX.9, IX.40),
+  39 untouched**; every change listed in `book9/changes-v1-to-v2.md`; word ratio
+  0.9965 → 0.9960.
+  - **40.1 applied (substantive)** — IX.40's three corrective turns restored to
+    **imperatives**: "You, pray thus:" / "You, pray:" / "You thus:" for v1's "Do
+    you pray thus:" / "You pray thus:" / "You thus:". In modern English the
+    first was a yes/no question and the second a declarative claiming the reader
+    already prays that way — the reverse of Marcus's point. The reviewer's
+    repair taken as proposed: the vocative comma restores the mood in all three,
+    keeps Long's fronted second person, keeps the three-two-two diminuendo and
+    adds no word. "Do pray thus:" rejected (drops the fronted pronoun); the
+    comma alone in both first turns rejected (flattens the diminuendo).
+  - **1.1 applied, both halves** — the sheet's "four times" corrected to
+    **three**, and the unrecorded fourth substitution **undone**: Long's "for"
+    is restored at IX.1 ("…contrary to truth, **for** he had received powers
+    from nature…"). "For" is current English and needed no modernising; Long's
+    two "for"s mark the two explanatory descents of a sentence already carrying
+    three "since".
+  - **9.1 applied** — IX.9 "and in a way, loves" → "and, in a way, loves", so
+    "loves" is not read as a verb. One comma; the one place in the book a modern
+    reader was likely to mis-parse.
+  - **41.1 applied as a rule fix** — `GLOSSARY.md`'s "shall" rule widened from
+    "the deliberative 'shall' of a **direct** question" to "a question, **direct
+    or indirect**", with IX.41 added beside VIII.1 as the example. Committed
+    **before Book X was drafted**. No text change; IX.41 keeps its "shall".
+  - **1.2 applied** — IX.1's semicolon restored ("the nature of the things that
+    are**;** and the things that are have a relation…"); the two definite
+    articles the candidate added stay (*ta onta* reads as a term with them, and
+    lowering the semicolon had spliced two independent clauses).
+  - **Four optional findings declined, each recorded with its reason** in
+    `book9/continuity.md` at its paragraph: **3.1** (IX.3's dropped "made" — the
+    reviewer's own repair is further from Long and the reviewer preferred the
+    drop recorded to undone, so it is now recorded); **7.1** (IX.7's mixed
+    semicolon and colon — Long's accidentals stand, nothing misdirects, and
+    repointing for evenness alone is unlicensed, unlike the commas actually
+    moved at IX.9 and IX.29, which change how a clause parses); **28.1** (IX.28
+    "do not let yourself also be governed" — the proposed repair drops Long's
+    load-bearing "also", and the permissive shade is not wrong in a sentence
+    whose point is that the ruling part stays yours); **29.1** (IX.29 "All of
+    them drivel." — "Drivellers, all of them." restores a word ruled not
+    current, and "Drivel, all of it." moves the referent from the men to their
+    talk).
+  **Every base-text call was endorsed and all three flagged decisions are
+  settled**: IX.34 "poor souls" upheld without reservation (the reviewer
+  confirmed by grep that IX.27's "poor souls" and IX.34's "pool souls" are the
+  *only* two occurrences of the phrase in the whole PG file, so the internal
+  witness is exact); IX.35's "bound" and PG's ellipsis over SE's added "done";
+  IX.40 "Pray thou" not "Another prays"; and the SE paragraph break inside IX.28
+  correctly ignored. **IX.29's variant is CLOSED in favour of "insolence"** on
+  grounds stronger than D6 — the meditation is about grandiosity, the clause
+  answers "Simple and modest is the work of philosophy", and indolence has no
+  antecedent anywhere in it — with the reviewer's limitation on the record (no
+  Greek text consulted). The **"shall" audit passed**: eleven in Long, three
+  removed (all IX.3), eight kept and all licensed, IX.29's "They themselves
+  shall judge" confirmed emphatic. The **step-1 no-rebuild finding was upheld by
+  the stronger method**, not by a re-run: an independently written
+  reconstruction of PG lines 5419–5864 diffed word for word against the staged
+  Book IX, whose only three differences in the whole book are the three
+  documented dagger marks. That method is adopted for Book X. Flow read done, no
+  further change. Acceptance in `book9/ACCEPTANCE.md`; `changes-v1-to-v2.md`,
+  `continuity.md`, `provenance.json`, `manifest.json` and `README.md` updated;
+  mechanical checks re-run and passing. No new glossary rendering row.
+
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran

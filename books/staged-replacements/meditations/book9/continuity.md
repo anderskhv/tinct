@@ -1,8 +1,12 @@
-# Continuity sheet — Meditations, Book IX (candidate v1, frozen)
+# Continuity sheet — Meditations, Book IX (candidate v1 frozen; accepted as v2)
 
 Written alongside drafting `candidate-v1.json`, after Books II, I, III, IV, V,
 VI, VII and VIII were accepted, and describing what the frozen draft actually
-did. Term renderings follow `../GLOSSARY.md` (one row extended for Book IX
+did. **Updated at acceptance (2026-09-12)** with the round-1 corrections, the
+findings declined and why, and the reviewer's rulings — the accepted file is
+`candidate-v2.json` (sha256 `56dd7d13…`); see `ACCEPTANCE.md` and
+`changes-v1-to-v2.md`. Where an entry below described v1 and v2 changed it, the
+entry now says so. Term renderings follow `../GLOSSARY.md` (one row extended for Book IX
 **before** drafting, see below); the pattern for applying review findings
 follows the eight earlier `ACCEPTANCE.md` files (decisions D8, D10, D11 and D12
 in the ledger), and the "shall" rule fixed at Book VIII acceptance is applied
@@ -160,8 +164,23 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
   deserts" → "what he deserved"), and its second book; if it recurs in Book XI
   (XI.18) it should be promoted to a glossary row on the Book VI precedent.
   "He who transgresses her will" → "he who goes against her will" (plainer, and
-  Long's own idiom elsewhere). "Inasmuch as" → "since" (four times; "inasmuch
-  as" is not current). "The prime cause" → "the first cause". "Manifestly
+  Long's own idiom elsewhere). "Inasmuch as" → "since" — **three times, not four**;
+  the sheet said four at v1 and the round-1 reviewer (finding 1.1) found only
+  three "inasmuch as" in IX.1. The fourth "since" had silently replaced Long's
+  ordinary "for" and was unrecorded. **Corrected in v2**: Long's connective is
+  restored — "…contrary to truth, **for** he had received powers from nature…"
+  — because "for" is current English and needed no modernising, and because
+  Long's two "for"s mark the two explanatory descents of a sentence that
+  already carries three "since". The paragraph now holds four "since" (Long's
+  own "For since the universal nature has made…" plus the three that render his
+  "inasmuch as") and two "for". **In v2 also (finding 1.2), Long's semicolon is
+  restored** in "the universal nature is the nature of the things that are;
+  and the things that are have a relation to all things that come into
+  existence" — the two definite articles the candidate added stay (Long's
+  anarthrous "things that are" is a technical term, *ta onta*, and the article
+  is what makes a modern reader hear it as one), but lowering the semicolon to
+  a comma left two independent clauses spliced, and the semicolon separates
+  what the universal nature *is* from the consequence drawn about it. "The prime cause" → "the first cause". "Manifestly
   acting impiously" → "plainly acting impiously" — Long's own word two sentences
   earlier ("this is plainly impiety"), so this is his vocabulary, not a
   substitution. "They who wish to follow nature" → "those who wish to follow
@@ -188,9 +207,29 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
   "Perchance" **kept** inside the quoted cry "Come quick, O death, lest
   perchance I, too, should forget myself" — it is Long's one heightened
   sentence in the paragraph and it is a quotation of Marcus's own exclamation.
+  **Recorded at acceptance (finding 3.1, declined):** "thou wilt **be made**
+  best reconciled to death" → "you will be best reconciled to death". The
+  auxiliary is dropped and the drop was not listed here at v1, which is the
+  part of the finding that was a real omission. The text stands: "be made best
+  reconciled" is not English anyone writes now, the reviewer's own proposed
+  repair ("be brought best to terms with death") is further from Long than the
+  candidate is, and the reviewer would sooner see the drop recorded than
+  undone. Long's causal shade survives in the sentence's own means clause, "by
+  observing the objects from which you are going to be removed".
 - **IX.7** — "Keep the ruling faculty in its own power" → "keep the ruling part
-  in its own power" (glossary). Long's colons between the four commands are
-  kept as he has them.
+  in its own power" (glossary). Long's mixed pointing between the four commands
+  is kept as he has it: "Wipe out imagination; check desire: extinguish
+  appetite: keep the ruling part in its own power." **Considered again at
+  acceptance (finding 7.1, declined).** The reviewer rates the unevenness the
+  one place in the book where reproducing Long's accidentals costs a little
+  clarity, would not press the change, and says consistency with eight accepted
+  books is worth more. It is. Nothing here misdirects — four commands are four
+  commands under any pointing, and no reader takes a colon between two
+  imperatives as a change of subject — whereas repointing would be the first
+  time this edition normalised punctuation Long left uneven for no reason but
+  evenness, which `../GLOSSARY.md` does not license. Contrast the commas
+  actually moved in this book (IX.9, IX.29), each of which changes how a clause
+  is parsed.
 - **IX.8** — "Reasonable animals" → "rational beings" (glossary). "The animals
   which have not reason" **kept** as "animals": Long means beasts, and the
   contrast in the sentence is precisely beasts against rational beings (the
@@ -200,8 +239,15 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
   Standard Ebooks runs the words as plain text. "Everything which is of an
   aerial kind" → "everything which is of the nature of air", following Book
   VIII's "the aerial power" → "the power of the air" at VIII.54. "To keep them
-  asunder" → "to keep them apart". "In a manner, loves" → "in a way, loves" and
-  "unity in a manner exists" → "unity in a way exists" (glossary). "Only
+  asunder" → "to keep them apart". "In a manner, loves" → ", in a way, loves" and
+  "unity in a manner exists" → "unity in a way exists" (glossary). **The commas
+  round the hedge were corrected in v2 (finding 9.1)**: v1 kept Long's comma
+  placement, "and in a way, loves", which a modern reader parses with "loves"
+  as a **verb** — Long's "in a manner" read as a set phrase and carried the
+  reader past it, and "in a way" does not. v2 reads "and the nurture of young
+  birds, **and, in a way, loves**", the hedge properly parenthetical and
+  "loves" recovered as the fourth item in the list. One comma, no word
+  changed. "Only
   intelligent animals" → "only intelligent beings" (Long means men; the Book
   VII rendering). "Anything earthy" **kept** twice, as Long has it.
 - **IX.10** — "But and if usage has especially fixed these terms" → "but if
@@ -262,12 +308,35 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
   "Do not thou also be governed by it" → "do not let yourself also be governed
   by it": Long's emphatic "thou" inside an imperative has no modern form
   ("do not you also be governed" is not English), and the reflexive carries the
-  same emphasis without adding an idea. "Everything else comes by way of
+  same emphasis without adding an idea. **Considered again at acceptance
+  (finding 28.1, declined).** The reviewer proposes "do not be governed by it
+  **yourself**", on the ground that "let yourself" adds a faint note of
+  permission Long's plain passive does not have. The objection is fair, but the
+  repair drops Long's **"also"**, which is the hinge of the sentence: chance
+  rules the universe, and the meditation is that it need not rule *you as
+  well*. Trading a faint shade for a load-bearing word is the worse exchange —
+  and the shade is not wrong here, since what Marcus asserts is precisely that
+  the ruling part stays his, so that being governed by chance is something a
+  man permits. Every wording that keeps both the plain passive and "also" is
+  worse English than either version ("do not also be governed by it" splits the
+  verb; "do not be governed by it also" attaches "also" to "it"; "do not be
+  governed by it yourself as well" adds two words for one emphatic pronoun). "Everything else comes by way of
   sequence in a manner" → "…by way of sequence, in a way" (glossary), with the
   comma added so the hedge attaches where Long's does.
 - **IX.29** — "All drivellers." → "All of them drivel." Long's noun is not
   current; the verb "drivel" is, and it keeps the sentence at three words and
-  keeps the dismissal a dismissal. "Draw me not aside to insolence and pride" →
+  keeps the dismissal a dismissal. **Considered again at acceptance (finding
+  29.1, declined).** The reviewer's diagnosis is accepted — Long's fragment is
+  a nominal *verdict* thrown at the men just described, and the candidate
+  reports what they do instead — and the reviewer's confidence is low, the
+  point being one of ear. Both repairs offered cost more than the shape is
+  worth. "Drivellers, all of them." restores the very noun this sheet ruled out
+  as no longer current. "Drivel, all of it." keeps a nominal fragment with the
+  modern word but **moves the referent** from the people to their talk: Long's
+  verdict is on the men "playing the philosopher", not on what they say, and
+  the next sentence turns from those men to Marcus himself. The candidate keeps
+  Long's referent, his three words and his contempt, and pays only in
+  grammatical shape, the smallest of the three losses available. "Draw me not aside to insolence and pride" →
   "Do not draw me aside to insolence and pride" (Long's inversion is archaic;
   the imperative is unchanged). "**They themselves shall judge**" is **kept**:
   this is the emphatic or volitional "shall", which is current English and which
@@ -310,10 +379,19 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
 - **IX.39** — "Say to the ruling faculty" → "say to the ruling part"
   (glossary). "Art thou become a beast" → "have you become a beast". The five
   questions addressed to the ruling part keep their asyndeton, as Long has it.
-- **IX.40** — "Do thou pray thus" / "Pray thou" / "Thou thus" → "Do you pray
-  thus" / "You pray thus" / "You thus": Long's alternation between the man who
-  prays and Marcus is what the passage is built on, and the candidate keeps all
-  three turns and their shortening. "In fine" → "In short". The six prayers keep
+- **IX.40** — "Do thou pray thus" / "Pray thou" / "Thou thus" → **"You, pray
+  thus" / "You, pray" / "You thus"** in v2, correcting v1's "Do you pray thus"
+  / "You pray thus" / "You thus" (finding 40.1, the book's one **substantive**
+  finding). Long's alternation between the man who prays and Marcus is what the
+  passage is built on, and v1 kept all three turns and their shortening but
+  lost the **mood** of two of them: in modern English "Do you pray thus:" is a
+  yes/no question, and "You pray thus:" is a declarative saying the reader
+  already prays that way — the reverse of Marcus's point. The vocative comma
+  makes all three unambiguously imperative, keeps Long's fronted second person
+  (the rhetorical device itself), keeps the three-two-two diminuendo against
+  his four-two-two, and adds no word. "Do pray thus:" was weighed and rejected
+  because it drops the fronted pronoun; the comma alone in both first turns was
+  weighed and rejected because it flattens the diminuendo. "In fine" → "In short". The six prayers keep
   Long's "How shall I…" — first-person deliberative questions, which the "shall"
   rule licenses and which are current English. On Standard Ebooks' reading of
   the fourth turn, see unresolved source issues.
@@ -450,21 +528,51 @@ PG prints them (Alexander, Philippus, Demetrius of Phalerum, Epicurus, Plato).
   `to-day`/`to‑day`. PG governs (D6); the candidate uses current forms of the
   same spellings (`today`).
 
-## Decisions flagged for the reviewer
+## Decisions flagged for the reviewer — all three SETTLED at round 1
 
-Two, each argued above and each open to an explicit ruling:
+None is left open. The round-1 reviewer endorsed every base-text call in the
+book and confirmed the "shall".
 
-1. **IX.34 "poor souls" for PG's "pool souls"** — the one place in Book IX where
-   the candidate departs from PG's letters, on the ground that "pool souls" is a
-   slip rather than a reading, with Long's own "their poor souls" at IX.27 as
-   the internal witness.
-2. **IX.29 "insolence", following PG against Standard Ebooks' "indolence"** —
-   a genuine variant rather than a slip, decided by D6 (PG is the base text) and
-   not by a judgement about which word Long wrote. If the reviewer can weigh the
-   Greek, a ruling either way is wanted; if not, the record stands as it is.
+1. **IX.34 "poor souls" for PG's "pool souls" — upheld without reservation.**
+   "Pool souls" is not English; Long writes "approach their **poor** souls" in
+   the same construction seven sections earlier (IX.27, PG line 5664), and the
+   reviewer confirmed by grep that those are the **only** two occurrences of
+   the phrase in the whole PG file, so the internal witness is exact rather
+   than approximate; Standard Ebooks agrees. Same shape as VIII.37's
+   Fergamus/Pergamus and the same answer. It stays the one departure from PG's
+   letters in Book IX.
+2. **IX.29 "insolence" — CLOSED in favour of PG, on grounds stronger than D6.**
+   The draft followed PG under D6 and recorded the variant as genuinely open;
+   the reviewer closes it on the sense, and the reasoning is adopted in full.
+   The meditation's whole subject is the temptation to grandiosity — the
+   worthless people "playing the philosopher", the refusal to "expect Plato's
+   Republic", being "content if the smallest thing goes on well", the warning
+   not to act "like tragedy heroes" — and the final clause answers "Simple and
+   modest is the work of philosophy", whose opposite is *showy and proud*, not
+   *lazy and proud*. **Indolence has no antecedent anywhere in the meditation**
+   and would introduce a vice Marcus has not been discussing; insolence is the
+   vice he has spent the paragraph naming and pairs naturally with pride. And
+   "indolence"/"insolence" is a one-letter confusion of the kind a re-keyed
+   text produces, which SE's Long is. **Recorded as settled, not open.**
+   *Limitation kept on the record, in the reviewer's words:* the reviewer did
+   not consult a Greek text and makes no claim about the Greek word behind it;
+   a reviewer with the Greek could overturn the ruling. On the English evidence
+   it is not open.
+3. **IX.29 "They themselves shall judge" — confirmed and kept.** The emphatic
+   or volitional "shall", licensed by the Book VIII rule. The reviewer would
+   resist "will" firmly: Marcus is not forecasting a verdict on Alexander,
+   Philippus and Demetrius but dismissing the question of their merits as none
+   of his business, and the next sentence — "But if they acted like tragedy
+   heroes, no one has condemned me to imitate them" — is a rebuttal of a claim
+   on him, not the second half of a prediction.
 
-A third point is offered for confirmation rather than ruling: **"They themselves
-shall judge" at IX.29 is the only "shall" kept in Book IX that is not a
-first-person question**, and it is kept as the emphatic or volitional "shall"
-licensed by the rule fixed at Book VIII acceptance. If the reviewer reads it as
-a plain future, it becomes "They themselves will judge".
+Two further things the reviewer settled, recorded here so they are not reopened:
+**the step-1 no-rebuild finding was upheld by the stronger method** (an
+independently written reconstruction of PG lines 5419–5864 diffed word for word
+against the staged Book IX, whose only three differences in the whole book are
+the three documented dagger marks — not a re-run of the build, which proves only
+that the file matches the script); and **the "shall" rule was widened in
+`../GLOSSARY.md` at acceptance** (finding 41.1) from "a direct question" to "a
+question, direct or indirect", so that IX.41's indirect deliberative question
+inside Epicurus's reported speech is licensed by the rule's letter as well as
+its spirit. The IX.41 rendering itself did not change.
