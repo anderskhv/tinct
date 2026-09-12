@@ -203,32 +203,37 @@ Kept current at every push.
 | **D9** | **Typographic quotation marks and apostrophes throughout; American spelling.** | `PUNCTUATION.md` §1 and `GLOSSARY.md`. v1 mixed curly doubles with ASCII apostrophes and recorded neither; the served `original-en` beside it in split-pane is typographic throughout. American spelling matches the served editions and the rest of the product. `draughts` stays — the game's name, not a spelling variant. |
 | **D10** | **A frozen `candidate-vN.json`, its readable copy and its review packets are never regenerated after a later version supersedes them.** | They are the record of what a review round actually reviewed. Regenerating them would make the findings file quote text that no longer exists. Recorded in `book01/manifest.json` and `book01/continuity.md`; Book 1's v1 artefacts stay in Butler's Roman forms for exactly this reason. |
 | **D11** | **A finding is answered either way, and an "optional" finding whose real subject is a rule for later Books is settled at the Book that raises it, not deferred.** | Applied at Book 1 to 3.1 (hecatomb, a rule for every later hecatomb) and 26.1 (the "in her heart" formula, which recurs through the poem). The alternative — carry it forward as a preference — means the same question is rediscovered at Book 6 with a rendering already in the file. All five of Book 1's optional findings were applied on this reading. |
-| **D12** | **Butler's square brackets are disposed of BY CLASS, and the class is decided by whose voice the bracket is in and what it is about — never by its length.** **Class A**, a supplement Butler makes because the Greek lacks the words and says in a note that he *supplied* them (PG 802, `[do not]`, footnote 18 — the poem's only instance): **the mark is dropped, the words stand**, and the pointing the bracket carried is supplied in ordinary modern punctuation. **Class B**, an unflagged explanatory supplement inside the line (eight instances, of which Book 3's `[on the embers]` at PG 1129 is the first): **the same disposition, on a weaker warrant, so every instance is recorded AND flagged as class B in the Book's `continuity.md`.** **Class C**, a passage Butler brackets to mark his doubt that it belongs to the poem (six instances, the first at PG 1551 in Book 4, footnote 36: *"The lines which I have enclosed in brackets are evidently an afterthought"*): **OPEN — neither default is right, and it needs a coordinator decision before Book 4 is drafted.** Enumeration, tests and every instance are in `GLOSSARY.md`. | Ruling 1 of Book 2's round-1 review, plus records finding **R4**. The Book 2 disposition was right and its recorded *reason* was wrong: `continuity.md` classed `[do not]` as a textual mark "rather than a translator's supplement", and Butler's footnote 18 says in terms that it *is* a translator's supplement — *"without prefixing the necessary 'do not,' which I have supplied."* That makes the disposition **stronger**, since Butler himself calls the words necessary. But a one-line rule generalized from it is dangerous: for class C, "drop the mark, keep the words" **silently converts Butler's recorded editorial doubt into narration**, and the damage is invisible in the output, so a drafter cannot be expected to catch it. Written by class for the same reason the Meditations package needed **D11** and **D13**: one bracket character does at least three jobs, and the natural mistake is the damaging one. |
+| **D12** | **Butler's square brackets are disposed of BY CLASS, and the class is decided by whose voice the bracket is in and what it is about — never by its length.** **Class A**, a supplement Butler makes because the Greek lacks the words and says in a note that he *supplied* them (PG 802, `[do not]`, footnote 18 — the poem's only instance): **the mark is dropped, the words stand**, and the pointing the bracket carried is supplied in ordinary modern punctuation. **Class B**, an unflagged explanatory supplement inside the line (eight instances, of which Book 3's `[on the embers]` at PG 1129 is the first): **the same disposition, on a weaker warrant, so every instance is recorded AND flagged as class B in the Book's `continuity.md`.** **Class C**, a passage set off by a bracket whose note argues about **when and by whom it was composed** (six instances, the first at **PG 1552** in Book 4, footnote 36): **SETTLED 2026-09-12 at Book 3's round 1 — the mark is dropped, every word stands, nothing is recast across the bracket's boundaries, and every instance is recorded, with Butler's note and with who bracketed it. The same disposition as A and B, on a third warrant, with obligations the other classes do not carry: never abridge, merge or compress a class-C passage (PG 4260 and PG 4884 are the same prophecy twice, which is fn 91's whole point); where the bracket is unclosed, record that and do not determine the extent; if the product ever gains a note layer, class C becomes a note. Book 4 is UNBLOCKED.** Enumeration, tests, the six instances and the four corrections are in `GLOSSARY.md`. | Ruling 1 of Book 2's round-1 review, plus records finding **R4**. The Book 2 disposition was right and its recorded *reason* was wrong: `continuity.md` classed `[do not]` as a textual mark "rather than a translator's supplement", and Butler's footnote 18 says in terms that it *is* a translator's supplement — *"without prefixing the necessary 'do not,' which I have supplied."* That makes the disposition **stronger**, since Butler himself calls the words necessary. But a one-line rule generalized from it is dangerous: for class C, "drop the mark, keep the words" **silently converts Butler's recorded editorial doubt into narration**, and the damage is invisible in the output, so a drafter cannot be expected to catch it. Written by class for the same reason the Meditations package needed **D11** and **D13**: one bracket character does at least three jobs, and the natural mistake is the damaging one. **Class C settled at Book 3's round 1 (ruling 2), on four facts checked against PG #1727 rather than on a default:** Butler's footnote 81 says *"lines enclosed in brackets are almost always genuine; all that brackets mean is that the bracketed passage puzzled some early editor"* — so there is no verdict of spuriousness to preserve; footnotes 36, 82, 91 and 107 claim **authorship history**, not doubt (107: the passage was *"written by the same hand as the rest of the poem"*), and footnote 122 shows the Book 13 brackets are **not Butler's** and that he argues against them; our edition carries **no apparatus**, so a bare bracket cannot transmit a claim that lives only in footnotes we will never print; and **four of the six class-C brackets are never closed** (PG's body holds 15 `[` against 11 `]`; PG 1552, 4260, 5691 and 6016 do not close), so keeping the mark means either a stray unclosed character on the first paragraph of Book 4 or the drafter inventing the passage's extent. **Four corrections to D12 as written** (records finding **R3**): class C is not recorded doubt that the passage belongs; **five** of six instances are footnoted about the bracket, not three; PG 6016's brackets are not Butler's; and the first opens at **PG 1552**, not 1551. The bracket-count imbalance is records finding **R4**. |
 | **D13** | **`Mycene` is two names in Butler and is split by referent: the WOMAN stays `Mycene`, the CITY becomes `Mycenae`.** Butler spells both `Mycene` — the woman at PG 843 (Book 2, in a list of women), the city at PG 1377 (Book 3) and PG 9326 (Book 21). The city moves under **D8**; the woman does not, because D8 is silent about her. | Records finding **R1** of Book 2's round-1 review, settled before Book 3 is drafted rather than after, per `WORKFLOW.md` step 2. The glossary row as written said "Mycene is the woman, not the city" and filed her under *names that change in no Book*; Book 3's drafter meets the **city** four hundred PG lines later holding that row. D8 applies exactly as written and only to the city: `odyssey-threads.json` gives Agamemnon the epithet **"Murdered King of Mycenae"** — its only occurrence of either spelling — so the Cast has a display name for the place and none for the woman. Confirmed independently: the served `modern-en` being replaced already draws this exact line (`Mycene` at its Book 2 ¶7, `Mycenae` at Book 3 ¶24 and Book 21 ¶6), without recording it. Deliberately narrow, and it sits beside the opposite ruling on `Ilius`, which is **not** flattened to *Troy* because the Cast has no display name for it. |
+| **D14** | **Where the served `original-en` is demonstrably not the base text, the candidate renders the BASE TEXT, never the served corruption — and the divergence is recorded, the cost stated plainly, and a repair to the served file escalated rather than performed.** The divergence is recorded per paragraph in the Book's `continuity.md` with the evidence; **paragraph alignment is preserved in every case** — the paragraph exists and is non-empty, because audio, Cast data and saved reading positions key on the paragraph index. **Written for the class, not for the paragraph.** First and so far only application: **B03-P038**, where 196 of the served paragraph's 208 words are the served `modern-en`'s own ¶38, spliced in to complete a half-sentence Butler leaves open at the end of his Book III. The candidate prints Butler's twelve words: `Now when the sun had set and darkness lay over the land,`. The repair text and the before/after hashes are in `book03/ACCEPTANCE.md` and in **A3**, so repairing the served file is a one-line patch rather than a research task. | Ruling 1 of Book 3's round-1 review, settled 2026-09-12. **The decisive argument is about the repair, not about the duplication:** A3 recommends repairing `odyssey-original-en.json` so ¶38 is Butler's clause alone, and that repair will very likely happen. If the modern edition had meanwhile rendered the splice, then on the day of the repair the modern column's ¶38 becomes 200 words with **no source at all** — a paragraph of the *replaced* file's prose aligned against twelve words of Butler, permanently, with nobody left who remembers why. Rendering the base text is correct both before and after the repair. Borrowing Book IV's opening words to complete the sentence was rejected for a second reason worth keeping: it would invent a Book-boundary policy for a 24-Book edition on the strength of one paragraph, and this is not the only place Butler runs a sentence across the join — his Book III opens the same way, on a lower-case `but`. The cost is real and not minimized: 208 words against 12 in split view will be read as a bug, and it **is** a bug, in the other file. A class-level row rather than a note on one paragraph because `scripts/scan_staged_original_vs_pg.py` shows no second instance in *this* file but does not cover the library's other books, and a drafter meeting a similar splice without a rule will do the natural thing — modernize what is in front of them — and will be right to, absent a rule. |
 
 ## Next
 
-1. **Waiting on the coordinator: independent review of Book 3**
-   (`book03/review-instructions.md`, `book03/review-packets/`, 13 packets,
-   coverage `B03-P001`…`B03-P038`). On findings: `book03/candidate-v2.json`
-   via a change script in the established pattern, verification, flow read,
-   `book03/ACCEPTANCE.md`. **Five things are put to the reviewer explicitly**
-   and should not be left unruled: **B03-P038**, where the served
-   `original-en` is defective and the candidate renders 12 words against its
-   208 (the alternatives, including repairing the served file, are stated in
-   `book03/continuity.md`); **B03-P001's `[on the embers]`**, the package's
-   first class-B bracket under D12; **B03-P028's** defective clause
-   (`so few cloaks and as to be`), where the stray `and` is dropped and no word
-   supplied; **the retention figure of 0.895**, which the reviewer is asked to
-   treat as a question rather than a pass; and the two glossary rows fixed
-   before drafting — **"Nestor, the horseman of Gerene"** for Butler's *knight
-   of Gerene*, and **"the Trito-born"** kept unglossed.
+1. **Book 3 is accepted and closed.** Round 1 (`book03/review/findings-v1.md`)
+   returned **zero substantive findings** and 29 paragraph-level findings, all
+   applied at `book03/candidate-v2.json` (sha256 `7095ef4f…4989b905`, retention
+   0.895 → **0.897**, `book03/changes-v1-to-v2.md`, none declined); the flow
+   read added no change (`book03/flow-read.md`); acceptance is
+   `book03/ACCEPTANCE.md`. All five things put to that reviewer were ruled on:
+   **B03-P038** (ship Butler's twelve words — now **D14**), **`[on the
+   embers]`** (class B upheld), **B03-P028's defective clause** (stray `and`
+   dropped, no word supplied, upheld), **the retention figure** (the lightness
+   is the source's — the least-changed paragraphs are the sacrifice and the
+   voyage catalogues, where Butler is already plain narration; the
+   most-rewritten carry *thou/vouchsafe/shewed/aforetime*), and the two
+   glossary rows (**"the horseman of Gerene"**, **"the Trito-born"** unglossed,
+   both upheld).
 2. **Book 2 is accepted and closed.** All three things put to its reviewer were
    ruled on: the `[do not]` bracket (upheld, reason corrected, now **D12**),
    the Erinyes gloss (upheld at this size, for the recorded reason), and the
-   marriage-gifts formula (changed, in both Books, as finding 11.1).
-3. **Class-C brackets block Book 4** (D12). A coordinator decision is needed
-   before Book 4 is drafted; Books 1–3 contain none. Book 4 was not started.
+   marriage-gifts formula (changed, in both Books, as finding 11.1). A later
+   round added one recorded successor, `book02/candidate-v3.json`
+   (`book02/changes-v2-to-v3.md`, one hyphen at B02-P034).
+3. **Book 4 — drafting.** **Unblocked**: D12 class C is settled (see D12 and
+   `GLOSSARY.md`). Book 4 ¶1 carries the poem's first class-C bracket, in its
+   first sentence, and it is **never closed** in the base text; Book 4 ¶52
+   carries the second. Steps 1–3 of `WORKFLOW.md`, then packets, then a
+   separate reviewer session.
 4. Book 10's disposition still needs a coordinator decision — see A2 below,
    now narrowed.
 
@@ -244,6 +249,39 @@ Kept current at every push.
   `app/public/data/editions/odyssey-original-en.json`, which is outside this
   package's scope. Evidence in `PROVENANCE.md` §4 and
   `book03/continuity.md`. **No action taken on the served file.**
+
+  **The repair, prepared so it is a one-line patch and not a research task**
+  (Book 3 round 1, section C; **D14**). Replace the whole of chapter 3's
+  paragraph 38 with Butler's clause, exactly:
+
+  ```
+  Now when the sun had set and darkness was over the land,
+  ```
+
+  (Butler's own wording, PG line 1541; the modern edition renders it
+  `…darkness lay over the land,` at B03-P038, matching its own rendering of the
+  same clause at B03-P037. The served paragraph **already opens with these
+  fifty-six characters** — the repair is a truncation, deleting everything
+  after the comma.)
+
+  | | |
+  |---|---|
+  | File | `app/public/data/editions/odyssey-original-en.json` |
+  | sha256 **before** | `da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07` (637,591 bytes) |
+  | sha256 **after** | `0cc76350232962d4c4f1cf1eb7216f14515fc1910f94f666695d2a595d4e6980` (636,440 bytes) |
+  | Paragraph counts | unchanged, 1,027 — the paragraph stays, it is truncated |
+
+  Computed 2026-09-12 in a scratch copy by replacing the one JSON-encoded
+  string (it occurs exactly once in the file) and re-parsing; **the served file
+  was not written.**
+
+  **Fingerprint evidence, which settles the splice without reference to Project
+  Gutenberg at all** (round 1, section A, verified again here): Book 3 ¶38 is
+  **the only paragraph in the entire 1,027-paragraph served original that
+  contains an ASCII double quote** — it contains two, and the file is
+  typographic throughout — and it differs from the served **`modern-en`**'s own
+  ¶38 by **exactly one substitution**, `covered` → `was over`. Someone edited
+  two words of a 207-word modern paragraph and dropped it into the original.
 
 - ~~**A1. Name-form policy for the whole Odyssey.**~~ **ANSWERED 2026-09-12
   by the coordinator: Greek forms.** Recorded as **D5**–**D8**, applied to

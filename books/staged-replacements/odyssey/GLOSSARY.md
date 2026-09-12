@@ -182,8 +182,16 @@ its opening pages and Book 4 the third.
 The enumeration is this package's own, made directly over PG #1727's
 translation body (the 24 `BOOK` headings at lines 375–10842, ending at the
 real `FOOTNOTES:` at line 10843 and not the indented one at line 75):
-**fifteen brackets, in three classes.** Butler's own footnotes 18, 36, 81, 91
-and 107 supply the classification; they are quoted, not inferred.
+**fifteen brackets, in three classes.** Butler's own footnotes 18, 36, 49, 81,
+82, 91, 101, 107 and 122 supply the classification; they are quoted, not
+inferred.
+
+**The body holds fifteen opening brackets and eleven closing ones**, and the
+served `original-en` reproduces the same imbalance exactly (records finding
+**R4**, verified independently 2026-09-12). **All nine class-A and class-B
+brackets close within their line; four of the six class-C brackets never close
+at all** — PG 1552, 4260, 5691 and 6016. That asymmetry is itself evidence
+about what the marks are: A and B are text, C is apparatus, handled loosely.
 
 ### Class A — a supplement Butler makes because the Greek lacks the words, flagged as supplied
 
@@ -232,50 +240,127 @@ Eight instances, none of them footnoted:
 | 8057 | XVIII | `brought him [into the open part of the court]` |
 | 9351 | XXI | `against the door [that led into the house]` |
 | 10132 | XXIII | `at right angles [to that by which she had entered]` |
-| 5410 | XII | `[A large fig tree in full leaf grows upon it]` — **borderline**: a whole clause, and footnote 101 attaches inside it. Decide it when Book 12 is drafted, against class C as well as this class; it is not Book 3's problem. |
+| 5410 | XII | `[A large fig tree in full leaf grows upon it]` — **borderline, and no longer blocking**: a whole clause, with footnote 101 attaching inside it. Classed **C** at Book 3's round 1 (fn 101 is the same authorship-history claim as fns 36, 82, 91 and 107), which changes no word, because A, B and C now share one disposition. |
 
-### Class C — a passage Butler brackets to mark editorial doubt that it belongs to the poem
+### Class C — a passage set off by a bracket whose note argues about when and by whom it was composed
 
-**Disposition: OPEN. Neither default is right, and this class must not be
-drafted under the class-A/B rule. It needs a coordinator decision before
-Book 4 is drafted.**
+**SETTLED 2026-09-12 at Book 3's round 1 (ruling 2,
+`book03/review/findings-v1.md` section D). Disposition: the mark is dropped,
+every word stands, nothing is recast across the bracket's boundaries, and
+every instance is recorded** — the same disposition as classes A and B, but on
+a *third* warrant, and with obligations the other two classes do not carry.
+**Book 4 is unblocked.**
 
-**Test:** Butler's note says the bracketed lines are an afterthought, an
-interpolation, or a later addition — a statement about the *text*, not about
-his English. Footnote 36: *"The lines which I have enclosed in brackets are
-evidently an afterthought—added probably by the writer herself."* Footnote 91:
-*"I suppose the lines I have enclosed in brackets to have been…"* Footnote
-107: *"I suppose the passage within brackets to have been an…"* (Footnote 81
-is Butler reasoning about received-text brackets generally — *"all that
-brackets mean is that the bracketed passage puzzled some early editor"* — and
-is worth reading before the decision is made.)
+*(This section previously read "a passage Butler brackets to mark editorial
+doubt that it belongs to the poem — Disposition: OPEN". That description does
+not survive reading Butler's notes; four of its factual statements were wrong
+and are corrected below, records finding **R3**.)*
 
-**Why the class-A/B rule silently damages it.** Dropping the mark converts
-Butler's recorded editorial doubt into plain narration, so the reader is told
-as fact what Butler flags as probably added later — and a drafter applying
-"the bracket rule" from Book 2 will do exactly that without noticing.
-Dropping the words instead loses content. **The damage is invisible in the
-output**, which is why this is a decision and not a drafting judgement.
+**Test:** a bracket sets off a passage, and the note attached to it — where
+there is one — makes a claim about the poem's **composition history**: an
+afterthought, an interpolation, a later addition, or another editor's
+puzzlement. It is not about Butler's English (class A) and not an explanation
+inside the sentence (class B).
 
-Six instances, the first of them in Book 4:
+#### Why the mark goes, in four steps
 
-| PG line | Book | what is bracketed | Butler's note on the bracket |
-|---|---|---|---|
-| **1551–2** | **IV** | Menelaus's double wedding feast, a long passage | **fn 36** — *"The lines which I have enclosed in brackets are evidently an afterthought—added probably by the writer herself"* |
-| 4884 | XI | Teiresias's prophecy of the homecoming, `[in another man's ship, and you will find trouble in your house…]`, closing at PG 4902 | **fn 91** — *"I suppose the lines I have enclosed in brackets to have been added by the author when she enlarged her original scheme"* |
-| 5691 | XII | `[The gale from the West had now spent its force…]` | **fn 107** — *"I suppose the passage within brackets to have been an afterthought but to have been written by the same hand as the rest of the poem"* |
-| 2067 | IV | `[and guests kept coming to the king's house…]` | none about the bracket (fn 49 sits after it and is about something else) |
-| 4260 | IX | the end of Polyphemus's curse, `[let him reach his home in another man's ship…]` | none about the bracket |
-| 6016 | XIII | `[near it is the cave sacred to the Naiads…]` | none about the bracket |
+1. **A bracket in this text is not a verdict of spuriousness, by Butler's own
+   statement.** Footnote 81: *"lines enclosed in brackets are almost always
+   genuine; all that brackets mean is that the bracketed passage puzzled some
+   early editor, who nevertheless found it too well established in the text to
+   venture on omitting it."* There is no editorial doubt about whether the
+   words belong that a mark could preserve.
+2. **What his own class-C notes claim is authorship history, not doubt.**
+   fn 36: *"evidently an afterthought—added probably by the writer herself."*
+   fn 82: *"I am inclined to think it is interpolated (probably by the poetess
+   herself)."* fn 91: *"added by the author when she enlarged her original
+   scheme."* fn 107: *"an afterthought **but to have been written by the same
+   hand as the rest of the poem**."* Every one is Butler arguing his
+   *Authoress of the Odyssey* thesis — a claim about **when** the words were
+   written, by the translator, to his reader. fn 122 is not even his bracket:
+   *"some one has enclosed in brackets the two lines in which the second cave
+   is mentioned, I presume because he found himself puzzled"* — and Butler
+   argues they are mistaken.
+3. **The mark cannot carry the meaning in this edition anyway.** There is no
+   apparatus and no footnote layer. Butler's argument lives in notes we will
+   never print, so a bare bracket transmits "something is set off here" and
+   nothing more. The choice was never between preserving his doubt and losing
+   it; it is between an uninterpretable mark and clean text with the decision
+   recorded. His bracket also stays visible in the `original-en` column beside
+   the modern one — the same answer the package gave for `Ilius` and for
+   `Mycene` the woman.
+4. **Four of the six brackets are never closed, so "keep the mark verbatim" is
+   not an honest option** (records finding **R4**). PG's translation body
+   (lines 375–10842) holds **fifteen opening brackets and eleven closing
+   ones**, and the served `original-en` reproduces the same imbalance exactly,
+   15 and 11 — **verified independently 2026-09-12**. All nine class-A and
+   class-B brackets close within their line. The four that do not are all
+   class C: **PG 1552, 4260, 5691, 6016**. Keeping the mark there means either
+   printing an opening bracket that never closes — which the reader would meet
+   on the **first paragraph of Book 4**, indistinguishable from a typo — or
+   supplying the close yourself, which is the drafter deciding the passage's
+   extent. That the transcription closes every A and B bracket and drops four
+   of six C closes is itself evidence about what these marks are: apparatus,
+   handled loosely, not text.
 
-The last three are classed here on shape alone — a whole passage or sentence
-bracketed, of the same kind as the three Butler explains, and two of them
-(PG 4260, PG 4884) are the *same* bracketed prophecy in two places, which is
-itself Butler's point in footnote 91. **A drafter meeting one of them still
-stops**: a class-C bracket without a note is not thereby a class-B bracket.
+#### The obligations that keep class C a class
 
-**Until that decision is made, no Book containing a class-C bracket is
-drafted.** Books 1, 2 and 3 contain none, so Book 3 is unaffected.
+1. **Record every instance** in the Book's `continuity.md` by PG line, with
+   Butler's note quoted in full where he has one, and with **who bracketed
+   it** where the note says (PG 6016 is not his).
+2. **Restraint inside the passage.** A class-C passage is never abridged,
+   summarized, merged with a neighbouring sentence, reordered or tidied, and
+   no sentence is recast across the point where the bracket opened or closed.
+   The risk is concrete: **PG 4260 and PG 4884 are the same prophecy printed
+   twice**, which is Butler's whole point in fn 91, and a drafter who notices
+   the repetition will be tempted to compress one. Both stand, in full.
+3. **Where the bracket is unclosed, record that and do not determine the
+   extent.** Nothing in the rendering depends on knowing where it ends,
+   because the disposition is identical on both sides of the boundary — which
+   is precisely why this ruling is safe despite the four missing closes, and
+   why the alternative is not.
+4. **Class assignment now changes no word**, so a B-versus-C borderline costs
+   a line in the record, not a corruption of the text. PG 5410's `[A large fig
+   tree in full leaf grows upon it]` therefore **stops blocking Book 12**:
+   record it as C, with fn 101 (*"I suppose this line to have been
+   intercalated by the author"* — the same authorship-history claim as fns 36,
+   82, 91 and 107), render it under this rule, and move on.
+5. **If the product ever gains a note layer, class C becomes a note** —
+   *"Butler marks these lines as probably added later by the poem's own
+   author"* — and that is the doubt's right home. An app-side item, beside
+   `PUNCTUATION.md` §2's; not acted on here.
+
+#### The six instances, corrected
+
+| PG line | Book | closed? | what is bracketed | Butler's note **about the bracket** |
+|---|---|---|---|---|
+| **1552** | **IV** | **never closed** | Menelaus's double wedding feast, a long passage, opening `[and found him in his own house, feasting with his many clansmen…` | **fn 36** — *"The lines which I have enclosed in brackets are evidently an afterthought—added probably by the writer herself—for they evince the same instinctively greater interest in anything that may concern a woman, which is so noticeable throughout the poem."* |
+| 2067 | IV | closed at 2070 | `[and guests kept coming to the king's house…courts]` | **fn 49** — *"the writer has been unable to keep the women out of an interpolation consisting only of four lines."* |
+| 4260 | IX | **never closed** | the end of Polyphemus's curse, `[let him reach his home in another man's ship and find trouble in his house.'` | **fn 82** — *"I am inclined to think it is interpolated (probably by the poetess herself)… See 'The Authoress of the Odyssey' pp. 254-255."* |
+| 4884 | XI | closed at 4902 | Teiresias's prophecy of the homecoming — **the same prophecy as PG 4260** | **fn 91** — *"added by the author when she enlarged her original scheme by the addition of books i.-iv. and xiii. (from line 187)-xxiv."* |
+| 5691 | XII | **never closed** | `[The gale from the West had now spent its force…` | **fn 107** — *"an afterthought but to have been written by the same hand as the rest of the poem."* |
+| 6016 | XIII | **never closed** | `[near it is the cave sacred to the Naiads;…` | **fn 122 — the brackets are NOT Butler's**: *"some one has enclosed in brackets the two lines in which the second cave is mentioned, I presume because he found himself puzzled…"* and he argues against them. |
+
+**Four corrections to the previous text of this section and of ledger D12**
+(records finding **R3**), each verified against PG #1727 directly:
+
+1. The class is **not** "recorded doubt that the passage belongs". fn 81 says
+   bracketed lines are "almost always genuine"; fns 36, 82, 91 and 107 claim
+   the opposite of spuriousness — same author, later stage.
+2. **Five of the six are footnoted about the bracket**, not three: fn 49 and
+   fn 82 are both about their own brackets.
+3. **PG 6016's brackets are not Butler's** (fn 122).
+4. The first class-C bracket opens at **PG 1552**, not PG 1551.
+
+#### What Book 4's drafter does
+
+Book 4 ¶1 carries the poem's first class-C bracket, in its first sentence:
+drop the opening mark, render `and found him in his own house, feasting with
+his many clansmen…` as ordinary text, **do not recast the sentence across the
+point where the bracket opened**, and record the instance in
+`book04/continuity.md` with fn 36 quoted and with the note that the bracket is
+never closed in the base text. Book 4 ¶52 carries the second (PG 2067, closed
+at 2070, fn 49), recorded the same way.
 
 ### The one line to remember
 
