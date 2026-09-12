@@ -2,51 +2,51 @@
   "fling-from-top": {
     "scenes": {
       "feed": {
-        "dwellMs": 2797,
-        "peakRate": 1.25,
-        "maxLag": 0.576,
+        "dwellMs": 2784,
+        "peakRate": 1.36,
+        "maxLag": 0.6,
         "pMin": 0.05,
-        "pMax": 0.42
+        "pMax": 0.4
       },
       "ai": {
-        "dwellMs": 1402,
-        "peakRate": 0.55,
-        "maxLag": 0.391,
+        "dwellMs": 1407,
+        "peakRate": 0.6,
+        "maxLag": 0.385,
         "pMin": 0,
         "pMax": 0.47
       }
     },
     "questions": {},
-    "peakScrollPxPerSec": 13137,
-    "scrolledPx": 3528,
+    "peakScrollPxPerSec": 14479,
+    "scrolledPx": 3526,
     "startY": 0
   },
   "fling-into-linkedin": {
     "scenes": {
       "ai": {
-        "dwellMs": 2987,
-        "peakRate": 0.5,
-        "maxLag": 0.464,
+        "dwellMs": 2990,
+        "peakRate": 2.22,
+        "maxLag": 0.458,
         "pMin": 0.02,
-        "pMax": 0.54
+        "pMax": 0.58
       },
       "infinite": {
-        "dwellMs": 1241,
-        "peakRate": 0.66,
-        "maxLag": 0.094,
+        "dwellMs": 1234,
+        "peakRate": 0.68,
+        "maxLag": 0.089,
         "pMin": 0,
         "pMax": 0.13
       }
     },
     "questions": {},
-    "peakScrollPxPerSec": 7083,
-    "scrolledPx": 3560,
+    "peakScrollPxPerSec": 9848,
+    "scrolledPx": 3561,
     "startY": 1895
   },
   "fling-into-questions": {
     "scenes": {
       "reading-cases": {
-        "dwellMs": 4183,
+        "dwellMs": 4196,
         "peakRate": 0,
         "maxLag": 0,
         "pMin": 0,
@@ -55,7 +55,7 @@
     },
     "questions": {
       "What happened before this?": {
-        "legibleMs": 900,
+        "legibleMs": 899,
         "peakOpacity": 1
       },
       "Who is this again?": {
@@ -67,7 +67,7 @@
         "peakOpacity": 1
       }
     },
-    "peakScrollPxPerSec": 7771,
+    "peakScrollPxPerSec": 8026,
     "scrolledPx": 3525,
     "startY": 14334
   },
@@ -82,18 +82,18 @@
       }
     },
     "questions": {},
-    "peakScrollPxPerSec": 39206,
+    "peakScrollPxPerSec": 19760,
     "scrolledPx": 3525,
     "startY": 18764
   },
   "touch-fling-into-linkedin": {
     "scenes": {
       "ai": {
-        "dwellMs": 2534,
-        "peakRate": 0.85,
-        "maxLag": 0.665,
+        "dwellMs": 2502,
+        "peakRate": 0.57,
+        "maxLag": 0.171,
         "pMin": 0.02,
-        "pMax": 0.69
+        "pMax": 0.19
       }
     },
     "questions": {},
@@ -104,7 +104,7 @@
   "touch-fling-into-questions": {
     "scenes": {
       "reading-cases": {
-        "dwellMs": 2405,
+        "dwellMs": 2422,
         "peakRate": 0,
         "maxLag": 0,
         "pMin": 0,
@@ -132,22 +132,22 @@
   "read-scroll-linkedin": {
     "scenes": {
       "ai": {
-        "dwellMs": 5455,
-        "peakRate": 0.44,
-        "maxLag": 0.66,
-        "pMin": 0.03,
-        "pMax": 0.68
+        "dwellMs": 4849,
+        "peakRate": 3.99,
+        "maxLag": 0.507,
+        "pMin": 0.02,
+        "pMax": 0.67
       }
     },
     "questions": {},
-    "peakScrollPxPerSec": 6287,
+    "peakScrollPxPerSec": 6125,
     "scrolledPx": 2417,
     "startY": 1895
   },
   "read-scroll-questions": {
     "scenes": {
       "reading-cases": {
-        "dwellMs": 4101,
+        "dwellMs": 4096,
         "peakRate": 0,
         "maxLag": 0,
         "pMin": 0,
@@ -165,19 +165,19 @@
       },
       "I have no idea what this means.": {
         "legibleMs": 0,
-        "peakOpacity": 0.49
+        "peakOpacity": 0.47
       }
     },
-    "peakScrollPxPerSec": 5636,
-    "scrolledPx": 2607,
+    "peakScrollPxPerSec": 5569,
+    "scrolledPx": 2603,
     "startY": 14334
   },
   "reachesEnd": {
-    "y": 37976,
-    "max": 37976
+    "y": 37871,
+    "max": 37871
   },
-  "keyboardPageDown": 10818,
-  "keyboardEnd": 37976,
+  "keyboardPageDown": 10790,
+  "keyboardEnd": 37871,
   "noHijack": {
     "wheelDefaultPrevented": false,
     "touchmoveDefaultPrevented": false

@@ -2,52 +2,52 @@
   "fling-from-top": {
     "scenes": {
       "feed": {
-        "dwellMs": 413,
-        "peakRate": 4.65,
-        "maxLag": 0.042,
+        "dwellMs": 426,
+        "peakRate": 4.35,
+        "maxLag": 0.025,
         "pMin": 0.05,
-        "pMax": 0.98
+        "pMax": 1
       },
       "ai": {
-        "dwellMs": 3820,
-        "peakRate": 1.09,
+        "dwellMs": 3808,
+        "peakRate": 1.78,
         "maxLag": 0,
-        "pMin": 0,
-        "pMax": 0.5
+        "pMin": 0.01,
+        "pMax": 0.49
       }
     },
     "questions": {},
-    "peakScrollPxPerSec": 9514,
-    "scrolledPx": 3550,
+    "peakScrollPxPerSec": 8895,
+    "scrolledPx": 3545,
     "startY": 0
   },
   "fling-into-linkedin": {
     "scenes": {
       "feed": {
-        "dwellMs": 17,
+        "dwellMs": 34,
         "peakRate": 0,
-        "maxLag": 0.02,
+        "maxLag": 0.023,
         "pMin": 0.98,
         "pMax": 0.98
       },
       "ai": {
-        "dwellMs": 1243,
-        "peakRate": 3.61,
+        "dwellMs": 1290,
+        "peakRate": 2.62,
         "maxLag": 0,
-        "pMin": 0.03,
-        "pMax": 0.99
+        "pMin": 0.05,
+        "pMax": 1
       },
       "infinite": {
-        "dwellMs": 3473,
-        "peakRate": 0.16,
+        "dwellMs": 3010,
+        "peakRate": 0.26,
         "maxLag": 0,
-        "pMin": 0,
-        "pMax": 0.11
+        "pMin": 0.01,
+        "pMax": 0.1
       }
     },
     "questions": {},
-    "peakScrollPxPerSec": 11676,
-    "scrolledPx": 3601,
+    "peakScrollPxPerSec": 8492,
+    "scrolledPx": 3575,
     "startY": 1895
   },
   "fling-into-questions": {
@@ -55,7 +55,7 @@
       "effortless": {
         "dwellMs": 17,
         "peakRate": 0,
-        "maxLag": 0.004,
+        "maxLag": 0.042,
         "pMin": 0.94,
         "pMax": 0.94
       },
@@ -69,19 +69,19 @@
     },
     "questions": {
       "What happened before this?": {
-        "legibleMs": 150,
+        "legibleMs": 133,
         "peakOpacity": 1
       },
       "Who is this again?": {
-        "legibleMs": 234,
+        "legibleMs": 251,
         "peakOpacity": 1
       },
       "I have no idea what this means.": {
-        "legibleMs": 3466,
+        "legibleMs": 3465,
         "peakOpacity": 1
       }
     },
-    "peakScrollPxPerSec": 10792,
+    "peakScrollPxPerSec": 7714,
     "scrolledPx": 3525,
     "startY": 14334
   },
@@ -105,12 +105,12 @@
         "peakOpacity": 0
       },
       "I have no idea what this means.": {
-        "legibleMs": 17,
+        "legibleMs": 16,
         "peakOpacity": 1
       }
     },
-    "peakScrollPxPerSec": 15909,
-    "scrolledPx": 3525,
+    "peakScrollPxPerSec": 14316,
+    "scrolledPx": 3527,
     "startY": 18764
   },
   "touch-fling-into-linkedin": {
@@ -146,36 +146,36 @@
   "read-scroll-linkedin": {
     "scenes": {
       "feed": {
-        "dwellMs": 73,
-        "peakRate": 0.36,
+        "dwellMs": 69,
+        "peakRate": 0.41,
         "maxLag": 0.005,
         "pMin": 0.98,
         "pMax": 1
       },
       "ai": {
-        "dwellMs": 4110,
+        "dwellMs": 4181,
         "peakRate": 0.56,
         "maxLag": 0,
         "pMin": 0,
-        "pMax": 0.8
+        "pMax": 0.79
       }
     },
     "questions": {},
     "peakScrollPxPerSec": 1807,
-    "scrolledPx": 2630,
+    "scrolledPx": 2606,
     "startY": 1895
   },
   "read-scroll-questions": {
     "scenes": {
       "effortless": {
-        "dwellMs": 99,
-        "peakRate": 0.92,
-        "maxLag": 0.017,
+        "dwellMs": 104,
+        "peakRate": 0.79,
+        "maxLag": 0.014,
         "pMin": 0.94,
         "pMax": 0.99
       },
       "reading-cases": {
-        "dwellMs": 4035,
+        "dwellMs": 4029,
         "peakRate": 0,
         "maxLag": 0,
         "pMin": 0,
@@ -188,24 +188,24 @@
         "peakOpacity": 1
       },
       "Who is this again?": {
-        "legibleMs": 867,
+        "legibleMs": 868,
         "peakOpacity": 1
       },
       "I have no idea what this means.": {
         "legibleMs": 0,
-        "peakOpacity": 0.15
+        "peakOpacity": 0.14
       }
     },
-    "peakScrollPxPerSec": 5443,
-    "scrolledPx": 2606,
+    "peakScrollPxPerSec": 5000,
+    "scrolledPx": 2605,
     "startY": 14334
   },
   "reachesEnd": {
-    "y": 37976,
-    "max": 37976
+    "y": 37871,
+    "max": 37871
   },
   "keyboardPageDown": 717,
-  "keyboardEnd": 37976,
+  "keyboardEnd": 37871,
   "noHijack": {
     "wheelDefaultPrevented": false,
     "touchmoveDefaultPrevented": false
