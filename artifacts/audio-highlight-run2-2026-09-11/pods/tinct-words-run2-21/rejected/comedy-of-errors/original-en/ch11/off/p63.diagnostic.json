@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "b30eb8c61606417a52937b5e4fed34aa15c77d05748f60f090b8bb3dbeee439f",
+  "attempts": [
+    {
+      "asr_seconds": 0.08674678672105074,
+      "alignment_seconds": 0.00013634609058499336,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " cry within",
+          "start": 0.08,
+          "end": 0.92,
+          "words": [
+            {
+              "text": " cry",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.248291015625
+            },
+            {
+              "text": " within",
+              "start": 0.6,
+              "end": 0.92,
+              "probability": 0.96630859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "cry",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "within",
+          "start": 0.6,
+          "end": 0.92
+        }
+      ],
+      "expected_tokens": [
+        "[_Cry",
+        "within._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "cry",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "cry",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 0.6,
+          "end": 0.92,
+          "key": "within",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Cry",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "within._]",
+          "start": 0.6,
+          "end": 0.92
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08692516665905714
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9f4c8866c89f88359528674f097602103d49b0de60f3568f3354ee85a2b097e4",
+  "selected_reasons": []
+}

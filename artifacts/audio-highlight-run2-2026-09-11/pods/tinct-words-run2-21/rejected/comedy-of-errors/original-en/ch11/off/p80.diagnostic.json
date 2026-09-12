@@ -1,0 +1,703 @@
+{
+  "complete": true,
+  "signature": "d305b8c4783fc7547feebdb5f90cd26367ee391f9ffaf06b85ed864a1043179f",
+  "attempts": [
+    {
+      "asr_seconds": 0.24395618308335543,
+      "alignment_seconds": 0.00036478228867053986,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And Jilo, he had, my lord, and when he ran in here these people saw the chain about his neck.",
+          "start": 0.18,
+          "end": 5.7,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.18,
+              "end": 0.58,
+              "probability": 0.50634765625
+            },
+            {
+              "text": " Jilo,",
+              "start": 0.58,
+              "end": 0.9,
+              "probability": 0.426513671875
+            },
+            {
+              "text": " he",
+              "start": 1.32,
+              "end": 1.58,
+              "probability": 0.978515625
+            },
+            {
+              "text": " had,",
+              "start": 1.58,
+              "end": 1.86,
+              "probability": 0.99609375
+            },
+            {
+              "text": " my",
+              "start": 2.0,
+              "end": 2.14,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " lord,",
+              "start": 2.14,
+              "end": 2.38,
+              "probability": 0.76171875
+            },
+            {
+              "text": " and",
+              "start": 2.88,
+              "end": 3.0,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " when",
+              "start": 3.0,
+              "end": 3.1,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " he",
+              "start": 3.1,
+              "end": 3.22,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " ran",
+              "start": 3.22,
+              "end": 3.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 3.44,
+              "end": 3.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " here",
+              "start": 3.64,
+              "end": 3.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " these",
+              "start": 3.82,
+              "end": 4.04,
+              "probability": 0.63623046875
+            },
+            {
+              "text": " people",
+              "start": 4.04,
+              "end": 4.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " saw",
+              "start": 4.4,
+              "end": 4.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 4.64,
+              "end": 4.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " chain",
+              "start": 4.8,
+              "end": 5.02,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " about",
+              "start": 5.02,
+              "end": 5.24,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " his",
+              "start": 5.24,
+              "end": 5.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " neck.",
+              "start": 5.4,
+              "end": 5.7,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.18,
+          "end": 0.58
+        },
+        {
+          "raw": "Jilo,",
+          "start": 0.58,
+          "end": 0.9
+        },
+        {
+          "raw": "he",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "raw": "had,",
+          "start": 1.58,
+          "end": 1.86
+        },
+        {
+          "raw": "my",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "raw": "lord,",
+          "start": 2.14,
+          "end": 2.38
+        },
+        {
+          "raw": "and",
+          "start": 2.88,
+          "end": 3.0
+        },
+        {
+          "raw": "when",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "raw": "he",
+          "start": 3.1,
+          "end": 3.22
+        },
+        {
+          "raw": "ran",
+          "start": 3.22,
+          "end": 3.44
+        },
+        {
+          "raw": "in",
+          "start": 3.44,
+          "end": 3.64
+        },
+        {
+          "raw": "here",
+          "start": 3.64,
+          "end": 3.82
+        },
+        {
+          "raw": "these",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "raw": "people",
+          "start": 4.04,
+          "end": 4.4
+        },
+        {
+          "raw": "saw",
+          "start": 4.4,
+          "end": 4.64
+        },
+        {
+          "raw": "the",
+          "start": 4.64,
+          "end": 4.8
+        },
+        {
+          "raw": "chain",
+          "start": 4.8,
+          "end": 5.02
+        },
+        {
+          "raw": "about",
+          "start": 5.02,
+          "end": 5.24
+        },
+        {
+          "raw": "his",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "raw": "neck.",
+          "start": 5.4,
+          "end": 5.7
+        }
+      ],
+      "expected_tokens": [
+        "Angelo.",
+        "He",
+        "had,",
+        "my",
+        "lord,",
+        "and",
+        "when",
+        "he",
+        "ran",
+        "in",
+        "here",
+        "These",
+        "people",
+        "saw",
+        "the",
+        "chain",
+        "about",
+        "his",
+        "neck."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          19,
+          2,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.18,
+          "end": 0.58,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Jilo,",
+          "start": 0.58,
+          "end": 0.9,
+          "key": "jilo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.32,
+          "end": 1.58,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "had,",
+          "start": 1.58,
+          "end": 1.86,
+          "key": "had",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.0,
+          "end": 2.14,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 2.14,
+          "end": 2.38,
+          "key": "lord",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.88,
+          "end": 3.0,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 3.0,
+          "end": 3.1,
+          "key": "when",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.1,
+          "end": 3.22,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ran",
+          "start": 3.22,
+          "end": 3.44,
+          "key": "ran",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.44,
+          "end": 3.64,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 3.64,
+          "end": 3.82,
+          "key": "here",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 3.82,
+          "end": 4.04,
+          "key": "these",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "people",
+          "start": 4.04,
+          "end": 4.4,
+          "key": "people",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "saw",
+          "start": 4.4,
+          "end": 4.64,
+          "key": "saw",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.64,
+          "end": 4.8,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "chain",
+          "start": 4.8,
+          "end": 5.02,
+          "key": "chain",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 5.02,
+          "end": 5.24,
+          "key": "about",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.24,
+          "end": 5.4,
+          "key": "his",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "neck.",
+          "start": 5.4,
+          "end": 5.7,
+          "key": "neck",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Angelo.",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "text": "He",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "text": "had,",
+          "start": 1.58,
+          "end": 1.86
+        },
+        {
+          "text": "my",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "text": "lord,",
+          "start": 2.14,
+          "end": 2.38
+        },
+        {
+          "text": "and",
+          "start": 2.88,
+          "end": 3.0
+        },
+        {
+          "text": "when",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "text": "he",
+          "start": 3.1,
+          "end": 3.22
+        },
+        {
+          "text": "ran",
+          "start": 3.22,
+          "end": 3.44
+        },
+        {
+          "text": "in",
+          "start": 3.44,
+          "end": 3.64
+        },
+        {
+          "text": "here",
+          "start": 3.64,
+          "end": 3.82
+        },
+        {
+          "text": "These",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "text": "people",
+          "start": 4.04,
+          "end": 4.4
+        },
+        {
+          "text": "saw",
+          "start": 4.4,
+          "end": 4.64
+        },
+        {
+          "text": "the",
+          "start": 4.64,
+          "end": 4.8
+        },
+        {
+          "text": "chain",
+          "start": 4.8,
+          "end": 5.02
+        },
+        {
+          "text": "about",
+          "start": 5.02,
+          "end": 5.24
+        },
+        {
+          "text": "his",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "text": "neck.",
+          "start": 5.4,
+          "end": 5.7
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 20,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.2444637711159885
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1e202d597b1cba62365659bfe77375a860bce183a81a0a29e922c55d25efef11",
+  "selected_reasons": []
+}

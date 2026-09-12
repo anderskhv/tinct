@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "99cc52635c2725d1e7d3ff50b5c89f67547f540bee38f1e95b5b834cfed494a5",
+  "attempts": [
+    {
+      "asr_seconds": 0.16526089701801538,
+      "alignment_seconds": 0.0001371367834508419,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Egeon. Why look you strange on me? you know me well.",
+        "hotwords": "Egeon, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Egeon, Why look you strange on me? you know me well.",
+          "start": 0.11,
+          "end": 2.91,
+          "words": [
+            {
+              "text": " Egeon,",
+              "start": 0.11,
+              "end": 0.69,
+              "probability": 0.13786697387695312
+            },
+            {
+              "text": " Why",
+              "start": 0.87,
+              "end": 1.03,
+              "probability": 0.0119171142578125
+            },
+            {
+              "text": " look",
+              "start": 1.03,
+              "end": 1.19,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " you",
+              "start": 1.19,
+              "end": 1.31,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " strange",
+              "start": 1.31,
+              "end": 1.55,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " on",
+              "start": 1.55,
+              "end": 1.75,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " me?",
+              "start": 1.75,
+              "end": 1.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 2.33,
+              "end": 2.43,
+              "probability": 0.034454345703125
+            },
+            {
+              "text": " know",
+              "start": 2.43,
+              "end": 2.53,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " me",
+              "start": 2.53,
+              "end": 2.67,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " well.",
+              "start": 2.67,
+              "end": 2.91,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Egeon,",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "raw": "Why",
+          "start": 0.87,
+          "end": 1.03
+        },
+        {
+          "raw": "look",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "raw": "you",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "raw": "strange",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "raw": "on",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "raw": "me?",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "raw": "you",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "raw": "know",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "raw": "me",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "raw": "well.",
+          "start": 2.67,
+          "end": 2.91
+        }
+      ],
+      "expected_tokens": [
+        "Egeon.",
+        "Why",
+        "look",
+        "you",
+        "strange",
+        "on",
+        "me?",
+        "you",
+        "know",
+        "me",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Egeon,",
+          "start": 0.11,
+          "end": 0.69,
+          "key": "egeon",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 0.87,
+          "end": 1.03,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 1.03,
+          "end": 1.19,
+          "key": "look",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.19,
+          "end": 1.31,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 1.31,
+          "end": 1.55,
+          "key": "strange",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.55,
+          "end": 1.75,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 1.75,
+          "end": 1.95,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.33,
+          "end": 2.43,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 2.43,
+          "end": 2.53,
+          "key": "know",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.53,
+          "end": 2.67,
+          "key": "me",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 2.67,
+          "end": 2.91,
+          "key": "well",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Egeon.",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "text": "Why",
+          "start": 0.87,
+          "end": 1.03
+        },
+        {
+          "text": "look",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "text": "you",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "text": "strange",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "text": "on",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "text": "me?",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "text": "you",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "text": "know",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "text": "me",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "text": "well.",
+          "start": 2.67,
+          "end": 2.91
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1654466181062162
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5515aadd372ee241379f7d49bca0ae75d8964c1e91b3b8a82ff95e699905d6c8",
+  "selected_reasons": []
+}

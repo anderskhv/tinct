@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "f55b9536ca693b7d1249a3ca18aecbbd64feeb6c6d40b6c1fccd301956991890",
+  "attempts": [
+    {
+      "asr_seconds": 0.20719543425366282,
+      "alignment_seconds": 0.00023276172578334808,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Abbess. Be quiet, people. Wherefore throng you hither?",
+        "hotwords": "Abbess, Be, Wherefore"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Abbess, Be quiet, people. Wherefore throng you hither?",
+          "start": 0.14,
+          "end": 3.2,
+          "words": [
+            {
+              "text": " Abbess,",
+              "start": 0.14,
+              "end": 0.82,
+              "probability": 0.6310221354166666
+            },
+            {
+              "text": " Be",
+              "start": 0.9,
+              "end": 1.0,
+              "probability": 0.00460052490234375
+            },
+            {
+              "text": " quiet,",
+              "start": 1.0,
+              "end": 1.28,
+              "probability": 0.56396484375
+            },
+            {
+              "text": " people.",
+              "start": 1.46,
+              "end": 1.68,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " Wherefore",
+              "start": 2.14,
+              "end": 2.48,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " throng",
+              "start": 2.48,
+              "end": 2.82,
+              "probability": 0.6578369140625
+            },
+            {
+              "text": " you",
+              "start": 2.82,
+              "end": 3.0,
+              "probability": 0.8671875
+            },
+            {
+              "text": " hither?",
+              "start": 3.0,
+              "end": 3.2,
+              "probability": 0.89453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Abbess,",
+          "start": 0.14,
+          "end": 0.82
+        },
+        {
+          "raw": "Be",
+          "start": 0.9,
+          "end": 1.0
+        },
+        {
+          "raw": "quiet,",
+          "start": 1.0,
+          "end": 1.28
+        },
+        {
+          "raw": "people.",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "raw": "Wherefore",
+          "start": 2.14,
+          "end": 2.48
+        },
+        {
+          "raw": "throng",
+          "start": 2.48,
+          "end": 2.82
+        },
+        {
+          "raw": "you",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "raw": "hither?",
+          "start": 3.0,
+          "end": 3.2
+        }
+      ],
+      "expected_tokens": [
+        "Abbess.",
+        "Be",
+        "quiet,",
+        "people.",
+        "Wherefore",
+        "throng",
+        "you",
+        "hither?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Abbess,",
+          "start": 0.14,
+          "end": 0.82,
+          "key": "abbess",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 0.9,
+          "end": 1.0,
+          "key": "be",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "quiet,",
+          "start": 1.0,
+          "end": 1.28,
+          "key": "quiet",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "people.",
+          "start": 1.46,
+          "end": 1.68,
+          "key": "people",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Wherefore",
+          "start": 2.14,
+          "end": 2.48,
+          "key": "wherefore",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "throng",
+          "start": 2.48,
+          "end": 2.82,
+          "key": "throng",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.82,
+          "end": 3.0,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hither?",
+          "start": 3.0,
+          "end": 3.2,
+          "key": "hither",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Abbess.",
+          "start": 0.14,
+          "end": 0.82
+        },
+        {
+          "text": "Be",
+          "start": 0.9,
+          "end": 1.0
+        },
+        {
+          "text": "quiet,",
+          "start": 1.0,
+          "end": 1.28
+        },
+        {
+          "text": "people.",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "text": "Wherefore",
+          "start": 2.14,
+          "end": 2.48
+        },
+        {
+          "text": "throng",
+          "start": 2.48,
+          "end": 2.82
+        },
+        {
+          "text": "you",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "text": "hither?",
+          "start": 3.0,
+          "end": 3.2
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20751054119318724
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3126bfb1c93613ebdf45231bcc49a0f528cb7d70c80d1c65421f4576b536832e",
+  "selected_reasons": []
+}

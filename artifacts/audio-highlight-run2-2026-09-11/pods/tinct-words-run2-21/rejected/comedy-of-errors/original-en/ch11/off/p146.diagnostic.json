@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "e813c6074de8ab874d399452c5f3ad040cf05fdec904ec9d560bdd2c4b6c1351",
+  "attempts": [
+    {
+      "asr_seconds": 0.18278641439974308,
+      "alignment_seconds": 0.00011865003034472466,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Duke with all my heart. I'll gossip at this feast",
+          "start": 0.08,
+          "end": 2.92,
+          "words": [
+            {
+              "text": " Duke",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.615234375
+            },
+            {
+              "text": " with",
+              "start": 0.68,
+              "end": 1.22,
+              "probability": 0.2138671875
+            },
+            {
+              "text": " all",
+              "start": 1.22,
+              "end": 1.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 1.38,
+              "end": 1.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " heart.",
+              "start": 1.54,
+              "end": 1.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I'll",
+              "start": 1.78,
+              "end": 1.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gossip",
+              "start": 1.96,
+              "end": 2.22,
+              "probability": 0.99609375
+            },
+            {
+              "text": " at",
+              "start": 2.22,
+              "end": 2.4,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " this",
+              "start": 2.4,
+              "end": 2.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " feast",
+              "start": 2.56,
+              "end": 2.92,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "with",
+          "start": 0.68,
+          "end": 1.22
+        },
+        {
+          "raw": "all",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "raw": "my",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "raw": "heart.",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "raw": "I'll",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "raw": "gossip",
+          "start": 1.96,
+          "end": 2.22
+        },
+        {
+          "raw": "at",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "raw": "this",
+          "start": 2.4,
+          "end": 2.56
+        },
+        {
+          "raw": "feast",
+          "start": 2.56,
+          "end": 2.92
+        }
+      ],
+      "expected_tokens": [
+        "Duke.",
+        "With",
+        "all",
+        "my",
+        "heart,",
+        "I'll",
+        "gossip",
+        "at",
+        "this",
+        "feast."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.68,
+          "end": 1.22,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.22,
+          "end": 1.38,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.38,
+          "end": 1.54,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "heart.",
+          "start": 1.54,
+          "end": 1.76,
+          "key": "heart",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.78,
+          "end": 1.96,
+          "key": "ill",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gossip",
+          "start": 1.96,
+          "end": 2.22,
+          "key": "gossip",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.22,
+          "end": 2.4,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.4,
+          "end": 2.56,
+          "key": "this",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "feast",
+          "start": 2.56,
+          "end": 2.92,
+          "key": "feast",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duke.",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "With",
+          "start": 0.68,
+          "end": 1.22
+        },
+        {
+          "text": "all",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "text": "my",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "text": "heart,",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "text": "I'll",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "text": "gossip",
+          "start": 1.96,
+          "end": 2.22
+        },
+        {
+          "text": "at",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "text": "this",
+          "start": 2.4,
+          "end": 2.56
+        },
+        {
+          "text": "feast.",
+          "start": 2.56,
+          "end": 2.92
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18294665636494756
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5970b487026f2d6a843920855cb80c99b650c21a7762da2043527c97c18a6bbf",
+  "selected_reasons": []
+}

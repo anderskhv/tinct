@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "fd713f7a1e8180c7fcf6f13d8c192f397af54a6e3d0533358deb695384adfcb9",
+  "attempts": [
+    {
+      "asr_seconds": 0.26437085028737783,
+      "alignment_seconds": 0.000179921742528677,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dromio of Syracuse. We'll draw cuts for the senior. Till then, lead thou first.",
+          "start": 0.05,
+          "end": 5.15,
+          "words": [
+            {
+              "text": " Dromio",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.7188313802083334
+            },
+            {
+              "text": " of",
+              "start": 0.89,
+              "end": 1.07,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " Syracuse.",
+              "start": 1.07,
+              "end": 1.55,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " We'll",
+              "start": 1.99,
+              "end": 2.21,
+              "probability": 0.78564453125
+            },
+            {
+              "text": " draw",
+              "start": 2.21,
+              "end": 2.41,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " cuts",
+              "start": 2.41,
+              "end": 2.67,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " for",
+              "start": 2.67,
+              "end": 2.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.89,
+              "end": 3.03,
+              "probability": 0.994140625
+            },
+            {
+              "text": " senior.",
+              "start": 3.03,
+              "end": 3.33,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " Till",
+              "start": 3.95,
+              "end": 4.03,
+              "probability": 0.73876953125
+            },
+            {
+              "text": " then,",
+              "start": 4.03,
+              "end": 4.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " lead",
+              "start": 4.57,
+              "end": 4.65,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " thou",
+              "start": 4.65,
+              "end": 4.83,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " first.",
+              "start": 4.83,
+              "end": 5.15,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dromio",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "of",
+          "start": 0.89,
+          "end": 1.07
+        },
+        {
+          "raw": "Syracuse.",
+          "start": 1.07,
+          "end": 1.55
+        },
+        {
+          "raw": "We'll",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "raw": "draw",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "raw": "cuts",
+          "start": 2.41,
+          "end": 2.67
+        },
+        {
+          "raw": "for",
+          "start": 2.67,
+          "end": 2.89
+        },
+        {
+          "raw": "the",
+          "start": 2.89,
+          "end": 3.03
+        },
+        {
+          "raw": "senior.",
+          "start": 3.03,
+          "end": 3.33
+        },
+        {
+          "raw": "Till",
+          "start": 3.95,
+          "end": 4.03
+        },
+        {
+          "raw": "then,",
+          "start": 4.03,
+          "end": 4.33
+        },
+        {
+          "raw": "lead",
+          "start": 4.57,
+          "end": 4.65
+        },
+        {
+          "raw": "thou",
+          "start": 4.65,
+          "end": 4.83
+        },
+        {
+          "raw": "first.",
+          "start": 4.83,
+          "end": 5.15
+        }
+      ],
+      "expected_tokens": [
+        "Dromio",
+        "Of",
+        "Syracuse.",
+        "We'll",
+        "draw",
+        "cuts",
+        "for",
+        "the",
+        "senior.",
+        "Till",
+        "then,",
+        "lead",
+        "thou",
+        "first."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dromio",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "dromio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.89,
+          "end": 1.07,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Syracuse.",
+          "start": 1.07,
+          "end": 1.55,
+          "key": "syracuse",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "We'll",
+          "start": 1.99,
+          "end": 2.21,
+          "key": "well",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "draw",
+          "start": 2.21,
+          "end": 2.41,
+          "key": "draw",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cuts",
+          "start": 2.41,
+          "end": 2.67,
+          "key": "cuts",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.67,
+          "end": 2.89,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.89,
+          "end": 3.03,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "senior.",
+          "start": 3.03,
+          "end": 3.33,
+          "key": "senior",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Till",
+          "start": 3.95,
+          "end": 4.03,
+          "key": "till",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "then,",
+          "start": 4.03,
+          "end": 4.33,
+          "key": "then",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "lead",
+          "start": 4.57,
+          "end": 4.65,
+          "key": "lead",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 4.65,
+          "end": 4.83,
+          "key": "thou",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "first.",
+          "start": 4.83,
+          "end": 5.15,
+          "key": "first",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dromio",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Of",
+          "start": 0.89,
+          "end": 1.07
+        },
+        {
+          "text": "Syracuse.",
+          "start": 1.07,
+          "end": 1.55
+        },
+        {
+          "text": "We'll",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "text": "draw",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "text": "cuts",
+          "start": 2.41,
+          "end": 2.67
+        },
+        {
+          "text": "for",
+          "start": 2.67,
+          "end": 2.89
+        },
+        {
+          "text": "the",
+          "start": 2.89,
+          "end": 3.03
+        },
+        {
+          "text": "senior.",
+          "start": 3.03,
+          "end": 3.33
+        },
+        {
+          "text": "Till",
+          "start": 3.95,
+          "end": 4.03
+        },
+        {
+          "text": "then,",
+          "start": 4.03,
+          "end": 4.33
+        },
+        {
+          "text": "lead",
+          "start": 4.57,
+          "end": 4.65
+        },
+        {
+          "text": "thou",
+          "start": 4.65,
+          "end": 4.83
+        },
+        {
+          "text": "first.",
+          "start": 4.83,
+          "end": 5.15
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2646061861887574
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cee5bbce4a22456d88d5f6facddee5f5fd9fb6fe06232e3d58a05433878f0f93",
+  "selected_reasons": []
+}

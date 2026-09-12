@@ -1,0 +1,214 @@
+{
+  "complete": true,
+  "signature": "70d61336c23c08588edb31bb7c0be01f2a794a208eb7205c1c51f1b613af9f7a",
+  "attempts": [
+    {
+      "asr_seconds": 0.13089127000421286,
+      "alignment_seconds": 0.00010077189654111862,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter antifolus of Syracuse.",
+          "start": 0.08,
+          "end": 1.92,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " antifolus",
+              "start": 0.66,
+              "end": 1.34,
+              "probability": 0.7938232421875
+            },
+            {
+              "text": " of",
+              "start": 1.34,
+              "end": 1.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Syracuse.",
+              "start": 1.46,
+              "end": 1.92,
+              "probability": 0.9755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "antifolus",
+          "start": 0.66,
+          "end": 1.34
+        },
+        {
+          "raw": "of",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "raw": "Syracuse.",
+          "start": 1.46,
+          "end": 1.92
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Antipholus",
+        "of",
+        "Syracuse."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "antifolus",
+          "start": 0.66,
+          "end": 1.34,
+          "key": "antifolus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.34,
+          "end": 1.46,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Syracuse.",
+          "start": 1.46,
+          "end": 1.92,
+          "key": "syracuse",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Antipholus",
+          "start": 0.66,
+          "end": 1.0
+        },
+        {
+          "text": "of",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "text": "Syracuse.",
+          "start": 1.46,
+          "end": 1.92
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13102161698043346
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "36a427e643f9f8bb996be3206bf97a449a6f56bcd75155e890e7282097e47264",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

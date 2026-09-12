@@ -1,0 +1,221 @@
+{
+  "complete": true,
+  "signature": "248f1f89c2423df02f108ab3fc5b0e6d658bb07a117246842a77da6968c3ce56",
+  "attempts": [
+    {
+      "asr_seconds": 0.17258972581475973,
+      "alignment_seconds": 0.00019891094416379929,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Edgin, Dromio, North-Owl.",
+          "start": 0.11,
+          "end": 1.97,
+          "words": [
+            {
+              "text": " Edgin,",
+              "start": 0.11,
+              "end": 0.75,
+              "probability": 0.195587158203125
+            },
+            {
+              "text": " Dromio,",
+              "start": 1.09,
+              "end": 1.47,
+              "probability": 0.7459309895833334
+            },
+            {
+              "text": " North",
+              "start": 1.57,
+              "end": 1.65,
+              "probability": 0.5537109375
+            },
+            {
+              "text": "-Owl.",
+              "start": 1.65,
+              "end": 1.97,
+              "probability": 0.4064127604166667
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edgin,",
+          "start": 0.11,
+          "end": 0.75
+        },
+        {
+          "raw": "Dromio,",
+          "start": 1.09,
+          "end": 1.47
+        },
+        {
+          "raw": "North",
+          "start": 1.57,
+          "end": 1.65
+        },
+        {
+          "raw": "-Owl.",
+          "start": 1.65,
+          "end": 1.97
+        }
+      ],
+      "expected_tokens": [
+        "Egeon.",
+        "Dromio,",
+        "nor",
+        "thou?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edgin,",
+          "start": 0.11,
+          "end": 0.75,
+          "key": "edgin",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dromio,",
+          "start": 1.09,
+          "end": 1.47,
+          "key": "dromio",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "North",
+          "start": 1.57,
+          "end": 1.65,
+          "key": "north",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "-Owl.",
+          "start": 1.65,
+          "end": 1.97,
+          "key": "owl",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Egeon.",
+          "start": 0.0,
+          "end": 0.545
+        },
+        {
+          "text": "Dromio,",
+          "start": 1.09,
+          "end": 1.47
+        },
+        {
+          "text": "nor",
+          "start": 1.47,
+          "end": 1.72
+        },
+        {
+          "text": "thou?",
+          "start": 1.72,
+          "end": 1.845
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 1
+      },
+      "match_ratio": 0.25,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17284500179812312
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "27c3ddaf909fef66a55a0695f9d11ea0f4aa37ee9b55d35d2761d6bc2266ba37",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

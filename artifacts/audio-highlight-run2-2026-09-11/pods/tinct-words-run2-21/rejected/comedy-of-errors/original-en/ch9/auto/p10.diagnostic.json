@@ -1,0 +1,741 @@
+{
+  "complete": true,
+  "signature": "fb5b78120ea80ee86340c9e5f1821798a3fd5895efc297ab7d57bf996da1d262",
+  "attempts": [
+    {
+      "asr_seconds": 0.31710620876401663,
+      "alignment_seconds": 0.00032609282061457634,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antipholus Of Syracuse. Well, sir, there rest in your foolery. Is there any ship puts forth tonight? may we be gone?",
+        "hotwords": "Antipholus, Of, Syracuse, Well, Is"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antipholus Of Syracuse. Well, sir, there rest in your foolery. Is there any ship puts forth",
+          "start": 0.66,
+          "end": 5.84,
+          "words": [
+            {
+              "text": " Antipholus",
+              "start": 0.66,
+              "end": 1.1,
+              "probability": 0.6191835403442383
+            },
+            {
+              "text": " Of",
+              "start": 1.1,
+              "end": 1.24,
+              "probability": 0.011505126953125
+            },
+            {
+              "text": " Syracuse.",
+              "start": 1.24,
+              "end": 1.72,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " Well,",
+              "start": 2.46,
+              "end": 2.62,
+              "probability": 0.87109375
+            },
+            {
+              "text": " sir,",
+              "start": 2.82,
+              "end": 2.88,
+              "probability": 0.685546875
+            },
+            {
+              "text": " there",
+              "start": 3.08,
+              "end": 3.16,
+              "probability": 0.76171875
+            },
+            {
+              "text": " rest",
+              "start": 3.16,
+              "end": 3.4,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " in",
+              "start": 3.4,
+              "end": 3.56,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " your",
+              "start": 3.56,
+              "end": 3.68,
+              "probability": 0.970703125
+            },
+            {
+              "text": " foolery.",
+              "start": 3.68,
+              "end": 4.12,
+              "probability": 0.912353515625
+            },
+            {
+              "text": " Is",
+              "start": 4.6,
+              "end": 4.68,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " there",
+              "start": 4.68,
+              "end": 4.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " any",
+              "start": 4.82,
+              "end": 5.06,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " ship",
+              "start": 5.06,
+              "end": 5.34,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " puts",
+              "start": 5.34,
+              "end": 5.56,
+              "probability": 0.95703125
+            },
+            {
+              "text": " forth",
+              "start": 5.56,
+              "end": 5.84,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " tonight? may we be gone?",
+          "start": 5.84,
+          "end": 7.4,
+          "words": [
+            {
+              "text": " tonight?",
+              "start": 5.84,
+              "end": 6.22,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " may",
+              "start": 6.72,
+              "end": 6.82,
+              "probability": 0.0059814453125
+            },
+            {
+              "text": " we",
+              "start": 6.82,
+              "end": 7.0,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " be",
+              "start": 7.0,
+              "end": 7.12,
+              "probability": 0.994140625
+            },
+            {
+              "text": " gone?",
+              "start": 7.12,
+              "end": 7.4,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antipholus",
+          "start": 0.66,
+          "end": 1.1
+        },
+        {
+          "raw": "Of",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "raw": "Syracuse.",
+          "start": 1.24,
+          "end": 1.72
+        },
+        {
+          "raw": "Well,",
+          "start": 2.46,
+          "end": 2.62
+        },
+        {
+          "raw": "sir,",
+          "start": 2.82,
+          "end": 2.88
+        },
+        {
+          "raw": "there",
+          "start": 3.08,
+          "end": 3.16
+        },
+        {
+          "raw": "rest",
+          "start": 3.16,
+          "end": 3.4
+        },
+        {
+          "raw": "in",
+          "start": 3.4,
+          "end": 3.56
+        },
+        {
+          "raw": "your",
+          "start": 3.56,
+          "end": 3.68
+        },
+        {
+          "raw": "foolery.",
+          "start": 3.68,
+          "end": 4.12
+        },
+        {
+          "raw": "Is",
+          "start": 4.6,
+          "end": 4.68
+        },
+        {
+          "raw": "there",
+          "start": 4.68,
+          "end": 4.82
+        },
+        {
+          "raw": "any",
+          "start": 4.82,
+          "end": 5.06
+        },
+        {
+          "raw": "ship",
+          "start": 5.06,
+          "end": 5.34
+        },
+        {
+          "raw": "puts",
+          "start": 5.34,
+          "end": 5.56
+        },
+        {
+          "raw": "forth",
+          "start": 5.56,
+          "end": 5.84
+        },
+        {
+          "raw": "tonight?",
+          "start": 5.84,
+          "end": 6.22
+        },
+        {
+          "raw": "may",
+          "start": 6.72,
+          "end": 6.82
+        },
+        {
+          "raw": "we",
+          "start": 6.82,
+          "end": 7.0
+        },
+        {
+          "raw": "be",
+          "start": 7.0,
+          "end": 7.12
+        },
+        {
+          "raw": "gone?",
+          "start": 7.12,
+          "end": 7.4
+        }
+      ],
+      "expected_tokens": [
+        "Antipholus",
+        "Of",
+        "Syracuse.",
+        "Well,",
+        "sir,",
+        "there",
+        "rest",
+        "in",
+        "your",
+        "foolery.",
+        "Is",
+        "there",
+        "any",
+        "ship",
+        "puts",
+        "forth",
+        "tonight?",
+        "may",
+        "we",
+        "be",
+        "gone?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antipholus",
+          "start": 0.66,
+          "end": 1.1,
+          "key": "antipholus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 1.1,
+          "end": 1.24,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Syracuse.",
+          "start": 1.24,
+          "end": 1.72,
+          "key": "syracuse",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 2.46,
+          "end": 2.62,
+          "key": "well",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.82,
+          "end": 2.88,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 3.08,
+          "end": 3.16,
+          "key": "there",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "rest",
+          "start": 3.16,
+          "end": 3.4,
+          "key": "rest",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.4,
+          "end": 3.56,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.56,
+          "end": 3.68,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "foolery.",
+          "start": 3.68,
+          "end": 4.12,
+          "key": "foolery",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 4.6,
+          "end": 4.68,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 4.68,
+          "end": 4.82,
+          "key": "there",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 4.82,
+          "end": 5.06,
+          "key": "any",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "ship",
+          "start": 5.06,
+          "end": 5.34,
+          "key": "ship",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "puts",
+          "start": 5.34,
+          "end": 5.56,
+          "key": "puts",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "forth",
+          "start": 5.56,
+          "end": 5.84,
+          "key": "forth",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "tonight?",
+          "start": 5.84,
+          "end": 6.22,
+          "key": "tonight",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 6.72,
+          "end": 6.82,
+          "key": "may",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 6.82,
+          "end": 7.0,
+          "key": "we",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 7.0,
+          "end": 7.12,
+          "key": "be",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "gone?",
+          "start": 7.12,
+          "end": 7.4,
+          "key": "gone",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antipholus",
+          "start": 0.66,
+          "end": 1.1
+        },
+        {
+          "text": "Of",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "text": "Syracuse.",
+          "start": 1.24,
+          "end": 1.72
+        },
+        {
+          "text": "Well,",
+          "start": 2.46,
+          "end": 2.62
+        },
+        {
+          "text": "sir,",
+          "start": 2.82,
+          "end": 2.88
+        },
+        {
+          "text": "there",
+          "start": 3.08,
+          "end": 3.16
+        },
+        {
+          "text": "rest",
+          "start": 3.16,
+          "end": 3.4
+        },
+        {
+          "text": "in",
+          "start": 3.4,
+          "end": 3.56
+        },
+        {
+          "text": "your",
+          "start": 3.56,
+          "end": 3.68
+        },
+        {
+          "text": "foolery.",
+          "start": 3.68,
+          "end": 4.12
+        },
+        {
+          "text": "Is",
+          "start": 4.6,
+          "end": 4.68
+        },
+        {
+          "text": "there",
+          "start": 4.68,
+          "end": 4.82
+        },
+        {
+          "text": "any",
+          "start": 4.82,
+          "end": 5.06
+        },
+        {
+          "text": "ship",
+          "start": 5.06,
+          "end": 5.34
+        },
+        {
+          "text": "puts",
+          "start": 5.34,
+          "end": 5.56
+        },
+        {
+          "text": "forth",
+          "start": 5.56,
+          "end": 5.84
+        },
+        {
+          "text": "tonight?",
+          "start": 5.84,
+          "end": 6.22
+        },
+        {
+          "text": "may",
+          "start": 6.72,
+          "end": 6.82
+        },
+        {
+          "text": "we",
+          "start": 6.82,
+          "end": 7.0
+        },
+        {
+          "text": "be",
+          "start": 7.0,
+          "end": 7.12
+        },
+        {
+          "text": "gone?",
+          "start": 7.12,
+          "end": 7.4
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31755749182775617
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cc81438e4e7b4d95e88e9d16a2b8e4c94df44f7bb8ef147c247264c6e9ec1e7c",
+  "selected_reasons": []
+}

@@ -1,0 +1,473 @@
+{
+  "complete": true,
+  "signature": "911f713f5503e86720ab6dc5731832a938f59a9653b064c44fdd58a867a7c290",
+  "attempts": [
+    {
+      "asr_seconds": 0.20243779057636857,
+      "alignment_seconds": 0.0001454101875424385,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antifolus of Syracuse, Avant thou which, Come, Dromio, let us go.",
+          "start": 0.05,
+          "end": 5.11,
+          "words": [
+            {
+              "text": " Antifolus",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.8653564453125
+            },
+            {
+              "text": " of",
+              "start": 1.03,
+              "end": 1.17,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Syracuse,",
+              "start": 1.17,
+              "end": 1.63,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " Avant",
+              "start": 2.31,
+              "end": 2.51,
+              "probability": 0.77197265625
+            },
+            {
+              "text": " thou",
+              "start": 2.51,
+              "end": 2.77,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " which,",
+              "start": 2.77,
+              "end": 3.01,
+              "probability": 0.5634765625
+            },
+            {
+              "text": " Come,",
+              "start": 3.59,
+              "end": 3.79,
+              "probability": 0.59423828125
+            },
+            {
+              "text": " Dromio,",
+              "start": 4.03,
+              "end": 4.43,
+              "probability": 0.8069661458333334
+            },
+            {
+              "text": " let",
+              "start": 4.59,
+              "end": 4.63,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " us",
+              "start": 4.63,
+              "end": 4.79,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " go.",
+              "start": 4.79,
+              "end": 5.11,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antifolus",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "of",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "raw": "Syracuse,",
+          "start": 1.17,
+          "end": 1.63
+        },
+        {
+          "raw": "Avant",
+          "start": 2.31,
+          "end": 2.51
+        },
+        {
+          "raw": "thou",
+          "start": 2.51,
+          "end": 2.77
+        },
+        {
+          "raw": "which,",
+          "start": 2.77,
+          "end": 3.01
+        },
+        {
+          "raw": "Come,",
+          "start": 3.59,
+          "end": 3.79
+        },
+        {
+          "raw": "Dromio,",
+          "start": 4.03,
+          "end": 4.43
+        },
+        {
+          "raw": "let",
+          "start": 4.59,
+          "end": 4.63
+        },
+        {
+          "raw": "us",
+          "start": 4.63,
+          "end": 4.79
+        },
+        {
+          "raw": "go.",
+          "start": 4.79,
+          "end": 5.11
+        }
+      ],
+      "expected_tokens": [
+        "Antipholus",
+        "Of",
+        "Syracuse.",
+        "Avaunt,",
+        "thou",
+        "witch!",
+        "Come,",
+        "Dromio,",
+        "let",
+        "us",
+        "go."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          11,
+          6,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antifolus",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "antifolus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.03,
+          "end": 1.17,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Syracuse,",
+          "start": 1.17,
+          "end": 1.63,
+          "key": "syracuse",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Avant",
+          "start": 2.31,
+          "end": 2.51,
+          "key": "avant",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.51,
+          "end": 2.77,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "which,",
+          "start": 2.77,
+          "end": 3.01,
+          "key": "which",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 3.59,
+          "end": 3.79,
+          "key": "come",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Dromio,",
+          "start": 4.03,
+          "end": 4.43,
+          "key": "dromio",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 4.59,
+          "end": 4.63,
+          "key": "let",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 4.63,
+          "end": 4.79,
+          "key": "us",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "go.",
+          "start": 4.79,
+          "end": 5.11,
+          "key": "go",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antipholus",
+          "start": 0.0,
+          "end": 0.515
+        },
+        {
+          "text": "Of",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "text": "Syracuse.",
+          "start": 1.17,
+          "end": 1.63
+        },
+        {
+          "text": "Avaunt,",
+          "start": 1.63,
+          "end": 2.07
+        },
+        {
+          "text": "thou",
+          "start": 2.51,
+          "end": 2.77
+        },
+        {
+          "text": "witch!",
+          "start": 2.77,
+          "end": 3.18
+        },
+        {
+          "text": "Come,",
+          "start": 3.59,
+          "end": 3.79
+        },
+        {
+          "text": "Dromio,",
+          "start": 4.03,
+          "end": 4.43
+        },
+        {
+          "text": "let",
+          "start": 4.59,
+          "end": 4.63
+        },
+        {
+          "text": "us",
+          "start": 4.63,
+          "end": 4.79
+        },
+        {
+          "text": "go.",
+          "start": 4.79,
+          "end": 5.11
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 8
+      },
+      "match_ratio": 0.7272727272727273,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2026268169283867
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "60062c705c8d55a9f0d297d20ea1ba54e1fb6c94dfda5e6000b0aa1a85c21a49",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,449 @@
+{
+  "complete": true,
+  "signature": "443159f2110559f4a559ebb2fb4ed51c3f49a3e93273bcad448a2a560b412bb5",
+  "attempts": [
+    {
+      "asr_seconds": 0.1018594317138195,
+      "alignment_seconds": 0.000125800259411335,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_All gather to see them._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All gather to see them._",
+          "start": 0.18,
+          "end": 2.04,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.18,
+              "end": 0.6,
+              "probability": 0.62451171875
+            },
+            {
+              "text": " gather",
+              "start": 0.6,
+              "end": 0.82,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " to",
+              "start": 0.82,
+              "end": 1.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " see",
+              "start": 1.08,
+              "end": 1.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them._",
+              "start": 1.22,
+              "end": 2.04,
+              "probability": 0.49951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.18,
+          "end": 0.6
+        },
+        {
+          "raw": "gather",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "raw": "to",
+          "start": 0.82,
+          "end": 1.08
+        },
+        {
+          "raw": "see",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "raw": "them._",
+          "start": 1.22,
+          "end": 2.04
+        }
+      ],
+      "expected_tokens": [
+        "[_All",
+        "gather",
+        "to",
+        "see",
+        "them._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.18,
+          "end": 0.6,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gather",
+          "start": 0.6,
+          "end": 0.82,
+          "key": "gather",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.82,
+          "end": 1.08,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.08,
+          "end": 1.22,
+          "key": "see",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "them._",
+          "start": 1.22,
+          "end": 2.04,
+          "key": "them_",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_All",
+          "start": 0.18,
+          "end": 0.6
+        },
+        {
+          "text": "gather",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "text": "to",
+          "start": 0.82,
+          "end": 1.08
+        },
+        {
+          "text": "see",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "text": "them._]",
+          "start": 1.22,
+          "end": 1.63
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10202495194971561
+    },
+    {
+      "asr_seconds": 0.0897632110863924,
+      "alignment_seconds": 0.00011665700003504753,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " All gather to see them.",
+          "start": 0.18,
+          "end": 1.46,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.18,
+              "end": 0.6,
+              "probability": 0.62451171875
+            },
+            {
+              "text": " gather",
+              "start": 0.6,
+              "end": 0.82,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " to",
+              "start": 0.82,
+              "end": 1.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " see",
+              "start": 1.08,
+              "end": 1.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them.",
+              "start": 1.22,
+              "end": 1.46,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.18,
+          "end": 0.6
+        },
+        {
+          "raw": "gather",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "raw": "to",
+          "start": 0.82,
+          "end": 1.08
+        },
+        {
+          "raw": "see",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "raw": "them.",
+          "start": 1.22,
+          "end": 1.46
+        }
+      ],
+      "expected_tokens": [
+        "[_All",
+        "gather",
+        "to",
+        "see",
+        "them._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.18,
+          "end": 0.6,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gather",
+          "start": 0.6,
+          "end": 0.82,
+          "key": "gather",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.82,
+          "end": 1.08,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.08,
+          "end": 1.22,
+          "key": "see",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 1.22,
+          "end": 1.46,
+          "key": "them",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_All",
+          "start": 0.18,
+          "end": 0.6
+        },
+        {
+          "text": "gather",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "text": "to",
+          "start": 0.82,
+          "end": 1.08
+        },
+        {
+          "text": "see",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "text": "them._]",
+          "start": 1.22,
+          "end": 1.46
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.089918646030128
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "f97c8940ee0cf9bc4938a5159ab750075f9eb65e70f781677914504f2cbee16c",
+  "selected_reasons": []
+}

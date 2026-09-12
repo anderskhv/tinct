@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "5fe524f3a57f6a4705dd8ed1a0fd63aaae452e30bd8a148025b670aa686c5d11",
+  "attempts": [
+    {
+      "asr_seconds": 0.10786154260858893,
+      "alignment_seconds": 0.0001069018617272377,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit 1 to the ABUS.",
+          "start": 0.02,
+          "end": 1.58,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " 1",
+              "start": 0.64,
+              "end": 0.9,
+              "probability": 0.54296875
+            },
+            {
+              "text": " to",
+              "start": 0.9,
+              "end": 1.06,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 1.06,
+              "end": 1.18,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " ABUS.",
+              "start": 1.18,
+              "end": 1.58,
+              "probability": 0.42144775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "1",
+          "start": 0.64,
+          "end": 0.9
+        },
+        {
+          "raw": "to",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "raw": "the",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "raw": "ABUS.",
+          "start": 1.18,
+          "end": 1.58
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "one",
+        "to",
+        "the",
+        "Abbess._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "1",
+          "start": 0.64,
+          "end": 0.9,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.9,
+          "end": 1.06,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.06,
+          "end": 1.18,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ABUS.",
+          "start": 1.18,
+          "end": 1.58,
+          "key": "abus",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "one",
+          "start": 0.64,
+          "end": 0.9
+        },
+        {
+          "text": "to",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "text": "the",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "text": "Abbess._]",
+          "start": 1.18,
+          "end": 1.38
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10800048289820552
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "35758eb57b49fd0275a9228bdeb00e321a1f6c0baebf12a5d538c5845b6ff0b9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

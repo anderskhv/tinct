@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "77cc7fbc23969f75b9e591ec06abe2e9df9587f17c77d0f789336d63e1060991",
+  "attempts": [
+    {
+      "asr_seconds": 0.19548109965398908,
+      "alignment_seconds": 0.00011486327275633812,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Duke a grievous fault say woman didst thou so",
+          "start": 0.08,
+          "end": 3.66,
+          "words": [
+            {
+              "text": " Duke",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.7431640625
+            },
+            {
+              "text": " a",
+              "start": 0.7,
+              "end": 1.06,
+              "probability": 0.08392333984375
+            },
+            {
+              "text": " grievous",
+              "start": 1.06,
+              "end": 1.42,
+              "probability": 0.985107421875
+            },
+            {
+              "text": " fault",
+              "start": 1.42,
+              "end": 1.76,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " say",
+              "start": 1.76,
+              "end": 2.3,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " woman",
+              "start": 2.3,
+              "end": 2.56,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " didst",
+              "start": 2.56,
+              "end": 2.96,
+              "probability": 0.845947265625
+            },
+            {
+              "text": " thou",
+              "start": 2.96,
+              "end": 3.14,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " so",
+              "start": 3.14,
+              "end": 3.66,
+              "probability": 0.74267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "a",
+          "start": 0.7,
+          "end": 1.06
+        },
+        {
+          "raw": "grievous",
+          "start": 1.06,
+          "end": 1.42
+        },
+        {
+          "raw": "fault",
+          "start": 1.42,
+          "end": 1.76
+        },
+        {
+          "raw": "say",
+          "start": 1.76,
+          "end": 2.3
+        },
+        {
+          "raw": "woman",
+          "start": 2.3,
+          "end": 2.56
+        },
+        {
+          "raw": "didst",
+          "start": 2.56,
+          "end": 2.96
+        },
+        {
+          "raw": "thou",
+          "start": 2.96,
+          "end": 3.14
+        },
+        {
+          "raw": "so",
+          "start": 3.14,
+          "end": 3.66
+        }
+      ],
+      "expected_tokens": [
+        "Duke.",
+        "A",
+        "grievous",
+        "fault.",
+        "Say,",
+        "woman,",
+        "didst",
+        "thou",
+        "so?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.7,
+          "end": 1.06,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "grievous",
+          "start": 1.06,
+          "end": 1.42,
+          "key": "grievous",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fault",
+          "start": 1.42,
+          "end": 1.76,
+          "key": "fault",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.76,
+          "end": 2.3,
+          "key": "say",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "woman",
+          "start": 2.3,
+          "end": 2.56,
+          "key": "woman",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "didst",
+          "start": 2.56,
+          "end": 2.96,
+          "key": "didst",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.96,
+          "end": 3.14,
+          "key": "thou",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.14,
+          "end": 3.66,
+          "key": "so",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duke.",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "A",
+          "start": 0.7,
+          "end": 1.06
+        },
+        {
+          "text": "grievous",
+          "start": 1.06,
+          "end": 1.42
+        },
+        {
+          "text": "fault.",
+          "start": 1.42,
+          "end": 1.76
+        },
+        {
+          "text": "Say,",
+          "start": 1.76,
+          "end": 2.3
+        },
+        {
+          "text": "woman,",
+          "start": 2.3,
+          "end": 2.56
+        },
+        {
+          "text": "didst",
+          "start": 2.56,
+          "end": 2.96
+        },
+        {
+          "text": "thou",
+          "start": 2.96,
+          "end": 3.14
+        },
+        {
+          "text": "so?",
+          "start": 3.14,
+          "end": 3.66
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1956368456594646
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "14d2f6a96c805639f3d27a487e649184eeb2ba92ab518227e7cbf6702f9dd5ee",
+  "selected_reasons": []
+}

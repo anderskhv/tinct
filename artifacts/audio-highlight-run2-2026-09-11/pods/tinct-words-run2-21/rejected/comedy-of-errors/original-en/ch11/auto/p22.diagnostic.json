@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "fd29a6f133e7641d2872b14fc910aa2e3da94eab0059f4eaf6ddc676b5232041",
+  "attempts": [
+    {
+      "asr_seconds": 0.22317796619608998,
+      "alignment_seconds": 0.00016670208424329758,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Merchant. I am sorry now that I did draw on him.",
+        "hotwords": "Merchant, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Merchant, I am sorry now that I did draw on him.",
+          "start": 0.02,
+          "end": 3.26,
+          "words": [
+            {
+              "text": " Merchant,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.5947265625
+            },
+            {
+              "text": " I",
+              "start": 1.26,
+              "end": 1.44,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " am",
+              "start": 1.44,
+              "end": 1.54,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " sorry",
+              "start": 1.54,
+              "end": 1.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " now",
+              "start": 1.82,
+              "end": 2.08,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " that",
+              "start": 2.08,
+              "end": 2.26,
+              "probability": 0.9921875
+            },
+            {
+              "text": " I",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " did",
+              "start": 2.38,
+              "end": 2.56,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " draw",
+              "start": 2.56,
+              "end": 2.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " on",
+              "start": 2.86,
+              "end": 3.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him.",
+              "start": 3.06,
+              "end": 3.26,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Merchant,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "I",
+          "start": 1.26,
+          "end": 1.44
+        },
+        {
+          "raw": "am",
+          "start": 1.44,
+          "end": 1.54
+        },
+        {
+          "raw": "sorry",
+          "start": 1.54,
+          "end": 1.82
+        },
+        {
+          "raw": "now",
+          "start": 1.82,
+          "end": 2.08
+        },
+        {
+          "raw": "that",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "raw": "I",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "did",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "raw": "draw",
+          "start": 2.56,
+          "end": 2.86
+        },
+        {
+          "raw": "on",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "raw": "him.",
+          "start": 3.06,
+          "end": 3.26
+        }
+      ],
+      "expected_tokens": [
+        "Merchant.",
+        "I",
+        "am",
+        "sorry",
+        "now",
+        "that",
+        "I",
+        "did",
+        "draw",
+        "on",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Merchant,",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "merchant",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.26,
+          "end": 1.44,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.44,
+          "end": 1.54,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sorry",
+          "start": 1.54,
+          "end": 1.82,
+          "key": "sorry",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 1.82,
+          "end": 2.08,
+          "key": "now",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.08,
+          "end": 2.26,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.26,
+          "end": 2.38,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 2.38,
+          "end": 2.56,
+          "key": "did",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "draw",
+          "start": 2.56,
+          "end": 2.86,
+          "key": "draw",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.86,
+          "end": 3.06,
+          "key": "on",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 3.06,
+          "end": 3.26,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Merchant.",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "I",
+          "start": 1.26,
+          "end": 1.44
+        },
+        {
+          "text": "am",
+          "start": 1.44,
+          "end": 1.54
+        },
+        {
+          "text": "sorry",
+          "start": 1.54,
+          "end": 1.82
+        },
+        {
+          "text": "now",
+          "start": 1.82,
+          "end": 2.08
+        },
+        {
+          "text": "that",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "text": "I",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "did",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "text": "draw",
+          "start": 2.56,
+          "end": 2.86
+        },
+        {
+          "text": "on",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "text": "him.",
+          "start": 3.06,
+          "end": 3.26
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22339413315057755
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6f3d74b8e78e3e2b5ce655b83af98cbe010e2e7640f24538eeca6514a08f68e8",
+  "selected_reasons": []
+}

@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "58ae92d9355122683fea3fd973b11124d4e179bbb2dad8ed0ba2c66801321d6d",
+  "attempts": [
+    {
+      "asr_seconds": 0.23706090124323964,
+      "alignment_seconds": 0.0002625170163810253,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antipholus Of Syracuse. Satan, avoid! I charge thee, tempt me not.",
+        "hotwords": "Antipholus, Of, Syracuse, Satan, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antipholus Of Syracuse, Satan, avoid! I charge thee, tempt me not.",
+          "start": 0.08,
+          "end": 4.86,
+          "words": [
+            {
+              "text": " Antipholus",
+              "start": 0.08,
+              "end": 1.02,
+              "probability": 0.5776605606079102
+            },
+            {
+              "text": " Of",
+              "start": 1.02,
+              "end": 1.16,
+              "probability": 0.0076446533203125
+            },
+            {
+              "text": " Syracuse,",
+              "start": 1.16,
+              "end": 1.6,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " Satan,",
+              "start": 2.32,
+              "end": 2.5,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " avoid!",
+              "start": 2.62,
+              "end": 2.84,
+              "probability": 0.345703125
+            },
+            {
+              "text": " I",
+              "start": 3.42,
+              "end": 3.5,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " charge",
+              "start": 3.5,
+              "end": 3.76,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " thee,",
+              "start": 3.76,
+              "end": 4.1,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " tempt",
+              "start": 4.22,
+              "end": 4.4,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " me",
+              "start": 4.4,
+              "end": 4.58,
+              "probability": 0.990234375
+            },
+            {
+              "text": " not.",
+              "start": 4.58,
+              "end": 4.86,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antipholus",
+          "start": 0.08,
+          "end": 1.02
+        },
+        {
+          "raw": "Of",
+          "start": 1.02,
+          "end": 1.16
+        },
+        {
+          "raw": "Syracuse,",
+          "start": 1.16,
+          "end": 1.6
+        },
+        {
+          "raw": "Satan,",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "raw": "avoid!",
+          "start": 2.62,
+          "end": 2.84
+        },
+        {
+          "raw": "I",
+          "start": 3.42,
+          "end": 3.5
+        },
+        {
+          "raw": "charge",
+          "start": 3.5,
+          "end": 3.76
+        },
+        {
+          "raw": "thee,",
+          "start": 3.76,
+          "end": 4.1
+        },
+        {
+          "raw": "tempt",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "raw": "me",
+          "start": 4.4,
+          "end": 4.58
+        },
+        {
+          "raw": "not.",
+          "start": 4.58,
+          "end": 4.86
+        }
+      ],
+      "expected_tokens": [
+        "Antipholus",
+        "Of",
+        "Syracuse.",
+        "Satan,",
+        "avoid!",
+        "I",
+        "charge",
+        "thee,",
+        "tempt",
+        "me",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antipholus",
+          "start": 0.08,
+          "end": 1.02,
+          "key": "antipholus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 1.02,
+          "end": 1.16,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Syracuse,",
+          "start": 1.16,
+          "end": 1.6,
+          "key": "syracuse",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Satan,",
+          "start": 2.32,
+          "end": 2.5,
+          "key": "satan",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "avoid!",
+          "start": 2.62,
+          "end": 2.84,
+          "key": "avoid",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.42,
+          "end": 3.5,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "charge",
+          "start": 3.5,
+          "end": 3.76,
+          "key": "charge",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 3.76,
+          "end": 4.1,
+          "key": "thee",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tempt",
+          "start": 4.22,
+          "end": 4.4,
+          "key": "tempt",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.4,
+          "end": 4.58,
+          "key": "me",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 4.58,
+          "end": 4.86,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antipholus",
+          "start": 0.08,
+          "end": 1.02
+        },
+        {
+          "text": "Of",
+          "start": 1.02,
+          "end": 1.16
+        },
+        {
+          "text": "Syracuse.",
+          "start": 1.16,
+          "end": 1.6
+        },
+        {
+          "text": "Satan,",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "text": "avoid!",
+          "start": 2.62,
+          "end": 2.84
+        },
+        {
+          "text": "I",
+          "start": 3.42,
+          "end": 3.5
+        },
+        {
+          "text": "charge",
+          "start": 3.5,
+          "end": 3.76
+        },
+        {
+          "text": "thee,",
+          "start": 3.76,
+          "end": 4.1
+        },
+        {
+          "text": "tempt",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "text": "me",
+          "start": 4.4,
+          "end": 4.58
+        },
+        {
+          "text": "not.",
+          "start": 4.58,
+          "end": 4.86
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2374200844205916
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "75eba1063b93b7a04d82b0c892deff1f62c96c332dec3934c83e94aa20c6c7b3",
+  "selected_reasons": []
+}

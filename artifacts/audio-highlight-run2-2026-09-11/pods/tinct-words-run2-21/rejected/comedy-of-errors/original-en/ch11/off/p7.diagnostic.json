@@ -1,0 +1,459 @@
+{
+  "complete": true,
+  "signature": "5fb22b6dd6c07d79195f22fc0f61e60743a342654d29d5183ccdb5472b083992",
+  "attempts": [
+    {
+      "asr_seconds": 0.2059779530391097,
+      "alignment_seconds": 0.0001329006627202034,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antifolus of Syracuse. I think I had. I never did deny it.",
+          "start": 0.05,
+          "end": 4.47,
+          "words": [
+            {
+              "text": " Antifolus",
+              "start": 0.05,
+              "end": 1.07,
+              "probability": 0.8016357421875
+            },
+            {
+              "text": " of",
+              "start": 1.07,
+              "end": 1.21,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Syracuse.",
+              "start": 1.21,
+              "end": 1.65,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " I",
+              "start": 2.29,
+              "end": 2.37,
+              "probability": 0.98828125
+            },
+            {
+              "text": " think",
+              "start": 2.37,
+              "end": 2.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 2.49,
+              "end": 2.65,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " had.",
+              "start": 2.65,
+              "end": 2.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 3.33,
+              "end": 3.43,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " never",
+              "start": 3.43,
+              "end": 3.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " did",
+              "start": 3.63,
+              "end": 3.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " deny",
+              "start": 3.87,
+              "end": 4.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it.",
+              "start": 4.19,
+              "end": 4.47,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antifolus",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "raw": "of",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "raw": "Syracuse.",
+          "start": 1.21,
+          "end": 1.65
+        },
+        {
+          "raw": "I",
+          "start": 2.29,
+          "end": 2.37
+        },
+        {
+          "raw": "think",
+          "start": 2.37,
+          "end": 2.49
+        },
+        {
+          "raw": "I",
+          "start": 2.49,
+          "end": 2.65
+        },
+        {
+          "raw": "had.",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "raw": "I",
+          "start": 3.33,
+          "end": 3.43
+        },
+        {
+          "raw": "never",
+          "start": 3.43,
+          "end": 3.63
+        },
+        {
+          "raw": "did",
+          "start": 3.63,
+          "end": 3.87
+        },
+        {
+          "raw": "deny",
+          "start": 3.87,
+          "end": 4.19
+        },
+        {
+          "raw": "it.",
+          "start": 4.19,
+          "end": 4.47
+        }
+      ],
+      "expected_tokens": [
+        "Antipholus",
+        "Of",
+        "Syracuse.",
+        "I",
+        "think",
+        "I",
+        "had:",
+        "I",
+        "never",
+        "did",
+        "deny",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          12,
+          1,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antifolus",
+          "start": 0.05,
+          "end": 1.07,
+          "key": "antifolus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.07,
+          "end": 1.21,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Syracuse.",
+          "start": 1.21,
+          "end": 1.65,
+          "key": "syracuse",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.29,
+          "end": 2.37,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 2.37,
+          "end": 2.49,
+          "key": "think",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.49,
+          "end": 2.65,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "had.",
+          "start": 2.65,
+          "end": 2.93,
+          "key": "had",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.33,
+          "end": 3.43,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 3.43,
+          "end": 3.63,
+          "key": "never",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 3.63,
+          "end": 3.87,
+          "key": "did",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "deny",
+          "start": 3.87,
+          "end": 4.19,
+          "key": "deny",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 4.19,
+          "end": 4.47,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antipholus",
+          "start": 0.0,
+          "end": 0.535
+        },
+        {
+          "text": "Of",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "text": "Syracuse.",
+          "start": 1.21,
+          "end": 1.65
+        },
+        {
+          "text": "I",
+          "start": 2.29,
+          "end": 2.37
+        },
+        {
+          "text": "think",
+          "start": 2.37,
+          "end": 2.49
+        },
+        {
+          "text": "I",
+          "start": 2.49,
+          "end": 2.65
+        },
+        {
+          "text": "had:",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "text": "I",
+          "start": 3.33,
+          "end": 3.43
+        },
+        {
+          "text": "never",
+          "start": 3.43,
+          "end": 3.63
+        },
+        {
+          "text": "did",
+          "start": 3.63,
+          "end": 3.87
+        },
+        {
+          "text": "deny",
+          "start": 3.87,
+          "end": 4.19
+        },
+        {
+          "text": "it.",
+          "start": 4.19,
+          "end": 4.47
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.20615596184507012
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e3c02e90f7265e13f93c95cdc2126a7f8b24dbb074da2d07cc4604ff13e8e1b3",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "77484fd12e2946597c268de9e0dd43038c5b15261837dceeefde25d7e34795df",
+  "attempts": [
+    {
+      "asr_seconds": 0.18828283017501235,
+      "alignment_seconds": 0.00011990126222372055,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Abbess. Haply in private.",
+        "hotwords": "Abbess, Haply"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Abbess, Haply in private.",
+          "start": 0.14,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Abbess,",
+              "start": 0.14,
+              "end": 0.9,
+              "probability": 0.5791829427083334
+            },
+            {
+              "text": " Haply",
+              "start": 1.12,
+              "end": 1.4,
+              "probability": 0.2940572102864583
+            },
+            {
+              "text": " in",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.215576171875
+            },
+            {
+              "text": " private.",
+              "start": 1.52,
+              "end": 1.84,
+              "probability": 0.61865234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Abbess,",
+          "start": 0.14,
+          "end": 0.9
+        },
+        {
+          "raw": "Haply",
+          "start": 1.12,
+          "end": 1.4
+        },
+        {
+          "raw": "in",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "private.",
+          "start": 1.52,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "Abbess.",
+        "Haply",
+        "in",
+        "private."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Abbess,",
+          "start": 0.14,
+          "end": 0.9,
+          "key": "abbess",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Haply",
+          "start": 1.12,
+          "end": 1.4,
+          "key": "haply",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.4,
+          "end": 1.52,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "private.",
+          "start": 1.52,
+          "end": 1.84,
+          "key": "private",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Abbess.",
+          "start": 0.14,
+          "end": 0.9
+        },
+        {
+          "text": "Haply",
+          "start": 1.12,
+          "end": 1.4
+        },
+        {
+          "text": "in",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "private.",
+          "start": 1.52,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18843952706083655
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5ca1a91065413bfc3f4ceec9adec0214e568308c35e814379432458e8d5e7e6a",
+  "selected_reasons": []
+}

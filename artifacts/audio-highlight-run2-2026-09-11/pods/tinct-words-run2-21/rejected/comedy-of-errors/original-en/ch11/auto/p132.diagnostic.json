@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "07fe6338831e0df4f734488f6b63beec00d21a0c1405d8f7203723d738dc4959",
+  "attempts": [
+    {
+      "asr_seconds": 0.18605743302032351,
+      "alignment_seconds": 0.000212731771171093,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antipholus Of Ephesus. No, I say nay to that.",
+        "hotwords": "Antipholus, Of, Ephesus, No, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antipholus Of Ephesus, No, I say nay to that.",
+          "start": 0.14,
+          "end": 3.3,
+          "words": [
+            {
+              "text": " Antipholus",
+              "start": 0.14,
+              "end": 1.08,
+              "probability": 0.5928783416748047
+            },
+            {
+              "text": " Of",
+              "start": 1.08,
+              "end": 1.2,
+              "probability": 0.004302978515625
+            },
+            {
+              "text": " Ephesus,",
+              "start": 1.2,
+              "end": 1.82,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " No,",
+              "start": 2.08,
+              "end": 2.32,
+              "probability": 0.2379150390625
+            },
+            {
+              "text": " I",
+              "start": 2.5,
+              "end": 2.5,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " say",
+              "start": 2.5,
+              "end": 2.7,
+              "probability": 0.884765625
+            },
+            {
+              "text": " nay",
+              "start": 2.7,
+              "end": 2.92,
+              "probability": 0.834228515625
+            },
+            {
+              "text": " to",
+              "start": 2.92,
+              "end": 3.04,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " that.",
+              "start": 3.04,
+              "end": 3.3,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antipholus",
+          "start": 0.14,
+          "end": 1.08
+        },
+        {
+          "raw": "Of",
+          "start": 1.08,
+          "end": 1.2
+        },
+        {
+          "raw": "Ephesus,",
+          "start": 1.2,
+          "end": 1.82
+        },
+        {
+          "raw": "No,",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "raw": "I",
+          "start": 2.5,
+          "end": 2.5
+        },
+        {
+          "raw": "say",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "raw": "nay",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "raw": "to",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "raw": "that.",
+          "start": 3.04,
+          "end": 3.3
+        }
+      ],
+      "expected_tokens": [
+        "Antipholus",
+        "Of",
+        "Ephesus.",
+        "No,",
+        "I",
+        "say",
+        "nay",
+        "to",
+        "that."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antipholus",
+          "start": 0.14,
+          "end": 1.08,
+          "key": "antipholus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 1.08,
+          "end": 1.2,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ephesus,",
+          "start": 1.2,
+          "end": 1.82,
+          "key": "ephesus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 2.08,
+          "end": 2.32,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.5,
+          "end": 2.5,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 2.5,
+          "end": 2.7,
+          "key": "say",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "nay",
+          "start": 2.7,
+          "end": 2.92,
+          "key": "nay",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.92,
+          "end": 3.04,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 3.04,
+          "end": 3.3,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antipholus",
+          "start": 0.14,
+          "end": 1.08
+        },
+        {
+          "text": "Of",
+          "start": 1.08,
+          "end": 1.2
+        },
+        {
+          "text": "Ephesus.",
+          "start": 1.2,
+          "end": 1.82
+        },
+        {
+          "text": "No,",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "text": "I",
+          "start": 2.5,
+          "end": 2.5
+        },
+        {
+          "text": "say",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "text": "nay",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "text": "to",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "text": "that.",
+          "start": 3.04,
+          "end": 3.3
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1863404312171042
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7666bc7ae64cd27da750957a1bb6679c403feb48d91df4115f3fdf3d0ef78919",
+  "selected_reasons": []
+}

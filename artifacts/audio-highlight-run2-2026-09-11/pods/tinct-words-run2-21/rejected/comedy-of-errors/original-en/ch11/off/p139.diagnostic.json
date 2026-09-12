@@ -1,0 +1,306 @@
+{
+  "complete": true,
+  "signature": "2a27c74f3b77d21719565e6f1fd6ce18675a67b9e92e2c74c79276a7044ccd83",
+  "attempts": [
+    {
+      "asr_seconds": 0.14778304425999522,
+      "alignment_seconds": 0.00011126790195703506,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dromio of Ephesus, know none by me.",
+          "start": 0.05,
+          "end": 2.65,
+          "words": [
+            {
+              "text": " Dromio",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.723388671875
+            },
+            {
+              "text": " of",
+              "start": 0.81,
+              "end": 0.95,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Ephesus,",
+              "start": 0.95,
+              "end": 1.53,
+              "probability": 0.9796549479166666
+            },
+            {
+              "text": " know",
+              "start": 1.93,
+              "end": 2.01,
+              "probability": 0.483642578125
+            },
+            {
+              "text": " none",
+              "start": 2.01,
+              "end": 2.19,
+              "probability": 0.990234375
+            },
+            {
+              "text": " by",
+              "start": 2.19,
+              "end": 2.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " me.",
+              "start": 2.43,
+              "end": 2.65,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dromio",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "of",
+          "start": 0.81,
+          "end": 0.95
+        },
+        {
+          "raw": "Ephesus,",
+          "start": 0.95,
+          "end": 1.53
+        },
+        {
+          "raw": "know",
+          "start": 1.93,
+          "end": 2.01
+        },
+        {
+          "raw": "none",
+          "start": 2.01,
+          "end": 2.19
+        },
+        {
+          "raw": "by",
+          "start": 2.19,
+          "end": 2.43
+        },
+        {
+          "raw": "me.",
+          "start": 2.43,
+          "end": 2.65
+        }
+      ],
+      "expected_tokens": [
+        "Dromio",
+        "Of",
+        "Ephesus.",
+        "No,",
+        "none",
+        "by",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dromio",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "dromio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.81,
+          "end": 0.95,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ephesus,",
+          "start": 0.95,
+          "end": 1.53,
+          "key": "ephesus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.93,
+          "end": 2.01,
+          "key": "know",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "none",
+          "start": 2.01,
+          "end": 2.19,
+          "key": "none",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.19,
+          "end": 2.43,
+          "key": "by",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.43,
+          "end": 2.65,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dromio",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Of",
+          "start": 0.81,
+          "end": 0.95
+        },
+        {
+          "text": "Ephesus.",
+          "start": 0.95,
+          "end": 1.53
+        },
+        {
+          "text": "No,",
+          "start": 1.53,
+          "end": 1.77
+        },
+        {
+          "text": "none",
+          "start": 2.01,
+          "end": 2.19
+        },
+        {
+          "text": "by",
+          "start": 2.19,
+          "end": 2.43
+        },
+        {
+          "text": "me.",
+          "start": 2.43,
+          "end": 2.65
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.14793003629893064
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7f36389e2dd6c5234adb2952494082dcfc88ab43e7dd94483d50e9f55b430616",
+  "selected_reasons": []
+}

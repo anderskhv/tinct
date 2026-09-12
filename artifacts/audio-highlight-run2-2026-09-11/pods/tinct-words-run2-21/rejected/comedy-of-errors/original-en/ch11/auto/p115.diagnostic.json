@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "c30ba95d578cba84f1c9631051c68fe629b6bbef582de2ecea2a5ad137b3966a",
+  "attempts": [
+    {
+      "asr_seconds": 0.21968052396550775,
+      "alignment_seconds": 0.0001246393658220768,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dromio Of Syracuse. I, sir, am Dromio, command him away.",
+        "hotwords": "Dromio, Of, Syracuse, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dromio Of Syracuse, I, sir, am Dromio, command him away.",
+          "start": 0.05,
+          "end": 3.87,
+          "words": [
+            {
+              "text": " Dromio",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.7029622395833334
+            },
+            {
+              "text": " Of",
+              "start": 0.79,
+              "end": 0.93,
+              "probability": 0.00286865234375
+            },
+            {
+              "text": " Syracuse,",
+              "start": 0.93,
+              "end": 1.41,
+              "probability": 0.8037109375
+            },
+            {
+              "text": " I,",
+              "start": 2.03,
+              "end": 2.09,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " sir,",
+              "start": 2.25,
+              "end": 2.33,
+              "probability": 0.2998046875
+            },
+            {
+              "text": " am",
+              "start": 2.43,
+              "end": 2.53,
+              "probability": 0.89453125
+            },
+            {
+              "text": " Dromio,",
+              "start": 2.53,
+              "end": 3.03,
+              "probability": 0.9625651041666666
+            },
+            {
+              "text": " command",
+              "start": 3.19,
+              "end": 3.39,
+              "probability": 0.72900390625
+            },
+            {
+              "text": " him",
+              "start": 3.39,
+              "end": 3.61,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " away.",
+              "start": 3.61,
+              "end": 3.87,
+              "probability": 0.97705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dromio",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Of",
+          "start": 0.79,
+          "end": 0.93
+        },
+        {
+          "raw": "Syracuse,",
+          "start": 0.93,
+          "end": 1.41
+        },
+        {
+          "raw": "I,",
+          "start": 2.03,
+          "end": 2.09
+        },
+        {
+          "raw": "sir,",
+          "start": 2.25,
+          "end": 2.33
+        },
+        {
+          "raw": "am",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "raw": "Dromio,",
+          "start": 2.53,
+          "end": 3.03
+        },
+        {
+          "raw": "command",
+          "start": 3.19,
+          "end": 3.39
+        },
+        {
+          "raw": "him",
+          "start": 3.39,
+          "end": 3.61
+        },
+        {
+          "raw": "away.",
+          "start": 3.61,
+          "end": 3.87
+        }
+      ],
+      "expected_tokens": [
+        "Dromio",
+        "Of",
+        "Syracuse.",
+        "I,",
+        "sir,",
+        "am",
+        "Dromio,",
+        "command",
+        "him",
+        "away."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dromio",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "dromio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 0.79,
+          "end": 0.93,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Syracuse,",
+          "start": 0.93,
+          "end": 1.41,
+          "key": "syracuse",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 2.03,
+          "end": 2.09,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.25,
+          "end": 2.33,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.43,
+          "end": 2.53,
+          "key": "am",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Dromio,",
+          "start": 2.53,
+          "end": 3.03,
+          "key": "dromio",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "command",
+          "start": 3.19,
+          "end": 3.39,
+          "key": "command",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.39,
+          "end": 3.61,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "away.",
+          "start": 3.61,
+          "end": 3.87,
+          "key": "away",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dromio",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Of",
+          "start": 0.79,
+          "end": 0.93
+        },
+        {
+          "text": "Syracuse.",
+          "start": 0.93,
+          "end": 1.41
+        },
+        {
+          "text": "I,",
+          "start": 2.03,
+          "end": 2.09
+        },
+        {
+          "text": "sir,",
+          "start": 2.25,
+          "end": 2.33
+        },
+        {
+          "text": "am",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "text": "Dromio,",
+          "start": 2.53,
+          "end": 3.03
+        },
+        {
+          "text": "command",
+          "start": 3.19,
+          "end": 3.39
+        },
+        {
+          "text": "him",
+          "start": 3.39,
+          "end": 3.61
+        },
+        {
+          "text": "away.",
+          "start": 3.61,
+          "end": 3.87
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2198498398065567
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4bf13a88b6337eb9da4f59eac4ff41a7ebc8acb10e58d7ee946816c888f0e212",
+  "selected_reasons": []
+}

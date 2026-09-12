@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "89308861926fd9984015e88a0fbf60e1dce870db138f6ae8c576a498de5bb550",
+  "attempts": [
+    {
+      "asr_seconds": 0.17341421311721206,
+      "alignment_seconds": 0.00011577503755688667,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Adriana. Why, so I did.",
+        "hotwords": "Adriana, Why, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Adriana, Why, so I did.",
+          "start": 0.08,
+          "end": 2.02,
+          "words": [
+            {
+              "text": " Adriana,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " Why,",
+              "start": 1.24,
+              "end": 1.46,
+              "probability": 0.01232147216796875
+            },
+            {
+              "text": " so",
+              "start": 1.56,
+              "end": 1.64,
+              "probability": 0.58203125
+            },
+            {
+              "text": " I",
+              "start": 1.64,
+              "end": 1.78,
+              "probability": 0.70068359375
+            },
+            {
+              "text": " did.",
+              "start": 1.78,
+              "end": 2.02,
+              "probability": 0.828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Adriana,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "Why,",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "raw": "so",
+          "start": 1.56,
+          "end": 1.64
+        },
+        {
+          "raw": "I",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "raw": "did.",
+          "start": 1.78,
+          "end": 2.02
+        }
+      ],
+      "expected_tokens": [
+        "Adriana.",
+        "Why,",
+        "so",
+        "I",
+        "did."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Adriana,",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "adriana",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 1.24,
+          "end": 1.46,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.56,
+          "end": 1.64,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.64,
+          "end": 1.78,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "did.",
+          "start": 1.78,
+          "end": 2.02,
+          "key": "did",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Adriana.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "Why,",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "text": "so",
+          "start": 1.56,
+          "end": 1.64
+        },
+        {
+          "text": "I",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "text": "did.",
+          "start": 1.78,
+          "end": 2.02
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17356346920132637
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9e9d0af131f6aa6f6b075109eea719c120b83b6f3ebde07376a769cab090858c",
+  "selected_reasons": []
+}

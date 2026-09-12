@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "cd9a10f9e42b6b60361d04f09c6ffd5ff09026039f7a3f4b8cbb9a61687a56b2",
+  "attempts": [
+    {
+      "asr_seconds": 0.11979342577978969,
+      "alignment_seconds": 0.00010343687608838081,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Edgen, I am sure thou dost.",
+          "start": 0.08,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Edgen,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.3717041015625
+            },
+            {
+              "text": " I",
+              "start": 1.02,
+              "end": 1.1,
+              "probability": 0.96875
+            },
+            {
+              "text": " am",
+              "start": 1.1,
+              "end": 1.2,
+              "probability": 0.49365234375
+            },
+            {
+              "text": " sure",
+              "start": 1.2,
+              "end": 1.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thou",
+              "start": 1.34,
+              "end": 1.48,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " dost.",
+              "start": 1.48,
+              "end": 1.84,
+              "probability": 0.964111328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edgen,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "I",
+          "start": 1.02,
+          "end": 1.1
+        },
+        {
+          "raw": "am",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "raw": "sure",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "raw": "thou",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "raw": "dost.",
+          "start": 1.48,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "Egeon.",
+        "I",
+        "am",
+        "sure",
+        "thou",
+        "dost."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edgen,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "edgen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.02,
+          "end": 1.1,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.1,
+          "end": 1.2,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sure",
+          "start": 1.2,
+          "end": 1.34,
+          "key": "sure",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.34,
+          "end": 1.48,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "dost.",
+          "start": 1.48,
+          "end": 1.84,
+          "key": "dost",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Egeon.",
+          "start": 0.0,
+          "end": 0.51
+        },
+        {
+          "text": "I",
+          "start": 1.02,
+          "end": 1.1
+        },
+        {
+          "text": "am",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "text": "sure",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "text": "thou",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "text": "dost.",
+          "start": 1.48,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11992991203442216
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e6c1db66406afb6000a7d40dddda077382f5b864fbae84b949b81fed04d20567",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

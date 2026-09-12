@@ -1,0 +1,600 @@
+{
+  "complete": true,
+  "signature": "d2c9b68f7ca96860cd9ed38a7fb326a44a658a54cd2ad1d29965c4a6bb2c107c",
+  "attempts": [
+    {
+      "asr_seconds": 0.26517102122306824,
+      "alignment_seconds": 0.00016499031335115433,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And Gilo, oh perjured woman, they are both foresworn, in this the madman justly chargeth them.",
+          "start": 0.08,
+          "end": 6.18,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.315673828125
+            },
+            {
+              "text": " Gilo,",
+              "start": 0.56,
+              "end": 0.9,
+              "probability": 0.3721923828125
+            },
+            {
+              "text": " oh",
+              "start": 1.32,
+              "end": 1.4,
+              "probability": 0.55810546875
+            },
+            {
+              "text": " perjured",
+              "start": 1.4,
+              "end": 1.76,
+              "probability": 0.7509765625
+            },
+            {
+              "text": " woman,",
+              "start": 1.76,
+              "end": 2.04,
+              "probability": 0.970703125
+            },
+            {
+              "text": " they",
+              "start": 2.7,
+              "end": 2.76,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " are",
+              "start": 2.76,
+              "end": 2.84,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " both",
+              "start": 2.84,
+              "end": 3.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " foresworn,",
+              "start": 3.04,
+              "end": 3.76,
+              "probability": 0.765869140625
+            },
+            {
+              "text": " in",
+              "start": 4.18,
+              "end": 4.22,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " this",
+              "start": 4.22,
+              "end": 4.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.4,
+              "end": 4.56,
+              "probability": 0.966796875
+            },
+            {
+              "text": " madman",
+              "start": 4.56,
+              "end": 5.04,
+              "probability": 0.899169921875
+            },
+            {
+              "text": " justly",
+              "start": 5.04,
+              "end": 5.56,
+              "probability": 0.959716796875
+            },
+            {
+              "text": " chargeth",
+              "start": 5.56,
+              "end": 5.98,
+              "probability": 0.6180013020833334
+            },
+            {
+              "text": " them.",
+              "start": 5.98,
+              "end": 6.18,
+              "probability": 0.89111328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "Gilo,",
+          "start": 0.56,
+          "end": 0.9
+        },
+        {
+          "raw": "oh",
+          "start": 1.32,
+          "end": 1.4
+        },
+        {
+          "raw": "perjured",
+          "start": 1.4,
+          "end": 1.76
+        },
+        {
+          "raw": "woman,",
+          "start": 1.76,
+          "end": 2.04
+        },
+        {
+          "raw": "they",
+          "start": 2.7,
+          "end": 2.76
+        },
+        {
+          "raw": "are",
+          "start": 2.76,
+          "end": 2.84
+        },
+        {
+          "raw": "both",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "raw": "foresworn,",
+          "start": 3.04,
+          "end": 3.76
+        },
+        {
+          "raw": "in",
+          "start": 4.18,
+          "end": 4.22
+        },
+        {
+          "raw": "this",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "raw": "the",
+          "start": 4.4,
+          "end": 4.56
+        },
+        {
+          "raw": "madman",
+          "start": 4.56,
+          "end": 5.04
+        },
+        {
+          "raw": "justly",
+          "start": 5.04,
+          "end": 5.56
+        },
+        {
+          "raw": "chargeth",
+          "start": 5.56,
+          "end": 5.98
+        },
+        {
+          "raw": "them.",
+          "start": 5.98,
+          "end": 6.18
+        }
+      ],
+      "expected_tokens": [
+        "Angelo.",
+        "O",
+        "perjur'd",
+        "woman!",
+        "They",
+        "are",
+        "both",
+        "forsworn.",
+        "In",
+        "this",
+        "the",
+        "madman",
+        "justly",
+        "chargeth",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          4
+        ],
+        [
+          "equal",
+          3,
+          7,
+          4,
+          8
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          9
+        ],
+        [
+          "equal",
+          8,
+          15,
+          9,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          4
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gilo,",
+          "start": 0.56,
+          "end": 0.9,
+          "key": "gilo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 1.32,
+          "end": 1.4,
+          "key": "oh",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "perjured",
+          "start": 1.4,
+          "end": 1.76,
+          "key": "perjured",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "woman,",
+          "start": 1.76,
+          "end": 2.04,
+          "key": "woman",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 2.7,
+          "end": 2.76,
+          "key": "they",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.76,
+          "end": 2.84,
+          "key": "are",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 2.84,
+          "end": 3.04,
+          "key": "both",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "foresworn,",
+          "start": 3.04,
+          "end": 3.76,
+          "key": "foresworn",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.18,
+          "end": 4.22,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.22,
+          "end": 4.4,
+          "key": "this",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.4,
+          "end": 4.56,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "madman",
+          "start": 4.56,
+          "end": 5.04,
+          "key": "madman",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "justly",
+          "start": 5.04,
+          "end": 5.56,
+          "key": "justly",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "chargeth",
+          "start": 5.56,
+          "end": 5.98,
+          "key": "chargeth",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 5.98,
+          "end": 6.18,
+          "key": "them",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Angelo.",
+          "start": 0.0,
+          "end": 0.88
+        },
+        {
+          "text": "O",
+          "start": 0.88,
+          "end": 1.32
+        },
+        {
+          "text": "perjur'd",
+          "start": 1.32,
+          "end": 1.54
+        },
+        {
+          "text": "woman!",
+          "start": 1.76,
+          "end": 2.04
+        },
+        {
+          "text": "They",
+          "start": 2.7,
+          "end": 2.76
+        },
+        {
+          "text": "are",
+          "start": 2.76,
+          "end": 2.84
+        },
+        {
+          "text": "both",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "text": "forsworn.",
+          "start": 3.04,
+          "end": 3.61
+        },
+        {
+          "text": "In",
+          "start": 4.18,
+          "end": 4.22
+        },
+        {
+          "text": "this",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "text": "the",
+          "start": 4.4,
+          "end": 4.56
+        },
+        {
+          "text": "madman",
+          "start": 4.56,
+          "end": 5.04
+        },
+        {
+          "text": "justly",
+          "start": 5.04,
+          "end": 5.56
+        },
+        {
+          "text": "chargeth",
+          "start": 5.56,
+          "end": 5.98
+        },
+        {
+          "text": "them.",
+          "start": 5.98,
+          "end": 6.18
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 11
+      },
+      "match_ratio": 0.7333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2653934871777892
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6cbce8971b7dfa7c66b167a9cc02e9c3ca22755d483360444b832fd12f004cd2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}
