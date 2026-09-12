@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "f5a2728cc317c1eb113c3ba70924f67d01879f90acdc0d690a3fdbbf8197f2a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.10551974829286337,
+      "alignment_seconds": 0.00024184957146644592,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Nothing more likely.",
+        "hotwords": "Nothing"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nothing more likely.",
+          "start": 0.02,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " Nothing",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.58935546875
+            },
+            {
+              "text": " more",
+              "start": 0.66,
+              "end": 0.88,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " likely.",
+              "start": 0.88,
+              "end": 1.22,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nothing",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "more",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "raw": "likely.",
+          "start": 0.88,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "Nothing",
+        "more",
+        "likely."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nothing",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "nothing",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 0.66,
+          "end": 0.88,
+          "key": "more",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "likely.",
+          "start": 0.88,
+          "end": 1.22,
+          "key": "likely",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Nothing",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "more",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "text": "likely.",
+          "start": 0.88,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10586505010724068
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "70ec690b0926693d6d96484101dd55af7d32b01f0a18f5489cc8cefc017655a1",
+  "selected_reasons": []
+}

@@ -1,0 +1,550 @@
+{
+  "complete": true,
+  "signature": "d233273c8eebf441bfe833bab592e809b1d5d5b49f61ebf6c49e054b28b5d3f2",
+  "attempts": [
+    {
+      "asr_seconds": 0.291523614898324,
+      "alignment_seconds": 0.0002491651102900505,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The people readily assent. All their fears are for him. They have none for themselves.",
+          "start": 0.02,
+          "end": 4.62,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.46,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " people",
+              "start": 0.46,
+              "end": 0.76,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " readily",
+              "start": 0.76,
+              "end": 1.16,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " assent.",
+              "start": 1.16,
+              "end": 1.68,
+              "probability": 0.97265625
+            },
+            {
+              "text": " All",
+              "start": 2.16,
+              "end": 2.28,
+              "probability": 0.9921875
+            },
+            {
+              "text": " their",
+              "start": 2.28,
+              "end": 2.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fears",
+              "start": 2.42,
+              "end": 2.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " are",
+              "start": 2.72,
+              "end": 2.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 2.94,
+              "end": 3.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him.",
+              "start": 3.06,
+              "end": 3.26,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " They",
+              "start": 3.62,
+              "end": 3.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " have",
+              "start": 3.7,
+              "end": 3.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " none",
+              "start": 3.88,
+              "end": 4.08,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " for",
+              "start": 4.08,
+              "end": 4.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " themselves.",
+              "start": 4.26,
+              "end": 4.62,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.46
+        },
+        {
+          "raw": "people",
+          "start": 0.46,
+          "end": 0.76
+        },
+        {
+          "raw": "readily",
+          "start": 0.76,
+          "end": 1.16
+        },
+        {
+          "raw": "assent.",
+          "start": 1.16,
+          "end": 1.68
+        },
+        {
+          "raw": "All",
+          "start": 2.16,
+          "end": 2.28
+        },
+        {
+          "raw": "their",
+          "start": 2.28,
+          "end": 2.42
+        },
+        {
+          "raw": "fears",
+          "start": 2.42,
+          "end": 2.72
+        },
+        {
+          "raw": "are",
+          "start": 2.72,
+          "end": 2.94
+        },
+        {
+          "raw": "for",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "raw": "him.",
+          "start": 3.06,
+          "end": 3.26
+        },
+        {
+          "raw": "They",
+          "start": 3.62,
+          "end": 3.7
+        },
+        {
+          "raw": "have",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "raw": "none",
+          "start": 3.88,
+          "end": 4.08
+        },
+        {
+          "raw": "for",
+          "start": 4.08,
+          "end": 4.26
+        },
+        {
+          "raw": "themselves.",
+          "start": 4.26,
+          "end": 4.62
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "people",
+        "readily",
+        "assent;",
+        "all",
+        "their",
+        "fears",
+        "are",
+        "for",
+        "him—they",
+        "have",
+        "none",
+        "for",
+        "themselves."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          14,
+          11,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.46,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "people",
+          "start": 0.46,
+          "end": 0.76,
+          "key": "people",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "readily",
+          "start": 0.76,
+          "end": 1.16,
+          "key": "readily",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "assent.",
+          "start": 1.16,
+          "end": 1.68,
+          "key": "assent",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 2.16,
+          "end": 2.28,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 2.28,
+          "end": 2.42,
+          "key": "their",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fears",
+          "start": 2.42,
+          "end": 2.72,
+          "key": "fears",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.72,
+          "end": 2.94,
+          "key": "are",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.94,
+          "end": 3.06,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 3.06,
+          "end": 3.26,
+          "key": "him",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 3.62,
+          "end": 3.7,
+          "key": "they",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.7,
+          "end": 3.88,
+          "key": "have",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "none",
+          "start": 3.88,
+          "end": 4.08,
+          "key": "none",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.08,
+          "end": 4.26,
+          "key": "for",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "themselves.",
+          "start": 4.26,
+          "end": 4.62,
+          "key": "themselves",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.46
+        },
+        {
+          "text": "people",
+          "start": 0.46,
+          "end": 0.76
+        },
+        {
+          "text": "readily",
+          "start": 0.76,
+          "end": 1.16
+        },
+        {
+          "text": "assent;",
+          "start": 1.16,
+          "end": 1.68
+        },
+        {
+          "text": "all",
+          "start": 2.16,
+          "end": 2.28
+        },
+        {
+          "text": "their",
+          "start": 2.28,
+          "end": 2.42
+        },
+        {
+          "text": "fears",
+          "start": 2.42,
+          "end": 2.72
+        },
+        {
+          "text": "are",
+          "start": 2.72,
+          "end": 2.94
+        },
+        {
+          "text": "for",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "text": "him—they",
+          "start": 3.06,
+          "end": 3.38
+        },
+        {
+          "text": "have",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "text": "none",
+          "start": 3.88,
+          "end": 4.08
+        },
+        {
+          "text": "for",
+          "start": 4.08,
+          "end": 4.26
+        },
+        {
+          "text": "themselves.",
+          "start": 4.26,
+          "end": 4.62
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.2918739216402173
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "308de897dad3648378793e921d82fe48e95ccc90380f43859ee154d9469f1ae9",
+  "selected_reasons": []
+}

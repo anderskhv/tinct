@@ -1,0 +1,486 @@
+{
+  "complete": true,
+  "signature": "84aa3200f5be48eef5a8a5dd2c2cab821ad08cbf676e58ace450df703eca6acf",
+  "attempts": [
+    {
+      "asr_seconds": 0.35177295189350843,
+      "alignment_seconds": 0.0006033778190612793,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Verily, then, tragedy is a wise thing and Euripity is a great tragedian.",
+          "start": 0.08,
+          "end": 4.6,
+          "words": [
+            {
+              "text": " Verily,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " then,",
+              "start": 1.06,
+              "end": 1.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " tragedy",
+              "start": 1.8,
+              "end": 1.94,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " is",
+              "start": 1.94,
+              "end": 2.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 2.22,
+              "end": 2.32,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " wise",
+              "start": 2.32,
+              "end": 2.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thing",
+              "start": 2.56,
+              "end": 2.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 2.88,
+              "end": 3.18,
+              "probability": 0.5693359375
+            },
+            {
+              "text": " Euripity",
+              "start": 3.18,
+              "end": 3.52,
+              "probability": 0.7637532552083334
+            },
+            {
+              "text": " is",
+              "start": 3.52,
+              "end": 3.68,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " a",
+              "start": 3.68,
+              "end": 3.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " great",
+              "start": 3.78,
+              "end": 4.0,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " tragedian.",
+              "start": 4.0,
+              "end": 4.6,
+              "probability": 0.875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Verily,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "then,",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "raw": "tragedy",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "raw": "is",
+          "start": 1.94,
+          "end": 2.22
+        },
+        {
+          "raw": "a",
+          "start": 2.22,
+          "end": 2.32
+        },
+        {
+          "raw": "wise",
+          "start": 2.32,
+          "end": 2.56
+        },
+        {
+          "raw": "thing",
+          "start": 2.56,
+          "end": 2.88
+        },
+        {
+          "raw": "and",
+          "start": 2.88,
+          "end": 3.18
+        },
+        {
+          "raw": "Euripity",
+          "start": 3.18,
+          "end": 3.52
+        },
+        {
+          "raw": "is",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "raw": "a",
+          "start": 3.68,
+          "end": 3.78
+        },
+        {
+          "raw": "great",
+          "start": 3.78,
+          "end": 4.0
+        },
+        {
+          "raw": "tragedian.",
+          "start": 4.0,
+          "end": 4.6
+        }
+      ],
+      "expected_tokens": [
+        "Verily,",
+        "then,",
+        "tragedy",
+        "is",
+        "a",
+        "wise",
+        "thing",
+        "and",
+        "Euripides",
+        "a",
+        "great",
+        "tragedian."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          12,
+          10,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Verily,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "verily",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then,",
+          "start": 1.06,
+          "end": 1.2,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tragedy",
+          "start": 1.8,
+          "end": 1.94,
+          "key": "tragedy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.94,
+          "end": 2.22,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.22,
+          "end": 2.32,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wise",
+          "start": 2.32,
+          "end": 2.56,
+          "key": "wise",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 2.56,
+          "end": 2.88,
+          "key": "thing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.88,
+          "end": 3.18,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Euripity",
+          "start": 3.18,
+          "end": 3.52,
+          "key": "euripity",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.52,
+          "end": 3.68,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.68,
+          "end": 3.78,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 3.78,
+          "end": 4.0,
+          "key": "great",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "tragedian.",
+          "start": 4.0,
+          "end": 4.6,
+          "key": "tragedian",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Verily,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "then,",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "text": "tragedy",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "text": "is",
+          "start": 1.94,
+          "end": 2.22
+        },
+        {
+          "text": "a",
+          "start": 2.22,
+          "end": 2.32
+        },
+        {
+          "text": "wise",
+          "start": 2.32,
+          "end": 2.56
+        },
+        {
+          "text": "thing",
+          "start": 2.56,
+          "end": 2.88
+        },
+        {
+          "text": "and",
+          "start": 2.88,
+          "end": 3.18
+        },
+        {
+          "text": "Euripides",
+          "start": 3.18,
+          "end": 3.43
+        },
+        {
+          "text": "a",
+          "start": 3.68,
+          "end": 3.78
+        },
+        {
+          "text": "great",
+          "start": 3.78,
+          "end": 4.0
+        },
+        {
+          "text": "tragedian.",
+          "start": 4.0,
+          "end": 4.6
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.35261010844260454
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "24e772ba74414de4c337e79574d44322d691ebd830a2651a4824b9a07836c4ed",
+  "selected_reasons": []
+}

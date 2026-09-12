@@ -1,0 +1,551 @@
+{
+  "complete": true,
+  "signature": "799367f8c5d4faf86935f9efdb6cdad04ad79f4a4bc03ba0e11f9f9b79680e4a",
+  "attempts": [
+    {
+      "asr_seconds": 0.21485994663089514,
+      "alignment_seconds": 0.00022210273891687393,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And what is honored is cultivated, and that which has no honor is neglected.",
+          "start": 0.05,
+          "end": 4.35,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.431884765625
+            },
+            {
+              "text": " what",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " is",
+              "start": 0.65,
+              "end": 0.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " honored",
+              "start": 0.83,
+              "end": 1.13,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " is",
+              "start": 1.13,
+              "end": 1.41,
+              "probability": 0.986328125
+            },
+            {
+              "text": " cultivated,",
+              "start": 1.41,
+              "end": 1.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 2.43,
+              "end": 2.57,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " that",
+              "start": 2.57,
+              "end": 2.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " which",
+              "start": 2.71,
+              "end": 2.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " has",
+              "start": 2.87,
+              "end": 3.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " no",
+              "start": 3.09,
+              "end": 3.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " honor",
+              "start": 3.37,
+              "end": 3.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " is",
+              "start": 3.69,
+              "end": 3.91,
+              "probability": 0.9921875
+            },
+            {
+              "text": " neglected.",
+              "start": 3.91,
+              "end": 4.35,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "what",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "is",
+          "start": 0.65,
+          "end": 0.83
+        },
+        {
+          "raw": "honored",
+          "start": 0.83,
+          "end": 1.13
+        },
+        {
+          "raw": "is",
+          "start": 1.13,
+          "end": 1.41
+        },
+        {
+          "raw": "cultivated,",
+          "start": 1.41,
+          "end": 1.89
+        },
+        {
+          "raw": "and",
+          "start": 2.43,
+          "end": 2.57
+        },
+        {
+          "raw": "that",
+          "start": 2.57,
+          "end": 2.71
+        },
+        {
+          "raw": "which",
+          "start": 2.71,
+          "end": 2.87
+        },
+        {
+          "raw": "has",
+          "start": 2.87,
+          "end": 3.09
+        },
+        {
+          "raw": "no",
+          "start": 3.09,
+          "end": 3.37
+        },
+        {
+          "raw": "honor",
+          "start": 3.37,
+          "end": 3.69
+        },
+        {
+          "raw": "is",
+          "start": 3.69,
+          "end": 3.91
+        },
+        {
+          "raw": "neglected.",
+          "start": 3.91,
+          "end": 4.35
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "what",
+        "is",
+        "honoured",
+        "is",
+        "cultivated,",
+        "and",
+        "that",
+        "which",
+        "has",
+        "no",
+        "honour",
+        "is",
+        "neglected."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          11,
+          4,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          14,
+          12,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.65,
+          "end": 0.83,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "honored",
+          "start": 0.83,
+          "end": 1.13,
+          "key": "honored",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.13,
+          "end": 1.41,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cultivated,",
+          "start": 1.41,
+          "end": 1.89,
+          "key": "cultivated",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.43,
+          "end": 2.57,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.57,
+          "end": 2.71,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 2.71,
+          "end": 2.87,
+          "key": "which",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 2.87,
+          "end": 3.09,
+          "key": "has",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.09,
+          "end": 3.37,
+          "key": "no",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "honor",
+          "start": 3.37,
+          "end": 3.69,
+          "key": "honor",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.69,
+          "end": 3.91,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "neglected.",
+          "start": 3.91,
+          "end": 4.35,
+          "key": "neglected",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "what",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "is",
+          "start": 0.65,
+          "end": 0.83
+        },
+        {
+          "text": "honoured",
+          "start": 0.83,
+          "end": 0.98
+        },
+        {
+          "text": "is",
+          "start": 1.13,
+          "end": 1.41
+        },
+        {
+          "text": "cultivated,",
+          "start": 1.41,
+          "end": 1.89
+        },
+        {
+          "text": "and",
+          "start": 2.43,
+          "end": 2.57
+        },
+        {
+          "text": "that",
+          "start": 2.57,
+          "end": 2.71
+        },
+        {
+          "text": "which",
+          "start": 2.71,
+          "end": 2.87
+        },
+        {
+          "text": "has",
+          "start": 2.87,
+          "end": 3.09
+        },
+        {
+          "text": "no",
+          "start": 3.09,
+          "end": 3.37
+        },
+        {
+          "text": "honour",
+          "start": 3.37,
+          "end": 3.53
+        },
+        {
+          "text": "is",
+          "start": 3.69,
+          "end": 3.91
+        },
+        {
+          "text": "neglected.",
+          "start": 3.91,
+          "end": 4.35
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.2151636416092515
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fe453e33bff60ce281dfc6a9017d9a498d44bcc59bdf65fbca3bec72fe1aa887",
+  "selected_reasons": []
+}

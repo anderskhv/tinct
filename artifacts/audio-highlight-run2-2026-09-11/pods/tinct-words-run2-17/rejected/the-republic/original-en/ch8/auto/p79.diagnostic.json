@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "b7de0c4ccd4bb5bcbf9adbebabd9279bfab1dd279d2b8c5791ab4783cfaf4486",
+  "attempts": [
+    {
+      "asr_seconds": 0.10493540018796921,
+      "alignment_seconds": 8.824001997709274e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "How?",
+        "hotwords": "How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " How?",
+          "start": 0.11,
+          "end": 0.57,
+          "words": [
+            {
+              "text": " How?",
+              "start": 0.11,
+              "end": 0.57,
+              "probability": 0.11700439453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How?",
+          "start": 0.11,
+          "end": 0.57
+        }
+      ],
+      "expected_tokens": [
+        "How?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "How?",
+          "start": 0.11,
+          "end": 0.57,
+          "key": "how",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "How?",
+          "start": 0.11,
+          "end": 0.57
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10504820011556149
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bed9e932f0d746d825ff399ee4d70681275c39f5a9aba4ec35d4625467c41e9a",
+  "selected_reasons": []
+}

@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "68304e857949f8cac87e4e00dddbae16daf84f702b86d7ab40fb82820b12cc24",
+  "attempts": [
+    {
+      "asr_seconds": 0.3298183726146817,
+      "alignment_seconds": 0.0005420763045549393,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then if the constitutions of States are five, the dispositions of individual minds will also be five?",
+        "hotwords": "Then, States"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then if the constitutions of States are five, the dispositions of individual minds will also be five?",
+          "start": 0.02,
+          "end": 6.24,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " if",
+              "start": 0.6,
+              "end": 0.84,
+              "probability": 0.444091796875
+            },
+            {
+              "text": " the",
+              "start": 0.84,
+              "end": 1.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " constitutions",
+              "start": 1.0,
+              "end": 1.7,
+              "probability": 0.806640625
+            },
+            {
+              "text": " of",
+              "start": 1.7,
+              "end": 1.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " States",
+              "start": 1.86,
+              "end": 2.14,
+              "probability": 0.07757568359375
+            },
+            {
+              "text": " are",
+              "start": 2.14,
+              "end": 2.4,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " five,",
+              "start": 2.4,
+              "end": 2.72,
+              "probability": 0.73388671875
+            },
+            {
+              "text": " the",
+              "start": 3.36,
+              "end": 3.38,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " dispositions",
+              "start": 3.38,
+              "end": 4.0,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " of",
+              "start": 4.0,
+              "end": 4.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " individual",
+              "start": 4.18,
+              "end": 4.6,
+              "probability": 0.9921875
+            },
+            {
+              "text": " minds",
+              "start": 4.6,
+              "end": 5.08,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " will",
+              "start": 5.08,
+              "end": 5.36,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " also",
+              "start": 5.36,
+              "end": 5.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 5.68,
+              "end": 5.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " five?",
+              "start": 5.92,
+              "end": 6.24,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "if",
+          "start": 0.6,
+          "end": 0.84
+        },
+        {
+          "raw": "the",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "raw": "constitutions",
+          "start": 1.0,
+          "end": 1.7
+        },
+        {
+          "raw": "of",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "raw": "States",
+          "start": 1.86,
+          "end": 2.14
+        },
+        {
+          "raw": "are",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "raw": "five,",
+          "start": 2.4,
+          "end": 2.72
+        },
+        {
+          "raw": "the",
+          "start": 3.36,
+          "end": 3.38
+        },
+        {
+          "raw": "dispositions",
+          "start": 3.38,
+          "end": 4.0
+        },
+        {
+          "raw": "of",
+          "start": 4.0,
+          "end": 4.18
+        },
+        {
+          "raw": "individual",
+          "start": 4.18,
+          "end": 4.6
+        },
+        {
+          "raw": "minds",
+          "start": 4.6,
+          "end": 5.08
+        },
+        {
+          "raw": "will",
+          "start": 5.08,
+          "end": 5.36
+        },
+        {
+          "raw": "also",
+          "start": 5.36,
+          "end": 5.68
+        },
+        {
+          "raw": "be",
+          "start": 5.68,
+          "end": 5.92
+        },
+        {
+          "raw": "five?",
+          "start": 5.92,
+          "end": 6.24
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "if",
+        "the",
+        "constitutions",
+        "of",
+        "States",
+        "are",
+        "five,",
+        "the",
+        "dispositions",
+        "of",
+        "individual",
+        "minds",
+        "will",
+        "also",
+        "be",
+        "five?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 0.6,
+          "end": 0.84,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.84,
+          "end": 1.0,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "constitutions",
+          "start": 1.0,
+          "end": 1.7,
+          "key": "constitutions",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.7,
+          "end": 1.86,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "States",
+          "start": 1.86,
+          "end": 2.14,
+          "key": "states",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.14,
+          "end": 2.4,
+          "key": "are",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "five,",
+          "start": 2.4,
+          "end": 2.72,
+          "key": "five",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.36,
+          "end": 3.38,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "dispositions",
+          "start": 3.38,
+          "end": 4.0,
+          "key": "dispositions",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.0,
+          "end": 4.18,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "individual",
+          "start": 4.18,
+          "end": 4.6,
+          "key": "individual",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "minds",
+          "start": 4.6,
+          "end": 5.08,
+          "key": "minds",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 5.08,
+          "end": 5.36,
+          "key": "will",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "also",
+          "start": 5.36,
+          "end": 5.68,
+          "key": "also",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.68,
+          "end": 5.92,
+          "key": "be",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "five?",
+          "start": 5.92,
+          "end": 6.24,
+          "key": "five",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "if",
+          "start": 0.6,
+          "end": 0.84
+        },
+        {
+          "text": "the",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "text": "constitutions",
+          "start": 1.0,
+          "end": 1.7
+        },
+        {
+          "text": "of",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "text": "States",
+          "start": 1.86,
+          "end": 2.14
+        },
+        {
+          "text": "are",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "text": "five,",
+          "start": 2.4,
+          "end": 2.72
+        },
+        {
+          "text": "the",
+          "start": 3.36,
+          "end": 3.38
+        },
+        {
+          "text": "dispositions",
+          "start": 3.38,
+          "end": 4.0
+        },
+        {
+          "text": "of",
+          "start": 4.0,
+          "end": 4.18
+        },
+        {
+          "text": "individual",
+          "start": 4.18,
+          "end": 4.6
+        },
+        {
+          "text": "minds",
+          "start": 4.6,
+          "end": 5.08
+        },
+        {
+          "text": "will",
+          "start": 5.08,
+          "end": 5.36
+        },
+        {
+          "text": "also",
+          "start": 5.36,
+          "end": 5.68
+        },
+        {
+          "text": "be",
+          "start": 5.68,
+          "end": 5.92
+        },
+        {
+          "text": "five?",
+          "start": 5.92,
+          "end": 6.24
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3305767737329006
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "57b19027761c87a0b10394a3df06aa7ede7a736997fbec37f5b3e278d853c4da",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "6b6525be0c7c9e2c001fb0be5f65acf91cb494516270c3f09db5009435ec8ad1",
+  "attempts": [
+    {
+      "asr_seconds": 0.16435109358280897,
+      "alignment_seconds": 0.00015920866280794144,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That is tolerably clear.",
+        "hotwords": "That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That is tolerably clear.",
+          "start": 0.05,
+          "end": 1.49,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " is",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " tolerably",
+              "start": 0.67,
+              "end": 1.19,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " clear.",
+              "start": 1.19,
+              "end": 1.49,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "is",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "tolerably",
+          "start": 0.67,
+          "end": 1.19
+        },
+        {
+          "raw": "clear.",
+          "start": 1.19,
+          "end": 1.49
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "is",
+        "tolerably",
+        "clear."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.55,
+          "end": 0.67,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tolerably",
+          "start": 0.67,
+          "end": 1.19,
+          "key": "tolerably",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "clear.",
+          "start": 1.19,
+          "end": 1.49,
+          "key": "clear",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "is",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "text": "tolerably",
+          "start": 0.67,
+          "end": 1.19
+        },
+        {
+          "text": "clear.",
+          "start": 1.19,
+          "end": 1.49
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16456098947674036
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "615b7b0243357e21d2749bb8d0fd50af8ae067ce72029226ab110694a4e89802",
+  "selected_reasons": []
+}

@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "538dc39fecc8e0fdeec70506d75e2383ec7c2091d890ca5a6f8809b426fc3ebc",
+  "attempts": [
+    {
+      "asr_seconds": 0.12033415120095015,
+      "alignment_seconds": 0.00015676580369472504,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I should expect so.",
+          "start": 0.02,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " should",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.990234375
+            },
+            {
+              "text": " expect",
+              "start": 0.64,
+              "end": 0.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " so.",
+              "start": 0.98,
+              "end": 1.32,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "should",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "expect",
+          "start": 0.64,
+          "end": 0.98
+        },
+        {
+          "raw": "so.",
+          "start": 0.98,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "should",
+        "expect",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "should",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "expect",
+          "start": 0.64,
+          "end": 0.98,
+          "key": "expect",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 0.98,
+          "end": 1.32,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "should",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "expect",
+          "start": 0.64,
+          "end": 0.98
+        },
+        {
+          "text": "so.",
+          "start": 0.98,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12054536771029234
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "483d06c47a5ffa4df35f1954a014439f91d35893950f8a9dccc9e982c8f6a065",
+  "selected_reasons": []
+}

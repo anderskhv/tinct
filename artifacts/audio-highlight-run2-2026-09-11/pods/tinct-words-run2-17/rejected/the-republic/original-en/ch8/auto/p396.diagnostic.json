@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "d0df3a33c9e89453ac503e822b9ebc694bb7d4a236fe6ed24099dba73cc15eec",
+  "attempts": [
+    {
+      "asr_seconds": 0.11557904351502657,
+      "alignment_seconds": 0.00031334906816482544,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "A necessary result.",
+        "hotwords": "A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A necessary result.",
+          "start": 0.05,
+          "end": 1.41,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.662109375
+            },
+            {
+              "text": " necessary",
+              "start": 0.49,
+              "end": 0.85,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " result.",
+              "start": 0.85,
+              "end": 1.41,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "necessary",
+          "start": 0.49,
+          "end": 0.85
+        },
+        {
+          "raw": "result.",
+          "start": 0.85,
+          "end": 1.41
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "necessary",
+        "result."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "necessary",
+          "start": 0.49,
+          "end": 0.85,
+          "key": "necessary",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "result.",
+          "start": 0.85,
+          "end": 1.41,
+          "key": "result",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "necessary",
+          "start": 0.49,
+          "end": 0.85
+        },
+        {
+          "text": "result.",
+          "start": 0.85,
+          "end": 1.41
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11600334197282791
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c26682538edba680b3c09627eaf5bb665a2ff74bbc0ccf0f683ba8e568fecd16",
+  "selected_reasons": []
+}

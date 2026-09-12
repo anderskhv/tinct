@@ -1,0 +1,2858 @@
+{
+  "complete": true,
+  "signature": "729abd0ab005de59f4c0d7e0629866f0511df5ddbd94aae4cd8157c79f7bb76d",
+  "attempts": [
+    {
+      "asr_seconds": 1.042874882929027,
+      "alignment_seconds": 0.003690894693136215,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "They next proceed to make a law which fixes a sum of money as the qualification of citizenship; the sum is higher in one place and lower in another, as the oligarchy is more or less exclusive; and they allow no one whose property falls below the amount fixed to have any share in the government. These changes in the constitution they effect by force of arms, if intimidation has not already done their work.",
+        "hotwords": "These"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " These They next proceed to make a law which fixes a sum of money as the qualification of citizenship, the sum is higher in one place and lower in another, as the oligarchy is more or less exclusive, and they allow no one whose property falls below the amount fixed to have any share in the government. These changes in the constitution they effect by force of arms, if intimidation has not already done their work.",
+          "start": 0.05,
+          "end": 23.73,
+          "words": [
+            {
+              "text": " These",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.0002658367156982422
+            },
+            {
+              "text": " They",
+              "start": 0.53,
+              "end": 0.53,
+              "probability": 0.00011652708053588867
+            },
+            {
+              "text": " next",
+              "start": 0.53,
+              "end": 0.81,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " proceed",
+              "start": 0.81,
+              "end": 1.15,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " to",
+              "start": 1.15,
+              "end": 1.33,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " make",
+              "start": 1.33,
+              "end": 1.45,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " a",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " law",
+              "start": 1.61,
+              "end": 1.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " which",
+              "start": 1.83,
+              "end": 2.03,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " fixes",
+              "start": 2.03,
+              "end": 2.37,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " a",
+              "start": 2.37,
+              "end": 2.55,
+              "probability": 0.953125
+            },
+            {
+              "text": " sum",
+              "start": 2.55,
+              "end": 2.71,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " of",
+              "start": 2.71,
+              "end": 2.85,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " money",
+              "start": 2.85,
+              "end": 3.13,
+              "probability": 0.994140625
+            },
+            {
+              "text": " as",
+              "start": 3.13,
+              "end": 3.37,
+              "probability": 0.951171875
+            },
+            {
+              "text": " the",
+              "start": 3.37,
+              "end": 3.51,
+              "probability": 0.994140625
+            },
+            {
+              "text": " qualification",
+              "start": 3.51,
+              "end": 3.97,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 3.97,
+              "end": 4.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " citizenship,",
+              "start": 4.37,
+              "end": 4.89,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " the",
+              "start": 5.65,
+              "end": 5.71,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " sum",
+              "start": 5.71,
+              "end": 5.95,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " is",
+              "start": 5.95,
+              "end": 6.11,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " higher",
+              "start": 6.11,
+              "end": 6.47,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 6.47,
+              "end": 6.71,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " one",
+              "start": 6.71,
+              "end": 6.97,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " place",
+              "start": 6.97,
+              "end": 7.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 7.25,
+              "end": 7.51,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " lower",
+              "start": 7.51,
+              "end": 7.73,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " in",
+              "start": 7.73,
+              "end": 7.97,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " another,",
+              "start": 7.97,
+              "end": 8.31,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " as",
+              "start": 8.69,
+              "end": 8.91,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " the",
+              "start": 8.91,
+              "end": 9.05,
+              "probability": 0.9921875
+            },
+            {
+              "text": " oligarchy",
+              "start": 9.05,
+              "end": 9.55,
+              "probability": 0.994140625
+            },
+            {
+              "text": " is",
+              "start": 9.55,
+              "end": 9.77,
+              "probability": 0.9921875
+            },
+            {
+              "text": " more",
+              "start": 9.77,
+              "end": 10.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " or",
+              "start": 10.01,
+              "end": 10.11,
+              "probability": 0.984375
+            },
+            {
+              "text": " less",
+              "start": 10.11,
+              "end": 10.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " exclusive,",
+              "start": 10.31,
+              "end": 10.75,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 11.59,
+              "end": 11.67,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " they",
+              "start": 11.67,
+              "end": 11.81,
+              "probability": 0.994140625
+            },
+            {
+              "text": " allow",
+              "start": 11.81,
+              "end": 12.09,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " no",
+              "start": 12.09,
+              "end": 12.41,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " one",
+              "start": 12.41,
+              "end": 12.63,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " whose",
+              "start": 12.63,
+              "end": 12.83,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " property",
+              "start": 12.83,
+              "end": 13.27,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " falls",
+              "start": 13.27,
+              "end": 13.67,
+              "probability": 0.994140625
+            },
+            {
+              "text": " below",
+              "start": 13.67,
+              "end": 14.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 14.05,
+              "end": 14.25,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " amount",
+              "start": 14.25,
+              "end": 14.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fixed",
+              "start": 14.57,
+              "end": 14.95,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " to",
+              "start": 14.95,
+              "end": 15.21,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " have",
+              "start": 15.21,
+              "end": 15.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " any",
+              "start": 15.37,
+              "end": 15.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " share",
+              "start": 15.63,
+              "end": 15.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 15.95,
+              "end": 16.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 16.15,
+              "end": 16.25,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " government.",
+              "start": 16.25,
+              "end": 16.61,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " These",
+              "start": 17.45,
+              "end": 17.71,
+              "probability": 0.982421875
+            },
+            {
+              "text": " changes",
+              "start": 17.71,
+              "end": 18.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 18.05,
+              "end": 18.39,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 18.39,
+              "end": 18.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " constitution",
+              "start": 18.53,
+              "end": 19.03,
+              "probability": 0.413330078125
+            },
+            {
+              "text": " they",
+              "start": 19.03,
+              "end": 19.41,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " effect",
+              "start": 19.41,
+              "end": 19.71,
+              "probability": 0.09375
+            },
+            {
+              "text": " by",
+              "start": 19.71,
+              "end": 20.01,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " force",
+              "start": 20.01,
+              "end": 20.31,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 20.31,
+              "end": 20.45,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " arms,",
+              "start": 20.45,
+              "end": 20.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " if",
+              "start": 21.33,
+              "end": 21.45,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " intimidation",
+              "start": 21.45,
+              "end": 21.95,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " has",
+              "start": 21.95,
+              "end": 22.39,
+              "probability": 0.986328125
+            },
+            {
+              "text": " not",
+              "start": 22.39,
+              "end": 22.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " already",
+              "start": 22.61,
+              "end": 22.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " done",
+              "start": 22.93,
+              "end": 23.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " their",
+              "start": 23.19,
+              "end": 23.41,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " work.",
+              "start": 23.41,
+              "end": 23.73,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " These They next proceed to make a sum of money as the qualification of citizenship, as the",
+          "start": 23.73,
+          "end": 24.35,
+          "words": [
+            {
+              "text": " These",
+              "start": 23.73,
+              "end": 24.35,
+              "probability": 0.00011491775512695312
+            },
+            {
+              "text": " They",
+              "start": 24.35,
+              "end": 24.35,
+              "probability": 2.294778823852539e-05
+            },
+            {
+              "text": " next",
+              "start": 24.35,
+              "end": 24.35,
+              "probability": 2.1159648895263672e-05
+            },
+            {
+              "text": " proceed",
+              "start": 24.35,
+              "end": 24.35,
+              "probability": 1.8298625946044922e-05
+            },
+            {
+              "text": " to",
+              "start": 24.35,
+              "end": 24.35,
+              "probability": 0.353759765625
+            },
+            {
+              "text": " make",
+              "start": 24.35,
+              "end": 24.35,
+              "probability": 0.0024318695068359375
+            },
+            {
+              "text": " a",
+              "start": 24.35,
+              "end": 24.35,
+              "probability": 0.185791015625
+            },
+            {
+              "text": " sum",
+              "start": 24.35,
+              "end": 24.35,
+              "probability": 1.4901161193847656e-05
+            },
+            {
+              "text": " of",
+              "start": 24.35,
+              "end": 24.35,
+              "probability": 0.270751953125
+            },
+            {
+              "text": " money",
+              "start": 24.35,
+              "end": 24.35,
+              "probability": 0.0007472038269042969
+            },
+            {
+              "text": " as",
+              "start": 24.35,
+              "end": 24.35,
+              "probability": 0.0061187744140625
+            },
+            {
+              "text": " the",
+              "start": 24.35,
+              "end": 24.35,
+              "probability": 0.07318115234375
+            },
+            {
+              "text": " qualification",
+              "start": 24.35,
+              "end": 24.35,
+              "probability": 7.092952728271484e-06
+            },
+            {
+              "text": " of",
+              "start": 24.35,
+              "end": 24.35,
+              "probability": 0.2120361328125
+            },
+            {
+              "text": " citizenship,",
+              "start": 24.35,
+              "end": 24.35,
+              "probability": 6.890296936035156e-05
+            },
+            {
+              "text": " as",
+              "start": 24.35,
+              "end": 24.35,
+              "probability": 0.0306854248046875
+            },
+            {
+              "text": " the",
+              "start": 24.35,
+              "end": 24.35,
+              "probability": 0.165771484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "These",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "They",
+          "start": 0.53,
+          "end": 0.53
+        },
+        {
+          "raw": "next",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "raw": "proceed",
+          "start": 0.81,
+          "end": 1.15
+        },
+        {
+          "raw": "to",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "raw": "make",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "raw": "a",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "law",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "raw": "which",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "raw": "fixes",
+          "start": 2.03,
+          "end": 2.37
+        },
+        {
+          "raw": "a",
+          "start": 2.37,
+          "end": 2.55
+        },
+        {
+          "raw": "sum",
+          "start": 2.55,
+          "end": 2.71
+        },
+        {
+          "raw": "of",
+          "start": 2.71,
+          "end": 2.85
+        },
+        {
+          "raw": "money",
+          "start": 2.85,
+          "end": 3.13
+        },
+        {
+          "raw": "as",
+          "start": 3.13,
+          "end": 3.37
+        },
+        {
+          "raw": "the",
+          "start": 3.37,
+          "end": 3.51
+        },
+        {
+          "raw": "qualification",
+          "start": 3.51,
+          "end": 3.97
+        },
+        {
+          "raw": "of",
+          "start": 3.97,
+          "end": 4.37
+        },
+        {
+          "raw": "citizenship,",
+          "start": 4.37,
+          "end": 4.89
+        },
+        {
+          "raw": "the",
+          "start": 5.65,
+          "end": 5.71
+        },
+        {
+          "raw": "sum",
+          "start": 5.71,
+          "end": 5.95
+        },
+        {
+          "raw": "is",
+          "start": 5.95,
+          "end": 6.11
+        },
+        {
+          "raw": "higher",
+          "start": 6.11,
+          "end": 6.47
+        },
+        {
+          "raw": "in",
+          "start": 6.47,
+          "end": 6.71
+        },
+        {
+          "raw": "one",
+          "start": 6.71,
+          "end": 6.97
+        },
+        {
+          "raw": "place",
+          "start": 6.97,
+          "end": 7.25
+        },
+        {
+          "raw": "and",
+          "start": 7.25,
+          "end": 7.51
+        },
+        {
+          "raw": "lower",
+          "start": 7.51,
+          "end": 7.73
+        },
+        {
+          "raw": "in",
+          "start": 7.73,
+          "end": 7.97
+        },
+        {
+          "raw": "another,",
+          "start": 7.97,
+          "end": 8.31
+        },
+        {
+          "raw": "as",
+          "start": 8.69,
+          "end": 8.91
+        },
+        {
+          "raw": "the",
+          "start": 8.91,
+          "end": 9.05
+        },
+        {
+          "raw": "oligarchy",
+          "start": 9.05,
+          "end": 9.55
+        },
+        {
+          "raw": "is",
+          "start": 9.55,
+          "end": 9.77
+        },
+        {
+          "raw": "more",
+          "start": 9.77,
+          "end": 10.01
+        },
+        {
+          "raw": "or",
+          "start": 10.01,
+          "end": 10.11
+        },
+        {
+          "raw": "less",
+          "start": 10.11,
+          "end": 10.31
+        },
+        {
+          "raw": "exclusive,",
+          "start": 10.31,
+          "end": 10.75
+        },
+        {
+          "raw": "and",
+          "start": 11.59,
+          "end": 11.67
+        },
+        {
+          "raw": "they",
+          "start": 11.67,
+          "end": 11.81
+        },
+        {
+          "raw": "allow",
+          "start": 11.81,
+          "end": 12.09
+        },
+        {
+          "raw": "no",
+          "start": 12.09,
+          "end": 12.41
+        },
+        {
+          "raw": "one",
+          "start": 12.41,
+          "end": 12.63
+        },
+        {
+          "raw": "whose",
+          "start": 12.63,
+          "end": 12.83
+        },
+        {
+          "raw": "property",
+          "start": 12.83,
+          "end": 13.27
+        },
+        {
+          "raw": "falls",
+          "start": 13.27,
+          "end": 13.67
+        },
+        {
+          "raw": "below",
+          "start": 13.67,
+          "end": 14.05
+        },
+        {
+          "raw": "the",
+          "start": 14.05,
+          "end": 14.25
+        },
+        {
+          "raw": "amount",
+          "start": 14.25,
+          "end": 14.57
+        },
+        {
+          "raw": "fixed",
+          "start": 14.57,
+          "end": 14.95
+        },
+        {
+          "raw": "to",
+          "start": 14.95,
+          "end": 15.21
+        },
+        {
+          "raw": "have",
+          "start": 15.21,
+          "end": 15.37
+        },
+        {
+          "raw": "any",
+          "start": 15.37,
+          "end": 15.63
+        },
+        {
+          "raw": "share",
+          "start": 15.63,
+          "end": 15.95
+        },
+        {
+          "raw": "in",
+          "start": 15.95,
+          "end": 16.15
+        },
+        {
+          "raw": "the",
+          "start": 16.15,
+          "end": 16.25
+        },
+        {
+          "raw": "government.",
+          "start": 16.25,
+          "end": 16.61
+        },
+        {
+          "raw": "These",
+          "start": 17.45,
+          "end": 17.71
+        },
+        {
+          "raw": "changes",
+          "start": 17.71,
+          "end": 18.05
+        },
+        {
+          "raw": "in",
+          "start": 18.05,
+          "end": 18.39
+        },
+        {
+          "raw": "the",
+          "start": 18.39,
+          "end": 18.53
+        },
+        {
+          "raw": "constitution",
+          "start": 18.53,
+          "end": 19.03
+        },
+        {
+          "raw": "they",
+          "start": 19.03,
+          "end": 19.41
+        },
+        {
+          "raw": "effect",
+          "start": 19.41,
+          "end": 19.71
+        },
+        {
+          "raw": "by",
+          "start": 19.71,
+          "end": 20.01
+        },
+        {
+          "raw": "force",
+          "start": 20.01,
+          "end": 20.31
+        },
+        {
+          "raw": "of",
+          "start": 20.31,
+          "end": 20.45
+        },
+        {
+          "raw": "arms,",
+          "start": 20.45,
+          "end": 20.89
+        },
+        {
+          "raw": "if",
+          "start": 21.33,
+          "end": 21.45
+        },
+        {
+          "raw": "intimidation",
+          "start": 21.45,
+          "end": 21.95
+        },
+        {
+          "raw": "has",
+          "start": 21.95,
+          "end": 22.39
+        },
+        {
+          "raw": "not",
+          "start": 22.39,
+          "end": 22.61
+        },
+        {
+          "raw": "already",
+          "start": 22.61,
+          "end": 22.93
+        },
+        {
+          "raw": "done",
+          "start": 22.93,
+          "end": 23.19
+        },
+        {
+          "raw": "their",
+          "start": 23.19,
+          "end": 23.41
+        },
+        {
+          "raw": "work.",
+          "start": 23.41,
+          "end": 23.73
+        },
+        {
+          "raw": "These",
+          "start": 23.73,
+          "end": 24.35
+        },
+        {
+          "raw": "They",
+          "start": 24.35,
+          "end": 24.35
+        },
+        {
+          "raw": "next",
+          "start": 24.35,
+          "end": 24.35
+        },
+        {
+          "raw": "proceed",
+          "start": 24.35,
+          "end": 24.35
+        },
+        {
+          "raw": "to",
+          "start": 24.35,
+          "end": 24.35
+        },
+        {
+          "raw": "make",
+          "start": 24.35,
+          "end": 24.35
+        },
+        {
+          "raw": "a",
+          "start": 24.35,
+          "end": 24.35
+        },
+        {
+          "raw": "sum",
+          "start": 24.35,
+          "end": 24.35
+        },
+        {
+          "raw": "of",
+          "start": 24.35,
+          "end": 24.35
+        },
+        {
+          "raw": "money",
+          "start": 24.35,
+          "end": 24.35
+        },
+        {
+          "raw": "as",
+          "start": 24.35,
+          "end": 24.35
+        },
+        {
+          "raw": "the",
+          "start": 24.35,
+          "end": 24.35
+        },
+        {
+          "raw": "qualification",
+          "start": 24.35,
+          "end": 24.35
+        },
+        {
+          "raw": "of",
+          "start": 24.35,
+          "end": 24.35
+        },
+        {
+          "raw": "citizenship,",
+          "start": 24.35,
+          "end": 24.35
+        },
+        {
+          "raw": "as",
+          "start": 24.35,
+          "end": 24.35
+        },
+        {
+          "raw": "the",
+          "start": 24.35,
+          "end": 24.35
+        }
+      ],
+      "expected_tokens": [
+        "They",
+        "next",
+        "proceed",
+        "to",
+        "make",
+        "a",
+        "law",
+        "which",
+        "fixes",
+        "a",
+        "sum",
+        "of",
+        "money",
+        "as",
+        "the",
+        "qualification",
+        "of",
+        "citizenship;",
+        "the",
+        "sum",
+        "is",
+        "higher",
+        "in",
+        "one",
+        "place",
+        "and",
+        "lower",
+        "in",
+        "another,",
+        "as",
+        "the",
+        "oligarchy",
+        "is",
+        "more",
+        "or",
+        "less",
+        "exclusive;",
+        "and",
+        "they",
+        "allow",
+        "no",
+        "one",
+        "whose",
+        "property",
+        "falls",
+        "below",
+        "the",
+        "amount",
+        "fixed",
+        "to",
+        "have",
+        "any",
+        "share",
+        "in",
+        "the",
+        "government.",
+        "These",
+        "changes",
+        "in",
+        "the",
+        "constitution",
+        "they",
+        "effect",
+        "by",
+        "force",
+        "of",
+        "arms,",
+        "if",
+        "intimidation",
+        "has",
+        "not",
+        "already",
+        "done",
+        "their",
+        "work."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          75,
+          1,
+          76
+        ],
+        [
+          "insert",
+          75,
+          75,
+          76,
+          93
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "insert",
+          75,
+          75,
+          76,
+          93
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "These",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "these",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 0.53,
+          "end": 0.53,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "next",
+          "start": 0.53,
+          "end": 0.81,
+          "key": "next",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "proceed",
+          "start": 0.81,
+          "end": 1.15,
+          "key": "proceed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.15,
+          "end": 1.33,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 1.33,
+          "end": 1.45,
+          "key": "make",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.45,
+          "end": 1.61,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "law",
+          "start": 1.61,
+          "end": 1.83,
+          "key": "law",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 1.83,
+          "end": 2.03,
+          "key": "which",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fixes",
+          "start": 2.03,
+          "end": 2.37,
+          "key": "fixes",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.37,
+          "end": 2.55,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sum",
+          "start": 2.55,
+          "end": 2.71,
+          "key": "sum",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.71,
+          "end": 2.85,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "money",
+          "start": 2.85,
+          "end": 3.13,
+          "key": "money",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.13,
+          "end": 3.37,
+          "key": "as",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.37,
+          "end": 3.51,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "qualification",
+          "start": 3.51,
+          "end": 3.97,
+          "key": "qualification",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.97,
+          "end": 4.37,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "citizenship,",
+          "start": 4.37,
+          "end": 4.89,
+          "key": "citizenship",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.65,
+          "end": 5.71,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "sum",
+          "start": 5.71,
+          "end": 5.95,
+          "key": "sum",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.95,
+          "end": 6.11,
+          "key": "is",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "higher",
+          "start": 6.11,
+          "end": 6.47,
+          "key": "higher",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.47,
+          "end": 6.71,
+          "key": "in",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 6.71,
+          "end": 6.97,
+          "key": "one",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "place",
+          "start": 6.97,
+          "end": 7.25,
+          "key": "place",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.25,
+          "end": 7.51,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "lower",
+          "start": 7.51,
+          "end": 7.73,
+          "key": "lower",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.73,
+          "end": 7.97,
+          "key": "in",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "another,",
+          "start": 7.97,
+          "end": 8.31,
+          "key": "another",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 8.69,
+          "end": 8.91,
+          "key": "as",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.91,
+          "end": 9.05,
+          "key": "the",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "oligarchy",
+          "start": 9.05,
+          "end": 9.55,
+          "key": "oligarchy",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 9.55,
+          "end": 9.77,
+          "key": "is",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 9.77,
+          "end": 10.01,
+          "key": "more",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 10.01,
+          "end": 10.11,
+          "key": "or",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "less",
+          "start": 10.11,
+          "end": 10.31,
+          "key": "less",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "exclusive,",
+          "start": 10.31,
+          "end": 10.75,
+          "key": "exclusive",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.59,
+          "end": 11.67,
+          "key": "and",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 11.67,
+          "end": 11.81,
+          "key": "they",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "allow",
+          "start": 11.81,
+          "end": 12.09,
+          "key": "allow",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 12.09,
+          "end": 12.41,
+          "key": "no",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 12.41,
+          "end": 12.63,
+          "key": "one",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "whose",
+          "start": 12.63,
+          "end": 12.83,
+          "key": "whose",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "property",
+          "start": 12.83,
+          "end": 13.27,
+          "key": "property",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "falls",
+          "start": 13.27,
+          "end": 13.67,
+          "key": "falls",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "below",
+          "start": 13.67,
+          "end": 14.05,
+          "key": "below",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.05,
+          "end": 14.25,
+          "key": "the",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "amount",
+          "start": 14.25,
+          "end": 14.57,
+          "key": "amount",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "fixed",
+          "start": 14.57,
+          "end": 14.95,
+          "key": "fixed",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.95,
+          "end": 15.21,
+          "key": "to",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 15.21,
+          "end": 15.37,
+          "key": "have",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 15.37,
+          "end": 15.63,
+          "key": "any",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "share",
+          "start": 15.63,
+          "end": 15.95,
+          "key": "share",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 15.95,
+          "end": 16.15,
+          "key": "in",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.15,
+          "end": 16.25,
+          "key": "the",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "government.",
+          "start": 16.25,
+          "end": 16.61,
+          "key": "government",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "These",
+          "start": 17.45,
+          "end": 17.71,
+          "key": "these",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "changes",
+          "start": 17.71,
+          "end": 18.05,
+          "key": "changes",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 18.05,
+          "end": 18.39,
+          "key": "in",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.39,
+          "end": 18.53,
+          "key": "the",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "constitution",
+          "start": 18.53,
+          "end": 19.03,
+          "key": "constitution",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 19.03,
+          "end": 19.41,
+          "key": "they",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "effect",
+          "start": 19.41,
+          "end": 19.71,
+          "key": "effect",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 19.71,
+          "end": 20.01,
+          "key": "by",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "force",
+          "start": 20.01,
+          "end": 20.31,
+          "key": "force",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 20.31,
+          "end": 20.45,
+          "key": "of",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "arms,",
+          "start": 20.45,
+          "end": 20.89,
+          "key": "arms",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 21.33,
+          "end": 21.45,
+          "key": "if",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "intimidation",
+          "start": 21.45,
+          "end": 21.95,
+          "key": "intimidation",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 21.95,
+          "end": 22.39,
+          "key": "has",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 22.39,
+          "end": 22.61,
+          "key": "not",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "already",
+          "start": 22.61,
+          "end": 22.93,
+          "key": "already",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 22.93,
+          "end": 23.19,
+          "key": "done",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 23.19,
+          "end": 23.41,
+          "key": "their",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "work.",
+          "start": 23.41,
+          "end": 23.73,
+          "key": "work",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "These",
+          "start": 23.73,
+          "end": 24.35,
+          "key": "these",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 24.35,
+          "end": 24.35,
+          "key": "they",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "next",
+          "start": 24.35,
+          "end": 24.35,
+          "key": "next",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "proceed",
+          "start": 24.35,
+          "end": 24.35,
+          "key": "proceed",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 24.35,
+          "end": 24.35,
+          "key": "to",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 24.35,
+          "end": 24.35,
+          "key": "make",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 24.35,
+          "end": 24.35,
+          "key": "a",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "sum",
+          "start": 24.35,
+          "end": 24.35,
+          "key": "sum",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 24.35,
+          "end": 24.35,
+          "key": "of",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "money",
+          "start": 24.35,
+          "end": 24.35,
+          "key": "money",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 24.35,
+          "end": 24.35,
+          "key": "as",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 24.35,
+          "end": 24.35,
+          "key": "the",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "qualification",
+          "start": 24.35,
+          "end": 24.35,
+          "key": "qualification",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 24.35,
+          "end": 24.35,
+          "key": "of",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "citizenship,",
+          "start": 24.35,
+          "end": 24.35,
+          "key": "citizenship",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 24.35,
+          "end": 24.35,
+          "key": "as",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 24.35,
+          "end": 24.35,
+          "key": "the",
+          "pieces": [
+            92
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "They",
+          "start": 0.53,
+          "end": 0.53
+        },
+        {
+          "text": "next",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "text": "proceed",
+          "start": 0.81,
+          "end": 1.15
+        },
+        {
+          "text": "to",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "text": "make",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "text": "a",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "text": "law",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "text": "which",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "text": "fixes",
+          "start": 2.03,
+          "end": 2.37
+        },
+        {
+          "text": "a",
+          "start": 2.37,
+          "end": 2.55
+        },
+        {
+          "text": "sum",
+          "start": 2.55,
+          "end": 2.71
+        },
+        {
+          "text": "of",
+          "start": 2.71,
+          "end": 2.85
+        },
+        {
+          "text": "money",
+          "start": 2.85,
+          "end": 3.13
+        },
+        {
+          "text": "as",
+          "start": 3.13,
+          "end": 3.37
+        },
+        {
+          "text": "the",
+          "start": 3.37,
+          "end": 3.51
+        },
+        {
+          "text": "qualification",
+          "start": 3.51,
+          "end": 3.97
+        },
+        {
+          "text": "of",
+          "start": 3.97,
+          "end": 4.37
+        },
+        {
+          "text": "citizenship;",
+          "start": 4.37,
+          "end": 4.89
+        },
+        {
+          "text": "the",
+          "start": 5.65,
+          "end": 5.71
+        },
+        {
+          "text": "sum",
+          "start": 5.71,
+          "end": 5.95
+        },
+        {
+          "text": "is",
+          "start": 5.95,
+          "end": 6.11
+        },
+        {
+          "text": "higher",
+          "start": 6.11,
+          "end": 6.47
+        },
+        {
+          "text": "in",
+          "start": 6.47,
+          "end": 6.71
+        },
+        {
+          "text": "one",
+          "start": 6.71,
+          "end": 6.97
+        },
+        {
+          "text": "place",
+          "start": 6.97,
+          "end": 7.25
+        },
+        {
+          "text": "and",
+          "start": 7.25,
+          "end": 7.51
+        },
+        {
+          "text": "lower",
+          "start": 7.51,
+          "end": 7.73
+        },
+        {
+          "text": "in",
+          "start": 7.73,
+          "end": 7.97
+        },
+        {
+          "text": "another,",
+          "start": 7.97,
+          "end": 8.31
+        },
+        {
+          "text": "as",
+          "start": 8.69,
+          "end": 8.91
+        },
+        {
+          "text": "the",
+          "start": 8.91,
+          "end": 9.05
+        },
+        {
+          "text": "oligarchy",
+          "start": 9.05,
+          "end": 9.55
+        },
+        {
+          "text": "is",
+          "start": 9.55,
+          "end": 9.77
+        },
+        {
+          "text": "more",
+          "start": 9.77,
+          "end": 10.01
+        },
+        {
+          "text": "or",
+          "start": 10.01,
+          "end": 10.11
+        },
+        {
+          "text": "less",
+          "start": 10.11,
+          "end": 10.31
+        },
+        {
+          "text": "exclusive;",
+          "start": 10.31,
+          "end": 10.75
+        },
+        {
+          "text": "and",
+          "start": 11.59,
+          "end": 11.67
+        },
+        {
+          "text": "they",
+          "start": 11.67,
+          "end": 11.81
+        },
+        {
+          "text": "allow",
+          "start": 11.81,
+          "end": 12.09
+        },
+        {
+          "text": "no",
+          "start": 12.09,
+          "end": 12.41
+        },
+        {
+          "text": "one",
+          "start": 12.41,
+          "end": 12.63
+        },
+        {
+          "text": "whose",
+          "start": 12.63,
+          "end": 12.83
+        },
+        {
+          "text": "property",
+          "start": 12.83,
+          "end": 13.27
+        },
+        {
+          "text": "falls",
+          "start": 13.27,
+          "end": 13.67
+        },
+        {
+          "text": "below",
+          "start": 13.67,
+          "end": 14.05
+        },
+        {
+          "text": "the",
+          "start": 14.05,
+          "end": 14.25
+        },
+        {
+          "text": "amount",
+          "start": 14.25,
+          "end": 14.57
+        },
+        {
+          "text": "fixed",
+          "start": 14.57,
+          "end": 14.95
+        },
+        {
+          "text": "to",
+          "start": 14.95,
+          "end": 15.21
+        },
+        {
+          "text": "have",
+          "start": 15.21,
+          "end": 15.37
+        },
+        {
+          "text": "any",
+          "start": 15.37,
+          "end": 15.63
+        },
+        {
+          "text": "share",
+          "start": 15.63,
+          "end": 15.95
+        },
+        {
+          "text": "in",
+          "start": 15.95,
+          "end": 16.15
+        },
+        {
+          "text": "the",
+          "start": 16.15,
+          "end": 16.25
+        },
+        {
+          "text": "government.",
+          "start": 16.25,
+          "end": 16.61
+        },
+        {
+          "text": "These",
+          "start": 17.45,
+          "end": 17.71
+        },
+        {
+          "text": "changes",
+          "start": 17.71,
+          "end": 18.05
+        },
+        {
+          "text": "in",
+          "start": 18.05,
+          "end": 18.39
+        },
+        {
+          "text": "the",
+          "start": 18.39,
+          "end": 18.53
+        },
+        {
+          "text": "constitution",
+          "start": 18.53,
+          "end": 19.03
+        },
+        {
+          "text": "they",
+          "start": 19.03,
+          "end": 19.41
+        },
+        {
+          "text": "effect",
+          "start": 19.41,
+          "end": 19.71
+        },
+        {
+          "text": "by",
+          "start": 19.71,
+          "end": 20.01
+        },
+        {
+          "text": "force",
+          "start": 20.01,
+          "end": 20.31
+        },
+        {
+          "text": "of",
+          "start": 20.31,
+          "end": 20.45
+        },
+        {
+          "text": "arms,",
+          "start": 20.45,
+          "end": 20.89
+        },
+        {
+          "text": "if",
+          "start": 21.33,
+          "end": 21.45
+        },
+        {
+          "text": "intimidation",
+          "start": 21.45,
+          "end": 21.95
+        },
+        {
+          "text": "has",
+          "start": 21.95,
+          "end": 22.39
+        },
+        {
+          "text": "not",
+          "start": 22.39,
+          "end": 22.61
+        },
+        {
+          "text": "already",
+          "start": 22.61,
+          "end": 22.93
+        },
+        {
+          "text": "done",
+          "start": 22.93,
+          "end": 23.19
+        },
+        {
+          "text": "their",
+          "start": 23.19,
+          "end": 23.41
+        },
+        {
+          "text": "work.",
+          "start": 23.41,
+          "end": 23.73
+        }
+      ],
+      "stats": {
+        "expected_words": 75,
+        "heard_words": 93,
+        "matched_words": 75
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.0483897747471929
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "98261bca9e8574e1036cb1873018002d6b6da923b4b66637dbba54403609daad",
+  "selected_reasons": []
+}

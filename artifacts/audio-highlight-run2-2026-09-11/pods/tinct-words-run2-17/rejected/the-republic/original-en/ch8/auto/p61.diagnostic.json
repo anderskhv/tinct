@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "e5534bf56f9b54236cc80919b29b4101a18048b13b43db6bfb6ee54e10c804a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.17481790017336607,
+      "alignment_seconds": 0.0003654640167951584,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And how does the son come into being?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And how does the son come into being?",
+          "start": 0.05,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " how",
+              "start": 0.51,
+              "end": 0.67,
+              "probability": 0.982421875
+            },
+            {
+              "text": " does",
+              "start": 0.67,
+              "end": 0.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 0.89,
+              "end": 1.03,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " son",
+              "start": 1.03,
+              "end": 1.25,
+              "probability": 0.0002168416976928711
+            },
+            {
+              "text": " come",
+              "start": 1.25,
+              "end": 1.47,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " into",
+              "start": 1.47,
+              "end": 1.67,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " being?",
+              "start": 1.67,
+              "end": 1.89,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "how",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "raw": "does",
+          "start": 0.67,
+          "end": 0.89
+        },
+        {
+          "raw": "the",
+          "start": 0.89,
+          "end": 1.03
+        },
+        {
+          "raw": "son",
+          "start": 1.03,
+          "end": 1.25
+        },
+        {
+          "raw": "come",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "raw": "into",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "raw": "being?",
+          "start": 1.67,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "how",
+        "does",
+        "the",
+        "son",
+        "come",
+        "into",
+        "being?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 0.51,
+          "end": 0.67,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 0.67,
+          "end": 0.89,
+          "key": "does",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.89,
+          "end": 1.03,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "son",
+          "start": 1.03,
+          "end": 1.25,
+          "key": "son",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.25,
+          "end": 1.47,
+          "key": "come",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 1.47,
+          "end": 1.67,
+          "key": "into",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "being?",
+          "start": 1.67,
+          "end": 1.89,
+          "key": "being",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "how",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "text": "does",
+          "start": 0.67,
+          "end": 0.89
+        },
+        {
+          "text": "the",
+          "start": 0.89,
+          "end": 1.03
+        },
+        {
+          "text": "son",
+          "start": 1.03,
+          "end": 1.25
+        },
+        {
+          "text": "come",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "text": "into",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "text": "being?",
+          "start": 1.67,
+          "end": 1.89
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17532047536224127
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "baadd583e07a5432796c0f49b4e83f39af5abddd87b20bd4899fee1e814e8869",
+  "selected_reasons": []
+}
