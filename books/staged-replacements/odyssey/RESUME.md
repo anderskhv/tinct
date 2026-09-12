@@ -13,7 +13,7 @@ Updated continuously. Read this first, then `WORKFLOW.md`.
 | 2 | 8 — accepted, with recorded successor `candidate-v3.json` | `candidate-v2.json` (successor v3) | v3 `dcf1e301…6f24088ac` | 0.902 | +16.1%, 60+ 7 → 4 |
 | 3 | 8 — accepted | `candidate-v2.json` | `7095ef4f…4989b905` | 0.897 | +5.5%, 60+ 9 → 6 |
 | 4 | **8 — accepted** | `candidate-v2.json` | `b3bef2f3…9674c446` | **0.95872** | **+8.9%, 60+ 17 → 3** |
-| 5 | **3 — frozen at `candidate-v1.json`, waiting on step 4** | — | v1 `7acc5c34…3737a59cf` | 0.94211 | +23.5%, 60+ 9 → 3 |
+| 5 | **4 — round 1 complete, `accept after corrections`; step 5 next** | — | v1 `7acc5c34…3737a59cf` | 0.94211 | +23.5%, 60+ 9 → 3 |
 
 **Book 1's retention was quoted as 0.721 everywhere until 2026-09-12 and that
 figure does not reproduce** — records finding R2 of Book 4's round 1. The
@@ -76,10 +76,45 @@ only that form — see `GLOSSARY.md`, "The retention measure".
   stream untouched, so the merge and split controls run against the blank-line
   block count instead.
 
+## Book 5 step 4 — round 1 is done
+
+`book05/review/findings-v1.md`, by a separate reviewer session. Verdict
+**accept after corrections**: **1 substantive**, 14 minor, 18 optional,
+8 records. Every number in the package reproduced exactly from the frozen
+files, and the source verification was re-run by a **seventh** rule
+(`book05/review/verify_source_book5_review.py`) — one global monotone diff of
+the whole 24-chapter edition against the whole PG file, which never looks for
+Book 5 and pins its span from both sides by monotonicity. Chapter 5 aligns
+**4,709 of 4,709 tokens, 0 PG tokens unclaimed, all 37 paragraphs at 100%**,
+and the residue-exhaustion claim is corroborated independently (9-token and
+8-token heading gaps).
+
+- **S-1**: the splitting rate is bought mainly with semicolons — Butler's 34
+  become 14, so **20 of the 36 added sentences move no clause and cost no
+  retention**, which is exactly what D17 cannot see. Three paragraphs named
+  (P009, P017, P021). Not a rebuild.
+- **The four rulings.** `sea shore` → **`seashore`** (and `hyphen_drift()`
+  **should** be extended to the closed/open axis) — and the ruling costs
+  **three** successors, not one: Books **2, 3 and 4** all print the open form,
+  which `RESUME.md`, `review-instructions.md` and `PUNCTUATION.md` §4 each
+  state as Book 4 alone. The supplied `and` at B05-P012 **upheld**. The
+  unbroken `heaven` census **upheld**. `battledore and shuttlecock` →
+  `batting it back and forth` **upheld**, with `between them` to reconsider.
+  The 62-word sentence at B05-P017 **divide it**.
+- **The no-op control shape reaches three further scripts**
+  (`verify_source_book4.py`, `book04/review/…`, `book03/review/…`), none of
+  them a no-op today, none asserting its mutation. And the drafter's fix is
+  **necessary and not sufficient** — the reviewer's own rule had a control that
+  changed the text, asserted it, and still did not fire, because the measure was
+  blind to deletion.
+- **Five compounds** left on a Victorian or third setting under D15
+  (`sea water`, `half way`, `river bed`, `mid ocean`, `sweet smelling`), three
+  of them absent from `continuity.md`'s table.
+
 ## Next, in order
 
-1. **Book 5 step 4**: independent review by a separate reviewer session,
-   `book05/review-instructions.md`, findings under `book05/review/`.
+1. **Book 5 step 5**: apply the findings at `candidate-v2.json` via a change
+   script in the established pattern, then steps 6–8.
 2. **Book 6** after that, in numerical order. Verify its source by a rule that
    differs from the **six** now used (Book 2 drafter: PG's footnote-entry list,
    positionally. Book 3 drafter: the `BOOK III`/`BOOK IV` headings, bytes,

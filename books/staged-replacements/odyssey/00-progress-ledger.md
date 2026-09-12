@@ -254,7 +254,17 @@ Kept current at every push.
    the served paragraph division is PG's own blank-line division). Two further
    decisions came out of the round: **D16** (one rule for punctuation slips)
    and **D17** (the splitting rate, a gate the build enforces).
-4. **Book 5 is frozen at `book05/candidate-v1.json`** (sha256
+4. **Book 5 round 1 is complete** — `book05/review/findings-v1.md`, verdict
+   **accept after corrections**: 1 substantive (**S-1**, the splitting rate is
+   bought with semicolons — 34 → 14, so 20 of 36 added sentences move no
+   clause), 14 minor, 18 optional, 8 records. All four questions ruled:
+   **`seashore`** (costing successors to Books **2, 3 and 4**, not Book 4
+   alone), the supplied `and` **upheld**, the unbroken `heaven` census
+   **upheld**, `batting it back and forth` **upheld**, and B05-P017's 62-word
+   sentence **to be divided**. `hyphen_drift()` to be extended to the
+   closed/open axis. Steps 5–8 are next.
+
+5. **Book 5 was frozen at `book05/candidate-v1.json`** (sha256
    `7acc5c34…3737a59cf`, 37 paragraphs, ratio 0.999, retention **0.94211**,
    **sentences 153 → 189 (+23.5%), sixty-word 9 → 3 (67% broken)**, 13 packets)
    and **waiting on the coordinator for step 4, the independent review**.
@@ -271,8 +281,8 @@ Kept current at every push.
    the **unbroken** `heaven` census, against Book 4's one break; `battledore
    and shuttlecock` → `batting it back and forth`; and the 62-word sentence
    left standing at B05-P017.
-5. **Book 6** after Book 5, in numerical order. Nothing blocks it.
-6. Book 10's disposition still needs a coordinator decision — see A2 below,
+6. **Book 6** after Book 5, in numerical order. Nothing blocks it.
+7. Book 10's disposition still needs a coordinator decision — see A2 below,
    now narrowed.
 
 ## Needs Anders (listed, not waited on)
