@@ -128,6 +128,10 @@ const edits = [
     'opacity:Q(u,e.kind===`desktop`?.2:e.kind===`eink`?.28:.36,e.kind===`desktop`?.32:e.kind===`eink`?.4:.48)',
     'opacity:Q(u,e.kind===`desktop`?.1:e.kind===`eink`?.14:.18,e.kind===`desktop`?.2:e.kind===`eink`?.24:.28)', 1],
   // Overview scene: Scene II (so "Who is this?" lands on a real supporting name), one highlight and one question at a time.
+  // 2026-09-12 (Anders): the questions follow the order of the lines they ask about (the Voltemand card is the
+  // second of the three, not the last), the character question reads "Who is this again?", and the arrivals are
+  // respaced over the chapter's new 520svh (about-v21.css) so each question is readable for ~850px of scroll
+  // instead of ~420px, finishing before the sticky stage releases at 81% of the chapter.
   ['story', 'Scene II overview passage', 'return t===`character`?',
     'return k?(0,_.jsxs)(_.Fragment,{children:[(0,_.jsx)(`h3`,{children:(0,_.jsx)(`mark`,{className:`ask-mark`,style:{"--k":k[0]},children:`Scene II.`})}),' +
     '(0,_.jsx)(`p`,{children:(0,_.jsx)(`i`,{children:`King.`})}),' +
@@ -140,7 +144,7 @@ const edits = [
   ['story', 'passage steps param', 'function ro({modern:e=!1,highlight:t=``,audio:n=!1,onCharacter:r})',
     'function ro({modern:e=!1,highlight:t=``,audio:n=!1,onCharacter:r,steps:k=null})', 1],
   ['story', 'pass steps in overview', 'highlight:t?``:d<1||n.index===2||n.index===3?g:``,audio:n.index===4&&d>0})',
-    'highlight:t?``:d<1||n.index===2||n.index===3?g:``,audio:n.index===4&&d>0,steps:t?[Q(u,.12,.24)*(1-Q(u,.32,.4)),Q(u,.32,.44)*(1-Q(u,.52,.6)),Q(u,.52,.64)]:null})', 1],
+    'highlight:t?``:d<1||n.index===2||n.index===3?g:``,audio:n.index===4&&d>0,steps:t?[Q(u,.05,.1)*(1-Q(u,.24,.28)),Q(u,.57,.62),Q(u,.31,.36)*(1-Q(u,.5,.54))]:null})', 1],
   ['story', 'headline + name marks',
     '(0,_.jsxs)(_.Fragment,{children:[(0,_.jsx)(`h3`,{children:`Scene IV.`}),(0,_.jsx)(`p`,{children:(0,_.jsx)(`i`,{children:`Hamlet.`})}),e?',
     '(0,_.jsxs)(_.Fragment,{children:[(0,_.jsx)(`h3`,{children:(0,_.jsx)(`mark`,{className:`ask-mark`,style:{"--k":k?k[0]:0},children:`Scene IV.`})}),' +
@@ -149,7 +153,7 @@ const edits = [
     '(0,_.jsx)(`span`,{className:t===`language`||t===`voice`||n?`word-target`:``,children:`More honoured in the breach than the observance.`})',
     '(0,_.jsx)(`span`,{className:(t===`language`||t===`voice`||n?`word-target`:``)+(k?` ask-mark`:``),style:k?{"--k":k[1]}:void 0,children:`More honoured in the breach than the observance.`})', 1],
   ['story', 'overview questions', '[`Where was I?`,`What does this mean?`,`Who is this again?`].map((e,t)=>{let n=Q(u,.12+t*.2,.24+t*.2);return',
-    '[`What happened before this?`,`I have no idea what this means.`,`Who is this?`].map((e,t)=>{let n=Q(u,.12+t*.2,.24+t*.2)*(t<2?1-Q(u,.32+t*.2,.4+t*.2):1);return', 1],
+    '[`What happened before this?`,`Who is this again?`,`I have no idea what this means.`].map((e,t)=>{let n=Q(u,.05+t*.26,.1+t*.26)*(t<2?1-Q(u,.24+t*.26,.28+t*.26):1);return', 1],
   // Language scene: the edition is named in the page header.
   ['story', 'edition name in header', 'children:[`Act I, Scene `,n.index===3?`II`:`IV`]})]})',
     'children:[`Act I, Scene `,n.index===3||t?`II`:`IV`]}),(0,_.jsx)(`em`,{className:`edition-name`,style:{opacity:n.index===1&&h?1:0},children:`Modern translation`})]})', 1],
