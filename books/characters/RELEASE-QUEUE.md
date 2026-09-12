@@ -952,3 +952,84 @@ Register both English editions, version the immutable asset URL, run the normal 
 4. 6:332 shows the Forms card in both editions.
 
 Report live evidence back to the package `status.json` and the generated inventory only after those checks pass. Validated is not deployed.
+
+## Lane A automation batch 5: Meditations
+
+Authored on branch `claude/tinct-character-content-1n5iqq` by the Lane A
+automated author per `AUTOMATION-QUEUE.md`. Queued, not production
+verified; this lane never sets `appStatus`.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---:|---:|---|
+| Meditations | 20eed2afd | 109 / 109 | build_meditations.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| Meditations | 4f811221abc8dd107da81c1a1ec7d75107094246c4353cd1884bba2943241afb | e551f78e2ed26d47d2a24b8acded4996bf3044c0b9301b37f14cf283d634a254 |
+
+165 exact mentions per edition, across all 12 Books and 412 paragraphs per
+edition. Zero omitted entities on either side. Commands:
+`python3 books/characters/build_meditations.py --check`, then
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Shared
+dependencies: `build_reviewed.py` and `reviewed_aliases.py`; neither was
+changed.
+
+### Release review points
+
+A private notebook, not a dialogue or novel -- per editorial policy's
+guidance for treatises, 96 of 109 entries are Reference. Two are Major for
+sustained engagement across multiple Books rather than a single citation:
+**Socrates** (Books 3, 7, 11) and **Antoninus Pius** (Book 6's extended
+character portrait, the longest of any person in the work). Eleven are
+Supporting: Book 1's named teachers, each with Marcus's own dedicated
+paragraph of personal memory (Verus his grandfather, Diognetus, Rusticus,
+Apollonius, Sextus, Alexander the Grammarian, Fronto, Alexander the
+Platonist, Catulus, Severus, Claudius Maximus).
+
+Five genuine namesake collisions, all resolved by location-scoped binding
+rather than a shared alias, verified against every mention in the book, not
+a sample: **"Verus"** names Marcus's grandfather (1:0) and, unrelated, his
+own father (8:23); **"Antoninus"** (bare) names his father once, backward-
+referencing "Antoninus Pius" within the same 8:23 sentence, but names
+Marcus *himself* twice elsewhere (6:22, 6:35) -- per editorial policy's
+instruction not to cast a treatise's author as a character, both
+self-references are deliberately left unbound; **"Maximus"** names the
+revered Book 1 Stoic teacher and, unrelated, an obscure Book 8 household
+figure; **"Cato"** is bound unambiguously at 1:10 (grouped with Thrasea,
+Helvidius, Dio, Brutus) but its bare recurrence at 4:27, alongside an
+equally bare and equally unresolvable "Scipio," sits in an
+undifferentiated list with no distinguishing epithet and no scholarly
+consensus, so both stay unbound rather than guessed; **"Severus"** is
+bound at 1:10 but a second bare occurrence at 10:29 has nothing tying it
+back to that figure and stays unbound. Two further near-collisions
+(Alexander's three referents, Fabius's two) resolve cleanly through plain
+global aliases and longest-span-first matching, with no location scoping
+needed.
+
+### Source defects, none blocking enablement
+
+original-en (an older, Gutenberg-sourced translation) renders several
+names with æ/œ ligatures that modern-en spells out in full (Crœsus/Croesus,
+Mæcenas/Maecenas, Cæso/Caeso, Phœbus/Phoebus); both spellings are carried
+as aliases. original-en also prints "Cadiciant's," a transcription slip
+for "Cadicianus's" -- left exactly as printed, with both spellings
+aliased, per the hard constraint against editing edition files. No other
+boilerplate, footnote, or apparatus differences were found between
+editions.
+
+### Required production checks
+
+Register both English editions, version the immutable asset URL, run the
+normal app gates and deploy, then open the production reader and confirm on
+the fetched asset:
+
+1. A first-encounter card in each edition (1:0, "Verus" — the grandfather).
+2. That the two Veruses (1:0, 8:23) and two Maximuses (1:11-13, 8:23) each
+   show their own distinct, correctly identified card.
+3. That bare "Antoninus" at 6:22 and 6:35 shows no card, while "Antoninus
+   Pius" and the backward "Antoninus" at 8:23 both show Antoninus Pius's
+   card.
+4. That "Cato" and "Scipio" at 4:27, and "Severus" at 10:29, show no card.
+
+Report live evidence back to the package `status.json` and the generated
+inventory only after those checks pass. Validated is not deployed.
