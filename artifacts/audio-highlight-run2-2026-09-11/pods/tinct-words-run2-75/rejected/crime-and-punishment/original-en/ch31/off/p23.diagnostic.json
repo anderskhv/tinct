@@ -1,0 +1,644 @@
+{
+  "complete": true,
+  "signature": "d3d47248df7d0edffebedc28821663ab81c072fea374ddbb3078d160d1d7727f",
+  "attempts": [
+    {
+      "asr_seconds": 0.3711755611002445,
+      "alignment_seconds": 0.0006845593452453613,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Downia Raskolnikov stopped her and went towards her that Razumihin Dmitry Prokovich is a very good fellow",
+          "start": 0.05,
+          "end": 7.39,
+          "words": [
+            {
+              "text": " Downia",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.4461669921875
+            },
+            {
+              "text": " Raskolnikov",
+              "start": 0.95,
+              "end": 2.09,
+              "probability": 0.831201171875
+            },
+            {
+              "text": " stopped",
+              "start": 2.09,
+              "end": 2.39,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " her",
+              "start": 2.39,
+              "end": 2.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 2.63,
+              "end": 2.77,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " went",
+              "start": 2.77,
+              "end": 2.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " towards",
+              "start": 2.95,
+              "end": 3.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " her",
+              "start": 3.19,
+              "end": 3.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 3.75,
+              "end": 4.25,
+              "probability": 0.62451171875
+            },
+            {
+              "text": " Razumihin",
+              "start": 4.25,
+              "end": 5.11,
+              "probability": 0.7557373046875
+            },
+            {
+              "text": " Dmitry",
+              "start": 5.11,
+              "end": 5.61,
+              "probability": 0.3740234375
+            },
+            {
+              "text": " Prokovich",
+              "start": 5.61,
+              "end": 6.15,
+              "probability": 0.5855305989583334
+            },
+            {
+              "text": " is",
+              "start": 6.15,
+              "end": 6.49,
+              "probability": 0.990234375
+            },
+            {
+              "text": " a",
+              "start": 6.49,
+              "end": 6.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " very",
+              "start": 6.59,
+              "end": 6.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " good",
+              "start": 6.83,
+              "end": 7.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fellow",
+              "start": 7.03,
+              "end": 7.39,
+              "probability": 0.97705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Downia",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Raskolnikov",
+          "start": 0.95,
+          "end": 2.09
+        },
+        {
+          "raw": "stopped",
+          "start": 2.09,
+          "end": 2.39
+        },
+        {
+          "raw": "her",
+          "start": 2.39,
+          "end": 2.63
+        },
+        {
+          "raw": "and",
+          "start": 2.63,
+          "end": 2.77
+        },
+        {
+          "raw": "went",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "raw": "towards",
+          "start": 2.95,
+          "end": 3.19
+        },
+        {
+          "raw": "her",
+          "start": 3.19,
+          "end": 3.75
+        },
+        {
+          "raw": "that",
+          "start": 3.75,
+          "end": 4.25
+        },
+        {
+          "raw": "Razumihin",
+          "start": 4.25,
+          "end": 5.11
+        },
+        {
+          "raw": "Dmitry",
+          "start": 5.11,
+          "end": 5.61
+        },
+        {
+          "raw": "Prokovich",
+          "start": 5.61,
+          "end": 6.15
+        },
+        {
+          "raw": "is",
+          "start": 6.15,
+          "end": 6.49
+        },
+        {
+          "raw": "a",
+          "start": 6.49,
+          "end": 6.59
+        },
+        {
+          "raw": "very",
+          "start": 6.59,
+          "end": 6.83
+        },
+        {
+          "raw": "good",
+          "start": 6.83,
+          "end": 7.03
+        },
+        {
+          "raw": "fellow",
+          "start": 7.03,
+          "end": 7.39
+        }
+      ],
+      "expected_tokens": [
+        "\"Dounia!\"",
+        "Raskolnikov",
+        "stopped",
+        "her",
+        "and",
+        "went",
+        "towards",
+        "her.",
+        "\"That",
+        "Razumihin,",
+        "Dmitri",
+        "Prokofitch,",
+        "is",
+        "a",
+        "very",
+        "good",
+        "fellow.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          10,
+          1,
+          10
+        ],
+        [
+          "replace",
+          10,
+          12,
+          10,
+          12
+        ],
+        [
+          "equal",
+          12,
+          17,
+          12,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          10,
+          12,
+          10,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Downia",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "downia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Raskolnikov",
+          "start": 0.95,
+          "end": 2.09,
+          "key": "raskolnikov",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "stopped",
+          "start": 2.09,
+          "end": 2.39,
+          "key": "stopped",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.39,
+          "end": 2.63,
+          "key": "her",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.63,
+          "end": 2.77,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 2.77,
+          "end": 2.95,
+          "key": "went",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "towards",
+          "start": 2.95,
+          "end": 3.19,
+          "key": "towards",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.19,
+          "end": 3.75,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.75,
+          "end": 4.25,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Razumihin",
+          "start": 4.25,
+          "end": 5.11,
+          "key": "razumihin",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Dmitry",
+          "start": 5.11,
+          "end": 5.61,
+          "key": "dmitry",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Prokovich",
+          "start": 5.61,
+          "end": 6.15,
+          "key": "prokovich",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.15,
+          "end": 6.49,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.49,
+          "end": 6.59,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 6.59,
+          "end": 6.83,
+          "key": "very",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 6.83,
+          "end": 7.03,
+          "key": "good",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "fellow",
+          "start": 7.03,
+          "end": 7.39,
+          "key": "fellow",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Dounia!\"",
+          "start": 0.0,
+          "end": 0.475
+        },
+        {
+          "text": "Raskolnikov",
+          "start": 0.95,
+          "end": 2.09
+        },
+        {
+          "text": "stopped",
+          "start": 2.09,
+          "end": 2.39
+        },
+        {
+          "text": "her",
+          "start": 2.39,
+          "end": 2.63
+        },
+        {
+          "text": "and",
+          "start": 2.63,
+          "end": 2.77
+        },
+        {
+          "text": "went",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "text": "towards",
+          "start": 2.95,
+          "end": 3.19
+        },
+        {
+          "text": "her.",
+          "start": 3.19,
+          "end": 3.75
+        },
+        {
+          "text": "\"That",
+          "start": 3.75,
+          "end": 4.25
+        },
+        {
+          "text": "Razumihin,",
+          "start": 4.25,
+          "end": 5.11
+        },
+        {
+          "text": "Dmitri",
+          "start": 5.11,
+          "end": 5.63
+        },
+        {
+          "text": "Prokofitch,",
+          "start": 5.63,
+          "end": 5.89
+        },
+        {
+          "text": "is",
+          "start": 6.15,
+          "end": 6.49
+        },
+        {
+          "text": "a",
+          "start": 6.49,
+          "end": 6.59
+        },
+        {
+          "text": "very",
+          "start": 6.59,
+          "end": 6.83
+        },
+        {
+          "text": "good",
+          "start": 6.83,
+          "end": 7.03
+        },
+        {
+          "text": "fellow.\"",
+          "start": 7.03,
+          "end": 7.39
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 14
+      },
+      "match_ratio": 0.8235294117647058,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.37216196581721306
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1a03691678d86fcd14c7d043d06a6c857fa7a6afc36d20643500fe3a6d81f7cc",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "cd41fca8122268e57199cb92a538764e8f03c853cf911e1c8f07d07b99d3f2db",
+  "attempts": [
+    {
+      "asr_seconds": 0.23207326978445053,
+      "alignment_seconds": 0.00048092007637023926,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What is your motive for such benevolence?\" asked Raskolnikov.",
+        "hotwords": "What, Raskolnikov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What is your motive for such benevolence?\" asked Raskolnikov.",
+          "start": 0.02,
+          "end": 3.64,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.62744140625
+            },
+            {
+              "text": " is",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 0.62,
+              "end": 0.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " motive",
+              "start": 0.74,
+              "end": 0.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " for",
+              "start": 0.98,
+              "end": 1.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " such",
+              "start": 1.2,
+              "end": 1.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " benevolence?\"",
+              "start": 1.38,
+              "end": 2.7,
+              "probability": 0.767333984375
+            },
+            {
+              "text": " asked",
+              "start": 2.7,
+              "end": 2.76,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " Raskolnikov.",
+              "start": 2.76,
+              "end": 3.64,
+              "probability": 0.9322265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "is",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "your",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "raw": "motive",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "raw": "for",
+          "start": 0.98,
+          "end": 1.2
+        },
+        {
+          "raw": "such",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "raw": "benevolence?\"",
+          "start": 1.38,
+          "end": 2.7
+        },
+        {
+          "raw": "asked",
+          "start": 2.7,
+          "end": 2.76
+        },
+        {
+          "raw": "Raskolnikov.",
+          "start": 2.76,
+          "end": 3.64
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "is",
+        "your",
+        "motive",
+        "for",
+        "such",
+        "benevolence?\"",
+        "asked",
+        "Raskolnikov."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.62,
+          "end": 0.74,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "motive",
+          "start": 0.74,
+          "end": 0.98,
+          "key": "motive",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.98,
+          "end": 1.2,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 1.2,
+          "end": 1.38,
+          "key": "such",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "benevolence?\"",
+          "start": 1.38,
+          "end": 2.7,
+          "key": "benevolence",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 2.7,
+          "end": 2.76,
+          "key": "asked",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Raskolnikov.",
+          "start": 2.76,
+          "end": 3.64,
+          "key": "raskolnikov",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "is",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "your",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "text": "motive",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "text": "for",
+          "start": 0.98,
+          "end": 1.2
+        },
+        {
+          "text": "such",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "text": "benevolence?\"",
+          "start": 1.38,
+          "end": 2.7
+        },
+        {
+          "text": "asked",
+          "start": 2.7,
+          "end": 2.76
+        },
+        {
+          "text": "Raskolnikov.",
+          "start": 2.76,
+          "end": 3.64
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23273318260908127
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1a90daba46cf5254dfb3aef7b56d779d7c02c65ba4d56f0852bcef9fd94bc006",
+  "selected_reasons": []
+}

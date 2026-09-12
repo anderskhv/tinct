@@ -1,0 +1,483 @@
+{
+  "complete": true,
+  "signature": "38a3b7fac7cc1b1229a25e112300f3805c158fee62801407eecbe4b01ef540ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.30123916268348694,
+      "alignment_seconds": 0.0005192980170249939,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, she assented in a faint voice.",
+          "start": 0.05,
+          "end": 2.47,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.170166015625
+            },
+            {
+              "text": " she",
+              "start": 1.15,
+              "end": 1.27,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " assented",
+              "start": 1.27,
+              "end": 1.61,
+              "probability": 0.977783203125
+            },
+            {
+              "text": " in",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 1.77,
+              "end": 1.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " faint",
+              "start": 1.89,
+              "end": 2.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " voice.",
+              "start": 2.07,
+              "end": 2.47,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Yes, she repeated, preoccupied and distressed.",
+          "start": 3.21,
+          "end": 5.83,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 3.21,
+              "end": 3.45,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " she",
+              "start": 3.87,
+              "end": 3.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " repeated,",
+              "start": 3.99,
+              "end": 4.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " preoccupied",
+              "start": 4.69,
+              "end": 5.13,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 5.13,
+              "end": 5.45,
+              "probability": 0.7255859375
+            },
+            {
+              "text": " distressed.",
+              "start": 5.45,
+              "end": 5.83,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "she",
+          "start": 1.15,
+          "end": 1.27
+        },
+        {
+          "raw": "assented",
+          "start": 1.27,
+          "end": 1.61
+        },
+        {
+          "raw": "in",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "a",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "raw": "faint",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "raw": "voice.",
+          "start": 2.07,
+          "end": 2.47
+        },
+        {
+          "raw": "Yes,",
+          "start": 3.21,
+          "end": 3.45
+        },
+        {
+          "raw": "she",
+          "start": 3.87,
+          "end": 3.99
+        },
+        {
+          "raw": "repeated,",
+          "start": 3.99,
+          "end": 4.41
+        },
+        {
+          "raw": "preoccupied",
+          "start": 4.69,
+          "end": 5.13
+        },
+        {
+          "raw": "and",
+          "start": 5.13,
+          "end": 5.45
+        },
+        {
+          "raw": "distressed.",
+          "start": 5.45,
+          "end": 5.83
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,\"",
+        "she",
+        "assented",
+        "in",
+        "a",
+        "faint",
+        "voice.",
+        "\"Yes,\"",
+        "she",
+        "repeated,",
+        "preoccupied",
+        "and",
+        "distressed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.15,
+          "end": 1.27,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "assented",
+          "start": 1.27,
+          "end": 1.61,
+          "key": "assented",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.61,
+          "end": 1.77,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.77,
+          "end": 1.89,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "faint",
+          "start": 1.89,
+          "end": 2.07,
+          "key": "faint",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "voice.",
+          "start": 2.07,
+          "end": 2.47,
+          "key": "voice",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Yes,",
+          "start": 3.21,
+          "end": 3.45,
+          "key": "yes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.87,
+          "end": 3.99,
+          "key": "she",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "repeated,",
+          "start": 3.99,
+          "end": 4.41,
+          "key": "repeated",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "preoccupied",
+          "start": 4.69,
+          "end": 5.13,
+          "key": "preoccupied",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.13,
+          "end": 5.45,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "distressed.",
+          "start": 5.45,
+          "end": 5.83,
+          "key": "distressed",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,\"",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "she",
+          "start": 1.15,
+          "end": 1.27
+        },
+        {
+          "text": "assented",
+          "start": 1.27,
+          "end": 1.61
+        },
+        {
+          "text": "in",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "text": "a",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "text": "faint",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "text": "voice.",
+          "start": 2.07,
+          "end": 2.47
+        },
+        {
+          "text": "\"Yes,\"",
+          "start": 3.21,
+          "end": 3.45
+        },
+        {
+          "text": "she",
+          "start": 3.87,
+          "end": 3.99
+        },
+        {
+          "text": "repeated,",
+          "start": 3.99,
+          "end": 4.41
+        },
+        {
+          "text": "preoccupied",
+          "start": 4.69,
+          "end": 5.13
+        },
+        {
+          "text": "and",
+          "start": 5.13,
+          "end": 5.45
+        },
+        {
+          "text": "distressed.",
+          "start": 5.45,
+          "end": 5.83
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30197134241461754
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "78e65eee22f5b168c1db1f443f13f0e6e2579708e6fd00ce79a029e565511281",
+  "selected_reasons": []
+}

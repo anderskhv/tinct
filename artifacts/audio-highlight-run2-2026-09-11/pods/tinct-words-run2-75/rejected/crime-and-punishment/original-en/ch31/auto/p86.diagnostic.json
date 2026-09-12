@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "a46f5088f27d8d7fde65352b8df51e950b40beba39e67181723bd8ec52d0b2be",
+  "attempts": [
+    {
+      "asr_seconds": 0.29575980454683304,
+      "alignment_seconds": 0.0006096772849559784,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What an idea! _Was willst du mehr?_ What things the fool invents! Ah, yes!",
+        "hotwords": "What, Ah"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What an idea! Was willst du mehr? What things the fool invents! Ah, yes!",
+          "start": 0.02,
+          "end": 4.62,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " an",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " idea!",
+              "start": 0.62,
+              "end": 1.0,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Was",
+              "start": 1.24,
+              "end": 1.34,
+              "probability": 0.5263671875
+            },
+            {
+              "text": " willst",
+              "start": 1.34,
+              "end": 1.76,
+              "probability": 0.0451507568359375
+            },
+            {
+              "text": " du",
+              "start": 1.76,
+              "end": 1.86,
+              "probability": 0.01206207275390625
+            },
+            {
+              "text": " mehr?",
+              "start": 1.86,
+              "end": 2.24,
+              "probability": 0.0383453369140625
+            },
+            {
+              "text": " What",
+              "start": 2.58,
+              "end": 2.76,
+              "probability": 0.95703125
+            },
+            {
+              "text": " things",
+              "start": 2.76,
+              "end": 2.92,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " the",
+              "start": 2.92,
+              "end": 3.12,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " fool",
+              "start": 3.12,
+              "end": 3.3,
+              "probability": 0.966796875
+            },
+            {
+              "text": " invents!",
+              "start": 3.3,
+              "end": 3.86,
+              "probability": 0.987548828125
+            },
+            {
+              "text": " Ah,",
+              "start": 4.22,
+              "end": 4.38,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " yes!",
+              "start": 4.44,
+              "end": 4.62,
+              "probability": 0.97802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "an",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "idea!",
+          "start": 0.62,
+          "end": 1.0
+        },
+        {
+          "raw": "Was",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "raw": "willst",
+          "start": 1.34,
+          "end": 1.76
+        },
+        {
+          "raw": "du",
+          "start": 1.76,
+          "end": 1.86
+        },
+        {
+          "raw": "mehr?",
+          "start": 1.86,
+          "end": 2.24
+        },
+        {
+          "raw": "What",
+          "start": 2.58,
+          "end": 2.76
+        },
+        {
+          "raw": "things",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "raw": "the",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "raw": "fool",
+          "start": 3.12,
+          "end": 3.3
+        },
+        {
+          "raw": "invents!",
+          "start": 3.3,
+          "end": 3.86
+        },
+        {
+          "raw": "Ah,",
+          "start": 4.22,
+          "end": 4.38
+        },
+        {
+          "raw": "yes!",
+          "start": 4.44,
+          "end": 4.62
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "an",
+        "idea!",
+        "_Was",
+        "willst",
+        "du",
+        "mehr?_",
+        "What",
+        "things",
+        "the",
+        "fool",
+        "invents!",
+        "Ah,",
+        "yes!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "an",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "idea!",
+          "start": 0.62,
+          "end": 1.0,
+          "key": "idea",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Was",
+          "start": 1.24,
+          "end": 1.34,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "willst",
+          "start": 1.34,
+          "end": 1.76,
+          "key": "willst",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "du",
+          "start": 1.76,
+          "end": 1.86,
+          "key": "du",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "mehr?",
+          "start": 1.86,
+          "end": 2.24,
+          "key": "mehr",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 2.58,
+          "end": 2.76,
+          "key": "what",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 2.76,
+          "end": 2.92,
+          "key": "things",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.92,
+          "end": 3.12,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fool",
+          "start": 3.12,
+          "end": 3.3,
+          "key": "fool",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "invents!",
+          "start": 3.3,
+          "end": 3.86,
+          "key": "invents",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Ah,",
+          "start": 4.22,
+          "end": 4.38,
+          "key": "ah",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "yes!",
+          "start": 4.44,
+          "end": 4.62,
+          "key": "yes",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "an",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "idea!",
+          "start": 0.62,
+          "end": 1.0
+        },
+        {
+          "text": "_Was",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "text": "willst",
+          "start": 1.34,
+          "end": 1.76
+        },
+        {
+          "text": "du",
+          "start": 1.76,
+          "end": 1.86
+        },
+        {
+          "text": "mehr?_",
+          "start": 1.86,
+          "end": 2.24
+        },
+        {
+          "text": "What",
+          "start": 2.58,
+          "end": 2.76
+        },
+        {
+          "text": "things",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "text": "the",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "text": "fool",
+          "start": 3.12,
+          "end": 3.3
+        },
+        {
+          "text": "invents!",
+          "start": 3.3,
+          "end": 3.86
+        },
+        {
+          "text": "Ah,",
+          "start": 4.22,
+          "end": 4.38
+        },
+        {
+          "text": "yes!",
+          "start": 4.44,
+          "end": 4.62
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29662976786494255
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9dbeb9739e2348c703f6686073da960d469da70799687c35f81114c7788ac7e8",
+  "selected_reasons": []
+}

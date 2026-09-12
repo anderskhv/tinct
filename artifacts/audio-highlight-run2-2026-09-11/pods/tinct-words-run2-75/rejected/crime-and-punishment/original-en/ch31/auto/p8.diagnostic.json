@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "94762856a58a7f7c00ee8b6b999b10fcbfc1caf75f66934df93a7d1f53ef9c9a",
+  "attempts": [
+    {
+      "asr_seconds": 0.235579963773489,
+      "alignment_seconds": 0.00038697943091392517,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Life would be too easy if it were so,\" answered Raskolnikov.",
+        "hotwords": "Life, Raskolnikov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Life would be too easy if it were so,\" answered Raskolnikov.",
+          "start": 0.05,
+          "end": 3.1,
+          "words": [
+            {
+              "text": " Life",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.201904296875
+            },
+            {
+              "text": " would",
+              "start": 0.63,
+              "end": 0.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 0.81,
+              "end": 0.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " too",
+              "start": 0.95,
+              "end": 1.15,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " easy",
+              "start": 1.15,
+              "end": 1.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " if",
+              "start": 1.45,
+              "end": 1.63,
+              "probability": 0.955078125
+            },
+            {
+              "text": " it",
+              "start": 1.63,
+              "end": 1.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " were",
+              "start": 1.73,
+              "end": 1.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " so,\"",
+              "start": 1.83,
+              "end": 2.67,
+              "probability": 0.6356201171875
+            },
+            {
+              "text": " answered",
+              "start": 2.67,
+              "end": 2.89,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Raskolnikov.",
+              "start": 2.89,
+              "end": 3.1,
+              "probability": 0.93369140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Life",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "would",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "raw": "be",
+          "start": 0.81,
+          "end": 0.95
+        },
+        {
+          "raw": "too",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "raw": "easy",
+          "start": 1.15,
+          "end": 1.45
+        },
+        {
+          "raw": "if",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "raw": "it",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "raw": "were",
+          "start": 1.73,
+          "end": 1.83
+        },
+        {
+          "raw": "so,\"",
+          "start": 1.83,
+          "end": 2.67
+        },
+        {
+          "raw": "answered",
+          "start": 2.67,
+          "end": 2.89
+        },
+        {
+          "raw": "Raskolnikov.",
+          "start": 2.89,
+          "end": 3.1
+        }
+      ],
+      "expected_tokens": [
+        "\"Life",
+        "would",
+        "be",
+        "too",
+        "easy",
+        "if",
+        "it",
+        "were",
+        "so,\"",
+        "answered",
+        "Raskolnikov."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Life",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "life",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 0.63,
+          "end": 0.81,
+          "key": "would",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.81,
+          "end": 0.95,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 0.95,
+          "end": 1.15,
+          "key": "too",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "easy",
+          "start": 1.15,
+          "end": 1.45,
+          "key": "easy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.45,
+          "end": 1.63,
+          "key": "if",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.63,
+          "end": 1.73,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 1.73,
+          "end": 1.83,
+          "key": "were",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "so,\"",
+          "start": 1.83,
+          "end": 2.67,
+          "key": "so",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "answered",
+          "start": 2.67,
+          "end": 2.89,
+          "key": "answered",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Raskolnikov.",
+          "start": 2.89,
+          "end": 3.1,
+          "key": "raskolnikov",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Life",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "would",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "text": "be",
+          "start": 0.81,
+          "end": 0.95
+        },
+        {
+          "text": "too",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "text": "easy",
+          "start": 1.15,
+          "end": 1.45
+        },
+        {
+          "text": "if",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "text": "it",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "text": "were",
+          "start": 1.73,
+          "end": 1.83
+        },
+        {
+          "text": "so,\"",
+          "start": 1.83,
+          "end": 2.67
+        },
+        {
+          "text": "answered",
+          "start": 2.67,
+          "end": 2.89
+        },
+        {
+          "text": "Raskolnikov.",
+          "start": 2.89,
+          "end": 3.1
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23610908165574074
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f04d16486cc8b47d45a9f664f0263857346e080397c9fcb66e66f1599a2a5a85",
+  "selected_reasons": []
+}

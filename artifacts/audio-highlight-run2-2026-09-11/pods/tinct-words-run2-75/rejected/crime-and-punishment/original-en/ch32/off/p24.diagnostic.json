@@ -1,0 +1,771 @@
+{
+  "complete": true,
+  "signature": "94baa1e471ca0a2442f2fce8c81cb8a91f257e8e0667421d5b7cf1650de59b87",
+  "attempts": [
+    {
+      "asr_seconds": 0.334455456584692,
+      "alignment_seconds": 0.000676177442073822,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " About me, but where can you have seen her the day before yesterday?",
+          "start": 0.02,
+          "end": 3.88,
+          "words": [
+            {
+              "text": " About",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.201416015625
+            },
+            {
+              "text": " me,",
+              "start": 0.6,
+              "end": 0.88,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " but",
+              "start": 1.18,
+              "end": 1.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " where",
+              "start": 1.38,
+              "end": 2.02,
+              "probability": 0.734375
+            },
+            {
+              "text": " can",
+              "start": 2.02,
+              "end": 2.22,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " you",
+              "start": 2.22,
+              "end": 2.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " have",
+              "start": 2.32,
+              "end": 2.44,
+              "probability": 0.994140625
+            },
+            {
+              "text": " seen",
+              "start": 2.44,
+              "end": 2.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 2.6,
+              "end": 2.74,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 2.74,
+              "end": 2.84,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " day",
+              "start": 2.84,
+              "end": 3.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " before",
+              "start": 3.02,
+              "end": 3.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " yesterday?",
+              "start": 3.36,
+              "end": 3.88,
+              "probability": 0.990234375
+            }
+          ]
+        },
+        {
+          "text": " Razumihin stopped short and even turned a little pale.",
+          "start": 4.78,
+          "end": 7.3,
+          "words": [
+            {
+              "text": " Razumihin",
+              "start": 4.78,
+              "end": 5.2,
+              "probability": 0.784912109375
+            },
+            {
+              "text": " stopped",
+              "start": 5.2,
+              "end": 5.48,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " short",
+              "start": 5.48,
+              "end": 5.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 5.88,
+              "end": 6.14,
+              "probability": 0.880859375
+            },
+            {
+              "text": " even",
+              "start": 6.14,
+              "end": 6.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " turned",
+              "start": 6.38,
+              "end": 6.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 6.7,
+              "end": 6.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " little",
+              "start": 6.84,
+              "end": 6.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pale.",
+              "start": 6.98,
+              "end": 7.3,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "About",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "me,",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "raw": "but",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "raw": "where",
+          "start": 1.38,
+          "end": 2.02
+        },
+        {
+          "raw": "can",
+          "start": 2.02,
+          "end": 2.22
+        },
+        {
+          "raw": "you",
+          "start": 2.22,
+          "end": 2.32
+        },
+        {
+          "raw": "have",
+          "start": 2.32,
+          "end": 2.44
+        },
+        {
+          "raw": "seen",
+          "start": 2.44,
+          "end": 2.6
+        },
+        {
+          "raw": "her",
+          "start": 2.6,
+          "end": 2.74
+        },
+        {
+          "raw": "the",
+          "start": 2.74,
+          "end": 2.84
+        },
+        {
+          "raw": "day",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "raw": "before",
+          "start": 3.02,
+          "end": 3.36
+        },
+        {
+          "raw": "yesterday?",
+          "start": 3.36,
+          "end": 3.88
+        },
+        {
+          "raw": "Razumihin",
+          "start": 4.78,
+          "end": 5.2
+        },
+        {
+          "raw": "stopped",
+          "start": 5.2,
+          "end": 5.48
+        },
+        {
+          "raw": "short",
+          "start": 5.48,
+          "end": 5.88
+        },
+        {
+          "raw": "and",
+          "start": 5.88,
+          "end": 6.14
+        },
+        {
+          "raw": "even",
+          "start": 6.14,
+          "end": 6.38
+        },
+        {
+          "raw": "turned",
+          "start": 6.38,
+          "end": 6.7
+        },
+        {
+          "raw": "a",
+          "start": 6.7,
+          "end": 6.84
+        },
+        {
+          "raw": "little",
+          "start": 6.84,
+          "end": 6.98
+        },
+        {
+          "raw": "pale.",
+          "start": 6.98,
+          "end": 7.3
+        }
+      ],
+      "expected_tokens": [
+        "\"About",
+        "me!",
+        "But...",
+        "where",
+        "can",
+        "you",
+        "have",
+        "seen",
+        "her",
+        "the",
+        "day",
+        "before",
+        "yesterday?\"",
+        "Razumihin",
+        "stopped",
+        "short",
+        "and",
+        "even",
+        "turned",
+        "a",
+        "little",
+        "pale."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "About",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "about",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 0.6,
+          "end": 0.88,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.18,
+          "end": 1.38,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 1.38,
+          "end": 2.02,
+          "key": "where",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 2.02,
+          "end": 2.22,
+          "key": "can",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.22,
+          "end": 2.32,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.32,
+          "end": 2.44,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 2.44,
+          "end": 2.6,
+          "key": "seen",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.6,
+          "end": 2.74,
+          "key": "her",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.74,
+          "end": 2.84,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 2.84,
+          "end": 3.02,
+          "key": "day",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 3.02,
+          "end": 3.36,
+          "key": "before",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "yesterday?",
+          "start": 3.36,
+          "end": 3.88,
+          "key": "yesterday",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Razumihin",
+          "start": 4.78,
+          "end": 5.2,
+          "key": "razumihin",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "stopped",
+          "start": 5.2,
+          "end": 5.48,
+          "key": "stopped",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "short",
+          "start": 5.48,
+          "end": 5.88,
+          "key": "short",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.88,
+          "end": 6.14,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 6.14,
+          "end": 6.38,
+          "key": "even",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 6.38,
+          "end": 6.7,
+          "key": "turned",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.7,
+          "end": 6.84,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 6.84,
+          "end": 6.98,
+          "key": "little",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "pale.",
+          "start": 6.98,
+          "end": 7.3,
+          "key": "pale",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"About",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "me!",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "text": "But...",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "text": "where",
+          "start": 1.38,
+          "end": 2.02
+        },
+        {
+          "text": "can",
+          "start": 2.02,
+          "end": 2.22
+        },
+        {
+          "text": "you",
+          "start": 2.22,
+          "end": 2.32
+        },
+        {
+          "text": "have",
+          "start": 2.32,
+          "end": 2.44
+        },
+        {
+          "text": "seen",
+          "start": 2.44,
+          "end": 2.6
+        },
+        {
+          "text": "her",
+          "start": 2.6,
+          "end": 2.74
+        },
+        {
+          "text": "the",
+          "start": 2.74,
+          "end": 2.84
+        },
+        {
+          "text": "day",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "text": "before",
+          "start": 3.02,
+          "end": 3.36
+        },
+        {
+          "text": "yesterday?\"",
+          "start": 3.36,
+          "end": 3.88
+        },
+        {
+          "text": "Razumihin",
+          "start": 4.78,
+          "end": 5.2
+        },
+        {
+          "text": "stopped",
+          "start": 5.2,
+          "end": 5.48
+        },
+        {
+          "text": "short",
+          "start": 5.48,
+          "end": 5.88
+        },
+        {
+          "text": "and",
+          "start": 5.88,
+          "end": 6.14
+        },
+        {
+          "text": "even",
+          "start": 6.14,
+          "end": 6.38
+        },
+        {
+          "text": "turned",
+          "start": 6.38,
+          "end": 6.7
+        },
+        {
+          "text": "a",
+          "start": 6.7,
+          "end": 6.84
+        },
+        {
+          "text": "little",
+          "start": 6.84,
+          "end": 6.98
+        },
+        {
+          "text": "pale.",
+          "start": 6.98,
+          "end": 7.3
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33543114736676216
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "97c397f3aec797d408020d0e4ed950f42dbc7242233f2df0ca92a6f5f6dcd7e1",
+  "selected_reasons": []
+}

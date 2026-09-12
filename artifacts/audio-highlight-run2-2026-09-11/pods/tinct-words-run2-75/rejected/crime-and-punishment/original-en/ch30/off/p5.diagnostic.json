@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "b25d10a6b5e90b741c1f9b42b3f69d44697428da52fe7c0609550a89d899047e",
+  "attempts": [
+    {
+      "asr_seconds": 0.12204832956194878,
+      "alignment_seconds": 0.00037042051553726196,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Her face showed her distress.",
+          "start": 0.05,
+          "end": 1.59,
+          "words": [
+            {
+              "text": " Her",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.8154296875
+            },
+            {
+              "text": " face",
+              "start": 0.51,
+              "end": 0.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " showed",
+              "start": 0.77,
+              "end": 1.07,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " her",
+              "start": 1.07,
+              "end": 1.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " distress.",
+              "start": 1.19,
+              "end": 1.59,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Her",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "face",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "raw": "showed",
+          "start": 0.77,
+          "end": 1.07
+        },
+        {
+          "raw": "her",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "raw": "distress.",
+          "start": 1.19,
+          "end": 1.59
+        }
+      ],
+      "expected_tokens": [
+        "Her",
+        "face",
+        "showed",
+        "her",
+        "distress."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Her",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "her",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 0.51,
+          "end": 0.77,
+          "key": "face",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "showed",
+          "start": 0.77,
+          "end": 1.07,
+          "key": "showed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.07,
+          "end": 1.19,
+          "key": "her",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "distress.",
+          "start": 1.19,
+          "end": 1.59,
+          "key": "distress",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Her",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "face",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "text": "showed",
+          "start": 0.77,
+          "end": 1.07
+        },
+        {
+          "text": "her",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "text": "distress.",
+          "start": 1.19,
+          "end": 1.59
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1225472167134285
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9d5986298fe8ef2186dd4111b66b6467e2d765413f185b57566c2b2ed057e660",
+  "selected_reasons": []
+}

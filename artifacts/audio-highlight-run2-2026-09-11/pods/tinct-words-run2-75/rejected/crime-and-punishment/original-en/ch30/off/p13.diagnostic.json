@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "15d27959a0ffd45950cef86fc53b1528c340a675c2bfe21d09eec1d8e50a5759",
+  "attempts": [
+    {
+      "asr_seconds": 0.14419806003570557,
+      "alignment_seconds": 0.0003030411899089813,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But, Katarina Ivanovna.",
+          "start": 0.02,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " But,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.755859375
+            },
+            {
+              "text": " Katarina",
+              "start": 1.16,
+              "end": 1.56,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " Ivanovna.",
+              "start": 1.56,
+              "end": 2.22,
+              "probability": 0.9763997395833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "Katarina",
+          "start": 1.16,
+          "end": 1.56
+        },
+        {
+          "raw": "Ivanovna.",
+          "start": 1.56,
+          "end": 2.22
+        }
+      ],
+      "expected_tokens": [
+        "\"But...",
+        "Katerina",
+        "Ivanovna?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Katarina",
+          "start": 1.16,
+          "end": 1.56,
+          "key": "katarina",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ivanovna.",
+          "start": 1.56,
+          "end": 2.22,
+          "key": "ivanovna",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But...",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "Katerina",
+          "start": 0.72,
+          "end": 1.14
+        },
+        {
+          "text": "Ivanovna?\"",
+          "start": 1.56,
+          "end": 2.22
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1445986144244671
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6cfe146118236e93962e7e2262dff84593b2c28e9a6cd1cc8d8dec60dd8db00c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

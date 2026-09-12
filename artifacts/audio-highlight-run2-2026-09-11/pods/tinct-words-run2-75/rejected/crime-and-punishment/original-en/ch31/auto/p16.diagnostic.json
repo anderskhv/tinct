@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "fdcb93d215b42088bb277a11c2ad84e9110a837024ff455920125fcaa414b1c2",
+  "attempts": [
+    {
+      "asr_seconds": 0.3005737140774727,
+      "alignment_seconds": 0.0006647519767284393,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Five minutes later he raised his head with a strange smile. That was a strange thought.",
+        "hotwords": "Five, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Five minutes later he raised his head with a strange smile. That was a strange thought.",
+          "start": 0.08,
+          "end": 5.24,
+          "words": [
+            {
+              "text": " Five",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " minutes",
+              "start": 0.68,
+              "end": 0.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " later",
+              "start": 0.9,
+              "end": 1.28,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " he",
+              "start": 1.28,
+              "end": 1.68,
+              "probability": 0.3916015625
+            },
+            {
+              "text": " raised",
+              "start": 1.68,
+              "end": 1.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 1.98,
+              "end": 2.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " head",
+              "start": 2.14,
+              "end": 2.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 2.36,
+              "end": 2.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 2.52,
+              "end": 2.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " strange",
+              "start": 2.64,
+              "end": 2.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " smile.",
+              "start": 2.96,
+              "end": 3.46,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " That",
+              "start": 3.9,
+              "end": 4.28,
+              "probability": 0.994140625
+            },
+            {
+              "text": " was",
+              "start": 4.28,
+              "end": 4.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 4.4,
+              "end": 4.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " strange",
+              "start": 4.56,
+              "end": 4.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " thought.",
+              "start": 4.8,
+              "end": 5.24,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Five",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "minutes",
+          "start": 0.68,
+          "end": 0.9
+        },
+        {
+          "raw": "later",
+          "start": 0.9,
+          "end": 1.28
+        },
+        {
+          "raw": "he",
+          "start": 1.28,
+          "end": 1.68
+        },
+        {
+          "raw": "raised",
+          "start": 1.68,
+          "end": 1.98
+        },
+        {
+          "raw": "his",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "raw": "head",
+          "start": 2.14,
+          "end": 2.36
+        },
+        {
+          "raw": "with",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "raw": "a",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "raw": "strange",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "raw": "smile.",
+          "start": 2.96,
+          "end": 3.46
+        },
+        {
+          "raw": "That",
+          "start": 3.9,
+          "end": 4.28
+        },
+        {
+          "raw": "was",
+          "start": 4.28,
+          "end": 4.4
+        },
+        {
+          "raw": "a",
+          "start": 4.4,
+          "end": 4.56
+        },
+        {
+          "raw": "strange",
+          "start": 4.56,
+          "end": 4.8
+        },
+        {
+          "raw": "thought.",
+          "start": 4.8,
+          "end": 5.24
+        }
+      ],
+      "expected_tokens": [
+        "Five",
+        "minutes",
+        "later",
+        "he",
+        "raised",
+        "his",
+        "head",
+        "with",
+        "a",
+        "strange",
+        "smile.",
+        "That",
+        "was",
+        "a",
+        "strange",
+        "thought."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Five",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "five",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "minutes",
+          "start": 0.68,
+          "end": 0.9,
+          "key": "minutes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "later",
+          "start": 0.9,
+          "end": 1.28,
+          "key": "later",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.28,
+          "end": 1.68,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "raised",
+          "start": 1.68,
+          "end": 1.98,
+          "key": "raised",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.98,
+          "end": 2.14,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 2.14,
+          "end": 2.36,
+          "key": "head",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.36,
+          "end": 2.52,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.52,
+          "end": 2.64,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 2.64,
+          "end": 2.96,
+          "key": "strange",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "smile.",
+          "start": 2.96,
+          "end": 3.46,
+          "key": "smile",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 3.9,
+          "end": 4.28,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 4.28,
+          "end": 4.4,
+          "key": "was",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.4,
+          "end": 4.56,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 4.56,
+          "end": 4.8,
+          "key": "strange",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "thought.",
+          "start": 4.8,
+          "end": 5.24,
+          "key": "thought",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Five",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "minutes",
+          "start": 0.68,
+          "end": 0.9
+        },
+        {
+          "text": "later",
+          "start": 0.9,
+          "end": 1.28
+        },
+        {
+          "text": "he",
+          "start": 1.28,
+          "end": 1.68
+        },
+        {
+          "text": "raised",
+          "start": 1.68,
+          "end": 1.98
+        },
+        {
+          "text": "his",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "text": "head",
+          "start": 2.14,
+          "end": 2.36
+        },
+        {
+          "text": "with",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "text": "a",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "text": "strange",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "text": "smile.",
+          "start": 2.96,
+          "end": 3.46
+        },
+        {
+          "text": "That",
+          "start": 3.9,
+          "end": 4.28
+        },
+        {
+          "text": "was",
+          "start": 4.28,
+          "end": 4.4
+        },
+        {
+          "text": "a",
+          "start": 4.4,
+          "end": 4.56
+        },
+        {
+          "text": "strange",
+          "start": 4.56,
+          "end": 4.8
+        },
+        {
+          "text": "thought.",
+          "start": 4.8,
+          "end": 5.24
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.301628977060318
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e506ffca3690f0afabc2fdc707d7f491c8eeb25e03458979b275f01694baeffb",
+  "selected_reasons": []
+}

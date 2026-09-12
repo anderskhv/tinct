@@ -1,0 +1,1162 @@
+{
+  "complete": true,
+  "signature": "383fc5810b8c03d8a9d30f36cbd157807b6ab2302c0dad7c3d12a4c6219fbacf",
+  "attempts": [
+    {
+      "asr_seconds": 0.24202434718608856,
+      "alignment_seconds": 0.0005067698657512665,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"_Du hast die schönsten Augen Mädchen, was willst du mehr?_",
+        "hotwords": "Augen, Mädchen"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Do hast die schönsten Augen Mädchen, was willst du mehr?",
+          "start": 0.08,
+          "end": 3.66,
+          "words": [
+            {
+              "text": " Do",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.270263671875
+            },
+            {
+              "text": " hast",
+              "start": 0.56,
+              "end": 0.86,
+              "probability": 0.002376556396484375
+            },
+            {
+              "text": " die",
+              "start": 0.86,
+              "end": 1.12,
+              "probability": 0.25146484375
+            },
+            {
+              "text": " schönsten",
+              "start": 1.12,
+              "end": 1.54,
+              "probability": 0.0716094970703125
+            },
+            {
+              "text": " Augen",
+              "start": 1.54,
+              "end": 1.8,
+              "probability": 0.4813079833984375
+            },
+            {
+              "text": " Mädchen,",
+              "start": 1.8,
+              "end": 2.18,
+              "probability": 0.5142822265625
+            },
+            {
+              "text": " was",
+              "start": 2.62,
+              "end": 2.72,
+              "probability": 0.76171875
+            },
+            {
+              "text": " willst",
+              "start": 2.72,
+              "end": 3.14,
+              "probability": 0.113128662109375
+            },
+            {
+              "text": " du",
+              "start": 3.14,
+              "end": 3.28,
+              "probability": 0.291259765625
+            },
+            {
+              "text": " mehr?",
+              "start": 3.28,
+              "end": 3.66,
+              "probability": 0.2950439453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Do",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "hast",
+          "start": 0.56,
+          "end": 0.86
+        },
+        {
+          "raw": "die",
+          "start": 0.86,
+          "end": 1.12
+        },
+        {
+          "raw": "schönsten",
+          "start": 1.12,
+          "end": 1.54
+        },
+        {
+          "raw": "Augen",
+          "start": 1.54,
+          "end": 1.8
+        },
+        {
+          "raw": "Mädchen,",
+          "start": 1.8,
+          "end": 2.18
+        },
+        {
+          "raw": "was",
+          "start": 2.62,
+          "end": 2.72
+        },
+        {
+          "raw": "willst",
+          "start": 2.72,
+          "end": 3.14
+        },
+        {
+          "raw": "du",
+          "start": 3.14,
+          "end": 3.28
+        },
+        {
+          "raw": "mehr?",
+          "start": 3.28,
+          "end": 3.66
+        }
+      ],
+      "expected_tokens": [
+        "\"_Du",
+        "hast",
+        "die",
+        "schönsten",
+        "Augen",
+        "Mädchen,",
+        "was",
+        "willst",
+        "du",
+        "mehr?_"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          10,
+          1,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Do",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 0.56,
+          "end": 0.86,
+          "key": "hast",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "die",
+          "start": 0.86,
+          "end": 1.12,
+          "key": "die",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "schönsten",
+          "start": 1.12,
+          "end": 1.54,
+          "key": "schönsten",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Augen",
+          "start": 1.54,
+          "end": 1.8,
+          "key": "augen",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Mädchen,",
+          "start": 1.8,
+          "end": 2.18,
+          "key": "mädchen",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.62,
+          "end": 2.72,
+          "key": "was",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "willst",
+          "start": 2.72,
+          "end": 3.14,
+          "key": "willst",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "du",
+          "start": 3.14,
+          "end": 3.28,
+          "key": "du",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "mehr?",
+          "start": 3.28,
+          "end": 3.66,
+          "key": "mehr",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"_Du",
+          "start": 0.0,
+          "end": 0.28
+        },
+        {
+          "text": "hast",
+          "start": 0.56,
+          "end": 0.86
+        },
+        {
+          "text": "die",
+          "start": 0.86,
+          "end": 1.12
+        },
+        {
+          "text": "schönsten",
+          "start": 1.12,
+          "end": 1.54
+        },
+        {
+          "text": "Augen",
+          "start": 1.54,
+          "end": 1.8
+        },
+        {
+          "text": "Mädchen,",
+          "start": 1.8,
+          "end": 2.18
+        },
+        {
+          "text": "was",
+          "start": 2.62,
+          "end": 2.72
+        },
+        {
+          "text": "willst",
+          "start": 2.72,
+          "end": 3.14
+        },
+        {
+          "text": "du",
+          "start": 3.14,
+          "end": 3.28
+        },
+        {
+          "text": "mehr?_",
+          "start": 3.28,
+          "end": 3.66
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.24272801354527473
+    },
+    {
+      "asr_seconds": 0.2815062254667282,
+      "alignment_seconds": 0.0005469992756843567,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Augen, Mädchen"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Duhast dei Schönsen Augen, Mädchen was Wils do Meijer",
+          "start": 0.08,
+          "end": 3.72,
+          "words": [
+            {
+              "text": " Duhast",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.4153849283854167
+            },
+            {
+              "text": " dei",
+              "start": 0.88,
+              "end": 1.18,
+              "probability": 0.4211273193359375
+            },
+            {
+              "text": " Schönsen",
+              "start": 1.18,
+              "end": 1.52,
+              "probability": 0.3111979166666667
+            },
+            {
+              "text": " Augen,",
+              "start": 1.52,
+              "end": 1.82,
+              "probability": 0.4814128875732422
+            },
+            {
+              "text": " Mädchen",
+              "start": 1.84,
+              "end": 2.18,
+              "probability": 0.48181915283203125
+            },
+            {
+              "text": " was",
+              "start": 2.18,
+              "end": 2.72,
+              "probability": 0.4345703125
+            },
+            {
+              "text": " Wils",
+              "start": 2.72,
+              "end": 3.02,
+              "probability": 0.65576171875
+            },
+            {
+              "text": " do",
+              "start": 3.02,
+              "end": 3.28,
+              "probability": 0.0928955078125
+            },
+            {
+              "text": " Meijer",
+              "start": 3.28,
+              "end": 3.72,
+              "probability": 0.6888834635416666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duhast",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "dei",
+          "start": 0.88,
+          "end": 1.18
+        },
+        {
+          "raw": "Schönsen",
+          "start": 1.18,
+          "end": 1.52
+        },
+        {
+          "raw": "Augen,",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "raw": "Mädchen",
+          "start": 1.84,
+          "end": 2.18
+        },
+        {
+          "raw": "was",
+          "start": 2.18,
+          "end": 2.72
+        },
+        {
+          "raw": "Wils",
+          "start": 2.72,
+          "end": 3.02
+        },
+        {
+          "raw": "do",
+          "start": 3.02,
+          "end": 3.28
+        },
+        {
+          "raw": "Meijer",
+          "start": 3.28,
+          "end": 3.72
+        }
+      ],
+      "expected_tokens": [
+        "\"_Du",
+        "hast",
+        "die",
+        "schönsten",
+        "Augen",
+        "Mädchen,",
+        "was",
+        "willst",
+        "du",
+        "mehr?_"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          3
+        ],
+        [
+          "equal",
+          4,
+          7,
+          3,
+          6
+        ],
+        [
+          "replace",
+          7,
+          10,
+          6,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          3
+        ],
+        [
+          "replace",
+          7,
+          10,
+          6,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duhast",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "duhast",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dei",
+          "start": 0.88,
+          "end": 1.18,
+          "key": "dei",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Schönsen",
+          "start": 1.18,
+          "end": 1.52,
+          "key": "schönsen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Augen,",
+          "start": 1.52,
+          "end": 1.82,
+          "key": "augen",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mädchen",
+          "start": 1.84,
+          "end": 2.18,
+          "key": "mädchen",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.18,
+          "end": 2.72,
+          "key": "was",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Wils",
+          "start": 2.72,
+          "end": 3.02,
+          "key": "wils",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.02,
+          "end": 3.28,
+          "key": "do",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Meijer",
+          "start": 3.28,
+          "end": 3.72,
+          "key": "meijer",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"_Du",
+          "start": 0.0,
+          "end": 0.76
+        },
+        {
+          "text": "hast",
+          "start": 0.76,
+          "end": 1.14
+        },
+        {
+          "text": "die",
+          "start": 1.14,
+          "end": 1.33
+        },
+        {
+          "text": "schönsten",
+          "start": 1.33,
+          "end": 1.425
+        },
+        {
+          "text": "Augen",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "text": "Mädchen,",
+          "start": 1.84,
+          "end": 2.18
+        },
+        {
+          "text": "was",
+          "start": 2.18,
+          "end": 2.72
+        },
+        {
+          "text": "willst",
+          "start": 2.72,
+          "end": 3.22
+        },
+        {
+          "text": "du",
+          "start": 3.22,
+          "end": 3.47
+        },
+        {
+          "text": "mehr?_",
+          "start": 3.47,
+          "end": 3.595
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 9,
+        "matched_words": 3
+      },
+      "match_ratio": 0.3,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.28223881497979164
+    },
+    {
+      "asr_seconds": 0.281188253313303,
+      "alignment_seconds": 0.000545993447303772,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dewhast, Dysurance, and Ogden-Mendchen was Will's due mayor.",
+          "start": 0.08,
+          "end": 3.62,
+          "words": [
+            {
+              "text": " Dewhast,",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.4344075520833333
+            },
+            {
+              "text": " Dysurance,",
+              "start": 1.0,
+              "end": 1.34,
+              "probability": 0.3645833333333333
+            },
+            {
+              "text": " and",
+              "start": 1.54,
+              "end": 1.58,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " Ogden",
+              "start": 1.58,
+              "end": 1.82,
+              "probability": 0.37493896484375
+            },
+            {
+              "text": "-Mendchen",
+              "start": 1.82,
+              "end": 2.18,
+              "probability": 0.5181732177734375
+            },
+            {
+              "text": " was",
+              "start": 2.18,
+              "end": 2.7,
+              "probability": 0.720703125
+            },
+            {
+              "text": " Will's",
+              "start": 2.7,
+              "end": 3.12,
+              "probability": 0.571044921875
+            },
+            {
+              "text": " due",
+              "start": 3.12,
+              "end": 3.28,
+              "probability": 0.44140625
+            },
+            {
+              "text": " mayor.",
+              "start": 3.28,
+              "end": 3.62,
+              "probability": 0.783203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dewhast,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "Dysurance,",
+          "start": 1.0,
+          "end": 1.34
+        },
+        {
+          "raw": "and",
+          "start": 1.54,
+          "end": 1.58
+        },
+        {
+          "raw": "Ogden",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "raw": "-Mendchen",
+          "start": 1.82,
+          "end": 2.18
+        },
+        {
+          "raw": "was",
+          "start": 2.18,
+          "end": 2.7
+        },
+        {
+          "raw": "Will's",
+          "start": 2.7,
+          "end": 3.12
+        },
+        {
+          "raw": "due",
+          "start": 3.12,
+          "end": 3.28
+        },
+        {
+          "raw": "mayor.",
+          "start": 3.28,
+          "end": 3.62
+        }
+      ],
+      "expected_tokens": [
+        "\"_Du",
+        "hast",
+        "die",
+        "schönsten",
+        "Augen",
+        "Mädchen,",
+        "was",
+        "willst",
+        "du",
+        "mehr?_"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          6,
+          0,
+          5
+        ],
+        [
+          "equal",
+          6,
+          7,
+          5,
+          6
+        ],
+        [
+          "replace",
+          7,
+          10,
+          6,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          6,
+          0,
+          5
+        ],
+        [
+          "replace",
+          7,
+          10,
+          6,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dewhast,",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "dewhast",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dysurance,",
+          "start": 1.0,
+          "end": 1.34,
+          "key": "dysurance",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.54,
+          "end": 1.58,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Ogden",
+          "start": 1.58,
+          "end": 1.82,
+          "key": "ogden",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "-Mendchen",
+          "start": 1.82,
+          "end": 2.18,
+          "key": "mendchen",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.18,
+          "end": 2.7,
+          "key": "was",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Will's",
+          "start": 2.7,
+          "end": 3.12,
+          "key": "wills",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "due",
+          "start": 3.12,
+          "end": 3.28,
+          "key": "due",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mayor.",
+          "start": 3.28,
+          "end": 3.62,
+          "key": "mayor",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"_Du",
+          "start": 0.0,
+          "end": 1.09
+        },
+        {
+          "text": "hast",
+          "start": 1.09,
+          "end": 1.635
+        },
+        {
+          "text": "die",
+          "start": 1.635,
+          "end": 1.908
+        },
+        {
+          "text": "schönsten",
+          "start": 1.908,
+          "end": 2.044
+        },
+        {
+          "text": "Augen",
+          "start": 2.044,
+          "end": 2.112
+        },
+        {
+          "text": "Mädchen,",
+          "start": 2.112,
+          "end": 2.146
+        },
+        {
+          "text": "was",
+          "start": 2.18,
+          "end": 2.7
+        },
+        {
+          "text": "willst",
+          "start": 2.7,
+          "end": 3.16
+        },
+        {
+          "text": "du",
+          "start": 3.16,
+          "end": 3.39
+        },
+        {
+          "text": "mehr?_",
+          "start": 3.39,
+          "end": 3.505
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 9,
+        "matched_words": 1
+      },
+      "match_ratio": 0.1,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2819143794476986
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6ab877b051c095b6123a4e8d2319f010d729a087fbc0a20fbde76362ace35d7b",
+  "selected_reasons": []
+}

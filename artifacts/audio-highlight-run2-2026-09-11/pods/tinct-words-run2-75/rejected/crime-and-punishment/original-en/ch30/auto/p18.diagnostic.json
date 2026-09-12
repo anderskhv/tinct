@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "8c9185d59655a6ca2d6076b5a63410683db507d33f195a7cce2724004c6be25a",
+  "attempts": [
+    {
+      "asr_seconds": 0.2757112756371498,
+      "alignment_seconds": 0.0004164464771747589,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But I might easily not have been there. And it was quite an accident Lebeziatnikov's turning up.\"",
+        "hotwords": "But, I, And, Lebeziatnikov's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But I might easily not have been there. And it was quite an accident Lebeziatnikov's turning up.",
+          "start": 0.08,
+          "end": 5.4,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.7333984375
+            },
+            {
+              "text": " I",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " might",
+              "start": 0.66,
+              "end": 0.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " easily",
+              "start": 0.84,
+              "end": 1.3,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " not",
+              "start": 1.3,
+              "end": 1.68,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " have",
+              "start": 1.68,
+              "end": 1.84,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " been",
+              "start": 1.84,
+              "end": 2.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " there.",
+              "start": 2.0,
+              "end": 2.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " And",
+              "start": 2.8,
+              "end": 2.88,
+              "probability": 0.97265625
+            },
+            {
+              "text": " it",
+              "start": 2.88,
+              "end": 2.98,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " was",
+              "start": 2.98,
+              "end": 3.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " quite",
+              "start": 3.08,
+              "end": 3.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " an",
+              "start": 3.3,
+              "end": 3.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " accident",
+              "start": 3.48,
+              "end": 3.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Lebeziatnikov's",
+              "start": 3.92,
+              "end": 4.94,
+              "probability": 0.5826619466145834
+            },
+            {
+              "text": " turning",
+              "start": 4.94,
+              "end": 5.1,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " up.",
+              "start": 5.1,
+              "end": 5.4,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "I",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "might",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "raw": "easily",
+          "start": 0.84,
+          "end": 1.3
+        },
+        {
+          "raw": "not",
+          "start": 1.3,
+          "end": 1.68
+        },
+        {
+          "raw": "have",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "raw": "been",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "raw": "there.",
+          "start": 2.0,
+          "end": 2.32
+        },
+        {
+          "raw": "And",
+          "start": 2.8,
+          "end": 2.88
+        },
+        {
+          "raw": "it",
+          "start": 2.88,
+          "end": 2.98
+        },
+        {
+          "raw": "was",
+          "start": 2.98,
+          "end": 3.08
+        },
+        {
+          "raw": "quite",
+          "start": 3.08,
+          "end": 3.3
+        },
+        {
+          "raw": "an",
+          "start": 3.3,
+          "end": 3.48
+        },
+        {
+          "raw": "accident",
+          "start": 3.48,
+          "end": 3.92
+        },
+        {
+          "raw": "Lebeziatnikov's",
+          "start": 3.92,
+          "end": 4.94
+        },
+        {
+          "raw": "turning",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "raw": "up.",
+          "start": 5.1,
+          "end": 5.4
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "I",
+        "might",
+        "easily",
+        "not",
+        "have",
+        "been",
+        "there.",
+        "And",
+        "it",
+        "was",
+        "quite",
+        "an",
+        "accident",
+        "Lebeziatnikov's",
+        "turning",
+        "up.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 0.66,
+          "end": 0.84,
+          "key": "might",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "easily",
+          "start": 0.84,
+          "end": 1.3,
+          "key": "easily",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.3,
+          "end": 1.68,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.68,
+          "end": 1.84,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 1.84,
+          "end": 2.0,
+          "key": "been",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "there.",
+          "start": 2.0,
+          "end": 2.32,
+          "key": "there",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 2.8,
+          "end": 2.88,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.88,
+          "end": 2.98,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.98,
+          "end": 3.08,
+          "key": "was",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 3.08,
+          "end": 3.3,
+          "key": "quite",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 3.3,
+          "end": 3.48,
+          "key": "an",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "accident",
+          "start": 3.48,
+          "end": 3.92,
+          "key": "accident",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Lebeziatnikov's",
+          "start": 3.92,
+          "end": 4.94,
+          "key": "lebeziatnikovs",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "turning",
+          "start": 4.94,
+          "end": 5.1,
+          "key": "turning",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "up.",
+          "start": 5.1,
+          "end": 5.4,
+          "key": "up",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "I",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "might",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "text": "easily",
+          "start": 0.84,
+          "end": 1.3
+        },
+        {
+          "text": "not",
+          "start": 1.3,
+          "end": 1.68
+        },
+        {
+          "text": "have",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "text": "been",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "text": "there.",
+          "start": 2.0,
+          "end": 2.32
+        },
+        {
+          "text": "And",
+          "start": 2.8,
+          "end": 2.88
+        },
+        {
+          "text": "it",
+          "start": 2.88,
+          "end": 2.98
+        },
+        {
+          "text": "was",
+          "start": 2.98,
+          "end": 3.08
+        },
+        {
+          "text": "quite",
+          "start": 3.08,
+          "end": 3.3
+        },
+        {
+          "text": "an",
+          "start": 3.3,
+          "end": 3.48
+        },
+        {
+          "text": "accident",
+          "start": 3.48,
+          "end": 3.92
+        },
+        {
+          "text": "Lebeziatnikov's",
+          "start": 3.92,
+          "end": 4.94
+        },
+        {
+          "text": "turning",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "text": "up.\"",
+          "start": 5.1,
+          "end": 5.4
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27629659324884415
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fde4b1402728a9be04ff7d3a9e96d7e212a9ec3fc27e7e059447ed27ab540d5e",
+  "selected_reasons": []
+}

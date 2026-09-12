@@ -1,0 +1,393 @@
+{
+  "complete": true,
+  "signature": "6fba1942df38c925608c4c8985786b3384cedbfb91b8c2e9c5d994391cb8c408",
+  "attempts": [
+    {
+      "asr_seconds": 0.2705691494047642,
+      "alignment_seconds": 0.0005469396710395813,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dewhast, Dysurance, and Ogden-Mendchen was Will's due mayor.",
+          "start": 0.08,
+          "end": 3.62,
+          "words": [
+            {
+              "text": " Dewhast,",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.4344075520833333
+            },
+            {
+              "text": " Dysurance,",
+              "start": 1.0,
+              "end": 1.34,
+              "probability": 0.3645833333333333
+            },
+            {
+              "text": " and",
+              "start": 1.54,
+              "end": 1.58,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " Ogden",
+              "start": 1.58,
+              "end": 1.82,
+              "probability": 0.37493896484375
+            },
+            {
+              "text": "-Mendchen",
+              "start": 1.82,
+              "end": 2.18,
+              "probability": 0.5181732177734375
+            },
+            {
+              "text": " was",
+              "start": 2.18,
+              "end": 2.7,
+              "probability": 0.720703125
+            },
+            {
+              "text": " Will's",
+              "start": 2.7,
+              "end": 3.12,
+              "probability": 0.571044921875
+            },
+            {
+              "text": " due",
+              "start": 3.12,
+              "end": 3.28,
+              "probability": 0.44140625
+            },
+            {
+              "text": " mayor.",
+              "start": 3.28,
+              "end": 3.62,
+              "probability": 0.783203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dewhast,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "Dysurance,",
+          "start": 1.0,
+          "end": 1.34
+        },
+        {
+          "raw": "and",
+          "start": 1.54,
+          "end": 1.58
+        },
+        {
+          "raw": "Ogden",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "raw": "-Mendchen",
+          "start": 1.82,
+          "end": 2.18
+        },
+        {
+          "raw": "was",
+          "start": 2.18,
+          "end": 2.7
+        },
+        {
+          "raw": "Will's",
+          "start": 2.7,
+          "end": 3.12
+        },
+        {
+          "raw": "due",
+          "start": 3.12,
+          "end": 3.28
+        },
+        {
+          "raw": "mayor.",
+          "start": 3.28,
+          "end": 3.62
+        }
+      ],
+      "expected_tokens": [
+        "\"_Du",
+        "hast",
+        "die",
+        "schönsten",
+        "Augen",
+        "Mädchen,",
+        "was",
+        "willst",
+        "du",
+        "mehr?_"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          6,
+          0,
+          5
+        ],
+        [
+          "equal",
+          6,
+          7,
+          5,
+          6
+        ],
+        [
+          "replace",
+          7,
+          10,
+          6,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          6,
+          0,
+          5
+        ],
+        [
+          "replace",
+          7,
+          10,
+          6,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dewhast,",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "dewhast",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dysurance,",
+          "start": 1.0,
+          "end": 1.34,
+          "key": "dysurance",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.54,
+          "end": 1.58,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Ogden",
+          "start": 1.58,
+          "end": 1.82,
+          "key": "ogden",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "-Mendchen",
+          "start": 1.82,
+          "end": 2.18,
+          "key": "mendchen",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.18,
+          "end": 2.7,
+          "key": "was",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Will's",
+          "start": 2.7,
+          "end": 3.12,
+          "key": "wills",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "due",
+          "start": 3.12,
+          "end": 3.28,
+          "key": "due",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mayor.",
+          "start": 3.28,
+          "end": 3.62,
+          "key": "mayor",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"_Du",
+          "start": 0.0,
+          "end": 1.09
+        },
+        {
+          "text": "hast",
+          "start": 1.09,
+          "end": 1.635
+        },
+        {
+          "text": "die",
+          "start": 1.635,
+          "end": 1.908
+        },
+        {
+          "text": "schönsten",
+          "start": 1.908,
+          "end": 2.044
+        },
+        {
+          "text": "Augen",
+          "start": 2.044,
+          "end": 2.112
+        },
+        {
+          "text": "Mädchen,",
+          "start": 2.112,
+          "end": 2.146
+        },
+        {
+          "text": "was",
+          "start": 2.18,
+          "end": 2.7
+        },
+        {
+          "text": "willst",
+          "start": 2.7,
+          "end": 3.16
+        },
+        {
+          "text": "du",
+          "start": 3.16,
+          "end": 3.39
+        },
+        {
+          "text": "mehr?_",
+          "start": 3.39,
+          "end": 3.505
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 9,
+        "matched_words": 1
+      },
+      "match_ratio": 0.1,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.27129603549838066
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6ab877b051c095b6123a4e8d2319f010d729a087fbc0a20fbde76362ace35d7b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

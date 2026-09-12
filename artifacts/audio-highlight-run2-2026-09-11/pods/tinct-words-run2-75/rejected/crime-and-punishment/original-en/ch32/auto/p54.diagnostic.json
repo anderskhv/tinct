@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "89bcb988d0b9bb935fabb16e648a932ac9282409f3dbafe7cc2727c321f011fb",
+  "attempts": [
+    {
+      "asr_seconds": 0.1075536422431469,
+      "alignment_seconds": 0.00028873980045318604,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He went out.",
+        "hotwords": "He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He went out.",
+          "start": 0.02,
+          "end": 0.88,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " went",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " out.",
+              "start": 0.6,
+              "end": 0.88,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "went",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "out.",
+          "start": 0.6,
+          "end": 0.88
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "went",
+        "out."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 0.5,
+          "end": 0.6,
+          "key": "went",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 0.6,
+          "end": 0.88,
+          "key": "out",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "went",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "out.",
+          "start": 0.6,
+          "end": 0.88
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10795185714960098
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "68a0aad28de89774f9655bd5a02d0d8c9192961f9fa8ad181f758ef6dfa8442d",
+  "selected_reasons": []
+}

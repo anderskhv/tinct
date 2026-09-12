@@ -1,0 +1,530 @@
+{
+  "complete": true,
+  "signature": "c158bd28da9d38beb8b023b7681df98724a6b8d43251ab855730752f92e69145",
+  "attempts": [
+    {
+      "asr_seconds": 0.2841762453317642,
+      "alignment_seconds": 0.0006539635360240936,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " So that's how you live, Sonya. Never once have I been in your room.",
+          "start": 0.08,
+          "end": 3.64,
+          "words": [
+            {
+              "text": " So",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " that's",
+              "start": 0.54,
+              "end": 0.9,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " how",
+              "start": 0.9,
+              "end": 1.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 1.0,
+              "end": 1.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " live,",
+              "start": 1.18,
+              "end": 1.44,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Sonya.",
+              "start": 1.7,
+              "end": 2.24,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " Never",
+              "start": 2.42,
+              "end": 2.56,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " once",
+              "start": 2.56,
+              "end": 2.74,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " have",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.994140625
+            },
+            {
+              "text": " I",
+              "start": 2.92,
+              "end": 3.04,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " been",
+              "start": 3.04,
+              "end": 3.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 3.16,
+              "end": 3.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 3.26,
+              "end": 3.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " room.",
+              "start": 3.38,
+              "end": 3.64,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "So",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "that's",
+          "start": 0.54,
+          "end": 0.9
+        },
+        {
+          "raw": "how",
+          "start": 0.9,
+          "end": 1.0
+        },
+        {
+          "raw": "you",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "raw": "live,",
+          "start": 1.18,
+          "end": 1.44
+        },
+        {
+          "raw": "Sonya.",
+          "start": 1.7,
+          "end": 2.24
+        },
+        {
+          "raw": "Never",
+          "start": 2.42,
+          "end": 2.56
+        },
+        {
+          "raw": "once",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "raw": "have",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "I",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "raw": "been",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "raw": "in",
+          "start": 3.16,
+          "end": 3.26
+        },
+        {
+          "raw": "your",
+          "start": 3.26,
+          "end": 3.38
+        },
+        {
+          "raw": "room.",
+          "start": 3.38,
+          "end": 3.64
+        }
+      ],
+      "expected_tokens": [
+        "\"So",
+        "that's",
+        "how",
+        "you",
+        "live,",
+        "Sonia!",
+        "Never",
+        "once",
+        "have",
+        "I",
+        "been",
+        "in",
+        "your",
+        "room.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          14,
+          6,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "So",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "so",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 0.54,
+          "end": 0.9,
+          "key": "thats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 0.9,
+          "end": 1.0,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.0,
+          "end": 1.18,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "live,",
+          "start": 1.18,
+          "end": 1.44,
+          "key": "live",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Sonya.",
+          "start": 1.7,
+          "end": 2.24,
+          "key": "sonya",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Never",
+          "start": 2.42,
+          "end": 2.56,
+          "key": "never",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 2.56,
+          "end": 2.74,
+          "key": "once",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.92,
+          "end": 3.04,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 3.04,
+          "end": 3.16,
+          "key": "been",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.16,
+          "end": 3.26,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.26,
+          "end": 3.38,
+          "key": "your",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "room.",
+          "start": 3.38,
+          "end": 3.64,
+          "key": "room",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"So",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "that's",
+          "start": 0.54,
+          "end": 0.9
+        },
+        {
+          "text": "how",
+          "start": 0.9,
+          "end": 1.0
+        },
+        {
+          "text": "you",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "text": "live,",
+          "start": 1.18,
+          "end": 1.44
+        },
+        {
+          "text": "Sonia!",
+          "start": 1.44,
+          "end": 1.93
+        },
+        {
+          "text": "Never",
+          "start": 2.42,
+          "end": 2.56
+        },
+        {
+          "text": "once",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "text": "have",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "I",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "text": "been",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "text": "in",
+          "start": 3.16,
+          "end": 3.26
+        },
+        {
+          "text": "your",
+          "start": 3.26,
+          "end": 3.38
+        },
+        {
+          "text": "room.\"",
+          "start": 3.38,
+          "end": 3.64
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.2850792370736599
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "78cc196809d883145ff543397900b9570f11fbeb00840cd303b50788dd4dc7ad",
+  "selected_reasons": []
+}

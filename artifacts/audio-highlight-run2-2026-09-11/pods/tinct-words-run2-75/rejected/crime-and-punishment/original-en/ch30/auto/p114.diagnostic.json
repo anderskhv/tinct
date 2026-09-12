@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "60a6b579ef1476b31eb9f7598fafa97f8e35386a2a8bc873a7bb07dd0fc583c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.331098560243845,
+      "alignment_seconds": 0.0006094612181186676,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You'll understand? Very well, we shall see!\" He paused and was for some time lost in meditation.",
+        "hotwords": "You'll, Very, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You'll understand? Very well, we shall see. He paused and was for some time lost in meditation.",
+          "start": 0.02,
+          "end": 5.92,
+          "words": [
+            {
+              "text": " You'll",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.6751708984375
+            },
+            {
+              "text": " understand?",
+              "start": 0.6,
+              "end": 1.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Very",
+              "start": 1.52,
+              "end": 1.8,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " well,",
+              "start": 1.8,
+              "end": 2.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " we",
+              "start": 2.14,
+              "end": 2.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shall",
+              "start": 2.24,
+              "end": 2.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " see.",
+              "start": 2.38,
+              "end": 2.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " He",
+              "start": 3.32,
+              "end": 3.46,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " paused",
+              "start": 3.46,
+              "end": 3.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 3.88,
+              "end": 4.16,
+              "probability": 0.853515625
+            },
+            {
+              "text": " was",
+              "start": 4.16,
+              "end": 4.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 4.26,
+              "end": 4.4,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " some",
+              "start": 4.4,
+              "end": 4.6,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " time",
+              "start": 4.6,
+              "end": 4.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " lost",
+              "start": 4.9,
+              "end": 5.2,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " in",
+              "start": 5.2,
+              "end": 5.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " meditation.",
+              "start": 5.5,
+              "end": 5.92,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You'll",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "understand?",
+          "start": 0.6,
+          "end": 1.06
+        },
+        {
+          "raw": "Very",
+          "start": 1.52,
+          "end": 1.8
+        },
+        {
+          "raw": "well,",
+          "start": 1.8,
+          "end": 2.06
+        },
+        {
+          "raw": "we",
+          "start": 2.14,
+          "end": 2.24
+        },
+        {
+          "raw": "shall",
+          "start": 2.24,
+          "end": 2.38
+        },
+        {
+          "raw": "see.",
+          "start": 2.38,
+          "end": 2.72
+        },
+        {
+          "raw": "He",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "raw": "paused",
+          "start": 3.46,
+          "end": 3.88
+        },
+        {
+          "raw": "and",
+          "start": 3.88,
+          "end": 4.16
+        },
+        {
+          "raw": "was",
+          "start": 4.16,
+          "end": 4.26
+        },
+        {
+          "raw": "for",
+          "start": 4.26,
+          "end": 4.4
+        },
+        {
+          "raw": "some",
+          "start": 4.4,
+          "end": 4.6
+        },
+        {
+          "raw": "time",
+          "start": 4.6,
+          "end": 4.9
+        },
+        {
+          "raw": "lost",
+          "start": 4.9,
+          "end": 5.2
+        },
+        {
+          "raw": "in",
+          "start": 5.2,
+          "end": 5.5
+        },
+        {
+          "raw": "meditation.",
+          "start": 5.5,
+          "end": 5.92
+        }
+      ],
+      "expected_tokens": [
+        "\"You'll",
+        "understand?",
+        "Very",
+        "well,",
+        "we",
+        "shall",
+        "see!\"",
+        "He",
+        "paused",
+        "and",
+        "was",
+        "for",
+        "some",
+        "time",
+        "lost",
+        "in",
+        "meditation."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You'll",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "youll",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "understand?",
+          "start": 0.6,
+          "end": 1.06,
+          "key": "understand",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Very",
+          "start": 1.52,
+          "end": 1.8,
+          "key": "very",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 1.8,
+          "end": 2.06,
+          "key": "well",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.14,
+          "end": 2.24,
+          "key": "we",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.24,
+          "end": 2.38,
+          "key": "shall",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "see.",
+          "start": 2.38,
+          "end": 2.72,
+          "key": "see",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.32,
+          "end": 3.46,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "paused",
+          "start": 3.46,
+          "end": 3.88,
+          "key": "paused",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.88,
+          "end": 4.16,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 4.16,
+          "end": 4.26,
+          "key": "was",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.26,
+          "end": 4.4,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 4.4,
+          "end": 4.6,
+          "key": "some",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 4.6,
+          "end": 4.9,
+          "key": "time",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "lost",
+          "start": 4.9,
+          "end": 5.2,
+          "key": "lost",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.2,
+          "end": 5.5,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "meditation.",
+          "start": 5.5,
+          "end": 5.92,
+          "key": "meditation",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You'll",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "understand?",
+          "start": 0.6,
+          "end": 1.06
+        },
+        {
+          "text": "Very",
+          "start": 1.52,
+          "end": 1.8
+        },
+        {
+          "text": "well,",
+          "start": 1.8,
+          "end": 2.06
+        },
+        {
+          "text": "we",
+          "start": 2.14,
+          "end": 2.24
+        },
+        {
+          "text": "shall",
+          "start": 2.24,
+          "end": 2.38
+        },
+        {
+          "text": "see!\"",
+          "start": 2.38,
+          "end": 2.72
+        },
+        {
+          "text": "He",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "text": "paused",
+          "start": 3.46,
+          "end": 3.88
+        },
+        {
+          "text": "and",
+          "start": 3.88,
+          "end": 4.16
+        },
+        {
+          "text": "was",
+          "start": 4.16,
+          "end": 4.26
+        },
+        {
+          "text": "for",
+          "start": 4.26,
+          "end": 4.4
+        },
+        {
+          "text": "some",
+          "start": 4.4,
+          "end": 4.6
+        },
+        {
+          "text": "time",
+          "start": 4.6,
+          "end": 4.9
+        },
+        {
+          "text": "lost",
+          "start": 4.9,
+          "end": 5.2
+        },
+        {
+          "text": "in",
+          "start": 5.2,
+          "end": 5.5
+        },
+        {
+          "text": "meditation.",
+          "start": 5.5,
+          "end": 5.92
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3319678381085396
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ca929261c0f12a9deaf9ce5a33c02252420bbd85209db08461c564ef2a970937",
+  "selected_reasons": []
+}

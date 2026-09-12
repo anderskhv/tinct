@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "816ff089fa133ca9fa36515ebc4c5c97d409ad12c1c1aaa71850f8abae53ecef",
+  "attempts": [
+    {
+      "asr_seconds": 0.18191711232066154,
+      "alignment_seconds": 0.0004941672086715698,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " My god cried Sonya, let's go at once",
+          "start": 0.05,
+          "end": 2.95,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.190673828125
+            },
+            {
+              "text": " god",
+              "start": 0.55,
+              "end": 0.97,
+              "probability": 0.580078125
+            },
+            {
+              "text": " cried",
+              "start": 0.97,
+              "end": 1.43,
+              "probability": 0.6142578125
+            },
+            {
+              "text": " Sonya,",
+              "start": 1.43,
+              "end": 1.99,
+              "probability": 0.698974609375
+            },
+            {
+              "text": " let's",
+              "start": 1.99,
+              "end": 2.31,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " go",
+              "start": 2.31,
+              "end": 2.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " at",
+              "start": 2.43,
+              "end": 2.53,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " once",
+              "start": 2.53,
+              "end": 2.95,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "god",
+          "start": 0.55,
+          "end": 0.97
+        },
+        {
+          "raw": "cried",
+          "start": 0.97,
+          "end": 1.43
+        },
+        {
+          "raw": "Sonya,",
+          "start": 1.43,
+          "end": 1.99
+        },
+        {
+          "raw": "let's",
+          "start": 1.99,
+          "end": 2.31
+        },
+        {
+          "raw": "go",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "raw": "at",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "raw": "once",
+          "start": 2.53,
+          "end": 2.95
+        }
+      ],
+      "expected_tokens": [
+        "\"My",
+        "God!\"",
+        "cried",
+        "Sonia,",
+        "\"let's",
+        "go",
+        "at",
+        "once....\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "my",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "god",
+          "start": 0.55,
+          "end": 0.97,
+          "key": "god",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 0.97,
+          "end": 1.43,
+          "key": "cried",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sonya,",
+          "start": 1.43,
+          "end": 1.99,
+          "key": "sonya",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "let's",
+          "start": 1.99,
+          "end": 2.31,
+          "key": "lets",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 2.31,
+          "end": 2.43,
+          "key": "go",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.43,
+          "end": 2.53,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 2.53,
+          "end": 2.95,
+          "key": "once",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"My",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "God!\"",
+          "start": 0.55,
+          "end": 0.97
+        },
+        {
+          "text": "cried",
+          "start": 0.97,
+          "end": 1.43
+        },
+        {
+          "text": "Sonia,",
+          "start": 1.43,
+          "end": 1.71
+        },
+        {
+          "text": "\"let's",
+          "start": 1.99,
+          "end": 2.31
+        },
+        {
+          "text": "go",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "at",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "text": "once....\"",
+          "start": 2.53,
+          "end": 2.95
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.1825818195939064
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f8203bb134bf311ecda5f4eb4ae2977f71a418abcd687cb4e65ceb12838ea43f",
+  "selected_reasons": []
+}

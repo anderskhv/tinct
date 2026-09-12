@@ -1,0 +1,2277 @@
+{
+  "complete": true,
+  "signature": "da4dfcccf3cdf5c74a6a91fba4f8dd7d3c39fc3be000feec43830b688cb10203",
+  "attempts": [
+    {
+      "asr_seconds": 0.6517576202750206,
+      "alignment_seconds": 0.0010891295969486237,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Of course you're right, Sonia,\" he said softly at last. He was suddenly changed. His tone of assumed arrogance and helpless defiance was gone. Even his voice was suddenly weak. \"I told you yesterday that I was not coming to ask forgiveness and almost the first thing I've said is to ask forgiveness.... I said that about Luzhin and Providence for my own sake. I was asking forgiveness, Sonia....\"",
+        "hotwords": "Sonia, Even, I, I've, Luzhin, Providence"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Of course you're right, Sonia,\" he said softly at last. He was suddenly changed. His tone of assumed arrogance and helpless defiance was gone. Even his voice was suddenly weak.",
+          "start": 0.14,
+          "end": 10.84,
+          "words": [
+            {
+              "text": " Of",
+              "start": 0.14,
+              "end": 0.5,
+              "probability": 0.1282958984375
+            },
+            {
+              "text": " course",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you're",
+              "start": 0.68,
+              "end": 0.94,
+              "probability": 0.845703125
+            },
+            {
+              "text": " right,",
+              "start": 0.94,
+              "end": 1.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Sonia,\"",
+              "start": 1.36,
+              "end": 1.88,
+              "probability": 0.5145263671875
+            },
+            {
+              "text": " he",
+              "start": 1.88,
+              "end": 2.14,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " said",
+              "start": 2.14,
+              "end": 2.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " softly",
+              "start": 2.32,
+              "end": 2.72,
+              "probability": 0.9609375
+            },
+            {
+              "text": " at",
+              "start": 2.72,
+              "end": 2.92,
+              "probability": 0.96484375
+            },
+            {
+              "text": " last.",
+              "start": 2.92,
+              "end": 3.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " He",
+              "start": 3.78,
+              "end": 3.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " was",
+              "start": 3.88,
+              "end": 3.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " suddenly",
+              "start": 3.98,
+              "end": 4.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " changed.",
+              "start": 4.22,
+              "end": 4.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " His",
+              "start": 5.36,
+              "end": 5.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " tone",
+              "start": 5.5,
+              "end": 5.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 5.78,
+              "end": 5.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " assumed",
+              "start": 5.96,
+              "end": 6.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " arrogance",
+              "start": 6.34,
+              "end": 6.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 6.78,
+              "end": 7.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " helpless",
+              "start": 7.1,
+              "end": 7.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " defiance",
+              "start": 7.5,
+              "end": 8.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " was",
+              "start": 8.02,
+              "end": 8.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gone.",
+              "start": 8.34,
+              "end": 8.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Even",
+              "start": 9.22,
+              "end": 9.4,
+              "probability": 0.99609375
+            },
+            {
+              "text": " his",
+              "start": 9.4,
+              "end": 9.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " voice",
+              "start": 9.6,
+              "end": 9.92,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " was",
+              "start": 9.92,
+              "end": 10.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " suddenly",
+              "start": 10.18,
+              "end": 10.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " weak.",
+              "start": 10.48,
+              "end": 10.84,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " I told you yesterday that I was not coming to ask forgiveness and almost the first thing I've said is to ask forgiveness. I said that about Luzhin and Providence for my own sake. I was asking forgiveness, Sonia....",
+          "start": 11.58,
+          "end": 23.54,
+          "words": [
+            {
+              "text": " I",
+              "start": 11.58,
+              "end": 11.74,
+              "probability": 0.00785064697265625
+            },
+            {
+              "text": " told",
+              "start": 11.74,
+              "end": 11.92,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 11.92,
+              "end": 12.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " yesterday",
+              "start": 12.12,
+              "end": 12.5,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " that",
+              "start": 12.5,
+              "end": 12.82,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " I",
+              "start": 12.82,
+              "end": 12.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " was",
+              "start": 12.92,
+              "end": 13.02,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " not",
+              "start": 13.02,
+              "end": 13.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " coming",
+              "start": 13.18,
+              "end": 13.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 13.38,
+              "end": 13.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ask",
+              "start": 13.58,
+              "end": 13.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " forgiveness",
+              "start": 13.8,
+              "end": 14.28,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 14.28,
+              "end": 14.66,
+              "probability": 0.331298828125
+            },
+            {
+              "text": " almost",
+              "start": 14.66,
+              "end": 14.94,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 14.94,
+              "end": 15.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " first",
+              "start": 15.12,
+              "end": 15.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thing",
+              "start": 15.34,
+              "end": 15.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I've",
+              "start": 15.62,
+              "end": 15.82,
+              "probability": 0.981201171875
+            },
+            {
+              "text": " said",
+              "start": 15.82,
+              "end": 16.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 16.02,
+              "end": 16.2,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 16.2,
+              "end": 16.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " ask",
+              "start": 16.36,
+              "end": 16.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " forgiveness.",
+              "start": 16.64,
+              "end": 17.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 17.86,
+              "end": 18.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " said",
+              "start": 18.06,
+              "end": 18.26,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " that",
+              "start": 18.26,
+              "end": 18.4,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " about",
+              "start": 18.4,
+              "end": 18.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Luzhin",
+              "start": 18.7,
+              "end": 19.16,
+              "probability": 0.4580078125
+            },
+            {
+              "text": " and",
+              "start": 19.16,
+              "end": 19.36,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Providence",
+              "start": 19.36,
+              "end": 19.76,
+              "probability": 0.947265625
+            },
+            {
+              "text": " for",
+              "start": 19.76,
+              "end": 20.02,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " my",
+              "start": 20.02,
+              "end": 20.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " own",
+              "start": 20.2,
+              "end": 20.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sake.",
+              "start": 20.4,
+              "end": 20.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 21.34,
+              "end": 21.46,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " was",
+              "start": 21.46,
+              "end": 21.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " asking",
+              "start": 21.56,
+              "end": 21.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " forgiveness,",
+              "start": 21.94,
+              "end": 22.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Sonia....",
+              "start": 22.82,
+              "end": 23.54,
+              "probability": 0.48558759689331055
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Of",
+          "start": 0.14,
+          "end": 0.5
+        },
+        {
+          "raw": "course",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "you're",
+          "start": 0.68,
+          "end": 0.94
+        },
+        {
+          "raw": "right,",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "raw": "Sonia,\"",
+          "start": 1.36,
+          "end": 1.88
+        },
+        {
+          "raw": "he",
+          "start": 1.88,
+          "end": 2.14
+        },
+        {
+          "raw": "said",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "raw": "softly",
+          "start": 2.32,
+          "end": 2.72
+        },
+        {
+          "raw": "at",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "raw": "last.",
+          "start": 2.92,
+          "end": 3.3
+        },
+        {
+          "raw": "He",
+          "start": 3.78,
+          "end": 3.88
+        },
+        {
+          "raw": "was",
+          "start": 3.88,
+          "end": 3.98
+        },
+        {
+          "raw": "suddenly",
+          "start": 3.98,
+          "end": 4.22
+        },
+        {
+          "raw": "changed.",
+          "start": 4.22,
+          "end": 4.78
+        },
+        {
+          "raw": "His",
+          "start": 5.36,
+          "end": 5.5
+        },
+        {
+          "raw": "tone",
+          "start": 5.5,
+          "end": 5.78
+        },
+        {
+          "raw": "of",
+          "start": 5.78,
+          "end": 5.96
+        },
+        {
+          "raw": "assumed",
+          "start": 5.96,
+          "end": 6.34
+        },
+        {
+          "raw": "arrogance",
+          "start": 6.34,
+          "end": 6.78
+        },
+        {
+          "raw": "and",
+          "start": 6.78,
+          "end": 7.1
+        },
+        {
+          "raw": "helpless",
+          "start": 7.1,
+          "end": 7.5
+        },
+        {
+          "raw": "defiance",
+          "start": 7.5,
+          "end": 8.02
+        },
+        {
+          "raw": "was",
+          "start": 8.02,
+          "end": 8.34
+        },
+        {
+          "raw": "gone.",
+          "start": 8.34,
+          "end": 8.68
+        },
+        {
+          "raw": "Even",
+          "start": 9.22,
+          "end": 9.4
+        },
+        {
+          "raw": "his",
+          "start": 9.4,
+          "end": 9.6
+        },
+        {
+          "raw": "voice",
+          "start": 9.6,
+          "end": 9.92
+        },
+        {
+          "raw": "was",
+          "start": 9.92,
+          "end": 10.18
+        },
+        {
+          "raw": "suddenly",
+          "start": 10.18,
+          "end": 10.48
+        },
+        {
+          "raw": "weak.",
+          "start": 10.48,
+          "end": 10.84
+        },
+        {
+          "raw": "I",
+          "start": 11.58,
+          "end": 11.74
+        },
+        {
+          "raw": "told",
+          "start": 11.74,
+          "end": 11.92
+        },
+        {
+          "raw": "you",
+          "start": 11.92,
+          "end": 12.12
+        },
+        {
+          "raw": "yesterday",
+          "start": 12.12,
+          "end": 12.5
+        },
+        {
+          "raw": "that",
+          "start": 12.5,
+          "end": 12.82
+        },
+        {
+          "raw": "I",
+          "start": 12.82,
+          "end": 12.92
+        },
+        {
+          "raw": "was",
+          "start": 12.92,
+          "end": 13.02
+        },
+        {
+          "raw": "not",
+          "start": 13.02,
+          "end": 13.18
+        },
+        {
+          "raw": "coming",
+          "start": 13.18,
+          "end": 13.38
+        },
+        {
+          "raw": "to",
+          "start": 13.38,
+          "end": 13.58
+        },
+        {
+          "raw": "ask",
+          "start": 13.58,
+          "end": 13.8
+        },
+        {
+          "raw": "forgiveness",
+          "start": 13.8,
+          "end": 14.28
+        },
+        {
+          "raw": "and",
+          "start": 14.28,
+          "end": 14.66
+        },
+        {
+          "raw": "almost",
+          "start": 14.66,
+          "end": 14.94
+        },
+        {
+          "raw": "the",
+          "start": 14.94,
+          "end": 15.12
+        },
+        {
+          "raw": "first",
+          "start": 15.12,
+          "end": 15.34
+        },
+        {
+          "raw": "thing",
+          "start": 15.34,
+          "end": 15.62
+        },
+        {
+          "raw": "I've",
+          "start": 15.62,
+          "end": 15.82
+        },
+        {
+          "raw": "said",
+          "start": 15.82,
+          "end": 16.02
+        },
+        {
+          "raw": "is",
+          "start": 16.02,
+          "end": 16.2
+        },
+        {
+          "raw": "to",
+          "start": 16.2,
+          "end": 16.36
+        },
+        {
+          "raw": "ask",
+          "start": 16.36,
+          "end": 16.64
+        },
+        {
+          "raw": "forgiveness.",
+          "start": 16.64,
+          "end": 17.12
+        },
+        {
+          "raw": "I",
+          "start": 17.86,
+          "end": 18.06
+        },
+        {
+          "raw": "said",
+          "start": 18.06,
+          "end": 18.26
+        },
+        {
+          "raw": "that",
+          "start": 18.26,
+          "end": 18.4
+        },
+        {
+          "raw": "about",
+          "start": 18.4,
+          "end": 18.7
+        },
+        {
+          "raw": "Luzhin",
+          "start": 18.7,
+          "end": 19.16
+        },
+        {
+          "raw": "and",
+          "start": 19.16,
+          "end": 19.36
+        },
+        {
+          "raw": "Providence",
+          "start": 19.36,
+          "end": 19.76
+        },
+        {
+          "raw": "for",
+          "start": 19.76,
+          "end": 20.02
+        },
+        {
+          "raw": "my",
+          "start": 20.02,
+          "end": 20.2
+        },
+        {
+          "raw": "own",
+          "start": 20.2,
+          "end": 20.4
+        },
+        {
+          "raw": "sake.",
+          "start": 20.4,
+          "end": 20.74
+        },
+        {
+          "raw": "I",
+          "start": 21.34,
+          "end": 21.46
+        },
+        {
+          "raw": "was",
+          "start": 21.46,
+          "end": 21.56
+        },
+        {
+          "raw": "asking",
+          "start": 21.56,
+          "end": 21.94
+        },
+        {
+          "raw": "forgiveness,",
+          "start": 21.94,
+          "end": 22.48
+        },
+        {
+          "raw": "Sonia....",
+          "start": 22.82,
+          "end": 23.54
+        }
+      ],
+      "expected_tokens": [
+        "\"Of",
+        "course",
+        "you're",
+        "right,",
+        "Sonia,\"",
+        "he",
+        "said",
+        "softly",
+        "at",
+        "last.",
+        "He",
+        "was",
+        "suddenly",
+        "changed.",
+        "His",
+        "tone",
+        "of",
+        "assumed",
+        "arrogance",
+        "and",
+        "helpless",
+        "defiance",
+        "was",
+        "gone.",
+        "Even",
+        "his",
+        "voice",
+        "was",
+        "suddenly",
+        "weak.",
+        "\"I",
+        "told",
+        "you",
+        "yesterday",
+        "that",
+        "I",
+        "was",
+        "not",
+        "coming",
+        "to",
+        "ask",
+        "forgiveness",
+        "and",
+        "almost",
+        "the",
+        "first",
+        "thing",
+        "I've",
+        "said",
+        "is",
+        "to",
+        "ask",
+        "forgiveness....",
+        "I",
+        "said",
+        "that",
+        "about",
+        "Luzhin",
+        "and",
+        "Providence",
+        "for",
+        "my",
+        "own",
+        "sake.",
+        "I",
+        "was",
+        "asking",
+        "forgiveness,",
+        "Sonia....\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          69,
+          0,
+          69
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Of",
+          "start": 0.14,
+          "end": 0.5,
+          "key": "of",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "course",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "course",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you're",
+          "start": 0.68,
+          "end": 0.94,
+          "key": "youre",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "right,",
+          "start": 0.94,
+          "end": 1.16,
+          "key": "right",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Sonia,\"",
+          "start": 1.36,
+          "end": 1.88,
+          "key": "sonia",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.88,
+          "end": 2.14,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.14,
+          "end": 2.32,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "softly",
+          "start": 2.32,
+          "end": 2.72,
+          "key": "softly",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.72,
+          "end": 2.92,
+          "key": "at",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "last.",
+          "start": 2.92,
+          "end": 3.3,
+          "key": "last",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.78,
+          "end": 3.88,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.88,
+          "end": 3.98,
+          "key": "was",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 3.98,
+          "end": 4.22,
+          "key": "suddenly",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "changed.",
+          "start": 4.22,
+          "end": 4.78,
+          "key": "changed",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 5.36,
+          "end": 5.5,
+          "key": "his",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "tone",
+          "start": 5.5,
+          "end": 5.78,
+          "key": "tone",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.78,
+          "end": 5.96,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "assumed",
+          "start": 5.96,
+          "end": 6.34,
+          "key": "assumed",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "arrogance",
+          "start": 6.34,
+          "end": 6.78,
+          "key": "arrogance",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.78,
+          "end": 7.1,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "helpless",
+          "start": 7.1,
+          "end": 7.5,
+          "key": "helpless",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "defiance",
+          "start": 7.5,
+          "end": 8.02,
+          "key": "defiance",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 8.02,
+          "end": 8.34,
+          "key": "was",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "gone.",
+          "start": 8.34,
+          "end": 8.68,
+          "key": "gone",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Even",
+          "start": 9.22,
+          "end": 9.4,
+          "key": "even",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 9.4,
+          "end": 9.6,
+          "key": "his",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 9.6,
+          "end": 9.92,
+          "key": "voice",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 9.92,
+          "end": 10.18,
+          "key": "was",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 10.18,
+          "end": 10.48,
+          "key": "suddenly",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "weak.",
+          "start": 10.48,
+          "end": 10.84,
+          "key": "weak",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 11.58,
+          "end": 11.74,
+          "key": "i",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 11.74,
+          "end": 11.92,
+          "key": "told",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.92,
+          "end": 12.12,
+          "key": "you",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "yesterday",
+          "start": 12.12,
+          "end": 12.5,
+          "key": "yesterday",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 12.5,
+          "end": 12.82,
+          "key": "that",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 12.82,
+          "end": 12.92,
+          "key": "i",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 12.92,
+          "end": 13.02,
+          "key": "was",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 13.02,
+          "end": 13.18,
+          "key": "not",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "coming",
+          "start": 13.18,
+          "end": 13.38,
+          "key": "coming",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 13.38,
+          "end": 13.58,
+          "key": "to",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 13.58,
+          "end": 13.8,
+          "key": "ask",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "forgiveness",
+          "start": 13.8,
+          "end": 14.28,
+          "key": "forgiveness",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 14.28,
+          "end": 14.66,
+          "key": "and",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 14.66,
+          "end": 14.94,
+          "key": "almost",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.94,
+          "end": 15.12,
+          "key": "the",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 15.12,
+          "end": 15.34,
+          "key": "first",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 15.34,
+          "end": 15.62,
+          "key": "thing",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "I've",
+          "start": 15.62,
+          "end": 15.82,
+          "key": "ive",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 15.82,
+          "end": 16.02,
+          "key": "said",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 16.02,
+          "end": 16.2,
+          "key": "is",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.2,
+          "end": 16.36,
+          "key": "to",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 16.36,
+          "end": 16.64,
+          "key": "ask",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "forgiveness.",
+          "start": 16.64,
+          "end": 17.12,
+          "key": "forgiveness",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 17.86,
+          "end": 18.06,
+          "key": "i",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 18.06,
+          "end": 18.26,
+          "key": "said",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 18.26,
+          "end": 18.4,
+          "key": "that",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 18.4,
+          "end": 18.7,
+          "key": "about",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "Luzhin",
+          "start": 18.7,
+          "end": 19.16,
+          "key": "luzhin",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 19.16,
+          "end": 19.36,
+          "key": "and",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "Providence",
+          "start": 19.36,
+          "end": 19.76,
+          "key": "providence",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 19.76,
+          "end": 20.02,
+          "key": "for",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 20.02,
+          "end": 20.2,
+          "key": "my",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 20.2,
+          "end": 20.4,
+          "key": "own",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "sake.",
+          "start": 20.4,
+          "end": 20.74,
+          "key": "sake",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 21.34,
+          "end": 21.46,
+          "key": "i",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 21.46,
+          "end": 21.56,
+          "key": "was",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "asking",
+          "start": 21.56,
+          "end": 21.94,
+          "key": "asking",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "forgiveness,",
+          "start": 21.94,
+          "end": 22.48,
+          "key": "forgiveness",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "Sonia....",
+          "start": 22.82,
+          "end": 23.54,
+          "key": "sonia",
+          "pieces": [
+            68
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Of",
+          "start": 0.14,
+          "end": 0.5
+        },
+        {
+          "text": "course",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "you're",
+          "start": 0.68,
+          "end": 0.94
+        },
+        {
+          "text": "right,",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "text": "Sonia,\"",
+          "start": 1.36,
+          "end": 1.88
+        },
+        {
+          "text": "he",
+          "start": 1.88,
+          "end": 2.14
+        },
+        {
+          "text": "said",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "text": "softly",
+          "start": 2.32,
+          "end": 2.72
+        },
+        {
+          "text": "at",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "text": "last.",
+          "start": 2.92,
+          "end": 3.3
+        },
+        {
+          "text": "He",
+          "start": 3.78,
+          "end": 3.88
+        },
+        {
+          "text": "was",
+          "start": 3.88,
+          "end": 3.98
+        },
+        {
+          "text": "suddenly",
+          "start": 3.98,
+          "end": 4.22
+        },
+        {
+          "text": "changed.",
+          "start": 4.22,
+          "end": 4.78
+        },
+        {
+          "text": "His",
+          "start": 5.36,
+          "end": 5.5
+        },
+        {
+          "text": "tone",
+          "start": 5.5,
+          "end": 5.78
+        },
+        {
+          "text": "of",
+          "start": 5.78,
+          "end": 5.96
+        },
+        {
+          "text": "assumed",
+          "start": 5.96,
+          "end": 6.34
+        },
+        {
+          "text": "arrogance",
+          "start": 6.34,
+          "end": 6.78
+        },
+        {
+          "text": "and",
+          "start": 6.78,
+          "end": 7.1
+        },
+        {
+          "text": "helpless",
+          "start": 7.1,
+          "end": 7.5
+        },
+        {
+          "text": "defiance",
+          "start": 7.5,
+          "end": 8.02
+        },
+        {
+          "text": "was",
+          "start": 8.02,
+          "end": 8.34
+        },
+        {
+          "text": "gone.",
+          "start": 8.34,
+          "end": 8.68
+        },
+        {
+          "text": "Even",
+          "start": 9.22,
+          "end": 9.4
+        },
+        {
+          "text": "his",
+          "start": 9.4,
+          "end": 9.6
+        },
+        {
+          "text": "voice",
+          "start": 9.6,
+          "end": 9.92
+        },
+        {
+          "text": "was",
+          "start": 9.92,
+          "end": 10.18
+        },
+        {
+          "text": "suddenly",
+          "start": 10.18,
+          "end": 10.48
+        },
+        {
+          "text": "weak.",
+          "start": 10.48,
+          "end": 10.84
+        },
+        {
+          "text": "\"I",
+          "start": 11.58,
+          "end": 11.74
+        },
+        {
+          "text": "told",
+          "start": 11.74,
+          "end": 11.92
+        },
+        {
+          "text": "you",
+          "start": 11.92,
+          "end": 12.12
+        },
+        {
+          "text": "yesterday",
+          "start": 12.12,
+          "end": 12.5
+        },
+        {
+          "text": "that",
+          "start": 12.5,
+          "end": 12.82
+        },
+        {
+          "text": "I",
+          "start": 12.82,
+          "end": 12.92
+        },
+        {
+          "text": "was",
+          "start": 12.92,
+          "end": 13.02
+        },
+        {
+          "text": "not",
+          "start": 13.02,
+          "end": 13.18
+        },
+        {
+          "text": "coming",
+          "start": 13.18,
+          "end": 13.38
+        },
+        {
+          "text": "to",
+          "start": 13.38,
+          "end": 13.58
+        },
+        {
+          "text": "ask",
+          "start": 13.58,
+          "end": 13.8
+        },
+        {
+          "text": "forgiveness",
+          "start": 13.8,
+          "end": 14.28
+        },
+        {
+          "text": "and",
+          "start": 14.28,
+          "end": 14.66
+        },
+        {
+          "text": "almost",
+          "start": 14.66,
+          "end": 14.94
+        },
+        {
+          "text": "the",
+          "start": 14.94,
+          "end": 15.12
+        },
+        {
+          "text": "first",
+          "start": 15.12,
+          "end": 15.34
+        },
+        {
+          "text": "thing",
+          "start": 15.34,
+          "end": 15.62
+        },
+        {
+          "text": "I've",
+          "start": 15.62,
+          "end": 15.82
+        },
+        {
+          "text": "said",
+          "start": 15.82,
+          "end": 16.02
+        },
+        {
+          "text": "is",
+          "start": 16.02,
+          "end": 16.2
+        },
+        {
+          "text": "to",
+          "start": 16.2,
+          "end": 16.36
+        },
+        {
+          "text": "ask",
+          "start": 16.36,
+          "end": 16.64
+        },
+        {
+          "text": "forgiveness....",
+          "start": 16.64,
+          "end": 17.12
+        },
+        {
+          "text": "I",
+          "start": 17.86,
+          "end": 18.06
+        },
+        {
+          "text": "said",
+          "start": 18.06,
+          "end": 18.26
+        },
+        {
+          "text": "that",
+          "start": 18.26,
+          "end": 18.4
+        },
+        {
+          "text": "about",
+          "start": 18.4,
+          "end": 18.7
+        },
+        {
+          "text": "Luzhin",
+          "start": 18.7,
+          "end": 19.16
+        },
+        {
+          "text": "and",
+          "start": 19.16,
+          "end": 19.36
+        },
+        {
+          "text": "Providence",
+          "start": 19.36,
+          "end": 19.76
+        },
+        {
+          "text": "for",
+          "start": 19.76,
+          "end": 20.02
+        },
+        {
+          "text": "my",
+          "start": 20.02,
+          "end": 20.2
+        },
+        {
+          "text": "own",
+          "start": 20.2,
+          "end": 20.4
+        },
+        {
+          "text": "sake.",
+          "start": 20.4,
+          "end": 20.74
+        },
+        {
+          "text": "I",
+          "start": 21.34,
+          "end": 21.46
+        },
+        {
+          "text": "was",
+          "start": 21.46,
+          "end": 21.56
+        },
+        {
+          "text": "asking",
+          "start": 21.56,
+          "end": 21.94
+        },
+        {
+          "text": "forgiveness,",
+          "start": 21.94,
+          "end": 22.48
+        },
+        {
+          "text": "Sonia....\"",
+          "start": 22.82,
+          "end": 23.54
+        }
+      ],
+      "stats": {
+        "expected_words": 69,
+        "heard_words": 69,
+        "matched_words": 69
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.653410792350769
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "664ede1b61e0328571ffecc33c0fd12549f79899627892c536ed5a4488d2c9af",
+  "selected_reasons": []
+}

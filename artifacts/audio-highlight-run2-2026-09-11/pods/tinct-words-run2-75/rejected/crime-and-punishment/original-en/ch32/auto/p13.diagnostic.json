@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "d5ad87d67ae06af6326da3bdbdea3a77f4e793a4e302abede2d9710f79a70e0c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1494302935898304,
+      "alignment_seconds": 0.0004067644476890564,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"When did you see them last?\"",
+        "hotwords": "When"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " When did you see them last?",
+          "start": 0.02,
+          "end": 1.36,
+          "words": [
+            {
+              "text": " When",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " did",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 0.62,
+              "end": 0.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " see",
+              "start": 0.76,
+              "end": 0.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " them",
+              "start": 0.9,
+              "end": 1.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " last?",
+              "start": 1.04,
+              "end": 1.36,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "When",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "did",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "you",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "raw": "see",
+          "start": 0.76,
+          "end": 0.9
+        },
+        {
+          "raw": "them",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "raw": "last?",
+          "start": 1.04,
+          "end": 1.36
+        }
+      ],
+      "expected_tokens": [
+        "\"When",
+        "did",
+        "you",
+        "see",
+        "them",
+        "last?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "When",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "when",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.62,
+          "end": 0.76,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 0.76,
+          "end": 0.9,
+          "key": "see",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 0.9,
+          "end": 1.04,
+          "key": "them",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "last?",
+          "start": 1.04,
+          "end": 1.36,
+          "key": "last",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"When",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "did",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "you",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "text": "see",
+          "start": 0.76,
+          "end": 0.9
+        },
+        {
+          "text": "them",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "text": "last?\"",
+          "start": 1.04,
+          "end": 1.36
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14997709542512894
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f87abd5e00205ea562ca2c7fb1f0757c29c8d7306568c976f570c5bb355824d9",
+  "selected_reasons": []
+}

@@ -1,0 +1,466 @@
+{
+  "complete": true,
+  "signature": "06dfe4ed486ab51c5cf27d9902b4fb4343cc003105abc877f88de91aa22748f4",
+  "attempts": [
+    {
+      "asr_seconds": 0.22967874631285667,
+      "alignment_seconds": 0.000490967184305191,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Perhaps I don't want to go to Siberia yet, Sonya,\" he said.",
+          "start": 0.02,
+          "end": 3.4,
+          "words": [
+            {
+              "text": " Perhaps",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.28076171875
+            },
+            {
+              "text": " I",
+              "start": 0.66,
+              "end": 0.86,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " don't",
+              "start": 0.86,
+              "end": 1.0,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " want",
+              "start": 1.0,
+              "end": 1.14,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " to",
+              "start": 1.14,
+              "end": 1.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " go",
+              "start": 1.26,
+              "end": 1.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Siberia",
+              "start": 1.46,
+              "end": 1.78,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " yet,",
+              "start": 1.78,
+              "end": 2.16,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " Sonya,\"",
+              "start": 2.36,
+              "end": 2.92,
+              "probability": 0.7023111979166666
+            },
+            {
+              "text": " he",
+              "start": 2.92,
+              "end": 3.14,
+              "probability": 0.994140625
+            },
+            {
+              "text": " said.",
+              "start": 3.14,
+              "end": 3.4,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Perhaps",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "I",
+          "start": 0.66,
+          "end": 0.86
+        },
+        {
+          "raw": "don't",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "raw": "want",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "raw": "to",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "raw": "go",
+          "start": 1.26,
+          "end": 1.32
+        },
+        {
+          "raw": "to",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "Siberia",
+          "start": 1.46,
+          "end": 1.78
+        },
+        {
+          "raw": "yet,",
+          "start": 1.78,
+          "end": 2.16
+        },
+        {
+          "raw": "Sonya,\"",
+          "start": 2.36,
+          "end": 2.92
+        },
+        {
+          "raw": "he",
+          "start": 2.92,
+          "end": 3.14
+        },
+        {
+          "raw": "said.",
+          "start": 3.14,
+          "end": 3.4
+        }
+      ],
+      "expected_tokens": [
+        "\"Perhaps",
+        "I",
+        "don't",
+        "want",
+        "to",
+        "go",
+        "to",
+        "Siberia",
+        "yet,",
+        "Sonia,\"",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          12,
+          10,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Perhaps",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "perhaps",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.66,
+          "end": 0.86,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 0.86,
+          "end": 1.0,
+          "key": "dont",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 1.0,
+          "end": 1.14,
+          "key": "want",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.14,
+          "end": 1.26,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.26,
+          "end": 1.32,
+          "key": "go",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.32,
+          "end": 1.46,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Siberia",
+          "start": 1.46,
+          "end": 1.78,
+          "key": "siberia",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "yet,",
+          "start": 1.78,
+          "end": 2.16,
+          "key": "yet",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Sonya,\"",
+          "start": 2.36,
+          "end": 2.92,
+          "key": "sonya",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.92,
+          "end": 3.14,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 3.14,
+          "end": 3.4,
+          "key": "said",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Perhaps",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "I",
+          "start": 0.66,
+          "end": 0.86
+        },
+        {
+          "text": "don't",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "text": "want",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "text": "to",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "text": "go",
+          "start": 1.26,
+          "end": 1.32
+        },
+        {
+          "text": "to",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "text": "Siberia",
+          "start": 1.46,
+          "end": 1.78
+        },
+        {
+          "text": "yet,",
+          "start": 1.78,
+          "end": 2.16
+        },
+        {
+          "text": "Sonia,\"",
+          "start": 2.16,
+          "end": 2.54
+        },
+        {
+          "text": "he",
+          "start": 2.92,
+          "end": 3.14
+        },
+        {
+          "text": "said.",
+          "start": 3.14,
+          "end": 3.4
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.23037103191018105
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "11cab36487e142983a8d3bbb62f598308b75ceda494db06f07bf1e04807e5644",
+  "selected_reasons": []
+}
