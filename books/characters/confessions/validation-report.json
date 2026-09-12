@@ -1,0 +1,32 @@
+{
+  "bookId": "confessions",
+  "scope": "73 entities: 1 central (Augustine, the narrator, never named -- no bindable alias), 4 major (Monnica, Alypius, Nebridius, Ambrose), 6 supporting (Patricius, Adeodatus, Simplicianus, Victorinus, Pontitianus, Faustus), 62 reference. No genuine namesake collisions -- build_confessions.py needs no bind() override; the Paul/Saul/Paulus near-collision at 8:10 resolves by distinct spelling under word-boundary matching alone. This translation shows no footnote-apparatus contamination between editions, unlike Aristotle's Politics.",
+  "authoredEntries": 73,
+  "editions": {
+    "original-en": {
+      "sourceSha256": "64b39a8ae77d7175c904625fcc0bf3de13cb59e346e964b37ec8f5e47d95a6d7",
+      "chapters": 13,
+      "paragraphs": 462,
+      "entries": 72,
+      "mentions": 233,
+      "omittedEntities": [
+        "augustine"
+      ]
+    },
+    "modern-en": {
+      "sourceSha256": "420b17153b6cb46f6a74e41bb633dcbc88099975720dac27c6bfb0bf6be51b4e",
+      "chapters": 13,
+      "paragraphs": 462,
+      "entries": 72,
+      "mentions": 233,
+      "omittedEntities": [
+        "augustine"
+      ]
+    }
+  },
+  "limits": [
+    "Authoring-agent source review; not independent editorial approval.",
+    "Named cast, speaking roles and named references; no claim of pronoun or every generic-title coverage.",
+    "No runtime registration or production verification in this content package."
+  ]
+}
