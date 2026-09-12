@@ -10,7 +10,7 @@ const iframe = readFileSync(publicDir + 'assets/about-v20/audio-journey.html', '
 test('published story is the approved bookshelf variant, not the reader', () => {
   assert.match(html.replace(/<[^>]*>/g, ' '), /We live in the\s+age of/);
   assert.match(html, /cinematic/);
-  assert.match(html, /https:\/\/tinct.app\/mission/);
+  assert.match(html, /https:\/\/tinct.app\/about/);
   assert.doesNotMatch(html, /noindex|noarchive|nofollow/);
   assert.doesNotMatch(html, /assets\/index-/);
 });

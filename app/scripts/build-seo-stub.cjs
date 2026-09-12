@@ -254,7 +254,7 @@ ${renderReadNextSection(id)}
     <span>Tinct — 2026</span>
     <div class="footer-links">
       <a href="/read">Library</a>
-      <a href="/mission">Mission</a>
+      <a href="/about">About</a>
       <a href="/#pricing">Pricing</a>
       <a href="mailto:contact@tinct.app">contact@tinct.app</a>
     </div>

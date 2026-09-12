@@ -21,7 +21,6 @@ function routerEnv() {
   const library2 = '<!doctype html><html><head><meta name="robots" content="noindex, noarchive"><title>Library 2</title></head><body><div id="tinct-library-2">library 2 shell</div></body></html>'
   const labSignIn = '<!doctype html><html><head><meta name="robots" content="noindex, noarchive"><title>Sign in</title></head><body><div id="tinct-lab-sign-in">sign in shell</div></body></html>'
   const notFound = '<!doctype html><html><head><title>Page not found — Tinct</title></head><body><a class="nf-wm" href="/">Tinct.</a><h1>This page isn’t on the shelf.</h1><a href="/library">Browse the library</a></body></html>'
-  const story = '<!doctype html><html><head><title>Tinct — Mission</title></head><body><div class="journey story-root">the story</div></body></html>'
   return {
     ASSETS: {
       fetch: async (request: Request) => {
@@ -43,9 +42,6 @@ function routerEnv() {
         }
         if (url.pathname === '/lab/library-2/') {
           return new Response(library2, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
-        }
-        if (url.pathname === '/about' || url.pathname === '/about.html') {
-          return new Response(story, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
         }
         if (url.pathname === '/404.html') {
           return new Response(notFound, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
@@ -173,18 +169,6 @@ describe('worker SEO routing', () => {
   it('leaves /privacy itself to the static privacy.html asset', async () => {
     const resp = await worker.fetch(new Request('https://tinct.app/privacy'), routerEnv() as never, ctx)
     expect(resp.status).not.toBe(301)
-  })
-
-  it('serves the scroll story at /mission', async () => {
-    const resp = await worker.fetch(new Request('https://tinct.app/mission'), routerEnv() as never, ctx)
-    expect(resp.status).toBe(200)
-    expect(await resp.text()).toContain('story-root')
-  })
-
-  it.each(['/about', '/about/', '/about.html'])('redirects the old story URL %s to /mission', async (pathname) => {
-    const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
-    expect(resp.status).toBe(301)
-    expect(resp.headers.get('Location')).toBe('https://tinct.app/mission')
   })
 
   it.each(['/lab', '/lab/', '/lab/landing', '/library'])('serves the standalone noindex lab at %s', async (pathname) => {

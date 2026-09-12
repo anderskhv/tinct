@@ -380,31 +380,6 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       })
     }
 
-    // 2026-09-12 (Anders): the scroll story is the Mission, not an About page —
-    // a proper About page comes later. It is served at /mission, and /about
-    // redirects there permanently so every link already shared or indexed under
-    // the old URL keeps working and /about is free when the real page is built;
-    // the redirect comes out then. The file on disk stays public/about.html: the
-    // URL is what matters, not the filename. Assets html_handling canonicalizes
-    // /about.html to /about on binding fetches, so ask for /about directly.
-    if ((request.method === 'GET' || request.method === 'HEAD') && /^\/mission\/?$/.test(url.pathname)) {
-      const storyUrl = new URL(url.toString())
-      storyUrl.pathname = '/about'
-      const storyResp = await env.ASSETS.fetch(new Request(storyUrl.toString(), { method: request.method }))
-      if (storyResp.ok) {
-        const response = new Response(request.method === 'HEAD' ? null : storyResp.body, storyResp)
-        response.headers.delete('Content-Length')
-        response.headers.delete('ETag')
-        return response
-      }
-    }
-    if (/^\/about(?:\.html|\/)?$/.test(url.pathname)) {
-      return new Response(null, {
-        status: 301,
-        headers: { Location: `${url.origin}/mission`, 'Cache-Control': 'public, max-age=3600' },
-      })
-    }
-
     // Promote the proven catalogue/reader flow at the public entry. The
     // boot script handles anonymous, returning and recently-reading users.
     if ((request.method === 'GET' || request.method === 'HEAD') && (url.pathname === '/' || url.pathname === '/index.html')) {

@@ -62,14 +62,6 @@ const edits = [
     'children:`\u2661 `+slopLikes[r%slopLikes.length]+` \\xA0 \u2197 \\xA0 \u00b7\u00b7\u00b7`', 1],
   ['story', 'opening thread card metrics', 'children:`\u2661 2.4K \\xA0 \u21bb 618`', 'children:`\u2661 3.1K \\xA0 \u21bb 412`', 1],
   ['html', 'opening thread card metrics', '\u2661 2.4K \u00a0 \u21bb 618', '\u2661 3.1K \u00a0 \u21bb 412', 2],
-  // 2026-09-12 (Anders): the story is the Mission, not the About page — a proper About page comes later.
-  // It is served at /mission (app/src/worker/routes/seo.ts) and /about redirects there permanently, so the
-  // export's own canonical and og:url, which the Sites project still writes as /about, are rewritten here.
-  // The file on disk stays public/about.html: the URL is what matters, not the filename.
-  ['html', 'canonical is /mission', '<link rel="canonical" href="https://tinct.app/about"/>',
-    '<link rel="canonical" href="https://tinct.app/mission"/>', 1, 'canonical" href="https://tinct.app/mission"'],
-  ['html', 'og:url is /mission', '<meta property="og:url" content="https://tinct.app/about"/>',
-    '<meta property="og:url" content="https://tinct.app/mission"/>', 1, 'og:url" content="https://tinct.app/mission"'],
   ['html', 'og:image + twitter card', '<meta property="og:type" content="website"/>',
     '<meta property="og:type" content="website"/>' +
     '<meta property="og:image" content="https://tinct.app/og-image.png"/>' +
