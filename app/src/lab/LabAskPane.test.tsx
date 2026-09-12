@@ -642,3 +642,62 @@ describe('chat dictation control', () => {
     expect(screen.getByRole('button', { name: 'Dictate a question' }).querySelector('path')).toBeTruthy()
   })
 })
+
+describe('lab ask composer: Enter', () => {
+  const base = (onSubmit: (text: string) => void, phoneSheet: boolean) => (
+    <LabAskPane
+      chromeV2
+      conversationState="idle"
+      voiceActive={false}
+      typedLoading={false}
+      turns={[]}
+      draft="What does this passage mean?"
+      onDraftChange={vi.fn()}
+      onSubmit={onSubmit}
+      onMic={vi.fn()}
+      onVoiceMode={vi.fn()}
+      phoneSheet={phoneSheet}
+    />
+  )
+
+  it('sends on a plain Enter on the desktop', () => {
+    const onSubmit = vi.fn()
+    render(base(onSubmit, false))
+    const notDefaulted = fireEvent.keyDown(screen.getByTestId('lab-ask-input'), { key: 'Enter' })
+    expect(onSubmit).toHaveBeenCalledWith('What does this passage mean?')
+    // preventDefault was called, so no newline lands in the textarea.
+    expect(notDefaulted).toBe(false)
+  })
+
+  it('leaves Shift+Enter as a newline on the desktop', () => {
+    const onSubmit = vi.fn()
+    render(base(onSubmit, false))
+    const notDefaulted = fireEvent.keyDown(screen.getByTestId('lab-ask-input'), { key: 'Enter', shiftKey: true })
+    expect(onSubmit).not.toHaveBeenCalled()
+    expect(notDefaulted).toBe(true)
+  })
+
+  it('still sends on Cmd+Enter on the desktop', () => {
+    const onSubmit = vi.fn()
+    render(base(onSubmit, false))
+    fireEvent.keyDown(screen.getByTestId('lab-ask-input'), { key: 'Enter', metaKey: true })
+    expect(onSubmit).toHaveBeenCalledTimes(1)
+  })
+
+  it('does not send on a plain Enter while an IME is composing', () => {
+    const onSubmit = vi.fn()
+    render(base(onSubmit, false))
+    fireEvent.keyDown(screen.getByTestId('lab-ask-input'), { key: 'Enter', isComposing: true })
+    expect(onSubmit).not.toHaveBeenCalled()
+  })
+
+  it('leaves the phone sheet alone: Enter is a newline, Cmd+Enter sends', () => {
+    const onSubmit = vi.fn()
+    render(base(onSubmit, true))
+    const notDefaulted = fireEvent.keyDown(screen.getByTestId('lab-ask-input'), { key: 'Enter' })
+    expect(onSubmit).not.toHaveBeenCalled()
+    expect(notDefaulted).toBe(true)
+    fireEvent.keyDown(screen.getByTestId('lab-ask-input'), { key: 'Enter', metaKey: true })
+    expect(onSubmit).toHaveBeenCalledTimes(1)
+  })
+})

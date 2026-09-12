@@ -350,10 +350,14 @@ export function LabAskPane({
         onBlur={() => onKeyboardOpenChange?.(false)}
         onChange={event => onDraftChange(event.target.value)}
         onKeyDown={event => {
-          if (event.key === 'Enter' && (event.metaKey || event.ctrlKey) && !event.nativeEvent.isComposing) {
-            event.preventDefault()
-            submit()
-          }
+          if (event.key !== 'Enter' || event.nativeEvent.isComposing) return
+          // Cmd/Ctrl+Enter sends everywhere. On the desktop, where there is a
+          // real keyboard, plain Enter sends too and Shift+Enter is the
+          // newline — the phone sheet keeps Enter as a newline.
+          const send = event.metaKey || event.ctrlKey || (!phoneSheet && !event.shiftKey && !event.altKey)
+          if (!send) return
+          event.preventDefault()
+          submit()
         }}
         placeholder={LAB_COPY.askPlaceholder}
       /> : (<input
