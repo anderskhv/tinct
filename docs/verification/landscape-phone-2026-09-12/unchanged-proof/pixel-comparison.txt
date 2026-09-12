@@ -1,0 +1,72 @@
+Did portrait, tablet and desktop change?
+
+Every surface was rendered on origin/main (baseline-origin-main/) and again
+with this branch applied (after-change/, plus repeat captures). For each
+screenshot this is the smallest pixel difference found against the baseline
+across the repeat captures of the changed build.
+
+Repeat captures are needed because several of these surfaces are not
+deterministic from one run to the next on the SAME build: the voice orb is a
+live canvas animation, the entry hero runs a light/cover animation, and the
+book page fades a cover in. Two captures of one identical build differ in 13
+of these 56 files. PNG bytes are not stable either, so file hashes are not a
+useful test; pixels are.
+
+proven identical: 44   still differing: 12   total: 56
+
+identical  (best of 2 captures)            desktop-1440x900__about.png
+DIFFERS 176687px max-delta 49 (best of 4)  desktop-1440x900__app.png
+identical  (best of 2 captures)            desktop-1440x900__book-page.png
+identical  (best of 2 captures)            desktop-1440x900__landing.png
+identical  (best of 2 captures)            desktop-1440x900__library.png
+identical  (best of 2 captures)            desktop-1440x900__reader-account.png
+DIFFERS 1566px max-delta 31 (best of 2)  desktop-1440x900__reader-call-connecting.png
+DIFFERS 4332px max-delta 160 (best of 2)  desktop-1440x900__reader-call-listening.png
+identical  (best of 2 captures)            desktop-1440x900__reader-chat.png
+identical  (best of 2 captures)            desktop-1440x900__reader-contents.png
+identical  (best of 2 captures)            desktop-1440x900__reader-settings.png
+identical  (best of 2 captures)            desktop-1440x900__reader-supermenu.png
+identical  (best of 2 captures)            desktop-1440x900__reader.png
+identical  (best of 2 captures)            desktop-1440x900__sign-in.png
+identical  (best of 2 captures)            portrait-393x852__about.png
+DIFFERS 6228px max-delta 1 (best of 2)  portrait-393x852__app.png
+identical  (best of 2 captures)            portrait-393x852__book-page.png
+identical  (best of 2 captures)            portrait-393x852__landing.png
+identical  (best of 2 captures)            portrait-393x852__library.png
+identical  (best of 2 captures)            portrait-393x852__reader-account.png
+DIFFERS 7073px max-delta 37 (best of 2)  portrait-393x852__reader-call-connecting.png
+DIFFERS 14804px max-delta 249 (best of 2)  portrait-393x852__reader-call-listening.png
+identical  (best of 2 captures)            portrait-393x852__reader-chat.png
+identical  (best of 2 captures)            portrait-393x852__reader-contents.png
+identical  (best of 2 captures)            portrait-393x852__reader-settings.png
+identical  (best of 2 captures)            portrait-393x852__reader-supermenu.png
+identical  (best of 2 captures)            portrait-393x852__reader.png
+identical  (best of 2 captures)            portrait-393x852__sign-in.png
+identical  (best of 2 captures)            tablet-1024x768__about.png
+DIFFERS 319419px max-delta 112 (best of 2)  tablet-1024x768__app.png
+identical  (best of 2 captures)            tablet-1024x768__book-page.png
+identical  (best of 2 captures)            tablet-1024x768__landing.png
+identical  (best of 2 captures)            tablet-1024x768__library.png
+identical  (best of 2 captures)            tablet-1024x768__reader-account.png
+DIFFERS 7291px max-delta 47 (best of 2)  tablet-1024x768__reader-call-connecting.png
+DIFFERS 8957px max-delta 59 (best of 2)  tablet-1024x768__reader-call-listening.png
+identical  (best of 2 captures)            tablet-1024x768__reader-chat.png
+identical  (best of 2 captures)            tablet-1024x768__reader-contents.png
+identical  (best of 2 captures)            tablet-1024x768__reader-settings.png
+identical  (best of 2 captures)            tablet-1024x768__reader-supermenu.png
+identical  (best of 2 captures)            tablet-1024x768__reader.png
+identical  (best of 4 captures)            tablet-1024x768__sign-in.png
+identical  (best of 2 captures)            tablet-768x1024__about.png
+DIFFERS 52743px max-delta 2 (best of 4)  tablet-768x1024__app.png
+identical  (best of 4 captures)            tablet-768x1024__book-page.png
+identical  (best of 2 captures)            tablet-768x1024__landing.png
+identical  (best of 2 captures)            tablet-768x1024__library.png
+identical  (best of 2 captures)            tablet-768x1024__reader-account.png
+DIFFERS 6417px max-delta 25 (best of 2)  tablet-768x1024__reader-call-connecting.png
+DIFFERS 13429px max-delta 178 (best of 2)  tablet-768x1024__reader-call-listening.png
+identical  (best of 2 captures)            tablet-768x1024__reader-chat.png
+identical  (best of 2 captures)            tablet-768x1024__reader-contents.png
+identical  (best of 2 captures)            tablet-768x1024__reader-settings.png
+identical  (best of 2 captures)            tablet-768x1024__reader-supermenu.png
+identical  (best of 2 captures)            tablet-768x1024__reader.png
+identical  (best of 2 captures)            tablet-768x1024__sign-in.png

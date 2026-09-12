@@ -6892,3 +6892,89 @@
   padding-left: max(14px, calc(25% - 320px));
   padding-right: max(14px, calc(25% - 320px));
 }
+
+/* ══ Phone held on its side (2026-09-12) ═══════════════════════════════════
+   One gate for every rule below, and only a phone lying down can pass it:
+   landscape orientation, a viewport no taller than 500px, and a coarse
+   pointer. A desktop window is fine-pointer; a tablet upright is portrait
+   and one on its side is ~700–1100px tall; a phone upright is portrait.
+   Nothing above this line changes — these rules only add.
+
+   Reader text is deliberately untouched. Phone pagination is measured in a
+   hidden copy of the passage (.lab-page-measure / .lab-native-page-flow)
+   whose stage is display:contents, so a width or measure rule applied to the
+   visible passage would not reach the copy and the two layouts would
+   disagree about where a page ends. The reading box already fills the short
+   viewport sensibly; what was actually broken lying down was the call. */
+@media (orientation: landscape) and (max-height: 500px) and (any-pointer: coarse) {
+  /* The call was the one surface that broke outright. It is a three-row grid
+     — book line, stage, controls — and the stage centres a 280px orb above
+     the status and caption. In a 393px-tall box that column is taller than
+     its row, and a centred flex column overflows both ways: "Listening." and
+     "Ask about this page." were painted straight through the Mute / Text /
+     End discs. Lying down there is width instead of height, so the orb moves
+     beside the words and the discs get their row back. */
+  .lab[data-chrome-version="v2"] .lab-call {
+    padding:
+      calc(0.85rem + env(safe-area-inset-top, 0px))
+      max(1.25rem, env(safe-area-inset-right, 0px))
+      calc(0.85rem + env(safe-area-inset-bottom, 0px))
+      max(1.25rem, env(safe-area-inset-left, 0px));
+  }
+
+  .lab[data-chrome-version="v2"] .lab-call-top { font-size: 15px; }
+  .lab[data-chrome-version="v2"] .lab-call-top .lab-call-connection { font-size: 15px; }
+
+  .lab[data-chrome-version="v2"] .lab-call-stage {
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  /* The orb carries its pixel size as an inline style on both the host and
+     the canvas inside it, so both need the cap or the canvas overflows a
+     shrunken host. */
+  .lab[data-chrome-version="v2"] .lab-call-circle,
+  .lab[data-chrome-version="v2"] .lab-call-circle .lab-voice-orb-canvas {
+    max-width: min(46vh, 190px);
+    max-height: min(46vh, 190px);
+  }
+
+  .lab[data-chrome-version="v2"] .lab-call-words {
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .lab[data-chrome-version="v2"] .lab-call-status { font-size: 26px; }
+
+  .lab[data-chrome-version="v2"] .lab-call-caption,
+  .lab[data-chrome-version="v2"] .lab-call-micoff,
+  .lab[data-chrome-version="v2"] .lab-call-help,
+  .lab[data-chrome-version="v2"] .lab-call-notice {
+    font-size: 16px;
+    max-width: 280px;
+  }
+
+  /* 60px discs stay 60px: the tap target is not what is short here. */
+  .lab[data-chrome-version="v2"] .lab-call-controls { gap: 34px; }
+
+  /* The sheets already scroll inside themselves, so nothing was unreachable;
+     they just showed two rows at a time. A taller sheet and shorter theme
+     cards put the whole of Reading settings and Account on one screen. */
+  .lab[data-chrome-version="v2"] {
+    --lab-v2-sheet-height: min(452px, 94vh);
+  }
+
+  .lab[data-chrome-version="v2"] .lab-v2-themes {
+    gap: 8px;
+    padding: 0 0 8px;
+  }
+
+  .lab[data-chrome-version="v2"] .lab-v2-theme-face {
+    height: 42px;
+    font-size: 15px;
+  }
+
+  .lab[data-chrome-version="v2"] .lab-v2-sheet[data-layer="reading"] .lab-v2-sheet-body {
+    padding: 4px 16px 10px;
+  }
+}

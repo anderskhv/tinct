@@ -1,0 +1,23 @@
+Can the landscape gate match anything but a phone lying down?
+
+Query under test (identical in app/src/lab/lab.css, app/public/lab/landscape-phone.css,
+app/public/landing.html and app/public/lab/sign-in/index.html):
+
+  (orientation: landscape) and (max-height: 500px) and (any-pointer: coarse)
+
+Evaluated with window.matchMedia in Chromium, with touch and mobile emulation
+on for the phones and tablets (which is what makes any-pointer report coarse)
+and off for the desktop windows.
+
+ok    852x393     matches=true  expected=true  iPhone 15 Pro on its side
+ok    932x430     matches=true  expected=true  iPhone 15 Pro Max on its side
+ok    780x360     matches=true  expected=true  Pixel 8 on its side
+ok    393x852     matches=false expected=false iPhone 15 Pro upright
+ok    768x1024    matches=false expected=false iPad upright
+ok    1024x768    matches=false expected=false iPad on its side
+ok    1440x900    matches=false expected=false desktop window
+ok    720x900     matches=false expected=false half-width desktop window
+ok    1440x420    matches=false expected=false short desktop window (mouse, 1440x420)
+ok    1133x744    matches=false expected=false iPad Mini on its side
+
+failures: 0
