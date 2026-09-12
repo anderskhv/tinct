@@ -26,7 +26,7 @@ The accepted candidate v2 with the cross-book v3 pass applied (see `../README.md
 
 **[B1-P006]**
 
-6. From Diognetus: not to busy myself with trivial things; not to believe what was said by miracle-workers and conjurers about incantations and the driving out of spirits and such things; not to breed quails for fighting, nor to give myself up passionately to such things; to put up with frank speech; to have become close to philosophy, and to have heard first Bacchius, then Tandasis and Marcianus; to have written dialogues in my youth; and to have wanted a plank bed and a skin, and whatever else of that kind belongs to the Greek discipline.
+6. From Diognetus: not to busy myself with trivial things; not to believe what was said by miracle-workers and conjurers about incantations and the driving out of spirits and such things; not to breed quails for fighting, nor to give myself up passionately to such things; to put up with frank speech; to have become close to philosophy, and to have heard first Bacchius, then Tandasis and Marcianus; to have written dialogues in my youth; and to have wanted a plank bed and a skin, and whatever else of the kind belongs to the Greek discipline.
 
 **[B1-P007]**
 

@@ -38,7 +38,7 @@ The accepted candidate v2 with the cross-book v3 pass applied (see `../README.md
 
 **[B7-P009]**
 
-9. All things are bound up with one another, and the bond is holy; and there is hardly anything unconnected with any other thing. For things have been co-ordinated, and they combine to form the same universe. For there is one universe made up of all things, and one god who pervades all things, and one substance, and one law, one common reason in all intelligent beings, and one truth; if indeed there is also one perfection for all beings which are of the same stock and share in the reason.
+9. All things are bound up with one another, and the bond is holy; and there is hardly anything unconnected with any other thing. For things have been coordinated, and they combine to form the same universe. For there is one universe made up of all things, and one god who pervades all things, and one substance, and one law, one common reason in all intelligent beings, and one truth; if indeed there is also one perfection for all beings which are of the same stock and share in the reason.
 
 **[B7-P010]**
 
@@ -54,7 +54,7 @@ The accepted candidate v2 with the cross-book v3 pass applied (see `../README.md
 
 **[B7-P013]**
 
-13. Just as it is with the limbs in those bodies which are united in one, so it is with rational beings which exist separate, for they have been constituted for one co-operation. And the perception of this will be clearer to you if you often say to yourself that I am a member (melos) of the system of rational beings. But if, using the letter r, you say that you are a part (meros), you do not yet love men from your heart; kindness does not yet delight you for its own sake; you still do it barely as a thing of propriety, and not yet as doing good to yourself.
+13. Just as it is with the limbs in those bodies which are united in one, so it is with rational beings which exist separate, for they have been constituted for one cooperation. And the perception of this will be clearer to you if you often say to yourself that I am a member (melos) of the system of rational beings. But if, using the letter r, you say that you are a part (meros), you do not yet love men from your heart; kindness does not yet delight you for its own sake; you still do it barely as a thing of propriety, and not yet as doing good to yourself.
 
 **[B7-P014]**
 
@@ -78,7 +78,7 @@ The accepted candidate v2 with the cross-book v3 pass applied (see `../README.md
 
 **[B7-P019]**
 
-19. Through the universal substance, as through a furious torrent, all bodies are carried, being by their nature united with and co-operating with the whole, as the parts of our body with one another. How many a Chrysippus, how many a Socrates, how many an Epictetus has time already swallowed up! And let the same thought occur to you with reference to every man and thing.
+19. Through the universal substance, as through a furious torrent, all bodies are carried, being by their nature united with and cooperating with the whole, as the parts of our body with one another. How many a Chrysippus, how many a Socrates, how many an Epictetus has time already swallowed up! And let the same thought occur to you with reference to every man and thing.
 
 **[B7-P020]**
 
@@ -126,7 +126,7 @@ The accepted candidate v2 with the cross-book v3 pass applied (see `../README.md
 
 **[B7-P031]**
 
-31. Adorn yourself with simplicity and modesty, and with indifference towards the things which lie between virtue and vice. Love mankind. Follow God. The poet says that law rules all— And it is enough to remember that law rules all.
+31. Adorn yourself with simplicity and modesty, and with indifference toward the things which lie between virtue and vice. Love mankind. Follow God. The poet says that law rules all— And it is enough to remember that law rules all.
 
 **[B7-P032]**
 
@@ -254,7 +254,7 @@ The accepted candidate v2 with the cross-book v3 pass applied (see `../README.md
 
 **[B7-P063]**
 
-63. Every soul, the philosopher says, is involuntarily deprived of truth; consequently in the same way it is deprived of justice and temperance and kindness and everything of the kind. It is most necessary to bear this constantly in mind, for thus you will be more gentle towards all.
+63. Every soul, the philosopher says, is involuntarily deprived of truth; consequently in the same way it is deprived of justice and temperance and kindness and everything of the kind. It is most necessary to bear this constantly in mind, for thus you will be more gentle toward all.
 
 **[B7-P064]**
 
@@ -262,11 +262,11 @@ The accepted candidate v2 with the cross-book v3 pass applied (see `../README.md
 
 **[B7-P065]**
 
-65. Take care not to feel towards the inhuman as they feel towards men.
+65. Take care not to feel toward the inhuman as they feel toward men.
 
 **[B7-P066]**
 
-66. How do we know whether Telauges was not superior in character to Socrates? For it is not enough that Socrates died a more noble death, and disputed more skillfully with the sophists, and passed the night in the cold with more endurance, and that when he was ordered to arrest Leon of Salamis, he considered it more noble to refuse, and that he walked in a swaggering way in the streets—though as to this fact one may have great doubts if it was true. But we ought to inquire what kind of a soul it was that Socrates possessed, and if he was able to be content with being just towards men and pious towards the gods, neither idly resentful on account of men's villainy, nor yet making himself a slave to any man's ignorance, nor receiving as strange anything that fell to his share out of the whole, nor enduring it as intolerable, nor allowing his understanding to sympathize with the feelings of the miserable flesh.
+66. How do we know whether Telauges was not superior in character to Socrates? For it is not enough that Socrates died a more noble death, and disputed more skillfully with the sophists, and passed the night in the cold with more endurance, and that when he was ordered to arrest Leon of Salamis, he considered it more noble to refuse, and that he walked in a swaggering way in the streets—though as to this fact one may have great doubts if it was true. But we ought to inquire what kind of a soul it was that Socrates possessed, and if he was able to be content with being just toward men and pious toward the gods, neither idly resentful on account of men's villainy, nor yet making himself a slave to any man's ignorance, nor receiving as strange anything that fell to his share out of the whole, nor enduring it as intolerable, nor allowing his understanding to sympathize with the feelings of the miserable flesh.
 
 **[B7-P067]**
 
@@ -302,4 +302,4 @@ The accepted candidate v2 with the cross-book v3 pass applied (see `../README.md
 
 **[B7-P075]**
 
-75. The nature of the whole moved to make the universe. But now either everything that takes place comes by way of consequence; or even the chief things towards which the ruling power of the universe directs its own movement are governed by no rational principle. If this is remembered, it will make you calmer in many things.
+75. The nature of the whole moved to make the universe. But now either everything that takes place comes by way of consequence; or even the chief things toward which the ruling power of the universe directs its own movement are governed by no rational principle. If this is remembered, it will make you calmer in many things.

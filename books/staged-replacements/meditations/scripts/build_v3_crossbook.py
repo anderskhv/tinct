@@ -96,6 +96,33 @@ CHANGES = [
               'in the same way? and why do you not leave these agitations',
   'Long prints lowercase'),
  # --- F. the "vexed / vexation" row, applied where it was not --------------
+ # --- L. the finite negative without do-support -----------------------------
+ ('L', 9, 30, 'and how many know not even your name',
+              'and how many do not even know your name',
+  "the last of Long's finite negatives without do-support left standing in the work; the "
+  "class was decided at Book XI acceptance (finding 1.1, 'regards not' -> 'does not "
+  "regard') and applied again at XII.2, and the frequency table found this one survivor"),
+ # --- J. Long's dangling relative at II.5, recorded as a v3 candidate since Book II
+ ('J', 2, 5, 'You see how few things there are which, if a man lays hold of them, he can live a life',
+             'You see how few the things are; and if a man lays hold of them, he can live a life',
+  'v1 and v2 reproduced Long\'s "the which if a man lays hold of, he is able to live", a relative '
+  'with no role in its own clause and ungrammatical in modern English; logged under "Open, not '
+  'blocking" by two sessions as the thing to do at a whole-work touchpoint, with this wording'),
+ # --- H. a formula Long repeats across books, rendered two ways ------------
+ ('H', 1, 6, 'and whatever else of that kind belongs to the Greek discipline',
+             'and whatever else of the kind belongs to the Greek discipline',
+  'Long writes "whatever else of the kind" three times (I.6, III.1, III.4); III.1 and '
+  'III.4 keep it and I.6 alone had "of that kind", which is the rendering class A '
+  'reserves for his "such like"'),
+ ('H', 2, 3, 'and what benefits the whole universe, of which you are a part',
+             'and what is for the advantage of the whole universe, of which you are a part',
+  'Long\'s "that which is for the advantage of the whole universe" is kept word for '
+  'word at X.6, and the common-good row names X.6\'s bare "advantage" as a phrase it '
+  'leaves alone; "benefits" was the one paraphrase of it in the work'),
+ ('H', 8, 13, 'and, if it is possible, at every impression on the soul',
+              'and, if it is possible, on the occasion of every impression on the soul',
+  'Long\'s formula "on the occasion of every impression" is kept in full at IV.22; '
+  'VIII.13 alone shortened it'),
  # --- G. Long's comma before an em dash: removed in eleven books, two left ----
  ('G', 7, 49, 'Consider the past,—such great changes', 'Consider the past—such great changes',
   'the package removes Long\'s comma before an em dash; 38 of his 40 were already gone'),
@@ -131,6 +158,35 @@ SHALL_KEPT = [
  (11, 18, 2, 'first person, one also a direct deliberative question'),
 ]
 
+# --- I. "toward" / "towards" -------------------------------------------------
+# Books I-VI render Long's "towards" as "toward" and also write "toward" in their
+# own prose; Books VII-XII keep his "towards". Both forms are current, nothing
+# turns on either, and no reader would call it anything but an inconsistency in
+# an edition's spelling -- which is what it is. Decided once, on the package's
+# own spelling rule ("American, following the PG base text"): **"toward"
+# throughout**, the form the American convention names and the form the edition
+# already uses in six books and in its own sentences. Applied as a rule rather
+# than as 26 enumerated strings, with the sites enumerated and asserted below.
+RULE_CLASS_I = [(r'\btowards\b', 'toward'), (r'\bTowards\b', 'Toward')]
+RULE_CLASS_I_BOOKS = [7, 8, 9, 10, 11, 12]
+RULE_CLASS_I_SITES = [(7, 31), (7, 63), (7, 65), (7, 66), (7, 75), (8, 41), (9, 1), (9, 9),
+                      (9, 27), (9, 37), (9, 42), (11, 12), (11, 13), (11, 16), (11, 18),
+                      (11, 20), (12, 23), (12, 30)]
+
+# --- K. one spelling of a word for the whole edition -------------------------
+# The 1862 hyphenations are normalised in Books I-VI ("cooperation" at II.1,
+# "cooperators" at VI.42, "coordinated" at V.30, "seashores" at IV.3, "fig tree"
+# at IV.6, VI.14 and VIII.15) and left as Long has them in Books VII-X, so the
+# work spells four words two ways. The rule is the X.36.2 one, stated for the
+# class it belongs to: **a word is spelled one way in the edition.** The test is
+# not whether a hyphen is old-fashioned -- "fellow-citizens" and "non-existence"
+# occur once each in one form and are left exactly as Long has them -- but
+# whether the work spells the same word two ways.
+RULE_CLASS_K = [(r'co-operat', 'cooperat'), (r'co-ordinat', 'coordinat'),
+                (r'sea-shore', 'seashore'), (r'fig-tree', 'fig tree')]
+RULE_CLASS_K_BOOKS = [7, 8, 9, 10, 11, 12]
+RULE_CLASS_K_SITES = [(7, 9), (7, 13), (7, 19), (9, 40), (10, 8), (10, 23)]
+
 CLASS_NOTE = {
  'A': '"such like" / "suchlike" -> "of that kind"',
  'B': 'the plural distributive "several" -> "separate"',
@@ -139,6 +195,11 @@ CLASS_NOTE = {
  'E': "Long's lowercase after his own question mark, restored",
  'F': 'the "vexed / vexation" glossary row, applied where it was not',
  'G': "Long's comma before an em dash, removed in the two places it was left",
+ 'H': 'a formula Long repeats across books, rendered two ways',
+ 'I': 'one form of "toward" for the whole edition',
+ 'J': "Long's dangling relative at II.5, repaired",
+ 'K': 'one spelling of a word for the whole edition',
+ 'L': 'the finite negative without do-support, the last one',
 }
 
 
@@ -158,14 +219,40 @@ def main():
         assert p.count(old) == 1, (cls, b, s, old, p.count(old))
         books[b]['paragraphs'][s - 1] = p.replace(old, new)
 
-    touched = sorted({b for _, b, *_ in CHANGES})
+    def apply_rule(rules, rule_books, expected):
+        sites, hits = [], 0
+        for b in rule_books:
+            for i, p in enumerate(books[b]['paragraphs']):
+                k = sum(len(re.findall(rx, p)) for rx, _ in rules)
+                if k:
+                    sites.append((b, i + 1))
+                    hits += k
+                    for rx, rep in rules:
+                        p = re.sub(rx, rep, p)
+                    books[b]['paragraphs'][i] = p
+        assert sorted(set(sites)) == expected, sorted(set(sites))
+        assert not any(re.search(rx, p) for rx, _ in rules
+                       for n in range(1, 13) for p in books[n]['paragraphs'])
+        return sorted(set(sites)), hits
+
+    sites, n_i = apply_rule(RULE_CLASS_I, RULE_CLASS_I_BOOKS, RULE_CLASS_I_SITES)
+    sites_k, n_k = apply_rule(RULE_CLASS_K, RULE_CLASS_K_BOOKS, RULE_CLASS_K_SITES)
+
+    touched = sorted({b for _, b, *_ in CHANGES} | {b for b, _ in sites} |
+                     {b for b, _ in sites_k})
     print('CLASSES')
-    for cls in sorted(CLASS_NOTE):
+    for cls in sorted(c for c in CLASS_NOTE if c not in ('I', 'K')):
         items = [(b, s) for c, b, s, *_ in CHANGES if c == cls]
         print(f'  {cls}. {CLASS_NOTE[cls]} — {len(items)}: '
               + ', '.join(f'{ROMAN[b-1]}.{s}' for b, s in items))
+    untouched = [ROMAN[b - 1] for b in range(1, 13) if b not in touched]
+    print(f'  I. {CLASS_NOTE["I"]} — {n_i} in {len(sites)} sections: '
+          + ', '.join(f'{ROMAN[b-1]}.{s}' for b, s in sites))
+    print(f'  K. {CLASS_NOTE["K"]} — {n_k} in {len(sites_k)} sections: '
+          + ', '.join(f'{ROMAN[b-1]}.{s}' for b, s in sites_k))
     print('\nBOOKS TOUCHED:', ', '.join(ROMAN[b - 1] for b in touched),
-          f'({len(touched)} of 12; II, VIII, XI, XII are not opened)')
+          f'({len(touched)} of 12'
+          + ('; ' + ', '.join(untouched) + ' are not opened)' if untouched else ')'))
 
     # every class change verified against Long and against the rest of the work
     src = json.load(open(os.path.join(PKG, 'meditations-original-en.staged.json'), encoding='utf-8'))
@@ -183,6 +270,7 @@ def main():
         assert not re.search(r'\badapted to\b', joined, re.I), n
         assert not re.search(r'\bseveral (?:parts|arts|qualities)\b', joined, re.I), n
         assert ',—' not in joined, n
+        assert not re.search(r'\b(?:regards?|comes?|differs?|knows?|seems?) not\b', joined), n
     for n, secs in ((3, [9]), (7, [8, 24, 68])):
         for s in secs:
             assert 'shall' not in books[n]['paragraphs'][s - 1], (n, s)
