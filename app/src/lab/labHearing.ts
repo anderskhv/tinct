@@ -1,4 +1,5 @@
 import type { FollowParagraph, FollowTarget } from './labFollow'
+import { tokenizeWithEmphasis, stripUnderscoreEmphasis } from './labEmphasis'
 import {
   LAB_OVERFLOW_CLEAR_PX,
   labPageFitsPaint,
@@ -16,6 +17,8 @@ export interface HearingWord {
   role: HearingWordRole
   /** Paragraph-local word index when known (hearing follow paint). */
   wordIndex?: number
+  /** True when this word came from a Gutenberg `_..._` emphasis pair. */
+  emphasis?: boolean
 }
 
 export interface HearingLine {
@@ -420,8 +423,15 @@ export function labVerseMarkerDisplay(text: string): string {
   return [...text].map(ch => LAB_SUPERSCRIPT_DIGIT[ch] ?? ch).join('')
 }
 
-export function tokenizeHearingWords(text: string): Array<{ text: string }> {
-  return text.split(/\s+/).map(part => part.trim()).filter(Boolean).map(word => ({ text: word }))
+/**
+ * Whitespace-tokenize `text` for pagination and word rendering, stripping
+ * matched Gutenberg `_..._` emphasis delimiters and flagging the words that
+ * carried them (see labEmphasis.ts). Token count and order are identical to
+ * a plain whitespace split of the untouched text — required so audio
+ * word-highlight sidecars, which index words by position, stay valid.
+ */
+export function tokenizeHearingWords(text: string): Array<{ text: string; emphasis?: boolean }> {
+  return tokenizeWithEmphasis(text)
 }
 
 export interface LabChapterProgress {
@@ -985,7 +995,7 @@ export function readingPageLines(paragraphs: string[], page: ChapterHearingPage 
     return {
       paragraphIndex: segment.paragraphIndex,
       from: segment.from,
-      words: words.slice(segment.from, segment.to).map(word => ({ text: word.text, role: 'line' as const })),
+      words: words.slice(segment.from, segment.to).map(word => ({ text: word.text, role: 'line' as const, emphasis: word.emphasis })),
     }
   })
 }
@@ -1010,7 +1020,7 @@ export function hearingReadingPageLines(
           else if (segment.paragraphIndex > follow.paragraphIndex) role = 'upcoming'
           else role = wordRole(wordIndex, follow.wordIndex)
         }
-        return { text: word.text, role, wordIndex }
+        return { text: word.text, role, wordIndex, emphasis: word.emphasis }
       }),
     }
   })
@@ -1072,11 +1082,15 @@ export function hearingStageLines(
         text: word.text,
         role: wordRole(page.from + offset, current),
         wordIndex: page.from + offset,
+        emphasis: word.emphasis,
       })),
     }]
   }
 
-  const sentences = splitDisplaySentences(paragraph.text)
+  // No word-level timings for this paragraph — one line rendered as a
+  // single block. Emphasis delimiters are stripped so they don't print
+  // literally; individual runs aren't styled since there's no per-word split.
+  const sentences = splitDisplaySentences(stripUnderscoreEmphasis(paragraph.text).text)
   const text = sentences.join(' ')
   return [{
     words: [{ text, role: 'line' as const }],
