@@ -114,11 +114,17 @@ Eurymachus, Polybus, Pisenor, Ephyra, Ilus, Mermerus, Dulichium, Same,
 Zacynthus, Ithaca, Troy, Sparta, Pylos, Ogygia, Achaeans, Danaans, Argives,
 Argos, Hellas, Ethiopians, Olympus/Olympian, Hyperion, Ops.
 
+Book 2 adds: Aegyptius, Antiphus, Eurynomus, Themis, Erinyes, Halitherses,
+Mentor, Leiocritus, Evenor, Noemon, Phronius, Tyro, Alcmena, Mycene, Ilius.
+
 Do not silently correct a Butler spelling that looks unusual (his own
 inconsistencies between Books, if any turn up) — flag it in the Book's
 `continuity.md` instead, per the Book 10 pilot's precedent for
 "Laestrygones" vs. "Laestrygonians." The one exception is the Cast-display-name
-rule above.
+rule above. **Two flagged so far, both in Book 2:** `Ilius`, Butler's form for
+Ilion/Troy at B02-P002, which stands in the same chapter as his own `Troy` at
+B02-P010; and `Mycene` at B02-P007, who is the **woman** Mykene in a list of
+famous women of old, not the city Mycenae.
 
 ## Spelling and punctuation standard
 
@@ -149,6 +155,31 @@ Settled at Book 1 step 6 from records findings **R2** and **R1**; see
 | "laid her son's saying in her heart" (of pondering) | **"kept her son's words in her heart"** | Homeric formula for turning something over inwardly, **not** for accepting it. Fixed at Book 1 step 6 (optional finding 26.1 applied): "taking her son's words to heart" — which in modern English means *accepting* or *being wounded by* — became "kept her son's words in her heart" at B01-P026. The formula recurs through the poem; use "kept … in his/her heart" each time. |
 | "hecatomb" | **"a great sacrifice of …"** | Technical term for a formal sacrifice of (originally) a hundred oxen, though by Homer's period it no longer meant literally a hundred of anything. Folded into a plain description at first use rather than kept as a gloss-needing loanword — **but without supplying a number Butler declines to give** (revised at step 6, optional finding 3.1: v1's "an offering of a hundred sheep and oxen" became "a great sacrifice of sheep and oxen" at B01-P003). Later Books' hecatombs inherit this form. |
 | patronymics ("Odysseus, son of Laertes" and the like) | *(not yet met as a fixed formula in Book 1; Laertes is named as Odysseus's father at B01-P014 and B01-P032 without the formula itself appearing)* | Watch for Butler's fuller patronymic epithets in later Books (e.g. "Ulysses, noble son of Laertes," used repeatedly by Circe in Book 10) and fix a single rendering the first time the full formula appears. |
+
+## Recurring epithets and formulas first met in Book 2
+
+| Butler (source) | Modern edition | Notes |
+|---|---|---|
+| "Now when the child of morning, rosy-fingered Dawn, appeared" | **"When Dawn, the rosy-fingered child of morning, appeared"** | The dawn formula, the poem's most-repeated line-opening. All three elements kept — *child of morning*, *rosy-fingered*, and Dawn as a person — with only the apposition reordered, because Butler's order leaves "Dawn" as the last word before the main clause and a modern reader parses "appeared Telemachus rose" as one phrase. First use B02-P001; use this exact form every time it recurs. |
+| "spoke to them plainly and in all honesty" / "plainly and in all honesty addressed them thus" | **"spoke to them plainly and in all honesty, and said:"** | Butler's mark for a speaker who is telling the truth. Book 2 uses it twice, of Halitherses (B02-P009) and of Mentor (B02-P013), in a Book where nobody else is; rendered identically both times. |
+| "Hear me, men of Ithaca" | **"Hear me, men of Ithaca"** | Kept identical at B02-P010 and B02-P014. Butler's own variation at B02-P003 ("Men of Ithaca… hear my words" → "hear what I have to say") is kept different, because he wrote it different. |
+| "the grey-eyed daughter of Jove" | **"the gray-eyed daughter of Zeus"** | Athena's epithet. **`gray`**, not `grey`, under the spelling standard above — the served `modern-en` uses "gray" twelve times and "gray-eyed" itself. First use B02-P034. |
+| "a barrow to his memory" | **"a mound to his memory"** | Fixed at Book 1 (B01-P019) and applied identically at B02-P012. |
+| "spunging upon one man" | **"feeding off one man"** | Fixed at Book 1 (B01-P027) and applied identically at B02-P008. |
+| "moodily" | **"in low spirits"** | Fixed at Book 1 (B01-P009) and applied identically at B02-P020. |
+| "cloisters" / "the cloister" | **"the gallery"** | Fixed at Book 1 (B01-P023, B01-P026) and applied identically at B02-P033 — it is the same part of the house. |
+| "all the marriage gifts so dear a daughter may expect" | **"all the marriage gifts a beloved daughter deserves"** | Book 1 (B01-P019) and Book 2 (B02-P011). **Carried over for consistency, and flagged.** Book 1's reviewer noted — in an "also noted" remark, without making it a finding — that this moves from *expectation* to *desert*. The objection is not answered, only deferred; if a later review raises it, the fix belongs in both Books at once. |
+| the Zeus-reckoning close: "Jove shall reckon with you in full, and when you fall in my father's house there shall be no man to avenge you" | **"Zeus will settle the account with you in full, and when you fall in my father's house, there will be no one to avenge you"** | Telemachus says it twice in the poem's first two Books, to two different audiences (B01-P027, B02-P008). Rendered identically, accounting metaphor included. |
+| "hecatomb" → *see the Book 1 table* | | |
+
+### Glosses
+
+The package's standing rule is the shortest useful explanation, folded into
+the sentence, at first use only. Book 1 needed none. **Book 2 has one:**
+
+| Term | Gloss | Why |
+|---|---|---|
+| "the Erinyes" (B02-P008) | **"the Erinyes—the spirits of vengeance—to avenge her"** | Three words, at first use, on the Book 10 pilot's "cubit → roughly eighteen inches" model. The familiar English alternative is *the Furies*, which is the **Roman** name and is therefore unavailable to an edition that has just decided against Roman names — so the choice is Butler's Greek word plus a gloss, or Butler's Greek word bare. |
 
 ## Recurring words the edition holds steady
 

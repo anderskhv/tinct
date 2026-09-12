@@ -1,0 +1,53 @@
+{
+ "repository": "anderskhv/tinct",
+ "branch": "claude/odyssey-modern-en-20260911",
+ "staged_original_path": "app/public/data/editions/odyssey-original-en.json",
+ "staged_original_sha256": "da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07",
+ "chapter_extracted": {
+  "number": 2,
+  "title_source": "Book 2 — Assembly of the people of Ithaca—speeches of Telemachus and of the suitors—Telemachus makes his preparations and starts for Pylos with Minerva disguised as Mentor",
+  "title_candidate": "Book 2 — Assembly of the people of Ithaca—speeches of Telemachus and of the suitors—Telemachus makes his preparations and starts for Pylos with Athena disguised as Mentor",
+  "paragraphs": 35,
+  "extraction": "found by chapter.number == 2 in odyssey-original-en.json; paragraphs byte-identical"
+ },
+ "source_book2_json_sha256": "3cc4f38c171e0e1d72ad741e75c745b31c7f330dfb3ed79910832ae4d04714c7",
+ "candidate_v1_json_sha256": "2b5a0280719312bbabb214f0bcbf400cde62541ab7e9c892ce2c2b65bb4273ea",
+ "candidate_v1_readable_md_sha256": "8b5719073fbff0afb7ffe23c04f8757a7c21465494564a1a4b0f4a7013fc3891",
+ "pg_source_sha256": "ffbdb29c3dda284b65c11243db1a98167826a70c81bca2ed4b6232f86c905fb9",
+ "translation_source": "Samuel Butler, 1900. Project Gutenberg #1727 (source-texts/pg1727-butler-1900.txt). The only translation used; no other consulted for wording (Fagles, Lattimore, Wilson, Fitzgerald not read).",
+ "source_verification": {
+  "script": "scripts/verify_source_book2.py",
+  "method": "Independent reconstruction of PG #1727 lines 741-1116, written to a rule devised for this Book and audited against the raw lines before being trusted, then diffed against the staged original-en. NOT a re-run of whatever produced the served file.",
+  "rule": "The translation body contains exactly 187 digit runs and, read in order, they are the sequence 1..187 with no repeats and no gaps, against 186 bracketed entries in PG's FOOTNOTES: list numbered to 187 (only 29 absent, and that gap is in Book III). The counts reconcile, so every digit run in the body is a footnote reference and Butler's body carries no digits of its own. The rule is applied POSITIONALLY - the k-th run removed must BE the k-th marker - so a stray body digit breaks the arithmetic instead of vanishing, which a pattern rule ('delete any digit run') would not catch.",
+  "result": "35 of 35 paragraphs byte-identical, zero diffs; 4184 words compared word-for-word.",
+  "audit": "PG lines 741-1116: 0 indented lines, 0 [Illustration markers, 0 in-text Greek, 0 daggers, 0 underscores, 1 square bracket (Butler's own '[do not]' at line 802, kept by the staged file), 7 footnote markers (17-23) on 6 lines, 11 short standalone lines all verified paragraph-final. Two audit catches recorded: 'FOOTNOTES:' occurs twice in the file and the first (line 75) is the table of contents - anchoring on it makes the body empty and the relation vacuously true; and Book 2's markers are never preceded by a space, so the rule's whitespace clause is a no-op here.",
+  "negative_controls": "Joining a paragraph's lines with a space instead of a newline differs in 35 of 35 paragraphs; leaving the markers in differs in 5 of 35. The check is capable of failing."
+ },
+ "word_counts": {
+  "source": 4184,
+  "candidate": 4181,
+  "ratio": 0.9993,
+  "min_paragraph_ratio": 0.951,
+  "min_paragraph_id": "B02-P005",
+  "max_paragraph_ratio": 1.059,
+  "max_paragraph_id": "B02-P003",
+  "note": "Screening signal only; not evidence of semantic completeness, in either direction. Book 2 sits far closer to 1.0 than Book 1 (0.9462) because it is a Book of speeches in plain argument with much less of the long Victorian sentence-chaining Book 1's narration carries. A near-1.0 ratio carries its own risk - that the rendering is a light touch-up rather than a real modernization - so two counter-checks are offered to the reviewer rather than claimed as proof: no paragraph is byte-identical to Butler (0 of 35), and all 22 of Butler's dead words and forms in this Book are gone with none replaced by a different archaism."
+ },
+ "naming": {
+  "decision": "Greek forms per GLOSSARY.md (standing finding S1, settled at Book 1). Book 2 is the first Book drafted under it from the start rather than remapped afterwards.",
+  "counts": "Odysseus 17, Athena 8, Zeus 6, Eurycleia 2 - each matching the source's Ulysses 17, Minerva 8, Jove 6, Euryclea 2 exactly. Neptune, Mercury, Saturn and Diana do not occur in Book 2.",
+  "not_mapped": "Ops (B02-P025), Butler's Greek name for Eurycleia's grandfather - a man. A general Roman->Greek deity list carries 'Ops -> Rhea'; GLOSSARY.md's table is closed and does not.",
+  "flagged": "Ilius (B02-P002), Butler's own form for Ilion/Troy, kept as he spells it - and note he writes 'Troy' in this same Book at B02-P010, so both stand in one chapter. Mycene (B02-P007) is the woman, not the city, and is kept. Both put to the reviewer."
+ },
+ "punctuation": {
+  "standard": "PUNCTUATION.md: typographic quotation marks and apostrophes throughout. Verified: zero ASCII apostrophes and zero ASCII double quotes in the candidate.",
+  "quotation_balance": "candidate 29 open / 28 close, identical to the source's 29 / 28.",
+  "d4_preserved": "Butler's unclosed quotation at B02-P006 into B02-P007 (Antinous's continuous speech) is reproduced exactly; it is the only unbalanced paragraph in either file. The inner single quotation round Penelope's own speech IS closed at B02-P006's end, which is Butler and not a slip."
+ },
+ "base_text_defects": "One. B02-P004 carries Butler's own square bracket, '[do not] hold back' (PG line 802), which the staged original-en keeps verbatim. It is Butler's bracket, not PG apparatus. The candidate drops the mark and keeps the words, with a colon introduced to carry the pointing - the package's first bracket of any kind, put to the reviewer for a ruling and for whether it should become a recorded rule. See continuity.md 'Base-text defects'.",
+ "glosses": "One, at B02-P008: 'the Erinyes-the spirits of vengeance-to avenge her'. Three words at first use, folded into the sentence, on the Book 10 pilot's 'cubit -> roughly eighteen inches' model. The English alternative 'the Furies' is a Roman name and is not available to this edition.",
+ "generation_setting": "Drafted in-conversation by the content agent, whole Book read before drafting, against the revised GLOSSARY.md and PUNCTUATION.md. Zero Anthropic API calls; no scripts calling any LLM API; generate-editions.cjs not run.",
+ "build_script": "scripts/build_book_package.py 2 (candidate text frozen in scripts/candidates/book2.py; regenerates source-book2.json, candidate-v1.json, candidate-v1-readable.md, manifest.json and review-packets/ deterministically). The script now maps the CANDIDATE's chapter title through GLOSSARY.md's closed table, and refuses to rebuild a frozen Book without --force.",
+ "frozen": "candidate-v1.json is frozen at the hash above. Corrections from independent review go to candidate-v2.json.",
+ "review_round_1": "not yet run. review-packets/ (12 packets) and review-instructions.md are pushed; findings expected under book02/review/."
+}

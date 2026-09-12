@@ -50,6 +50,42 @@ Kept current at every push.
   `PROVENANCE.md` §2–3, `book01/continuity.md` and
   `book01/review-instructions.md` updated to match. The frozen v1 artefacts
   and the review packets are **deliberately not regenerated**.
+- 2026-09-12 — **Book 2 source re-verified independently** (step 1, re-done
+  from scratch rather than inherited): `scripts/verify_source_book2.py`
+  reconstructs Book 2 from raw PG #1727 by a rule devised for this Book and
+  audited against the raw lines before being trusted, then diffs against the
+  staged original — **35 of 35 paragraphs byte-identical, zero diffs, 4,184
+  words compared word-for-word**. The rule uses the footnote-marker property
+  **positionally**: the body holds exactly 187 digit runs and, read in order,
+  they are 1…187, against 186 PG footnote entries numbered to 187 with only 29
+  absent (Book III) — so the k-th run removed must *be* the k-th marker, and a
+  stray body digit breaks the arithmetic instead of vanishing. Two audit
+  catches recorded: `FOOTNOTES:` occurs twice in the file and anchoring on the
+  first (the table of contents) would have made the relation vacuously true;
+  and Book 2's markers are never preceded by a space, so the whitespace clause
+  is a no-op here. Two negative controls prove the check can fail (35/35 differ
+  if lines are joined with a space; 5/35 differ if markers are left in).
+- 2026-09-12 — **Book 2 drafted and frozen** (steps 2–3):
+  `book02/candidate-v1.json`, sha256
+  `2b5a0280719312bbabb214f0bcbf400cde62541ab7e9c892ce2c2b65bb4273ea`,
+  **35 paragraphs**, 1:1 with the source, word ratio **0.9993** (min 0.951 at
+  B02-P005, max 1.059 at B02-P003). First Book drafted under the Greek-forms
+  decision from the start: Odysseus 17, Athena 8, Zeus 6, Eurycleia 2, each
+  matching the source's count exactly; `Ops` untouched. Butler's unclosed
+  quotation preserved at B02-P006 → B02-P007 (D4), with the *inner* single
+  quotation correctly closed. Zero ASCII quotes. One gloss (the Erinyes), one
+  base-text decision (Butler's `[do not]` bracket — mark dropped, words kept),
+  two flagged Butler spellings (`Ilius`, `Mycene`). `continuity.md`,
+  `provenance.json`, `manifest.json`, `README.md` with passing mechanical
+  checks, `review-instructions.md` and **12 review packets** (11×3 + 1×2)
+  built by `scripts/build_book_package.py 2`. **Stopped for independent
+  review** (step 4). Book 2 was not self-reviewed and Book 3 was not started.
+- 2026-09-12 — `scripts/build_book_package.py` gained two things Book 2 needed:
+  it maps the **candidate's chapter title** through the closed name table (the
+  served `modern-en` does the same), and it **refuses to rebuild a frozen
+  Book** without `--force` — Book 1 predates the title mapping and would have
+  changed silently if rebuilt.
+
 ## Decided, and why
 
 | # | Decision | Why |
@@ -68,10 +104,20 @@ Kept current at every push.
 
 ## Next
 
-1. **Book 2, steps 1–3 and the step-4 artefacts** — in progress in this same
-   session, against the revised glossary. Source to be re-verified
-   independently for Book 2 before drafting.
-2. Book 10's disposition still needs a coordinator decision — see A2 below,
+1. **Waiting on the coordinator: independent review of Book 2**
+   (`book02/review-instructions.md`, `book02/review-packets/`, 12 packets,
+   coverage `B02-P001`…`B02-P035`). On findings: `book02/candidate-v2.json`
+   via a change script in the established pattern, verification, flow read,
+   `book02/ACCEPTANCE.md`. **Three things are put to the reviewer explicitly**
+   and should not be left unruled: the `[do not]` bracket decision at
+   B02-P004 (the package's first bracket of any kind, and whether it should
+   become a recorded rule); the Erinyes gloss at B02-P008; and the
+   "marriage gifts a beloved daughter deserves" formula carried over from
+   accepted Book 1 with its objection deferred rather than answered — if it
+   changes, it changes in both Books.
+2. Book 3 onward proceeds in numerical order once a coordinator says so; this
+   task's brief scoped drafting to Book 2 and forbade starting Book 3.
+3. Book 10's disposition still needs a coordinator decision — see A2 below,
    now narrowed.
 
 ## Needs Anders (listed, not waited on)

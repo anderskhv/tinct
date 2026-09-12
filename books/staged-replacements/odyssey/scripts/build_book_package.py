@@ -17,6 +17,31 @@ ORIGINAL_EN = REPO_ROOT / "app/public/data/editions/odyssey-original-en.json"
 PACKET_SIZE = 3
 
 
+# GLOSSARY.md's closed Roman -> Greek table (standing finding S1), applied to
+# the CANDIDATE's chapter title only. The source doc keeps Butler's own title.
+# Closed and enumerated on purpose — never assembled from a general Roman ->
+# Greek deity list, which would carry "Ops -> Rhea"; see GLOSSARY.md hazard 1.
+NAME_MAP = [
+    ("Ulysses", "Odysseus"),
+    ("Minerva", "Athena"),
+    ("Jove", "Zeus"),
+    ("Neptune", "Poseidon"),
+    ("Mercury", "Hermes"),
+    ("Saturn", "Cronus"),
+    ("Diana", "Artemis"),
+    ("Euryclea", "Eurycleia"),
+]
+
+
+def map_names(text):
+    """Case-sensitive, word-bounded. GLOSSARY.md hazard 4: a case-insensitive
+    pass would destroy ordinary words and the island 'Same'."""
+    import re as _re
+    for roman, greek in NAME_MAP:
+        text = _re.sub(r"\b" + _re.escape(roman) + r"\b", greek, text)
+    return text
+
+
 def sha256_file(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -43,8 +68,23 @@ def word_count(s):
     return len(s.split())
 
 
+# Books already frozen and accepted. Re-running the build for one of these
+# would rewrite a file the review record cites. Book 1 in particular predates
+# the candidate-title name mapping above and would change if rebuilt, so the
+# guard is not theoretical.
+FROZEN = {
+    1: "8316ff76cdbb5d82a572bc58b9388dc76f8ab70deddec6e0dbf75f406b510db9",
+}
+
+
 def main():
     book_num = int(sys.argv[1])
+    if book_num in FROZEN and "--force" not in sys.argv:
+        sys.exit(
+            f"refusing to rebuild Book {book_num}: candidate-v1.json is frozen "
+            f"at {FROZEN[book_num]} and is the record of what its review round "
+            f"reviewed. Pass --force only if you mean to break that."
+        )
     book_dir = ROOT / f"book{book_num:02d}"
     packets_dir = book_dir / "review-packets"
     book_dir.mkdir(parents=True, exist_ok=True)
@@ -69,9 +109,10 @@ def main():
         f"candidate {len(cand_paragraphs)}"
     )
 
+    candidate_title = map_names(chapter["title"])
     candidate_doc = {
         "number": chapter["number"],
-        "title": chapter["title"],
+        "title": candidate_title,
         "paragraphs": cand_paragraphs,
     }
     candidate_path = book_dir / "candidate-v1.json"
@@ -79,7 +120,7 @@ def main():
 
     # Readable copy
     pid_prefix = f"B{book_num:02d}"
-    lines = [f"# {chapter['title']} — modern-English candidate v1 (readable)\n"]
+    lines = [f"# {candidate_title} — modern-English candidate v1 (readable)\n"]
     for i, p in enumerate(cand_paragraphs):
         pid = f"{pid_prefix}-P{i + 1:03d}"
         lines.append(f"**{pid}**\n")
