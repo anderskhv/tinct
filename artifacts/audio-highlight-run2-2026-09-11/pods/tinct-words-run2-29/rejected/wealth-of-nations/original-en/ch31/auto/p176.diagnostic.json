@@ -1,0 +1,2106 @@
+{
+  "complete": true,
+  "signature": "4994104c5cbd909275846209b63717845d9493e05f3359329d0da36777905e32",
+  "attempts": [
+    {
+      "asr_seconds": 0.6037388499826193,
+      "alignment_seconds": 0.0009225104004144669,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "With this distinction, the ancient duties of customs were imposed equally upon all sorts of goods, necessaries as well its luxuries, goods exported as well as goods imported. Why should the dealers in one sort of goods, it seems to have been thought, be more favoured than those in another? or why should the merchant exporter be more favoured than the merchant importer?",
+        "hotwords": "With"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " With this distinction, the ancient duties of customs were imposed equally upon all sorts",
+          "start": 0.02,
+          "end": 5.24,
+          "words": [
+            {
+              "text": " With",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " this",
+              "start": 0.54,
+              "end": 0.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " distinction,",
+              "start": 0.74,
+              "end": 1.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.86,
+              "end": 1.9,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " ancient",
+              "start": 1.9,
+              "end": 2.28,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " duties",
+              "start": 2.28,
+              "end": 2.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 2.56,
+              "end": 2.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " customs",
+              "start": 2.82,
+              "end": 3.12,
+              "probability": 0.9453125
+            },
+            {
+              "text": " were",
+              "start": 3.12,
+              "end": 3.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " imposed",
+              "start": 3.46,
+              "end": 3.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " equally",
+              "start": 3.94,
+              "end": 4.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " upon",
+              "start": 4.34,
+              "end": 4.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " all",
+              "start": 4.68,
+              "end": 5.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sorts",
+              "start": 5.0,
+              "end": 5.24,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " of goods, necessaries as well its luxuries, goods exported as well as goods imported.",
+          "start": 5.24,
+          "end": 11.08,
+          "words": [
+            {
+              "text": " of",
+              "start": 5.24,
+              "end": 5.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " goods,",
+              "start": 5.46,
+              "end": 5.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " necessaries",
+              "start": 6.34,
+              "end": 6.96,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " as",
+              "start": 6.96,
+              "end": 7.14,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " well",
+              "start": 7.14,
+              "end": 7.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " its",
+              "start": 7.36,
+              "end": 7.58,
+              "probability": 0.2401123046875
+            },
+            {
+              "text": " luxuries,",
+              "start": 7.58,
+              "end": 8.08,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " goods",
+              "start": 8.72,
+              "end": 8.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " exported",
+              "start": 8.98,
+              "end": 9.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " as",
+              "start": 9.58,
+              "end": 9.84,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " well",
+              "start": 9.84,
+              "end": 10.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 10.08,
+              "end": 10.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " goods",
+              "start": 10.3,
+              "end": 10.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " imported.",
+              "start": 10.6,
+              "end": 11.08,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Why should the dealers in one sort of goods, it seems to have been thought, be more favoured",
+          "start": 11.82,
+          "end": 16.46,
+          "words": [
+            {
+              "text": " Why",
+              "start": 11.82,
+              "end": 12.06,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " should",
+              "start": 12.06,
+              "end": 12.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 12.22,
+              "end": 12.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dealers",
+              "start": 12.38,
+              "end": 12.66,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " in",
+              "start": 12.66,
+              "end": 12.94,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " one",
+              "start": 12.94,
+              "end": 13.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sort",
+              "start": 13.16,
+              "end": 13.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 13.34,
+              "end": 13.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " goods,",
+              "start": 13.5,
+              "end": 13.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 14.24,
+              "end": 14.38,
+              "probability": 0.9921875
+            },
+            {
+              "text": " seems",
+              "start": 14.38,
+              "end": 14.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 14.6,
+              "end": 14.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " have",
+              "start": 14.8,
+              "end": 14.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " been",
+              "start": 14.9,
+              "end": 15.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thought,",
+              "start": 15.06,
+              "end": 15.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 15.8,
+              "end": 15.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " more",
+              "start": 15.92,
+              "end": 16.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " favoured",
+              "start": 16.12,
+              "end": 16.46,
+              "probability": 0.0343017578125
+            }
+          ]
+        },
+        {
+          "text": " than those in another? or why should the merchant exporter be more favoured than the merchant",
+          "start": 16.46,
+          "end": 21.2,
+          "words": [
+            {
+              "text": " than",
+              "start": 16.46,
+              "end": 16.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " those",
+              "start": 16.76,
+              "end": 17.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 17.0,
+              "end": 17.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " another?",
+              "start": 17.18,
+              "end": 17.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " or",
+              "start": 18.08,
+              "end": 18.3,
+              "probability": 0.025360107421875
+            },
+            {
+              "text": " why",
+              "start": 18.3,
+              "end": 18.52,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " should",
+              "start": 18.52,
+              "end": 18.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 18.68,
+              "end": 18.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " merchant",
+              "start": 18.8,
+              "end": 19.1,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " exporter",
+              "start": 19.1,
+              "end": 19.64,
+              "probability": 0.960693359375
+            },
+            {
+              "text": " be",
+              "start": 19.64,
+              "end": 19.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " more",
+              "start": 19.88,
+              "end": 20.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " favoured",
+              "start": 20.08,
+              "end": 20.48,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " than",
+              "start": 20.48,
+              "end": 20.78,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 20.78,
+              "end": 20.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " merchant",
+              "start": 20.9,
+              "end": 21.2,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " importer?",
+          "start": 21.2,
+          "end": 21.64,
+          "words": [
+            {
+              "text": " importer?",
+              "start": 21.2,
+              "end": 21.64,
+              "probability": 0.992919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "With",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "this",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "raw": "distinction,",
+          "start": 0.74,
+          "end": 1.32
+        },
+        {
+          "raw": "the",
+          "start": 1.86,
+          "end": 1.9
+        },
+        {
+          "raw": "ancient",
+          "start": 1.9,
+          "end": 2.28
+        },
+        {
+          "raw": "duties",
+          "start": 2.28,
+          "end": 2.56
+        },
+        {
+          "raw": "of",
+          "start": 2.56,
+          "end": 2.82
+        },
+        {
+          "raw": "customs",
+          "start": 2.82,
+          "end": 3.12
+        },
+        {
+          "raw": "were",
+          "start": 3.12,
+          "end": 3.46
+        },
+        {
+          "raw": "imposed",
+          "start": 3.46,
+          "end": 3.94
+        },
+        {
+          "raw": "equally",
+          "start": 3.94,
+          "end": 4.34
+        },
+        {
+          "raw": "upon",
+          "start": 4.34,
+          "end": 4.68
+        },
+        {
+          "raw": "all",
+          "start": 4.68,
+          "end": 5.0
+        },
+        {
+          "raw": "sorts",
+          "start": 5.0,
+          "end": 5.24
+        },
+        {
+          "raw": "of",
+          "start": 5.24,
+          "end": 5.46
+        },
+        {
+          "raw": "goods,",
+          "start": 5.46,
+          "end": 5.82
+        },
+        {
+          "raw": "necessaries",
+          "start": 6.34,
+          "end": 6.96
+        },
+        {
+          "raw": "as",
+          "start": 6.96,
+          "end": 7.14
+        },
+        {
+          "raw": "well",
+          "start": 7.14,
+          "end": 7.36
+        },
+        {
+          "raw": "its",
+          "start": 7.36,
+          "end": 7.58
+        },
+        {
+          "raw": "luxuries,",
+          "start": 7.58,
+          "end": 8.08
+        },
+        {
+          "raw": "goods",
+          "start": 8.72,
+          "end": 8.98
+        },
+        {
+          "raw": "exported",
+          "start": 8.98,
+          "end": 9.58
+        },
+        {
+          "raw": "as",
+          "start": 9.58,
+          "end": 9.84
+        },
+        {
+          "raw": "well",
+          "start": 9.84,
+          "end": 10.08
+        },
+        {
+          "raw": "as",
+          "start": 10.08,
+          "end": 10.3
+        },
+        {
+          "raw": "goods",
+          "start": 10.3,
+          "end": 10.6
+        },
+        {
+          "raw": "imported.",
+          "start": 10.6,
+          "end": 11.08
+        },
+        {
+          "raw": "Why",
+          "start": 11.82,
+          "end": 12.06
+        },
+        {
+          "raw": "should",
+          "start": 12.06,
+          "end": 12.22
+        },
+        {
+          "raw": "the",
+          "start": 12.22,
+          "end": 12.38
+        },
+        {
+          "raw": "dealers",
+          "start": 12.38,
+          "end": 12.66
+        },
+        {
+          "raw": "in",
+          "start": 12.66,
+          "end": 12.94
+        },
+        {
+          "raw": "one",
+          "start": 12.94,
+          "end": 13.16
+        },
+        {
+          "raw": "sort",
+          "start": 13.16,
+          "end": 13.34
+        },
+        {
+          "raw": "of",
+          "start": 13.34,
+          "end": 13.5
+        },
+        {
+          "raw": "goods,",
+          "start": 13.5,
+          "end": 13.8
+        },
+        {
+          "raw": "it",
+          "start": 14.24,
+          "end": 14.38
+        },
+        {
+          "raw": "seems",
+          "start": 14.38,
+          "end": 14.6
+        },
+        {
+          "raw": "to",
+          "start": 14.6,
+          "end": 14.8
+        },
+        {
+          "raw": "have",
+          "start": 14.8,
+          "end": 14.9
+        },
+        {
+          "raw": "been",
+          "start": 14.9,
+          "end": 15.06
+        },
+        {
+          "raw": "thought,",
+          "start": 15.06,
+          "end": 15.36
+        },
+        {
+          "raw": "be",
+          "start": 15.8,
+          "end": 15.92
+        },
+        {
+          "raw": "more",
+          "start": 15.92,
+          "end": 16.12
+        },
+        {
+          "raw": "favoured",
+          "start": 16.12,
+          "end": 16.46
+        },
+        {
+          "raw": "than",
+          "start": 16.46,
+          "end": 16.76
+        },
+        {
+          "raw": "those",
+          "start": 16.76,
+          "end": 17.0
+        },
+        {
+          "raw": "in",
+          "start": 17.0,
+          "end": 17.18
+        },
+        {
+          "raw": "another?",
+          "start": 17.18,
+          "end": 17.46
+        },
+        {
+          "raw": "or",
+          "start": 18.08,
+          "end": 18.3
+        },
+        {
+          "raw": "why",
+          "start": 18.3,
+          "end": 18.52
+        },
+        {
+          "raw": "should",
+          "start": 18.52,
+          "end": 18.68
+        },
+        {
+          "raw": "the",
+          "start": 18.68,
+          "end": 18.8
+        },
+        {
+          "raw": "merchant",
+          "start": 18.8,
+          "end": 19.1
+        },
+        {
+          "raw": "exporter",
+          "start": 19.1,
+          "end": 19.64
+        },
+        {
+          "raw": "be",
+          "start": 19.64,
+          "end": 19.88
+        },
+        {
+          "raw": "more",
+          "start": 19.88,
+          "end": 20.08
+        },
+        {
+          "raw": "favoured",
+          "start": 20.08,
+          "end": 20.48
+        },
+        {
+          "raw": "than",
+          "start": 20.48,
+          "end": 20.78
+        },
+        {
+          "raw": "the",
+          "start": 20.78,
+          "end": 20.9
+        },
+        {
+          "raw": "merchant",
+          "start": 20.9,
+          "end": 21.2
+        },
+        {
+          "raw": "importer?",
+          "start": 21.2,
+          "end": 21.64
+        }
+      ],
+      "expected_tokens": [
+        "With",
+        "this",
+        "distinction,",
+        "the",
+        "ancient",
+        "duties",
+        "of",
+        "customs",
+        "were",
+        "imposed",
+        "equally",
+        "upon",
+        "all",
+        "sorts",
+        "of",
+        "goods,",
+        "necessaries",
+        "as",
+        "well",
+        "its",
+        "luxuries,",
+        "goods",
+        "exported",
+        "as",
+        "well",
+        "as",
+        "goods",
+        "imported.",
+        "Why",
+        "should",
+        "the",
+        "dealers",
+        "in",
+        "one",
+        "sort",
+        "of",
+        "goods,",
+        "it",
+        "seems",
+        "to",
+        "have",
+        "been",
+        "thought,",
+        "be",
+        "more",
+        "favoured",
+        "than",
+        "those",
+        "in",
+        "another?",
+        "or",
+        "why",
+        "should",
+        "the",
+        "merchant",
+        "exporter",
+        "be",
+        "more",
+        "favoured",
+        "than",
+        "the",
+        "merchant",
+        "importer?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          63,
+          0,
+          63
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "With",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "with",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 0.54,
+          "end": 0.74,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "distinction,",
+          "start": 0.74,
+          "end": 1.32,
+          "key": "distinction",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.86,
+          "end": 1.9,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ancient",
+          "start": 1.9,
+          "end": 2.28,
+          "key": "ancient",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "duties",
+          "start": 2.28,
+          "end": 2.56,
+          "key": "duties",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.56,
+          "end": 2.82,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "customs",
+          "start": 2.82,
+          "end": 3.12,
+          "key": "customs",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 3.12,
+          "end": 3.46,
+          "key": "were",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "imposed",
+          "start": 3.46,
+          "end": 3.94,
+          "key": "imposed",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "equally",
+          "start": 3.94,
+          "end": 4.34,
+          "key": "equally",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 4.34,
+          "end": 4.68,
+          "key": "upon",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 4.68,
+          "end": 5.0,
+          "key": "all",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "sorts",
+          "start": 5.0,
+          "end": 5.24,
+          "key": "sorts",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.24,
+          "end": 5.46,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "goods,",
+          "start": 5.46,
+          "end": 5.82,
+          "key": "goods",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "necessaries",
+          "start": 6.34,
+          "end": 6.96,
+          "key": "necessaries",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 6.96,
+          "end": 7.14,
+          "key": "as",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 7.14,
+          "end": 7.36,
+          "key": "well",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 7.36,
+          "end": 7.58,
+          "key": "its",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "luxuries,",
+          "start": 7.58,
+          "end": 8.08,
+          "key": "luxuries",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "goods",
+          "start": 8.72,
+          "end": 8.98,
+          "key": "goods",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "exported",
+          "start": 8.98,
+          "end": 9.58,
+          "key": "exported",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 9.58,
+          "end": 9.84,
+          "key": "as",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 9.84,
+          "end": 10.08,
+          "key": "well",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 10.08,
+          "end": 10.3,
+          "key": "as",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "goods",
+          "start": 10.3,
+          "end": 10.6,
+          "key": "goods",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "imported.",
+          "start": 10.6,
+          "end": 11.08,
+          "key": "imported",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 11.82,
+          "end": 12.06,
+          "key": "why",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 12.06,
+          "end": 12.22,
+          "key": "should",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.22,
+          "end": 12.38,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "dealers",
+          "start": 12.38,
+          "end": 12.66,
+          "key": "dealers",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 12.66,
+          "end": 12.94,
+          "key": "in",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 12.94,
+          "end": 13.16,
+          "key": "one",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "sort",
+          "start": 13.16,
+          "end": 13.34,
+          "key": "sort",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.34,
+          "end": 13.5,
+          "key": "of",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "goods,",
+          "start": 13.5,
+          "end": 13.8,
+          "key": "goods",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 14.24,
+          "end": 14.38,
+          "key": "it",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "seems",
+          "start": 14.38,
+          "end": 14.6,
+          "key": "seems",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.6,
+          "end": 14.8,
+          "key": "to",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 14.8,
+          "end": 14.9,
+          "key": "have",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 14.9,
+          "end": 15.06,
+          "key": "been",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "thought,",
+          "start": 15.06,
+          "end": 15.36,
+          "key": "thought",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 15.8,
+          "end": 15.92,
+          "key": "be",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 15.92,
+          "end": 16.12,
+          "key": "more",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "favoured",
+          "start": 16.12,
+          "end": 16.46,
+          "key": "favoured",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 16.46,
+          "end": 16.76,
+          "key": "than",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 16.76,
+          "end": 17.0,
+          "key": "those",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 17.0,
+          "end": 17.18,
+          "key": "in",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "another?",
+          "start": 17.18,
+          "end": 17.46,
+          "key": "another",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 18.08,
+          "end": 18.3,
+          "key": "or",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 18.3,
+          "end": 18.52,
+          "key": "why",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 18.52,
+          "end": 18.68,
+          "key": "should",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.68,
+          "end": 18.8,
+          "key": "the",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "merchant",
+          "start": 18.8,
+          "end": 19.1,
+          "key": "merchant",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "exporter",
+          "start": 19.1,
+          "end": 19.64,
+          "key": "exporter",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 19.64,
+          "end": 19.88,
+          "key": "be",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 19.88,
+          "end": 20.08,
+          "key": "more",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "favoured",
+          "start": 20.08,
+          "end": 20.48,
+          "key": "favoured",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 20.48,
+          "end": 20.78,
+          "key": "than",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.78,
+          "end": 20.9,
+          "key": "the",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "merchant",
+          "start": 20.9,
+          "end": 21.2,
+          "key": "merchant",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "importer?",
+          "start": 21.2,
+          "end": 21.64,
+          "key": "importer",
+          "pieces": [
+            62
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "With",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "this",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "text": "distinction,",
+          "start": 0.74,
+          "end": 1.32
+        },
+        {
+          "text": "the",
+          "start": 1.86,
+          "end": 1.9
+        },
+        {
+          "text": "ancient",
+          "start": 1.9,
+          "end": 2.28
+        },
+        {
+          "text": "duties",
+          "start": 2.28,
+          "end": 2.56
+        },
+        {
+          "text": "of",
+          "start": 2.56,
+          "end": 2.82
+        },
+        {
+          "text": "customs",
+          "start": 2.82,
+          "end": 3.12
+        },
+        {
+          "text": "were",
+          "start": 3.12,
+          "end": 3.46
+        },
+        {
+          "text": "imposed",
+          "start": 3.46,
+          "end": 3.94
+        },
+        {
+          "text": "equally",
+          "start": 3.94,
+          "end": 4.34
+        },
+        {
+          "text": "upon",
+          "start": 4.34,
+          "end": 4.68
+        },
+        {
+          "text": "all",
+          "start": 4.68,
+          "end": 5.0
+        },
+        {
+          "text": "sorts",
+          "start": 5.0,
+          "end": 5.24
+        },
+        {
+          "text": "of",
+          "start": 5.24,
+          "end": 5.46
+        },
+        {
+          "text": "goods,",
+          "start": 5.46,
+          "end": 5.82
+        },
+        {
+          "text": "necessaries",
+          "start": 6.34,
+          "end": 6.96
+        },
+        {
+          "text": "as",
+          "start": 6.96,
+          "end": 7.14
+        },
+        {
+          "text": "well",
+          "start": 7.14,
+          "end": 7.36
+        },
+        {
+          "text": "its",
+          "start": 7.36,
+          "end": 7.58
+        },
+        {
+          "text": "luxuries,",
+          "start": 7.58,
+          "end": 8.08
+        },
+        {
+          "text": "goods",
+          "start": 8.72,
+          "end": 8.98
+        },
+        {
+          "text": "exported",
+          "start": 8.98,
+          "end": 9.58
+        },
+        {
+          "text": "as",
+          "start": 9.58,
+          "end": 9.84
+        },
+        {
+          "text": "well",
+          "start": 9.84,
+          "end": 10.08
+        },
+        {
+          "text": "as",
+          "start": 10.08,
+          "end": 10.3
+        },
+        {
+          "text": "goods",
+          "start": 10.3,
+          "end": 10.6
+        },
+        {
+          "text": "imported.",
+          "start": 10.6,
+          "end": 11.08
+        },
+        {
+          "text": "Why",
+          "start": 11.82,
+          "end": 12.06
+        },
+        {
+          "text": "should",
+          "start": 12.06,
+          "end": 12.22
+        },
+        {
+          "text": "the",
+          "start": 12.22,
+          "end": 12.38
+        },
+        {
+          "text": "dealers",
+          "start": 12.38,
+          "end": 12.66
+        },
+        {
+          "text": "in",
+          "start": 12.66,
+          "end": 12.94
+        },
+        {
+          "text": "one",
+          "start": 12.94,
+          "end": 13.16
+        },
+        {
+          "text": "sort",
+          "start": 13.16,
+          "end": 13.34
+        },
+        {
+          "text": "of",
+          "start": 13.34,
+          "end": 13.5
+        },
+        {
+          "text": "goods,",
+          "start": 13.5,
+          "end": 13.8
+        },
+        {
+          "text": "it",
+          "start": 14.24,
+          "end": 14.38
+        },
+        {
+          "text": "seems",
+          "start": 14.38,
+          "end": 14.6
+        },
+        {
+          "text": "to",
+          "start": 14.6,
+          "end": 14.8
+        },
+        {
+          "text": "have",
+          "start": 14.8,
+          "end": 14.9
+        },
+        {
+          "text": "been",
+          "start": 14.9,
+          "end": 15.06
+        },
+        {
+          "text": "thought,",
+          "start": 15.06,
+          "end": 15.36
+        },
+        {
+          "text": "be",
+          "start": 15.8,
+          "end": 15.92
+        },
+        {
+          "text": "more",
+          "start": 15.92,
+          "end": 16.12
+        },
+        {
+          "text": "favoured",
+          "start": 16.12,
+          "end": 16.46
+        },
+        {
+          "text": "than",
+          "start": 16.46,
+          "end": 16.76
+        },
+        {
+          "text": "those",
+          "start": 16.76,
+          "end": 17.0
+        },
+        {
+          "text": "in",
+          "start": 17.0,
+          "end": 17.18
+        },
+        {
+          "text": "another?",
+          "start": 17.18,
+          "end": 17.46
+        },
+        {
+          "text": "or",
+          "start": 18.08,
+          "end": 18.3
+        },
+        {
+          "text": "why",
+          "start": 18.3,
+          "end": 18.52
+        },
+        {
+          "text": "should",
+          "start": 18.52,
+          "end": 18.68
+        },
+        {
+          "text": "the",
+          "start": 18.68,
+          "end": 18.8
+        },
+        {
+          "text": "merchant",
+          "start": 18.8,
+          "end": 19.1
+        },
+        {
+          "text": "exporter",
+          "start": 19.1,
+          "end": 19.64
+        },
+        {
+          "text": "be",
+          "start": 19.64,
+          "end": 19.88
+        },
+        {
+          "text": "more",
+          "start": 19.88,
+          "end": 20.08
+        },
+        {
+          "text": "favoured",
+          "start": 20.08,
+          "end": 20.48
+        },
+        {
+          "text": "than",
+          "start": 20.48,
+          "end": 20.78
+        },
+        {
+          "text": "the",
+          "start": 20.78,
+          "end": 20.9
+        },
+        {
+          "text": "merchant",
+          "start": 20.9,
+          "end": 21.2
+        },
+        {
+          "text": "importer?",
+          "start": 21.2,
+          "end": 21.64
+        }
+      ],
+      "stats": {
+        "expected_words": 63,
+        "heard_words": 63,
+        "matched_words": 63
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6050725439563394
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c9d964891fceecf3fc1595d792d4144fd1cc8731ef7803fb10d44daa61964a3d",
+  "selected_reasons": []
+}

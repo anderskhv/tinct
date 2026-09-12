@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "c2c02dd7fc24062932b5e6964fdbd67a2afa878cf7731daf91c1fb0c7f2f51db",
+  "attempts": [
+    {
+      "asr_seconds": 0.16905047465115786,
+      "alignment_seconds": 0.0002724127843976021,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Of The Sources Of The General Or Public Revenue Of The Society.",
+        "hotwords": "Of, The, Sources, General, Or, Public, Revenue, Society"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Of The Sources Of The General Or Public Revenue Of The Society.",
+          "start": 0.08,
+          "end": 3.92,
+          "words": [
+            {
+              "text": " Of",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.034423828125
+            },
+            {
+              "text": " The",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.0023899078369140625
+            },
+            {
+              "text": " Sources",
+              "start": 0.7,
+              "end": 0.9,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " Of",
+              "start": 0.9,
+              "end": 1.34,
+              "probability": 0.55859375
+            },
+            {
+              "text": " The",
+              "start": 1.34,
+              "end": 1.48,
+              "probability": 0.98828125
+            },
+            {
+              "text": " General",
+              "start": 1.48,
+              "end": 1.86,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Or",
+              "start": 1.86,
+              "end": 2.34,
+              "probability": 0.60107421875
+            },
+            {
+              "text": " Public",
+              "start": 2.34,
+              "end": 2.74,
+              "probability": 0.955078125
+            },
+            {
+              "text": " Revenue",
+              "start": 2.74,
+              "end": 3.06,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " Of",
+              "start": 3.06,
+              "end": 3.42,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " The",
+              "start": 3.42,
+              "end": 3.54,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Society.",
+              "start": 3.54,
+              "end": 3.92,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Of",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "The",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "Sources",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "raw": "Of",
+          "start": 0.9,
+          "end": 1.34
+        },
+        {
+          "raw": "The",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "raw": "General",
+          "start": 1.48,
+          "end": 1.86
+        },
+        {
+          "raw": "Or",
+          "start": 1.86,
+          "end": 2.34
+        },
+        {
+          "raw": "Public",
+          "start": 2.34,
+          "end": 2.74
+        },
+        {
+          "raw": "Revenue",
+          "start": 2.74,
+          "end": 3.06
+        },
+        {
+          "raw": "Of",
+          "start": 3.06,
+          "end": 3.42
+        },
+        {
+          "raw": "The",
+          "start": 3.42,
+          "end": 3.54
+        },
+        {
+          "raw": "Society.",
+          "start": 3.54,
+          "end": 3.92
+        }
+      ],
+      "expected_tokens": [
+        "Of",
+        "The",
+        "Sources",
+        "Of",
+        "The",
+        "General",
+        "Or",
+        "Public",
+        "Revenue",
+        "Of",
+        "The",
+        "Society."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Of",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "of",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 0.54,
+          "end": 0.7,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sources",
+          "start": 0.7,
+          "end": 0.9,
+          "key": "sources",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 0.9,
+          "end": 1.34,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.34,
+          "end": 1.48,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "General",
+          "start": 1.48,
+          "end": 1.86,
+          "key": "general",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 1.86,
+          "end": 2.34,
+          "key": "or",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Public",
+          "start": 2.34,
+          "end": 2.74,
+          "key": "public",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Revenue",
+          "start": 2.74,
+          "end": 3.06,
+          "key": "revenue",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 3.06,
+          "end": 3.42,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.42,
+          "end": 3.54,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Society.",
+          "start": 3.54,
+          "end": 3.92,
+          "key": "society",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Of",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "The",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "Sources",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "text": "Of",
+          "start": 0.9,
+          "end": 1.34
+        },
+        {
+          "text": "The",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "text": "General",
+          "start": 1.48,
+          "end": 1.86
+        },
+        {
+          "text": "Or",
+          "start": 1.86,
+          "end": 2.34
+        },
+        {
+          "text": "Public",
+          "start": 2.34,
+          "end": 2.74
+        },
+        {
+          "text": "Revenue",
+          "start": 2.74,
+          "end": 3.06
+        },
+        {
+          "text": "Of",
+          "start": 3.06,
+          "end": 3.42
+        },
+        {
+          "text": "The",
+          "start": 3.42,
+          "end": 3.54
+        },
+        {
+          "text": "Society.",
+          "start": 3.54,
+          "end": 3.92
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16943548992276192
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "636e498950ea2d213a691c9f2bf34c89fcb7fce64af0fb99b10aed842775c944",
+  "selected_reasons": []
+}

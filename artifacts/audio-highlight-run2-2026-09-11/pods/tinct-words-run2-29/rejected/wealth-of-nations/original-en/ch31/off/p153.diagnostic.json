@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "c043f08472b579dabf9a5d361c58f06aaec5d2e557f37f34f5a53ff97547fed2",
+  "attempts": [
+    {
+      "asr_seconds": 0.09341354388743639,
+      "alignment_seconds": 0.0001965118572115898,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " taxes upon consumable commodities.",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " taxes",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.6015625
+            },
+            {
+              "text": " upon",
+              "start": 0.75,
+              "end": 1.15,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " consumable",
+              "start": 1.15,
+              "end": 1.77,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " commodities.",
+              "start": 1.77,
+              "end": 2.25,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "taxes",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "upon",
+          "start": 0.75,
+          "end": 1.15
+        },
+        {
+          "raw": "consumable",
+          "start": 1.15,
+          "end": 1.77
+        },
+        {
+          "raw": "commodities.",
+          "start": 1.77,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "Taxes",
+        "upon",
+        "Consumable",
+        "Commodities."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "taxes",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "taxes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 0.75,
+          "end": 1.15,
+          "key": "upon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "consumable",
+          "start": 1.15,
+          "end": 1.77,
+          "key": "consumable",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "commodities.",
+          "start": 1.77,
+          "end": 2.25,
+          "key": "commodities",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Taxes",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "upon",
+          "start": 0.75,
+          "end": 1.15
+        },
+        {
+          "text": "Consumable",
+          "start": 1.15,
+          "end": 1.77
+        },
+        {
+          "text": "Commodities.",
+          "start": 1.77,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09367618709802628
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5de49b70ee6214be4a50a2c88dc874b712acaa5262dac7dc4c1f928d3c6239e4",
+  "selected_reasons": []
+}

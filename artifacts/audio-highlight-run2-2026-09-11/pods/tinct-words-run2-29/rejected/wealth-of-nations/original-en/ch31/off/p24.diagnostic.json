@@ -1,0 +1,214 @@
+{
+  "complete": true,
+  "signature": "e0c06c3eae064baf272be6748a050f2ec8336d74de9ae976c16f2daea75b3f80",
+  "attempts": [
+    {
+      "asr_seconds": 0.11182843800634146,
+      "alignment_seconds": 0.0002030516043305397,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Part a of taxes",
+          "start": 0.05,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Part",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.810546875
+            },
+            {
+              "text": " a",
+              "start": 0.59,
+              "end": 0.79,
+              "probability": 0.19970703125
+            },
+            {
+              "text": " of",
+              "start": 0.79,
+              "end": 1.23,
+              "probability": 0.1837158203125
+            },
+            {
+              "text": " taxes",
+              "start": 1.23,
+              "end": 1.63,
+              "probability": 0.80908203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Part",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "a",
+          "start": 0.59,
+          "end": 0.79
+        },
+        {
+          "raw": "of",
+          "start": 0.79,
+          "end": 1.23
+        },
+        {
+          "raw": "taxes",
+          "start": 1.23,
+          "end": 1.63
+        }
+      ],
+      "expected_tokens": [
+        "Part",
+        "Ii.",
+        "Of",
+        "Taxes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Part",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "part",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.59,
+          "end": 0.79,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.79,
+          "end": 1.23,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "taxes",
+          "start": 1.23,
+          "end": 1.63,
+          "key": "taxes",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Part",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "Ii.",
+          "start": 0.59,
+          "end": 0.69
+        },
+        {
+          "text": "Of",
+          "start": 0.79,
+          "end": 1.23
+        },
+        {
+          "text": "Taxes.",
+          "start": 1.23,
+          "end": 1.63
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11210274044424295
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9ced41cb4498abf157626818370c4b14b9206ffc7b34ce3ff68f5d02b2396eaf",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

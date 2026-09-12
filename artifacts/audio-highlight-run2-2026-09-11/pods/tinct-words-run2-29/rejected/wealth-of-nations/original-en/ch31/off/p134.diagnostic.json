@@ -1,0 +1,344 @@
+{
+  "complete": true,
+  "signature": "ee47549024abef960b2e5bef53c4b8e446295886b663204dbc8130f394dede21",
+  "attempts": [
+    {
+      "asr_seconds": 0.1501660980284214,
+      "alignment_seconds": 0.00026896223425865173,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Article EI, taxes upon the wages of labor.",
+          "start": 0.05,
+          "end": 3.19,
+          "words": [
+            {
+              "text": " Article",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " EI,",
+              "start": 0.73,
+              "end": 1.37,
+              "probability": 0.508056640625
+            },
+            {
+              "text": " taxes",
+              "start": 1.79,
+              "end": 2.01,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " upon",
+              "start": 2.01,
+              "end": 2.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.33,
+              "end": 2.49,
+              "probability": 0.986328125
+            },
+            {
+              "text": " wages",
+              "start": 2.49,
+              "end": 2.67,
+              "probability": 0.986328125
+            },
+            {
+              "text": " of",
+              "start": 2.67,
+              "end": 2.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " labor.",
+              "start": 2.93,
+              "end": 3.19,
+              "probability": 0.75830078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Article",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "EI,",
+          "start": 0.73,
+          "end": 1.37
+        },
+        {
+          "raw": "taxes",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "raw": "upon",
+          "start": 2.01,
+          "end": 2.33
+        },
+        {
+          "raw": "the",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "raw": "wages",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "raw": "of",
+          "start": 2.67,
+          "end": 2.93
+        },
+        {
+          "raw": "labor.",
+          "start": 2.93,
+          "end": 3.19
+        }
+      ],
+      "expected_tokens": [
+        "Article",
+        "Iii.—Taxes",
+        "upon",
+        "the",
+        "Wages",
+        "of",
+        "Labour."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          6,
+          3,
+          7
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Article",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "article",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "EI,",
+          "start": 0.73,
+          "end": 1.37,
+          "key": "ei",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "taxes",
+          "start": 1.79,
+          "end": 2.01,
+          "key": "taxes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.01,
+          "end": 2.33,
+          "key": "upon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.33,
+          "end": 2.49,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wages",
+          "start": 2.49,
+          "end": 2.67,
+          "key": "wages",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.67,
+          "end": 2.93,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "labor.",
+          "start": 2.93,
+          "end": 3.19,
+          "key": "labor",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Article",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Iii.—Taxes",
+          "start": 0.73,
+          "end": 1.37
+        },
+        {
+          "text": "upon",
+          "start": 2.01,
+          "end": 2.33
+        },
+        {
+          "text": "the",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "text": "Wages",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "text": "of",
+          "start": 2.67,
+          "end": 2.93
+        },
+        {
+          "text": "Labour.",
+          "start": 2.93,
+          "end": 3.06
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15053503215312958
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c5257ad8c39a389ac0ee5b14f568bcb02fef7e97e318fb9502d0e2a90a7ad87a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

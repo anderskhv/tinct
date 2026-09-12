@@ -1,0 +1,3161 @@
+{
+  "complete": true,
+  "signature": "c983b649780c1e32da5120a837459275baae728a4e4f03ddd5ad4f9eee523188",
+  "attempts": [
+    {
+      "asr_seconds": 0.9002116024494171,
+      "alignment_seconds": 0.001981044188141823,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In the Venetian territory, all the arable lands which are given in lease to farmers are taxed at a tenth of the rent. {Memoires concernant les Droits, p. 240, 241.} The leases are recorded in a public register, which is kept by the officers of revenue in each province or district. When the proprietor cultivates his own lands, they are valued according to an equitable estimation, and he is allowed a deduction of one-fifth of the tax; so that for such land he pays only eight instead of ten per cent. of the supposed rent.",
+        "hotwords": "Venetian, Memoires, Droits, When"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In the Venetian territory, all the arable lands which are given in lease to farmers are taxed",
+          "start": 0.05,
+          "end": 5.53,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.2427978515625
+            },
+            {
+              "text": " the",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Venetian",
+              "start": 0.63,
+              "end": 1.09,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " territory,",
+              "start": 1.09,
+              "end": 1.67,
+              "probability": 0.7685546875
+            },
+            {
+              "text": " all",
+              "start": 2.21,
+              "end": 2.33,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 2.33,
+              "end": 2.51,
+              "probability": 0.994140625
+            },
+            {
+              "text": " arable",
+              "start": 2.51,
+              "end": 2.89,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " lands",
+              "start": 2.89,
+              "end": 3.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " which",
+              "start": 3.27,
+              "end": 3.51,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " are",
+              "start": 3.51,
+              "end": 3.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " given",
+              "start": 3.65,
+              "end": 3.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 3.85,
+              "end": 4.09,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " lease",
+              "start": 4.09,
+              "end": 4.27,
+              "probability": 0.9765625
+            },
+            {
+              "text": " to",
+              "start": 4.27,
+              "end": 4.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " farmers",
+              "start": 4.51,
+              "end": 4.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " are",
+              "start": 4.87,
+              "end": 5.13,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " taxed",
+              "start": 5.13,
+              "end": 5.53,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " at a tenth of the rent. Memoires concernant les Droits, p. 240, 241. The leases are recorded",
+          "start": 5.53,
+          "end": 14.01,
+          "words": [
+            {
+              "text": " at",
+              "start": 5.53,
+              "end": 5.75,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 5.75,
+              "end": 5.85,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " tenth",
+              "start": 5.85,
+              "end": 6.03,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " of",
+              "start": 6.03,
+              "end": 6.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 6.21,
+              "end": 6.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " rent.",
+              "start": 6.29,
+              "end": 6.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Memoires",
+              "start": 7.37,
+              "end": 7.71,
+              "probability": 0.6525014241536459
+            },
+            {
+              "text": " concernant",
+              "start": 7.71,
+              "end": 8.31,
+              "probability": 0.49394989013671875
+            },
+            {
+              "text": " les",
+              "start": 8.31,
+              "end": 8.49,
+              "probability": 0.00775146484375
+            },
+            {
+              "text": " Droits,",
+              "start": 8.49,
+              "end": 8.97,
+              "probability": 0.25429534912109375
+            },
+            {
+              "text": " p.",
+              "start": 9.49,
+              "end": 9.61,
+              "probability": 0.2900390625
+            },
+            {
+              "text": " 240,",
+              "start": 9.87,
+              "end": 10.43,
+              "probability": 0.986328125
+            },
+            {
+              "text": " 241.",
+              "start": 11.07,
+              "end": 11.71,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " The",
+              "start": 12.91,
+              "end": 13.11,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " leases",
+              "start": 13.11,
+              "end": 13.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " are",
+              "start": 13.37,
+              "end": 13.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " recorded",
+              "start": 13.63,
+              "end": 14.01,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " in a public register, which is kept by the officers of revenue in each province or district.",
+          "start": 14.01,
+          "end": 19.25,
+          "words": [
+            {
+              "text": " in",
+              "start": 14.01,
+              "end": 14.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 14.25,
+              "end": 14.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " public",
+              "start": 14.35,
+              "end": 14.63,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " register,",
+              "start": 14.63,
+              "end": 15.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " which",
+              "start": 15.65,
+              "end": 15.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " is",
+              "start": 15.75,
+              "end": 15.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " kept",
+              "start": 15.93,
+              "end": 16.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " by",
+              "start": 16.17,
+              "end": 16.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 16.43,
+              "end": 16.57,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " officers",
+              "start": 16.57,
+              "end": 16.93,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " of",
+              "start": 16.93,
+              "end": 17.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " revenue",
+              "start": 17.27,
+              "end": 17.61,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " in",
+              "start": 17.61,
+              "end": 17.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " each",
+              "start": 17.93,
+              "end": 18.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " province",
+              "start": 18.13,
+              "end": 18.53,
+              "probability": 0.990234375
+            },
+            {
+              "text": " or",
+              "start": 18.53,
+              "end": 18.83,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " district.",
+              "start": 18.83,
+              "end": 19.25,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " When the proprietor cultivates his own lands, they are valued according to an equitable",
+          "start": 20.31,
+          "end": 24.85,
+          "words": [
+            {
+              "text": " When",
+              "start": 20.31,
+              "end": 20.41,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 20.41,
+              "end": 20.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " proprietor",
+              "start": 20.55,
+              "end": 21.05,
+              "probability": 0.996337890625
+            },
+            {
+              "text": " cultivates",
+              "start": 21.05,
+              "end": 21.69,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " his",
+              "start": 21.69,
+              "end": 21.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " own",
+              "start": 21.83,
+              "end": 22.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lands,",
+              "start": 22.05,
+              "end": 22.55,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " they",
+              "start": 22.99,
+              "end": 23.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " are",
+              "start": 23.11,
+              "end": 23.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " valued",
+              "start": 23.23,
+              "end": 23.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " according",
+              "start": 23.65,
+              "end": 23.99,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 23.99,
+              "end": 24.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " an",
+              "start": 24.29,
+              "end": 24.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " equitable",
+              "start": 24.41,
+              "end": 24.85,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " estimation, and he is allowed a deduction of one-fifth of the tax, so that for such",
+          "start": 24.85,
+          "end": 30.15,
+          "words": [
+            {
+              "text": " estimation,",
+              "start": 24.85,
+              "end": 25.41,
+              "probability": 0.8056640625
+            },
+            {
+              "text": " and",
+              "start": 26.15,
+              "end": 26.27,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " he",
+              "start": 26.27,
+              "end": 26.41,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " is",
+              "start": 26.41,
+              "end": 26.51,
+              "probability": 0.14306640625
+            },
+            {
+              "text": " allowed",
+              "start": 26.51,
+              "end": 26.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 26.83,
+              "end": 27.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " deduction",
+              "start": 27.01,
+              "end": 27.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 27.41,
+              "end": 27.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " one",
+              "start": 27.69,
+              "end": 27.93,
+              "probability": 0.908203125
+            },
+            {
+              "text": "-fifth",
+              "start": 27.93,
+              "end": 28.15,
+              "probability": 0.872802734375
+            },
+            {
+              "text": " of",
+              "start": 28.15,
+              "end": 28.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 28.35,
+              "end": 28.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " tax,",
+              "start": 28.41,
+              "end": 28.81,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " so",
+              "start": 29.29,
+              "end": 29.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 29.55,
+              "end": 29.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 29.73,
+              "end": 29.93,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " such",
+              "start": 29.93,
+              "end": 30.15,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " land he pays only eight instead of ten per cent. of the supposed rent.",
+          "start": 30.15,
+          "end": 34.81,
+          "words": [
+            {
+              "text": " land",
+              "start": 30.15,
+              "end": 30.55,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " he",
+              "start": 30.55,
+              "end": 30.85,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " pays",
+              "start": 30.85,
+              "end": 31.09,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " only",
+              "start": 31.09,
+              "end": 31.43,
+              "probability": 0.99609375
+            },
+            {
+              "text": " eight",
+              "start": 31.43,
+              "end": 31.75,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " instead",
+              "start": 31.75,
+              "end": 32.11,
+              "probability": 0.96484375
+            },
+            {
+              "text": " of",
+              "start": 32.11,
+              "end": 32.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ten",
+              "start": 32.27,
+              "end": 32.51,
+              "probability": 0.91796875
+            },
+            {
+              "text": " per",
+              "start": 32.51,
+              "end": 32.73,
+              "probability": 0.30419921875
+            },
+            {
+              "text": " cent.",
+              "start": 32.73,
+              "end": 33.11,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " of",
+              "start": 33.81,
+              "end": 33.91,
+              "probability": 0.1016845703125
+            },
+            {
+              "text": " the",
+              "start": 33.91,
+              "end": 34.03,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " supposed",
+              "start": 34.03,
+              "end": 34.39,
+              "probability": 0.751953125
+            },
+            {
+              "text": " rent.",
+              "start": 34.39,
+              "end": 34.81,
+              "probability": 0.97509765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "the",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "Venetian",
+          "start": 0.63,
+          "end": 1.09
+        },
+        {
+          "raw": "territory,",
+          "start": 1.09,
+          "end": 1.67
+        },
+        {
+          "raw": "all",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "raw": "the",
+          "start": 2.33,
+          "end": 2.51
+        },
+        {
+          "raw": "arable",
+          "start": 2.51,
+          "end": 2.89
+        },
+        {
+          "raw": "lands",
+          "start": 2.89,
+          "end": 3.27
+        },
+        {
+          "raw": "which",
+          "start": 3.27,
+          "end": 3.51
+        },
+        {
+          "raw": "are",
+          "start": 3.51,
+          "end": 3.65
+        },
+        {
+          "raw": "given",
+          "start": 3.65,
+          "end": 3.85
+        },
+        {
+          "raw": "in",
+          "start": 3.85,
+          "end": 4.09
+        },
+        {
+          "raw": "lease",
+          "start": 4.09,
+          "end": 4.27
+        },
+        {
+          "raw": "to",
+          "start": 4.27,
+          "end": 4.51
+        },
+        {
+          "raw": "farmers",
+          "start": 4.51,
+          "end": 4.87
+        },
+        {
+          "raw": "are",
+          "start": 4.87,
+          "end": 5.13
+        },
+        {
+          "raw": "taxed",
+          "start": 5.13,
+          "end": 5.53
+        },
+        {
+          "raw": "at",
+          "start": 5.53,
+          "end": 5.75
+        },
+        {
+          "raw": "a",
+          "start": 5.75,
+          "end": 5.85
+        },
+        {
+          "raw": "tenth",
+          "start": 5.85,
+          "end": 6.03
+        },
+        {
+          "raw": "of",
+          "start": 6.03,
+          "end": 6.21
+        },
+        {
+          "raw": "the",
+          "start": 6.21,
+          "end": 6.29
+        },
+        {
+          "raw": "rent.",
+          "start": 6.29,
+          "end": 6.57
+        },
+        {
+          "raw": "Memoires",
+          "start": 7.37,
+          "end": 7.71
+        },
+        {
+          "raw": "concernant",
+          "start": 7.71,
+          "end": 8.31
+        },
+        {
+          "raw": "les",
+          "start": 8.31,
+          "end": 8.49
+        },
+        {
+          "raw": "Droits,",
+          "start": 8.49,
+          "end": 8.97
+        },
+        {
+          "raw": "p.",
+          "start": 9.49,
+          "end": 9.61
+        },
+        {
+          "raw": "240,",
+          "start": 9.87,
+          "end": 10.43
+        },
+        {
+          "raw": "241.",
+          "start": 11.07,
+          "end": 11.71
+        },
+        {
+          "raw": "The",
+          "start": 12.91,
+          "end": 13.11
+        },
+        {
+          "raw": "leases",
+          "start": 13.11,
+          "end": 13.37
+        },
+        {
+          "raw": "are",
+          "start": 13.37,
+          "end": 13.63
+        },
+        {
+          "raw": "recorded",
+          "start": 13.63,
+          "end": 14.01
+        },
+        {
+          "raw": "in",
+          "start": 14.01,
+          "end": 14.25
+        },
+        {
+          "raw": "a",
+          "start": 14.25,
+          "end": 14.35
+        },
+        {
+          "raw": "public",
+          "start": 14.35,
+          "end": 14.63
+        },
+        {
+          "raw": "register,",
+          "start": 14.63,
+          "end": 15.17
+        },
+        {
+          "raw": "which",
+          "start": 15.65,
+          "end": 15.75
+        },
+        {
+          "raw": "is",
+          "start": 15.75,
+          "end": 15.93
+        },
+        {
+          "raw": "kept",
+          "start": 15.93,
+          "end": 16.17
+        },
+        {
+          "raw": "by",
+          "start": 16.17,
+          "end": 16.43
+        },
+        {
+          "raw": "the",
+          "start": 16.43,
+          "end": 16.57
+        },
+        {
+          "raw": "officers",
+          "start": 16.57,
+          "end": 16.93
+        },
+        {
+          "raw": "of",
+          "start": 16.93,
+          "end": 17.27
+        },
+        {
+          "raw": "revenue",
+          "start": 17.27,
+          "end": 17.61
+        },
+        {
+          "raw": "in",
+          "start": 17.61,
+          "end": 17.93
+        },
+        {
+          "raw": "each",
+          "start": 17.93,
+          "end": 18.13
+        },
+        {
+          "raw": "province",
+          "start": 18.13,
+          "end": 18.53
+        },
+        {
+          "raw": "or",
+          "start": 18.53,
+          "end": 18.83
+        },
+        {
+          "raw": "district.",
+          "start": 18.83,
+          "end": 19.25
+        },
+        {
+          "raw": "When",
+          "start": 20.31,
+          "end": 20.41
+        },
+        {
+          "raw": "the",
+          "start": 20.41,
+          "end": 20.55
+        },
+        {
+          "raw": "proprietor",
+          "start": 20.55,
+          "end": 21.05
+        },
+        {
+          "raw": "cultivates",
+          "start": 21.05,
+          "end": 21.69
+        },
+        {
+          "raw": "his",
+          "start": 21.69,
+          "end": 21.83
+        },
+        {
+          "raw": "own",
+          "start": 21.83,
+          "end": 22.05
+        },
+        {
+          "raw": "lands,",
+          "start": 22.05,
+          "end": 22.55
+        },
+        {
+          "raw": "they",
+          "start": 22.99,
+          "end": 23.11
+        },
+        {
+          "raw": "are",
+          "start": 23.11,
+          "end": 23.23
+        },
+        {
+          "raw": "valued",
+          "start": 23.23,
+          "end": 23.65
+        },
+        {
+          "raw": "according",
+          "start": 23.65,
+          "end": 23.99
+        },
+        {
+          "raw": "to",
+          "start": 23.99,
+          "end": 24.29
+        },
+        {
+          "raw": "an",
+          "start": 24.29,
+          "end": 24.41
+        },
+        {
+          "raw": "equitable",
+          "start": 24.41,
+          "end": 24.85
+        },
+        {
+          "raw": "estimation,",
+          "start": 24.85,
+          "end": 25.41
+        },
+        {
+          "raw": "and",
+          "start": 26.15,
+          "end": 26.27
+        },
+        {
+          "raw": "he",
+          "start": 26.27,
+          "end": 26.41
+        },
+        {
+          "raw": "is",
+          "start": 26.41,
+          "end": 26.51
+        },
+        {
+          "raw": "allowed",
+          "start": 26.51,
+          "end": 26.83
+        },
+        {
+          "raw": "a",
+          "start": 26.83,
+          "end": 27.01
+        },
+        {
+          "raw": "deduction",
+          "start": 27.01,
+          "end": 27.41
+        },
+        {
+          "raw": "of",
+          "start": 27.41,
+          "end": 27.69
+        },
+        {
+          "raw": "one",
+          "start": 27.69,
+          "end": 27.93
+        },
+        {
+          "raw": "-fifth",
+          "start": 27.93,
+          "end": 28.15
+        },
+        {
+          "raw": "of",
+          "start": 28.15,
+          "end": 28.35
+        },
+        {
+          "raw": "the",
+          "start": 28.35,
+          "end": 28.41
+        },
+        {
+          "raw": "tax,",
+          "start": 28.41,
+          "end": 28.81
+        },
+        {
+          "raw": "so",
+          "start": 29.29,
+          "end": 29.55
+        },
+        {
+          "raw": "that",
+          "start": 29.55,
+          "end": 29.73
+        },
+        {
+          "raw": "for",
+          "start": 29.73,
+          "end": 29.93
+        },
+        {
+          "raw": "such",
+          "start": 29.93,
+          "end": 30.15
+        },
+        {
+          "raw": "land",
+          "start": 30.15,
+          "end": 30.55
+        },
+        {
+          "raw": "he",
+          "start": 30.55,
+          "end": 30.85
+        },
+        {
+          "raw": "pays",
+          "start": 30.85,
+          "end": 31.09
+        },
+        {
+          "raw": "only",
+          "start": 31.09,
+          "end": 31.43
+        },
+        {
+          "raw": "eight",
+          "start": 31.43,
+          "end": 31.75
+        },
+        {
+          "raw": "instead",
+          "start": 31.75,
+          "end": 32.11
+        },
+        {
+          "raw": "of",
+          "start": 32.11,
+          "end": 32.27
+        },
+        {
+          "raw": "ten",
+          "start": 32.27,
+          "end": 32.51
+        },
+        {
+          "raw": "per",
+          "start": 32.51,
+          "end": 32.73
+        },
+        {
+          "raw": "cent.",
+          "start": 32.73,
+          "end": 33.11
+        },
+        {
+          "raw": "of",
+          "start": 33.81,
+          "end": 33.91
+        },
+        {
+          "raw": "the",
+          "start": 33.91,
+          "end": 34.03
+        },
+        {
+          "raw": "supposed",
+          "start": 34.03,
+          "end": 34.39
+        },
+        {
+          "raw": "rent.",
+          "start": 34.39,
+          "end": 34.81
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "the",
+        "Venetian",
+        "territory,",
+        "all",
+        "the",
+        "arable",
+        "lands",
+        "which",
+        "are",
+        "given",
+        "in",
+        "lease",
+        "to",
+        "farmers",
+        "are",
+        "taxed",
+        "at",
+        "a",
+        "tenth",
+        "of",
+        "the",
+        "rent.",
+        "{Memoires",
+        "concernant",
+        "les",
+        "Droits,",
+        "p.",
+        "240,",
+        "241.}",
+        "The",
+        "leases",
+        "are",
+        "recorded",
+        "in",
+        "a",
+        "public",
+        "register,",
+        "which",
+        "is",
+        "kept",
+        "by",
+        "the",
+        "officers",
+        "of",
+        "revenue",
+        "in",
+        "each",
+        "province",
+        "or",
+        "district.",
+        "When",
+        "the",
+        "proprietor",
+        "cultivates",
+        "his",
+        "own",
+        "lands,",
+        "they",
+        "are",
+        "valued",
+        "according",
+        "to",
+        "an",
+        "equitable",
+        "estimation,",
+        "and",
+        "he",
+        "is",
+        "allowed",
+        "a",
+        "deduction",
+        "of",
+        "one-fifth",
+        "of",
+        "the",
+        "tax;",
+        "so",
+        "that",
+        "for",
+        "such",
+        "land",
+        "he",
+        "pays",
+        "only",
+        "eight",
+        "instead",
+        "of",
+        "ten",
+        "per",
+        "cent.",
+        "of",
+        "the",
+        "supposed",
+        "rent."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          95,
+          0,
+          95
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Venetian",
+          "start": 0.63,
+          "end": 1.09,
+          "key": "venetian",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "territory,",
+          "start": 1.09,
+          "end": 1.67,
+          "key": "territory",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.21,
+          "end": 2.33,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.33,
+          "end": 2.51,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "arable",
+          "start": 2.51,
+          "end": 2.89,
+          "key": "arable",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lands",
+          "start": 2.89,
+          "end": 3.27,
+          "key": "lands",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 3.27,
+          "end": 3.51,
+          "key": "which",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.51,
+          "end": 3.65,
+          "key": "are",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "given",
+          "start": 3.65,
+          "end": 3.85,
+          "key": "given",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.85,
+          "end": 4.09,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "lease",
+          "start": 4.09,
+          "end": 4.27,
+          "key": "lease",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.27,
+          "end": 4.51,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "farmers",
+          "start": 4.51,
+          "end": 4.87,
+          "key": "farmers",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 4.87,
+          "end": 5.13,
+          "key": "are",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "taxed",
+          "start": 5.13,
+          "end": 5.53,
+          "key": "taxed",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 5.53,
+          "end": 5.75,
+          "key": "at",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.75,
+          "end": 5.85,
+          "key": "a",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "tenth",
+          "start": 5.85,
+          "end": 6.03,
+          "key": "tenth",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.03,
+          "end": 6.21,
+          "key": "of",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.21,
+          "end": 6.29,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "rent.",
+          "start": 6.29,
+          "end": 6.57,
+          "key": "rent",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Memoires",
+          "start": 7.37,
+          "end": 7.71,
+          "key": "memoires",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "concernant",
+          "start": 7.71,
+          "end": 8.31,
+          "key": "concernant",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "les",
+          "start": 8.31,
+          "end": 8.49,
+          "key": "les",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Droits,",
+          "start": 8.49,
+          "end": 8.97,
+          "key": "droits",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "p.",
+          "start": 9.49,
+          "end": 9.61,
+          "key": "p",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "240,",
+          "start": 9.87,
+          "end": 10.43,
+          "key": "240",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "241.",
+          "start": 11.07,
+          "end": 11.71,
+          "key": "241",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 12.91,
+          "end": 13.11,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "leases",
+          "start": 13.11,
+          "end": 13.37,
+          "key": "leases",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 13.37,
+          "end": 13.63,
+          "key": "are",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "recorded",
+          "start": 13.63,
+          "end": 14.01,
+          "key": "recorded",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 14.01,
+          "end": 14.25,
+          "key": "in",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 14.25,
+          "end": 14.35,
+          "key": "a",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "public",
+          "start": 14.35,
+          "end": 14.63,
+          "key": "public",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "register,",
+          "start": 14.63,
+          "end": 15.17,
+          "key": "register",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 15.65,
+          "end": 15.75,
+          "key": "which",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 15.75,
+          "end": 15.93,
+          "key": "is",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "kept",
+          "start": 15.93,
+          "end": 16.17,
+          "key": "kept",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 16.17,
+          "end": 16.43,
+          "key": "by",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.43,
+          "end": 16.57,
+          "key": "the",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "officers",
+          "start": 16.57,
+          "end": 16.93,
+          "key": "officers",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.93,
+          "end": 17.27,
+          "key": "of",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "revenue",
+          "start": 17.27,
+          "end": 17.61,
+          "key": "revenue",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 17.61,
+          "end": 17.93,
+          "key": "in",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 17.93,
+          "end": 18.13,
+          "key": "each",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "province",
+          "start": 18.13,
+          "end": 18.53,
+          "key": "province",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 18.53,
+          "end": 18.83,
+          "key": "or",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "district.",
+          "start": 18.83,
+          "end": 19.25,
+          "key": "district",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "When",
+          "start": 20.31,
+          "end": 20.41,
+          "key": "when",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.41,
+          "end": 20.55,
+          "key": "the",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "proprietor",
+          "start": 20.55,
+          "end": 21.05,
+          "key": "proprietor",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "cultivates",
+          "start": 21.05,
+          "end": 21.69,
+          "key": "cultivates",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 21.69,
+          "end": 21.83,
+          "key": "his",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 21.83,
+          "end": 22.05,
+          "key": "own",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "lands,",
+          "start": 22.05,
+          "end": 22.55,
+          "key": "lands",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 22.99,
+          "end": 23.11,
+          "key": "they",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 23.11,
+          "end": 23.23,
+          "key": "are",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "valued",
+          "start": 23.23,
+          "end": 23.65,
+          "key": "valued",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "according",
+          "start": 23.65,
+          "end": 23.99,
+          "key": "according",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 23.99,
+          "end": 24.29,
+          "key": "to",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 24.29,
+          "end": 24.41,
+          "key": "an",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "equitable",
+          "start": 24.41,
+          "end": 24.85,
+          "key": "equitable",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "estimation,",
+          "start": 24.85,
+          "end": 25.41,
+          "key": "estimation",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 26.15,
+          "end": 26.27,
+          "key": "and",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 26.27,
+          "end": 26.41,
+          "key": "he",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 26.41,
+          "end": 26.51,
+          "key": "is",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "allowed",
+          "start": 26.51,
+          "end": 26.83,
+          "key": "allowed",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 26.83,
+          "end": 27.01,
+          "key": "a",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "deduction",
+          "start": 27.01,
+          "end": 27.41,
+          "key": "deduction",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 27.41,
+          "end": 27.69,
+          "key": "of",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "one -fifth",
+          "start": 27.69,
+          "end": 28.15,
+          "key": "onefifth",
+          "pieces": [
+            73,
+            74
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 28.15,
+          "end": 28.35,
+          "key": "of",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 28.35,
+          "end": 28.41,
+          "key": "the",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "tax,",
+          "start": 28.41,
+          "end": 28.81,
+          "key": "tax",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 29.29,
+          "end": 29.55,
+          "key": "so",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 29.55,
+          "end": 29.73,
+          "key": "that",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 29.73,
+          "end": 29.93,
+          "key": "for",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 29.93,
+          "end": 30.15,
+          "key": "such",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "land",
+          "start": 30.15,
+          "end": 30.55,
+          "key": "land",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 30.55,
+          "end": 30.85,
+          "key": "he",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "pays",
+          "start": 30.85,
+          "end": 31.09,
+          "key": "pays",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 31.09,
+          "end": 31.43,
+          "key": "only",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "eight",
+          "start": 31.43,
+          "end": 31.75,
+          "key": "eight",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "instead",
+          "start": 31.75,
+          "end": 32.11,
+          "key": "instead",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 32.11,
+          "end": 32.27,
+          "key": "of",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "ten",
+          "start": 32.27,
+          "end": 32.51,
+          "key": "ten",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "per",
+          "start": 32.51,
+          "end": 32.73,
+          "key": "per",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "cent.",
+          "start": 32.73,
+          "end": 33.11,
+          "key": "cent",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 33.81,
+          "end": 33.91,
+          "key": "of",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 33.91,
+          "end": 34.03,
+          "key": "the",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "supposed",
+          "start": 34.03,
+          "end": 34.39,
+          "key": "supposed",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "rent.",
+          "start": 34.39,
+          "end": 34.81,
+          "key": "rent",
+          "pieces": [
+            95
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 73,
+          "text": "one-fifth",
+          "heard": "one -fifth",
+          "heard_indexes": [
+            73,
+            74
+          ],
+          "start": 27.69,
+          "end": 28.15
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "the",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "Venetian",
+          "start": 0.63,
+          "end": 1.09
+        },
+        {
+          "text": "territory,",
+          "start": 1.09,
+          "end": 1.67
+        },
+        {
+          "text": "all",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "text": "the",
+          "start": 2.33,
+          "end": 2.51
+        },
+        {
+          "text": "arable",
+          "start": 2.51,
+          "end": 2.89
+        },
+        {
+          "text": "lands",
+          "start": 2.89,
+          "end": 3.27
+        },
+        {
+          "text": "which",
+          "start": 3.27,
+          "end": 3.51
+        },
+        {
+          "text": "are",
+          "start": 3.51,
+          "end": 3.65
+        },
+        {
+          "text": "given",
+          "start": 3.65,
+          "end": 3.85
+        },
+        {
+          "text": "in",
+          "start": 3.85,
+          "end": 4.09
+        },
+        {
+          "text": "lease",
+          "start": 4.09,
+          "end": 4.27
+        },
+        {
+          "text": "to",
+          "start": 4.27,
+          "end": 4.51
+        },
+        {
+          "text": "farmers",
+          "start": 4.51,
+          "end": 4.87
+        },
+        {
+          "text": "are",
+          "start": 4.87,
+          "end": 5.13
+        },
+        {
+          "text": "taxed",
+          "start": 5.13,
+          "end": 5.53
+        },
+        {
+          "text": "at",
+          "start": 5.53,
+          "end": 5.75
+        },
+        {
+          "text": "a",
+          "start": 5.75,
+          "end": 5.85
+        },
+        {
+          "text": "tenth",
+          "start": 5.85,
+          "end": 6.03
+        },
+        {
+          "text": "of",
+          "start": 6.03,
+          "end": 6.21
+        },
+        {
+          "text": "the",
+          "start": 6.21,
+          "end": 6.29
+        },
+        {
+          "text": "rent.",
+          "start": 6.29,
+          "end": 6.57
+        },
+        {
+          "text": "{Memoires",
+          "start": 7.37,
+          "end": 7.71
+        },
+        {
+          "text": "concernant",
+          "start": 7.71,
+          "end": 8.31
+        },
+        {
+          "text": "les",
+          "start": 8.31,
+          "end": 8.49
+        },
+        {
+          "text": "Droits,",
+          "start": 8.49,
+          "end": 8.97
+        },
+        {
+          "text": "p.",
+          "start": 9.49,
+          "end": 9.61
+        },
+        {
+          "text": "240,",
+          "start": 9.87,
+          "end": 10.43
+        },
+        {
+          "text": "241.}",
+          "start": 11.07,
+          "end": 11.71
+        },
+        {
+          "text": "The",
+          "start": 12.91,
+          "end": 13.11
+        },
+        {
+          "text": "leases",
+          "start": 13.11,
+          "end": 13.37
+        },
+        {
+          "text": "are",
+          "start": 13.37,
+          "end": 13.63
+        },
+        {
+          "text": "recorded",
+          "start": 13.63,
+          "end": 14.01
+        },
+        {
+          "text": "in",
+          "start": 14.01,
+          "end": 14.25
+        },
+        {
+          "text": "a",
+          "start": 14.25,
+          "end": 14.35
+        },
+        {
+          "text": "public",
+          "start": 14.35,
+          "end": 14.63
+        },
+        {
+          "text": "register,",
+          "start": 14.63,
+          "end": 15.17
+        },
+        {
+          "text": "which",
+          "start": 15.65,
+          "end": 15.75
+        },
+        {
+          "text": "is",
+          "start": 15.75,
+          "end": 15.93
+        },
+        {
+          "text": "kept",
+          "start": 15.93,
+          "end": 16.17
+        },
+        {
+          "text": "by",
+          "start": 16.17,
+          "end": 16.43
+        },
+        {
+          "text": "the",
+          "start": 16.43,
+          "end": 16.57
+        },
+        {
+          "text": "officers",
+          "start": 16.57,
+          "end": 16.93
+        },
+        {
+          "text": "of",
+          "start": 16.93,
+          "end": 17.27
+        },
+        {
+          "text": "revenue",
+          "start": 17.27,
+          "end": 17.61
+        },
+        {
+          "text": "in",
+          "start": 17.61,
+          "end": 17.93
+        },
+        {
+          "text": "each",
+          "start": 17.93,
+          "end": 18.13
+        },
+        {
+          "text": "province",
+          "start": 18.13,
+          "end": 18.53
+        },
+        {
+          "text": "or",
+          "start": 18.53,
+          "end": 18.83
+        },
+        {
+          "text": "district.",
+          "start": 18.83,
+          "end": 19.25
+        },
+        {
+          "text": "When",
+          "start": 20.31,
+          "end": 20.41
+        },
+        {
+          "text": "the",
+          "start": 20.41,
+          "end": 20.55
+        },
+        {
+          "text": "proprietor",
+          "start": 20.55,
+          "end": 21.05
+        },
+        {
+          "text": "cultivates",
+          "start": 21.05,
+          "end": 21.69
+        },
+        {
+          "text": "his",
+          "start": 21.69,
+          "end": 21.83
+        },
+        {
+          "text": "own",
+          "start": 21.83,
+          "end": 22.05
+        },
+        {
+          "text": "lands,",
+          "start": 22.05,
+          "end": 22.55
+        },
+        {
+          "text": "they",
+          "start": 22.99,
+          "end": 23.11
+        },
+        {
+          "text": "are",
+          "start": 23.11,
+          "end": 23.23
+        },
+        {
+          "text": "valued",
+          "start": 23.23,
+          "end": 23.65
+        },
+        {
+          "text": "according",
+          "start": 23.65,
+          "end": 23.99
+        },
+        {
+          "text": "to",
+          "start": 23.99,
+          "end": 24.29
+        },
+        {
+          "text": "an",
+          "start": 24.29,
+          "end": 24.41
+        },
+        {
+          "text": "equitable",
+          "start": 24.41,
+          "end": 24.85
+        },
+        {
+          "text": "estimation,",
+          "start": 24.85,
+          "end": 25.41
+        },
+        {
+          "text": "and",
+          "start": 26.15,
+          "end": 26.27
+        },
+        {
+          "text": "he",
+          "start": 26.27,
+          "end": 26.41
+        },
+        {
+          "text": "is",
+          "start": 26.41,
+          "end": 26.51
+        },
+        {
+          "text": "allowed",
+          "start": 26.51,
+          "end": 26.83
+        },
+        {
+          "text": "a",
+          "start": 26.83,
+          "end": 27.01
+        },
+        {
+          "text": "deduction",
+          "start": 27.01,
+          "end": 27.41
+        },
+        {
+          "text": "of",
+          "start": 27.41,
+          "end": 27.69
+        },
+        {
+          "text": "one-fifth",
+          "start": 27.69,
+          "end": 28.15
+        },
+        {
+          "text": "of",
+          "start": 28.15,
+          "end": 28.35
+        },
+        {
+          "text": "the",
+          "start": 28.35,
+          "end": 28.41
+        },
+        {
+          "text": "tax;",
+          "start": 28.41,
+          "end": 28.81
+        },
+        {
+          "text": "so",
+          "start": 29.29,
+          "end": 29.55
+        },
+        {
+          "text": "that",
+          "start": 29.55,
+          "end": 29.73
+        },
+        {
+          "text": "for",
+          "start": 29.73,
+          "end": 29.93
+        },
+        {
+          "text": "such",
+          "start": 29.93,
+          "end": 30.15
+        },
+        {
+          "text": "land",
+          "start": 30.15,
+          "end": 30.55
+        },
+        {
+          "text": "he",
+          "start": 30.55,
+          "end": 30.85
+        },
+        {
+          "text": "pays",
+          "start": 30.85,
+          "end": 31.09
+        },
+        {
+          "text": "only",
+          "start": 31.09,
+          "end": 31.43
+        },
+        {
+          "text": "eight",
+          "start": 31.43,
+          "end": 31.75
+        },
+        {
+          "text": "instead",
+          "start": 31.75,
+          "end": 32.11
+        },
+        {
+          "text": "of",
+          "start": 32.11,
+          "end": 32.27
+        },
+        {
+          "text": "ten",
+          "start": 32.27,
+          "end": 32.51
+        },
+        {
+          "text": "per",
+          "start": 32.51,
+          "end": 32.73
+        },
+        {
+          "text": "cent.",
+          "start": 32.73,
+          "end": 33.11
+        },
+        {
+          "text": "of",
+          "start": 33.81,
+          "end": 33.91
+        },
+        {
+          "text": "the",
+          "start": 33.91,
+          "end": 34.03
+        },
+        {
+          "text": "supposed",
+          "start": 34.03,
+          "end": 34.39
+        },
+        {
+          "text": "rent.",
+          "start": 34.39,
+          "end": 34.81
+        }
+      ],
+      "stats": {
+        "expected_words": 95,
+        "heard_words": 95,
+        "matched_words": 95
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.903008496388793
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c77c2eac383a8847ae1932a7440fb16aafda7a0175ab378c03cea9bff54b6085",
+  "selected_reasons": []
+}
