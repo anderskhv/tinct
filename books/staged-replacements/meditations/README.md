@@ -16,4 +16,5 @@ staged corrected `original-en`).
 - `bookN/` — per-book drafting, review-packet, correction and acceptance files.
 
 Books I–X are accepted (each `bookN/ACCEPTANCE.md` names the accepted file and
-its hash). Book XI is next; Book XII has not been started.
+its hash). Book XI is drafted and frozen at `book11/candidate-v1.json`, waiting
+on its independent review. Book XII has not been started.

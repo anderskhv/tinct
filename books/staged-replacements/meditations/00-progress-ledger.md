@@ -750,6 +750,67 @@ session. Kept current at every push.
   twelve chapters, 39 in Book 11, `git status` clean, **no accepted book
   reopened**.
 
+- 2026-09-12 — **Book XI drafted and frozen** (steps 2–3): `book11/candidate-v1.json`
+  (sha256 `d0db3918…`), 39 paragraphs 1:1 with Long's XI.1–XI.39, word ratio
+  **0.977** — the lowest in the package, and **the whole of the shortfall is
+  apparatus**: eleven cross-reference spans, six source citations and five D11
+  brackets, 89 words in all. The three lowest paragraphs are XI.32 (0.64), XI.31
+  (0.67) and XI.36 (0.71), each a very short meditation whose entire difference
+  is a dropped citation of five, three and four words; of the paragraphs carrying
+  no apparatus at all **none is below 0.96**, twenty-two sit between 0.99 and
+  1.02, and **seven are byte-identical to Long** (XI.14, XI.22, XI.24, XI.25,
+  XI.28, XI.38, XI.39) — more than in any earlier book. Source verified into
+  `book11/source-book11.json` (sha256 `41ff9b07…`); staged-file hash `7798607d…`,
+  not rebuilt (see the step-1 entry above). **Two glossary rows fixed before
+  drafting**, committed and pushed before any paragraph was written: the
+  rational-being row **lost "rational soul"** from the variants it collects,
+  because the edition has never rendered it that way (accepted Book VI keeps "a
+  rational soul" at VI.14; accepted Book X keeps "an irrational soul" at X.33,
+  confirmed at round 1), and the common-good row **gained "the common advantage"**
+  (XI.13, already rendered "for the common good" in the accepted Book IV at
+  IV.12). No new rendering row. **Third book drafted under the "shall" rule**: 8
+  in Long, **two kept** (both XI.18, both first person, one also a direct
+  deliberative question) and **six removed**, all plain futures — the hard one
+  is XI.13's "Shall any man hate me?", treated as a **rhetorical** future on the
+  X.11 / X.32 ruling and rendered "Will any man hate me?". **First book drafted
+  under D13**, which does not fire: Book XI contains no bracketed translator's
+  note of the X.23 kind. Three dagger marks in three sections (XI.8 PG 6488,
+  XI.15 PG 6544, XI.17 PG 6577) named in `review-instructions.md` with their PG
+  line numbers and kept as Long has them; **XI.15's and XI.17's daggers each fall
+  immediately after one of Long's commas and both commas are kept**, on the X.25
+  ruling. **Eleven brackets: six folded, five dropped under D11, none under D13 —
+  6 + 5 + 0 = 11**, asserted by the `README.md` check block from an enumerated
+  list, as finding C1 required. **Eleven cross-reference spans dropped in four
+  paragraphs** (XI.18 alone carries eight, more than any section in the package)
+  and **six source citations** — two verse citations (XI.31, XI.32, on the V.33
+  Hesiod precedent) and four Epictetus references (XI.33–XI.36). Punctuation
+  recorded in full: six commas before em dashes removed, two subject-verb commas
+  removed, **exactly one comma added in the whole book** (XI.20's apposition
+  fold), sixteen full stops supplied. Base-text points recorded after a
+  word-level diff of the whole book against Standard Ebooks' Long: **one PG
+  slip** (XI.18 "nattering", rendered **"flattering"** — Long writes "flatter"
+  of exactly this at XI.14), **four places where PG is right and SE is wrong**
+  (XI.18 "vexed" against SE's non-word "veied", *in the same clause as the PG
+  slip*, so each text gets right what the other gets wrong; XI.8 "become"
+  against SE's garbled "be to come"; XI.10 plural "natures"; XI.6 "sank"), one
+  PG typographic slip (XI.10's missing full stop, supplied), one slip that does
+  not reach the candidate (XI.15 "are" for "art"), two open variants followed
+  under D6 (XI.1, XI.35), three 1862 hyphenations normalised under the X.36.2
+  ruling, and Long's own broken ending at XI.18 kept on the V.29 / VII.58
+  precedent. **Five decisions flagged for the reviewer** (XI.18's "flattering";
+  XI.18's nine-word bracket folded — the largest in the package; XI.10's
+  "[things indifferent]" dropped under D11 where the primary word is the *less*
+  transparent of the two; XI.26's "[Ephesians]" folded as a mark of textual doubt
+  rather than a supplement; XI.15's "at once" for "forthwith" beside the dagger
+  clause) **and one offered for confirmation** ("pancratium" kept untranslated at
+  XI.2, on the X.9 "Mimi" ruling). Readable copy, `continuity.md`,
+  `provenance.json`, `manifest.json`, `README.md`, `review-instructions.md` and
+  thirteen review packets (13×3) pushed, built by
+  `scripts/build_book_package.py 11` from `scripts/candidates/book11.py`.
+  Mechanical checks in `book11/README.md` pass, including the bracket-arithmetic
+  assertion. **Stopped for independent review** (step 4). Findings expected under
+  `book11/review/`.
+
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
@@ -783,15 +844,35 @@ session. Kept current at every push.
 
 ## Next
 
-**Book X is accepted** (`book10/ACCEPTANCE.md`, `candidate-v2.json` sha256
-`8ba528dc…`). **Book XI steps 1–3 are in progress in this session**: source
-verification by the established stronger method (an independently written
-reconstruction of PG lines 6376–6841 diffed word for word against the staged
-Book XI, with the reconstruction's own rules audited as the Book X reviewer
-audited them), then drafting and freezing `book11/candidate-v1.json` with its
-readable copy, `continuity.md`, `provenance.json`, `manifest.json`,
-`README.md`, `review-instructions.md` and review packets. Book XII is not
-started, and this agent does not review its own draft.
+**Waiting on the coordinator: independent review of Book XI.**
+`book11/candidate-v1.json` (sha256 `d0db3918…`) is frozen, with thirteen packets,
+`review-instructions.md` and `manifest.json` in place; findings go under
+`book11/review/`. **Five decisions are flagged there for an explicit ruling** —
+XI.18's "flattering" for PG's "nattering", the one departure from PG's letters in
+the book; XI.18's nine-word bracket "[If any have offended against thee, consider
+first]" folded, the largest bracket in the package, with the question whether
+**D13** should be read to cover a bracket that size whatever its content; XI.10's
+"[things indifferent]" dropped under D11, the one drop where the primary word
+Long leaves standing is the *less* transparent of the two; XI.26's "[Ephesians]"
+folded as a mark of textual doubt rather than as a supplement or a second
+rendering; and XI.15's "at once" for Long's "forthwith", chosen over the X.30
+rendering because Long's own "immediately" stands nine words earlier inside the
+dagger clause — **and one is offered for confirmation** ("pancratium" kept
+untranslated at XI.2, on the X.9 "Mimi" ruling). The reviewer is also asked to
+test the step-1 no-rebuild finding **by the stronger method rather than by
+re-running either script**, and to audit the reconstruction's own **rules** as
+the Book X reviewer did, which is the method Book XI's own step 1 used — and
+which is what turned up the one undocumented build rule now recorded in
+`PROVENANCE.md` §4. Two further things are put to the reviewer with reasons:
+whether dropping the four **Epictetus** references is right, given that they
+point outside the Meditations to a source Marcus names in his own text; and
+whether each of the **seven byte-identical paragraphs** is rightly identical.
+This agent does not review its own draft, and **Book XII has not been started**.
+
+Book X is **accepted** (`book10/ACCEPTANCE.md`, `candidate-v2.json` sha256
+`8ba528dc…`). After the Book XI review: Book XI steps 6–8 (candidate v2, changes
+log, flow read, `ACCEPTANCE.md`), then Book XII, the last, with its own review
+round.
 
 ## Needs Anders (listed, not waited on)
 
