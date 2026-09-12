@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "2857caabc61603abcbacd0c9386e200d3af90f9843c20f9a105a49d0695a3541",
+  "attempts": [
+    {
+      "asr_seconds": 0.21555176749825478,
+      "alignment_seconds": 0.0005142614245414734,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Who would not be the Rizzio of so divine a Mary?",
+          "start": 0.05,
+          "end": 2.59,
+          "words": [
+            {
+              "text": " Who",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.65283203125
+            },
+            {
+              "text": " would",
+              "start": 0.53,
+              "end": 0.63,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " not",
+              "start": 0.63,
+              "end": 0.85,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " be",
+              "start": 0.85,
+              "end": 1.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.03,
+              "end": 1.15,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Rizzio",
+              "start": 1.15,
+              "end": 1.51,
+              "probability": 0.789306640625
+            },
+            {
+              "text": " of",
+              "start": 1.51,
+              "end": 1.69,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " so",
+              "start": 1.69,
+              "end": 1.87,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " divine",
+              "start": 1.87,
+              "end": 2.19,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " a",
+              "start": 2.19,
+              "end": 2.35,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Mary?",
+              "start": 2.35,
+              "end": 2.59,
+              "probability": 0.63330078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "would",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "raw": "not",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "raw": "be",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "raw": "the",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "raw": "Rizzio",
+          "start": 1.15,
+          "end": 1.51
+        },
+        {
+          "raw": "of",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "raw": "so",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "raw": "divine",
+          "start": 1.87,
+          "end": 2.19
+        },
+        {
+          "raw": "a",
+          "start": 2.19,
+          "end": 2.35
+        },
+        {
+          "raw": "Mary?",
+          "start": 2.35,
+          "end": 2.59
+        }
+      ],
+      "expected_tokens": [
+        "\"Who",
+        "would",
+        "not",
+        "be",
+        "the",
+        "Rizzio",
+        "of",
+        "so",
+        "divine",
+        "a",
+        "Mary?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "who",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 0.53,
+          "end": 0.63,
+          "key": "would",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.63,
+          "end": 0.85,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.85,
+          "end": 1.03,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.03,
+          "end": 1.15,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Rizzio",
+          "start": 1.15,
+          "end": 1.51,
+          "key": "rizzio",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.51,
+          "end": 1.69,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.69,
+          "end": 1.87,
+          "key": "so",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "divine",
+          "start": 1.87,
+          "end": 2.19,
+          "key": "divine",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.19,
+          "end": 2.35,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Mary?",
+          "start": 2.35,
+          "end": 2.59,
+          "key": "mary",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Who",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "would",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "text": "not",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "text": "be",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "text": "the",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "text": "Rizzio",
+          "start": 1.15,
+          "end": 1.51
+        },
+        {
+          "text": "of",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "text": "so",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "text": "divine",
+          "start": 1.87,
+          "end": 2.19
+        },
+        {
+          "text": "a",
+          "start": 2.19,
+          "end": 2.35
+        },
+        {
+          "text": "Mary?\"",
+          "start": 2.35,
+          "end": 2.59
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21627499535679817
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fa2b8c572a8164ed66e9783f57181b6c87271b29226f0ffa262ae99c71e3b256",
+  "selected_reasons": []
+}

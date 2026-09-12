@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "777a2d0fd117f17de13c77642d2a2f976b675ab46af6b86805dcb88a051d2229",
+  "attempts": [
+    {
+      "asr_seconds": 0.24077650532126427,
+      "alignment_seconds": 0.00044002756476402283,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Never fear—I will take care of myself.\"",
+        "hotwords": "Never"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Never fear—I will take care of myself.",
+          "start": 0.05,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " Never",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.76123046875
+            },
+            {
+              "text": " fear—I",
+              "start": 0.71,
+              "end": 1.49,
+              "probability": 0.6282774607340494
+            },
+            {
+              "text": " will",
+              "start": 1.49,
+              "end": 1.57,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " take",
+              "start": 1.57,
+              "end": 1.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " care",
+              "start": 1.73,
+              "end": 1.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 1.95,
+              "end": 2.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " myself.",
+              "start": 2.09,
+              "end": 2.43,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Never",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "fear—I",
+          "start": 0.71,
+          "end": 1.49
+        },
+        {
+          "raw": "will",
+          "start": 1.49,
+          "end": 1.57
+        },
+        {
+          "raw": "take",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "raw": "care",
+          "start": 1.73,
+          "end": 1.95
+        },
+        {
+          "raw": "of",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "raw": "myself.",
+          "start": 2.09,
+          "end": 2.43
+        }
+      ],
+      "expected_tokens": [
+        "\"Never",
+        "fear—I",
+        "will",
+        "take",
+        "care",
+        "of",
+        "myself.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Never",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "never",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fear—I",
+          "start": 0.71,
+          "end": 1.49,
+          "key": "feari",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.49,
+          "end": 1.57,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 1.57,
+          "end": 1.73,
+          "key": "take",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "care",
+          "start": 1.73,
+          "end": 1.95,
+          "key": "care",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.95,
+          "end": 2.09,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "myself.",
+          "start": 2.09,
+          "end": 2.43,
+          "key": "myself",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Never",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "fear—I",
+          "start": 0.71,
+          "end": 1.49
+        },
+        {
+          "text": "will",
+          "start": 1.49,
+          "end": 1.57
+        },
+        {
+          "text": "take",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "text": "care",
+          "start": 1.73,
+          "end": 1.95
+        },
+        {
+          "text": "of",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "text": "myself.\"",
+          "start": 2.09,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24136531352996826
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f59d68afdc0d25dae059cbb969a492dfb53c1179d7638a248997b3ab02c4e970",
+  "selected_reasons": []
+}

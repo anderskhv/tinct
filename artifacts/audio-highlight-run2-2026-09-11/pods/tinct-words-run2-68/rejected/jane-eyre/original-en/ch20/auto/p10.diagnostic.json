@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "67a874bba2611dc275364718adecdb8c8053653f27feed4348ad43cd7c17b9e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.25776397064328194,
+      "alignment_seconds": 0.0004080086946487427,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Where the devil is Rochester?\" cried Colonel Dent. \"I cannot find him in his bed.\"",
+        "hotwords": "Where, Rochester, Colonel, Dent, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Where the devil is Rochester? cried Colonel Dent. I cannot find him in his bed.",
+          "start": 0.02,
+          "end": 5.18,
+          "words": [
+            {
+              "text": " Where",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.08050537109375
+            },
+            {
+              "text": " the",
+              "start": 0.54,
+              "end": 0.72,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " devil",
+              "start": 0.72,
+              "end": 0.96,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " is",
+              "start": 0.96,
+              "end": 1.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Rochester?",
+              "start": 1.24,
+              "end": 1.9,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " cried",
+              "start": 2.52,
+              "end": 2.52,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " Colonel",
+              "start": 2.52,
+              "end": 2.88,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " Dent.",
+              "start": 2.88,
+              "end": 3.18,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " I",
+              "start": 3.84,
+              "end": 3.88,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " cannot",
+              "start": 3.88,
+              "end": 4.06,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " find",
+              "start": 4.06,
+              "end": 4.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 4.46,
+              "end": 4.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 4.64,
+              "end": 4.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 4.72,
+              "end": 4.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bed.",
+              "start": 4.88,
+              "end": 5.18,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "the",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "raw": "devil",
+          "start": 0.72,
+          "end": 0.96
+        },
+        {
+          "raw": "is",
+          "start": 0.96,
+          "end": 1.24
+        },
+        {
+          "raw": "Rochester?",
+          "start": 1.24,
+          "end": 1.9
+        },
+        {
+          "raw": "cried",
+          "start": 2.52,
+          "end": 2.52
+        },
+        {
+          "raw": "Colonel",
+          "start": 2.52,
+          "end": 2.88
+        },
+        {
+          "raw": "Dent.",
+          "start": 2.88,
+          "end": 3.18
+        },
+        {
+          "raw": "I",
+          "start": 3.84,
+          "end": 3.88
+        },
+        {
+          "raw": "cannot",
+          "start": 3.88,
+          "end": 4.06
+        },
+        {
+          "raw": "find",
+          "start": 4.06,
+          "end": 4.46
+        },
+        {
+          "raw": "him",
+          "start": 4.46,
+          "end": 4.64
+        },
+        {
+          "raw": "in",
+          "start": 4.64,
+          "end": 4.72
+        },
+        {
+          "raw": "his",
+          "start": 4.72,
+          "end": 4.88
+        },
+        {
+          "raw": "bed.",
+          "start": 4.88,
+          "end": 5.18
+        }
+      ],
+      "expected_tokens": [
+        "\"Where",
+        "the",
+        "devil",
+        "is",
+        "Rochester?\"",
+        "cried",
+        "Colonel",
+        "Dent.",
+        "\"I",
+        "cannot",
+        "find",
+        "him",
+        "in",
+        "his",
+        "bed.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "where",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.54,
+          "end": 0.72,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "devil",
+          "start": 0.72,
+          "end": 0.96,
+          "key": "devil",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.96,
+          "end": 1.24,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Rochester?",
+          "start": 1.24,
+          "end": 1.9,
+          "key": "rochester",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 2.52,
+          "end": 2.52,
+          "key": "cried",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Colonel",
+          "start": 2.52,
+          "end": 2.88,
+          "key": "colonel",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Dent.",
+          "start": 2.88,
+          "end": 3.18,
+          "key": "dent",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.84,
+          "end": 3.88,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 3.88,
+          "end": 4.06,
+          "key": "cannot",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 4.06,
+          "end": 4.46,
+          "key": "find",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.46,
+          "end": 4.64,
+          "key": "him",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.64,
+          "end": 4.72,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.72,
+          "end": 4.88,
+          "key": "his",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "bed.",
+          "start": 4.88,
+          "end": 5.18,
+          "key": "bed",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Where",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "the",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "text": "devil",
+          "start": 0.72,
+          "end": 0.96
+        },
+        {
+          "text": "is",
+          "start": 0.96,
+          "end": 1.24
+        },
+        {
+          "text": "Rochester?\"",
+          "start": 1.24,
+          "end": 1.9
+        },
+        {
+          "text": "cried",
+          "start": 2.52,
+          "end": 2.52
+        },
+        {
+          "text": "Colonel",
+          "start": 2.52,
+          "end": 2.88
+        },
+        {
+          "text": "Dent.",
+          "start": 2.88,
+          "end": 3.18
+        },
+        {
+          "text": "\"I",
+          "start": 3.84,
+          "end": 3.88
+        },
+        {
+          "text": "cannot",
+          "start": 3.88,
+          "end": 4.06
+        },
+        {
+          "text": "find",
+          "start": 4.06,
+          "end": 4.46
+        },
+        {
+          "text": "him",
+          "start": 4.46,
+          "end": 4.64
+        },
+        {
+          "text": "in",
+          "start": 4.64,
+          "end": 4.72
+        },
+        {
+          "text": "his",
+          "start": 4.72,
+          "end": 4.88
+        },
+        {
+          "text": "bed.\"",
+          "start": 4.88,
+          "end": 5.18
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2583359107375145
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "db1538924aa76910acc3706a5294bdac4aa1df5a04d115197198c2c8e9b1456b",
+  "selected_reasons": []
+}

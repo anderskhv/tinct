@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "9c4333ae0ab5384a1b5fb4053feec73b7e5baa215f479088968536c2141cd39a",
+  "attempts": [
+    {
+      "asr_seconds": 0.13659419864416122,
+      "alignment_seconds": 0.0003763958811759949,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"A person to be trusted?\"",
+        "hotwords": "A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A person to be trusted.",
+          "start": 0.02,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.6689453125
+            },
+            {
+              "text": " person",
+              "start": 0.52,
+              "end": 0.82,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " to",
+              "start": 0.82,
+              "end": 1.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 1.04,
+              "end": 1.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " trusted.",
+              "start": 1.16,
+              "end": 1.54,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "person",
+          "start": 0.52,
+          "end": 0.82
+        },
+        {
+          "raw": "to",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "raw": "be",
+          "start": 1.04,
+          "end": 1.16
+        },
+        {
+          "raw": "trusted.",
+          "start": 1.16,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "\"A",
+        "person",
+        "to",
+        "be",
+        "trusted?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "person",
+          "start": 0.52,
+          "end": 0.82,
+          "key": "person",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.82,
+          "end": 1.04,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.04,
+          "end": 1.16,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "trusted.",
+          "start": 1.16,
+          "end": 1.54,
+          "key": "trusted",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"A",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "person",
+          "start": 0.52,
+          "end": 0.82
+        },
+        {
+          "text": "to",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "text": "be",
+          "start": 1.04,
+          "end": 1.16
+        },
+        {
+          "text": "trusted?\"",
+          "start": 1.16,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13709963485598564
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f21cd13e7c56fc37fd809c35a4477d5d31724a3546c8680cc25e4c8a44033a2f",
+  "selected_reasons": []
+}

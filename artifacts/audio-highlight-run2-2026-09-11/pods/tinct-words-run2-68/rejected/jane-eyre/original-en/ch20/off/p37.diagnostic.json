@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "95dc5ac7e583cf754c340c283d564cb775b32ead2c1fe9709ad71cb4a2b002d0",
+  "attempts": [
+    {
+      "asr_seconds": 0.20924260094761848,
+      "alignment_seconds": 0.0005283653736114502,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I think I shall not. I have never been tried yet.",
+          "start": 0.08,
+          "end": 2.88,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " think",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " I",
+              "start": 0.66,
+              "end": 0.84,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " shall",
+              "start": 0.84,
+              "end": 0.96,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " not.",
+              "start": 0.96,
+              "end": 1.26,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 1.68,
+              "end": 1.76,
+              "probability": 0.994140625
+            },
+            {
+              "text": " have",
+              "start": 1.76,
+              "end": 1.84,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " never",
+              "start": 1.84,
+              "end": 2.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " been",
+              "start": 2.04,
+              "end": 2.22,
+              "probability": 0.99609375
+            },
+            {
+              "text": " tried",
+              "start": 2.22,
+              "end": 2.56,
+              "probability": 0.99609375
+            },
+            {
+              "text": " yet.",
+              "start": 2.56,
+              "end": 2.88,
+              "probability": 0.96875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "think",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "I",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "raw": "shall",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "raw": "not.",
+          "start": 0.96,
+          "end": 1.26
+        },
+        {
+          "raw": "I",
+          "start": 1.68,
+          "end": 1.76
+        },
+        {
+          "raw": "have",
+          "start": 1.76,
+          "end": 1.84
+        },
+        {
+          "raw": "never",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "raw": "been",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "raw": "tried",
+          "start": 2.22,
+          "end": 2.56
+        },
+        {
+          "raw": "yet.",
+          "start": 2.56,
+          "end": 2.88
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "think",
+        "I",
+        "shall",
+        "not:",
+        "I",
+        "have",
+        "never",
+        "been",
+        "tried",
+        "yet.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 0.54,
+          "end": 0.66,
+          "key": "think",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.66,
+          "end": 0.84,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 0.84,
+          "end": 0.96,
+          "key": "shall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 0.96,
+          "end": 1.26,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.68,
+          "end": 1.76,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.76,
+          "end": 1.84,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 1.84,
+          "end": 2.04,
+          "key": "never",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 2.04,
+          "end": 2.22,
+          "key": "been",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tried",
+          "start": 2.22,
+          "end": 2.56,
+          "key": "tried",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "yet.",
+          "start": 2.56,
+          "end": 2.88,
+          "key": "yet",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "think",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "I",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "text": "shall",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "text": "not:",
+          "start": 0.96,
+          "end": 1.26
+        },
+        {
+          "text": "I",
+          "start": 1.68,
+          "end": 1.76
+        },
+        {
+          "text": "have",
+          "start": 1.76,
+          "end": 1.84
+        },
+        {
+          "text": "never",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "text": "been",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "text": "tried",
+          "start": 2.22,
+          "end": 2.56
+        },
+        {
+          "text": "yet.\"",
+          "start": 2.56,
+          "end": 2.88
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2099858932197094
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "359879d0ac625f42c416305726e45ebcc1fff43440fe81a96d39a3d289491499",
+  "selected_reasons": []
+}

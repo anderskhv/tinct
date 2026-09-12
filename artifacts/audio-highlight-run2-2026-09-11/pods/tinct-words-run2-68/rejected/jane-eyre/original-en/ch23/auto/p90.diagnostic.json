@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "5997896b604061f12c415a5f75c0f837cc4485a6a5c9713dff2a6a9120a5228f",
+  "attempts": [
+    {
+      "asr_seconds": 0.11416855081915855,
+      "alignment_seconds": 0.00025117769837379456,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Entirely.\"",
+        "hotwords": "Entirely"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Entirely.",
+          "start": 0.18,
+          "end": 1.12,
+          "words": [
+            {
+              "text": " Entirely.",
+              "start": 0.18,
+              "end": 1.12,
+              "probability": 0.7748209635416666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Entirely.",
+          "start": 0.18,
+          "end": 1.12
+        }
+      ],
+      "expected_tokens": [
+        "\"Entirely.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Entirely.",
+          "start": 0.18,
+          "end": 1.12,
+          "key": "entirely",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Entirely.\"",
+          "start": 0.18,
+          "end": 1.12
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11449999734759331
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b25731f6126bb6e5ad84207e42c45f70aacffbe476eb1e973e153e1447cc59fa",
+  "selected_reasons": []
+}

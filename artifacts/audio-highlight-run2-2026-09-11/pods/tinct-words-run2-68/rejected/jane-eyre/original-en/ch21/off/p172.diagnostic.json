@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "51a09e0cbb1176083b27686bbd519b0ab7b6133e0af67cf03e0c82d9dcad0200",
+  "attempts": [
+    {
+      "asr_seconds": 0.13998418301343918,
+      "alignment_seconds": 0.00039114803075790405,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I assured her we were alone.",
+          "start": 0.08,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " assured",
+              "start": 0.54,
+              "end": 0.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " her",
+              "start": 0.8,
+              "end": 1.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " we",
+              "start": 1.0,
+              "end": 1.12,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " were",
+              "start": 1.12,
+              "end": 1.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " alone.",
+              "start": 1.24,
+              "end": 1.54,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "assured",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "raw": "her",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "raw": "we",
+          "start": 1.0,
+          "end": 1.12
+        },
+        {
+          "raw": "were",
+          "start": 1.12,
+          "end": 1.24
+        },
+        {
+          "raw": "alone.",
+          "start": 1.24,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "assured",
+        "her",
+        "we",
+        "were",
+        "alone."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "assured",
+          "start": 0.54,
+          "end": 0.8,
+          "key": "assured",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 0.8,
+          "end": 1.0,
+          "key": "her",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.0,
+          "end": 1.12,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 1.12,
+          "end": 1.24,
+          "key": "were",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "alone.",
+          "start": 1.24,
+          "end": 1.54,
+          "key": "alone",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "assured",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "text": "her",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "text": "we",
+          "start": 1.0,
+          "end": 1.12
+        },
+        {
+          "text": "were",
+          "start": 1.12,
+          "end": 1.24
+        },
+        {
+          "text": "alone.",
+          "start": 1.24,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1405288316309452
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a0dcc83a1981813e3fbc0b29f170a3a0ac87c90b2d1a159446b6218ce943bc77",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "03c5ed92fefba4a3485aa9d47c6759a0e2f4f4671bb3f321ccfd3312d7907e29",
+  "attempts": [
+    {
+      "asr_seconds": 0.13129783421754837,
+      "alignment_seconds": 0.0003407113254070282,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Where, Jane? To Ireland?\"",
+        "hotwords": "Where, Jane, To, Ireland"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Where, Jane? To Ireland?",
+          "start": 0.02,
+          "end": 1.66,
+          "words": [
+            {
+              "text": " Where,",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.1800537109375
+            },
+            {
+              "text": " Jane?",
+              "start": 0.7,
+              "end": 0.88,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " To",
+              "start": 1.22,
+              "end": 1.32,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " Ireland?",
+              "start": 1.32,
+              "end": 1.66,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Where,",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "Jane?",
+          "start": 0.7,
+          "end": 0.88
+        },
+        {
+          "raw": "To",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "raw": "Ireland?",
+          "start": 1.32,
+          "end": 1.66
+        }
+      ],
+      "expected_tokens": [
+        "\"Where,",
+        "Jane?",
+        "To",
+        "Ireland?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Where,",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "where",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Jane?",
+          "start": 0.7,
+          "end": 0.88,
+          "key": "jane",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 1.22,
+          "end": 1.32,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Ireland?",
+          "start": 1.32,
+          "end": 1.66,
+          "key": "ireland",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Where,",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "Jane?",
+          "start": 0.7,
+          "end": 0.88
+        },
+        {
+          "text": "To",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "text": "Ireland?\"",
+          "start": 1.32,
+          "end": 1.66
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13176082074642181
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6f7520cf5f454ed6d0888df192a61f6c5f677e4eb415167e6ee894717b083568",
+  "selected_reasons": []
+}

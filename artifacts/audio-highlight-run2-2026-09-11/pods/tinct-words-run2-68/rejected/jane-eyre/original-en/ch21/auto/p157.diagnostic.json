@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "a14e70e3ca9c513f414de1000ef6a89ebed3a49b6d93e1f896b7f73c8da1d06b",
+  "attempts": [
+    {
+      "asr_seconds": 0.09066866710782051,
+      "alignment_seconds": 0.0002079196274280548,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "She closed her lips.",
+        "hotwords": "She"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She closed her lips.",
+          "start": 0.0,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " closed",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " her",
+              "start": 0.8,
+              "end": 0.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " lips.",
+              "start": 0.98,
+              "end": 1.22,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "closed",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "her",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "raw": "lips.",
+          "start": 0.98,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "closed",
+        "her",
+        "lips."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "closed",
+          "start": 0.5,
+          "end": 0.8,
+          "key": "closed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 0.8,
+          "end": 0.98,
+          "key": "her",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lips.",
+          "start": 0.98,
+          "end": 1.22,
+          "key": "lips",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "closed",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "her",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "text": "lips.",
+          "start": 0.98,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09094749763607979
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9db5e070474427b5ebe3c8adef8c599c0c14e24dd4aeb2e4d660597b1fb32ba1",
+  "selected_reasons": []
+}

@@ -1,0 +1,497 @@
+{
+  "complete": true,
+  "signature": "8d4f6ba6105242e17a8f9c0462e02a70947dfdfb7a45dc47be45746a8ea24420",
+  "attempts": [
+    {
+      "asr_seconds": 0.49972663819789886,
+      "alignment_seconds": 0.0006630532443523407,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Maisoui, Mademoiselle.",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " Maisoui,",
+              "start": 0.05,
+              "end": 1.13,
+              "probability": 0.52197265625
+            },
+            {
+              "text": " Mademoiselle.",
+              "start": 1.35,
+              "end": 1.93,
+              "probability": 0.851806640625
+            }
+          ]
+        },
+        {
+          "text": " Voila cinque 0-6, heuris quenuse en avants pommingue.",
+          "start": 2.63,
+          "end": 5.41,
+          "words": [
+            {
+              "text": " Voila",
+              "start": 2.63,
+              "end": 2.85,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " cinque",
+              "start": 2.85,
+              "end": 3.15,
+              "probability": 0.56201171875
+            },
+            {
+              "text": " 0",
+              "start": 3.15,
+              "end": 3.31,
+              "probability": 0.0791015625
+            },
+            {
+              "text": "-6,",
+              "start": 3.31,
+              "end": 3.57,
+              "probability": 0.669677734375
+            },
+            {
+              "text": " heuris",
+              "start": 3.75,
+              "end": 3.95,
+              "probability": 0.3155924479166667
+            },
+            {
+              "text": " quenuse",
+              "start": 3.95,
+              "end": 4.31,
+              "probability": 0.5830078125
+            },
+            {
+              "text": " en",
+              "start": 4.31,
+              "end": 4.51,
+              "probability": 0.68701171875
+            },
+            {
+              "text": " avants",
+              "start": 4.51,
+              "end": 4.87,
+              "probability": 0.5435791015625
+            },
+            {
+              "text": " pommingue.",
+              "start": 4.87,
+              "end": 5.41,
+              "probability": 0.44110107421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Maisoui,",
+          "start": 0.05,
+          "end": 1.13
+        },
+        {
+          "raw": "Mademoiselle.",
+          "start": 1.35,
+          "end": 1.93
+        },
+        {
+          "raw": "Voila",
+          "start": 2.63,
+          "end": 2.85
+        },
+        {
+          "raw": "cinque",
+          "start": 2.85,
+          "end": 3.15
+        },
+        {
+          "raw": "0",
+          "start": 3.15,
+          "end": 3.31
+        },
+        {
+          "raw": "-6,",
+          "start": 3.31,
+          "end": 3.57
+        },
+        {
+          "raw": "heuris",
+          "start": 3.75,
+          "end": 3.95
+        },
+        {
+          "raw": "quenuse",
+          "start": 3.95,
+          "end": 4.31
+        },
+        {
+          "raw": "en",
+          "start": 4.31,
+          "end": 4.51
+        },
+        {
+          "raw": "avants",
+          "start": 4.51,
+          "end": 4.87
+        },
+        {
+          "raw": "pommingue.",
+          "start": 4.87,
+          "end": 5.41
+        }
+      ],
+      "expected_tokens": [
+        "\"Mais",
+        "oui,",
+        "mademoiselle:",
+        "voilà",
+        "cinq",
+        "ou",
+        "six",
+        "heures",
+        "que",
+        "nous",
+        "n'avons",
+        "pas",
+        "mangé.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          3,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          6,
+          2,
+          5
+        ],
+        [
+          "equal",
+          6,
+          7,
+          5,
+          6
+        ],
+        [
+          "replace",
+          7,
+          13,
+          6,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          6,
+          2,
+          5
+        ],
+        [
+          "replace",
+          7,
+          13,
+          6,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Maisoui,",
+          "start": 0.05,
+          "end": 1.13,
+          "key": "maisoui",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mademoiselle.",
+          "start": 1.35,
+          "end": 1.93,
+          "key": "mademoiselle",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Voila",
+          "start": 2.63,
+          "end": 2.85,
+          "key": "voila",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cinque",
+          "start": 2.85,
+          "end": 3.15,
+          "key": "cinque",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "0",
+          "start": 3.15,
+          "end": 3.31,
+          "key": "zero",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "-6,",
+          "start": 3.31,
+          "end": 3.57,
+          "key": "six",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "heuris",
+          "start": 3.75,
+          "end": 3.95,
+          "key": "heuris",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "quenuse",
+          "start": 3.95,
+          "end": 4.31,
+          "key": "quenuse",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "en",
+          "start": 4.31,
+          "end": 4.51,
+          "key": "en",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "avants",
+          "start": 4.51,
+          "end": 4.87,
+          "key": "avants",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "pommingue.",
+          "start": 4.87,
+          "end": 5.41,
+          "key": "pommingue",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Mais",
+          "start": 0.0,
+          "end": 0.675
+        },
+        {
+          "text": "oui,",
+          "start": 0.675,
+          "end": 1.013
+        },
+        {
+          "text": "mademoiselle:",
+          "start": 1.35,
+          "end": 1.93
+        },
+        {
+          "text": "voilà",
+          "start": 1.93,
+          "end": 2.62
+        },
+        {
+          "text": "cinq",
+          "start": 2.62,
+          "end": 2.965
+        },
+        {
+          "text": "ou",
+          "start": 2.965,
+          "end": 3.138
+        },
+        {
+          "text": "six",
+          "start": 3.31,
+          "end": 3.57
+        },
+        {
+          "text": "heures",
+          "start": 3.57,
+          "end": 4.49
+        },
+        {
+          "text": "que",
+          "start": 4.49,
+          "end": 4.95
+        },
+        {
+          "text": "nous",
+          "start": 4.95,
+          "end": 5.18
+        },
+        {
+          "text": "n'avons",
+          "start": 5.18,
+          "end": 5.295
+        },
+        {
+          "text": "pas",
+          "start": 5.295,
+          "end": 5.353
+        },
+        {
+          "text": "mangé.\"",
+          "start": 5.353,
+          "end": 5.381
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 11,
+        "matched_words": 2
+      },
+      "match_ratio": 0.15384615384615385,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.5005976781249046
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3f9ca906ed467eb0845c21759652e7638db30e9be6c938223d862d3a7215e1b5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

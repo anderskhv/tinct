@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "cfdcbdae0f72a34d9facffcabfa2095406f6f8c412c9dedd516b946d610f36a5",
+  "attempts": [
+    {
+      "asr_seconds": 0.2548513449728489,
+      "alignment_seconds": 0.00048042088747024536,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Very well, very well, I'll pledge my word on it. You go tomorrow then.",
+          "start": 0.05,
+          "end": 4.13,
+          "words": [
+            {
+              "text": " Very",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.69873046875
+            },
+            {
+              "text": " well,",
+              "start": 0.65,
+              "end": 0.95,
+              "probability": 0.990234375
+            },
+            {
+              "text": " very",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " well,",
+              "start": 1.45,
+              "end": 1.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I'll",
+              "start": 1.89,
+              "end": 1.97,
+              "probability": 0.990478515625
+            },
+            {
+              "text": " pledge",
+              "start": 1.97,
+              "end": 2.17,
+              "probability": 0.99609375
+            },
+            {
+              "text": " my",
+              "start": 2.17,
+              "end": 2.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " word",
+              "start": 2.39,
+              "end": 2.57,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " on",
+              "start": 2.57,
+              "end": 2.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it.",
+              "start": 2.77,
+              "end": 2.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " You",
+              "start": 3.25,
+              "end": 3.33,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " go",
+              "start": 3.33,
+              "end": 3.47,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " tomorrow",
+              "start": 3.47,
+              "end": 3.77,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " then.",
+              "start": 3.77,
+              "end": 4.13,
+              "probability": 0.7646484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Very",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "well,",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "raw": "very",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "well,",
+          "start": 1.45,
+          "end": 1.75
+        },
+        {
+          "raw": "I'll",
+          "start": 1.89,
+          "end": 1.97
+        },
+        {
+          "raw": "pledge",
+          "start": 1.97,
+          "end": 2.17
+        },
+        {
+          "raw": "my",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "raw": "word",
+          "start": 2.39,
+          "end": 2.57
+        },
+        {
+          "raw": "on",
+          "start": 2.57,
+          "end": 2.77
+        },
+        {
+          "raw": "it.",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "raw": "You",
+          "start": 3.25,
+          "end": 3.33
+        },
+        {
+          "raw": "go",
+          "start": 3.33,
+          "end": 3.47
+        },
+        {
+          "raw": "tomorrow",
+          "start": 3.47,
+          "end": 3.77
+        },
+        {
+          "raw": "then.",
+          "start": 3.77,
+          "end": 4.13
+        }
+      ],
+      "expected_tokens": [
+        "\"Very",
+        "well!",
+        "very",
+        "well!",
+        "I'll",
+        "pledge",
+        "my",
+        "word",
+        "on",
+        "it.",
+        "You",
+        "go",
+        "to-morrow,",
+        "then?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Very",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "very",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 0.65,
+          "end": 0.95,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "very",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 1.45,
+          "end": 1.75,
+          "key": "well",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.89,
+          "end": 1.97,
+          "key": "ill",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pledge",
+          "start": 1.97,
+          "end": 2.17,
+          "key": "pledge",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.17,
+          "end": 2.39,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "word",
+          "start": 2.39,
+          "end": 2.57,
+          "key": "word",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.57,
+          "end": 2.77,
+          "key": "on",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 2.77,
+          "end": 2.95,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 3.25,
+          "end": 3.33,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 3.33,
+          "end": 3.47,
+          "key": "go",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "tomorrow",
+          "start": 3.47,
+          "end": 3.77,
+          "key": "tomorrow",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "then.",
+          "start": 3.77,
+          "end": 4.13,
+          "key": "then",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Very",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "well!",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "text": "very",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "well!",
+          "start": 1.45,
+          "end": 1.75
+        },
+        {
+          "text": "I'll",
+          "start": 1.89,
+          "end": 1.97
+        },
+        {
+          "text": "pledge",
+          "start": 1.97,
+          "end": 2.17
+        },
+        {
+          "text": "my",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "text": "word",
+          "start": 2.39,
+          "end": 2.57
+        },
+        {
+          "text": "on",
+          "start": 2.57,
+          "end": 2.77
+        },
+        {
+          "text": "it.",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "text": "You",
+          "start": 3.25,
+          "end": 3.33
+        },
+        {
+          "text": "go",
+          "start": 3.33,
+          "end": 3.47
+        },
+        {
+          "text": "to-morrow,",
+          "start": 3.47,
+          "end": 3.77
+        },
+        {
+          "text": "then?\"",
+          "start": 3.77,
+          "end": 4.13
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2555392161011696
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a5c81a70ae8d8166e584c37e81a62b676745f3fc91122aca9c2e8f0e41bc90f9",
+  "selected_reasons": []
+}

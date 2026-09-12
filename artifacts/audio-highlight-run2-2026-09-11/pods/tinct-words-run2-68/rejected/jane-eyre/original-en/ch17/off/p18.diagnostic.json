@@ -1,0 +1,722 @@
+{
+  "complete": true,
+  "signature": "3129d2fe71d0b401119614ac9017ed2158f1d658418afaff1c1174d347a7927a",
+  "attempts": [
+    {
+      "asr_seconds": 0.37999948486685753,
+      "alignment_seconds": 0.000703170895576477,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The charwoman was going on, but here Lee turned and perceived me, and she instantly gave her companion a nudge.",
+          "start": 0.02,
+          "end": 6.7,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.88671875
+            },
+            {
+              "text": " charwoman",
+              "start": 0.5,
+              "end": 0.88,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " was",
+              "start": 0.88,
+              "end": 1.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " going",
+              "start": 1.1,
+              "end": 1.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " on,",
+              "start": 1.36,
+              "end": 1.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " but",
+              "start": 2.22,
+              "end": 2.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " here",
+              "start": 2.3,
+              "end": 2.6,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Lee",
+              "start": 2.6,
+              "end": 2.84,
+              "probability": 0.5341796875
+            },
+            {
+              "text": " turned",
+              "start": 2.84,
+              "end": 3.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 3.22,
+              "end": 3.46,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " perceived",
+              "start": 3.46,
+              "end": 3.82,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " me,",
+              "start": 3.82,
+              "end": 4.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 4.64,
+              "end": 4.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " she",
+              "start": 4.68,
+              "end": 4.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " instantly",
+              "start": 4.82,
+              "end": 5.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " gave",
+              "start": 5.18,
+              "end": 5.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 5.5,
+              "end": 5.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " companion",
+              "start": 5.68,
+              "end": 6.14,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 6.14,
+              "end": 6.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " nudge.",
+              "start": 6.38,
+              "end": 6.7,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "charwoman",
+          "start": 0.5,
+          "end": 0.88
+        },
+        {
+          "raw": "was",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "raw": "going",
+          "start": 1.1,
+          "end": 1.36
+        },
+        {
+          "raw": "on,",
+          "start": 1.36,
+          "end": 1.72
+        },
+        {
+          "raw": "but",
+          "start": 2.22,
+          "end": 2.3
+        },
+        {
+          "raw": "here",
+          "start": 2.3,
+          "end": 2.6
+        },
+        {
+          "raw": "Lee",
+          "start": 2.6,
+          "end": 2.84
+        },
+        {
+          "raw": "turned",
+          "start": 2.84,
+          "end": 3.22
+        },
+        {
+          "raw": "and",
+          "start": 3.22,
+          "end": 3.46
+        },
+        {
+          "raw": "perceived",
+          "start": 3.46,
+          "end": 3.82
+        },
+        {
+          "raw": "me,",
+          "start": 3.82,
+          "end": 4.2
+        },
+        {
+          "raw": "and",
+          "start": 4.64,
+          "end": 4.68
+        },
+        {
+          "raw": "she",
+          "start": 4.68,
+          "end": 4.82
+        },
+        {
+          "raw": "instantly",
+          "start": 4.82,
+          "end": 5.18
+        },
+        {
+          "raw": "gave",
+          "start": 5.18,
+          "end": 5.5
+        },
+        {
+          "raw": "her",
+          "start": 5.5,
+          "end": 5.68
+        },
+        {
+          "raw": "companion",
+          "start": 5.68,
+          "end": 6.14
+        },
+        {
+          "raw": "a",
+          "start": 6.14,
+          "end": 6.38
+        },
+        {
+          "raw": "nudge.",
+          "start": 6.38,
+          "end": 6.7
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "charwoman",
+        "was",
+        "going",
+        "on;",
+        "but",
+        "here",
+        "Leah",
+        "turned",
+        "and",
+        "perceived",
+        "me,",
+        "and",
+        "she",
+        "instantly",
+        "gave",
+        "her",
+        "companion",
+        "a",
+        "nudge."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          20,
+          8,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "charwoman",
+          "start": 0.5,
+          "end": 0.88,
+          "key": "charwoman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.88,
+          "end": 1.1,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 1.1,
+          "end": 1.36,
+          "key": "going",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 1.36,
+          "end": 1.72,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.22,
+          "end": 2.3,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 2.3,
+          "end": 2.6,
+          "key": "here",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Lee",
+          "start": 2.6,
+          "end": 2.84,
+          "key": "lee",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 2.84,
+          "end": 3.22,
+          "key": "turned",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.22,
+          "end": 3.46,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "perceived",
+          "start": 3.46,
+          "end": 3.82,
+          "key": "perceived",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 3.82,
+          "end": 4.2,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.64,
+          "end": 4.68,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 4.68,
+          "end": 4.82,
+          "key": "she",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "instantly",
+          "start": 4.82,
+          "end": 5.18,
+          "key": "instantly",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 5.18,
+          "end": 5.5,
+          "key": "gave",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 5.5,
+          "end": 5.68,
+          "key": "her",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "companion",
+          "start": 5.68,
+          "end": 6.14,
+          "key": "companion",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.14,
+          "end": 6.38,
+          "key": "a",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "nudge.",
+          "start": 6.38,
+          "end": 6.7,
+          "key": "nudge",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "charwoman",
+          "start": 0.5,
+          "end": 0.88
+        },
+        {
+          "text": "was",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "text": "going",
+          "start": 1.1,
+          "end": 1.36
+        },
+        {
+          "text": "on;",
+          "start": 1.36,
+          "end": 1.72
+        },
+        {
+          "text": "but",
+          "start": 2.22,
+          "end": 2.3
+        },
+        {
+          "text": "here",
+          "start": 2.3,
+          "end": 2.6
+        },
+        {
+          "text": "Leah",
+          "start": 2.6,
+          "end": 2.72
+        },
+        {
+          "text": "turned",
+          "start": 2.84,
+          "end": 3.22
+        },
+        {
+          "text": "and",
+          "start": 3.22,
+          "end": 3.46
+        },
+        {
+          "text": "perceived",
+          "start": 3.46,
+          "end": 3.82
+        },
+        {
+          "text": "me,",
+          "start": 3.82,
+          "end": 4.2
+        },
+        {
+          "text": "and",
+          "start": 4.64,
+          "end": 4.68
+        },
+        {
+          "text": "she",
+          "start": 4.68,
+          "end": 4.82
+        },
+        {
+          "text": "instantly",
+          "start": 4.82,
+          "end": 5.18
+        },
+        {
+          "text": "gave",
+          "start": 5.18,
+          "end": 5.5
+        },
+        {
+          "text": "her",
+          "start": 5.5,
+          "end": 5.68
+        },
+        {
+          "text": "companion",
+          "start": 5.68,
+          "end": 6.14
+        },
+        {
+          "text": "a",
+          "start": 6.14,
+          "end": 6.38
+        },
+        {
+          "text": "nudge.",
+          "start": 6.38,
+          "end": 6.7
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.381039272993803
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4c971fba596eafb38f71b7c3a7b69784263c1fff7d9c236d4d8c73152ad91e13",
+  "selected_reasons": []
+}

@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "3a0ebcbbed3b7a0456127afb40bee9a50be50607a9cc907e143c6f38d7905290",
+  "attempts": [
+    {
+      "asr_seconds": 0.26918768137693405,
+      "alignment_seconds": 0.0005412325263023376,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Reed of Gateshead? There was a Reed of Gateshead, a magistrate.\"",
+        "hotwords": "Reed, Gateshead, There"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Reed of Gateshead, There was a Reed of Gateshead, a magistrate.",
+          "start": 0.05,
+          "end": 3.55,
+          "words": [
+            {
+              "text": " Reed",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.08673095703125
+            },
+            {
+              "text": " of",
+              "start": 0.63,
+              "end": 0.79,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Gateshead,",
+              "start": 0.79,
+              "end": 1.31,
+              "probability": 0.882080078125
+            },
+            {
+              "text": " There",
+              "start": 1.81,
+              "end": 1.83,
+              "probability": 0.050933837890625
+            },
+            {
+              "text": " was",
+              "start": 1.83,
+              "end": 1.93,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " a",
+              "start": 1.93,
+              "end": 2.05,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Reed",
+              "start": 2.05,
+              "end": 2.19,
+              "probability": 0.74560546875
+            },
+            {
+              "text": " of",
+              "start": 2.19,
+              "end": 2.33,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Gateshead,",
+              "start": 2.33,
+              "end": 2.91,
+              "probability": 0.98046875
+            },
+            {
+              "text": " a",
+              "start": 3.01,
+              "end": 3.07,
+              "probability": 0.7841796875
+            },
+            {
+              "text": " magistrate.",
+              "start": 3.07,
+              "end": 3.55,
+              "probability": 0.473388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Reed",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "of",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "raw": "Gateshead,",
+          "start": 0.79,
+          "end": 1.31
+        },
+        {
+          "raw": "There",
+          "start": 1.81,
+          "end": 1.83
+        },
+        {
+          "raw": "was",
+          "start": 1.83,
+          "end": 1.93
+        },
+        {
+          "raw": "a",
+          "start": 1.93,
+          "end": 2.05
+        },
+        {
+          "raw": "Reed",
+          "start": 2.05,
+          "end": 2.19
+        },
+        {
+          "raw": "of",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "raw": "Gateshead,",
+          "start": 2.33,
+          "end": 2.91
+        },
+        {
+          "raw": "a",
+          "start": 3.01,
+          "end": 3.07
+        },
+        {
+          "raw": "magistrate.",
+          "start": 3.07,
+          "end": 3.55
+        }
+      ],
+      "expected_tokens": [
+        "\"Reed",
+        "of",
+        "Gateshead?",
+        "There",
+        "was",
+        "a",
+        "Reed",
+        "of",
+        "Gateshead,",
+        "a",
+        "magistrate.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Reed",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "reed",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.63,
+          "end": 0.79,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Gateshead,",
+          "start": 0.79,
+          "end": 1.31,
+          "key": "gateshead",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.81,
+          "end": 1.83,
+          "key": "there",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.83,
+          "end": 1.93,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.93,
+          "end": 2.05,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Reed",
+          "start": 2.05,
+          "end": 2.19,
+          "key": "reed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.19,
+          "end": 2.33,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Gateshead,",
+          "start": 2.33,
+          "end": 2.91,
+          "key": "gateshead",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.01,
+          "end": 3.07,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "magistrate.",
+          "start": 3.07,
+          "end": 3.55,
+          "key": "magistrate",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Reed",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "of",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "text": "Gateshead?",
+          "start": 0.79,
+          "end": 1.31
+        },
+        {
+          "text": "There",
+          "start": 1.81,
+          "end": 1.83
+        },
+        {
+          "text": "was",
+          "start": 1.83,
+          "end": 1.93
+        },
+        {
+          "text": "a",
+          "start": 1.93,
+          "end": 2.05
+        },
+        {
+          "text": "Reed",
+          "start": 2.05,
+          "end": 2.19
+        },
+        {
+          "text": "of",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "text": "Gateshead,",
+          "start": 2.33,
+          "end": 2.91
+        },
+        {
+          "text": "a",
+          "start": 3.01,
+          "end": 3.07
+        },
+        {
+          "text": "magistrate.\"",
+          "start": 3.07,
+          "end": 3.55
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26993560045957565
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a8f7010122a411c402f0774aaa70f3d77062b3846b09e949428cc8a2a04b5cbb",
+  "selected_reasons": []
+}

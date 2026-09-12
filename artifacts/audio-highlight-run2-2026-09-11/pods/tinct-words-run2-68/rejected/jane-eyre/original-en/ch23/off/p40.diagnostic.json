@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "9970fd39cad20421af611400fe1c3545ee31ff3a9f123d5d06ce176e98b6f30f",
+  "attempts": [
+    {
+      "asr_seconds": 0.20628273487091064,
+      "alignment_seconds": 0.0004105418920516968,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " from England and from Thornfield and",
+          "start": 0.05,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " from",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.5380859375
+            },
+            {
+              "text": " England",
+              "start": 0.55,
+              "end": 0.85,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " and",
+              "start": 0.85,
+              "end": 1.09,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " from",
+              "start": 1.09,
+              "end": 1.27,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Thornfield",
+              "start": 1.27,
+              "end": 1.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 1.87,
+              "end": 2.37,
+              "probability": 0.541015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "from",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "England",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "raw": "and",
+          "start": 0.85,
+          "end": 1.09
+        },
+        {
+          "raw": "from",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "raw": "Thornfield",
+          "start": 1.27,
+          "end": 1.87
+        },
+        {
+          "raw": "and",
+          "start": 1.87,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "\"From",
+        "England",
+        "and",
+        "from",
+        "Thornfield:",
+        "and—\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "from",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "from",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "England",
+          "start": 0.55,
+          "end": 0.85,
+          "key": "england",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.85,
+          "end": 1.09,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.09,
+          "end": 1.27,
+          "key": "from",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Thornfield",
+          "start": 1.27,
+          "end": 1.87,
+          "key": "thornfield",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.87,
+          "end": 2.37,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"From",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "England",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "text": "and",
+          "start": 0.85,
+          "end": 1.09
+        },
+        {
+          "text": "from",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "text": "Thornfield:",
+          "start": 1.27,
+          "end": 1.87
+        },
+        {
+          "text": "and—\"",
+          "start": 1.87,
+          "end": 2.37
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20683326944708824
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "995331694eaa82ced9e6899faf921aee9e17c3450168321771f53bd9f236d7a9",
+  "selected_reasons": []
+}

@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "2b93b046cc91d86331b1fce6067b0eff2fc1fbc6c57531dedb67caafe18c4a56",
+  "attempts": [
+    {
+      "asr_seconds": 0.2148321308195591,
+      "alignment_seconds": 0.00047345831990242004,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mr. John died yesterday was a week at his chambers in London.",
+          "start": 0.08,
+          "end": 4.22,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " John",
+              "start": 1.06,
+              "end": 1.1,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " died",
+              "start": 1.1,
+              "end": 1.44,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " yesterday",
+              "start": 1.44,
+              "end": 1.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " was",
+              "start": 1.92,
+              "end": 2.22,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " a",
+              "start": 2.22,
+              "end": 2.36,
+              "probability": 0.982421875
+            },
+            {
+              "text": " week",
+              "start": 2.36,
+              "end": 2.62,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " at",
+              "start": 2.62,
+              "end": 3.16,
+              "probability": 0.859375
+            },
+            {
+              "text": " his",
+              "start": 3.16,
+              "end": 3.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " chambers",
+              "start": 3.32,
+              "end": 3.64,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " in",
+              "start": 3.64,
+              "end": 3.94,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " London.",
+              "start": 3.94,
+              "end": 4.22,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "John",
+          "start": 1.06,
+          "end": 1.1
+        },
+        {
+          "raw": "died",
+          "start": 1.1,
+          "end": 1.44
+        },
+        {
+          "raw": "yesterday",
+          "start": 1.44,
+          "end": 1.92
+        },
+        {
+          "raw": "was",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "raw": "a",
+          "start": 2.22,
+          "end": 2.36
+        },
+        {
+          "raw": "week",
+          "start": 2.36,
+          "end": 2.62
+        },
+        {
+          "raw": "at",
+          "start": 2.62,
+          "end": 3.16
+        },
+        {
+          "raw": "his",
+          "start": 3.16,
+          "end": 3.32
+        },
+        {
+          "raw": "chambers",
+          "start": 3.32,
+          "end": 3.64
+        },
+        {
+          "raw": "in",
+          "start": 3.64,
+          "end": 3.94
+        },
+        {
+          "raw": "London.",
+          "start": 3.94,
+          "end": 4.22
+        }
+      ],
+      "expected_tokens": [
+        "\"Mr.",
+        "John",
+        "died",
+        "yesterday",
+        "was",
+        "a",
+        "week,",
+        "at",
+        "his",
+        "chambers",
+        "in",
+        "London.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 1.06,
+          "end": 1.1,
+          "key": "john",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "died",
+          "start": 1.1,
+          "end": 1.44,
+          "key": "died",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "yesterday",
+          "start": 1.44,
+          "end": 1.92,
+          "key": "yesterday",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.92,
+          "end": 2.22,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.22,
+          "end": 2.36,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "week",
+          "start": 2.36,
+          "end": 2.62,
+          "key": "week",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.62,
+          "end": 3.16,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.16,
+          "end": 3.32,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "chambers",
+          "start": 3.32,
+          "end": 3.64,
+          "key": "chambers",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.64,
+          "end": 3.94,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "London.",
+          "start": 3.94,
+          "end": 4.22,
+          "key": "london",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Mr.",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "John",
+          "start": 1.06,
+          "end": 1.1
+        },
+        {
+          "text": "died",
+          "start": 1.1,
+          "end": 1.44
+        },
+        {
+          "text": "yesterday",
+          "start": 1.44,
+          "end": 1.92
+        },
+        {
+          "text": "was",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "text": "a",
+          "start": 2.22,
+          "end": 2.36
+        },
+        {
+          "text": "week,",
+          "start": 2.36,
+          "end": 2.62
+        },
+        {
+          "text": "at",
+          "start": 2.62,
+          "end": 3.16
+        },
+        {
+          "text": "his",
+          "start": 3.16,
+          "end": 3.32
+        },
+        {
+          "text": "chambers",
+          "start": 3.32,
+          "end": 3.64
+        },
+        {
+          "text": "in",
+          "start": 3.64,
+          "end": 3.94
+        },
+        {
+          "text": "London.\"",
+          "start": 3.94,
+          "end": 4.22
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21550020575523376
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e98228704e3d4df516f7e432585e1cbe4273c920991a95a8df00750b13d8c0e4",
+  "selected_reasons": []
+}

@@ -1,0 +1,1253 @@
+{
+  "complete": true,
+  "signature": "2201caff11f1edeb484e9f271be217441e01f87a368e710320576adf5bffd9ea",
+  "attempts": [
+    {
+      "asr_seconds": 0.3504520207643509,
+      "alignment_seconds": 0.0005270391702651978,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes;—I will!—I will!\" He set his teeth.",
+        "hotwords": "Yes;—I, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, I will, I will, He set his teeth.",
+          "start": 0.05,
+          "end": 2.91,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.048248291015625
+            },
+            {
+              "text": " I",
+              "start": 1.01,
+              "end": 1.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " will,",
+              "start": 1.07,
+              "end": 1.33,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 1.61,
+              "end": 1.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " will,",
+              "start": 1.65,
+              "end": 1.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " He",
+              "start": 2.27,
+              "end": 2.37,
+              "probability": 0.0222320556640625
+            },
+            {
+              "text": " set",
+              "start": 2.37,
+              "end": 2.53,
+              "probability": 0.685546875
+            },
+            {
+              "text": " his",
+              "start": 2.53,
+              "end": 2.71,
+              "probability": 0.487548828125
+            },
+            {
+              "text": " teeth.",
+              "start": 2.71,
+              "end": 2.91,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " Yes, I will, I will, He set his teeth.",
+          "start": 2.91,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 2.91,
+              "end": 2.91,
+              "probability": 0.0004818439483642578
+            },
+            {
+              "text": " I",
+              "start": 2.91,
+              "end": 2.91,
+              "probability": 0.09130859375
+            },
+            {
+              "text": " will,",
+              "start": 2.91,
+              "end": 2.91,
+              "probability": 0.04327392578125
+            },
+            {
+              "text": " I",
+              "start": 2.91,
+              "end": 2.91,
+              "probability": 0.10198974609375
+            },
+            {
+              "text": " will,",
+              "start": 2.91,
+              "end": 2.91,
+              "probability": 0.59375
+            },
+            {
+              "text": " He",
+              "start": 2.91,
+              "end": 2.91,
+              "probability": 8.45789909362793e-05
+            },
+            {
+              "text": " set",
+              "start": 2.91,
+              "end": 3.07,
+              "probability": 4.6193599700927734e-05
+            },
+            {
+              "text": " his",
+              "start": 3.07,
+              "end": 3.07,
+              "probability": 0.046783447265625
+            },
+            {
+              "text": " teeth.",
+              "start": 3.07,
+              "end": 3.09,
+              "probability": 0.00012540817260742188
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "I",
+          "start": 1.01,
+          "end": 1.07
+        },
+        {
+          "raw": "will,",
+          "start": 1.07,
+          "end": 1.33
+        },
+        {
+          "raw": "I",
+          "start": 1.61,
+          "end": 1.65
+        },
+        {
+          "raw": "will,",
+          "start": 1.65,
+          "end": 1.93
+        },
+        {
+          "raw": "He",
+          "start": 2.27,
+          "end": 2.37
+        },
+        {
+          "raw": "set",
+          "start": 2.37,
+          "end": 2.53
+        },
+        {
+          "raw": "his",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "raw": "teeth.",
+          "start": 2.71,
+          "end": 2.91
+        },
+        {
+          "raw": "Yes,",
+          "start": 2.91,
+          "end": 2.91
+        },
+        {
+          "raw": "I",
+          "start": 2.91,
+          "end": 2.91
+        },
+        {
+          "raw": "will,",
+          "start": 2.91,
+          "end": 2.91
+        },
+        {
+          "raw": "I",
+          "start": 2.91,
+          "end": 2.91
+        },
+        {
+          "raw": "will,",
+          "start": 2.91,
+          "end": 2.91
+        },
+        {
+          "raw": "He",
+          "start": 2.91,
+          "end": 2.91
+        },
+        {
+          "raw": "set",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "raw": "his",
+          "start": 3.07,
+          "end": 3.07
+        },
+        {
+          "raw": "teeth.",
+          "start": 3.07,
+          "end": 3.09
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes;—I",
+        "will!—I",
+        "will!\"",
+        "He",
+        "set",
+        "his",
+        "teeth."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ],
+        [
+          "equal",
+          2,
+          7,
+          4,
+          9
+        ],
+        [
+          "insert",
+          7,
+          7,
+          9,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ],
+        [
+          "insert",
+          7,
+          7,
+          9,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.01,
+          "end": 1.07,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will,",
+          "start": 1.07,
+          "end": 1.33,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.61,
+          "end": 1.65,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will,",
+          "start": 1.65,
+          "end": 1.93,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.27,
+          "end": 2.37,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 2.37,
+          "end": 2.53,
+          "key": "set",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.53,
+          "end": 2.71,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "teeth.",
+          "start": 2.71,
+          "end": 2.91,
+          "key": "teeth",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Yes,",
+          "start": 2.91,
+          "end": 2.91,
+          "key": "yes",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.91,
+          "end": 2.91,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "will,",
+          "start": 2.91,
+          "end": 2.91,
+          "key": "will",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.91,
+          "end": 2.91,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "will,",
+          "start": 2.91,
+          "end": 2.91,
+          "key": "will",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.91,
+          "end": 2.91,
+          "key": "he",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 2.91,
+          "end": 3.07,
+          "key": "set",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.07,
+          "end": 3.07,
+          "key": "his",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "teeth.",
+          "start": 3.07,
+          "end": 3.09,
+          "key": "teeth",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes;—I",
+          "start": 0.0,
+          "end": 0.825
+        },
+        {
+          "text": "will!—I",
+          "start": 0.825,
+          "end": 1.237
+        },
+        {
+          "text": "will!\"",
+          "start": 1.65,
+          "end": 1.93
+        },
+        {
+          "text": "He",
+          "start": 2.27,
+          "end": 2.37
+        },
+        {
+          "text": "set",
+          "start": 2.37,
+          "end": 2.53
+        },
+        {
+          "text": "his",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "text": "teeth.",
+          "start": 2.71,
+          "end": 2.91
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 18,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.35127807781100273
+    },
+    {
+      "asr_seconds": 0.2007448561489582,
+      "alignment_seconds": 0.0004936493933200836,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Yes;—I, He"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Yes, I will, I will,\" he said his teeth.",
+          "start": 0.05,
+          "end": 2.91,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.048248291015625
+            },
+            {
+              "text": " I",
+              "start": 1.01,
+              "end": 1.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " will,",
+              "start": 1.07,
+              "end": 1.33,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 1.61,
+              "end": 1.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " will,\"",
+              "start": 1.65,
+              "end": 2.19,
+              "probability": 0.864990234375
+            },
+            {
+              "text": " he",
+              "start": 2.19,
+              "end": 2.37,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " said",
+              "start": 2.37,
+              "end": 2.51,
+              "probability": 0.6533203125
+            },
+            {
+              "text": " his",
+              "start": 2.51,
+              "end": 2.71,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " teeth.",
+              "start": 2.71,
+              "end": 2.91,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "I",
+          "start": 1.01,
+          "end": 1.07
+        },
+        {
+          "raw": "will,",
+          "start": 1.07,
+          "end": 1.33
+        },
+        {
+          "raw": "I",
+          "start": 1.61,
+          "end": 1.65
+        },
+        {
+          "raw": "will,\"",
+          "start": 1.65,
+          "end": 2.19
+        },
+        {
+          "raw": "he",
+          "start": 2.19,
+          "end": 2.37
+        },
+        {
+          "raw": "said",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "raw": "his",
+          "start": 2.51,
+          "end": 2.71
+        },
+        {
+          "raw": "teeth.",
+          "start": 2.71,
+          "end": 2.91
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes;—I",
+        "will!—I",
+        "will!\"",
+        "He",
+        "set",
+        "his",
+        "teeth."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ],
+        [
+          "equal",
+          2,
+          4,
+          4,
+          6
+        ],
+        [
+          "replace",
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          "equal",
+          5,
+          7,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.01,
+          "end": 1.07,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will,",
+          "start": 1.07,
+          "end": 1.33,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.61,
+          "end": 1.65,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will,\"",
+          "start": 1.65,
+          "end": 2.19,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.19,
+          "end": 2.37,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.37,
+          "end": 2.51,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.51,
+          "end": 2.71,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "teeth.",
+          "start": 2.71,
+          "end": 2.91,
+          "key": "teeth",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes;—I",
+          "start": 0.0,
+          "end": 0.825
+        },
+        {
+          "text": "will!—I",
+          "start": 0.825,
+          "end": 1.237
+        },
+        {
+          "text": "will!\"",
+          "start": 1.65,
+          "end": 2.19
+        },
+        {
+          "text": "He",
+          "start": 2.19,
+          "end": 2.37
+        },
+        {
+          "text": "set",
+          "start": 2.37,
+          "end": 2.44
+        },
+        {
+          "text": "his",
+          "start": 2.51,
+          "end": 2.71
+        },
+        {
+          "text": "teeth.",
+          "start": 2.71,
+          "end": 2.91
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 9,
+        "matched_words": 4
+      },
+      "match_ratio": 0.5714285714285714,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20141754671931267
+    },
+    {
+      "asr_seconds": 0.18006550893187523,
+      "alignment_seconds": 0.0005285441875457764,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, I will, I will,\" he said his teeth.",
+          "start": 0.05,
+          "end": 2.91,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.048248291015625
+            },
+            {
+              "text": " I",
+              "start": 1.01,
+              "end": 1.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " will,",
+              "start": 1.07,
+              "end": 1.33,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 1.61,
+              "end": 1.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " will,\"",
+              "start": 1.65,
+              "end": 2.19,
+              "probability": 0.864990234375
+            },
+            {
+              "text": " he",
+              "start": 2.19,
+              "end": 2.37,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " said",
+              "start": 2.37,
+              "end": 2.51,
+              "probability": 0.6533203125
+            },
+            {
+              "text": " his",
+              "start": 2.51,
+              "end": 2.71,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " teeth.",
+              "start": 2.71,
+              "end": 2.91,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "I",
+          "start": 1.01,
+          "end": 1.07
+        },
+        {
+          "raw": "will,",
+          "start": 1.07,
+          "end": 1.33
+        },
+        {
+          "raw": "I",
+          "start": 1.61,
+          "end": 1.65
+        },
+        {
+          "raw": "will,\"",
+          "start": 1.65,
+          "end": 2.19
+        },
+        {
+          "raw": "he",
+          "start": 2.19,
+          "end": 2.37
+        },
+        {
+          "raw": "said",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "raw": "his",
+          "start": 2.51,
+          "end": 2.71
+        },
+        {
+          "raw": "teeth.",
+          "start": 2.71,
+          "end": 2.91
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes;—I",
+        "will!—I",
+        "will!\"",
+        "He",
+        "set",
+        "his",
+        "teeth."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ],
+        [
+          "equal",
+          2,
+          4,
+          4,
+          6
+        ],
+        [
+          "replace",
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          "equal",
+          5,
+          7,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.01,
+          "end": 1.07,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will,",
+          "start": 1.07,
+          "end": 1.33,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.61,
+          "end": 1.65,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will,\"",
+          "start": 1.65,
+          "end": 2.19,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.19,
+          "end": 2.37,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.37,
+          "end": 2.51,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.51,
+          "end": 2.71,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "teeth.",
+          "start": 2.71,
+          "end": 2.91,
+          "key": "teeth",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes;—I",
+          "start": 0.0,
+          "end": 0.825
+        },
+        {
+          "text": "will!—I",
+          "start": 0.825,
+          "end": 1.237
+        },
+        {
+          "text": "will!\"",
+          "start": 1.65,
+          "end": 2.19
+        },
+        {
+          "text": "He",
+          "start": 2.19,
+          "end": 2.37
+        },
+        {
+          "text": "set",
+          "start": 2.37,
+          "end": 2.44
+        },
+        {
+          "text": "his",
+          "start": 2.51,
+          "end": 2.71
+        },
+        {
+          "text": "teeth.",
+          "start": 2.71,
+          "end": 2.91
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 9,
+        "matched_words": 4
+      },
+      "match_ratio": 0.5714285714285714,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18077056109905243
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "37fa4744f057c00bcf9c9957125e9251427f1d545c2bd895b34938fa2259ea0b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

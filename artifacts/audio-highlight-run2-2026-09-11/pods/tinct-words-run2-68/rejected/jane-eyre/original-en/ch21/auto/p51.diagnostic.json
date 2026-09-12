@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "87d90a67b4542f20b536735525067042b3907b9deba48455eb1b96b5c9f7c4c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.20610513165593147,
+      "alignment_seconds": 0.0004314035177230835,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No, sir, she has sent her coachman.\"",
+        "hotwords": "No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No, sir, she has sent her coachman.",
+          "start": 0.05,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " sir,",
+              "start": 0.81,
+              "end": 0.85,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " she",
+              "start": 1.19,
+              "end": 1.29,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " has",
+              "start": 1.29,
+              "end": 1.37,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " sent",
+              "start": 1.37,
+              "end": 1.53,
+              "probability": 0.99609375
+            },
+            {
+              "text": " her",
+              "start": 1.53,
+              "end": 1.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " coachman.",
+              "start": 1.67,
+              "end": 2.11,
+              "probability": 0.7098388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "sir,",
+          "start": 0.81,
+          "end": 0.85
+        },
+        {
+          "raw": "she",
+          "start": 1.19,
+          "end": 1.29
+        },
+        {
+          "raw": "has",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "raw": "sent",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "raw": "her",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "raw": "coachman.",
+          "start": 1.67,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "\"No,",
+        "sir,",
+        "she",
+        "has",
+        "sent",
+        "her",
+        "coachman.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 0.81,
+          "end": 0.85,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.19,
+          "end": 1.29,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 1.29,
+          "end": 1.37,
+          "key": "has",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sent",
+          "start": 1.37,
+          "end": 1.53,
+          "key": "sent",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.53,
+          "end": 1.67,
+          "key": "her",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "coachman.",
+          "start": 1.67,
+          "end": 2.11,
+          "key": "coachman",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "sir,",
+          "start": 0.81,
+          "end": 0.85
+        },
+        {
+          "text": "she",
+          "start": 1.19,
+          "end": 1.29
+        },
+        {
+          "text": "has",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "text": "sent",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "text": "her",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "text": "coachman.\"",
+          "start": 1.67,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2066948339343071
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9d608f921f9370da9d7d49fcdf53b12911c98f9cae8715b839a5cdf9b61394d4",
+  "selected_reasons": []
+}

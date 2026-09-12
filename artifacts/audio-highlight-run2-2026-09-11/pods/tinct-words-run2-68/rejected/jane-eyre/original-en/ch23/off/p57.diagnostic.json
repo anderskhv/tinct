@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "aa910c153974529265f2e32efc85c3368a05bc9688874c17b1466c569120be05",
+  "attempts": [
+    {
+      "asr_seconds": 0.19957001879811287,
+      "alignment_seconds": 0.00045657530426979065,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Where do you see the necessity? he asked suddenly",
+          "start": 0.02,
+          "end": 2.68,
+          "words": [
+            {
+              "text": " Where",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.35546875
+            },
+            {
+              "text": " do",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 0.62,
+              "end": 0.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " see",
+              "start": 0.72,
+              "end": 0.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 0.86,
+              "end": 0.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " necessity?",
+              "start": 0.98,
+              "end": 1.4,
+              "probability": 0.978515625
+            },
+            {
+              "text": " he",
+              "start": 1.9,
+              "end": 2.0,
+              "probability": 0.43505859375
+            },
+            {
+              "text": " asked",
+              "start": 2.0,
+              "end": 2.28,
+              "probability": 0.986328125
+            },
+            {
+              "text": " suddenly",
+              "start": 2.28,
+              "end": 2.68,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "do",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "you",
+          "start": 0.62,
+          "end": 0.72
+        },
+        {
+          "raw": "see",
+          "start": 0.72,
+          "end": 0.86
+        },
+        {
+          "raw": "the",
+          "start": 0.86,
+          "end": 0.98
+        },
+        {
+          "raw": "necessity?",
+          "start": 0.98,
+          "end": 1.4
+        },
+        {
+          "raw": "he",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "raw": "asked",
+          "start": 2.0,
+          "end": 2.28
+        },
+        {
+          "raw": "suddenly",
+          "start": 2.28,
+          "end": 2.68
+        }
+      ],
+      "expected_tokens": [
+        "\"Where",
+        "do",
+        "you",
+        "see",
+        "the",
+        "necessity?\"",
+        "he",
+        "asked",
+        "suddenly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "where",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.62,
+          "end": 0.72,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 0.72,
+          "end": 0.86,
+          "key": "see",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.86,
+          "end": 0.98,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "necessity?",
+          "start": 0.98,
+          "end": 1.4,
+          "key": "necessity",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.9,
+          "end": 2.0,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 2.0,
+          "end": 2.28,
+          "key": "asked",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 2.28,
+          "end": 2.68,
+          "key": "suddenly",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Where",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "do",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "you",
+          "start": 0.62,
+          "end": 0.72
+        },
+        {
+          "text": "see",
+          "start": 0.72,
+          "end": 0.86
+        },
+        {
+          "text": "the",
+          "start": 0.86,
+          "end": 0.98
+        },
+        {
+          "text": "necessity?\"",
+          "start": 0.98,
+          "end": 1.4
+        },
+        {
+          "text": "he",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "text": "asked",
+          "start": 2.0,
+          "end": 2.28
+        },
+        {
+          "text": "suddenly.",
+          "start": 2.28,
+          "end": 2.68
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2002202644944191
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0ebb9aad42a2bb501fcf2db2e7c93ae008462f78931f6c9492c04f1d0a79f452",
+  "selected_reasons": []
+}

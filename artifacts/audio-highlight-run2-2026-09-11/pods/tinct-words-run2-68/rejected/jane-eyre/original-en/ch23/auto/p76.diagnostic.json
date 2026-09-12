@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "33a2b611eedf5bde00001056ce8ee1c7c12831038a9abcaf1b4037ca06d4854a",
+  "attempts": [
+    {
+      "asr_seconds": 0.32736431807279587,
+      "alignment_seconds": 0.0007219091057777405,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I ask you to pass through life at my side—to be my second self, and best earthly companion.\"",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I ask you to pass through life at my side—to be my second self, and best earthly companion.",
+          "start": 0.08,
+          "end": 5.54,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.921875
+            },
+            {
+              "text": " ask",
+              "start": 0.54,
+              "end": 0.74,
+              "probability": 0.98828125
+            },
+            {
+              "text": " you",
+              "start": 0.74,
+              "end": 0.92,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " to",
+              "start": 0.92,
+              "end": 1.02,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " pass",
+              "start": 1.02,
+              "end": 1.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " through",
+              "start": 1.22,
+              "end": 1.5,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " life",
+              "start": 1.5,
+              "end": 1.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " at",
+              "start": 1.74,
+              "end": 1.9,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " my",
+              "start": 1.9,
+              "end": 2.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " side—to",
+              "start": 2.06,
+              "end": 2.94,
+              "probability": 0.5871734619140625
+            },
+            {
+              "text": " be",
+              "start": 2.94,
+              "end": 3.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 3.04,
+              "end": 3.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " second",
+              "start": 3.24,
+              "end": 3.48,
+              "probability": 0.7880859375
+            },
+            {
+              "text": " self,",
+              "start": 3.48,
+              "end": 3.84,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " and",
+              "start": 4.28,
+              "end": 4.4,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " best",
+              "start": 4.4,
+              "end": 4.64,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " earthly",
+              "start": 4.64,
+              "end": 5.08,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " companion.",
+              "start": 5.08,
+              "end": 5.54,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "ask",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "raw": "you",
+          "start": 0.74,
+          "end": 0.92
+        },
+        {
+          "raw": "to",
+          "start": 0.92,
+          "end": 1.02
+        },
+        {
+          "raw": "pass",
+          "start": 1.02,
+          "end": 1.22
+        },
+        {
+          "raw": "through",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "raw": "life",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "raw": "at",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "raw": "my",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "raw": "side—to",
+          "start": 2.06,
+          "end": 2.94
+        },
+        {
+          "raw": "be",
+          "start": 2.94,
+          "end": 3.04
+        },
+        {
+          "raw": "my",
+          "start": 3.04,
+          "end": 3.24
+        },
+        {
+          "raw": "second",
+          "start": 3.24,
+          "end": 3.48
+        },
+        {
+          "raw": "self,",
+          "start": 3.48,
+          "end": 3.84
+        },
+        {
+          "raw": "and",
+          "start": 4.28,
+          "end": 4.4
+        },
+        {
+          "raw": "best",
+          "start": 4.4,
+          "end": 4.64
+        },
+        {
+          "raw": "earthly",
+          "start": 4.64,
+          "end": 5.08
+        },
+        {
+          "raw": "companion.",
+          "start": 5.08,
+          "end": 5.54
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "ask",
+        "you",
+        "to",
+        "pass",
+        "through",
+        "life",
+        "at",
+        "my",
+        "side—to",
+        "be",
+        "my",
+        "second",
+        "self,",
+        "and",
+        "best",
+        "earthly",
+        "companion.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 0.54,
+          "end": 0.74,
+          "key": "ask",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.74,
+          "end": 0.92,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.92,
+          "end": 1.02,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pass",
+          "start": 1.02,
+          "end": 1.22,
+          "key": "pass",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 1.22,
+          "end": 1.5,
+          "key": "through",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "life",
+          "start": 1.5,
+          "end": 1.74,
+          "key": "life",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.74,
+          "end": 1.9,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.9,
+          "end": 2.06,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "side—to",
+          "start": 2.06,
+          "end": 2.94,
+          "key": "sideto",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.94,
+          "end": 3.04,
+          "key": "be",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.04,
+          "end": 3.24,
+          "key": "my",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "second",
+          "start": 3.24,
+          "end": 3.48,
+          "key": "second",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "self,",
+          "start": 3.48,
+          "end": 3.84,
+          "key": "self",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.28,
+          "end": 4.4,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 4.4,
+          "end": 4.64,
+          "key": "best",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "earthly",
+          "start": 4.64,
+          "end": 5.08,
+          "key": "earthly",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "companion.",
+          "start": 5.08,
+          "end": 5.54,
+          "key": "companion",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "ask",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "text": "you",
+          "start": 0.74,
+          "end": 0.92
+        },
+        {
+          "text": "to",
+          "start": 0.92,
+          "end": 1.02
+        },
+        {
+          "text": "pass",
+          "start": 1.02,
+          "end": 1.22
+        },
+        {
+          "text": "through",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "text": "life",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "text": "at",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "text": "my",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "text": "side—to",
+          "start": 2.06,
+          "end": 2.94
+        },
+        {
+          "text": "be",
+          "start": 2.94,
+          "end": 3.04
+        },
+        {
+          "text": "my",
+          "start": 3.04,
+          "end": 3.24
+        },
+        {
+          "text": "second",
+          "start": 3.24,
+          "end": 3.48
+        },
+        {
+          "text": "self,",
+          "start": 3.48,
+          "end": 3.84
+        },
+        {
+          "text": "and",
+          "start": 4.28,
+          "end": 4.4
+        },
+        {
+          "text": "best",
+          "start": 4.4,
+          "end": 4.64
+        },
+        {
+          "text": "earthly",
+          "start": 4.64,
+          "end": 5.08
+        },
+        {
+          "text": "companion.\"",
+          "start": 5.08,
+          "end": 5.54
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3283940814435482
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8619b253f05d405f77bf0dfe704764bcd655102ef7faddefe601abe8296d803c",
+  "selected_reasons": []
+}

@@ -1,0 +1,732 @@
+{
+  "complete": true,
+  "signature": "0ab2d23e6c66b77c0917ab5f8e7d925624a22093b7d860cabed82a0c50153a15",
+  "attempts": [
+    {
+      "asr_seconds": 0.32792675495147705,
+      "alignment_seconds": 0.0007154457271099091,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " If said I you would just step upstairs and tell her I am come I should be much obliged to you",
+          "start": 0.02,
+          "end": 6.22,
+          "words": [
+            {
+              "text": " If",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.2100830078125
+            },
+            {
+              "text": " said",
+              "start": 0.74,
+              "end": 1.22,
+              "probability": 0.10308837890625
+            },
+            {
+              "text": " I",
+              "start": 1.22,
+              "end": 1.52,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " you",
+              "start": 1.52,
+              "end": 2.06,
+              "probability": 0.921875
+            },
+            {
+              "text": " would",
+              "start": 2.06,
+              "end": 2.16,
+              "probability": 0.994140625
+            },
+            {
+              "text": " just",
+              "start": 2.16,
+              "end": 2.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " step",
+              "start": 2.32,
+              "end": 2.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " upstairs",
+              "start": 2.58,
+              "end": 3.0,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " and",
+              "start": 3.0,
+              "end": 3.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " tell",
+              "start": 3.28,
+              "end": 3.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 3.5,
+              "end": 3.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 3.68,
+              "end": 3.84,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " am",
+              "start": 3.84,
+              "end": 3.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " come",
+              "start": 3.98,
+              "end": 4.26,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " I",
+              "start": 4.26,
+              "end": 4.74,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " should",
+              "start": 4.74,
+              "end": 4.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " be",
+              "start": 4.88,
+              "end": 5.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " much",
+              "start": 5.02,
+              "end": 5.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " obliged",
+              "start": 5.24,
+              "end": 5.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 5.56,
+              "end": 5.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 5.86,
+              "end": 6.22,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "If",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "said",
+          "start": 0.74,
+          "end": 1.22
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.52
+        },
+        {
+          "raw": "you",
+          "start": 1.52,
+          "end": 2.06
+        },
+        {
+          "raw": "would",
+          "start": 2.06,
+          "end": 2.16
+        },
+        {
+          "raw": "just",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "raw": "step",
+          "start": 2.32,
+          "end": 2.58
+        },
+        {
+          "raw": "upstairs",
+          "start": 2.58,
+          "end": 3.0
+        },
+        {
+          "raw": "and",
+          "start": 3.0,
+          "end": 3.28
+        },
+        {
+          "raw": "tell",
+          "start": 3.28,
+          "end": 3.5
+        },
+        {
+          "raw": "her",
+          "start": 3.5,
+          "end": 3.68
+        },
+        {
+          "raw": "I",
+          "start": 3.68,
+          "end": 3.84
+        },
+        {
+          "raw": "am",
+          "start": 3.84,
+          "end": 3.98
+        },
+        {
+          "raw": "come",
+          "start": 3.98,
+          "end": 4.26
+        },
+        {
+          "raw": "I",
+          "start": 4.26,
+          "end": 4.74
+        },
+        {
+          "raw": "should",
+          "start": 4.74,
+          "end": 4.88
+        },
+        {
+          "raw": "be",
+          "start": 4.88,
+          "end": 5.02
+        },
+        {
+          "raw": "much",
+          "start": 5.02,
+          "end": 5.24
+        },
+        {
+          "raw": "obliged",
+          "start": 5.24,
+          "end": 5.56
+        },
+        {
+          "raw": "to",
+          "start": 5.56,
+          "end": 5.86
+        },
+        {
+          "raw": "you",
+          "start": 5.86,
+          "end": 6.22
+        }
+      ],
+      "expected_tokens": [
+        "\"If,\"",
+        "said",
+        "I,",
+        "\"you",
+        "would",
+        "just",
+        "step",
+        "upstairs",
+        "and",
+        "tell",
+        "her",
+        "I",
+        "am",
+        "come,",
+        "I",
+        "should",
+        "be",
+        "much",
+        "obliged",
+        "to",
+        "you.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "If",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "if",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.74,
+          "end": 1.22,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.52,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.52,
+          "end": 2.06,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 2.06,
+          "end": 2.16,
+          "key": "would",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 2.16,
+          "end": 2.32,
+          "key": "just",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "step",
+          "start": 2.32,
+          "end": 2.58,
+          "key": "step",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "upstairs",
+          "start": 2.58,
+          "end": 3.0,
+          "key": "upstairs",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.0,
+          "end": 3.28,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 3.28,
+          "end": 3.5,
+          "key": "tell",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.5,
+          "end": 3.68,
+          "key": "her",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.68,
+          "end": 3.84,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 3.84,
+          "end": 3.98,
+          "key": "am",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 3.98,
+          "end": 4.26,
+          "key": "come",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.26,
+          "end": 4.74,
+          "key": "i",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 4.74,
+          "end": 4.88,
+          "key": "should",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.88,
+          "end": 5.02,
+          "key": "be",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 5.02,
+          "end": 5.24,
+          "key": "much",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "obliged",
+          "start": 5.24,
+          "end": 5.56,
+          "key": "obliged",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.56,
+          "end": 5.86,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.86,
+          "end": 6.22,
+          "key": "you",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"If,\"",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "said",
+          "start": 0.74,
+          "end": 1.22
+        },
+        {
+          "text": "I,",
+          "start": 1.22,
+          "end": 1.52
+        },
+        {
+          "text": "\"you",
+          "start": 1.52,
+          "end": 2.06
+        },
+        {
+          "text": "would",
+          "start": 2.06,
+          "end": 2.16
+        },
+        {
+          "text": "just",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "text": "step",
+          "start": 2.32,
+          "end": 2.58
+        },
+        {
+          "text": "upstairs",
+          "start": 2.58,
+          "end": 3.0
+        },
+        {
+          "text": "and",
+          "start": 3.0,
+          "end": 3.28
+        },
+        {
+          "text": "tell",
+          "start": 3.28,
+          "end": 3.5
+        },
+        {
+          "text": "her",
+          "start": 3.5,
+          "end": 3.68
+        },
+        {
+          "text": "I",
+          "start": 3.68,
+          "end": 3.84
+        },
+        {
+          "text": "am",
+          "start": 3.84,
+          "end": 3.98
+        },
+        {
+          "text": "come,",
+          "start": 3.98,
+          "end": 4.26
+        },
+        {
+          "text": "I",
+          "start": 4.26,
+          "end": 4.74
+        },
+        {
+          "text": "should",
+          "start": 4.74,
+          "end": 4.88
+        },
+        {
+          "text": "be",
+          "start": 4.88,
+          "end": 5.02
+        },
+        {
+          "text": "much",
+          "start": 5.02,
+          "end": 5.24
+        },
+        {
+          "text": "obliged",
+          "start": 5.24,
+          "end": 5.56
+        },
+        {
+          "text": "to",
+          "start": 5.56,
+          "end": 5.86
+        },
+        {
+          "text": "you.\"",
+          "start": 5.86,
+          "end": 6.22
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32899994775652885
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6cba3f6d7f88c5fcd25b8bd8a4cc14c4dd44636d0f49fe8e23274bc793c90b8c",
+  "selected_reasons": []
+}

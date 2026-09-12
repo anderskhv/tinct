@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "221d8ecc8c978aa72a4cbf4dfc57d3d170dcf1af6e1e117dcdfb5e7b27d71e44",
+  "attempts": [
+    {
+      "asr_seconds": 0.19568857550621033,
+      "alignment_seconds": 0.00045141205191612244,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Then no more need be said. Change the subject.",
+          "start": 0.08,
+          "end": 2.6,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.64599609375
+            },
+            {
+              "text": " no",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " more",
+              "start": 0.7,
+              "end": 0.84,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " need",
+              "start": 0.84,
+              "end": 1.0,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " be",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " said.",
+              "start": 1.2,
+              "end": 1.48,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Change",
+              "start": 1.9,
+              "end": 2.04,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " the",
+              "start": 2.04,
+              "end": 2.26,
+              "probability": 0.99609375
+            },
+            {
+              "text": " subject.",
+              "start": 2.26,
+              "end": 2.6,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "no",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "more",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "raw": "need",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "raw": "be",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "said.",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "raw": "Change",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "raw": "the",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "raw": "subject.",
+          "start": 2.26,
+          "end": 2.6
+        }
+      ],
+      "expected_tokens": [
+        "\"Then",
+        "no",
+        "more",
+        "need",
+        "be",
+        "said:",
+        "change",
+        "the",
+        "subject.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 0.7,
+          "end": 0.84,
+          "key": "more",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "need",
+          "start": 0.84,
+          "end": 1.0,
+          "key": "need",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.0,
+          "end": 1.2,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.2,
+          "end": 1.48,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Change",
+          "start": 1.9,
+          "end": 2.04,
+          "key": "change",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.04,
+          "end": 2.26,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "subject.",
+          "start": 2.26,
+          "end": 2.6,
+          "key": "subject",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Then",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "no",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "more",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "text": "need",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "text": "be",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "said:",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "text": "change",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "text": "the",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "text": "subject.\"",
+          "start": 2.26,
+          "end": 2.6
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19631971418857574
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "28a315167446df19332cda3b4f650b4a287bcf698f1705d28c43cb22ae18b567",
+  "selected_reasons": []
+}

@@ -1,0 +1,707 @@
+{
+  "complete": true,
+  "signature": "e1b13543997a0eebf4bee5aea5e32f746fda8a47829498559b7f28100abb2b85",
+  "attempts": [
+    {
+      "asr_seconds": 0.3579956516623497,
+      "alignment_seconds": 0.0006635412573814392,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Jane, be still, don't struggle so, like a wild frantic bird that is rending its own",
+          "start": 0.08,
+          "end": 5.74,
+          "words": [
+            {
+              "text": " Jane,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " be",
+              "start": 1.02,
+              "end": 1.1,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " still,",
+              "start": 1.1,
+              "end": 1.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " don't",
+              "start": 1.98,
+              "end": 2.26,
+              "probability": 0.9921875
+            },
+            {
+              "text": " struggle",
+              "start": 2.26,
+              "end": 2.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " so,",
+              "start": 2.56,
+              "end": 2.92,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " like",
+              "start": 3.28,
+              "end": 3.38,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 3.38,
+              "end": 3.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wild",
+              "start": 3.54,
+              "end": 3.88,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " frantic",
+              "start": 3.88,
+              "end": 4.3,
+              "probability": 0.81298828125
+            },
+            {
+              "text": " bird",
+              "start": 4.3,
+              "end": 4.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 4.66,
+              "end": 4.86,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " is",
+              "start": 4.86,
+              "end": 4.98,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " rending",
+              "start": 4.98,
+              "end": 5.4,
+              "probability": 0.974609375
+            },
+            {
+              "text": " its",
+              "start": 5.4,
+              "end": 5.52,
+              "probability": 0.96484375
+            },
+            {
+              "text": " own",
+              "start": 5.52,
+              "end": 5.74,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " plumage in its desperation.",
+          "start": 5.74,
+          "end": 7.06,
+          "words": [
+            {
+              "text": " plumage",
+              "start": 5.74,
+              "end": 6.26,
+              "probability": 0.996337890625
+            },
+            {
+              "text": " in",
+              "start": 6.26,
+              "end": 6.4,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " its",
+              "start": 6.4,
+              "end": 6.56,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " desperation.",
+              "start": 6.56,
+              "end": 7.06,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jane,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "be",
+          "start": 1.02,
+          "end": 1.1
+        },
+        {
+          "raw": "still,",
+          "start": 1.1,
+          "end": 1.46
+        },
+        {
+          "raw": "don't",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "raw": "struggle",
+          "start": 2.26,
+          "end": 2.56
+        },
+        {
+          "raw": "so,",
+          "start": 2.56,
+          "end": 2.92
+        },
+        {
+          "raw": "like",
+          "start": 3.28,
+          "end": 3.38
+        },
+        {
+          "raw": "a",
+          "start": 3.38,
+          "end": 3.54
+        },
+        {
+          "raw": "wild",
+          "start": 3.54,
+          "end": 3.88
+        },
+        {
+          "raw": "frantic",
+          "start": 3.88,
+          "end": 4.3
+        },
+        {
+          "raw": "bird",
+          "start": 4.3,
+          "end": 4.66
+        },
+        {
+          "raw": "that",
+          "start": 4.66,
+          "end": 4.86
+        },
+        {
+          "raw": "is",
+          "start": 4.86,
+          "end": 4.98
+        },
+        {
+          "raw": "rending",
+          "start": 4.98,
+          "end": 5.4
+        },
+        {
+          "raw": "its",
+          "start": 5.4,
+          "end": 5.52
+        },
+        {
+          "raw": "own",
+          "start": 5.52,
+          "end": 5.74
+        },
+        {
+          "raw": "plumage",
+          "start": 5.74,
+          "end": 6.26
+        },
+        {
+          "raw": "in",
+          "start": 6.26,
+          "end": 6.4
+        },
+        {
+          "raw": "its",
+          "start": 6.4,
+          "end": 6.56
+        },
+        {
+          "raw": "desperation.",
+          "start": 6.56,
+          "end": 7.06
+        }
+      ],
+      "expected_tokens": [
+        "\"Jane,",
+        "be",
+        "still;",
+        "don't",
+        "struggle",
+        "so,",
+        "like",
+        "a",
+        "wild",
+        "frantic",
+        "bird",
+        "that",
+        "is",
+        "rending",
+        "its",
+        "own",
+        "plumage",
+        "in",
+        "its",
+        "desperation.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Jane,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "jane",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.02,
+          "end": 1.1,
+          "key": "be",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "still,",
+          "start": 1.1,
+          "end": 1.46,
+          "key": "still",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 1.98,
+          "end": 2.26,
+          "key": "dont",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "struggle",
+          "start": 2.26,
+          "end": 2.56,
+          "key": "struggle",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 2.56,
+          "end": 2.92,
+          "key": "so",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.28,
+          "end": 3.38,
+          "key": "like",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.38,
+          "end": 3.54,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wild",
+          "start": 3.54,
+          "end": 3.88,
+          "key": "wild",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "frantic",
+          "start": 3.88,
+          "end": 4.3,
+          "key": "frantic",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bird",
+          "start": 4.3,
+          "end": 4.66,
+          "key": "bird",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.66,
+          "end": 4.86,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.86,
+          "end": 4.98,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "rending",
+          "start": 4.98,
+          "end": 5.4,
+          "key": "rending",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 5.4,
+          "end": 5.52,
+          "key": "its",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 5.52,
+          "end": 5.74,
+          "key": "own",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "plumage",
+          "start": 5.74,
+          "end": 6.26,
+          "key": "plumage",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.26,
+          "end": 6.4,
+          "key": "in",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 6.4,
+          "end": 6.56,
+          "key": "its",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "desperation.",
+          "start": 6.56,
+          "end": 7.06,
+          "key": "desperation",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Jane,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "be",
+          "start": 1.02,
+          "end": 1.1
+        },
+        {
+          "text": "still;",
+          "start": 1.1,
+          "end": 1.46
+        },
+        {
+          "text": "don't",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "text": "struggle",
+          "start": 2.26,
+          "end": 2.56
+        },
+        {
+          "text": "so,",
+          "start": 2.56,
+          "end": 2.92
+        },
+        {
+          "text": "like",
+          "start": 3.28,
+          "end": 3.38
+        },
+        {
+          "text": "a",
+          "start": 3.38,
+          "end": 3.54
+        },
+        {
+          "text": "wild",
+          "start": 3.54,
+          "end": 3.88
+        },
+        {
+          "text": "frantic",
+          "start": 3.88,
+          "end": 4.3
+        },
+        {
+          "text": "bird",
+          "start": 4.3,
+          "end": 4.66
+        },
+        {
+          "text": "that",
+          "start": 4.66,
+          "end": 4.86
+        },
+        {
+          "text": "is",
+          "start": 4.86,
+          "end": 4.98
+        },
+        {
+          "text": "rending",
+          "start": 4.98,
+          "end": 5.4
+        },
+        {
+          "text": "its",
+          "start": 5.4,
+          "end": 5.52
+        },
+        {
+          "text": "own",
+          "start": 5.52,
+          "end": 5.74
+        },
+        {
+          "text": "plumage",
+          "start": 5.74,
+          "end": 6.26
+        },
+        {
+          "text": "in",
+          "start": 6.26,
+          "end": 6.4
+        },
+        {
+          "text": "its",
+          "start": 6.4,
+          "end": 6.56
+        },
+        {
+          "text": "desperation.\"",
+          "start": 6.56,
+          "end": 7.06
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.358918447047472
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5659aa56fda4d30aa17502fa36037a76e06ea8254b74aacf1bf461748ebddd17",
+  "selected_reasons": []
+}

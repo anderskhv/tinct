@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "2b4fd87bc2af769f7caca0bf7759177a05ad88f3ab07973d33b4408196e2beec",
+  "attempts": [
+    {
+      "asr_seconds": 0.19707423821091652,
+      "alignment_seconds": 0.0004334449768066406,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Not five shillings sir nor five pence",
+          "start": 0.05,
+          "end": 2.59,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " five",
+              "start": 0.57,
+              "end": 0.87,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " shillings",
+              "start": 0.87,
+              "end": 1.27,
+              "probability": 0.9524739583333334
+            },
+            {
+              "text": " sir",
+              "start": 1.27,
+              "end": 1.51,
+              "probability": 0.5439453125
+            },
+            {
+              "text": " nor",
+              "start": 1.51,
+              "end": 1.87,
+              "probability": 0.4453125
+            },
+            {
+              "text": " five",
+              "start": 1.87,
+              "end": 2.17,
+              "probability": 0.986328125
+            },
+            {
+              "text": " pence",
+              "start": 2.17,
+              "end": 2.59,
+              "probability": 0.92333984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "five",
+          "start": 0.57,
+          "end": 0.87
+        },
+        {
+          "raw": "shillings",
+          "start": 0.87,
+          "end": 1.27
+        },
+        {
+          "raw": "sir",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "raw": "nor",
+          "start": 1.51,
+          "end": 1.87
+        },
+        {
+          "raw": "five",
+          "start": 1.87,
+          "end": 2.17
+        },
+        {
+          "raw": "pence",
+          "start": 2.17,
+          "end": 2.59
+        }
+      ],
+      "expected_tokens": [
+        "\"Not",
+        "five",
+        "shillings,",
+        "sir;",
+        "nor",
+        "five",
+        "pence.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "not",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "five",
+          "start": 0.57,
+          "end": 0.87,
+          "key": "five",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shillings",
+          "start": 0.87,
+          "end": 1.27,
+          "key": "shillings",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir",
+          "start": 1.27,
+          "end": 1.51,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 1.51,
+          "end": 1.87,
+          "key": "nor",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "five",
+          "start": 1.87,
+          "end": 2.17,
+          "key": "five",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pence",
+          "start": 2.17,
+          "end": 2.59,
+          "key": "pence",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Not",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "five",
+          "start": 0.57,
+          "end": 0.87
+        },
+        {
+          "text": "shillings,",
+          "start": 0.87,
+          "end": 1.27
+        },
+        {
+          "text": "sir;",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "text": "nor",
+          "start": 1.51,
+          "end": 1.87
+        },
+        {
+          "text": "five",
+          "start": 1.87,
+          "end": 2.17
+        },
+        {
+          "text": "pence.\"",
+          "start": 2.17,
+          "end": 2.59
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1976618357002735
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "56663a22de2e0f68703a8359009dab69ff14f4d38d6c4c6ed1bcac9202e04e3d",
+  "selected_reasons": []
+}

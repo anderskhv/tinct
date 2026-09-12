@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "7fc69e4091d2dfe1e95e028ccbc281f79abb513264343597614a4f6147356dd9",
+  "attempts": [
+    {
+      "asr_seconds": 0.14861221611499786,
+      "alignment_seconds": 0.00030926987528800964,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Not the least.\"",
+        "hotwords": "Not"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Not the least.",
+          "start": 0.02,
+          "end": 0.88,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.77685546875
+            },
+            {
+              "text": " the",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " least.",
+              "start": 0.7,
+              "end": 0.88,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "the",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "least.",
+          "start": 0.7,
+          "end": 0.88
+        }
+      ],
+      "expected_tokens": [
+        "\"Not",
+        "the",
+        "least.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Not",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "not",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.54,
+          "end": 0.7,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "least.",
+          "start": 0.7,
+          "end": 0.88,
+          "key": "least",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Not",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "the",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "least.\"",
+          "start": 0.7,
+          "end": 0.88
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14902611076831818
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "70d3d147b6868ff7ef1c008521af9d5f7c269e0729df25b665f47e8c2b1ecd6f",
+  "selected_reasons": []
+}

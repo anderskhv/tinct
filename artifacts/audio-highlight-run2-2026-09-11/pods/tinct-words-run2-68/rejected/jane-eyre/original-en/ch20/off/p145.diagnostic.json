@@ -1,0 +1,530 @@
+{
+  "complete": true,
+  "signature": "d783a70665646fcff30cbd8153246038fd6494568a33d7cf72e500942f54210e",
+  "attempts": [
+    {
+      "asr_seconds": 0.3090566657483578,
+      "alignment_seconds": 0.00048538297414779663,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I answered him by assuming it, to refuse wood I felt have been unwise.",
+          "start": 0.11,
+          "end": 4.57,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.11,
+              "end": 0.53,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " answered",
+              "start": 0.53,
+              "end": 0.87,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " him",
+              "start": 0.87,
+              "end": 1.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " by",
+              "start": 1.07,
+              "end": 1.23,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " assuming",
+              "start": 1.23,
+              "end": 1.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it,",
+              "start": 1.53,
+              "end": 1.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 2.29,
+              "end": 2.41,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " refuse",
+              "start": 2.41,
+              "end": 2.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wood",
+              "start": 2.83,
+              "end": 3.17,
+              "probability": 0.7333984375
+            },
+            {
+              "text": " I",
+              "start": 3.17,
+              "end": 3.39,
+              "probability": 0.9765625
+            },
+            {
+              "text": " felt",
+              "start": 3.39,
+              "end": 3.63,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " have",
+              "start": 3.63,
+              "end": 3.95,
+              "probability": 0.625
+            },
+            {
+              "text": " been",
+              "start": 3.95,
+              "end": 4.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " unwise.",
+              "start": 4.09,
+              "end": 4.57,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "raw": "answered",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "raw": "him",
+          "start": 0.87,
+          "end": 1.07
+        },
+        {
+          "raw": "by",
+          "start": 1.07,
+          "end": 1.23
+        },
+        {
+          "raw": "assuming",
+          "start": 1.23,
+          "end": 1.53
+        },
+        {
+          "raw": "it,",
+          "start": 1.53,
+          "end": 1.87
+        },
+        {
+          "raw": "to",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "raw": "refuse",
+          "start": 2.41,
+          "end": 2.83
+        },
+        {
+          "raw": "wood",
+          "start": 2.83,
+          "end": 3.17
+        },
+        {
+          "raw": "I",
+          "start": 3.17,
+          "end": 3.39
+        },
+        {
+          "raw": "felt",
+          "start": 3.39,
+          "end": 3.63
+        },
+        {
+          "raw": "have",
+          "start": 3.63,
+          "end": 3.95
+        },
+        {
+          "raw": "been",
+          "start": 3.95,
+          "end": 4.09
+        },
+        {
+          "raw": "unwise.",
+          "start": 4.09,
+          "end": 4.57
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "answered",
+        "him",
+        "by",
+        "assuming",
+        "it:",
+        "to",
+        "refuse",
+        "would,",
+        "I",
+        "felt,",
+        "have",
+        "been",
+        "unwise."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          14,
+          9,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.53,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "answered",
+          "start": 0.53,
+          "end": 0.87,
+          "key": "answered",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 0.87,
+          "end": 1.07,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.07,
+          "end": 1.23,
+          "key": "by",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "assuming",
+          "start": 1.23,
+          "end": 1.53,
+          "key": "assuming",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 1.53,
+          "end": 1.87,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.29,
+          "end": 2.41,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "refuse",
+          "start": 2.41,
+          "end": 2.83,
+          "key": "refuse",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wood",
+          "start": 2.83,
+          "end": 3.17,
+          "key": "wood",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.17,
+          "end": 3.39,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "felt",
+          "start": 3.39,
+          "end": 3.63,
+          "key": "felt",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.63,
+          "end": 3.95,
+          "key": "have",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 3.95,
+          "end": 4.09,
+          "key": "been",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "unwise.",
+          "start": 4.09,
+          "end": 4.57,
+          "key": "unwise",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "text": "answered",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "text": "him",
+          "start": 0.87,
+          "end": 1.07
+        },
+        {
+          "text": "by",
+          "start": 1.07,
+          "end": 1.23
+        },
+        {
+          "text": "assuming",
+          "start": 1.23,
+          "end": 1.53
+        },
+        {
+          "text": "it:",
+          "start": 1.53,
+          "end": 1.87
+        },
+        {
+          "text": "to",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "text": "refuse",
+          "start": 2.41,
+          "end": 2.83
+        },
+        {
+          "text": "would,",
+          "start": 2.83,
+          "end": 3.0
+        },
+        {
+          "text": "I",
+          "start": 3.17,
+          "end": 3.39
+        },
+        {
+          "text": "felt,",
+          "start": 3.39,
+          "end": 3.63
+        },
+        {
+          "text": "have",
+          "start": 3.63,
+          "end": 3.95
+        },
+        {
+          "text": "been",
+          "start": 3.95,
+          "end": 4.09
+        },
+        {
+          "text": "unwise.",
+          "start": 4.09,
+          "end": 4.57
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.3097214661538601
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a04c6274e00cedfe9a936025bf998388c987323ed259d5967454ea4db333aebd",
+  "selected_reasons": []
+}

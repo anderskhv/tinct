@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "f6415b536b2b12c22deb4075850a0ba82766438abaf57407b88145f6eb0111a1",
+  "attempts": [
+    {
+      "asr_seconds": 0.19809811934828758,
+      "alignment_seconds": 0.00036514177918434143,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ha! explain!\" commanded the lady.",
+        "hotwords": "Ha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ha! explain! commanded the lady.",
+          "start": 0.05,
+          "end": 2.35,
+          "words": [
+            {
+              "text": " Ha!",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.658203125
+            },
+            {
+              "text": " explain!",
+              "start": 1.15,
+              "end": 1.15,
+              "probability": 0.6650390625
+            },
+            {
+              "text": " commanded",
+              "start": 1.71,
+              "end": 1.89,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " the",
+              "start": 1.89,
+              "end": 2.13,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " lady.",
+              "start": 2.13,
+              "end": 2.35,
+              "probability": 0.87451171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ha!",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "explain!",
+          "start": 1.15,
+          "end": 1.15
+        },
+        {
+          "raw": "commanded",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "raw": "the",
+          "start": 1.89,
+          "end": 2.13
+        },
+        {
+          "raw": "lady.",
+          "start": 2.13,
+          "end": 2.35
+        }
+      ],
+      "expected_tokens": [
+        "\"Ha!",
+        "explain!\"",
+        "commanded",
+        "the",
+        "lady."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ha!",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "ha",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "explain!",
+          "start": 1.15,
+          "end": 1.15,
+          "key": "explain",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "commanded",
+          "start": 1.71,
+          "end": 1.89,
+          "key": "commanded",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.89,
+          "end": 2.13,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lady.",
+          "start": 2.13,
+          "end": 2.35,
+          "key": "lady",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ha!",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "explain!\"",
+          "start": 1.15,
+          "end": 1.15
+        },
+        {
+          "text": "commanded",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "text": "the",
+          "start": 1.89,
+          "end": 2.13
+        },
+        {
+          "text": "lady.",
+          "start": 2.13,
+          "end": 2.35
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19858649373054504
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "22f7401efb35d9644dcfea3c9440b12d757f3f2f59b2f994772a521dc664333a",
+  "selected_reasons": []
+}
