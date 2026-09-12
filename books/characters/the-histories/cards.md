@@ -230,6 +230,8 @@ King of Sparta at the time of Croesus’s embassy.
 
 Anaxandrides’s fellow-king at Sparta when Croesus sent for an alliance.
 
+After source chapter 949, paragraph 1: Childless by two wives, he took a third by tricking his closest friend out of her with a sworn exchange of gifts. When the servant announced the birth he counted the months on his fingers and denied the child on oath — one sentence, thought nothing of at the time, that unseated Demaratus years later.
+
 ## Lichas · supporting
 
 One of the Spartan "Well-doers", who found the bones of Orestes under a blacksmith’s forge at Tegea by taking the smith’s talk about a seven-foot coffin literally.
@@ -1196,6 +1198,8 @@ The Persian Darius left to command in Europe — the man whose praise Darius rat
 
 Tyrant of Miletus, who talked the Ionians out of breaking Darius’s bridge over the Ister on the argument that their own tyrannies depended on him. The two editions spell him Histiaeus and Histiaios.
 
+After source chapter 916, paragraph 1: Driven out of Miletus by the Milesians, he turned pirate on the Hellespont, subdued Chios and was beaten at Malene by Harpagus. He expected Darius to forgive him; Artaphrenes and Harpagus killed him at Sardis first and sent only his head, which Darius had washed and buried with honour, blaming the men who had not brought him up alive.
+
 ## The Amazons · major
 
 Whom the Scythians call Oiorpata, man-slayers; the ones taken at the Thermodon killed their crews, drifted to the Maeotian lake, and became the Sauromatai by marrying Scythian youths on terms.
@@ -1540,6 +1544,8 @@ The Myndian captain whom Megabates had bound and pushed through a hole in his ow
 
 King of Sparta, son of Anaxandrides by the second wife, who sent Aristagoras out of the city for saying the sea was three months from the Persian king, expelled Cleisthenes from Athens, was besieged on the Acropolis, and lost his army at Eleusis when the Corinthians went home.
 
+After source chapter 961, paragraph 1: He engineered the deposing of Demaratus, sacked the grove at Argos and scourged the priest of Hera, and then went mad — striking every Spartan he met in the face with his staff. Bound in the stocks, he frightened a Helot into handing him a knife and cut himself to pieces from the legs upwards.
+
 ## Dorieus · major
 
 Anaxandrides’s second son, who would not be ruled by his brother, failed to found a colony in Libya, tried again at Heraclea in Sicily against the oracle’s advice, and was killed there.
@@ -1563,6 +1569,8 @@ The diviner of Elis, of the Iamidae, who read the sacrifices for Croton against 
 ## Hippias · major
 
 Peisistratus’s son and tyrant of Athens, driven out by the Lacedaemonians and the Alcmaeonidae to Sigeum; the one man, Herodotus says, who understood the oracles about Attica.
+
+After source chapter 993, paragraph 1: He guided the Persians in to Marathon, after a dream of lying with his own mother that he read as a return to Athens and death an old man in his own land. Then a fit of coughing loosened a tooth into the sand; he could not find it, and said that the land was not theirs after all.
 
 ## Hipparchus · major
 
@@ -1591,6 +1599,8 @@ Anchimolius’s father.
 ## The Alcmaeonidae · major
 
 The Athenian family in exile who, Herodotus says, bribed the Pythian priestess to tell every Spartan who came that Athens must be set free — and so brought down the tyranny.
+
+After source chapter 1010, paragraph 1: Herodotus will not accept the charge that they signalled to the Persians with a shield after Marathon: they were in exile the whole time of the tyranny, and it was by their contrivance that the sons of Peisistratus gave up their rule. That a shield was shown he does not deny. Who showed it, he says, he cannot say.
 
 ## Cleisthenes · major
 
@@ -1763,3 +1773,627 @@ Who sent five triremes to the Ionian revolt to repay Miletus for an older debt.
 ## The Parians · supporting
 
 Who were called in to reform the constitution of Miletus and did it by finding the men who kept their own farms in good order.
+
+## Hermippus · supporting
+
+The man of Atarneus whom Histiaeus used as a courier to the Persians at Sardis. He carried the letters to Artaphrenes instead, then carried them on as instructed and brought the replies back — and many Persians died of it.
+
+## Dionysius · major
+
+The Phocaean commander who told the Ionians at Lade that their affairs stood on a razor edge, and drilled them for seven days until they refused to obey a man with three ships. When the line broke he took three enemy ships, sailed for Sicily and lived as a pirate, plundering Carthaginians and Tyrsenians but never Hellenes.
+
+## Aeaces · major
+
+Tyrant of Samos, Syloson’s son, deposed by Aristagoras and sent by the Persians to offer his countrymen terms. Sixty Samian ships hoisted sail and left the line at Lade; Samos alone kept its city and its temples, and the Phoenicians put him back.
+
+## Phrynichus · supporting
+
+The Athenian who staged a play called The Capture of Miletus. The audience wept, the city fined him a thousand drachmas for reminding them of their own grief, and no one was ever to perform the play again.
+
+## The Prienians · reference
+
+Twelve ships in the Ionian line at Lade, next to the Milesians.
+
+## The Teians · reference
+
+Seventeen ships in the Ionian line at Lade.
+
+## Scythes · supporting
+
+King of Zancle, away besieging a Sicel town when the Samians walked into his empty city. Hippocrates put him in fetters for losing it; he escaped to Asia, and Darius thought him the most righteous of all the men who ever came up to him out of Hellas.
+
+## Pythogenes · reference
+
+Scythes’s brother, put in fetters with him and sent off to Inyx.
+
+## Anaxilaus · supporting
+
+Tyrant of Rhegium, at odds with Zancle, who told the Samians to leave the Fair Strand alone and take the city whose men were away.
+
+## Hippocrates · major
+
+Tyrant of Gela, who came to rescue his Zanclaean allies and sold them instead: he chained their king, took half the movable goods and the slaves and all the land, kept most of the people for himself, and handed three hundred of their leading men to the Samians to kill.
+
+## The Sicels · reference
+
+The people of the interior of Sicily, in whose land the Fair Strand lay and against whose town the men of Zancle were encamped.
+
+## The Zanclaeans · supporting
+
+The Sicilian Ionians who invited settlers to the Fair Strand, lost their own city to the men they invited, and were enslaved by the ally they called in to help.
+
+## Bisaltes · reference
+
+A man of Abydos, left in charge of Histiaeus’s affairs on the Hellespont.
+
+## Apollophanes · reference
+
+Bisaltes’s father.
+
+## Harpagus · major
+
+The Persian commanding in Mysia who beat Histiaeus at Malene when the cavalry charged, and took him alive. Not the Mede who was made to expose Cyrus.
+
+## Oebares · reference
+
+Megabazus’s son, Persian governor at Dascyleium, with whom Cyzicus came to terms before the Phoenician fleet arrived — which is why Cyzicus was not burned.
+
+## Lysagoras · reference
+
+Histiaeus of Miletus’s father.
+
+## Miltiades · central
+
+Cimon’s son, tyrant of the Chersonese, who escaped the Phoenicians by four ships and his enemies by a trial, and was then elected general. At Marathon he talked the polemarch into fighting and waited for his own day of command. Afterwards he asked for seventy ships without saying where they were going, failed at Paros, and died of a rotting thigh with a fine of fifty talents unpaid.
+
+## Miltiades · major
+
+Cypselus’s son, who called the Dolonkians into his doorway and so turned out to be the founder the oracle had promised them. He walled the isthmus, was ransomed from Lampsacus by a threat of Croesus, and died childless; the Chersonese sacrifices to him still, with games no man of Lampsacus may enter.
+
+## Cypselus · reference
+
+The Athenian father of the first Miltiades. Not the tyrant of Corinth of the same name.
+
+## Cimon · major
+
+Miltiades’s father, driven out of Athens by Peisistratus, three times a winner at Olympia with the same mares — the second victory he let Peisistratus be proclaimed for, and so bought his way home. The sons of Peisistratus had him killed by night near the City Hall; his mares are buried facing him.
+
+## Cimon · supporting
+
+Miltiades’s son, who paid the fifty talents his father was fined, and whom Herodotus names once more as the Athenian commander at a siege on the Thracian coast.
+
+## Stesagoras · supporting
+
+Cimon’s elder son, raised in the Chersonese by his great-uncle and heir to his rule, killed in the city hall by an axe blow from a man who passed himself off as a deserter.
+
+## Stesagoras · reference
+
+Cimon’s father, named only in the descent of the Chersonese house.
+
+## Philaeus · reference
+
+Ajax’s son, the first of Miltiades’s family to become an Athenian.
+
+## Ajax · reference
+
+The hero from whom Miltiades’s house traced itself, by way of Aeacus and Aegina.
+
+## The Dolonkians · supporting
+
+The Thracians of the Chersonese, so hard pressed by the Apsinthians that they sent their kings to Delphi, and were told to take home as founder the first man who offered them hospitality.
+
+## The Apsinthians · reference
+
+The Thracian neighbours whose war drove the Dolonkians to the oracle, and whom Miltiades shut out with a wall across the isthmus.
+
+## Olorus · supporting
+
+King of the Thracians, whose daughter Miltiades married in the Chersonese.
+
+## Hegesipyle · reference
+
+Olorus’s daughter, Miltiades’s Thracian wife.
+
+## Metiochus · supporting
+
+Miltiades’s eldest son, by an earlier wife, captured in the one ship of five that did not escape. Darius did him no harm at all: a house, an estate and a Persian wife, and his children were counted as Persians.
+
+## Euagoras · reference
+
+The Laconian whose mares also won three Olympic victories — the only ones besides Cimon’s to do it.
+
+## Mardonius · major
+
+Gobryas’s son and Darius’s son-in-law, sent down to the coast young. He put down the Ionian tyrants and set up popular governments — which Herodotus offers as a marvel to Hellenes who will not believe Otanes argued for popular rule — then lost three hundred ships off Athos, was wounded by the Brygi, and was relieved of his command.
+
+## Artozostra · reference
+
+Darius’s daughter, whom Mardonius had lately married.
+
+## The Thasians · supporting
+
+The islanders whose mines brought in two hundred talents a year and sometimes three hundred, spent on warships and a stronger wall — which Darius ordered pulled down, with the ships sent to Abdera.
+
+## The Brygi · supporting
+
+The Thracians who attacked Mardonius’s camp by night, killed many of his men and wounded him, and were made subject all the same.
+
+## Thasus · reference
+
+The Phoenician who made the first settlement on the island, and left it his name.
+
+## Demaratus · major
+
+Ariston’s son and king of Sparta of the younger house, who accused Cleomenes over Aegina out of envy and was unseated for it: the charge was that Ariston, counting the months on his fingers, had denied him at birth. He made his mother tell him whose son he was, was mocked at a festival by the man who replaced him, and went to Darius.
+
+## Leotychides · major
+
+Demaratus’s kinsman, who had lost his bride to him and swore the charge that unseated him. He took the throne, was sentenced to be handed over to the Aeginetans for the hostages, told the Athenians the story of Glaucus instead, and ended in exile at Tegea after being caught in camp sitting on a glove stuffed with money.
+
+## Crius · supporting
+
+The Aeginetan who told Cleomenes he had no authority from Sparta and would not be taking anyone away. Cleomenes asked his name, heard that it meant Ram, and told him to bind his horns with bronze.
+
+## Polycritus · reference
+
+Crius’s father.
+
+## Eurysthenes · supporting
+
+The twin the Spartans took for the elder, because his mother washed and fed him first. The senior royal house descends from him, and is honoured more for it.
+
+## Procles · supporting
+
+Aristodemus’s other twin, ancestor of the younger royal house. The brothers were at variance their whole lives, and so were their descendants.
+
+## Aristodemus · supporting
+
+The Heraclid who, the Lacedaemonians alone say, led them into this land himself; he lived just long enough to see his twin sons and then died of sickness.
+
+## Argeia · supporting
+
+Aristodemus’s wife, who told the Lacedaemonians she could not tell her twins apart. She knew perfectly well. She wanted both of them made kings.
+
+## Aristomachus · reference
+
+Aristodemus’s father in the Heraclid line.
+
+## Cleodaeus · reference
+
+Aristomachus’s father, Hyllus’s son.
+
+## Hyllus · reference
+
+Heracles’s son, at the head of the Spartan royal descent.
+
+## Thersander · reference
+
+Polyneices’s son, Argeia’s great-grandfather.
+
+## Polyneices · reference
+
+Thersander’s father, at the head of Argeia’s Theban descent.
+
+## Panites · supporting
+
+The Messenian who ended the Spartans’ difficulty: watch which twin the mother washes and feeds first, and if she always keeps the same order you have your answer.
+
+## Acrisius · reference
+
+Danae’s father. Count back from him, Herodotus says, and the rulers of the Dorians come out Egyptian.
+
+## The Helots · supporting
+
+The Lacedaemonian serfs: gathered in thousands to mourn a dead king, set to pile brushwood round the grove at Argos, sent to drag the priest of Hera from his own altar. One of them was frightened into handing Cleomenes a knife.
+
+## The Ephors · supporting
+
+The Spartan magistrates sitting with Ariston when he denied his newborn son, produced years later as witnesses against Demaratus, and hearing the charge that Cleomenes had been bribed not to take Argos.
+
+## The Pythians · reference
+
+The two men each Spartan king appoints to consult the god at Delphi, who eat at the public table with the kings and share the keeping of the oracles.
+
+## Agetus · supporting
+
+Ariston’s closest friend, who agreed to an exchange of any one possession, sworn on oath, and lost his wife by it.
+
+## Alcides · reference
+
+Agetus’s father.
+
+## Menares · reference
+
+Leotychides’s father.
+
+## Agis · reference
+
+Menares’s father, of the same royal house as Demaratus.
+
+## Percalos · supporting
+
+Chilon’s daughter, betrothed to Leotychides and carried off first by Demaratus, who married her himself. That was the beginning of the feud.
+
+## Chilon · reference
+
+Percalos’s father. Herodotus gives him a patronymic and nothing more.
+
+## Demarmenos · reference
+
+Chilon’s father.
+
+## Cobon · supporting
+
+The most powerful man at Delphi, bought by Cleomenes to get the answer he wanted about Demaratus, and driven into exile when the business came out. The older translation spells him Cobon and Cobin in the same sentence.
+
+## Aristophantus · reference
+
+Cobon’s father.
+
+## Perialla · supporting
+
+The prophetess of the oracle who gave the answer Cleomenes had paid for, and was removed from her office.
+
+## Astrabacus · supporting
+
+The hero of the shrine beside Ariston’s door, who Demaratus’s mother says came to her in her husband’s likeness and left his own garlands on her. The diviners agreed it was he.
+
+## The Zacynthians · reference
+
+The islanders who let the Spartans take Demaratus’s attendants and would not give up the man.
+
+## Zeuxidemus · supporting
+
+Leotychides’s son, whom some Spartans called Cyniscus. He died before his father and never was king.
+
+## Archidamus · reference
+
+Zeuxidemus’s son, who married his grandfather’s daughter.
+
+## Eurydame · reference
+
+Leotychides’s second wife, who bore him a daughter and no son.
+
+## Menios · reference
+
+Eurydame’s brother.
+
+## Diactorides · reference
+
+Eurydame’s father.
+
+## Lampito · reference
+
+Leotychides’s daughter, whom he gave in marriage to Archidamus.
+
+## Casambus · supporting
+
+One of the two most powerful men on Aegina, carried off with Crius and handed to the Athenians for safekeeping.
+
+## Aristocrates · reference
+
+Casambus’s father.
+
+## Cleander · supporting
+
+A Phigalian prophet out of Arcadia, who persuaded the slaves holding Tiryns to make war on their old masters — and the war was long.
+
+## Argos · supporting
+
+The hero whose grove and sanctuary stood at Argos. Cleomenes burned the grove, then asked a deserter whose it was, and understood that the oracle promising he would conquer Argos had already been kept.
+
+## Theasides · supporting
+
+A Spartan of standing who asked the Aeginetans what they thought they were doing carrying off a king their own citizens had handed over, and talked them out of it.
+
+## Leoprepes · reference
+
+Theasides’s father.
+
+## Glaucus · major
+
+The Lacedaemonian of two generations back whose honesty was a byword, and who asked Delphi whether he might keep a deposit by swearing falsely. The Pythia told him Oath has a son. He returned the money; there is not a descendant of his left in Sparta, nor a hearth reckoned as his.
+
+## Epicydes · reference
+
+Glaucus’s father.
+
+## Oath · reference
+
+The power the Pythia set against Glaucus. It has a son with no name, no hands and no feet, who runs a perjurer down without feet and seizes him without hands, and destroys his house and his whole race.
+
+## Nicodromus · supporting
+
+The Aeginetan exile who agreed to hand the island to Athens, seized the Old City on the day he had named, and found the Athenian fleet a day late. He got away by ship, and raided his own island from Sunion afterwards.
+
+## Cnoethus · reference
+
+Nicodromus’s father.
+
+## Eurybates · supporting
+
+The Argive volunteer commander at Aegina, a trained pentathlete, who killed three men in single combat and was killed by the fourth.
+
+## Sophanes · supporting
+
+The Athenian of Deceleia who killed Eurybates.
+
+## Datis · major
+
+The Mede who commanded against Eretria and Athens. He would not anchor off Delos, sent the Delians home with three hundred talents of frankincense burned on the altar, enslaved Eretria, and carried a stolen gilded Apollo back across the sea to be returned.
+
+## Artaphrenes · major
+
+Darius’s nephew, the son of the governor of Sardis, joint commander with Datis at Marathon.
+
+## Xerxes · major
+
+Darius’s son, named in the count of three generations under which more evils came upon Hellas than in the twenty before. His name, Herodotus says, means Warrior.
+
+## Artaxerxes · reference
+
+Xerxes’s son, the third of the three generations; his name means Great Warrior.
+
+## The Carystians · supporting
+
+The islanders who would give neither hostages nor troops against their own neighbours, and gave way only after their town was besieged and their land stripped.
+
+## Aeschines · supporting
+
+The leading Eretrian who told the four thousand Athenians how his city was actually divided, and begged them to go home rather than be destroyed with it. They took his advice.
+
+## Nothon · reference
+
+Aeschines’s father.
+
+## Euphorbus · supporting
+
+One of the two Eretrians of note who handed the city over on the seventh day of the assault.
+
+## Alcimachus · reference
+
+Euphorbus’s father.
+
+## Philagrus · supporting
+
+The other Eretrian who gave the city up.
+
+## Cyneas · reference
+
+Philagrus’s father.
+
+## The Plataeans · major
+
+Plataea in full force on the left wing at Marathon, repaying the city that had taken them in when Sparta advised it and would not do it. The Athenian herald still prays for blessings on the Athenians and the Plataeans together.
+
+## Pheidippides · supporting
+
+The Athenian long-distance runner sent to Sparta, who was there the day after he left Athens — and who said that Pan met him on Mount Parthenion and asked why the Athenians paid him no attention, being well disposed to them and useful before now.
+
+## Callimachus · major
+
+The polemarch, of the deme of Aphidnae, whose extra vote decided that Athens would fight. Miltiades told him the choice lay with him alone; he took the right wing, as the custom was, and was killed there.
+
+## Stesilaus · reference
+
+One of the ten generals, killed at Marathon.
+
+## Thrasylaus · reference
+
+Stesilaus’s father.
+
+## Cynegirus · supporting
+
+The Athenian who had his hand cut off with an axe as he took hold of the stern ornament of a Persian ship, and fell.
+
+## Euphorion · reference
+
+Cynegirus’s father.
+
+## The Sacae · supporting
+
+The troops drawn up with the Persians themselves in the centre at Marathon, where the barbarians broke the Athenian line and pursued it inland.
+
+## Epizelos · supporting
+
+The Athenian who lost the sight of his eyes in the close fighting with no wound on him and no missile near him, and stayed blind for life. He used to say a tall man in full armour, whose beard shadowed his whole shield, passed him by and killed the man next to him.
+
+## Couphagoras · reference
+
+Epizelos’s father.
+
+## Callias · major
+
+The one Athenian who dared buy Peisistratus’s goods at auction when he was driven out, and devised every other hostility he could against him. He won the horse race at Olympia and was second in the chariot, and he let each of his three daughters marry the man in Athens she chose.
+
+## Phaenippus · reference
+
+Callias’s father.
+
+## Hipponicus · reference
+
+Callias’s son.
+
+## Megacles · reference
+
+Alcmaeon’s father, at the head of the Alcmaeonid line.
+
+## Megacles · reference
+
+Hippocrates’s son, a later Megacles of the same house.
+
+## Hippocrates · reference
+
+Megacles’s other son, father of the younger Megacles and the younger Agariste.
+
+## Aristonymus · reference
+
+Cleisthenes of Sicyon’s father.
+
+## Myron · reference
+
+Aristonymus’s father.
+
+## Andreas · reference
+
+Myron’s father.
+
+## Agariste · major
+
+Cleisthenes of Sicyon’s daughter, for whom he called the suitors of Hellas to Sicyon and kept them a year under test. She married Megacles, and her son gave Athens its ten tribes and its democracy.
+
+## Agariste · supporting
+
+The later Agariste of the house, named after Cleisthenes’s daughter, who dreamed she had given birth to a lion and a few days later bore Pericles.
+
+## Hippocleides · major
+
+The suitor Cleisthenes liked best, for himself and for his Corinthian connection — until he called for a table, danced Laconian figures and Attic figures on it, and then stood on his head and waved his legs. Told he had danced his marriage away, he said that Hippocleides did not care.
+
+## Smindyrides · supporting
+
+The suitor from Sybaris, who of all men on earth had reached the highest point of luxury.
+
+## Hippocrates · reference
+
+Smindyrides’s father.
+
+## Damasus · reference
+
+A suitor, from Siris.
+
+## Amyris · reference
+
+Damasus’s father, the man they called the Wise.
+
+## Amphimnestus · reference
+
+A suitor, from Epidamnus on the Ionian gulf.
+
+## Epistrophus · reference
+
+Amphimnestus’s father.
+
+## Males · reference
+
+The Aetolian suitor, brother of the strongest man in Hellas.
+
+## Titormus · supporting
+
+Males’s brother, who surpassed all Hellenes in strength and went off to the remotest part of Aetolia to get away from the company of men.
+
+## Leocedes · reference
+
+The suitor from the Peloponnese, Pheidon’s son.
+
+## Pheidon · supporting
+
+Tyrant of Argos, who fixed the measures the Peloponnese still uses, and outdid every other Hellene in arrogance: he threw the Eleans out of the presidency of their own games and presided himself.
+
+## Amiantus · reference
+
+An Arcadian suitor, from Trapezus.
+
+## Lycurgus · reference
+
+Amiantus’s father. Neither the Spartan lawgiver nor the Athenian faction leader.
+
+## Laphanes · reference
+
+An Azanian suitor, from the city of Paios.
+
+## Euphorion · reference
+
+Laphanes’s father, who the Arcadians say entertained the Dioscuri in his house and from then on made a point of taking in everyone who came.
+
+## Onomastus · reference
+
+A suitor, from Elis.
+
+## Agaios · reference
+
+Onomastus’s father.
+
+## Tisander · reference
+
+Hippocleides’s father.
+
+## Lysanias · reference
+
+The one suitor from Euboea, out of Eretria while it still flourished.
+
+## Diactorides · reference
+
+The Thessalian suitor, of the Scopad family of Crannon.
+
+## The Scopadae · reference
+
+The Thessalian house of Crannon that Diactorides belonged to.
+
+## Alcon · reference
+
+The suitor from the Molossians.
+
+## The Molossians · reference
+
+The people Alcon came from.
+
+## Xanthippus · major
+
+The Athenian who married the younger Agariste and, when Miltiades came back from Paros, brought him before the people and demanded the death penalty.
+
+## Ariphron · reference
+
+Xanthippus’s father.
+
+## Pericles · reference
+
+Xanthippus’s son by Agariste, born a few days after she dreamed she had given birth to a lion.
+
+## Lysagoras · supporting
+
+The Parian who denounced Miltiades to Hydarnes the Persian, and so gave him a private grudge against Paros to go with the public one.
+
+## Tisias · reference
+
+Lysagoras’s father.
+
+## Timo · major
+
+The Parian under-priestess of the chthonic goddesses, a prisoner, who told Miltiades what to do to take Paros. The Parians wanted to kill her for it; the Pythia would not allow it, since Timo was not the author of the business but the means by which a man fated to end badly was led to his end.
+
+## Hegesander · reference
+
+Hecataeus’s father.
+
+## Thoas · reference
+
+The one husband named of those the Lemnian women killed.
+
+## Ariston · reference
+
+Tyrant of Byzantium, one of the Hellespontine despots who voted at the Ister bridge. Named once, and not the king of Sparta.
+
+## Daphnis · reference
+
+Tyrant of Abydos, in the same roll at the bridge.
+
+## Hippoclos · reference
+
+Tyrant of Lampsacus, in the same roll.
+
+## Herophantus · reference
+
+Tyrant of Parion, in the same roll.
+
+## Metrodorus · reference
+
+Tyrant of Proconnesus, in the same roll.
+
+## Strattis · reference
+
+Tyrant of Chios, in the same roll, and still in place two invasions later.
+
+## Laodamas · reference
+
+Tyrant of Phocaea, in the same roll.

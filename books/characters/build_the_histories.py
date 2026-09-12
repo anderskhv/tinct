@@ -1,7 +1,7 @@
 """Reviewed bindings for the Histories.
 
 Nine books, 1,525 sections, 1,626 paragraphs per edition, aligned paragraph for
-paragraph. AUTHORING IS IN PROGRESS: Book 1 (sections 1-215) is authored.
+paragraph. AUTHORING IS IN PROGRESS: Books 1-6 (sections 1-1026) are authored.
 
 Herodotus reuses names across generations and empires, so most of the work here
 is position tables rather than aliases. In Book 1 alone there are two men called
@@ -23,7 +23,8 @@ SPLIT={
  # The Athenian faction leader, then the Spartan lawgiver, six sections apart.
  'Lycurg(?:us|os)':({(58,0):'lycurgus-athenian',(59,0):'lycurgus-athenian',
               (64,0):'lycurgus-spartan',(64,1):'lycurgus-spartan',
-              (65,0):'lycurgus-spartan'},None),
+              (65,0):'lycurgus-spartan',
+              (1013,0):'lycurgus-arcadia'},None),
  # Croesus's son, and the ancient king from whom the Lydians are named.
  'Atys':    ({(7,0):'atys-son-of-manes',(93,0):'atys-son-of-manes',
               (34,0):'atys-son-of-croesus'},None),
@@ -38,7 +39,9 @@ SPLIT={
  'Artembares':({(113,0):'artembares-mede',(114,0):'artembares-mede',
                 (115,0):'artembares-mede'},None),
  # The Spartan king of Croesus's day.
- 'Ariston': ({(66,0):'ariston-spartan'},None),
+ 'Ariston': ({(66,0):'ariston-spartan',(836,0):'ariston-spartan',
+              **{(n,0):'ariston-spartan' for n in [937,947,948,949,950,951,952,954,955,1029,1123,1231,1260]},
+              (694,0):'ariston-byzantium'},None),
  # Leon king of Sparta, Leonidas's grandfather. The Leon sacrificed by the
  # Persians in Book 8 is a different man and is not yet authored.
  'Leon':    ({(64,0):'leon',(800,0):'leon',(1226,0):'leon'},None),
@@ -67,7 +70,13 @@ SPLIT={
                  (1493,0):None},'aristagoras-miletus'),
  'Cleisthenes':({(827,0):'cleisthenes-athens',(829,0):'cleisthenes-sicyon',
                  (831,0):'cleisthenes-athens',(833,0):'cleisthenes-athens',
-                 (834,0):'cleisthenes-athens'},None),
+                 (834,0):'cleisthenes-athens',
+                 # Book 6: the whole suitor-contest is the Sicyonian, and the
+                 # last section runs the grandson and the grandfather together.
+                 (1012,0):'cleisthenes-sicyon',(1014,0):'cleisthenes-sicyon',
+                 (1015,0):'cleisthenes-sicyon',(1016,0):'cleisthenes-sicyon',
+                 (1017,0):['cleisthenes-athens','cleisthenes-sicyon',
+                           'cleisthenes-sicyon']},None),
  # Otanes son of Pharnaspes, of the seven. The Otanes of Book 5 is Sisamnes's
  # son; the Otanes of 877, 883 and Books 7-9 are other men again, and unbound.
  'Otanes':({(465,0):'otanes',(466,0):'otanes',(467,0):'otanes',(468,0):'otanes',(469,0):'otanes',(473,0):'otanes',(477,0):'otanes',(478,0):'otanes',(480,0):'otanes',(481,0):'otanes',(485,0):'otanes',(538,0):'otanes',(541,0):'otanes',(544,0):'otanes',(546,0):'otanes',(929,0):'otanes',
@@ -122,6 +131,77 @@ SPLIT={
                (778,0):'alexander-macedon',(780,0):'alexander-macedon',
                (781,0):'alexander-macedon',(782,0):'alexander-macedon',
                (783,0):'alexander-macedon'},None),
+ # BOOK 6. The worst namesake book in the Histories. Two men called Miltiades
+ # in one family, two called Cimon, two called Stesagoras, four called
+ # Hippocrates, three called Megacles, two called Agariste, and a Cypselus, a
+ # Harpagus, an Oebares, a Procles, a Chilon, a Callias, a Tisander and an
+ # Aeaces who each share a name with a man cast from an earlier book.
+ 'Miltiades':({(920,0):['miltiades','miltiades-cypselus'],
+               (921,0):'miltiades-cypselus',(922,0):'miltiades-cypselus',
+               (923,0):'miltiades-cypselus',
+               (989,0):['miltiades','miltiades-cypselus','miltiades-cypselus',
+                        'miltiades','miltiades-cypselus']},'miltiades'),
+ '(?:Kimon|Cimon)':({(1022,0):'cimon-son-of-miltiades',
+                     (1129,0):'cimon-son-of-miltiades'},'cimon'),
+ 'Stesagoras':({(920,0):'stesagoras-elder',(924,0):'stesagoras',(925,0):'stesagoras',
+                (989,0):['stesagoras-elder','stesagoras']},None),
+ '(?:Kypselos|Cypselus)':({(920,0):'cypselus-athens',(921,0):'cypselus-athens',
+                           (922,0):'cypselus-athens'},'cypselus'),
+ 'Harpag(?:us|os)':({(914,0):'harpagus-persian',(916,0):'harpagus-persian'},'harpagos'),
+ 'O[ei]bares':({(919,0):'oebares-dascyleium'},'oibares'),
+ # Three generations of the Samian house answer to the same name; only the last
+ # occurrence of section 899 is the grandfather.
+ 'A(?:iakes|eaces)':({(397,0):'aiakes',(436,0):'aiakes',(536,0):'aiakes',
+                      (899,0):['aeaces-samos','aeaces-samos','aeaces-samos',
+                               'aiakes']},'aeaces-samos'),
+ '(?:Procles|Prokles)':({(703,0):'procles-sparta',(938,0):'procles-sparta',
+                         (1390,0):'procles-sparta'},'procles'),
+ 'Chilon':({(951,0):'chilon-demarmenos'},'chilon'),
+ # The Athenian Callias and his grandson; the Elean diviner is the default.
+ 'Callias':({(1007,0):'callias-athens',(1008,0):'callias-athens',
+             (1173,0):None},'callias'),
+ 'Tisander':({(1013,0):'tisander-athens',(1014,0):'tisander-athens',
+              (1015,0):'tisander-athens'},'tisander'),
+ '(?:Hippocrates|Hippokrates)':({(909,0):'hippocrates-gela',(1176,0):'hippocrates-gela',
+                                 (1177,0):'hippocrates-gela',
+                                 (1013,0):'hippocrates-sybaris',
+                                 (1017,0):'hippocrates-alcmaeonid'},'hippocrates'),
+ '(?:Megacles|Megakles)':({(1011,0):['megacles','megacles-elder']},'megacles'),
+ 'Agariste':({},'agariste'),
+ '(?:Artaphrenes|Artaphernes)':({(980,0):['artaphrenes-son','artaphrenes'],
+                                 (1005,0):'artaphrenes-son',(1034,0):'artaphrenes-son',
+                                 (1036,0):'artaphrenes-son',
+                                 (1097,0):['artaphrenes-son','artaphrenes']},'artaphrenes'),
+ # The text does not say whether the Hydarnes who heard the denunciation is the
+ # conspirator of Book 3 or his son. Left unbound.
+ 'Hydarnes':({(1019,0):None},'hydarnes'),
+ '(?:Skythes|Scythes)':({(909,0):'scythes-zancle',(910,0):'scythes-zancle',
+                         (1185,0):None},'skythes'),
+ 'Cleander':({(969,0):'cleander'},None),
+ # Cynegirus's father and the Arcadian who kept open house. The Euphorion of
+ # Book 2 is Aeschylus's father and is not bound to either.
+ 'Euphorion':({(1000,0):'euphorion-athens',(1013,0):'euphorion-arcadia'},None),
+ '(?:Diactorides|Diaktorides)':({(957,0):'diactorides-sparta',
+                                 (1013,0):'diactorides-crannon'},None),
+ # The hero whose grove Cleomenes burned, in the same paragraphs as the city.
+ 'Argos':({(961,0):'argos-hero',(964,0):'argos-hero',(966,0):['argos-hero'],
+           (968,0):[None,'argos-hero']},None),
+ 'Thas(?:os|us)':({(933,0):['thasus','thasus']},None),
+ '(?:Anaxilaus|Anaxilaos)':({(909,0):'anaxilaus',(1187,0):'anaxilaus',
+                             (1192,0):'anaxilaus'},None),
+ '(?:Archidamus|Archidemos)':({(957,0):'archidamus'},None),
+ 'Agis':({(951,0):'agis'},None),
+ '(?:Demarmenos|Demarmenus)':({(951,0):'demarmenos'},None),
+ 'Leoprepes':({(971,0):'leoprepes'},None),
+ # The Glaucus story is four paragraphs, oracle included; the Glaucus of
+ # Book 1 is the Chian who made the iron stand and is not cast.
+ '(?:Glaucus|Glaucos)':({(972,1):'glaucus',(972,2):'glaucus',(972,3):'glaucus'},None),
+ '(?:Polycritus|Polycritos)':({(936,0):'polycritus',(959,0):'polycritus'},None),
+ 'Thersander':({(703,0):'thersander',(938,0):'thersander'},None),
+ 'Aristodem(?:us|os)':({(703,0):'aristodemus',(938,0):'aristodemus',
+                        (1226,0):'aristodemus',(1390,0):'aristodemus'},None),
+ 'Laodamas':({(694,0):'laodamas'},None),
+ 'Lysagoras':({(1019,0):'lysagoras',(791,0):'lysagoras-miletus'},None),
 }
 
 # Section 476 mixes the two usurpers with the caste being massacred, and the two
@@ -138,6 +218,12 @@ EDITION_SPLIT={
                                    'magians','magians']},
  ('original-en','Magians'):{(476,0):['magian-brothers','magian-brothers','magians',
                                      'magian-brothers','magians','magians','magians']},
+ # Section 1017 runs three generations of Alcmaeonidae together, and the prose
+ # repeats both names once more than the verse does.
+ ('original-en','(?:Megacles|Megakles)'):{(1017,0):['megacles','megacles-younger']},
+ ('modern-en','(?:Megacles|Megakles)'):{(1017,0):['megacles','megacles','megacles-younger']},
+ ('original-en','Agariste'):{(1017,0):['agariste-younger','agariste']},
+ ('modern-en','Agariste'):{(1017,0):['agariste-younger','agariste','agariste-younger']},
 }
 
 def bind(edition,ch,pi,text,entities):
