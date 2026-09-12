@@ -1,5 +1,6 @@
 import { useCallback } from 'react'
 import type { Dispatch, MutableRefObject, SetStateAction } from 'react'
+import { rebaseSavedPosition } from '../data/rebasedEditions'
 import type { EditionKey, ReadingPosition } from '../types'
 import { markCloudLoaded, markCloudPosition, markUserNav } from './positionSync'
 import { paragraphTargetFromPosition, shouldApplyRemotePosition } from './controllerGuards'
@@ -35,7 +36,12 @@ export function useRemotePositionAdoption(args: {
     setReaderKey,
   } = args
 
-  return useCallback((remotePos: ReadingPosition) => {
+  return useCallback((incomingPos: ReadingPosition) => {
+    // A position arriving from another device carries that device's idea of the
+    // text. If that device has not been opened since the book was re-based, the
+    // paragraph index is on the old structure — so it is re-based on the way in,
+    // exactly as a locally stored one is on the way out of storage.
+    const remotePos = rebaseSavedPosition(incomingPos) as ReadingPosition
     if (!remotePos || !remotePos.chapterNumber) return
     if (!shouldApplyRemotePosition({ remoteBookId: remotePos.bookId, currentBookId: bookId })) return
     // Mark this as user-nav so the regression guard widens its window. Remote

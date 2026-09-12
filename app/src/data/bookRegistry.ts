@@ -842,19 +842,27 @@ export const MEDITATIONS: Book = {
   author: 'Marcus Aurelius',
   description: 'A Roman emperor\'s private journal — written on campaign, never meant to be read. No self-help platitudes, just a man wrestling with duty, mortality, and how to be good when the world isn\'t.',
   year: 180,
-  wordCount: 45000,
+  // The served modern-en, 45,451 words over 487 numbered sections. The
+  // previous 45,000 described no served file (the Casaubon-based modern-en
+  // it sat next to was 57,236).
+  wordCount: 45451,
   coverColor: '#2a2018',
   coverAccent: '#9a8a6a',
   editions: [
     {
+      // True as of the 2026-09-12 re-basing, and false before it: the served
+      // text under this key was Meric Casaubon 1634 (412 paragraphs) while
+      // this label already claimed Long. It is now George Long 1862
+      // (Project Gutenberg #15877), 487 paragraphs, one per numbered section.
       key: 'original-en',
       language: 'en',
       style: 'original',
       label: 'Long Translation (1862)',
       translator: 'George Long',
       year: 1862,
+      // Verified: 487 paragraphs in both English editions, index for index,
+      // every paragraph opening on the same section number.
       aligned: true,
-      hasAudio: true,
     },
     {
       key: 'modern-en',
@@ -862,15 +870,6 @@ export const MEDITATIONS: Book = {
       style: 'modern',
       label: 'Modern English',
       aligned: true,
-      hasAudio: true,
-    },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-      hasAudio: true,
     },
   ],
 }

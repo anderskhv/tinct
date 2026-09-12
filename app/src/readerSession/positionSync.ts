@@ -1,3 +1,4 @@
+import { rebaseSavedPosition } from '../data/rebasedEditions'
 import { storage } from '../services/storage'
 import type { BookReadingLog, ChatConversation, ReadingPosition, ReadingProgress } from '../types'
 import { buildReadingProgressUpdate, shouldBlockHistoryRegression, shouldBlockRegression, shouldBlockSameChapterRegression, shouldRecoverEarlyResetFromHistory } from '../hooks/useReadingPosition.guards'
@@ -342,8 +343,14 @@ export function commitReadingProgress(args: ProgressCommitInput): ProgressCommit
   return { committed: true, progress: next }
 }
 
+// The single read point for a stored position. `rebaseSavedPosition` is
+// applied HERE, not at the call sites, so that every path that restores a
+// place — book open, cloud load, the recovery path below, the library rows —
+// sees the same re-based value and none of them can be forgotten. It is a
+// no-op for every book that has not been re-based, and idempotent for the one
+// that has.
 export function getSavedPosition(bookId: string): ReadingPosition | null {
-  return storage.get<ReadingPosition>(positionKey(bookId))
+  return rebaseSavedPosition(storage.get<ReadingPosition>(positionKey(bookId)))
 }
 
 export function getRecoverableSavedPosition(bookId: string, totalChapters = 0): ReadingPosition | null {
@@ -357,14 +364,17 @@ export function getRecoverableSavedPosition(bookId: string, totalChapters = 0): 
   const scrollFraction = totalParagraphs > 1 && typeof paragraphIndex === 'number'
     ? Math.min(1, Math.max(0, paragraphIndex / (totalParagraphs - 1)))
     : 0
-  return {
+  // Re-based again: this branch reintroduces a paragraph index and a scroll
+  // fraction derived from `reading-log`, whose recorded paragraph and
+  // totalParagraphs are on the old structure just as the position was.
+  return rebaseSavedPosition({
     ...position,
     chapterNumber: recovery.chapterNumber,
     currentPage: 0,
     totalPages: 1,
     scrollFraction,
     lastParagraphIndex: paragraphIndex,
-  }
+  })
 }
 
 export function getReadingProgress(bookId: string): ReadingProgress | null {
