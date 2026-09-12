@@ -1,0 +1,479 @@
+{
+  "complete": true,
+  "signature": "23c4d43ca5252816b08450fa1c4a91895b57bb5174bbe8bff55ab14bf668fc1a",
+  "attempts": [
+    {
+      "asr_seconds": 0.17596379504539073,
+      "alignment_seconds": 0.00017571001080796123,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " One-handled adulterer, he said smiling grimly, that tickles me, I must say.",
+          "start": 0.05,
+          "end": 5.05,
+          "words": [
+            {
+              "text": " One",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.266357421875
+            },
+            {
+              "text": "-handled",
+              "start": 0.63,
+              "end": 0.99,
+              "probability": 0.6123046875
+            },
+            {
+              "text": " adulterer,",
+              "start": 0.99,
+              "end": 1.61,
+              "probability": 0.966796875
+            },
+            {
+              "text": " he",
+              "start": 1.89,
+              "end": 2.01,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " said",
+              "start": 2.01,
+              "end": 2.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " smiling",
+              "start": 2.23,
+              "end": 2.71,
+              "probability": 0.6943359375
+            },
+            {
+              "text": " grimly,",
+              "start": 2.71,
+              "end": 3.25,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " that",
+              "start": 3.69,
+              "end": 3.93,
+              "probability": 0.4501953125
+            },
+            {
+              "text": " tickles",
+              "start": 3.93,
+              "end": 4.27,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " me,",
+              "start": 4.27,
+              "end": 4.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 4.51,
+              "end": 4.57,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " must",
+              "start": 4.57,
+              "end": 4.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " say.",
+              "start": 4.71,
+              "end": 5.05,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "One",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "-handled",
+          "start": 0.63,
+          "end": 0.99
+        },
+        {
+          "raw": "adulterer,",
+          "start": 0.99,
+          "end": 1.61
+        },
+        {
+          "raw": "he",
+          "start": 1.89,
+          "end": 2.01
+        },
+        {
+          "raw": "said",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "raw": "smiling",
+          "start": 2.23,
+          "end": 2.71
+        },
+        {
+          "raw": "grimly,",
+          "start": 2.71,
+          "end": 3.25
+        },
+        {
+          "raw": "that",
+          "start": 3.69,
+          "end": 3.93
+        },
+        {
+          "raw": "tickles",
+          "start": 3.93,
+          "end": 4.27
+        },
+        {
+          "raw": "me,",
+          "start": 4.27,
+          "end": 4.43
+        },
+        {
+          "raw": "I",
+          "start": 4.51,
+          "end": 4.57
+        },
+        {
+          "raw": "must",
+          "start": 4.57,
+          "end": 4.71
+        },
+        {
+          "raw": "say.",
+          "start": 4.71,
+          "end": 5.05
+        }
+      ],
+      "expected_tokens": [
+        "—Onehandled",
+        "adulterer,",
+        "he",
+        "said",
+        "smiling",
+        "grimly.",
+        "That",
+        "tickles",
+        "me,",
+        "I",
+        "must",
+        "say."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          12,
+          2,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "One",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "one",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "-handled",
+          "start": 0.63,
+          "end": 0.99,
+          "key": "handled",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "adulterer,",
+          "start": 0.99,
+          "end": 1.61,
+          "key": "adulterer",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.89,
+          "end": 2.01,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.01,
+          "end": 2.23,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "smiling",
+          "start": 2.23,
+          "end": 2.71,
+          "key": "smiling",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "grimly,",
+          "start": 2.71,
+          "end": 3.25,
+          "key": "grimly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.69,
+          "end": 3.93,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tickles",
+          "start": 3.93,
+          "end": 4.27,
+          "key": "tickles",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 4.27,
+          "end": 4.43,
+          "key": "me",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.51,
+          "end": 4.57,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 4.57,
+          "end": 4.71,
+          "key": "must",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "say.",
+          "start": 4.71,
+          "end": 5.05,
+          "key": "say",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Onehandled",
+          "start": 0.0,
+          "end": 0.495
+        },
+        {
+          "text": "adulterer,",
+          "start": 0.99,
+          "end": 1.61
+        },
+        {
+          "text": "he",
+          "start": 1.89,
+          "end": 2.01
+        },
+        {
+          "text": "said",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "text": "smiling",
+          "start": 2.23,
+          "end": 2.71
+        },
+        {
+          "text": "grimly.",
+          "start": 2.71,
+          "end": 3.25
+        },
+        {
+          "text": "That",
+          "start": 3.69,
+          "end": 3.93
+        },
+        {
+          "text": "tickles",
+          "start": 3.93,
+          "end": 4.27
+        },
+        {
+          "text": "me,",
+          "start": 4.27,
+          "end": 4.43
+        },
+        {
+          "text": "I",
+          "start": 4.51,
+          "end": 4.57
+        },
+        {
+          "text": "must",
+          "start": 4.57,
+          "end": 4.71
+        },
+        {
+          "text": "say.",
+          "start": 4.71,
+          "end": 5.05
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.176211926038377
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6d533f0dd54ad4441f8d3eac561dc69794f9a7917935dc26d7366e270e5b4362",
+  "selected_reasons": []
+}

@@ -1,0 +1,486 @@
+{
+  "complete": true,
+  "signature": "11f9bad4a9196cb96147a65e175dad56e705bd5bb27720a5661fb29d32809302",
+  "attempts": [
+    {
+      "asr_seconds": 0.17822048696689308,
+      "alignment_seconds": 0.00023694097762927413,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I'll go through the printing works,\" Mr. Bloom said, taking the cut square.",
+          "start": 0.05,
+          "end": 4.13,
+          "words": [
+            {
+              "text": " I'll",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.6431884765625
+            },
+            {
+              "text": " go",
+              "start": 0.57,
+              "end": 0.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " through",
+              "start": 0.69,
+              "end": 0.89,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 0.89,
+              "end": 1.03,
+              "probability": 0.994140625
+            },
+            {
+              "text": " printing",
+              "start": 1.03,
+              "end": 1.25,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " works,\"",
+              "start": 1.25,
+              "end": 2.09,
+              "probability": 0.6285400390625
+            },
+            {
+              "text": " Mr.",
+              "start": 2.09,
+              "end": 2.25,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Bloom",
+              "start": 2.45,
+              "end": 2.47,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " said,",
+              "start": 2.47,
+              "end": 2.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " taking",
+              "start": 3.23,
+              "end": 3.43,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 3.43,
+              "end": 3.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " cut",
+              "start": 3.65,
+              "end": 3.79,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " square.",
+              "start": 3.79,
+              "end": 4.13,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I'll",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "go",
+          "start": 0.57,
+          "end": 0.69
+        },
+        {
+          "raw": "through",
+          "start": 0.69,
+          "end": 0.89
+        },
+        {
+          "raw": "the",
+          "start": 0.89,
+          "end": 1.03
+        },
+        {
+          "raw": "printing",
+          "start": 1.03,
+          "end": 1.25
+        },
+        {
+          "raw": "works,\"",
+          "start": 1.25,
+          "end": 2.09
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.09,
+          "end": 2.25
+        },
+        {
+          "raw": "Bloom",
+          "start": 2.45,
+          "end": 2.47
+        },
+        {
+          "raw": "said,",
+          "start": 2.47,
+          "end": 2.85
+        },
+        {
+          "raw": "taking",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "raw": "the",
+          "start": 3.43,
+          "end": 3.65
+        },
+        {
+          "raw": "cut",
+          "start": 3.65,
+          "end": 3.79
+        },
+        {
+          "raw": "square.",
+          "start": 3.79,
+          "end": 4.13
+        }
+      ],
+      "expected_tokens": [
+        "—I'll",
+        "go",
+        "through",
+        "the",
+        "printingworks,",
+        "Mr",
+        "Bloom",
+        "said,",
+        "taking",
+        "the",
+        "cut",
+        "square."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          12,
+          6,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I'll",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "ill",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 0.57,
+          "end": 0.69,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 0.69,
+          "end": 0.89,
+          "key": "through",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.89,
+          "end": 1.03,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "printing",
+          "start": 1.03,
+          "end": 1.25,
+          "key": "printing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "works,\"",
+          "start": 1.25,
+          "end": 2.09,
+          "key": "works",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.09,
+          "end": 2.25,
+          "key": "mr",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Bloom",
+          "start": 2.45,
+          "end": 2.47,
+          "key": "bloom",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 2.47,
+          "end": 2.85,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "taking",
+          "start": 3.23,
+          "end": 3.43,
+          "key": "taking",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.43,
+          "end": 3.65,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "cut",
+          "start": 3.65,
+          "end": 3.79,
+          "key": "cut",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "square.",
+          "start": 3.79,
+          "end": 4.13,
+          "key": "square",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—I'll",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "go",
+          "start": 0.57,
+          "end": 0.69
+        },
+        {
+          "text": "through",
+          "start": 0.69,
+          "end": 0.89
+        },
+        {
+          "text": "the",
+          "start": 0.89,
+          "end": 1.03
+        },
+        {
+          "text": "printingworks,",
+          "start": 1.03,
+          "end": 1.56
+        },
+        {
+          "text": "Mr",
+          "start": 2.09,
+          "end": 2.25
+        },
+        {
+          "text": "Bloom",
+          "start": 2.45,
+          "end": 2.47
+        },
+        {
+          "text": "said,",
+          "start": 2.47,
+          "end": 2.85
+        },
+        {
+          "text": "taking",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "text": "the",
+          "start": 3.43,
+          "end": 3.65
+        },
+        {
+          "text": "cut",
+          "start": 3.65,
+          "end": 3.79
+        },
+        {
+          "text": "square.",
+          "start": 3.79,
+          "end": 4.13
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.17855259898351505
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b0124f3f9cc82e3b5f7650ff9ce52f73323853bf847dcf7b2d510c91f1bf6cbe",
+  "selected_reasons": []
+}

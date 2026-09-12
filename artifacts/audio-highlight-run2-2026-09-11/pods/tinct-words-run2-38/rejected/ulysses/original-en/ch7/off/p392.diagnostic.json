@@ -1,0 +1,358 @@
+{
+  "complete": true,
+  "signature": "bbce0f211a28b631cc487bd5f32b59fe65144ad06e770e3d16bc978d14a524ae",
+  "attempts": [
+    {
+      "asr_seconds": 0.14043274498544633,
+      "alignment_seconds": 0.00019004102796316147,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A few well-chosen words Lenihan prefaced.",
+          "start": 0.05,
+          "end": 2.61,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " few",
+              "start": 0.51,
+              "end": 0.71,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " well",
+              "start": 0.71,
+              "end": 0.93,
+              "probability": 0.9921875
+            },
+            {
+              "text": "-chosen",
+              "start": 0.93,
+              "end": 1.23,
+              "probability": 0.9049479166666666
+            },
+            {
+              "text": " words",
+              "start": 1.23,
+              "end": 1.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Lenihan",
+              "start": 1.61,
+              "end": 2.05,
+              "probability": 0.723876953125
+            },
+            {
+              "text": " prefaced.",
+              "start": 2.05,
+              "end": 2.61,
+              "probability": 0.93896484375
+            }
+          ]
+        },
+        {
+          "text": " Silence.",
+          "start": 2.93,
+          "end": 3.25,
+          "words": [
+            {
+              "text": " Silence.",
+              "start": 2.93,
+              "end": 3.25,
+              "probability": 0.92822265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "few",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "raw": "well",
+          "start": 0.71,
+          "end": 0.93
+        },
+        {
+          "raw": "-chosen",
+          "start": 0.93,
+          "end": 1.23
+        },
+        {
+          "raw": "words",
+          "start": 1.23,
+          "end": 1.61
+        },
+        {
+          "raw": "Lenihan",
+          "start": 1.61,
+          "end": 2.05
+        },
+        {
+          "raw": "prefaced.",
+          "start": 2.05,
+          "end": 2.61
+        },
+        {
+          "raw": "Silence.",
+          "start": 2.93,
+          "end": 3.25
+        }
+      ],
+      "expected_tokens": [
+        "—A",
+        "few",
+        "wellchosen",
+        "words,",
+        "Lenehan",
+        "prefaced.",
+        "Silence!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          4,
+          4,
+          5
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          6
+        ],
+        [
+          "equal",
+          5,
+          7,
+          6,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "few",
+          "start": 0.51,
+          "end": 0.71,
+          "key": "few",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 0.71,
+          "end": 0.93,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "-chosen",
+          "start": 0.93,
+          "end": 1.23,
+          "key": "chosen",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "words",
+          "start": 1.23,
+          "end": 1.61,
+          "key": "words",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Lenihan",
+          "start": 1.61,
+          "end": 2.05,
+          "key": "lenihan",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "prefaced.",
+          "start": 2.05,
+          "end": 2.61,
+          "key": "prefaced",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Silence.",
+          "start": 2.93,
+          "end": 3.25,
+          "key": "silence",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "few",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "text": "wellchosen",
+          "start": 0.71,
+          "end": 0.97
+        },
+        {
+          "text": "words,",
+          "start": 1.23,
+          "end": 1.61
+        },
+        {
+          "text": "Lenehan",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "text": "prefaced.",
+          "start": 2.05,
+          "end": 2.61
+        },
+        {
+          "text": "Silence!",
+          "start": 2.93,
+          "end": 3.25
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14068582700565457
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cc89383579821c0775ab177fd5ad261a69e36a505aec38b7acde7489557ecc91",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

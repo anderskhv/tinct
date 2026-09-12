@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "9f70ef1cd34dfd89e5417ad015e2ee26070e949d8ca9c7c79cd3682376c90415",
+  "attempts": [
+    {
+      "asr_seconds": 0.10019679000834003,
+      "alignment_seconds": 0.00019822095055133104,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The telephone whirred inside.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The telephone whirred inside.",
+          "start": 0.02,
+          "end": 1.6,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.64794921875
+            },
+            {
+              "text": " telephone",
+              "start": 0.48,
+              "end": 0.88,
+              "probability": 0.984375
+            },
+            {
+              "text": " whirred",
+              "start": 0.88,
+              "end": 1.28,
+              "probability": 0.3611561457316081
+            },
+            {
+              "text": " inside.",
+              "start": 1.28,
+              "end": 1.6,
+              "probability": 0.97607421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "telephone",
+          "start": 0.48,
+          "end": 0.88
+        },
+        {
+          "raw": "whirred",
+          "start": 0.88,
+          "end": 1.28
+        },
+        {
+          "raw": "inside.",
+          "start": 1.28,
+          "end": 1.6
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "telephone",
+        "whirred",
+        "inside."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "telephone",
+          "start": 0.48,
+          "end": 0.88,
+          "key": "telephone",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "whirred",
+          "start": 0.88,
+          "end": 1.28,
+          "key": "whirred",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "inside.",
+          "start": 1.28,
+          "end": 1.6,
+          "key": "inside",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "telephone",
+          "start": 0.48,
+          "end": 0.88
+        },
+        {
+          "text": "whirred",
+          "start": 0.88,
+          "end": 1.28
+        },
+        {
+          "text": "inside.",
+          "start": 1.28,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10045621200697497
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a7bd63ede48838f7ddc75c785d2265a6ff639aa95b0576e68694def7fed58e59",
+  "selected_reasons": []
+}

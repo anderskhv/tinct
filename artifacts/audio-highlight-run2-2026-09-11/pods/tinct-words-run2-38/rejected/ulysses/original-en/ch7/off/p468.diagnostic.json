@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "df03e49271cf2fac94451bf116612ede973202b87022e836a429be35bb4d271e",
+  "attempts": [
+    {
+      "asr_seconds": 0.07609154499368742,
+      "alignment_seconds": 0.00010137102799490094,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dear Dirty Dublin",
+          "start": 0.05,
+          "end": 1.21,
+          "words": [
+            {
+              "text": " Dear",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " Dirty",
+              "start": 0.59,
+              "end": 0.87,
+              "probability": 0.9296875
+            },
+            {
+              "text": " Dublin",
+              "start": 0.87,
+              "end": 1.21,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dear",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "Dirty",
+          "start": 0.59,
+          "end": 0.87
+        },
+        {
+          "raw": "Dublin",
+          "start": 0.87,
+          "end": 1.21
+        }
+      ],
+      "expected_tokens": [
+        "Dear",
+        "Dirty",
+        "Dublin"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dear",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "dear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dirty",
+          "start": 0.59,
+          "end": 0.87,
+          "key": "dirty",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dublin",
+          "start": 0.87,
+          "end": 1.21,
+          "key": "dublin",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dear",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "Dirty",
+          "start": 0.59,
+          "end": 0.87
+        },
+        {
+          "text": "Dublin",
+          "start": 0.87,
+          "end": 1.21
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07622909598285332
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a5fc8c09afe0c55b5ed2ad3aaa379057d6489c10c44915796cc16656b08a6d05",
+  "selected_reasons": []
+}

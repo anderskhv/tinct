@@ -1,0 +1,422 @@
+{
+  "complete": true,
+  "signature": "83e0173e7afaca27c60cf9978b8925a262339ca55554ac8e2084a358990a3726",
+  "attempts": [
+    {
+      "asr_seconds": 0.13511802500579506,
+      "alignment_seconds": 0.00021851202473044395,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " There's a friend of yours gone by dead Alice he said",
+          "start": 0.05,
+          "end": 3.17,
+          "words": [
+            {
+              "text": " There's",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.833740234375
+            },
+            {
+              "text": " a",
+              "start": 0.59,
+              "end": 0.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " friend",
+              "start": 0.67,
+              "end": 0.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 0.83,
+              "end": 0.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " yours",
+              "start": 0.97,
+              "end": 1.13,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " gone",
+              "start": 1.13,
+              "end": 1.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " by",
+              "start": 1.43,
+              "end": 1.79,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " dead",
+              "start": 1.79,
+              "end": 2.31,
+              "probability": 0.2437744140625
+            },
+            {
+              "text": " Alice",
+              "start": 2.31,
+              "end": 2.59,
+              "probability": 0.45849609375
+            },
+            {
+              "text": " he",
+              "start": 2.59,
+              "end": 2.85,
+              "probability": 0.6708984375
+            },
+            {
+              "text": " said",
+              "start": 2.85,
+              "end": 3.17,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There's",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "a",
+          "start": 0.59,
+          "end": 0.67
+        },
+        {
+          "raw": "friend",
+          "start": 0.67,
+          "end": 0.83
+        },
+        {
+          "raw": "of",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "raw": "yours",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "raw": "gone",
+          "start": 1.13,
+          "end": 1.43
+        },
+        {
+          "raw": "by",
+          "start": 1.43,
+          "end": 1.79
+        },
+        {
+          "raw": "dead",
+          "start": 1.79,
+          "end": 2.31
+        },
+        {
+          "raw": "Alice",
+          "start": 2.31,
+          "end": 2.59
+        },
+        {
+          "raw": "he",
+          "start": 2.59,
+          "end": 2.85
+        },
+        {
+          "raw": "said",
+          "start": 2.85,
+          "end": 3.17
+        }
+      ],
+      "expected_tokens": [
+        "—There's",
+        "a",
+        "friend",
+        "of",
+        "yours",
+        "gone",
+        "by,",
+        "Dedalus,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "equal",
+          8,
+          10,
+          9,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "There's",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "theres",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.59,
+          "end": 0.67,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "friend",
+          "start": 0.67,
+          "end": 0.83,
+          "key": "friend",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.83,
+          "end": 0.97,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "yours",
+          "start": 0.97,
+          "end": 1.13,
+          "key": "yours",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gone",
+          "start": 1.13,
+          "end": 1.43,
+          "key": "gone",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.43,
+          "end": 1.79,
+          "key": "by",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 1.79,
+          "end": 2.31,
+          "key": "dead",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Alice",
+          "start": 2.31,
+          "end": 2.59,
+          "key": "alice",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.59,
+          "end": 2.85,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.85,
+          "end": 3.17,
+          "key": "said",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—There's",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "a",
+          "start": 0.59,
+          "end": 0.67
+        },
+        {
+          "text": "friend",
+          "start": 0.67,
+          "end": 0.83
+        },
+        {
+          "text": "of",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "text": "yours",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "text": "gone",
+          "start": 1.13,
+          "end": 1.43
+        },
+        {
+          "text": "by,",
+          "start": 1.43,
+          "end": 1.79
+        },
+        {
+          "text": "Dedalus,",
+          "start": 1.79,
+          "end": 2.19
+        },
+        {
+          "text": "he",
+          "start": 2.59,
+          "end": 2.85
+        },
+        {
+          "text": "said.",
+          "start": 2.85,
+          "end": 3.17
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.13542667700676247
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ffe6b25c57afb58e74465d3af6663f5634db46e537aab5965a99da69585000ed",
+  "selected_reasons": []
+}

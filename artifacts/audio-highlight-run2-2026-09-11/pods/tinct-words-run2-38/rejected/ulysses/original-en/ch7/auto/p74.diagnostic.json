@@ -1,0 +1,862 @@
+{
+  "complete": true,
+  "signature": "9fc1b5a636c52754a0570a1ef6aa0c894734c63ca758418cde71e60c89971a3e",
+  "attempts": [
+    {
+      "asr_seconds": 0.19692481099627912,
+      "alignment_seconds": 0.0003355329972691834,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I could ask him perhaps about how to pronounce that _voglio._ But then if he didn't know only make it awkward for him. Better not.",
+        "hotwords": "I, But, Better"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I could ask him perhaps about how to pronounce that voglio. But then if he didn't know only make it awkward for him. Better not.",
+          "start": 0.05,
+          "end": 7.43,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " could",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " ask",
+              "start": 0.61,
+              "end": 0.87,
+              "probability": 0.99609375
+            },
+            {
+              "text": " him",
+              "start": 0.87,
+              "end": 1.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " perhaps",
+              "start": 1.03,
+              "end": 1.39,
+              "probability": 0.8232421875
+            },
+            {
+              "text": " about",
+              "start": 1.39,
+              "end": 1.71,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " how",
+              "start": 1.71,
+              "end": 1.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 1.91,
+              "end": 2.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " pronounce",
+              "start": 2.05,
+              "end": 2.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 2.39,
+              "end": 2.71,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " voglio.",
+              "start": 2.71,
+              "end": 3.31,
+              "probability": 0.4613037109375
+            },
+            {
+              "text": " But",
+              "start": 3.93,
+              "end": 4.03,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " then",
+              "start": 4.03,
+              "end": 4.23,
+              "probability": 0.9921875
+            },
+            {
+              "text": " if",
+              "start": 4.23,
+              "end": 4.41,
+              "probability": 0.474365234375
+            },
+            {
+              "text": " he",
+              "start": 4.41,
+              "end": 4.51,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " didn't",
+              "start": 4.51,
+              "end": 4.73,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " know",
+              "start": 4.73,
+              "end": 4.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " only",
+              "start": 4.91,
+              "end": 5.17,
+              "probability": 0.748046875
+            },
+            {
+              "text": " make",
+              "start": 5.17,
+              "end": 5.41,
+              "probability": 0.9765625
+            },
+            {
+              "text": " it",
+              "start": 5.41,
+              "end": 5.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " awkward",
+              "start": 5.55,
+              "end": 5.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " for",
+              "start": 5.81,
+              "end": 6.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him.",
+              "start": 6.11,
+              "end": 6.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Better",
+              "start": 6.93,
+              "end": 7.05,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " not.",
+              "start": 7.05,
+              "end": 7.43,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "could",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "ask",
+          "start": 0.61,
+          "end": 0.87
+        },
+        {
+          "raw": "him",
+          "start": 0.87,
+          "end": 1.03
+        },
+        {
+          "raw": "perhaps",
+          "start": 1.03,
+          "end": 1.39
+        },
+        {
+          "raw": "about",
+          "start": 1.39,
+          "end": 1.71
+        },
+        {
+          "raw": "how",
+          "start": 1.71,
+          "end": 1.91
+        },
+        {
+          "raw": "to",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "raw": "pronounce",
+          "start": 2.05,
+          "end": 2.39
+        },
+        {
+          "raw": "that",
+          "start": 2.39,
+          "end": 2.71
+        },
+        {
+          "raw": "voglio.",
+          "start": 2.71,
+          "end": 3.31
+        },
+        {
+          "raw": "But",
+          "start": 3.93,
+          "end": 4.03
+        },
+        {
+          "raw": "then",
+          "start": 4.03,
+          "end": 4.23
+        },
+        {
+          "raw": "if",
+          "start": 4.23,
+          "end": 4.41
+        },
+        {
+          "raw": "he",
+          "start": 4.41,
+          "end": 4.51
+        },
+        {
+          "raw": "didn't",
+          "start": 4.51,
+          "end": 4.73
+        },
+        {
+          "raw": "know",
+          "start": 4.73,
+          "end": 4.91
+        },
+        {
+          "raw": "only",
+          "start": 4.91,
+          "end": 5.17
+        },
+        {
+          "raw": "make",
+          "start": 5.17,
+          "end": 5.41
+        },
+        {
+          "raw": "it",
+          "start": 5.41,
+          "end": 5.55
+        },
+        {
+          "raw": "awkward",
+          "start": 5.55,
+          "end": 5.81
+        },
+        {
+          "raw": "for",
+          "start": 5.81,
+          "end": 6.11
+        },
+        {
+          "raw": "him.",
+          "start": 6.11,
+          "end": 6.43
+        },
+        {
+          "raw": "Better",
+          "start": 6.93,
+          "end": 7.05
+        },
+        {
+          "raw": "not.",
+          "start": 7.05,
+          "end": 7.43
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "could",
+        "ask",
+        "him",
+        "perhaps",
+        "about",
+        "how",
+        "to",
+        "pronounce",
+        "that",
+        "_voglio._",
+        "But",
+        "then",
+        "if",
+        "he",
+        "didn't",
+        "know",
+        "only",
+        "make",
+        "it",
+        "awkward",
+        "for",
+        "him.",
+        "Better",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          25,
+          0,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 0.51,
+          "end": 0.61,
+          "key": "could",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 0.61,
+          "end": 0.87,
+          "key": "ask",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 0.87,
+          "end": 1.03,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "perhaps",
+          "start": 1.03,
+          "end": 1.39,
+          "key": "perhaps",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 1.39,
+          "end": 1.71,
+          "key": "about",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.71,
+          "end": 1.91,
+          "key": "how",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.91,
+          "end": 2.05,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "pronounce",
+          "start": 2.05,
+          "end": 2.39,
+          "key": "pronounce",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.39,
+          "end": 2.71,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "voglio.",
+          "start": 2.71,
+          "end": 3.31,
+          "key": "voglio",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 3.93,
+          "end": 4.03,
+          "key": "but",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 4.03,
+          "end": 4.23,
+          "key": "then",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 4.23,
+          "end": 4.41,
+          "key": "if",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.41,
+          "end": 4.51,
+          "key": "he",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "didn't",
+          "start": 4.51,
+          "end": 4.73,
+          "key": "didnt",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 4.73,
+          "end": 4.91,
+          "key": "know",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 4.91,
+          "end": 5.17,
+          "key": "only",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 5.17,
+          "end": 5.41,
+          "key": "make",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.41,
+          "end": 5.55,
+          "key": "it",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "awkward",
+          "start": 5.55,
+          "end": 5.81,
+          "key": "awkward",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.81,
+          "end": 6.11,
+          "key": "for",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 6.11,
+          "end": 6.43,
+          "key": "him",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Better",
+          "start": 6.93,
+          "end": 7.05,
+          "key": "better",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 7.05,
+          "end": 7.43,
+          "key": "not",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "could",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "ask",
+          "start": 0.61,
+          "end": 0.87
+        },
+        {
+          "text": "him",
+          "start": 0.87,
+          "end": 1.03
+        },
+        {
+          "text": "perhaps",
+          "start": 1.03,
+          "end": 1.39
+        },
+        {
+          "text": "about",
+          "start": 1.39,
+          "end": 1.71
+        },
+        {
+          "text": "how",
+          "start": 1.71,
+          "end": 1.91
+        },
+        {
+          "text": "to",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "text": "pronounce",
+          "start": 2.05,
+          "end": 2.39
+        },
+        {
+          "text": "that",
+          "start": 2.39,
+          "end": 2.71
+        },
+        {
+          "text": "_voglio._",
+          "start": 2.71,
+          "end": 3.31
+        },
+        {
+          "text": "But",
+          "start": 3.93,
+          "end": 4.03
+        },
+        {
+          "text": "then",
+          "start": 4.03,
+          "end": 4.23
+        },
+        {
+          "text": "if",
+          "start": 4.23,
+          "end": 4.41
+        },
+        {
+          "text": "he",
+          "start": 4.41,
+          "end": 4.51
+        },
+        {
+          "text": "didn't",
+          "start": 4.51,
+          "end": 4.73
+        },
+        {
+          "text": "know",
+          "start": 4.73,
+          "end": 4.91
+        },
+        {
+          "text": "only",
+          "start": 4.91,
+          "end": 5.17
+        },
+        {
+          "text": "make",
+          "start": 5.17,
+          "end": 5.41
+        },
+        {
+          "text": "it",
+          "start": 5.41,
+          "end": 5.55
+        },
+        {
+          "text": "awkward",
+          "start": 5.55,
+          "end": 5.81
+        },
+        {
+          "text": "for",
+          "start": 5.81,
+          "end": 6.11
+        },
+        {
+          "text": "him.",
+          "start": 6.11,
+          "end": 6.43
+        },
+        {
+          "text": "Better",
+          "start": 6.93,
+          "end": 7.05
+        },
+        {
+          "text": "not.",
+          "start": 7.05,
+          "end": 7.43
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 25,
+        "matched_words": 25
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19739831401966512
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "354420c47270a05dfe5022b8a543e59eb917e00ec0d02ffd4a179bee07df0467",
+  "selected_reasons": []
+}

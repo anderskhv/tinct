@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "e695474c0ef1a4258fad90cb25e2951654e02f47c7c02948f1ca8c7629404ed9",
+  "attempts": [
+    {
+      "asr_seconds": 0.09777987201232463,
+      "alignment_seconds": 0.0001064100069925189,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Martin Cunningham whispered:",
+        "hotwords": "Martin, Cunningham"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Martin Cunningham whispered...",
+          "start": 0.05,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " Martin",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.53857421875
+            },
+            {
+              "text": " Cunningham",
+              "start": 0.73,
+              "end": 1.11,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " whispered...",
+              "start": 1.11,
+              "end": 2.11,
+              "probability": 0.52642822265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Martin",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Cunningham",
+          "start": 0.73,
+          "end": 1.11
+        },
+        {
+          "raw": "whispered...",
+          "start": 1.11,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "Martin",
+        "Cunningham",
+        "whispered:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Martin",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "martin",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cunningham",
+          "start": 0.73,
+          "end": 1.11,
+          "key": "cunningham",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "whispered...",
+          "start": 1.11,
+          "end": 2.11,
+          "key": "whispered",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Martin",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Cunningham",
+          "start": 0.73,
+          "end": 1.11
+        },
+        {
+          "text": "whispered:",
+          "start": 1.11,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09792612300952896
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e5c52f87bc97f7115378beb3050c910c951487cfc21aa97f4f333ac7ff356f18",
+  "selected_reasons": []
+}

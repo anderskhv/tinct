@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "6c73cf69b23b508cf4cfdd76e23d04c9821f159b5d61d7bc7be3965b2513da7c",
+  "attempts": [
+    {
+      "asr_seconds": 0.09096920897718519,
+      "alignment_seconds": 0.00011204002657905221,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Good day, Jack.",
+        "hotwords": "Good, Jack"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Good day, Jack.",
+          "start": 0.02,
+          "end": 1.02,
+          "words": [
+            {
+              "text": " Good",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.94921875
+            },
+            {
+              "text": " day,",
+              "start": 0.52,
+              "end": 0.76,
+              "probability": 0.9609375
+            },
+            {
+              "text": " Jack.",
+              "start": 0.98,
+              "end": 1.02,
+              "probability": 0.91162109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Good",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "day,",
+          "start": 0.52,
+          "end": 0.76
+        },
+        {
+          "raw": "Jack.",
+          "start": 0.98,
+          "end": 1.02
+        }
+      ],
+      "expected_tokens": [
+        "—Good",
+        "day,",
+        "Jack."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Good",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "good",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "day,",
+          "start": 0.52,
+          "end": 0.76,
+          "key": "day",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Jack.",
+          "start": 0.98,
+          "end": 1.02,
+          "key": "jack",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Good",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "day,",
+          "start": 0.52,
+          "end": 0.76
+        },
+        {
+          "text": "Jack.",
+          "start": 0.98,
+          "end": 1.02
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0911183090065606
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9e1c5cf2ab55d14ffa31387cb1a0a9d9b17be776c9816ad68107e61bc46a94e6",
+  "selected_reasons": []
+}

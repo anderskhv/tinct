@@ -1,0 +1,1054 @@
+{
+  "complete": true,
+  "signature": "76465f52db4779a2294984c489ef3e13984797aa64f3c3e126800e241cad8edd",
+  "attempts": [
+    {
+      "asr_seconds": 0.2968460400006734,
+      "alignment_seconds": 0.0003278219955973327,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Didn't hear. What? Where has he disappeared to? Not a sign. Well of all the. Has anybody here seen? Kay ee double ell. Become invisible. Good Lord, what became of him?",
+        "hotwords": "Didn't, Where, Not, Well, Kay, Become, Good, Lord"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Didn't hear. What? Where has he disappeared to? Not a sign. Well of all the. Has anybody here seen? Kay ee double ell. Become invisible. Good Lord, what became of him?",
+          "start": 0.02,
+          "end": 10.46,
+          "words": [
+            {
+              "text": " Didn't",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.765625
+            },
+            {
+              "text": " hear.",
+              "start": 0.62,
+              "end": 0.8,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " What?",
+              "start": 0.9,
+              "end": 1.12,
+              "probability": 0.869140625
+            },
+            {
+              "text": " Where",
+              "start": 1.56,
+              "end": 1.64,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " has",
+              "start": 1.64,
+              "end": 1.86,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " he",
+              "start": 1.86,
+              "end": 1.96,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " disappeared",
+              "start": 1.96,
+              "end": 2.38,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to?",
+              "start": 2.38,
+              "end": 2.72,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " Not",
+              "start": 3.22,
+              "end": 3.34,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " a",
+              "start": 3.34,
+              "end": 3.48,
+              "probability": 0.994140625
+            },
+            {
+              "text": " sign.",
+              "start": 3.48,
+              "end": 3.78,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Well",
+              "start": 4.26,
+              "end": 4.36,
+              "probability": 0.982421875
+            },
+            {
+              "text": " of",
+              "start": 4.36,
+              "end": 4.48,
+              "probability": 0.79443359375
+            },
+            {
+              "text": " all",
+              "start": 4.48,
+              "end": 4.66,
+              "probability": 0.986328125
+            },
+            {
+              "text": " the.",
+              "start": 4.66,
+              "end": 4.86,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " Has",
+              "start": 5.06,
+              "end": 5.14,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " anybody",
+              "start": 5.14,
+              "end": 5.44,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " here",
+              "start": 5.44,
+              "end": 5.78,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " seen?",
+              "start": 5.78,
+              "end": 6.1,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Kay",
+              "start": 6.84,
+              "end": 6.86,
+              "probability": 0.00444793701171875
+            },
+            {
+              "text": " ee",
+              "start": 6.86,
+              "end": 7.22,
+              "probability": 0.12949371337890625
+            },
+            {
+              "text": " double",
+              "start": 7.22,
+              "end": 7.34,
+              "probability": 0.7470703125
+            },
+            {
+              "text": " ell.",
+              "start": 7.34,
+              "end": 7.64,
+              "probability": 0.00319671630859375
+            },
+            {
+              "text": " Become",
+              "start": 7.82,
+              "end": 8.08,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " invisible.",
+              "start": 8.08,
+              "end": 8.56,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " Good",
+              "start": 9.14,
+              "end": 9.28,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Lord,",
+              "start": 9.28,
+              "end": 9.56,
+              "probability": 0.5556640625
+            },
+            {
+              "text": " what",
+              "start": 9.8,
+              "end": 9.86,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " became",
+              "start": 9.86,
+              "end": 10.12,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " of",
+              "start": 10.12,
+              "end": 10.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " him?",
+              "start": 10.28,
+              "end": 10.46,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Didn't",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "hear.",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "raw": "What?",
+          "start": 0.9,
+          "end": 1.12
+        },
+        {
+          "raw": "Where",
+          "start": 1.56,
+          "end": 1.64
+        },
+        {
+          "raw": "has",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "raw": "he",
+          "start": 1.86,
+          "end": 1.96
+        },
+        {
+          "raw": "disappeared",
+          "start": 1.96,
+          "end": 2.38
+        },
+        {
+          "raw": "to?",
+          "start": 2.38,
+          "end": 2.72
+        },
+        {
+          "raw": "Not",
+          "start": 3.22,
+          "end": 3.34
+        },
+        {
+          "raw": "a",
+          "start": 3.34,
+          "end": 3.48
+        },
+        {
+          "raw": "sign.",
+          "start": 3.48,
+          "end": 3.78
+        },
+        {
+          "raw": "Well",
+          "start": 4.26,
+          "end": 4.36
+        },
+        {
+          "raw": "of",
+          "start": 4.36,
+          "end": 4.48
+        },
+        {
+          "raw": "all",
+          "start": 4.48,
+          "end": 4.66
+        },
+        {
+          "raw": "the.",
+          "start": 4.66,
+          "end": 4.86
+        },
+        {
+          "raw": "Has",
+          "start": 5.06,
+          "end": 5.14
+        },
+        {
+          "raw": "anybody",
+          "start": 5.14,
+          "end": 5.44
+        },
+        {
+          "raw": "here",
+          "start": 5.44,
+          "end": 5.78
+        },
+        {
+          "raw": "seen?",
+          "start": 5.78,
+          "end": 6.1
+        },
+        {
+          "raw": "Kay",
+          "start": 6.84,
+          "end": 6.86
+        },
+        {
+          "raw": "ee",
+          "start": 6.86,
+          "end": 7.22
+        },
+        {
+          "raw": "double",
+          "start": 7.22,
+          "end": 7.34
+        },
+        {
+          "raw": "ell.",
+          "start": 7.34,
+          "end": 7.64
+        },
+        {
+          "raw": "Become",
+          "start": 7.82,
+          "end": 8.08
+        },
+        {
+          "raw": "invisible.",
+          "start": 8.08,
+          "end": 8.56
+        },
+        {
+          "raw": "Good",
+          "start": 9.14,
+          "end": 9.28
+        },
+        {
+          "raw": "Lord,",
+          "start": 9.28,
+          "end": 9.56
+        },
+        {
+          "raw": "what",
+          "start": 9.8,
+          "end": 9.86
+        },
+        {
+          "raw": "became",
+          "start": 9.86,
+          "end": 10.12
+        },
+        {
+          "raw": "of",
+          "start": 10.12,
+          "end": 10.28
+        },
+        {
+          "raw": "him?",
+          "start": 10.28,
+          "end": 10.46
+        }
+      ],
+      "expected_tokens": [
+        "Didn't",
+        "hear.",
+        "What?",
+        "Where",
+        "has",
+        "he",
+        "disappeared",
+        "to?",
+        "Not",
+        "a",
+        "sign.",
+        "Well",
+        "of",
+        "all",
+        "the.",
+        "Has",
+        "anybody",
+        "here",
+        "seen?",
+        "Kay",
+        "ee",
+        "double",
+        "ell.",
+        "Become",
+        "invisible.",
+        "Good",
+        "Lord,",
+        "what",
+        "became",
+        "of",
+        "him?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          31,
+          0,
+          31
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Didn't",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "didnt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hear.",
+          "start": 0.62,
+          "end": 0.8,
+          "key": "hear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "What?",
+          "start": 0.9,
+          "end": 1.12,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 1.56,
+          "end": 1.64,
+          "key": "where",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 1.64,
+          "end": 1.86,
+          "key": "has",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.86,
+          "end": 1.96,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "disappeared",
+          "start": 1.96,
+          "end": 2.38,
+          "key": "disappeared",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to?",
+          "start": 2.38,
+          "end": 2.72,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 3.22,
+          "end": 3.34,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.34,
+          "end": 3.48,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sign.",
+          "start": 3.48,
+          "end": 3.78,
+          "key": "sign",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Well",
+          "start": 4.26,
+          "end": 4.36,
+          "key": "well",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.36,
+          "end": 4.48,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 4.48,
+          "end": 4.66,
+          "key": "all",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the.",
+          "start": 4.66,
+          "end": 4.86,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Has",
+          "start": 5.06,
+          "end": 5.14,
+          "key": "has",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "anybody",
+          "start": 5.14,
+          "end": 5.44,
+          "key": "anybody",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 5.44,
+          "end": 5.78,
+          "key": "here",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "seen?",
+          "start": 5.78,
+          "end": 6.1,
+          "key": "seen",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Kay",
+          "start": 6.84,
+          "end": 6.86,
+          "key": "kay",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "ee",
+          "start": 6.86,
+          "end": 7.22,
+          "key": "ee",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "double",
+          "start": 7.22,
+          "end": 7.34,
+          "key": "double",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "ell.",
+          "start": 7.34,
+          "end": 7.64,
+          "key": "ell",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Become",
+          "start": 7.82,
+          "end": 8.08,
+          "key": "become",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "invisible.",
+          "start": 8.08,
+          "end": 8.56,
+          "key": "invisible",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 9.14,
+          "end": 9.28,
+          "key": "good",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Lord,",
+          "start": 9.28,
+          "end": 9.56,
+          "key": "lord",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 9.8,
+          "end": 9.86,
+          "key": "what",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "became",
+          "start": 9.86,
+          "end": 10.12,
+          "key": "became",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.12,
+          "end": 10.28,
+          "key": "of",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "him?",
+          "start": 10.28,
+          "end": 10.46,
+          "key": "him",
+          "pieces": [
+            30
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Didn't",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "hear.",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "text": "What?",
+          "start": 0.9,
+          "end": 1.12
+        },
+        {
+          "text": "Where",
+          "start": 1.56,
+          "end": 1.64
+        },
+        {
+          "text": "has",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "text": "he",
+          "start": 1.86,
+          "end": 1.96
+        },
+        {
+          "text": "disappeared",
+          "start": 1.96,
+          "end": 2.38
+        },
+        {
+          "text": "to?",
+          "start": 2.38,
+          "end": 2.72
+        },
+        {
+          "text": "Not",
+          "start": 3.22,
+          "end": 3.34
+        },
+        {
+          "text": "a",
+          "start": 3.34,
+          "end": 3.48
+        },
+        {
+          "text": "sign.",
+          "start": 3.48,
+          "end": 3.78
+        },
+        {
+          "text": "Well",
+          "start": 4.26,
+          "end": 4.36
+        },
+        {
+          "text": "of",
+          "start": 4.36,
+          "end": 4.48
+        },
+        {
+          "text": "all",
+          "start": 4.48,
+          "end": 4.66
+        },
+        {
+          "text": "the.",
+          "start": 4.66,
+          "end": 4.86
+        },
+        {
+          "text": "Has",
+          "start": 5.06,
+          "end": 5.14
+        },
+        {
+          "text": "anybody",
+          "start": 5.14,
+          "end": 5.44
+        },
+        {
+          "text": "here",
+          "start": 5.44,
+          "end": 5.78
+        },
+        {
+          "text": "seen?",
+          "start": 5.78,
+          "end": 6.1
+        },
+        {
+          "text": "Kay",
+          "start": 6.84,
+          "end": 6.86
+        },
+        {
+          "text": "ee",
+          "start": 6.86,
+          "end": 7.22
+        },
+        {
+          "text": "double",
+          "start": 7.22,
+          "end": 7.34
+        },
+        {
+          "text": "ell.",
+          "start": 7.34,
+          "end": 7.64
+        },
+        {
+          "text": "Become",
+          "start": 7.82,
+          "end": 8.08
+        },
+        {
+          "text": "invisible.",
+          "start": 8.08,
+          "end": 8.56
+        },
+        {
+          "text": "Good",
+          "start": 9.14,
+          "end": 9.28
+        },
+        {
+          "text": "Lord,",
+          "start": 9.28,
+          "end": 9.56
+        },
+        {
+          "text": "what",
+          "start": 9.8,
+          "end": 9.86
+        },
+        {
+          "text": "became",
+          "start": 9.86,
+          "end": 10.12
+        },
+        {
+          "text": "of",
+          "start": 10.12,
+          "end": 10.28
+        },
+        {
+          "text": "him?",
+          "start": 10.28,
+          "end": 10.46
+        }
+      ],
+      "stats": {
+        "expected_words": 31,
+        "heard_words": 31,
+        "matched_words": 31
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29735261300811544
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "afb76678536a871b38db1d644c68bf97ea00c7a71b28de29c40af2ffe5cea526",
+  "selected_reasons": []
+}

@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "04375df1929ef8c3b1860cefd917ef50ba6564891c7b490b0bc8ede5689e6eb8",
+  "attempts": [
+    {
+      "asr_seconds": 0.07687436998821795,
+      "alignment_seconds": 0.00015256099868565798,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The telephone word.",
+          "start": 0.02,
+          "end": 1.2,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.69677734375
+            },
+            {
+              "text": " telephone",
+              "start": 0.48,
+              "end": 0.88,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " word.",
+              "start": 0.88,
+              "end": 1.2,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "telephone",
+          "start": 0.48,
+          "end": 0.88
+        },
+        {
+          "raw": "word.",
+          "start": 0.88,
+          "end": 1.2
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "telephone",
+        "whirred."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "telephone",
+          "start": 0.48,
+          "end": 0.88,
+          "key": "telephone",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "word.",
+          "start": 0.88,
+          "end": 1.2,
+          "key": "word",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "telephone",
+          "start": 0.48,
+          "end": 0.88
+        },
+        {
+          "text": "whirred.",
+          "start": 0.88,
+          "end": 1.04
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.07707673095865175
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f5cbd49749343f47ecd990d2df10e94f1e718d02892303eec3c1de51b37f5e81",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

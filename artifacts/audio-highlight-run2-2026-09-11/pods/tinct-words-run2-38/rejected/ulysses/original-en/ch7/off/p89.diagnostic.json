@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "9d90698e7b296358f824a7719f1dad83e435090b7af334b00212a69893dfb6b7",
+  "attempts": [
+    {
+      "asr_seconds": 0.09604027698514983,
+      "alignment_seconds": 0.0001234300434589386,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I, where's Monks?",
+          "start": 0.11,
+          "end": 1.27,
+          "words": [
+            {
+              "text": " I,",
+              "start": 0.11,
+              "end": 0.57,
+              "probability": 0.77734375
+            },
+            {
+              "text": " where's",
+              "start": 0.75,
+              "end": 0.93,
+              "probability": 0.744873046875
+            },
+            {
+              "text": " Monks?",
+              "start": 0.93,
+              "end": 1.27,
+              "probability": 0.76953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I,",
+          "start": 0.11,
+          "end": 0.57
+        },
+        {
+          "raw": "where's",
+          "start": 0.75,
+          "end": 0.93
+        },
+        {
+          "raw": "Monks?",
+          "start": 0.93,
+          "end": 1.27
+        }
+      ],
+      "expected_tokens": [
+        "—Ay.",
+        "Where's",
+        "Monks?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I,",
+          "start": 0.11,
+          "end": 0.57,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "where's",
+          "start": 0.75,
+          "end": 0.93,
+          "key": "wheres",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Monks?",
+          "start": 0.93,
+          "end": 1.27,
+          "key": "monks",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Ay.",
+          "start": 0.0,
+          "end": 0.375
+        },
+        {
+          "text": "Where's",
+          "start": 0.75,
+          "end": 0.93
+        },
+        {
+          "text": "Monks?",
+          "start": 0.93,
+          "end": 1.27
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09620397799881175
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b5a8ce9763b64a7867a7ebbccdd979cc26c46ccfd59e5461eb9f66efaaf64196",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

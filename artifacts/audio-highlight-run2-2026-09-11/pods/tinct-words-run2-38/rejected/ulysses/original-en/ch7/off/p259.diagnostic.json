@@ -1,0 +1,259 @@
+{
+  "complete": true,
+  "signature": "42e8fdc993e0274395a90d3b1786388a1aaffc2d0d3fa7b8b26f14bb978f7234",
+  "attempts": [
+    {
+      "asr_seconds": 0.1268508390057832,
+      "alignment_seconds": 0.00019057095050811768,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " In Tresmies and Fants, Lenihan cried.",
+          "start": 0.08,
+          "end": 2.62,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.767578125
+            },
+            {
+              "text": " Tresmies",
+              "start": 0.56,
+              "end": 1.06,
+              "probability": 0.5660552978515625
+            },
+            {
+              "text": " and",
+              "start": 1.06,
+              "end": 1.24,
+              "probability": 0.802734375
+            },
+            {
+              "text": " Fants,",
+              "start": 1.24,
+              "end": 1.68,
+              "probability": 0.796630859375
+            },
+            {
+              "text": " Lenihan",
+              "start": 2.08,
+              "end": 2.34,
+              "probability": 0.7378743489583334
+            },
+            {
+              "text": " cried.",
+              "start": 2.34,
+              "end": 2.62,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "Tresmies",
+          "start": 0.56,
+          "end": 1.06
+        },
+        {
+          "raw": "and",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "raw": "Fants,",
+          "start": 1.24,
+          "end": 1.68
+        },
+        {
+          "raw": "Lenihan",
+          "start": 2.08,
+          "end": 2.34
+        },
+        {
+          "raw": "cried.",
+          "start": 2.34,
+          "end": 2.62
+        }
+      ],
+      "expected_tokens": [
+        "—_Entrez,",
+        "mes",
+        "enfants!_",
+        "Lenehan",
+        "cried."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          5
+        ],
+        [
+          "equal",
+          4,
+          5,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tresmies",
+          "start": 0.56,
+          "end": 1.06,
+          "key": "tresmies",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.06,
+          "end": 1.24,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Fants,",
+          "start": 1.24,
+          "end": 1.68,
+          "key": "fants",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Lenihan",
+          "start": 2.08,
+          "end": 2.34,
+          "key": "lenihan",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cried.",
+          "start": 2.34,
+          "end": 2.62,
+          "key": "cried",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—_Entrez,",
+          "start": 0.0,
+          "end": 1.17
+        },
+        {
+          "text": "mes",
+          "start": 1.17,
+          "end": 1.755
+        },
+        {
+          "text": "enfants!_",
+          "start": 1.755,
+          "end": 2.047
+        },
+        {
+          "text": "Lenehan",
+          "start": 2.047,
+          "end": 2.194
+        },
+        {
+          "text": "cried.",
+          "start": 2.34,
+          "end": 2.62
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 1
+      },
+      "match_ratio": 0.2,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12710338999750093
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4b31b235f0b49bfbfc35dc77c7b3e606a272a004077205b78cf088603cc1d126",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

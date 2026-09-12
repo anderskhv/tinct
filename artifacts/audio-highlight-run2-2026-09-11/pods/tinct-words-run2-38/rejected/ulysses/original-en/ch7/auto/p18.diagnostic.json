@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "3dbc6e73a1ca280de88c2f075c12e2954cfcdfa0c0b8b088c45732c4c61df859",
+  "attempts": [
+    {
+      "asr_seconds": 0.13634940300835297,
+      "alignment_seconds": 0.00018402101704850793,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "William Brayden, Esquire, Of Oaklands, Sandymount",
+        "hotwords": "William, Brayden, Esquire, Of, Oaklands, Sandymount"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " William Brayden, Esquire, Of, Oaklands, Sandymount",
+          "start": 0.05,
+          "end": 3.39,
+          "words": [
+            {
+              "text": " William",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " Brayden,",
+              "start": 0.73,
+              "end": 1.25,
+              "probability": 0.387054443359375
+            },
+            {
+              "text": " Esquire,",
+              "start": 1.67,
+              "end": 1.93,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Of,",
+              "start": 2.15,
+              "end": 2.15,
+              "probability": 0.006328582763671875
+            },
+            {
+              "text": " Oaklands,",
+              "start": 2.27,
+              "end": 2.67,
+              "probability": 0.420074462890625
+            },
+            {
+              "text": " Sandymount",
+              "start": 2.97,
+              "end": 3.39,
+              "probability": 0.4991251627604167
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "William",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Brayden,",
+          "start": 0.73,
+          "end": 1.25
+        },
+        {
+          "raw": "Esquire,",
+          "start": 1.67,
+          "end": 1.93
+        },
+        {
+          "raw": "Of,",
+          "start": 2.15,
+          "end": 2.15
+        },
+        {
+          "raw": "Oaklands,",
+          "start": 2.27,
+          "end": 2.67
+        },
+        {
+          "raw": "Sandymount",
+          "start": 2.97,
+          "end": 3.39
+        }
+      ],
+      "expected_tokens": [
+        "William",
+        "Brayden,",
+        "Esquire,",
+        "Of",
+        "Oaklands,",
+        "Sandymount"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "William",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "william",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Brayden,",
+          "start": 0.73,
+          "end": 1.25,
+          "key": "brayden",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Esquire,",
+          "start": 1.67,
+          "end": 1.93,
+          "key": "esquire",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Of,",
+          "start": 2.15,
+          "end": 2.15,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Oaklands,",
+          "start": 2.27,
+          "end": 2.67,
+          "key": "oaklands",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Sandymount",
+          "start": 2.97,
+          "end": 3.39,
+          "key": "sandymount",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "William",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Brayden,",
+          "start": 0.73,
+          "end": 1.25
+        },
+        {
+          "text": "Esquire,",
+          "start": 1.67,
+          "end": 1.93
+        },
+        {
+          "text": "Of",
+          "start": 2.15,
+          "end": 2.15
+        },
+        {
+          "text": "Oaklands,",
+          "start": 2.27,
+          "end": 2.67
+        },
+        {
+          "text": "Sandymount",
+          "start": 2.97,
+          "end": 3.39
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13661137397866696
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3f1bb86e5f554ffa652c45a0e7559e3a579d93ba4d2c6502ce8a21fcc0d91f0d",
+  "selected_reasons": []
+}

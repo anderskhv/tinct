@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "ec9b521c28642eb4369ea2d9975ffb289114275126db351fdb8fbaeda095910f",
+  "attempts": [
+    {
+      "asr_seconds": 0.14218532002996653,
+      "alignment_seconds": 0.0002688709646463394,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Five, Ned Lambert says he'll try to get one of the girls into Todd's.",
+          "start": 0.08,
+          "end": 4.26,
+          "words": [
+            {
+              "text": " Five,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.476806640625
+            },
+            {
+              "text": " Ned",
+              "start": 1.4,
+              "end": 1.46,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Lambert",
+              "start": 1.46,
+              "end": 1.82,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " says",
+              "start": 1.82,
+              "end": 2.06,
+              "probability": 0.994140625
+            },
+            {
+              "text": " he'll",
+              "start": 2.06,
+              "end": 2.3,
+              "probability": 0.985595703125
+            },
+            {
+              "text": " try",
+              "start": 2.3,
+              "end": 2.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 2.5,
+              "end": 2.62,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " get",
+              "start": 2.62,
+              "end": 2.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " one",
+              "start": 2.72,
+              "end": 2.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 2.86,
+              "end": 2.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.96,
+              "end": 3.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " girls",
+              "start": 3.04,
+              "end": 3.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " into",
+              "start": 3.32,
+              "end": 3.6,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Todd's.",
+              "start": 3.6,
+              "end": 4.26,
+              "probability": 0.73583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Five,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "Ned",
+          "start": 1.4,
+          "end": 1.46
+        },
+        {
+          "raw": "Lambert",
+          "start": 1.46,
+          "end": 1.82
+        },
+        {
+          "raw": "says",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "raw": "he'll",
+          "start": 2.06,
+          "end": 2.3
+        },
+        {
+          "raw": "try",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "raw": "to",
+          "start": 2.5,
+          "end": 2.62
+        },
+        {
+          "raw": "get",
+          "start": 2.62,
+          "end": 2.72
+        },
+        {
+          "raw": "one",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "raw": "of",
+          "start": 2.86,
+          "end": 2.96
+        },
+        {
+          "raw": "the",
+          "start": 2.96,
+          "end": 3.04
+        },
+        {
+          "raw": "girls",
+          "start": 3.04,
+          "end": 3.32
+        },
+        {
+          "raw": "into",
+          "start": 3.32,
+          "end": 3.6
+        },
+        {
+          "raw": "Todd's.",
+          "start": 3.6,
+          "end": 4.26
+        }
+      ],
+      "expected_tokens": [
+        "—Five.",
+        "Ned",
+        "Lambert",
+        "says",
+        "he'll",
+        "try",
+        "to",
+        "get",
+        "one",
+        "of",
+        "the",
+        "girls",
+        "into",
+        "Todd's."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Five,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "five",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ned",
+          "start": 1.4,
+          "end": 1.46,
+          "key": "ned",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lambert",
+          "start": 1.46,
+          "end": 1.82,
+          "key": "lambert",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 1.82,
+          "end": 2.06,
+          "key": "says",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he'll",
+          "start": 2.06,
+          "end": 2.3,
+          "key": "hell",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "try",
+          "start": 2.3,
+          "end": 2.5,
+          "key": "try",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.5,
+          "end": 2.62,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 2.62,
+          "end": 2.72,
+          "key": "get",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.72,
+          "end": 2.86,
+          "key": "one",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.86,
+          "end": 2.96,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.96,
+          "end": 3.04,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "girls",
+          "start": 3.04,
+          "end": 3.32,
+          "key": "girls",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 3.32,
+          "end": 3.6,
+          "key": "into",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Todd's.",
+          "start": 3.6,
+          "end": 4.26,
+          "key": "todds",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Five.",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "Ned",
+          "start": 1.4,
+          "end": 1.46
+        },
+        {
+          "text": "Lambert",
+          "start": 1.46,
+          "end": 1.82
+        },
+        {
+          "text": "says",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "text": "he'll",
+          "start": 2.06,
+          "end": 2.3
+        },
+        {
+          "text": "try",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "text": "to",
+          "start": 2.5,
+          "end": 2.62
+        },
+        {
+          "text": "get",
+          "start": 2.62,
+          "end": 2.72
+        },
+        {
+          "text": "one",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "text": "of",
+          "start": 2.86,
+          "end": 2.96
+        },
+        {
+          "text": "the",
+          "start": 2.96,
+          "end": 3.04
+        },
+        {
+          "text": "girls",
+          "start": 3.04,
+          "end": 3.32
+        },
+        {
+          "text": "into",
+          "start": 3.32,
+          "end": 3.6
+        },
+        {
+          "text": "Todd's.",
+          "start": 3.6,
+          "end": 4.26
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14255919202696532
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "64b64a41c170fb98eea62ed2b2fdeb2dd61a903053371d62091fbbb67e264f5e",
+  "selected_reasons": []
+}

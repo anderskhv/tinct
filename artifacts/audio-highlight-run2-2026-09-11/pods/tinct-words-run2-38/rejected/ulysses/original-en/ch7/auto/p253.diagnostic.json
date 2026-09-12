@@ -1,0 +1,894 @@
+{
+  "complete": true,
+  "signature": "69664ce07844e6716980d8ec2087b7e843b4741d17eee4d0869d557c0f71f3fd",
+  "attempts": [
+    {
+      "asr_seconds": 0.21823802997823805,
+      "alignment_seconds": 0.0003224120009690523,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Which they accordingly did do, Lenehan said. Our old ancient ancestors, as we read in the first chapter of Guinness's, were partial to the running stream.",
+        "hotwords": "Which, Lenehan, Our, Guinness's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Which they accordingly did do, Lenehan said. Our old ancient ancestors, as we read in the first chapter of Guinness's, were partial to the running stream.",
+          "start": 0.02,
+          "end": 9.36,
+          "words": [
+            {
+              "text": " Which",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.29296875
+            },
+            {
+              "text": " they",
+              "start": 0.54,
+              "end": 0.76,
+              "probability": 0.9921875
+            },
+            {
+              "text": " accordingly",
+              "start": 0.76,
+              "end": 1.2,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " did",
+              "start": 1.2,
+              "end": 1.58,
+              "probability": 0.990234375
+            },
+            {
+              "text": " do,",
+              "start": 1.58,
+              "end": 1.98,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " Lenehan",
+              "start": 2.26,
+              "end": 2.54,
+              "probability": 0.6508382161458334
+            },
+            {
+              "text": " said.",
+              "start": 2.54,
+              "end": 2.86,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Our",
+              "start": 3.48,
+              "end": 3.58,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " old",
+              "start": 3.58,
+              "end": 3.92,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " ancient",
+              "start": 3.92,
+              "end": 4.3,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " ancestors,",
+              "start": 4.3,
+              "end": 4.94,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " as",
+              "start": 5.34,
+              "end": 5.52,
+              "probability": 0.99609375
+            },
+            {
+              "text": " we",
+              "start": 5.52,
+              "end": 5.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " read",
+              "start": 5.7,
+              "end": 5.92,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 5.92,
+              "end": 6.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 6.06,
+              "end": 6.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " first",
+              "start": 6.16,
+              "end": 6.42,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " chapter",
+              "start": 6.42,
+              "end": 6.82,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 6.82,
+              "end": 7.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Guinness's,",
+              "start": 7.02,
+              "end": 7.6,
+              "probability": 0.1795654296875
+            },
+            {
+              "text": " were",
+              "start": 7.78,
+              "end": 7.98,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " partial",
+              "start": 7.98,
+              "end": 8.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 8.32,
+              "end": 8.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 8.56,
+              "end": 8.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " running",
+              "start": 8.68,
+              "end": 8.9,
+              "probability": 0.7197265625
+            },
+            {
+              "text": " stream.",
+              "start": 8.9,
+              "end": 9.36,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Which",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "they",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "raw": "accordingly",
+          "start": 0.76,
+          "end": 1.2
+        },
+        {
+          "raw": "did",
+          "start": 1.2,
+          "end": 1.58
+        },
+        {
+          "raw": "do,",
+          "start": 1.58,
+          "end": 1.98
+        },
+        {
+          "raw": "Lenehan",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "raw": "said.",
+          "start": 2.54,
+          "end": 2.86
+        },
+        {
+          "raw": "Our",
+          "start": 3.48,
+          "end": 3.58
+        },
+        {
+          "raw": "old",
+          "start": 3.58,
+          "end": 3.92
+        },
+        {
+          "raw": "ancient",
+          "start": 3.92,
+          "end": 4.3
+        },
+        {
+          "raw": "ancestors,",
+          "start": 4.3,
+          "end": 4.94
+        },
+        {
+          "raw": "as",
+          "start": 5.34,
+          "end": 5.52
+        },
+        {
+          "raw": "we",
+          "start": 5.52,
+          "end": 5.7
+        },
+        {
+          "raw": "read",
+          "start": 5.7,
+          "end": 5.92
+        },
+        {
+          "raw": "in",
+          "start": 5.92,
+          "end": 6.06
+        },
+        {
+          "raw": "the",
+          "start": 6.06,
+          "end": 6.16
+        },
+        {
+          "raw": "first",
+          "start": 6.16,
+          "end": 6.42
+        },
+        {
+          "raw": "chapter",
+          "start": 6.42,
+          "end": 6.82
+        },
+        {
+          "raw": "of",
+          "start": 6.82,
+          "end": 7.02
+        },
+        {
+          "raw": "Guinness's,",
+          "start": 7.02,
+          "end": 7.6
+        },
+        {
+          "raw": "were",
+          "start": 7.78,
+          "end": 7.98
+        },
+        {
+          "raw": "partial",
+          "start": 7.98,
+          "end": 8.32
+        },
+        {
+          "raw": "to",
+          "start": 8.32,
+          "end": 8.56
+        },
+        {
+          "raw": "the",
+          "start": 8.56,
+          "end": 8.68
+        },
+        {
+          "raw": "running",
+          "start": 8.68,
+          "end": 8.9
+        },
+        {
+          "raw": "stream.",
+          "start": 8.9,
+          "end": 9.36
+        }
+      ],
+      "expected_tokens": [
+        "—Which",
+        "they",
+        "accordingly",
+        "did",
+        "do,",
+        "Lenehan",
+        "said.",
+        "Our",
+        "old",
+        "ancient",
+        "ancestors,",
+        "as",
+        "we",
+        "read",
+        "in",
+        "the",
+        "first",
+        "chapter",
+        "of",
+        "Guinness's,",
+        "were",
+        "partial",
+        "to",
+        "the",
+        "running",
+        "stream."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          26,
+          0,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Which",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "which",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.54,
+          "end": 0.76,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "accordingly",
+          "start": 0.76,
+          "end": 1.2,
+          "key": "accordingly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.2,
+          "end": 1.58,
+          "key": "did",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do,",
+          "start": 1.58,
+          "end": 1.98,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Lenehan",
+          "start": 2.26,
+          "end": 2.54,
+          "key": "lenehan",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.54,
+          "end": 2.86,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 3.48,
+          "end": 3.58,
+          "key": "our",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 3.58,
+          "end": 3.92,
+          "key": "old",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ancient",
+          "start": 3.92,
+          "end": 4.3,
+          "key": "ancient",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ancestors,",
+          "start": 4.3,
+          "end": 4.94,
+          "key": "ancestors",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 5.34,
+          "end": 5.52,
+          "key": "as",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 5.52,
+          "end": 5.7,
+          "key": "we",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "read",
+          "start": 5.7,
+          "end": 5.92,
+          "key": "read",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.92,
+          "end": 6.06,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.06,
+          "end": 6.16,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 6.16,
+          "end": 6.42,
+          "key": "first",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "chapter",
+          "start": 6.42,
+          "end": 6.82,
+          "key": "chapter",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.82,
+          "end": 7.02,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Guinness's,",
+          "start": 7.02,
+          "end": 7.6,
+          "key": "guinnesss",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 7.78,
+          "end": 7.98,
+          "key": "were",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "partial",
+          "start": 7.98,
+          "end": 8.32,
+          "key": "partial",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.32,
+          "end": 8.56,
+          "key": "to",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.56,
+          "end": 8.68,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "running",
+          "start": 8.68,
+          "end": 8.9,
+          "key": "running",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "stream.",
+          "start": 8.9,
+          "end": 9.36,
+          "key": "stream",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Which",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "they",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "text": "accordingly",
+          "start": 0.76,
+          "end": 1.2
+        },
+        {
+          "text": "did",
+          "start": 1.2,
+          "end": 1.58
+        },
+        {
+          "text": "do,",
+          "start": 1.58,
+          "end": 1.98
+        },
+        {
+          "text": "Lenehan",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "text": "said.",
+          "start": 2.54,
+          "end": 2.86
+        },
+        {
+          "text": "Our",
+          "start": 3.48,
+          "end": 3.58
+        },
+        {
+          "text": "old",
+          "start": 3.58,
+          "end": 3.92
+        },
+        {
+          "text": "ancient",
+          "start": 3.92,
+          "end": 4.3
+        },
+        {
+          "text": "ancestors,",
+          "start": 4.3,
+          "end": 4.94
+        },
+        {
+          "text": "as",
+          "start": 5.34,
+          "end": 5.52
+        },
+        {
+          "text": "we",
+          "start": 5.52,
+          "end": 5.7
+        },
+        {
+          "text": "read",
+          "start": 5.7,
+          "end": 5.92
+        },
+        {
+          "text": "in",
+          "start": 5.92,
+          "end": 6.06
+        },
+        {
+          "text": "the",
+          "start": 6.06,
+          "end": 6.16
+        },
+        {
+          "text": "first",
+          "start": 6.16,
+          "end": 6.42
+        },
+        {
+          "text": "chapter",
+          "start": 6.42,
+          "end": 6.82
+        },
+        {
+          "text": "of",
+          "start": 6.82,
+          "end": 7.02
+        },
+        {
+          "text": "Guinness's,",
+          "start": 7.02,
+          "end": 7.6
+        },
+        {
+          "text": "were",
+          "start": 7.78,
+          "end": 7.98
+        },
+        {
+          "text": "partial",
+          "start": 7.98,
+          "end": 8.32
+        },
+        {
+          "text": "to",
+          "start": 8.32,
+          "end": 8.56
+        },
+        {
+          "text": "the",
+          "start": 8.56,
+          "end": 8.68
+        },
+        {
+          "text": "running",
+          "start": 8.68,
+          "end": 8.9
+        },
+        {
+          "text": "stream.",
+          "start": 8.9,
+          "end": 9.36
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 26,
+        "matched_words": 26
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21868083300068974
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e1a377d00e4958ca7825dce4b05f0ff202262a7f89ff73b1abc4442822dd5716",
+  "selected_reasons": []
+}

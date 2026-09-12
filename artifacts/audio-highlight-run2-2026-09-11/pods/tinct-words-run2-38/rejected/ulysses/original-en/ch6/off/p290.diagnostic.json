@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "761fe70d788d00905204df6f384c6b5cc38f5cdf8625b7f2e89de3f65a12f3a5",
+  "attempts": [
+    {
+      "asr_seconds": 0.08556319097988307,
+      "alignment_seconds": 0.00010811997344717383,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mr. Kernan added.",
+          "start": 0.02,
+          "end": 1.34,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.921875
+            },
+            {
+              "text": " Kernan",
+              "start": 0.9,
+              "end": 1.1,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " added.",
+              "start": 1.1,
+              "end": 1.34,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Kernan",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "raw": "added.",
+          "start": 1.1,
+          "end": 1.34
+        }
+      ],
+      "expected_tokens": [
+        "Mr",
+        "Kernan",
+        "added:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Kernan",
+          "start": 0.9,
+          "end": 1.1,
+          "key": "kernan",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "added.",
+          "start": 1.1,
+          "end": 1.34,
+          "key": "added",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Kernan",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "text": "added:",
+          "start": 1.1,
+          "end": 1.34
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08570892200805247
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "495bc6e4874e816c2619ff1160979d7560615d4c7b3d1723044b77a926d09909",
+  "selected_reasons": []
+}

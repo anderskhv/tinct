@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "caaf172059d940e7101977249b49aa2c6e65bd36ce85fe01e9686f7ef0470f8a",
+  "attempts": [
+    {
+      "asr_seconds": 0.10498218704015017,
+      "alignment_seconds": 0.00012891099322587252,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lenihan said to all.",
+          "start": 0.42,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " Lenihan",
+              "start": 0.42,
+              "end": 0.78,
+              "probability": 0.6209309895833334
+            },
+            {
+              "text": " said",
+              "start": 0.78,
+              "end": 0.96,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 0.96,
+              "end": 1.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " all.",
+              "start": 1.14,
+              "end": 1.32,
+              "probability": 0.9365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lenihan",
+          "start": 0.42,
+          "end": 0.78
+        },
+        {
+          "raw": "said",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "raw": "to",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "raw": "all.",
+          "start": 1.14,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "Lenehan",
+        "said",
+        "to",
+        "all:"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lenihan",
+          "start": 0.42,
+          "end": 0.78,
+          "key": "lenihan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.78,
+          "end": 0.96,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.96,
+          "end": 1.14,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all.",
+          "start": 1.14,
+          "end": 1.32,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lenehan",
+          "start": 0.0,
+          "end": 0.39
+        },
+        {
+          "text": "said",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "text": "to",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "text": "all:",
+          "start": 1.14,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10515964799560606
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "13eba970a32b97bea605978b5087cdf8f424d7e7420ec6fdb76d1c181d5417b1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

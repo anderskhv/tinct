@@ -1,0 +1,148 @@
+{
+  "complete": true,
+  "signature": "31204aadc21710176805b0464b31444611a73363e854b1d7b3a8ca4d8e0c7363",
+  "attempts": [
+    {
+      "asr_seconds": 0.09839355997974053,
+      "alignment_seconds": 0.00012858101399615407,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, harpyolian.",
+          "start": 0.21,
+          "end": 1.35,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.21,
+              "end": 0.61,
+              "probability": 0.72216796875
+            },
+            {
+              "text": " harpyolian.",
+              "start": 0.77,
+              "end": 1.35,
+              "probability": 0.62908935546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.21,
+          "end": 0.61
+        },
+        {
+          "raw": "harpyolian.",
+          "start": 0.77,
+          "end": 1.35
+        }
+      ],
+      "expected_tokens": [
+        "O,",
+        "Harp",
+        "Eolian!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.21,
+          "end": 0.61,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "harpyolian.",
+          "start": 0.77,
+          "end": 1.35,
+          "key": "harpyolian",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "O,",
+          "start": 0.0,
+          "end": 0.675
+        },
+        {
+          "text": "Harp",
+          "start": 0.675,
+          "end": 1.013
+        },
+        {
+          "text": "Eolian!",
+          "start": 1.013,
+          "end": 1.181
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.0985571009805426
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c1c785e0748b9d748b3dd117aef22e16bbc4b3517493bdf36db50cc9a1290fb6",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

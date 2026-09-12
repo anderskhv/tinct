@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "74a488b58240f586f1c974cfac8fd8e1e20d805507287a7a7153dacf6b9c05b5",
+  "attempts": [
+    {
+      "asr_seconds": 0.08125038398429751,
+      "alignment_seconds": 0.00013946101535111666,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He entered softly.",
+        "hotwords": "He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He entered softly.",
+          "start": 0.05,
+          "end": 1.13,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " entered",
+              "start": 0.53,
+              "end": 0.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " softly.",
+              "start": 0.75,
+              "end": 1.13,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "entered",
+          "start": 0.53,
+          "end": 0.75
+        },
+        {
+          "raw": "softly.",
+          "start": 0.75,
+          "end": 1.13
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "entered",
+        "softly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "entered",
+          "start": 0.53,
+          "end": 0.75,
+          "key": "entered",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "softly.",
+          "start": 0.75,
+          "end": 1.13,
+          "key": "softly",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "entered",
+          "start": 0.53,
+          "end": 0.75
+        },
+        {
+          "text": "softly.",
+          "start": 0.75,
+          "end": 1.13
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08143764495616779
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4a1419193f0a3840bbf4c1a0c8a2ee2457620c75ad1591c08f1f12177dab2990",
+  "selected_reasons": []
+}

@@ -1,0 +1,734 @@
+{
+  "complete": true,
+  "signature": "623626f539163311b4772bcc287b5a0d12e6a3dd92b63e539a8f53e865a246fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.19157126103527844,
+      "alignment_seconds": 0.00031702197156846523,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Of course, if he wants a par, Red Murray said earnestly, a pen behind his ear, we can do him one.",
+        "hotwords": "Of, Red, Murray"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Of course, if he wants a par, Red Murray said earnestly, a pen behind his ear, we can do him one.",
+          "start": 0.02,
+          "end": 6.4,
+          "words": [
+            {
+              "text": " Of",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.53759765625
+            },
+            {
+              "text": " course,",
+              "start": 0.54,
+              "end": 0.78,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " if",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " he",
+              "start": 1.14,
+              "end": 1.24,
+              "probability": 0.994140625
+            },
+            {
+              "text": " wants",
+              "start": 1.24,
+              "end": 1.44,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 1.44,
+              "end": 1.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " par,",
+              "start": 1.6,
+              "end": 1.88,
+              "probability": 0.69580078125
+            },
+            {
+              "text": " Red",
+              "start": 2.26,
+              "end": 2.3,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " Murray",
+              "start": 2.3,
+              "end": 2.58,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " said",
+              "start": 2.58,
+              "end": 2.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " earnestly,",
+              "start": 2.86,
+              "end": 3.5,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " a",
+              "start": 3.86,
+              "end": 3.94,
+              "probability": 0.68408203125
+            },
+            {
+              "text": " pen",
+              "start": 3.94,
+              "end": 4.22,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " behind",
+              "start": 4.22,
+              "end": 4.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 4.6,
+              "end": 4.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ear,",
+              "start": 4.8,
+              "end": 5.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " we",
+              "start": 5.48,
+              "end": 5.6,
+              "probability": 0.385498046875
+            },
+            {
+              "text": " can",
+              "start": 5.6,
+              "end": 5.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " do",
+              "start": 5.78,
+              "end": 5.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him",
+              "start": 5.92,
+              "end": 6.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " one.",
+              "start": 6.12,
+              "end": 6.4,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Of",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "course,",
+          "start": 0.54,
+          "end": 0.78
+        },
+        {
+          "raw": "if",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "he",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "raw": "wants",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "raw": "a",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "raw": "par,",
+          "start": 1.6,
+          "end": 1.88
+        },
+        {
+          "raw": "Red",
+          "start": 2.26,
+          "end": 2.3
+        },
+        {
+          "raw": "Murray",
+          "start": 2.3,
+          "end": 2.58
+        },
+        {
+          "raw": "said",
+          "start": 2.58,
+          "end": 2.86
+        },
+        {
+          "raw": "earnestly,",
+          "start": 2.86,
+          "end": 3.5
+        },
+        {
+          "raw": "a",
+          "start": 3.86,
+          "end": 3.94
+        },
+        {
+          "raw": "pen",
+          "start": 3.94,
+          "end": 4.22
+        },
+        {
+          "raw": "behind",
+          "start": 4.22,
+          "end": 4.6
+        },
+        {
+          "raw": "his",
+          "start": 4.6,
+          "end": 4.8
+        },
+        {
+          "raw": "ear,",
+          "start": 4.8,
+          "end": 5.06
+        },
+        {
+          "raw": "we",
+          "start": 5.48,
+          "end": 5.6
+        },
+        {
+          "raw": "can",
+          "start": 5.6,
+          "end": 5.78
+        },
+        {
+          "raw": "do",
+          "start": 5.78,
+          "end": 5.92
+        },
+        {
+          "raw": "him",
+          "start": 5.92,
+          "end": 6.12
+        },
+        {
+          "raw": "one.",
+          "start": 6.12,
+          "end": 6.4
+        }
+      ],
+      "expected_tokens": [
+        "—Of",
+        "course,",
+        "if",
+        "he",
+        "wants",
+        "a",
+        "par,",
+        "Red",
+        "Murray",
+        "said",
+        "earnestly,",
+        "a",
+        "pen",
+        "behind",
+        "his",
+        "ear,",
+        "we",
+        "can",
+        "do",
+        "him",
+        "one."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Of",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "of",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "course,",
+          "start": 0.54,
+          "end": 0.78,
+          "key": "course",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.04,
+          "end": 1.14,
+          "key": "if",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.14,
+          "end": 1.24,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wants",
+          "start": 1.24,
+          "end": 1.44,
+          "key": "wants",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.44,
+          "end": 1.6,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "par,",
+          "start": 1.6,
+          "end": 1.88,
+          "key": "par",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Red",
+          "start": 2.26,
+          "end": 2.3,
+          "key": "red",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Murray",
+          "start": 2.3,
+          "end": 2.58,
+          "key": "murray",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.58,
+          "end": 2.86,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "earnestly,",
+          "start": 2.86,
+          "end": 3.5,
+          "key": "earnestly",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.86,
+          "end": 3.94,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "pen",
+          "start": 3.94,
+          "end": 4.22,
+          "key": "pen",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "behind",
+          "start": 4.22,
+          "end": 4.6,
+          "key": "behind",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.6,
+          "end": 4.8,
+          "key": "his",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "ear,",
+          "start": 4.8,
+          "end": 5.06,
+          "key": "ear",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 5.48,
+          "end": 5.6,
+          "key": "we",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 5.6,
+          "end": 5.78,
+          "key": "can",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 5.78,
+          "end": 5.92,
+          "key": "do",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 5.92,
+          "end": 6.12,
+          "key": "him",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "one.",
+          "start": 6.12,
+          "end": 6.4,
+          "key": "one",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Of",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "course,",
+          "start": 0.54,
+          "end": 0.78
+        },
+        {
+          "text": "if",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "text": "he",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "text": "wants",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "text": "a",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "text": "par,",
+          "start": 1.6,
+          "end": 1.88
+        },
+        {
+          "text": "Red",
+          "start": 2.26,
+          "end": 2.3
+        },
+        {
+          "text": "Murray",
+          "start": 2.3,
+          "end": 2.58
+        },
+        {
+          "text": "said",
+          "start": 2.58,
+          "end": 2.86
+        },
+        {
+          "text": "earnestly,",
+          "start": 2.86,
+          "end": 3.5
+        },
+        {
+          "text": "a",
+          "start": 3.86,
+          "end": 3.94
+        },
+        {
+          "text": "pen",
+          "start": 3.94,
+          "end": 4.22
+        },
+        {
+          "text": "behind",
+          "start": 4.22,
+          "end": 4.6
+        },
+        {
+          "text": "his",
+          "start": 4.6,
+          "end": 4.8
+        },
+        {
+          "text": "ear,",
+          "start": 4.8,
+          "end": 5.06
+        },
+        {
+          "text": "we",
+          "start": 5.48,
+          "end": 5.6
+        },
+        {
+          "text": "can",
+          "start": 5.6,
+          "end": 5.78
+        },
+        {
+          "text": "do",
+          "start": 5.78,
+          "end": 5.92
+        },
+        {
+          "text": "him",
+          "start": 5.92,
+          "end": 6.12
+        },
+        {
+          "text": "one.",
+          "start": 6.12,
+          "end": 6.4
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19203224300872535
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "654610b5e4986d8a88548c9cf32b2d10ae2508e3c47ee6ca8ce3d93d67928a7b",
+  "selected_reasons": []
+}

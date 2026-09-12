@@ -1,0 +1,614 @@
+{
+  "complete": true,
+  "signature": "b1d3fee5d8b3190d10b7562a0ffa8394996bc468b9b60badb701ae1f5bba438e",
+  "attempts": [
+    {
+      "asr_seconds": 0.19906144100241363,
+      "alignment_seconds": 0.0002783510135486722,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, that be damned for a story, Mr. Dedellus said. Pullman car and saloon dinning room.",
+          "start": 0.11,
+          "end": 5.49,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.11,
+              "end": 0.59,
+              "probability": 0.2919921875
+            },
+            {
+              "text": " that",
+              "start": 0.65,
+              "end": 0.79,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " be",
+              "start": 0.79,
+              "end": 0.97,
+              "probability": 0.7451171875
+            },
+            {
+              "text": " damned",
+              "start": 0.97,
+              "end": 1.25,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " for",
+              "start": 1.25,
+              "end": 1.45,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " a",
+              "start": 1.45,
+              "end": 1.57,
+              "probability": 0.98828125
+            },
+            {
+              "text": " story,",
+              "start": 1.57,
+              "end": 1.93,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Mr.",
+              "start": 2.21,
+              "end": 2.37,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " Dedellus",
+              "start": 2.57,
+              "end": 2.87,
+              "probability": 0.6248372395833334
+            },
+            {
+              "text": " said.",
+              "start": 2.87,
+              "end": 3.11,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Pullman",
+              "start": 3.77,
+              "end": 3.97,
+              "probability": 0.941162109375
+            },
+            {
+              "text": " car",
+              "start": 3.97,
+              "end": 4.29,
+              "probability": 0.55810546875
+            },
+            {
+              "text": " and",
+              "start": 4.29,
+              "end": 4.55,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " saloon",
+              "start": 4.55,
+              "end": 4.99,
+              "probability": 0.904541015625
+            },
+            {
+              "text": " dinning",
+              "start": 4.99,
+              "end": 5.27,
+              "probability": 0.750244140625
+            },
+            {
+              "text": " room.",
+              "start": 5.27,
+              "end": 5.49,
+              "probability": 0.5634765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.11,
+          "end": 0.59
+        },
+        {
+          "raw": "that",
+          "start": 0.65,
+          "end": 0.79
+        },
+        {
+          "raw": "be",
+          "start": 0.79,
+          "end": 0.97
+        },
+        {
+          "raw": "damned",
+          "start": 0.97,
+          "end": 1.25
+        },
+        {
+          "raw": "for",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "raw": "a",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "raw": "story,",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.21,
+          "end": 2.37
+        },
+        {
+          "raw": "Dedellus",
+          "start": 2.57,
+          "end": 2.87
+        },
+        {
+          "raw": "said.",
+          "start": 2.87,
+          "end": 3.11
+        },
+        {
+          "raw": "Pullman",
+          "start": 3.77,
+          "end": 3.97
+        },
+        {
+          "raw": "car",
+          "start": 3.97,
+          "end": 4.29
+        },
+        {
+          "raw": "and",
+          "start": 4.29,
+          "end": 4.55
+        },
+        {
+          "raw": "saloon",
+          "start": 4.55,
+          "end": 4.99
+        },
+        {
+          "raw": "dinning",
+          "start": 4.99,
+          "end": 5.27
+        },
+        {
+          "raw": "room.",
+          "start": 5.27,
+          "end": 5.49
+        }
+      ],
+      "expected_tokens": [
+        "—O,",
+        "that",
+        "be",
+        "damned",
+        "for",
+        "a",
+        "story,",
+        "Mr",
+        "Dedalus",
+        "said.",
+        "Pullman",
+        "car",
+        "and",
+        "saloon",
+        "diningroom."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          8,
+          1,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          14,
+          9,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.11,
+          "end": 0.59,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.65,
+          "end": 0.79,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.79,
+          "end": 0.97,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "damned",
+          "start": 0.97,
+          "end": 1.25,
+          "key": "damned",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.25,
+          "end": 1.45,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.45,
+          "end": 1.57,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "story,",
+          "start": 1.57,
+          "end": 1.93,
+          "key": "story",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.21,
+          "end": 2.37,
+          "key": "mr",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Dedellus",
+          "start": 2.57,
+          "end": 2.87,
+          "key": "dedellus",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.87,
+          "end": 3.11,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Pullman",
+          "start": 3.77,
+          "end": 3.97,
+          "key": "pullman",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "car",
+          "start": 3.97,
+          "end": 4.29,
+          "key": "car",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.29,
+          "end": 4.55,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "saloon",
+          "start": 4.55,
+          "end": 4.99,
+          "key": "saloon",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "dinning",
+          "start": 4.99,
+          "end": 5.27,
+          "key": "dinning",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "room.",
+          "start": 5.27,
+          "end": 5.49,
+          "key": "room",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—O,",
+          "start": 0.0,
+          "end": 0.325
+        },
+        {
+          "text": "that",
+          "start": 0.65,
+          "end": 0.79
+        },
+        {
+          "text": "be",
+          "start": 0.79,
+          "end": 0.97
+        },
+        {
+          "text": "damned",
+          "start": 0.97,
+          "end": 1.25
+        },
+        {
+          "text": "for",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "text": "a",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "text": "story,",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "text": "Mr",
+          "start": 2.21,
+          "end": 2.37
+        },
+        {
+          "text": "Dedalus",
+          "start": 2.37,
+          "end": 2.62
+        },
+        {
+          "text": "said.",
+          "start": 2.87,
+          "end": 3.11
+        },
+        {
+          "text": "Pullman",
+          "start": 3.77,
+          "end": 3.97
+        },
+        {
+          "text": "car",
+          "start": 3.97,
+          "end": 4.29
+        },
+        {
+          "text": "and",
+          "start": 4.29,
+          "end": 4.55
+        },
+        {
+          "text": "saloon",
+          "start": 4.55,
+          "end": 4.99
+        },
+        {
+          "text": "diningroom.",
+          "start": 4.99,
+          "end": 5.24
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19942591298604384
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b8ee279447abd40e619a96e0c09b5ad6aca79d30c4acb0d4b8165e395fed263b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

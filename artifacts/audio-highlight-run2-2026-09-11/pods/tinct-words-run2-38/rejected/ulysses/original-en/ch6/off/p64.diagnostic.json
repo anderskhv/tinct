@@ -1,0 +1,793 @@
+{
+  "complete": true,
+  "signature": "a0827a22b13313a59f265bc62602f117949f1adaeb5db37bf7a5f395479a3af7",
+  "attempts": [
+    {
+      "asr_seconds": 0.2108723979908973,
+      "alignment_seconds": 0.0002980019780807197,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The carriage turned again at stiff wheels, and their trunks swayed gently.",
+          "start": 0.02,
+          "end": 4.44,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " carriage",
+              "start": 0.5,
+              "end": 0.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " turned",
+              "start": 0.82,
+              "end": 1.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " again",
+              "start": 1.16,
+              "end": 1.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " at",
+              "start": 1.46,
+              "end": 1.68,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " stiff",
+              "start": 1.68,
+              "end": 1.94,
+              "probability": 0.9921875
+            },
+            {
+              "text": " wheels,",
+              "start": 1.94,
+              "end": 2.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 2.88,
+              "end": 3.0,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " their",
+              "start": 3.0,
+              "end": 3.16,
+              "probability": 0.99609375
+            },
+            {
+              "text": " trunks",
+              "start": 3.16,
+              "end": 3.52,
+              "probability": 0.976806640625
+            },
+            {
+              "text": " swayed",
+              "start": 3.52,
+              "end": 3.9,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " gently.",
+              "start": 3.9,
+              "end": 4.44,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Martin Cunningham twirled more quickly the peak of his beard.",
+          "start": 5.22,
+          "end": 8.0,
+          "words": [
+            {
+              "text": " Martin",
+              "start": 5.22,
+              "end": 5.44,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Cunningham",
+              "start": 5.44,
+              "end": 5.84,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " twirled",
+              "start": 5.84,
+              "end": 6.34,
+              "probability": 0.996337890625
+            },
+            {
+              "text": " more",
+              "start": 6.34,
+              "end": 6.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " quickly",
+              "start": 6.62,
+              "end": 6.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 6.98,
+              "end": 7.2,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " peak",
+              "start": 7.2,
+              "end": 7.42,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " of",
+              "start": 7.42,
+              "end": 7.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 7.58,
+              "end": 7.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " beard.",
+              "start": 7.74,
+              "end": 8.0,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "carriage",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "raw": "turned",
+          "start": 0.82,
+          "end": 1.16
+        },
+        {
+          "raw": "again",
+          "start": 1.16,
+          "end": 1.46
+        },
+        {
+          "raw": "at",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "raw": "stiff",
+          "start": 1.68,
+          "end": 1.94
+        },
+        {
+          "raw": "wheels,",
+          "start": 1.94,
+          "end": 2.38
+        },
+        {
+          "raw": "and",
+          "start": 2.88,
+          "end": 3.0
+        },
+        {
+          "raw": "their",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "raw": "trunks",
+          "start": 3.16,
+          "end": 3.52
+        },
+        {
+          "raw": "swayed",
+          "start": 3.52,
+          "end": 3.9
+        },
+        {
+          "raw": "gently.",
+          "start": 3.9,
+          "end": 4.44
+        },
+        {
+          "raw": "Martin",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "raw": "Cunningham",
+          "start": 5.44,
+          "end": 5.84
+        },
+        {
+          "raw": "twirled",
+          "start": 5.84,
+          "end": 6.34
+        },
+        {
+          "raw": "more",
+          "start": 6.34,
+          "end": 6.62
+        },
+        {
+          "raw": "quickly",
+          "start": 6.62,
+          "end": 6.98
+        },
+        {
+          "raw": "the",
+          "start": 6.98,
+          "end": 7.2
+        },
+        {
+          "raw": "peak",
+          "start": 7.2,
+          "end": 7.42
+        },
+        {
+          "raw": "of",
+          "start": 7.42,
+          "end": 7.58
+        },
+        {
+          "raw": "his",
+          "start": 7.58,
+          "end": 7.74
+        },
+        {
+          "raw": "beard.",
+          "start": 7.74,
+          "end": 8.0
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "carriage",
+        "turned",
+        "again",
+        "its",
+        "stiff",
+        "wheels",
+        "and",
+        "their",
+        "trunks",
+        "swayed",
+        "gently.",
+        "Martin",
+        "Cunningham",
+        "twirled",
+        "more",
+        "quickly",
+        "the",
+        "peak",
+        "of",
+        "his",
+        "beard."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          22,
+          5,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "carriage",
+          "start": 0.5,
+          "end": 0.82,
+          "key": "carriage",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 0.82,
+          "end": 1.16,
+          "key": "turned",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 1.16,
+          "end": 1.46,
+          "key": "again",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.46,
+          "end": 1.68,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "stiff",
+          "start": 1.68,
+          "end": 1.94,
+          "key": "stiff",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wheels,",
+          "start": 1.94,
+          "end": 2.38,
+          "key": "wheels",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.88,
+          "end": 3.0,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 3.0,
+          "end": 3.16,
+          "key": "their",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "trunks",
+          "start": 3.16,
+          "end": 3.52,
+          "key": "trunks",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "swayed",
+          "start": 3.52,
+          "end": 3.9,
+          "key": "swayed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "gently.",
+          "start": 3.9,
+          "end": 4.44,
+          "key": "gently",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Martin",
+          "start": 5.22,
+          "end": 5.44,
+          "key": "martin",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Cunningham",
+          "start": 5.44,
+          "end": 5.84,
+          "key": "cunningham",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "twirled",
+          "start": 5.84,
+          "end": 6.34,
+          "key": "twirled",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 6.34,
+          "end": 6.62,
+          "key": "more",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "quickly",
+          "start": 6.62,
+          "end": 6.98,
+          "key": "quickly",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.98,
+          "end": 7.2,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "peak",
+          "start": 7.2,
+          "end": 7.42,
+          "key": "peak",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.42,
+          "end": 7.58,
+          "key": "of",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 7.58,
+          "end": 7.74,
+          "key": "his",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "beard.",
+          "start": 7.74,
+          "end": 8.0,
+          "key": "beard",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "carriage",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "text": "turned",
+          "start": 0.82,
+          "end": 1.16
+        },
+        {
+          "text": "again",
+          "start": 1.16,
+          "end": 1.46
+        },
+        {
+          "text": "its",
+          "start": 1.46,
+          "end": 1.57
+        },
+        {
+          "text": "stiff",
+          "start": 1.68,
+          "end": 1.94
+        },
+        {
+          "text": "wheels",
+          "start": 1.94,
+          "end": 2.38
+        },
+        {
+          "text": "and",
+          "start": 2.88,
+          "end": 3.0
+        },
+        {
+          "text": "their",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "text": "trunks",
+          "start": 3.16,
+          "end": 3.52
+        },
+        {
+          "text": "swayed",
+          "start": 3.52,
+          "end": 3.9
+        },
+        {
+          "text": "gently.",
+          "start": 3.9,
+          "end": 4.44
+        },
+        {
+          "text": "Martin",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "text": "Cunningham",
+          "start": 5.44,
+          "end": 5.84
+        },
+        {
+          "text": "twirled",
+          "start": 5.84,
+          "end": 6.34
+        },
+        {
+          "text": "more",
+          "start": 6.34,
+          "end": 6.62
+        },
+        {
+          "text": "quickly",
+          "start": 6.62,
+          "end": 6.98
+        },
+        {
+          "text": "the",
+          "start": 6.98,
+          "end": 7.2
+        },
+        {
+          "text": "peak",
+          "start": 7.2,
+          "end": 7.42
+        },
+        {
+          "text": "of",
+          "start": 7.42,
+          "end": 7.58
+        },
+        {
+          "text": "his",
+          "start": 7.58,
+          "end": 7.74
+        },
+        {
+          "text": "beard.",
+          "start": 7.74,
+          "end": 8.0
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 21
+      },
+      "match_ratio": 0.9545454545454546,
+      "rejection_reasons": [],
+      "seconds": 0.21130258101038635
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4ea457411857c6fdb7c7b1631e04970879173b0846845680342e15e93209f81a",
+  "selected_reasons": []
+}

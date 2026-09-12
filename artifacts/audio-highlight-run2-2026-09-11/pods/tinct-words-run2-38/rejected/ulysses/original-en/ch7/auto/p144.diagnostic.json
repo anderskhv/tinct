@@ -1,0 +1,1700 @@
+{
+  "complete": true,
+  "signature": "97b90c9ea400ba2880deda3be86cb2af43c74d563974d29f5d6e04fb7e51a4fc",
+  "attempts": [
+    {
+      "asr_seconds": 0.19459328800439835,
+      "alignment_seconds": 0.0002851409954018891,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Is the editor to be seen? J. J. O'Molloy asked, looking towards the inner door.",
+        "hotwords": "Is, J, O'Molloy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Is the editor to be seen? J. J. O'Molloy asked, looking towards the inner door.",
+          "start": 0.05,
+          "end": 4.95,
+          "words": [
+            {
+              "text": " Is",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.59619140625
+            },
+            {
+              "text": " the",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.99609375
+            },
+            {
+              "text": " editor",
+              "start": 0.65,
+              "end": 0.93,
+              "probability": 0.9296875
+            },
+            {
+              "text": " to",
+              "start": 0.93,
+              "end": 1.11,
+              "probability": 0.994140625
+            },
+            {
+              "text": " be",
+              "start": 1.11,
+              "end": 1.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " seen?",
+              "start": 1.25,
+              "end": 1.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " J.",
+              "start": 2.25,
+              "end": 2.27,
+              "probability": 0.2139892578125
+            },
+            {
+              "text": " J.",
+              "start": 2.49,
+              "end": 2.51,
+              "probability": 0.151123046875
+            },
+            {
+              "text": " O",
+              "start": 2.65,
+              "end": 2.71,
+              "probability": 0.46142578125
+            },
+            {
+              "text": "'Molloy",
+              "start": 2.71,
+              "end": 3.21,
+              "probability": 0.35463714599609375
+            },
+            {
+              "text": " asked,",
+              "start": 3.21,
+              "end": 3.47,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " looking",
+              "start": 3.75,
+              "end": 3.95,
+              "probability": 0.873046875
+            },
+            {
+              "text": " towards",
+              "start": 3.95,
+              "end": 4.25,
+              "probability": 0.96484375
+            },
+            {
+              "text": " the",
+              "start": 4.25,
+              "end": 4.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " inner",
+              "start": 4.45,
+              "end": 4.65,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " door.",
+              "start": 4.65,
+              "end": 4.95,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "editor",
+          "start": 0.65,
+          "end": 0.93
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.11
+        },
+        {
+          "raw": "be",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "raw": "seen?",
+          "start": 1.25,
+          "end": 1.63
+        },
+        {
+          "raw": "J.",
+          "start": 2.25,
+          "end": 2.27
+        },
+        {
+          "raw": "J.",
+          "start": 2.49,
+          "end": 2.51
+        },
+        {
+          "raw": "O",
+          "start": 2.65,
+          "end": 2.71
+        },
+        {
+          "raw": "'Molloy",
+          "start": 2.71,
+          "end": 3.21
+        },
+        {
+          "raw": "asked,",
+          "start": 3.21,
+          "end": 3.47
+        },
+        {
+          "raw": "looking",
+          "start": 3.75,
+          "end": 3.95
+        },
+        {
+          "raw": "towards",
+          "start": 3.95,
+          "end": 4.25
+        },
+        {
+          "raw": "the",
+          "start": 4.25,
+          "end": 4.45
+        },
+        {
+          "raw": "inner",
+          "start": 4.45,
+          "end": 4.65
+        },
+        {
+          "raw": "door.",
+          "start": 4.65,
+          "end": 4.95
+        }
+      ],
+      "expected_tokens": [
+        "—Is",
+        "the",
+        "editor",
+        "to",
+        "be",
+        "seen?",
+        "J.",
+        "J.",
+        "O'Molloy",
+        "asked,",
+        "looking",
+        "towards",
+        "the",
+        "inner",
+        "door."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          15,
+          10,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "is",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "editor",
+          "start": 0.65,
+          "end": 0.93,
+          "key": "editor",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.11,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.11,
+          "end": 1.25,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "seen?",
+          "start": 1.25,
+          "end": 1.63,
+          "key": "seen",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "J.",
+          "start": 2.25,
+          "end": 2.27,
+          "key": "j",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "J.",
+          "start": 2.49,
+          "end": 2.51,
+          "key": "j",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 2.65,
+          "end": 2.71,
+          "key": "o",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "'Molloy",
+          "start": 2.71,
+          "end": 3.21,
+          "key": "molloy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "asked,",
+          "start": 3.21,
+          "end": 3.47,
+          "key": "asked",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 3.75,
+          "end": 3.95,
+          "key": "looking",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "towards",
+          "start": 3.95,
+          "end": 4.25,
+          "key": "towards",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.25,
+          "end": 4.45,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "inner",
+          "start": 4.45,
+          "end": 4.65,
+          "key": "inner",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "door.",
+          "start": 4.65,
+          "end": 4.95,
+          "key": "door",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Is",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "the",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "editor",
+          "start": 0.65,
+          "end": 0.93
+        },
+        {
+          "text": "to",
+          "start": 0.93,
+          "end": 1.11
+        },
+        {
+          "text": "be",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "text": "seen?",
+          "start": 1.25,
+          "end": 1.63
+        },
+        {
+          "text": "J.",
+          "start": 2.25,
+          "end": 2.27
+        },
+        {
+          "text": "J.",
+          "start": 2.49,
+          "end": 2.51
+        },
+        {
+          "text": "O'Molloy",
+          "start": 2.51,
+          "end": 2.86
+        },
+        {
+          "text": "asked,",
+          "start": 3.21,
+          "end": 3.47
+        },
+        {
+          "text": "looking",
+          "start": 3.75,
+          "end": 3.95
+        },
+        {
+          "text": "towards",
+          "start": 3.95,
+          "end": 4.25
+        },
+        {
+          "text": "the",
+          "start": 4.25,
+          "end": 4.45
+        },
+        {
+          "text": "inner",
+          "start": 4.45,
+          "end": 4.65
+        },
+        {
+          "text": "door.",
+          "start": 4.65,
+          "end": 4.95
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.194976519967895
+    },
+    {
+      "asr_seconds": 0.16116263100411743,
+      "alignment_seconds": 0.0003011520020663738,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Is, J, O'Molloy"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Is the editor to be seen? J.J. O'Moll asked, looking towards the inner door.",
+          "start": 0.05,
+          "end": 4.95,
+          "words": [
+            {
+              "text": " Is",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.59619140625
+            },
+            {
+              "text": " the",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.99609375
+            },
+            {
+              "text": " editor",
+              "start": 0.65,
+              "end": 0.93,
+              "probability": 0.9296875
+            },
+            {
+              "text": " to",
+              "start": 0.93,
+              "end": 1.11,
+              "probability": 0.994140625
+            },
+            {
+              "text": " be",
+              "start": 1.11,
+              "end": 1.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " seen?",
+              "start": 1.25,
+              "end": 1.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " J",
+              "start": 2.25,
+              "end": 2.27,
+              "probability": 0.2139892578125
+            },
+            {
+              "text": ".J.",
+              "start": 2.27,
+              "end": 2.51,
+              "probability": 0.884521484375
+            },
+            {
+              "text": " O",
+              "start": 2.63,
+              "end": 2.71,
+              "probability": 0.623046875
+            },
+            {
+              "text": "'Moll",
+              "start": 2.71,
+              "end": 2.93,
+              "probability": 0.472076416015625
+            },
+            {
+              "text": " asked,",
+              "start": 2.93,
+              "end": 3.47,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " looking",
+              "start": 3.77,
+              "end": 3.95,
+              "probability": 0.89453125
+            },
+            {
+              "text": " towards",
+              "start": 3.95,
+              "end": 4.25,
+              "probability": 0.962890625
+            },
+            {
+              "text": " the",
+              "start": 4.25,
+              "end": 4.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " inner",
+              "start": 4.45,
+              "end": 4.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " door.",
+              "start": 4.65,
+              "end": 4.95,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "editor",
+          "start": 0.65,
+          "end": 0.93
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.11
+        },
+        {
+          "raw": "be",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "raw": "seen?",
+          "start": 1.25,
+          "end": 1.63
+        },
+        {
+          "raw": "J",
+          "start": 2.25,
+          "end": 2.27
+        },
+        {
+          "raw": ".J.",
+          "start": 2.27,
+          "end": 2.51
+        },
+        {
+          "raw": "O",
+          "start": 2.63,
+          "end": 2.71
+        },
+        {
+          "raw": "'Moll",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "raw": "asked,",
+          "start": 2.93,
+          "end": 3.47
+        },
+        {
+          "raw": "looking",
+          "start": 3.77,
+          "end": 3.95
+        },
+        {
+          "raw": "towards",
+          "start": 3.95,
+          "end": 4.25
+        },
+        {
+          "raw": "the",
+          "start": 4.25,
+          "end": 4.45
+        },
+        {
+          "raw": "inner",
+          "start": 4.45,
+          "end": 4.65
+        },
+        {
+          "raw": "door.",
+          "start": 4.65,
+          "end": 4.95
+        }
+      ],
+      "expected_tokens": [
+        "—Is",
+        "the",
+        "editor",
+        "to",
+        "be",
+        "seen?",
+        "J.",
+        "J.",
+        "O'Molloy",
+        "asked,",
+        "looking",
+        "towards",
+        "the",
+        "inner",
+        "door."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          15,
+          10,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "is",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "editor",
+          "start": 0.65,
+          "end": 0.93,
+          "key": "editor",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.11,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.11,
+          "end": 1.25,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "seen?",
+          "start": 1.25,
+          "end": 1.63,
+          "key": "seen",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "J",
+          "start": 2.25,
+          "end": 2.27,
+          "key": "j",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": ".J.",
+          "start": 2.27,
+          "end": 2.51,
+          "key": "j",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 2.63,
+          "end": 2.71,
+          "key": "o",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "'Moll",
+          "start": 2.71,
+          "end": 2.93,
+          "key": "moll",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "asked,",
+          "start": 2.93,
+          "end": 3.47,
+          "key": "asked",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 3.77,
+          "end": 3.95,
+          "key": "looking",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "towards",
+          "start": 3.95,
+          "end": 4.25,
+          "key": "towards",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.25,
+          "end": 4.45,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "inner",
+          "start": 4.45,
+          "end": 4.65,
+          "key": "inner",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "door.",
+          "start": 4.65,
+          "end": 4.95,
+          "key": "door",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Is",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "the",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "editor",
+          "start": 0.65,
+          "end": 0.93
+        },
+        {
+          "text": "to",
+          "start": 0.93,
+          "end": 1.11
+        },
+        {
+          "text": "be",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "text": "seen?",
+          "start": 1.25,
+          "end": 1.63
+        },
+        {
+          "text": "J.",
+          "start": 2.25,
+          "end": 2.27
+        },
+        {
+          "text": "J.",
+          "start": 2.27,
+          "end": 2.51
+        },
+        {
+          "text": "O'Molloy",
+          "start": 2.51,
+          "end": 2.72
+        },
+        {
+          "text": "asked,",
+          "start": 2.93,
+          "end": 3.47
+        },
+        {
+          "text": "looking",
+          "start": 3.77,
+          "end": 3.95
+        },
+        {
+          "text": "towards",
+          "start": 3.95,
+          "end": 4.25
+        },
+        {
+          "text": "the",
+          "start": 4.25,
+          "end": 4.45
+        },
+        {
+          "text": "inner",
+          "start": 4.45,
+          "end": 4.65
+        },
+        {
+          "text": "door.",
+          "start": 4.65,
+          "end": 4.95
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.16159009299008176
+    },
+    {
+      "asr_seconds": 0.2045116430381313,
+      "alignment_seconds": 0.0007097229827195406,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Is the editor to be seen?",
+          "start": 0.05,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Is",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.59619140625
+            },
+            {
+              "text": " the",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.99609375
+            },
+            {
+              "text": " editor",
+              "start": 0.65,
+              "end": 0.93,
+              "probability": 0.9296875
+            },
+            {
+              "text": " to",
+              "start": 0.93,
+              "end": 1.11,
+              "probability": 0.994140625
+            },
+            {
+              "text": " be",
+              "start": 1.11,
+              "end": 1.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " seen?",
+              "start": 1.25,
+              "end": 1.63,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " JJ Omal asked, looking towards the inner door.",
+          "start": 2.29,
+          "end": 4.95,
+          "words": [
+            {
+              "text": " JJ",
+              "start": 2.29,
+              "end": 2.49,
+              "probability": 0.70703125
+            },
+            {
+              "text": " Omal",
+              "start": 2.49,
+              "end": 2.91,
+              "probability": 0.5185546875
+            },
+            {
+              "text": " asked,",
+              "start": 2.91,
+              "end": 3.41,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " looking",
+              "start": 3.77,
+              "end": 3.95,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " towards",
+              "start": 3.95,
+              "end": 4.25,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " the",
+              "start": 4.25,
+              "end": 4.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " inner",
+              "start": 4.45,
+              "end": 4.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " door.",
+              "start": 4.65,
+              "end": 4.95,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "editor",
+          "start": 0.65,
+          "end": 0.93
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.11
+        },
+        {
+          "raw": "be",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "raw": "seen?",
+          "start": 1.25,
+          "end": 1.63
+        },
+        {
+          "raw": "JJ",
+          "start": 2.29,
+          "end": 2.49
+        },
+        {
+          "raw": "Omal",
+          "start": 2.49,
+          "end": 2.91
+        },
+        {
+          "raw": "asked,",
+          "start": 2.91,
+          "end": 3.41
+        },
+        {
+          "raw": "looking",
+          "start": 3.77,
+          "end": 3.95
+        },
+        {
+          "raw": "towards",
+          "start": 3.95,
+          "end": 4.25
+        },
+        {
+          "raw": "the",
+          "start": 4.25,
+          "end": 4.45
+        },
+        {
+          "raw": "inner",
+          "start": 4.45,
+          "end": 4.65
+        },
+        {
+          "raw": "door.",
+          "start": 4.65,
+          "end": 4.95
+        }
+      ],
+      "expected_tokens": [
+        "—Is",
+        "the",
+        "editor",
+        "to",
+        "be",
+        "seen?",
+        "J.",
+        "J.",
+        "O'Molloy",
+        "asked,",
+        "looking",
+        "towards",
+        "the",
+        "inner",
+        "door."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          9,
+          6,
+          8
+        ],
+        [
+          "equal",
+          9,
+          15,
+          8,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          9,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "is",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "editor",
+          "start": 0.65,
+          "end": 0.93,
+          "key": "editor",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.11,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.11,
+          "end": 1.25,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "seen?",
+          "start": 1.25,
+          "end": 1.63,
+          "key": "seen",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "JJ",
+          "start": 2.29,
+          "end": 2.49,
+          "key": "jj",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Omal",
+          "start": 2.49,
+          "end": 2.91,
+          "key": "omal",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "asked,",
+          "start": 2.91,
+          "end": 3.41,
+          "key": "asked",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 3.77,
+          "end": 3.95,
+          "key": "looking",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "towards",
+          "start": 3.95,
+          "end": 4.25,
+          "key": "towards",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.25,
+          "end": 4.45,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "inner",
+          "start": 4.45,
+          "end": 4.65,
+          "key": "inner",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "door.",
+          "start": 4.65,
+          "end": 4.95,
+          "key": "door",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Is",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "the",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "editor",
+          "start": 0.65,
+          "end": 0.93
+        },
+        {
+          "text": "to",
+          "start": 0.93,
+          "end": 1.11
+        },
+        {
+          "text": "be",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "text": "seen?",
+          "start": 1.25,
+          "end": 1.63
+        },
+        {
+          "text": "J.",
+          "start": 1.63,
+          "end": 2.27
+        },
+        {
+          "text": "J.",
+          "start": 2.27,
+          "end": 2.59
+        },
+        {
+          "text": "O'Molloy",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "text": "asked,",
+          "start": 2.91,
+          "end": 3.41
+        },
+        {
+          "text": "looking",
+          "start": 3.77,
+          "end": 3.95
+        },
+        {
+          "text": "towards",
+          "start": 3.95,
+          "end": 4.25
+        },
+        {
+          "text": "the",
+          "start": 4.25,
+          "end": 4.45
+        },
+        {
+          "text": "inner",
+          "start": 4.45,
+          "end": 4.65
+        },
+        {
+          "text": "door.",
+          "start": 4.65,
+          "end": 4.95
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20532321801874787
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9eba0a2a49b3f176e25e3763ba6697dbd1b30e64ce0c2bb1b1e196d42bae8341",
+  "selected_reasons": []
+}

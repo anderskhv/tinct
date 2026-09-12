@@ -1,0 +1,236 @@
+{
+  "complete": true,
+  "signature": "f14abe110f6b5db4dbf5612106cf0a07f56258c8557c44622e1918c3fbe9b192",
+  "attempts": [
+    {
+      "asr_seconds": 3.6884370160405524,
+      "alignment_seconds": 0.00013160001253709197,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Orthographical",
+        "hotwords": "Orthographical"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Orthographical Orthographical Orthographical",
+          "start": 0.05,
+          "end": 1.39,
+          "words": [
+            {
+              "text": " Orthographical",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.857421875
+            },
+            {
+              "text": " Orthographical",
+              "start": 0.77,
+              "end": 1.05,
+              "probability": 0.4782944917678833
+            },
+            {
+              "text": " Orthographical",
+              "start": 1.05,
+              "end": 1.39,
+              "probability": 0.739501953125
+            }
+          ]
+        },
+        {
+          "text": " Orthographical Orthographical Orthographical OrthopHmm",
+          "start": 1.39,
+          "end": 1.77,
+          "words": [
+            {
+              "text": " Orthographical",
+              "start": 1.39,
+              "end": 1.77,
+              "probability": 1.0132789611816406e-05
+            },
+            {
+              "text": " Orthographical",
+              "start": 1.77,
+              "end": 1.77,
+              "probability": 0.002156376838684082
+            },
+            {
+              "text": " Orthographical",
+              "start": 1.77,
+              "end": 1.77,
+              "probability": 0.05207061767578125
+            },
+            {
+              "text": " OrthopHmm",
+              "start": 1.77,
+              "end": 1.77,
+              "probability": 0.057652215162913
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Orthographical",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Orthographical",
+          "start": 0.77,
+          "end": 1.05
+        },
+        {
+          "raw": "Orthographical",
+          "start": 1.05,
+          "end": 1.39
+        },
+        {
+          "raw": "Orthographical",
+          "start": 1.39,
+          "end": 1.77
+        },
+        {
+          "raw": "Orthographical",
+          "start": 1.77,
+          "end": 1.77
+        },
+        {
+          "raw": "Orthographical",
+          "start": 1.77,
+          "end": 1.77
+        },
+        {
+          "raw": "OrthopHmm",
+          "start": 1.77,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "Orthographical"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Orthographical",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "orthographical",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Orthographical",
+          "start": 0.77,
+          "end": 1.05,
+          "key": "orthographical",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Orthographical",
+          "start": 1.05,
+          "end": 1.39,
+          "key": "orthographical",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Orthographical",
+          "start": 1.39,
+          "end": 1.77,
+          "key": "orthographical",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Orthographical",
+          "start": 1.77,
+          "end": 1.77,
+          "key": "orthographical",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Orthographical",
+          "start": 1.77,
+          "end": 1.77,
+          "key": "orthographical",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "OrthopHmm",
+          "start": 1.77,
+          "end": 1.77,
+          "key": "orthophmm",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Orthographical",
+          "start": 0.05,
+          "end": 0.77
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 7,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.688636528037023
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bd0579c05a5835839773658a5a39206dfd5a2a45989929eef6f2e5705307fc24",
+  "selected_reasons": []
+}

@@ -1,0 +1,547 @@
+{
+  "complete": true,
+  "signature": "d83dc727035586d88f35e046f5fae7bda3355c986809858ef142733ccdc4f602",
+  "attempts": [
+    {
+      "asr_seconds": 0.19747860496863723,
+      "alignment_seconds": 0.00029123201966285706,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A dumb belch of hunger cleft his speech.",
+          "start": 0.08,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.908203125
+            },
+            {
+              "text": " dumb",
+              "start": 0.52,
+              "end": 0.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " belch",
+              "start": 0.8,
+              "end": 1.18,
+              "probability": 0.978759765625
+            },
+            {
+              "text": " of",
+              "start": 1.18,
+              "end": 1.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hunger",
+              "start": 1.3,
+              "end": 1.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " cleft",
+              "start": 1.58,
+              "end": 1.96,
+              "probability": 0.990234375
+            },
+            {
+              "text": " his",
+              "start": 1.96,
+              "end": 2.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " speech.",
+              "start": 2.08,
+              "end": 2.44,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " He lifted his voice above it boldly.",
+          "start": 3.12,
+          "end": 4.74,
+          "words": [
+            {
+              "text": " He",
+              "start": 3.12,
+              "end": 3.2,
+              "probability": 0.994140625
+            },
+            {
+              "text": " lifted",
+              "start": 3.2,
+              "end": 3.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 3.42,
+              "end": 3.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " voice",
+              "start": 3.68,
+              "end": 3.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " above",
+              "start": 3.94,
+              "end": 4.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 4.24,
+              "end": 4.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " boldly.",
+              "start": 4.42,
+              "end": 4.74,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "dumb",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "raw": "belch",
+          "start": 0.8,
+          "end": 1.18
+        },
+        {
+          "raw": "of",
+          "start": 1.18,
+          "end": 1.3
+        },
+        {
+          "raw": "hunger",
+          "start": 1.3,
+          "end": 1.58
+        },
+        {
+          "raw": "cleft",
+          "start": 1.58,
+          "end": 1.96
+        },
+        {
+          "raw": "his",
+          "start": 1.96,
+          "end": 2.08
+        },
+        {
+          "raw": "speech.",
+          "start": 2.08,
+          "end": 2.44
+        },
+        {
+          "raw": "He",
+          "start": 3.12,
+          "end": 3.2
+        },
+        {
+          "raw": "lifted",
+          "start": 3.2,
+          "end": 3.42
+        },
+        {
+          "raw": "his",
+          "start": 3.42,
+          "end": 3.68
+        },
+        {
+          "raw": "voice",
+          "start": 3.68,
+          "end": 3.94
+        },
+        {
+          "raw": "above",
+          "start": 3.94,
+          "end": 4.24
+        },
+        {
+          "raw": "it",
+          "start": 4.24,
+          "end": 4.42
+        },
+        {
+          "raw": "boldly.",
+          "start": 4.42,
+          "end": 4.74
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "dumb",
+        "belch",
+        "of",
+        "hunger",
+        "cleft",
+        "his",
+        "speech.",
+        "He",
+        "lifted",
+        "his",
+        "voice",
+        "above",
+        "it",
+        "boldly:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dumb",
+          "start": 0.52,
+          "end": 0.8,
+          "key": "dumb",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "belch",
+          "start": 0.8,
+          "end": 1.18,
+          "key": "belch",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.18,
+          "end": 1.3,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hunger",
+          "start": 1.3,
+          "end": 1.58,
+          "key": "hunger",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cleft",
+          "start": 1.58,
+          "end": 1.96,
+          "key": "cleft",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.96,
+          "end": 2.08,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "speech.",
+          "start": 2.08,
+          "end": 2.44,
+          "key": "speech",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.12,
+          "end": 3.2,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lifted",
+          "start": 3.2,
+          "end": 3.42,
+          "key": "lifted",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.42,
+          "end": 3.68,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 3.68,
+          "end": 3.94,
+          "key": "voice",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "above",
+          "start": 3.94,
+          "end": 4.24,
+          "key": "above",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.24,
+          "end": 4.42,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "boldly.",
+          "start": 4.42,
+          "end": 4.74,
+          "key": "boldly",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "dumb",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "text": "belch",
+          "start": 0.8,
+          "end": 1.18
+        },
+        {
+          "text": "of",
+          "start": 1.18,
+          "end": 1.3
+        },
+        {
+          "text": "hunger",
+          "start": 1.3,
+          "end": 1.58
+        },
+        {
+          "text": "cleft",
+          "start": 1.58,
+          "end": 1.96
+        },
+        {
+          "text": "his",
+          "start": 1.96,
+          "end": 2.08
+        },
+        {
+          "text": "speech.",
+          "start": 2.08,
+          "end": 2.44
+        },
+        {
+          "text": "He",
+          "start": 3.12,
+          "end": 3.2
+        },
+        {
+          "text": "lifted",
+          "start": 3.2,
+          "end": 3.42
+        },
+        {
+          "text": "his",
+          "start": 3.42,
+          "end": 3.68
+        },
+        {
+          "text": "voice",
+          "start": 3.68,
+          "end": 3.94
+        },
+        {
+          "text": "above",
+          "start": 3.94,
+          "end": 4.24
+        },
+        {
+          "text": "it",
+          "start": 4.24,
+          "end": 4.42
+        },
+        {
+          "text": "boldly:",
+          "start": 4.42,
+          "end": 4.74
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1979038969730027
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e2616400e23fb1a9b461aa815fec5a56ccc34c9629791d2d32d5683d86b04505",
+  "selected_reasons": []
+}

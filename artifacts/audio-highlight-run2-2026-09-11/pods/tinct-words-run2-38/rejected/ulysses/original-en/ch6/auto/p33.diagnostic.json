@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "a44230ab806deb22e09f66dedcd72d7b0338cc8d5e193583173a098ff5316326",
+  "attempts": [
+    {
+      "asr_seconds": 0.14979196799686179,
+      "alignment_seconds": 0.00020821101497858763,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The carriage heeled over and back, their four trunks swaying.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The carriage heeled over and back, their four trunks swaying.",
+          "start": 0.02,
+          "end": 3.4,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.46,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " carriage",
+              "start": 0.46,
+              "end": 0.78,
+              "probability": 0.98828125
+            },
+            {
+              "text": " heeled",
+              "start": 0.78,
+              "end": 1.12,
+              "probability": 0.6181640625
+            },
+            {
+              "text": " over",
+              "start": 1.12,
+              "end": 1.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 1.3,
+              "end": 1.46,
+              "probability": 0.880859375
+            },
+            {
+              "text": " back,",
+              "start": 1.46,
+              "end": 1.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " their",
+              "start": 2.16,
+              "end": 2.24,
+              "probability": 0.9765625
+            },
+            {
+              "text": " four",
+              "start": 2.24,
+              "end": 2.48,
+              "probability": 0.6630859375
+            },
+            {
+              "text": " trunks",
+              "start": 2.48,
+              "end": 2.86,
+              "probability": 0.990234375
+            },
+            {
+              "text": " swaying.",
+              "start": 2.86,
+              "end": 3.4,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.46
+        },
+        {
+          "raw": "carriage",
+          "start": 0.46,
+          "end": 0.78
+        },
+        {
+          "raw": "heeled",
+          "start": 0.78,
+          "end": 1.12
+        },
+        {
+          "raw": "over",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "raw": "and",
+          "start": 1.3,
+          "end": 1.46
+        },
+        {
+          "raw": "back,",
+          "start": 1.46,
+          "end": 1.76
+        },
+        {
+          "raw": "their",
+          "start": 2.16,
+          "end": 2.24
+        },
+        {
+          "raw": "four",
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "raw": "trunks",
+          "start": 2.48,
+          "end": 2.86
+        },
+        {
+          "raw": "swaying.",
+          "start": 2.86,
+          "end": 3.4
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "carriage",
+        "heeled",
+        "over",
+        "and",
+        "back,",
+        "their",
+        "four",
+        "trunks",
+        "swaying."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.46,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "carriage",
+          "start": 0.46,
+          "end": 0.78,
+          "key": "carriage",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "heeled",
+          "start": 0.78,
+          "end": 1.12,
+          "key": "heeled",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 1.12,
+          "end": 1.3,
+          "key": "over",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.3,
+          "end": 1.46,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "back,",
+          "start": 1.46,
+          "end": 1.76,
+          "key": "back",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 2.16,
+          "end": 2.24,
+          "key": "their",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "four",
+          "start": 2.24,
+          "end": 2.48,
+          "key": "four",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "trunks",
+          "start": 2.48,
+          "end": 2.86,
+          "key": "trunks",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "swaying.",
+          "start": 2.86,
+          "end": 3.4,
+          "key": "swaying",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.46
+        },
+        {
+          "text": "carriage",
+          "start": 0.46,
+          "end": 0.78
+        },
+        {
+          "text": "heeled",
+          "start": 0.78,
+          "end": 1.12
+        },
+        {
+          "text": "over",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "text": "and",
+          "start": 1.3,
+          "end": 1.46
+        },
+        {
+          "text": "back,",
+          "start": 1.46,
+          "end": 1.76
+        },
+        {
+          "text": "their",
+          "start": 2.16,
+          "end": 2.24
+        },
+        {
+          "text": "four",
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "text": "trunks",
+          "start": 2.48,
+          "end": 2.86
+        },
+        {
+          "text": "swaying.",
+          "start": 2.86,
+          "end": 3.4
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1500792690203525
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "85afb170325af6332b65388c86c5154c3176bdf102b7fb3ebdc2cf98e2d5d3f6",
+  "selected_reasons": []
+}

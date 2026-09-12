@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "a933f5a66b297fbc7178516cd72f51c209c0da7d9133ffd7045896879e5dc63f",
+  "attempts": [
+    {
+      "asr_seconds": 0.17881063901586458,
+      "alignment_seconds": 0.0002282719942741096,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hello, evening telegraph here. Hello, who's there? Yes, yes, yes.",
+          "start": 0.05,
+          "end": 4.81,
+          "words": [
+            {
+              "text": " Hello,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " evening",
+              "start": 0.97,
+              "end": 1.15,
+              "probability": 0.52880859375
+            },
+            {
+              "text": " telegraph",
+              "start": 1.15,
+              "end": 1.67,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " here.",
+              "start": 1.67,
+              "end": 1.99,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Hello,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " who's",
+              "start": 2.83,
+              "end": 3.03,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " there?",
+              "start": 3.03,
+              "end": 3.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Yes,",
+              "start": 3.69,
+              "end": 3.69,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " yes,",
+              "start": 3.99,
+              "end": 4.21,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " yes.",
+              "start": 4.57,
+              "end": 4.81,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hello,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "evening",
+          "start": 0.97,
+          "end": 1.15
+        },
+        {
+          "raw": "telegraph",
+          "start": 1.15,
+          "end": 1.67
+        },
+        {
+          "raw": "here.",
+          "start": 1.67,
+          "end": 1.99
+        },
+        {
+          "raw": "Hello,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "who's",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "raw": "there?",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "raw": "Yes,",
+          "start": 3.69,
+          "end": 3.69
+        },
+        {
+          "raw": "yes,",
+          "start": 3.99,
+          "end": 4.21
+        },
+        {
+          "raw": "yes.",
+          "start": 4.57,
+          "end": 4.81
+        }
+      ],
+      "expected_tokens": [
+        "—Hello?",
+        "_Evening",
+        "Telegraph_",
+        "here...",
+        "Hello?...",
+        "Who's",
+        "there?...",
+        "Yes...",
+        "Yes...",
+        "Yes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hello,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "hello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "evening",
+          "start": 0.97,
+          "end": 1.15,
+          "key": "evening",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "telegraph",
+          "start": 1.15,
+          "end": 1.67,
+          "key": "telegraph",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 1.67,
+          "end": 1.99,
+          "key": "here",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Hello,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "hello",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "who's",
+          "start": 2.83,
+          "end": 3.03,
+          "key": "whos",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "there?",
+          "start": 3.03,
+          "end": 3.25,
+          "key": "there",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Yes,",
+          "start": 3.69,
+          "end": 3.69,
+          "key": "yes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "yes,",
+          "start": 3.99,
+          "end": 4.21,
+          "key": "yes",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "yes.",
+          "start": 4.57,
+          "end": 4.81,
+          "key": "yes",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Hello?",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "_Evening",
+          "start": 0.97,
+          "end": 1.15
+        },
+        {
+          "text": "Telegraph_",
+          "start": 1.15,
+          "end": 1.67
+        },
+        {
+          "text": "here...",
+          "start": 1.67,
+          "end": 1.99
+        },
+        {
+          "text": "Hello?...",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "text": "Who's",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "text": "there?...",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "text": "Yes...",
+          "start": 3.69,
+          "end": 3.69
+        },
+        {
+          "text": "Yes...",
+          "start": 3.99,
+          "end": 4.21
+        },
+        {
+          "text": "Yes.",
+          "start": 4.57,
+          "end": 4.81
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.179119881009683
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6547ce400f3376053b08fe31e16070d37315fe2450f6e71c30fb699f9ca936db",
+  "selected_reasons": []
+}

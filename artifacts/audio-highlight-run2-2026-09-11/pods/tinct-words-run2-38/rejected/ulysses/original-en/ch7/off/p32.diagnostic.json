@@ -1,0 +1,717 @@
+{
+  "complete": true,
+  "signature": "c493a7b6930b95a4f13511db218538589586a63fecfe9a13952733a3bf21f43d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2123021770385094,
+      "alignment_seconds": 0.0003758820239454508,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A telegram boy stepped in nimbly, threw an envelope on the counter, and stepped off post-haste",
+          "start": 0.02,
+          "end": 5.84,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.947265625
+            },
+            {
+              "text": " telegram",
+              "start": 0.5,
+              "end": 0.94,
+              "probability": 0.922607421875
+            },
+            {
+              "text": " boy",
+              "start": 0.94,
+              "end": 1.32,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " stepped",
+              "start": 1.32,
+              "end": 1.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 1.64,
+              "end": 1.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " nimbly,",
+              "start": 1.88,
+              "end": 2.32,
+              "probability": 0.9597981770833334
+            },
+            {
+              "text": " threw",
+              "start": 2.68,
+              "end": 2.96,
+              "probability": 0.974609375
+            },
+            {
+              "text": " an",
+              "start": 2.96,
+              "end": 3.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " envelope",
+              "start": 3.1,
+              "end": 3.48,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " on",
+              "start": 3.48,
+              "end": 3.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.7,
+              "end": 3.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " counter,",
+              "start": 3.8,
+              "end": 4.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 4.56,
+              "end": 4.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " stepped",
+              "start": 4.62,
+              "end": 4.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " off",
+              "start": 4.88,
+              "end": 5.12,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " post",
+              "start": 5.12,
+              "end": 5.42,
+              "probability": 0.982421875
+            },
+            {
+              "text": "-haste",
+              "start": 5.42,
+              "end": 5.84,
+              "probability": 0.8743489583333334
+            }
+          ]
+        },
+        {
+          "text": " with a word.",
+          "start": 5.84,
+          "end": 6.36,
+          "words": [
+            {
+              "text": " with",
+              "start": 5.84,
+              "end": 6.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 6.02,
+              "end": 6.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " word.",
+              "start": 6.14,
+              "end": 6.36,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "telegram",
+          "start": 0.5,
+          "end": 0.94
+        },
+        {
+          "raw": "boy",
+          "start": 0.94,
+          "end": 1.32
+        },
+        {
+          "raw": "stepped",
+          "start": 1.32,
+          "end": 1.64
+        },
+        {
+          "raw": "in",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "raw": "nimbly,",
+          "start": 1.88,
+          "end": 2.32
+        },
+        {
+          "raw": "threw",
+          "start": 2.68,
+          "end": 2.96
+        },
+        {
+          "raw": "an",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "raw": "envelope",
+          "start": 3.1,
+          "end": 3.48
+        },
+        {
+          "raw": "on",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "raw": "the",
+          "start": 3.7,
+          "end": 3.8
+        },
+        {
+          "raw": "counter,",
+          "start": 3.8,
+          "end": 4.12
+        },
+        {
+          "raw": "and",
+          "start": 4.56,
+          "end": 4.62
+        },
+        {
+          "raw": "stepped",
+          "start": 4.62,
+          "end": 4.88
+        },
+        {
+          "raw": "off",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "raw": "post",
+          "start": 5.12,
+          "end": 5.42
+        },
+        {
+          "raw": "-haste",
+          "start": 5.42,
+          "end": 5.84
+        },
+        {
+          "raw": "with",
+          "start": 5.84,
+          "end": 6.02
+        },
+        {
+          "raw": "a",
+          "start": 6.02,
+          "end": 6.14
+        },
+        {
+          "raw": "word.",
+          "start": 6.14,
+          "end": 6.36
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "telegram",
+        "boy",
+        "stepped",
+        "in",
+        "nimbly,",
+        "threw",
+        "an",
+        "envelope",
+        "on",
+        "the",
+        "counter",
+        "and",
+        "stepped",
+        "off",
+        "posthaste",
+        "with",
+        "a",
+        "word:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          17
+        ],
+        [
+          "equal",
+          16,
+          19,
+          17,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          15,
+          16,
+          15,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "telegram",
+          "start": 0.5,
+          "end": 0.94,
+          "key": "telegram",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "boy",
+          "start": 0.94,
+          "end": 1.32,
+          "key": "boy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stepped",
+          "start": 1.32,
+          "end": 1.64,
+          "key": "stepped",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.64,
+          "end": 1.88,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "nimbly,",
+          "start": 1.88,
+          "end": 2.32,
+          "key": "nimbly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "threw",
+          "start": 2.68,
+          "end": 2.96,
+          "key": "threw",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.96,
+          "end": 3.1,
+          "key": "an",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "envelope",
+          "start": 3.1,
+          "end": 3.48,
+          "key": "envelope",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.48,
+          "end": 3.7,
+          "key": "on",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.7,
+          "end": 3.8,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "counter,",
+          "start": 3.8,
+          "end": 4.12,
+          "key": "counter",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.56,
+          "end": 4.62,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "stepped",
+          "start": 4.62,
+          "end": 4.88,
+          "key": "stepped",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 4.88,
+          "end": 5.12,
+          "key": "off",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "post",
+          "start": 5.12,
+          "end": 5.42,
+          "key": "post",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "-haste",
+          "start": 5.42,
+          "end": 5.84,
+          "key": "haste",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.84,
+          "end": 6.02,
+          "key": "with",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.02,
+          "end": 6.14,
+          "key": "a",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "word.",
+          "start": 6.14,
+          "end": 6.36,
+          "key": "word",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "telegram",
+          "start": 0.5,
+          "end": 0.94
+        },
+        {
+          "text": "boy",
+          "start": 0.94,
+          "end": 1.32
+        },
+        {
+          "text": "stepped",
+          "start": 1.32,
+          "end": 1.64
+        },
+        {
+          "text": "in",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "text": "nimbly,",
+          "start": 1.88,
+          "end": 2.32
+        },
+        {
+          "text": "threw",
+          "start": 2.68,
+          "end": 2.96
+        },
+        {
+          "text": "an",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "text": "envelope",
+          "start": 3.1,
+          "end": 3.48
+        },
+        {
+          "text": "on",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "text": "the",
+          "start": 3.7,
+          "end": 3.8
+        },
+        {
+          "text": "counter",
+          "start": 3.8,
+          "end": 4.12
+        },
+        {
+          "text": "and",
+          "start": 4.56,
+          "end": 4.62
+        },
+        {
+          "text": "stepped",
+          "start": 4.62,
+          "end": 4.88
+        },
+        {
+          "text": "off",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "text": "posthaste",
+          "start": 5.12,
+          "end": 5.48
+        },
+        {
+          "text": "with",
+          "start": 5.84,
+          "end": 6.02
+        },
+        {
+          "text": "a",
+          "start": 6.02,
+          "end": 6.14
+        },
+        {
+          "text": "word:",
+          "start": 6.14,
+          "end": 6.36
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 20,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.21286089002387598
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c47823d18b5d3f9134bfedcfc2fcd13129359418f0a4132d07bf4ad13ad540df",
+  "selected_reasons": []
+}

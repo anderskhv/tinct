@@ -1,0 +1,434 @@
+{
+  "complete": true,
+  "signature": "04a8caaa0414e30e1813cedfde4a03265869aadedf06ffd1899e359adad08383",
+  "attempts": [
+    {
+      "asr_seconds": 0.13584851898485795,
+      "alignment_seconds": 0.00022459100000560284,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Got a Dinge on the side of his Hat carriage probably",
+          "start": 0.05,
+          "end": 2.99,
+          "words": [
+            {
+              "text": " Got",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " a",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Dinge",
+              "start": 0.63,
+              "end": 0.89,
+              "probability": 0.5606689453125
+            },
+            {
+              "text": " on",
+              "start": 0.89,
+              "end": 1.01,
+              "probability": 0.65673828125
+            },
+            {
+              "text": " the",
+              "start": 1.01,
+              "end": 1.11,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " side",
+              "start": 1.11,
+              "end": 1.27,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " of",
+              "start": 1.27,
+              "end": 1.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " his",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.966796875
+            },
+            {
+              "text": " Hat",
+              "start": 1.51,
+              "end": 1.81,
+              "probability": 0.66943359375
+            },
+            {
+              "text": " carriage",
+              "start": 1.81,
+              "end": 2.51,
+              "probability": 0.38330078125
+            },
+            {
+              "text": " probably",
+              "start": 2.51,
+              "end": 2.99,
+              "probability": 0.75537109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Got",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "a",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "Dinge",
+          "start": 0.63,
+          "end": 0.89
+        },
+        {
+          "raw": "on",
+          "start": 0.89,
+          "end": 1.01
+        },
+        {
+          "raw": "the",
+          "start": 1.01,
+          "end": 1.11
+        },
+        {
+          "raw": "side",
+          "start": 1.11,
+          "end": 1.27
+        },
+        {
+          "raw": "of",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "raw": "his",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "Hat",
+          "start": 1.51,
+          "end": 1.81
+        },
+        {
+          "raw": "carriage",
+          "start": 1.81,
+          "end": 2.51
+        },
+        {
+          "raw": "probably",
+          "start": 2.51,
+          "end": 2.99
+        }
+      ],
+      "expected_tokens": [
+        "Got",
+        "a",
+        "dinge",
+        "in",
+        "the",
+        "side",
+        "of",
+        "his",
+        "hat.",
+        "Carriage",
+        "probably."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          11,
+          4,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Got",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "got",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dinge",
+          "start": 0.63,
+          "end": 0.89,
+          "key": "dinge",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 0.89,
+          "end": 1.01,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.01,
+          "end": 1.11,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "side",
+          "start": 1.11,
+          "end": 1.27,
+          "key": "side",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.27,
+          "end": 1.39,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.39,
+          "end": 1.51,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Hat",
+          "start": 1.51,
+          "end": 1.81,
+          "key": "hat",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "carriage",
+          "start": 1.81,
+          "end": 2.51,
+          "key": "carriage",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "probably",
+          "start": 2.51,
+          "end": 2.99,
+          "key": "probably",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Got",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "a",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "dinge",
+          "start": 0.63,
+          "end": 0.89
+        },
+        {
+          "text": "in",
+          "start": 0.89,
+          "end": 0.95
+        },
+        {
+          "text": "the",
+          "start": 1.01,
+          "end": 1.11
+        },
+        {
+          "text": "side",
+          "start": 1.11,
+          "end": 1.27
+        },
+        {
+          "text": "of",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "text": "his",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "text": "hat.",
+          "start": 1.51,
+          "end": 1.81
+        },
+        {
+          "text": "Carriage",
+          "start": 1.81,
+          "end": 2.51
+        },
+        {
+          "text": "probably.",
+          "start": 2.51,
+          "end": 2.99
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.13615888101048768
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4bf7e3cf56f9887cea163b1fae056c9927aa852c209b41f7fe1524dc0935563b",
+  "selected_reasons": []
+}

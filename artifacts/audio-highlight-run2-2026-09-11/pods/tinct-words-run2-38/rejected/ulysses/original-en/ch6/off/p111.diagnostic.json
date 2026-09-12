@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "fd2d93c9b420375d79d84912859eeefe0a5a17765d85d4e39c1c0aec20ac0253",
+  "attempts": [
+    {
+      "asr_seconds": 0.14263978297822177,
+      "alignment_seconds": 0.00020210101502016187,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mr. Deadallus looked after the stumping figure and said mildly.",
+          "start": 0.05,
+          "end": 3.95,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " Deadallus",
+              "start": 0.91,
+              "end": 1.39,
+              "probability": 0.5196533203125
+            },
+            {
+              "text": " looked",
+              "start": 1.39,
+              "end": 1.63,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " after",
+              "start": 1.63,
+              "end": 1.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.93,
+              "end": 2.09,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " stumping",
+              "start": 2.09,
+              "end": 2.37,
+              "probability": 0.75634765625
+            },
+            {
+              "text": " figure",
+              "start": 2.37,
+              "end": 2.79,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 2.79,
+              "end": 3.31,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " said",
+              "start": 3.31,
+              "end": 3.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " mildly.",
+              "start": 3.51,
+              "end": 3.95,
+              "probability": 0.96728515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Deadallus",
+          "start": 0.91,
+          "end": 1.39
+        },
+        {
+          "raw": "looked",
+          "start": 1.39,
+          "end": 1.63
+        },
+        {
+          "raw": "after",
+          "start": 1.63,
+          "end": 1.93
+        },
+        {
+          "raw": "the",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "raw": "stumping",
+          "start": 2.09,
+          "end": 2.37
+        },
+        {
+          "raw": "figure",
+          "start": 2.37,
+          "end": 2.79
+        },
+        {
+          "raw": "and",
+          "start": 2.79,
+          "end": 3.31
+        },
+        {
+          "raw": "said",
+          "start": 3.31,
+          "end": 3.51
+        },
+        {
+          "raw": "mildly.",
+          "start": 3.51,
+          "end": 3.95
+        }
+      ],
+      "expected_tokens": [
+        "Mr",
+        "Dedalus",
+        "looked",
+        "after",
+        "the",
+        "stumping",
+        "figure",
+        "and",
+        "said",
+        "mildly:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          10,
+          2,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Deadallus",
+          "start": 0.91,
+          "end": 1.39,
+          "key": "deadallus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 1.39,
+          "end": 1.63,
+          "key": "looked",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 1.63,
+          "end": 1.93,
+          "key": "after",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.93,
+          "end": 2.09,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "stumping",
+          "start": 2.09,
+          "end": 2.37,
+          "key": "stumping",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "figure",
+          "start": 2.37,
+          "end": 2.79,
+          "key": "figure",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.79,
+          "end": 3.31,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.31,
+          "end": 3.51,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "mildly.",
+          "start": 3.51,
+          "end": 3.95,
+          "key": "mildly",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Dedalus",
+          "start": 0.71,
+          "end": 1.05
+        },
+        {
+          "text": "looked",
+          "start": 1.39,
+          "end": 1.63
+        },
+        {
+          "text": "after",
+          "start": 1.63,
+          "end": 1.93
+        },
+        {
+          "text": "the",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "text": "stumping",
+          "start": 2.09,
+          "end": 2.37
+        },
+        {
+          "text": "figure",
+          "start": 2.37,
+          "end": 2.79
+        },
+        {
+          "text": "and",
+          "start": 2.79,
+          "end": 3.31
+        },
+        {
+          "text": "said",
+          "start": 3.31,
+          "end": 3.51
+        },
+        {
+          "text": "mildly:",
+          "start": 3.51,
+          "end": 3.95
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.14291036396753043
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e14917f981e3045bfb0b4bed04dde4ff572d1b7c9614f18663d0d7b2efac2f3b",
+  "selected_reasons": []
+}

@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "cf0010212b53909555ee8b151d10e25dadd48683bf202d232c2dc97975d59057",
+  "attempts": [
+    {
+      "asr_seconds": 0.09615087800193578,
+      "alignment_seconds": 0.00013156997738406062,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lenihan gave a loud cough.",
+          "start": 0.05,
+          "end": 1.59,
+          "words": [
+            {
+              "text": " Lenihan",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.6602783203125
+            },
+            {
+              "text": " gave",
+              "start": 0.79,
+              "end": 0.97,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " a",
+              "start": 0.97,
+              "end": 1.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " loud",
+              "start": 1.11,
+              "end": 1.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " cough.",
+              "start": 1.29,
+              "end": 1.59,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lenihan",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "gave",
+          "start": 0.79,
+          "end": 0.97
+        },
+        {
+          "raw": "a",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "raw": "loud",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "raw": "cough.",
+          "start": 1.29,
+          "end": 1.59
+        }
+      ],
+      "expected_tokens": [
+        "Lenehan",
+        "gave",
+        "a",
+        "loud",
+        "cough."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lenihan",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "lenihan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 0.79,
+          "end": 0.97,
+          "key": "gave",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.97,
+          "end": 1.11,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "loud",
+          "start": 1.11,
+          "end": 1.29,
+          "key": "loud",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cough.",
+          "start": 1.29,
+          "end": 1.59,
+          "key": "cough",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lenehan",
+          "start": 0.0,
+          "end": 0.395
+        },
+        {
+          "text": "gave",
+          "start": 0.79,
+          "end": 0.97
+        },
+        {
+          "text": "a",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "text": "loud",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "text": "cough.",
+          "start": 1.29,
+          "end": 1.59
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09632872900692746
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1858fa56edff82eb602eee5a4a36c1f883421e43df5adeae6abaf3f561f716dc",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

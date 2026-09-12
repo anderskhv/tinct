@@ -1,0 +1,383 @@
+{
+  "complete": true,
+  "signature": "d354ae3e9efda6f1450a382dc1de2bf2fbad45076b033c48b46e97a5b32ef198",
+  "attempts": [
+    {
+      "asr_seconds": 0.13333480601431802,
+      "alignment_seconds": 0.0001930709695443511,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dunn fees, Mr. Power announced as the carriage turned right.",
+          "start": 0.05,
+          "end": 3.59,
+          "words": [
+            {
+              "text": " Dunn",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.2203369140625
+            },
+            {
+              "text": " fees,",
+              "start": 0.59,
+              "end": 0.87,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " Mr.",
+              "start": 1.41,
+              "end": 1.49,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " Power",
+              "start": 1.75,
+              "end": 1.77,
+              "probability": 0.970703125
+            },
+            {
+              "text": " announced",
+              "start": 1.77,
+              "end": 2.19,
+              "probability": 0.984375
+            },
+            {
+              "text": " as",
+              "start": 2.19,
+              "end": 2.47,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " the",
+              "start": 2.47,
+              "end": 2.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " carriage",
+              "start": 2.61,
+              "end": 2.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " turned",
+              "start": 2.87,
+              "end": 3.27,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " right.",
+              "start": 3.27,
+              "end": 3.59,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dunn",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "fees,",
+          "start": 0.59,
+          "end": 0.87
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.41,
+          "end": 1.49
+        },
+        {
+          "raw": "Power",
+          "start": 1.75,
+          "end": 1.77
+        },
+        {
+          "raw": "announced",
+          "start": 1.77,
+          "end": 2.19
+        },
+        {
+          "raw": "as",
+          "start": 2.19,
+          "end": 2.47
+        },
+        {
+          "raw": "the",
+          "start": 2.47,
+          "end": 2.61
+        },
+        {
+          "raw": "carriage",
+          "start": 2.61,
+          "end": 2.87
+        },
+        {
+          "raw": "turned",
+          "start": 2.87,
+          "end": 3.27
+        },
+        {
+          "raw": "right.",
+          "start": 3.27,
+          "end": 3.59
+        }
+      ],
+      "expected_tokens": [
+        "—Dunphy's,",
+        "Mr",
+        "Power",
+        "announced",
+        "as",
+        "the",
+        "carriage",
+        "turned",
+        "right."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          9,
+          2,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dunn",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "dunn",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fees,",
+          "start": 0.59,
+          "end": 0.87,
+          "key": "fees",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.41,
+          "end": 1.49,
+          "key": "mr",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Power",
+          "start": 1.75,
+          "end": 1.77,
+          "key": "power",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "announced",
+          "start": 1.77,
+          "end": 2.19,
+          "key": "announced",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.19,
+          "end": 2.47,
+          "key": "as",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.47,
+          "end": 2.61,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "carriage",
+          "start": 2.61,
+          "end": 2.87,
+          "key": "carriage",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 2.87,
+          "end": 3.27,
+          "key": "turned",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "right.",
+          "start": 3.27,
+          "end": 3.59,
+          "key": "right",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Dunphy's,",
+          "start": 0.0,
+          "end": 0.705
+        },
+        {
+          "text": "Mr",
+          "start": 1.41,
+          "end": 1.49
+        },
+        {
+          "text": "Power",
+          "start": 1.75,
+          "end": 1.77
+        },
+        {
+          "text": "announced",
+          "start": 1.77,
+          "end": 2.19
+        },
+        {
+          "text": "as",
+          "start": 2.19,
+          "end": 2.47
+        },
+        {
+          "text": "the",
+          "start": 2.47,
+          "end": 2.61
+        },
+        {
+          "text": "carriage",
+          "start": 2.61,
+          "end": 2.87
+        },
+        {
+          "text": "turned",
+          "start": 2.87,
+          "end": 3.27
+        },
+        {
+          "text": "right.",
+          "start": 3.27,
+          "end": 3.59
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.13360638701124117
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a45ba35ceae607e427e066bd324f2f5d5caae2000557de8d2341f65faf333a16",
+  "selected_reasons": []
+}

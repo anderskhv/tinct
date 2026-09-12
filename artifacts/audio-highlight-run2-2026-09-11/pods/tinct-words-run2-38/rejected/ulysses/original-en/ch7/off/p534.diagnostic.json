@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "0826a1b77fff0a4ac783aaf4403083ee470b6d889777a0e99f43d4a78091ea06",
+  "attempts": [
+    {
+      "asr_seconds": 0.08959422103362158,
+      "alignment_seconds": 0.000130440981592983,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I see, the professor said.",
+          "start": 0.05,
+          "end": 1.81,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.29833984375
+            },
+            {
+              "text": " see,",
+              "start": 0.53,
+              "end": 0.77,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " the",
+              "start": 1.01,
+              "end": 1.07,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " professor",
+              "start": 1.07,
+              "end": 1.41,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " said.",
+              "start": 1.41,
+              "end": 1.81,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "see,",
+          "start": 0.53,
+          "end": 0.77
+        },
+        {
+          "raw": "the",
+          "start": 1.01,
+          "end": 1.07
+        },
+        {
+          "raw": "professor",
+          "start": 1.07,
+          "end": 1.41
+        },
+        {
+          "raw": "said.",
+          "start": 1.41,
+          "end": 1.81
+        }
+      ],
+      "expected_tokens": [
+        "—I",
+        "see,",
+        "the",
+        "professor",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "see,",
+          "start": 0.53,
+          "end": 0.77,
+          "key": "see",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.01,
+          "end": 1.07,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "professor",
+          "start": 1.07,
+          "end": 1.41,
+          "key": "professor",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.41,
+          "end": 1.81,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—I",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "see,",
+          "start": 0.53,
+          "end": 0.77
+        },
+        {
+          "text": "the",
+          "start": 1.01,
+          "end": 1.07
+        },
+        {
+          "text": "professor",
+          "start": 1.07,
+          "end": 1.41
+        },
+        {
+          "text": "said.",
+          "start": 1.41,
+          "end": 1.81
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08976944198366255
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ac47380863bf771efc01f13b9098667a9cb4c53f52eb1893acf6846c2c2a325c",
+  "selected_reasons": []
+}

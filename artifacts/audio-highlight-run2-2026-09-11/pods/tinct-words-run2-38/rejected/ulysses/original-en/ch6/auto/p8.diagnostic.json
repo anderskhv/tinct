@@ -1,0 +1,1662 @@
+{
+  "complete": true,
+  "signature": "02d60efb92d11416314901f6999f7911322d129a3709e30987d94197bd89d540",
+  "attempts": [
+    {
+      "asr_seconds": 0.39693085598992184,
+      "alignment_seconds": 0.0005563620361499488,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "All waited. Then wheels were heard from in front, turning: then nearer: then horses' hoofs. A jolt. Their carriage began to move, creaking and swaying. Other hoofs and creaking wheels started behind. The blinds of the avenue passed and number nine with its craped knocker, door ajar. At walking pace.",
+        "hotwords": "All, A, Their, Other, At"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All waited. Then wheels were heard from in front, turning, then nearer, then horses' hoofs. A jolt. Their carriage began to move, creaking and swaying. Other hoofs and creaking wheels started behind. The blinds of the avenue passed and number nine with its craped knocker, door ajar. At walking pace.",
+          "start": 0.05,
+          "end": 19.23,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.76904296875
+            },
+            {
+              "text": " waited.",
+              "start": 0.61,
+              "end": 0.95,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " Then",
+              "start": 1.53,
+              "end": 1.65,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " wheels",
+              "start": 1.65,
+              "end": 1.95,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " were",
+              "start": 1.95,
+              "end": 2.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " heard",
+              "start": 2.19,
+              "end": 2.43,
+              "probability": 0.99609375
+            },
+            {
+              "text": " from",
+              "start": 2.43,
+              "end": 2.63,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 2.63,
+              "end": 2.79,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " front,",
+              "start": 2.79,
+              "end": 3.09,
+              "probability": 0.99609375
+            },
+            {
+              "text": " turning,",
+              "start": 3.33,
+              "end": 3.57,
+              "probability": 0.994140625
+            },
+            {
+              "text": " then",
+              "start": 4.21,
+              "end": 4.27,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " nearer,",
+              "start": 4.27,
+              "end": 4.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " then",
+              "start": 5.17,
+              "end": 5.23,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " horses'",
+              "start": 5.23,
+              "end": 5.57,
+              "probability": 0.74755859375
+            },
+            {
+              "text": " hoofs.",
+              "start": 5.83,
+              "end": 6.43,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " A",
+              "start": 6.65,
+              "end": 6.77,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " jolt.",
+              "start": 6.77,
+              "end": 7.11,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " Their",
+              "start": 7.73,
+              "end": 7.87,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " carriage",
+              "start": 7.87,
+              "end": 8.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " began",
+              "start": 8.25,
+              "end": 8.59,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 8.59,
+              "end": 8.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " move,",
+              "start": 8.81,
+              "end": 9.11,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " creaking",
+              "start": 9.33,
+              "end": 9.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 9.67,
+              "end": 9.89,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " swaying.",
+              "start": 9.89,
+              "end": 10.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Other",
+              "start": 10.97,
+              "end": 11.17,
+              "probability": 0.99609375
+            },
+            {
+              "text": " hoofs",
+              "start": 11.17,
+              "end": 11.63,
+              "probability": 0.9925130208333334
+            },
+            {
+              "text": " and",
+              "start": 11.63,
+              "end": 11.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " creaking",
+              "start": 11.75,
+              "end": 12.13,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " wheels",
+              "start": 12.13,
+              "end": 12.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " started",
+              "start": 12.47,
+              "end": 12.85,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " behind.",
+              "start": 12.85,
+              "end": 13.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " The",
+              "start": 14.01,
+              "end": 14.13,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " blinds",
+              "start": 14.13,
+              "end": 14.53,
+              "probability": 0.979736328125
+            },
+            {
+              "text": " of",
+              "start": 14.53,
+              "end": 14.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 14.57,
+              "end": 14.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " avenue",
+              "start": 14.69,
+              "end": 15.03,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " passed",
+              "start": 15.03,
+              "end": 15.49,
+              "probability": 0.98828125
+            },
+            {
+              "text": " and",
+              "start": 15.49,
+              "end": 15.75,
+              "probability": 0.640625
+            },
+            {
+              "text": " number",
+              "start": 15.75,
+              "end": 15.97,
+              "probability": 0.6572265625
+            },
+            {
+              "text": " nine",
+              "start": 15.97,
+              "end": 16.29,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " with",
+              "start": 16.29,
+              "end": 16.51,
+              "probability": 0.96484375
+            },
+            {
+              "text": " its",
+              "start": 16.51,
+              "end": 16.69,
+              "probability": 0.978515625
+            },
+            {
+              "text": " craped",
+              "start": 16.69,
+              "end": 17.07,
+              "probability": 0.12108927965164185
+            },
+            {
+              "text": " knocker,",
+              "start": 17.07,
+              "end": 17.45,
+              "probability": 0.947265625
+            },
+            {
+              "text": " door",
+              "start": 17.61,
+              "end": 17.65,
+              "probability": 0.0213470458984375
+            },
+            {
+              "text": " ajar.",
+              "start": 17.65,
+              "end": 18.03,
+              "probability": 0.909912109375
+            },
+            {
+              "text": " At",
+              "start": 18.47,
+              "end": 18.59,
+              "probability": 0.75
+            },
+            {
+              "text": " walking",
+              "start": 18.59,
+              "end": 18.91,
+              "probability": 0.923828125
+            },
+            {
+              "text": " pace.",
+              "start": 18.91,
+              "end": 19.23,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "waited.",
+          "start": 0.61,
+          "end": 0.95
+        },
+        {
+          "raw": "Then",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "raw": "wheels",
+          "start": 1.65,
+          "end": 1.95
+        },
+        {
+          "raw": "were",
+          "start": 1.95,
+          "end": 2.19
+        },
+        {
+          "raw": "heard",
+          "start": 2.19,
+          "end": 2.43
+        },
+        {
+          "raw": "from",
+          "start": 2.43,
+          "end": 2.63
+        },
+        {
+          "raw": "in",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "raw": "front,",
+          "start": 2.79,
+          "end": 3.09
+        },
+        {
+          "raw": "turning,",
+          "start": 3.33,
+          "end": 3.57
+        },
+        {
+          "raw": "then",
+          "start": 4.21,
+          "end": 4.27
+        },
+        {
+          "raw": "nearer,",
+          "start": 4.27,
+          "end": 4.63
+        },
+        {
+          "raw": "then",
+          "start": 5.17,
+          "end": 5.23
+        },
+        {
+          "raw": "horses'",
+          "start": 5.23,
+          "end": 5.57
+        },
+        {
+          "raw": "hoofs.",
+          "start": 5.83,
+          "end": 6.43
+        },
+        {
+          "raw": "A",
+          "start": 6.65,
+          "end": 6.77
+        },
+        {
+          "raw": "jolt.",
+          "start": 6.77,
+          "end": 7.11
+        },
+        {
+          "raw": "Their",
+          "start": 7.73,
+          "end": 7.87
+        },
+        {
+          "raw": "carriage",
+          "start": 7.87,
+          "end": 8.25
+        },
+        {
+          "raw": "began",
+          "start": 8.25,
+          "end": 8.59
+        },
+        {
+          "raw": "to",
+          "start": 8.59,
+          "end": 8.81
+        },
+        {
+          "raw": "move,",
+          "start": 8.81,
+          "end": 9.11
+        },
+        {
+          "raw": "creaking",
+          "start": 9.33,
+          "end": 9.67
+        },
+        {
+          "raw": "and",
+          "start": 9.67,
+          "end": 9.89
+        },
+        {
+          "raw": "swaying.",
+          "start": 9.89,
+          "end": 10.49
+        },
+        {
+          "raw": "Other",
+          "start": 10.97,
+          "end": 11.17
+        },
+        {
+          "raw": "hoofs",
+          "start": 11.17,
+          "end": 11.63
+        },
+        {
+          "raw": "and",
+          "start": 11.63,
+          "end": 11.75
+        },
+        {
+          "raw": "creaking",
+          "start": 11.75,
+          "end": 12.13
+        },
+        {
+          "raw": "wheels",
+          "start": 12.13,
+          "end": 12.47
+        },
+        {
+          "raw": "started",
+          "start": 12.47,
+          "end": 12.85
+        },
+        {
+          "raw": "behind.",
+          "start": 12.85,
+          "end": 13.33
+        },
+        {
+          "raw": "The",
+          "start": 14.01,
+          "end": 14.13
+        },
+        {
+          "raw": "blinds",
+          "start": 14.13,
+          "end": 14.53
+        },
+        {
+          "raw": "of",
+          "start": 14.53,
+          "end": 14.57
+        },
+        {
+          "raw": "the",
+          "start": 14.57,
+          "end": 14.69
+        },
+        {
+          "raw": "avenue",
+          "start": 14.69,
+          "end": 15.03
+        },
+        {
+          "raw": "passed",
+          "start": 15.03,
+          "end": 15.49
+        },
+        {
+          "raw": "and",
+          "start": 15.49,
+          "end": 15.75
+        },
+        {
+          "raw": "number",
+          "start": 15.75,
+          "end": 15.97
+        },
+        {
+          "raw": "nine",
+          "start": 15.97,
+          "end": 16.29
+        },
+        {
+          "raw": "with",
+          "start": 16.29,
+          "end": 16.51
+        },
+        {
+          "raw": "its",
+          "start": 16.51,
+          "end": 16.69
+        },
+        {
+          "raw": "craped",
+          "start": 16.69,
+          "end": 17.07
+        },
+        {
+          "raw": "knocker,",
+          "start": 17.07,
+          "end": 17.45
+        },
+        {
+          "raw": "door",
+          "start": 17.61,
+          "end": 17.65
+        },
+        {
+          "raw": "ajar.",
+          "start": 17.65,
+          "end": 18.03
+        },
+        {
+          "raw": "At",
+          "start": 18.47,
+          "end": 18.59
+        },
+        {
+          "raw": "walking",
+          "start": 18.59,
+          "end": 18.91
+        },
+        {
+          "raw": "pace.",
+          "start": 18.91,
+          "end": 19.23
+        }
+      ],
+      "expected_tokens": [
+        "All",
+        "waited.",
+        "Then",
+        "wheels",
+        "were",
+        "heard",
+        "from",
+        "in",
+        "front,",
+        "turning:",
+        "then",
+        "nearer:",
+        "then",
+        "horses'",
+        "hoofs.",
+        "A",
+        "jolt.",
+        "Their",
+        "carriage",
+        "began",
+        "to",
+        "move,",
+        "creaking",
+        "and",
+        "swaying.",
+        "Other",
+        "hoofs",
+        "and",
+        "creaking",
+        "wheels",
+        "started",
+        "behind.",
+        "The",
+        "blinds",
+        "of",
+        "the",
+        "avenue",
+        "passed",
+        "and",
+        "number",
+        "nine",
+        "with",
+        "its",
+        "craped",
+        "knocker,",
+        "door",
+        "ajar.",
+        "At",
+        "walking",
+        "pace."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          50,
+          0,
+          50
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "waited.",
+          "start": 0.61,
+          "end": 0.95,
+          "key": "waited",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 1.53,
+          "end": 1.65,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wheels",
+          "start": 1.65,
+          "end": 1.95,
+          "key": "wheels",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 1.95,
+          "end": 2.19,
+          "key": "were",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 2.19,
+          "end": 2.43,
+          "key": "heard",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.43,
+          "end": 2.63,
+          "key": "from",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.63,
+          "end": 2.79,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "front,",
+          "start": 2.79,
+          "end": 3.09,
+          "key": "front",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "turning,",
+          "start": 3.33,
+          "end": 3.57,
+          "key": "turning",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 4.21,
+          "end": 4.27,
+          "key": "then",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "nearer,",
+          "start": 4.27,
+          "end": 4.63,
+          "key": "nearer",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 5.17,
+          "end": 5.23,
+          "key": "then",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "horses'",
+          "start": 5.23,
+          "end": 5.57,
+          "key": "horses",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "hoofs.",
+          "start": 5.83,
+          "end": 6.43,
+          "key": "hoofs",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 6.65,
+          "end": 6.77,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "jolt.",
+          "start": 6.77,
+          "end": 7.11,
+          "key": "jolt",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Their",
+          "start": 7.73,
+          "end": 7.87,
+          "key": "their",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "carriage",
+          "start": 7.87,
+          "end": 8.25,
+          "key": "carriage",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 8.25,
+          "end": 8.59,
+          "key": "began",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.59,
+          "end": 8.81,
+          "key": "to",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "move,",
+          "start": 8.81,
+          "end": 9.11,
+          "key": "move",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "creaking",
+          "start": 9.33,
+          "end": 9.67,
+          "key": "creaking",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.67,
+          "end": 9.89,
+          "key": "and",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "swaying.",
+          "start": 9.89,
+          "end": 10.49,
+          "key": "swaying",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Other",
+          "start": 10.97,
+          "end": 11.17,
+          "key": "other",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "hoofs",
+          "start": 11.17,
+          "end": 11.63,
+          "key": "hoofs",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.63,
+          "end": 11.75,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "creaking",
+          "start": 11.75,
+          "end": 12.13,
+          "key": "creaking",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "wheels",
+          "start": 12.13,
+          "end": 12.47,
+          "key": "wheels",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "started",
+          "start": 12.47,
+          "end": 12.85,
+          "key": "started",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "behind.",
+          "start": 12.85,
+          "end": 13.33,
+          "key": "behind",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 14.01,
+          "end": 14.13,
+          "key": "the",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "blinds",
+          "start": 14.13,
+          "end": 14.53,
+          "key": "blinds",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.53,
+          "end": 14.57,
+          "key": "of",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.57,
+          "end": 14.69,
+          "key": "the",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "avenue",
+          "start": 14.69,
+          "end": 15.03,
+          "key": "avenue",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "passed",
+          "start": 15.03,
+          "end": 15.49,
+          "key": "passed",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 15.49,
+          "end": 15.75,
+          "key": "and",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "number",
+          "start": 15.75,
+          "end": 15.97,
+          "key": "number",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "nine",
+          "start": 15.97,
+          "end": 16.29,
+          "key": "nine",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 16.29,
+          "end": 16.51,
+          "key": "with",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 16.51,
+          "end": 16.69,
+          "key": "its",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "craped",
+          "start": 16.69,
+          "end": 17.07,
+          "key": "craped",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "knocker,",
+          "start": 17.07,
+          "end": 17.45,
+          "key": "knocker",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "door",
+          "start": 17.61,
+          "end": 17.65,
+          "key": "door",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "ajar.",
+          "start": 17.65,
+          "end": 18.03,
+          "key": "ajar",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "At",
+          "start": 18.47,
+          "end": 18.59,
+          "key": "at",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "walking",
+          "start": 18.59,
+          "end": 18.91,
+          "key": "walking",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "pace.",
+          "start": 18.91,
+          "end": 19.23,
+          "key": "pace",
+          "pieces": [
+            49
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "waited.",
+          "start": 0.61,
+          "end": 0.95
+        },
+        {
+          "text": "Then",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "text": "wheels",
+          "start": 1.65,
+          "end": 1.95
+        },
+        {
+          "text": "were",
+          "start": 1.95,
+          "end": 2.19
+        },
+        {
+          "text": "heard",
+          "start": 2.19,
+          "end": 2.43
+        },
+        {
+          "text": "from",
+          "start": 2.43,
+          "end": 2.63
+        },
+        {
+          "text": "in",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "text": "front,",
+          "start": 2.79,
+          "end": 3.09
+        },
+        {
+          "text": "turning:",
+          "start": 3.33,
+          "end": 3.57
+        },
+        {
+          "text": "then",
+          "start": 4.21,
+          "end": 4.27
+        },
+        {
+          "text": "nearer:",
+          "start": 4.27,
+          "end": 4.63
+        },
+        {
+          "text": "then",
+          "start": 5.17,
+          "end": 5.23
+        },
+        {
+          "text": "horses'",
+          "start": 5.23,
+          "end": 5.57
+        },
+        {
+          "text": "hoofs.",
+          "start": 5.83,
+          "end": 6.43
+        },
+        {
+          "text": "A",
+          "start": 6.65,
+          "end": 6.77
+        },
+        {
+          "text": "jolt.",
+          "start": 6.77,
+          "end": 7.11
+        },
+        {
+          "text": "Their",
+          "start": 7.73,
+          "end": 7.87
+        },
+        {
+          "text": "carriage",
+          "start": 7.87,
+          "end": 8.25
+        },
+        {
+          "text": "began",
+          "start": 8.25,
+          "end": 8.59
+        },
+        {
+          "text": "to",
+          "start": 8.59,
+          "end": 8.81
+        },
+        {
+          "text": "move,",
+          "start": 8.81,
+          "end": 9.11
+        },
+        {
+          "text": "creaking",
+          "start": 9.33,
+          "end": 9.67
+        },
+        {
+          "text": "and",
+          "start": 9.67,
+          "end": 9.89
+        },
+        {
+          "text": "swaying.",
+          "start": 9.89,
+          "end": 10.49
+        },
+        {
+          "text": "Other",
+          "start": 10.97,
+          "end": 11.17
+        },
+        {
+          "text": "hoofs",
+          "start": 11.17,
+          "end": 11.63
+        },
+        {
+          "text": "and",
+          "start": 11.63,
+          "end": 11.75
+        },
+        {
+          "text": "creaking",
+          "start": 11.75,
+          "end": 12.13
+        },
+        {
+          "text": "wheels",
+          "start": 12.13,
+          "end": 12.47
+        },
+        {
+          "text": "started",
+          "start": 12.47,
+          "end": 12.85
+        },
+        {
+          "text": "behind.",
+          "start": 12.85,
+          "end": 13.33
+        },
+        {
+          "text": "The",
+          "start": 14.01,
+          "end": 14.13
+        },
+        {
+          "text": "blinds",
+          "start": 14.13,
+          "end": 14.53
+        },
+        {
+          "text": "of",
+          "start": 14.53,
+          "end": 14.57
+        },
+        {
+          "text": "the",
+          "start": 14.57,
+          "end": 14.69
+        },
+        {
+          "text": "avenue",
+          "start": 14.69,
+          "end": 15.03
+        },
+        {
+          "text": "passed",
+          "start": 15.03,
+          "end": 15.49
+        },
+        {
+          "text": "and",
+          "start": 15.49,
+          "end": 15.75
+        },
+        {
+          "text": "number",
+          "start": 15.75,
+          "end": 15.97
+        },
+        {
+          "text": "nine",
+          "start": 15.97,
+          "end": 16.29
+        },
+        {
+          "text": "with",
+          "start": 16.29,
+          "end": 16.51
+        },
+        {
+          "text": "its",
+          "start": 16.51,
+          "end": 16.69
+        },
+        {
+          "text": "craped",
+          "start": 16.69,
+          "end": 17.07
+        },
+        {
+          "text": "knocker,",
+          "start": 17.07,
+          "end": 17.45
+        },
+        {
+          "text": "door",
+          "start": 17.61,
+          "end": 17.65
+        },
+        {
+          "text": "ajar.",
+          "start": 17.65,
+          "end": 18.03
+        },
+        {
+          "text": "At",
+          "start": 18.47,
+          "end": 18.59
+        },
+        {
+          "text": "walking",
+          "start": 18.59,
+          "end": 18.91
+        },
+        {
+          "text": "pace.",
+          "start": 18.91,
+          "end": 19.23
+        }
+      ],
+      "stats": {
+        "expected_words": 50,
+        "heard_words": 50,
+        "matched_words": 50
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3977318200049922
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f72115bac172004ccb14c96001207c3d55a90733daf0392e7ae774086312e1c5",
+  "selected_reasons": []
+}

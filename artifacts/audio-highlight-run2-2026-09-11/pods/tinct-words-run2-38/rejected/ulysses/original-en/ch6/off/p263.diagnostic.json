@@ -1,0 +1,690 @@
+{
+  "complete": true,
+  "signature": "68980e8e59fb64cd8b972a71c4754d7098aaa4b5bcd814279ef8e20bb63118a1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1574430459877476,
+      "alignment_seconds": 0.00022731104400008917,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " They halted by the beer and the priest began to read out of his book with a fluent croak",
+          "start": 0.05,
+          "end": 5.15,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " halted",
+              "start": 0.53,
+              "end": 0.83,
+              "probability": 0.994140625
+            },
+            {
+              "text": " by",
+              "start": 0.83,
+              "end": 1.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.15,
+              "end": 1.31,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " beer",
+              "start": 1.31,
+              "end": 1.59,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " and",
+              "start": 1.59,
+              "end": 2.19,
+              "probability": 0.509765625
+            },
+            {
+              "text": " the",
+              "start": 2.19,
+              "end": 2.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " priest",
+              "start": 2.29,
+              "end": 2.53,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " began",
+              "start": 2.53,
+              "end": 2.89,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 2.89,
+              "end": 3.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " read",
+              "start": 3.07,
+              "end": 3.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " out",
+              "start": 3.29,
+              "end": 3.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 3.49,
+              "end": 3.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 3.61,
+              "end": 3.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " book",
+              "start": 3.73,
+              "end": 3.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 3.97,
+              "end": 4.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 4.15,
+              "end": 4.25,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " fluent",
+              "start": 4.25,
+              "end": 4.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " croak",
+              "start": 4.59,
+              "end": 5.15,
+              "probability": 0.96533203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "halted",
+          "start": 0.53,
+          "end": 0.83
+        },
+        {
+          "raw": "by",
+          "start": 0.83,
+          "end": 1.15
+        },
+        {
+          "raw": "the",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "raw": "beer",
+          "start": 1.31,
+          "end": 1.59
+        },
+        {
+          "raw": "and",
+          "start": 1.59,
+          "end": 2.19
+        },
+        {
+          "raw": "the",
+          "start": 2.19,
+          "end": 2.29
+        },
+        {
+          "raw": "priest",
+          "start": 2.29,
+          "end": 2.53
+        },
+        {
+          "raw": "began",
+          "start": 2.53,
+          "end": 2.89
+        },
+        {
+          "raw": "to",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "raw": "read",
+          "start": 3.07,
+          "end": 3.29
+        },
+        {
+          "raw": "out",
+          "start": 3.29,
+          "end": 3.49
+        },
+        {
+          "raw": "of",
+          "start": 3.49,
+          "end": 3.61
+        },
+        {
+          "raw": "his",
+          "start": 3.61,
+          "end": 3.73
+        },
+        {
+          "raw": "book",
+          "start": 3.73,
+          "end": 3.97
+        },
+        {
+          "raw": "with",
+          "start": 3.97,
+          "end": 4.15
+        },
+        {
+          "raw": "a",
+          "start": 4.15,
+          "end": 4.25
+        },
+        {
+          "raw": "fluent",
+          "start": 4.25,
+          "end": 4.59
+        },
+        {
+          "raw": "croak",
+          "start": 4.59,
+          "end": 5.15
+        }
+      ],
+      "expected_tokens": [
+        "They",
+        "halted",
+        "by",
+        "the",
+        "bier",
+        "and",
+        "the",
+        "priest",
+        "began",
+        "to",
+        "read",
+        "out",
+        "of",
+        "his",
+        "book",
+        "with",
+        "a",
+        "fluent",
+        "croak."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          19,
+          5,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "halted",
+          "start": 0.53,
+          "end": 0.83,
+          "key": "halted",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 0.83,
+          "end": 1.15,
+          "key": "by",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.15,
+          "end": 1.31,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "beer",
+          "start": 1.31,
+          "end": 1.59,
+          "key": "beer",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.59,
+          "end": 2.19,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.19,
+          "end": 2.29,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "priest",
+          "start": 2.29,
+          "end": 2.53,
+          "key": "priest",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 2.53,
+          "end": 2.89,
+          "key": "began",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.89,
+          "end": 3.07,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "read",
+          "start": 3.07,
+          "end": 3.29,
+          "key": "read",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 3.29,
+          "end": 3.49,
+          "key": "out",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.49,
+          "end": 3.61,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.61,
+          "end": 3.73,
+          "key": "his",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "book",
+          "start": 3.73,
+          "end": 3.97,
+          "key": "book",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.97,
+          "end": 4.15,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.15,
+          "end": 4.25,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "fluent",
+          "start": 4.25,
+          "end": 4.59,
+          "key": "fluent",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "croak",
+          "start": 4.59,
+          "end": 5.15,
+          "key": "croak",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "They",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "halted",
+          "start": 0.53,
+          "end": 0.83
+        },
+        {
+          "text": "by",
+          "start": 0.83,
+          "end": 1.15
+        },
+        {
+          "text": "the",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "text": "bier",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "text": "and",
+          "start": 1.59,
+          "end": 2.19
+        },
+        {
+          "text": "the",
+          "start": 2.19,
+          "end": 2.29
+        },
+        {
+          "text": "priest",
+          "start": 2.29,
+          "end": 2.53
+        },
+        {
+          "text": "began",
+          "start": 2.53,
+          "end": 2.89
+        },
+        {
+          "text": "to",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "text": "read",
+          "start": 3.07,
+          "end": 3.29
+        },
+        {
+          "text": "out",
+          "start": 3.29,
+          "end": 3.49
+        },
+        {
+          "text": "of",
+          "start": 3.49,
+          "end": 3.61
+        },
+        {
+          "text": "his",
+          "start": 3.61,
+          "end": 3.73
+        },
+        {
+          "text": "book",
+          "start": 3.73,
+          "end": 3.97
+        },
+        {
+          "text": "with",
+          "start": 3.97,
+          "end": 4.15
+        },
+        {
+          "text": "a",
+          "start": 4.15,
+          "end": 4.25
+        },
+        {
+          "text": "fluent",
+          "start": 4.25,
+          "end": 4.59
+        },
+        {
+          "text": "croak.",
+          "start": 4.59,
+          "end": 5.15
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.15776441700290889
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "746ec114d744fbc7e2f06e9e2d939dd6ddc3f18d748073f869ca2061318f7164",
+  "selected_reasons": []
+}

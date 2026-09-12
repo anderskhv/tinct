@@ -1,0 +1,1615 @@
+{
+  "complete": true,
+  "signature": "48456748d4dc909871ffaa66864fdc6f2a45f8ded3b8e2bbef4d7d58863d35b0",
+  "attempts": [
+    {
+      "asr_seconds": 0.15765066602034494,
+      "alignment_seconds": 0.00022153096506372094,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—I met M'Coy this morning, Mr Bloom said. He said he'd try to come.",
+        "hotwords": "I, M'Coy, Mr, Bloom, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I met M'Coy this morning, Mr Bloom said. He said he'd try to come.",
+          "start": 0.08,
+          "end": 4.14,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.51513671875
+            },
+            {
+              "text": " met",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " M",
+              "start": 0.7,
+              "end": 0.96,
+              "probability": 0.192626953125
+            },
+            {
+              "text": "'Coy",
+              "start": 0.96,
+              "end": 1.16,
+              "probability": 0.3710943857828776
+            },
+            {
+              "text": " this",
+              "start": 1.16,
+              "end": 1.38,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " morning,",
+              "start": 1.38,
+              "end": 1.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Mr",
+              "start": 1.92,
+              "end": 2.1,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Bloom",
+              "start": 2.1,
+              "end": 2.36,
+              "probability": 0.0947265625
+            },
+            {
+              "text": " said.",
+              "start": 2.36,
+              "end": 2.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " He",
+              "start": 3.2,
+              "end": 3.28,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " said",
+              "start": 3.28,
+              "end": 3.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he'd",
+              "start": 3.42,
+              "end": 3.58,
+              "probability": 0.986083984375
+            },
+            {
+              "text": " try",
+              "start": 3.58,
+              "end": 3.74,
+              "probability": 0.9765625
+            },
+            {
+              "text": " to",
+              "start": 3.74,
+              "end": 3.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " come.",
+              "start": 3.88,
+              "end": 4.14,
+              "probability": 0.97705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "met",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "M",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "raw": "'Coy",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "raw": "this",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "raw": "morning,",
+          "start": 1.38,
+          "end": 1.74
+        },
+        {
+          "raw": "Mr",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "raw": "Bloom",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "raw": "said.",
+          "start": 2.36,
+          "end": 2.7
+        },
+        {
+          "raw": "He",
+          "start": 3.2,
+          "end": 3.28
+        },
+        {
+          "raw": "said",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "raw": "he'd",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "raw": "try",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "raw": "to",
+          "start": 3.74,
+          "end": 3.88
+        },
+        {
+          "raw": "come.",
+          "start": 3.88,
+          "end": 4.14
+        }
+      ],
+      "expected_tokens": [
+        "—I",
+        "met",
+        "M'Coy",
+        "this",
+        "morning,",
+        "Mr",
+        "Bloom",
+        "said.",
+        "He",
+        "said",
+        "he'd",
+        "try",
+        "to",
+        "come."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          14,
+          4,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "met",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "met",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "M",
+          "start": 0.7,
+          "end": 0.96,
+          "key": "m",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'Coy",
+          "start": 0.96,
+          "end": 1.16,
+          "key": "coy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.16,
+          "end": 1.38,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "morning,",
+          "start": 1.38,
+          "end": 1.74,
+          "key": "morning",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Mr",
+          "start": 1.92,
+          "end": 2.1,
+          "key": "mr",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Bloom",
+          "start": 2.1,
+          "end": 2.36,
+          "key": "bloom",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.36,
+          "end": 2.7,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.2,
+          "end": 3.28,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.28,
+          "end": 3.42,
+          "key": "said",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he'd",
+          "start": 3.42,
+          "end": 3.58,
+          "key": "hed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "try",
+          "start": 3.58,
+          "end": 3.74,
+          "key": "try",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.74,
+          "end": 3.88,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 3.88,
+          "end": 4.14,
+          "key": "come",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "met",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "M'Coy",
+          "start": 0.7,
+          "end": 0.93
+        },
+        {
+          "text": "this",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "text": "morning,",
+          "start": 1.38,
+          "end": 1.74
+        },
+        {
+          "text": "Mr",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "text": "Bloom",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "text": "said.",
+          "start": 2.36,
+          "end": 2.7
+        },
+        {
+          "text": "He",
+          "start": 3.2,
+          "end": 3.28
+        },
+        {
+          "text": "said",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "text": "he'd",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "text": "try",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "text": "to",
+          "start": 3.74,
+          "end": 3.88
+        },
+        {
+          "text": "come.",
+          "start": 3.88,
+          "end": 4.14
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.1579602180281654
+    },
+    {
+      "asr_seconds": 0.15632413001731038,
+      "alignment_seconds": 0.0003564520156942308,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, M'Coy, Mr, Bloom, He"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " I met M'Coy this morning, Mr. Bloom said. He said he'd try to come.",
+          "start": 0.08,
+          "end": 4.14,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.51513671875
+            },
+            {
+              "text": " met",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " M",
+              "start": 0.7,
+              "end": 0.96,
+              "probability": 0.192626953125
+            },
+            {
+              "text": "'Coy",
+              "start": 0.96,
+              "end": 1.16,
+              "probability": 0.3710943857828776
+            },
+            {
+              "text": " this",
+              "start": 1.16,
+              "end": 1.38,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " morning,",
+              "start": 1.38,
+              "end": 1.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Mr.",
+              "start": 1.92,
+              "end": 2.12,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Bloom",
+              "start": 2.34,
+              "end": 2.34,
+              "probability": 0.890625
+            },
+            {
+              "text": " said.",
+              "start": 2.34,
+              "end": 2.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " He",
+              "start": 3.2,
+              "end": 3.28,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " said",
+              "start": 3.28,
+              "end": 3.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he'd",
+              "start": 3.42,
+              "end": 3.58,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " try",
+              "start": 3.58,
+              "end": 3.74,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " to",
+              "start": 3.74,
+              "end": 3.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " come.",
+              "start": 3.88,
+              "end": 4.14,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "met",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "M",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "raw": "'Coy",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "raw": "this",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "raw": "morning,",
+          "start": 1.38,
+          "end": 1.74
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "raw": "Bloom",
+          "start": 2.34,
+          "end": 2.34
+        },
+        {
+          "raw": "said.",
+          "start": 2.34,
+          "end": 2.7
+        },
+        {
+          "raw": "He",
+          "start": 3.2,
+          "end": 3.28
+        },
+        {
+          "raw": "said",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "raw": "he'd",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "raw": "try",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "raw": "to",
+          "start": 3.74,
+          "end": 3.88
+        },
+        {
+          "raw": "come.",
+          "start": 3.88,
+          "end": 4.14
+        }
+      ],
+      "expected_tokens": [
+        "—I",
+        "met",
+        "M'Coy",
+        "this",
+        "morning,",
+        "Mr",
+        "Bloom",
+        "said.",
+        "He",
+        "said",
+        "he'd",
+        "try",
+        "to",
+        "come."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          14,
+          4,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "met",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "met",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "M",
+          "start": 0.7,
+          "end": 0.96,
+          "key": "m",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'Coy",
+          "start": 0.96,
+          "end": 1.16,
+          "key": "coy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.16,
+          "end": 1.38,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "morning,",
+          "start": 1.38,
+          "end": 1.74,
+          "key": "morning",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.92,
+          "end": 2.12,
+          "key": "mr",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Bloom",
+          "start": 2.34,
+          "end": 2.34,
+          "key": "bloom",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.34,
+          "end": 2.7,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.2,
+          "end": 3.28,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.28,
+          "end": 3.42,
+          "key": "said",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he'd",
+          "start": 3.42,
+          "end": 3.58,
+          "key": "hed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "try",
+          "start": 3.58,
+          "end": 3.74,
+          "key": "try",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.74,
+          "end": 3.88,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 3.88,
+          "end": 4.14,
+          "key": "come",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "met",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "M'Coy",
+          "start": 0.7,
+          "end": 0.93
+        },
+        {
+          "text": "this",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "text": "morning,",
+          "start": 1.38,
+          "end": 1.74
+        },
+        {
+          "text": "Mr",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "text": "Bloom",
+          "start": 2.34,
+          "end": 2.34
+        },
+        {
+          "text": "said.",
+          "start": 2.34,
+          "end": 2.7
+        },
+        {
+          "text": "He",
+          "start": 3.2,
+          "end": 3.28
+        },
+        {
+          "text": "said",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "text": "he'd",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "text": "try",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "text": "to",
+          "start": 3.74,
+          "end": 3.88
+        },
+        {
+          "text": "come.",
+          "start": 3.88,
+          "end": 4.14
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.156814732006751
+    },
+    {
+      "asr_seconds": 0.15719734400045127,
+      "alignment_seconds": 0.00026603101287037134,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I met Emcoi this morning, Mr. Bloom said. He said he'd try to come.",
+          "start": 0.08,
+          "end": 4.14,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.51513671875
+            },
+            {
+              "text": " met",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Emcoi",
+              "start": 0.7,
+              "end": 1.24,
+              "probability": 0.5503743489583334
+            },
+            {
+              "text": " this",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " morning,",
+              "start": 1.36,
+              "end": 1.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Mr.",
+              "start": 1.92,
+              "end": 2.12,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Bloom",
+              "start": 2.34,
+              "end": 2.34,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " said.",
+              "start": 2.34,
+              "end": 2.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " He",
+              "start": 3.2,
+              "end": 3.28,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " said",
+              "start": 3.28,
+              "end": 3.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he'd",
+              "start": 3.42,
+              "end": 3.58,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " try",
+              "start": 3.58,
+              "end": 3.74,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " to",
+              "start": 3.74,
+              "end": 3.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " come.",
+              "start": 3.88,
+              "end": 4.14,
+              "probability": 0.97998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "met",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "Emcoi",
+          "start": 0.7,
+          "end": 1.24
+        },
+        {
+          "raw": "this",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "morning,",
+          "start": 1.36,
+          "end": 1.72
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "raw": "Bloom",
+          "start": 2.34,
+          "end": 2.34
+        },
+        {
+          "raw": "said.",
+          "start": 2.34,
+          "end": 2.7
+        },
+        {
+          "raw": "He",
+          "start": 3.2,
+          "end": 3.28
+        },
+        {
+          "raw": "said",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "raw": "he'd",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "raw": "try",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "raw": "to",
+          "start": 3.74,
+          "end": 3.88
+        },
+        {
+          "raw": "come.",
+          "start": 3.88,
+          "end": 4.14
+        }
+      ],
+      "expected_tokens": [
+        "—I",
+        "met",
+        "M'Coy",
+        "this",
+        "morning,",
+        "Mr",
+        "Bloom",
+        "said.",
+        "He",
+        "said",
+        "he'd",
+        "try",
+        "to",
+        "come."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          14,
+          3,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "met",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "met",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Emcoi",
+          "start": 0.7,
+          "end": 1.24,
+          "key": "emcoi",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "morning,",
+          "start": 1.36,
+          "end": 1.72,
+          "key": "morning",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.92,
+          "end": 2.12,
+          "key": "mr",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Bloom",
+          "start": 2.34,
+          "end": 2.34,
+          "key": "bloom",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.34,
+          "end": 2.7,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.2,
+          "end": 3.28,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.28,
+          "end": 3.42,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he'd",
+          "start": 3.42,
+          "end": 3.58,
+          "key": "hed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "try",
+          "start": 3.58,
+          "end": 3.74,
+          "key": "try",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.74,
+          "end": 3.88,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 3.88,
+          "end": 4.14,
+          "key": "come",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "met",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "M'Coy",
+          "start": 0.7,
+          "end": 0.97
+        },
+        {
+          "text": "this",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "morning,",
+          "start": 1.36,
+          "end": 1.72
+        },
+        {
+          "text": "Mr",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "text": "Bloom",
+          "start": 2.34,
+          "end": 2.34
+        },
+        {
+          "text": "said.",
+          "start": 2.34,
+          "end": 2.7
+        },
+        {
+          "text": "He",
+          "start": 3.2,
+          "end": 3.28
+        },
+        {
+          "text": "said",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "text": "he'd",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "text": "try",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "text": "to",
+          "start": 3.74,
+          "end": 3.88
+        },
+        {
+          "text": "come.",
+          "start": 3.88,
+          "end": 4.14
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.15755384496878833
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2881badbe93fcf761e794ffe5a84c1bc0dc34a5fe54870dcb67f89f5dbf168d7",
+  "selected_reasons": []
+}

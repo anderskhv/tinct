@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "90c23140692d349befe82f3a046a66ad474076e05f1f98e957ce2943e023a849",
+  "attempts": [
+    {
+      "asr_seconds": 0.1554662559647113,
+      "alignment_seconds": 0.00024961098097264767,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Wanted for the country, Mr Power said. There's the sun again coming out.",
+        "hotwords": "Wanted, Mr, Power, There's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Wanted for the country, Mr Power said. There's the sun again coming out.",
+          "start": 0.02,
+          "end": 4.56,
+          "words": [
+            {
+              "text": " Wanted",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.1087646484375
+            },
+            {
+              "text": " for",
+              "start": 0.68,
+              "end": 0.88,
+              "probability": 0.986328125
+            },
+            {
+              "text": " the",
+              "start": 0.88,
+              "end": 1.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " country,",
+              "start": 1.02,
+              "end": 1.44,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " Mr",
+              "start": 1.8,
+              "end": 1.98,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " Power",
+              "start": 1.98,
+              "end": 2.26,
+              "probability": 0.086669921875
+            },
+            {
+              "text": " said.",
+              "start": 2.26,
+              "end": 2.62,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " There's",
+              "start": 3.18,
+              "end": 3.3,
+              "probability": 0.922119140625
+            },
+            {
+              "text": " the",
+              "start": 3.3,
+              "end": 3.44,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " sun",
+              "start": 3.44,
+              "end": 3.62,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " again",
+              "start": 3.62,
+              "end": 3.92,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " coming",
+              "start": 3.92,
+              "end": 4.2,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " out.",
+              "start": 4.2,
+              "end": 4.56,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Wanted",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "for",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "raw": "the",
+          "start": 0.88,
+          "end": 1.02
+        },
+        {
+          "raw": "country,",
+          "start": 1.02,
+          "end": 1.44
+        },
+        {
+          "raw": "Mr",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "raw": "Power",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "raw": "said.",
+          "start": 2.26,
+          "end": 2.62
+        },
+        {
+          "raw": "There's",
+          "start": 3.18,
+          "end": 3.3
+        },
+        {
+          "raw": "the",
+          "start": 3.3,
+          "end": 3.44
+        },
+        {
+          "raw": "sun",
+          "start": 3.44,
+          "end": 3.62
+        },
+        {
+          "raw": "again",
+          "start": 3.62,
+          "end": 3.92
+        },
+        {
+          "raw": "coming",
+          "start": 3.92,
+          "end": 4.2
+        },
+        {
+          "raw": "out.",
+          "start": 4.2,
+          "end": 4.56
+        }
+      ],
+      "expected_tokens": [
+        "—Wanted",
+        "for",
+        "the",
+        "country,",
+        "Mr",
+        "Power",
+        "said.",
+        "There's",
+        "the",
+        "sun",
+        "again",
+        "coming",
+        "out."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Wanted",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "wanted",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.68,
+          "end": 0.88,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.88,
+          "end": 1.02,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "country,",
+          "start": 1.02,
+          "end": 1.44,
+          "key": "country",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mr",
+          "start": 1.8,
+          "end": 1.98,
+          "key": "mr",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Power",
+          "start": 1.98,
+          "end": 2.26,
+          "key": "power",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.26,
+          "end": 2.62,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "There's",
+          "start": 3.18,
+          "end": 3.3,
+          "key": "theres",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.3,
+          "end": 3.44,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sun",
+          "start": 3.44,
+          "end": 3.62,
+          "key": "sun",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 3.62,
+          "end": 3.92,
+          "key": "again",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "coming",
+          "start": 3.92,
+          "end": 4.2,
+          "key": "coming",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 4.2,
+          "end": 4.56,
+          "key": "out",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Wanted",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "for",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "text": "the",
+          "start": 0.88,
+          "end": 1.02
+        },
+        {
+          "text": "country,",
+          "start": 1.02,
+          "end": 1.44
+        },
+        {
+          "text": "Mr",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "text": "Power",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "text": "said.",
+          "start": 2.26,
+          "end": 2.62
+        },
+        {
+          "text": "There's",
+          "start": 3.18,
+          "end": 3.3
+        },
+        {
+          "text": "the",
+          "start": 3.3,
+          "end": 3.44
+        },
+        {
+          "text": "sun",
+          "start": 3.44,
+          "end": 3.62
+        },
+        {
+          "text": "again",
+          "start": 3.62,
+          "end": 3.92
+        },
+        {
+          "text": "coming",
+          "start": 3.92,
+          "end": 4.2
+        },
+        {
+          "text": "out.",
+          "start": 4.2,
+          "end": 4.56
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.155804427980911
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ebf8d387ec0cedb876d9e5595cc3cbe9a0a626bff8e8a8f795e7b799c324be0e",
+  "selected_reasons": []
+}

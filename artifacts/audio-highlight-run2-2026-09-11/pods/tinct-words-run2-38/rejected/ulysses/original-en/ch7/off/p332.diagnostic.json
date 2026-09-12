@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "83f9d38cb6b8612bc909a04f8b682cfe40b9643fa89f3a07e0665006837cf023",
+  "attempts": [
+    {
+      "asr_seconds": 0.11448005097918212,
+      "alignment_seconds": 0.00025603099493309855,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hop and carry one, is it? Miles Crawford said.",
+          "start": 0.05,
+          "end": 2.87,
+          "words": [
+            {
+              "text": " Hop",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.123779296875
+            },
+            {
+              "text": " and",
+              "start": 0.55,
+              "end": 0.71,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " carry",
+              "start": 0.71,
+              "end": 0.91,
+              "probability": 0.927734375
+            },
+            {
+              "text": " one,",
+              "start": 0.91,
+              "end": 1.17,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " is",
+              "start": 1.29,
+              "end": 1.33,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " it?",
+              "start": 1.33,
+              "end": 1.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Miles",
+              "start": 1.99,
+              "end": 2.15,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " Crawford",
+              "start": 2.15,
+              "end": 2.53,
+              "probability": 0.9921875
+            },
+            {
+              "text": " said.",
+              "start": 2.53,
+              "end": 2.87,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hop",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "and",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "raw": "carry",
+          "start": 0.71,
+          "end": 0.91
+        },
+        {
+          "raw": "one,",
+          "start": 0.91,
+          "end": 1.17
+        },
+        {
+          "raw": "is",
+          "start": 1.29,
+          "end": 1.33
+        },
+        {
+          "raw": "it?",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "raw": "Miles",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "raw": "Crawford",
+          "start": 2.15,
+          "end": 2.53
+        },
+        {
+          "raw": "said.",
+          "start": 2.53,
+          "end": 2.87
+        }
+      ],
+      "expected_tokens": [
+        "—Hop",
+        "and",
+        "carry",
+        "one,",
+        "is",
+        "it?",
+        "Myles",
+        "Crawford",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          9,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hop",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "hop",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.55,
+          "end": 0.71,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "carry",
+          "start": 0.71,
+          "end": 0.91,
+          "key": "carry",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "one,",
+          "start": 0.91,
+          "end": 1.17,
+          "key": "one",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.29,
+          "end": 1.33,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 1.33,
+          "end": 1.61,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Miles",
+          "start": 1.99,
+          "end": 2.15,
+          "key": "miles",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Crawford",
+          "start": 2.15,
+          "end": 2.53,
+          "key": "crawford",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.53,
+          "end": 2.87,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Hop",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "and",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "text": "carry",
+          "start": 0.71,
+          "end": 0.91
+        },
+        {
+          "text": "one,",
+          "start": 0.91,
+          "end": 1.17
+        },
+        {
+          "text": "is",
+          "start": 1.29,
+          "end": 1.33
+        },
+        {
+          "text": "it?",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "text": "Myles",
+          "start": 1.61,
+          "end": 1.88
+        },
+        {
+          "text": "Crawford",
+          "start": 2.15,
+          "end": 2.53
+        },
+        {
+          "text": "said.",
+          "start": 2.53,
+          "end": 2.87
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.11482602200703695
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "73fbc66ef539aaaf98d1ab7385a3416f503575a98dc1812c3f8c7b2cc9c7f788",
+  "selected_reasons": []
+}

@@ -1,0 +1,1900 @@
+{
+  "complete": true,
+  "signature": "8417a742d47c043cdcede121094e773c4c1d9fd190ad30e38790d0d04bb1c344",
+  "attempts": [
+    {
+      "asr_seconds": 0.5398261590162292,
+      "alignment_seconds": 0.0005037520313635468,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "A dwarf's face, mauve and wrinkled like little Rudy's was. Dwarf's body, weak as putty, in a whitelined deal box. Burial friendly society pays. Penny a week for a sod of turf. Our. Little. Beggar. Baby. Meant nothing. Mistake of nature. If it's healthy it's from the mother. If not from the man. Better luck next time.",
+        "hotwords": "Rudy's, Burial, Penny, Our, Beggar, Baby, Meant, Mistake, If, Better"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A dwarf's face, mauve and wrinkled like little Rudy's was. Dwarf's body, weak as putty, in a whitelined deal box.",
+          "start": 0.08,
+          "end": 6.62,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.71044921875
+            },
+            {
+              "text": " dwarf's",
+              "start": 0.54,
+              "end": 0.94,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " face,",
+              "start": 0.94,
+              "end": 1.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " mauve",
+              "start": 1.46,
+              "end": 1.64,
+              "probability": 0.9568684895833334
+            },
+            {
+              "text": " and",
+              "start": 1.64,
+              "end": 1.78,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " wrinkled",
+              "start": 1.78,
+              "end": 2.12,
+              "probability": 0.998779296875
+            },
+            {
+              "text": " like",
+              "start": 2.12,
+              "end": 2.28,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " little",
+              "start": 2.28,
+              "end": 2.52,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Rudy's",
+              "start": 2.52,
+              "end": 2.9,
+              "probability": 0.4865833520889282
+            },
+            {
+              "text": " was.",
+              "start": 2.9,
+              "end": 3.18,
+              "probability": 0.69775390625
+            },
+            {
+              "text": " Dwarf's",
+              "start": 3.78,
+              "end": 4.14,
+              "probability": 0.939208984375
+            },
+            {
+              "text": " body,",
+              "start": 4.14,
+              "end": 4.38,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " weak",
+              "start": 4.6,
+              "end": 4.72,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " as",
+              "start": 4.72,
+              "end": 4.94,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " putty,",
+              "start": 4.94,
+              "end": 5.3,
+              "probability": 0.978515625
+            },
+            {
+              "text": " in",
+              "start": 5.36,
+              "end": 5.42,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " a",
+              "start": 5.42,
+              "end": 5.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " whitelined",
+              "start": 5.56,
+              "end": 6.0,
+              "probability": 0.5287272135416666
+            },
+            {
+              "text": " deal",
+              "start": 6.0,
+              "end": 6.2,
+              "probability": 0.9296875
+            },
+            {
+              "text": " box.",
+              "start": 6.2,
+              "end": 6.62,
+              "probability": 0.884765625
+            }
+          ]
+        },
+        {
+          "text": " Burial friendly society pays. Penny a week for a sod of turf. Our. Little. Beggar. Baby. Meant nothing. Mistake of nature.",
+          "start": 7.48,
+          "end": 15.64,
+          "words": [
+            {
+              "text": " Burial",
+              "start": 7.48,
+              "end": 7.74,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " friendly",
+              "start": 7.74,
+              "end": 8.08,
+              "probability": 0.4482421875
+            },
+            {
+              "text": " society",
+              "start": 8.08,
+              "end": 8.62,
+              "probability": 0.94140625
+            },
+            {
+              "text": " pays.",
+              "start": 8.62,
+              "end": 9.04,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Penny",
+              "start": 9.88,
+              "end": 9.88,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " a",
+              "start": 9.88,
+              "end": 10.08,
+              "probability": 0.931640625
+            },
+            {
+              "text": " week",
+              "start": 10.08,
+              "end": 10.26,
+              "probability": 0.65673828125
+            },
+            {
+              "text": " for",
+              "start": 10.26,
+              "end": 10.48,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 10.48,
+              "end": 10.62,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " sod",
+              "start": 10.62,
+              "end": 10.78,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " of",
+              "start": 10.78,
+              "end": 10.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " turf.",
+              "start": 10.96,
+              "end": 11.2,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Our.",
+              "start": 11.78,
+              "end": 11.96,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " Little.",
+              "start": 12.28,
+              "end": 12.44,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " Beggar.",
+              "start": 13.0,
+              "end": 13.3,
+              "probability": 0.9147135416666666
+            },
+            {
+              "text": " Baby.",
+              "start": 13.54,
+              "end": 13.7,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Meant",
+              "start": 14.1,
+              "end": 14.34,
+              "probability": 0.81884765625
+            },
+            {
+              "text": " nothing.",
+              "start": 14.34,
+              "end": 14.58,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " Mistake",
+              "start": 15.0,
+              "end": 15.3,
+              "probability": 0.98828125
+            },
+            {
+              "text": " of",
+              "start": 15.3,
+              "end": 15.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " nature.",
+              "start": 15.44,
+              "end": 15.64,
+              "probability": 0.95703125
+            }
+          ]
+        },
+        {
+          "text": " If it's healthy it's from the mother. If not from the man. Better luck next time.",
+          "start": 16.16,
+          "end": 20.36,
+          "words": [
+            {
+              "text": " If",
+              "start": 16.16,
+              "end": 16.26,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " it's",
+              "start": 16.26,
+              "end": 16.46,
+              "probability": 0.990234375
+            },
+            {
+              "text": " healthy",
+              "start": 16.46,
+              "end": 16.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " it's",
+              "start": 16.7,
+              "end": 16.96,
+              "probability": 0.767333984375
+            },
+            {
+              "text": " from",
+              "start": 16.96,
+              "end": 17.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 17.08,
+              "end": 17.2,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " mother.",
+              "start": 17.2,
+              "end": 17.4,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " If",
+              "start": 17.76,
+              "end": 17.86,
+              "probability": 0.994140625
+            },
+            {
+              "text": " not",
+              "start": 17.86,
+              "end": 18.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " from",
+              "start": 18.06,
+              "end": 18.24,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " the",
+              "start": 18.24,
+              "end": 18.38,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " man.",
+              "start": 18.38,
+              "end": 18.66,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Better",
+              "start": 19.18,
+              "end": 19.42,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " luck",
+              "start": 19.42,
+              "end": 19.66,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " next",
+              "start": 19.66,
+              "end": 19.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " time.",
+              "start": 19.92,
+              "end": 20.36,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "dwarf's",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "raw": "face,",
+          "start": 0.94,
+          "end": 1.18
+        },
+        {
+          "raw": "mauve",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "raw": "and",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "raw": "wrinkled",
+          "start": 1.78,
+          "end": 2.12
+        },
+        {
+          "raw": "like",
+          "start": 2.12,
+          "end": 2.28
+        },
+        {
+          "raw": "little",
+          "start": 2.28,
+          "end": 2.52
+        },
+        {
+          "raw": "Rudy's",
+          "start": 2.52,
+          "end": 2.9
+        },
+        {
+          "raw": "was.",
+          "start": 2.9,
+          "end": 3.18
+        },
+        {
+          "raw": "Dwarf's",
+          "start": 3.78,
+          "end": 4.14
+        },
+        {
+          "raw": "body,",
+          "start": 4.14,
+          "end": 4.38
+        },
+        {
+          "raw": "weak",
+          "start": 4.6,
+          "end": 4.72
+        },
+        {
+          "raw": "as",
+          "start": 4.72,
+          "end": 4.94
+        },
+        {
+          "raw": "putty,",
+          "start": 4.94,
+          "end": 5.3
+        },
+        {
+          "raw": "in",
+          "start": 5.36,
+          "end": 5.42
+        },
+        {
+          "raw": "a",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "raw": "whitelined",
+          "start": 5.56,
+          "end": 6.0
+        },
+        {
+          "raw": "deal",
+          "start": 6.0,
+          "end": 6.2
+        },
+        {
+          "raw": "box.",
+          "start": 6.2,
+          "end": 6.62
+        },
+        {
+          "raw": "Burial",
+          "start": 7.48,
+          "end": 7.74
+        },
+        {
+          "raw": "friendly",
+          "start": 7.74,
+          "end": 8.08
+        },
+        {
+          "raw": "society",
+          "start": 8.08,
+          "end": 8.62
+        },
+        {
+          "raw": "pays.",
+          "start": 8.62,
+          "end": 9.04
+        },
+        {
+          "raw": "Penny",
+          "start": 9.88,
+          "end": 9.88
+        },
+        {
+          "raw": "a",
+          "start": 9.88,
+          "end": 10.08
+        },
+        {
+          "raw": "week",
+          "start": 10.08,
+          "end": 10.26
+        },
+        {
+          "raw": "for",
+          "start": 10.26,
+          "end": 10.48
+        },
+        {
+          "raw": "a",
+          "start": 10.48,
+          "end": 10.62
+        },
+        {
+          "raw": "sod",
+          "start": 10.62,
+          "end": 10.78
+        },
+        {
+          "raw": "of",
+          "start": 10.78,
+          "end": 10.96
+        },
+        {
+          "raw": "turf.",
+          "start": 10.96,
+          "end": 11.2
+        },
+        {
+          "raw": "Our.",
+          "start": 11.78,
+          "end": 11.96
+        },
+        {
+          "raw": "Little.",
+          "start": 12.28,
+          "end": 12.44
+        },
+        {
+          "raw": "Beggar.",
+          "start": 13.0,
+          "end": 13.3
+        },
+        {
+          "raw": "Baby.",
+          "start": 13.54,
+          "end": 13.7
+        },
+        {
+          "raw": "Meant",
+          "start": 14.1,
+          "end": 14.34
+        },
+        {
+          "raw": "nothing.",
+          "start": 14.34,
+          "end": 14.58
+        },
+        {
+          "raw": "Mistake",
+          "start": 15.0,
+          "end": 15.3
+        },
+        {
+          "raw": "of",
+          "start": 15.3,
+          "end": 15.44
+        },
+        {
+          "raw": "nature.",
+          "start": 15.44,
+          "end": 15.64
+        },
+        {
+          "raw": "If",
+          "start": 16.16,
+          "end": 16.26
+        },
+        {
+          "raw": "it's",
+          "start": 16.26,
+          "end": 16.46
+        },
+        {
+          "raw": "healthy",
+          "start": 16.46,
+          "end": 16.7
+        },
+        {
+          "raw": "it's",
+          "start": 16.7,
+          "end": 16.96
+        },
+        {
+          "raw": "from",
+          "start": 16.96,
+          "end": 17.08
+        },
+        {
+          "raw": "the",
+          "start": 17.08,
+          "end": 17.2
+        },
+        {
+          "raw": "mother.",
+          "start": 17.2,
+          "end": 17.4
+        },
+        {
+          "raw": "If",
+          "start": 17.76,
+          "end": 17.86
+        },
+        {
+          "raw": "not",
+          "start": 17.86,
+          "end": 18.06
+        },
+        {
+          "raw": "from",
+          "start": 18.06,
+          "end": 18.24
+        },
+        {
+          "raw": "the",
+          "start": 18.24,
+          "end": 18.38
+        },
+        {
+          "raw": "man.",
+          "start": 18.38,
+          "end": 18.66
+        },
+        {
+          "raw": "Better",
+          "start": 19.18,
+          "end": 19.42
+        },
+        {
+          "raw": "luck",
+          "start": 19.42,
+          "end": 19.66
+        },
+        {
+          "raw": "next",
+          "start": 19.66,
+          "end": 19.92
+        },
+        {
+          "raw": "time.",
+          "start": 19.92,
+          "end": 20.36
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "dwarf's",
+        "face,",
+        "mauve",
+        "and",
+        "wrinkled",
+        "like",
+        "little",
+        "Rudy's",
+        "was.",
+        "Dwarf's",
+        "body,",
+        "weak",
+        "as",
+        "putty,",
+        "in",
+        "a",
+        "whitelined",
+        "deal",
+        "box.",
+        "Burial",
+        "friendly",
+        "society",
+        "pays.",
+        "Penny",
+        "a",
+        "week",
+        "for",
+        "a",
+        "sod",
+        "of",
+        "turf.",
+        "Our.",
+        "Little.",
+        "Beggar.",
+        "Baby.",
+        "Meant",
+        "nothing.",
+        "Mistake",
+        "of",
+        "nature.",
+        "If",
+        "it's",
+        "healthy",
+        "it's",
+        "from",
+        "the",
+        "mother.",
+        "If",
+        "not",
+        "from",
+        "the",
+        "man.",
+        "Better",
+        "luck",
+        "next",
+        "time."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          57,
+          0,
+          57
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dwarf's",
+          "start": 0.54,
+          "end": 0.94,
+          "key": "dwarfs",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "face,",
+          "start": 0.94,
+          "end": 1.18,
+          "key": "face",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mauve",
+          "start": 1.46,
+          "end": 1.64,
+          "key": "mauve",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.64,
+          "end": 1.78,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wrinkled",
+          "start": 1.78,
+          "end": 2.12,
+          "key": "wrinkled",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 2.12,
+          "end": 2.28,
+          "key": "like",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 2.28,
+          "end": 2.52,
+          "key": "little",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Rudy's",
+          "start": 2.52,
+          "end": 2.9,
+          "key": "rudys",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "was.",
+          "start": 2.9,
+          "end": 3.18,
+          "key": "was",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Dwarf's",
+          "start": 3.78,
+          "end": 4.14,
+          "key": "dwarfs",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "body,",
+          "start": 4.14,
+          "end": 4.38,
+          "key": "body",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "weak",
+          "start": 4.6,
+          "end": 4.72,
+          "key": "weak",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.72,
+          "end": 4.94,
+          "key": "as",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "putty,",
+          "start": 4.94,
+          "end": 5.3,
+          "key": "putty",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.36,
+          "end": 5.42,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.42,
+          "end": 5.56,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "whitelined",
+          "start": 5.56,
+          "end": 6.0,
+          "key": "whitelined",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "deal",
+          "start": 6.0,
+          "end": 6.2,
+          "key": "deal",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "box.",
+          "start": 6.2,
+          "end": 6.62,
+          "key": "box",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Burial",
+          "start": 7.48,
+          "end": 7.74,
+          "key": "burial",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "friendly",
+          "start": 7.74,
+          "end": 8.08,
+          "key": "friendly",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "society",
+          "start": 8.08,
+          "end": 8.62,
+          "key": "society",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "pays.",
+          "start": 8.62,
+          "end": 9.04,
+          "key": "pays",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Penny",
+          "start": 9.88,
+          "end": 9.88,
+          "key": "penny",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.88,
+          "end": 10.08,
+          "key": "a",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "week",
+          "start": 10.08,
+          "end": 10.26,
+          "key": "week",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 10.26,
+          "end": 10.48,
+          "key": "for",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 10.48,
+          "end": 10.62,
+          "key": "a",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "sod",
+          "start": 10.62,
+          "end": 10.78,
+          "key": "sod",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.78,
+          "end": 10.96,
+          "key": "of",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "turf.",
+          "start": 10.96,
+          "end": 11.2,
+          "key": "turf",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Our.",
+          "start": 11.78,
+          "end": 11.96,
+          "key": "our",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Little.",
+          "start": 12.28,
+          "end": 12.44,
+          "key": "little",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Beggar.",
+          "start": 13.0,
+          "end": 13.3,
+          "key": "beggar",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Baby.",
+          "start": 13.54,
+          "end": 13.7,
+          "key": "baby",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Meant",
+          "start": 14.1,
+          "end": 14.34,
+          "key": "meant",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "nothing.",
+          "start": 14.34,
+          "end": 14.58,
+          "key": "nothing",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Mistake",
+          "start": 15.0,
+          "end": 15.3,
+          "key": "mistake",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 15.3,
+          "end": 15.44,
+          "key": "of",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "nature.",
+          "start": 15.44,
+          "end": 15.64,
+          "key": "nature",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 16.16,
+          "end": 16.26,
+          "key": "if",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 16.26,
+          "end": 16.46,
+          "key": "its",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "healthy",
+          "start": 16.46,
+          "end": 16.7,
+          "key": "healthy",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 16.7,
+          "end": 16.96,
+          "key": "its",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 16.96,
+          "end": 17.08,
+          "key": "from",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 17.08,
+          "end": 17.2,
+          "key": "the",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "mother.",
+          "start": 17.2,
+          "end": 17.4,
+          "key": "mother",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 17.76,
+          "end": 17.86,
+          "key": "if",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 17.86,
+          "end": 18.06,
+          "key": "not",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 18.06,
+          "end": 18.24,
+          "key": "from",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.24,
+          "end": 18.38,
+          "key": "the",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "man.",
+          "start": 18.38,
+          "end": 18.66,
+          "key": "man",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Better",
+          "start": 19.18,
+          "end": 19.42,
+          "key": "better",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "luck",
+          "start": 19.42,
+          "end": 19.66,
+          "key": "luck",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "next",
+          "start": 19.66,
+          "end": 19.92,
+          "key": "next",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "time.",
+          "start": 19.92,
+          "end": 20.36,
+          "key": "time",
+          "pieces": [
+            56
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "dwarf's",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "text": "face,",
+          "start": 0.94,
+          "end": 1.18
+        },
+        {
+          "text": "mauve",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "text": "and",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "text": "wrinkled",
+          "start": 1.78,
+          "end": 2.12
+        },
+        {
+          "text": "like",
+          "start": 2.12,
+          "end": 2.28
+        },
+        {
+          "text": "little",
+          "start": 2.28,
+          "end": 2.52
+        },
+        {
+          "text": "Rudy's",
+          "start": 2.52,
+          "end": 2.9
+        },
+        {
+          "text": "was.",
+          "start": 2.9,
+          "end": 3.18
+        },
+        {
+          "text": "Dwarf's",
+          "start": 3.78,
+          "end": 4.14
+        },
+        {
+          "text": "body,",
+          "start": 4.14,
+          "end": 4.38
+        },
+        {
+          "text": "weak",
+          "start": 4.6,
+          "end": 4.72
+        },
+        {
+          "text": "as",
+          "start": 4.72,
+          "end": 4.94
+        },
+        {
+          "text": "putty,",
+          "start": 4.94,
+          "end": 5.3
+        },
+        {
+          "text": "in",
+          "start": 5.36,
+          "end": 5.42
+        },
+        {
+          "text": "a",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "text": "whitelined",
+          "start": 5.56,
+          "end": 6.0
+        },
+        {
+          "text": "deal",
+          "start": 6.0,
+          "end": 6.2
+        },
+        {
+          "text": "box.",
+          "start": 6.2,
+          "end": 6.62
+        },
+        {
+          "text": "Burial",
+          "start": 7.48,
+          "end": 7.74
+        },
+        {
+          "text": "friendly",
+          "start": 7.74,
+          "end": 8.08
+        },
+        {
+          "text": "society",
+          "start": 8.08,
+          "end": 8.62
+        },
+        {
+          "text": "pays.",
+          "start": 8.62,
+          "end": 9.04
+        },
+        {
+          "text": "Penny",
+          "start": 9.88,
+          "end": 9.88
+        },
+        {
+          "text": "a",
+          "start": 9.88,
+          "end": 10.08
+        },
+        {
+          "text": "week",
+          "start": 10.08,
+          "end": 10.26
+        },
+        {
+          "text": "for",
+          "start": 10.26,
+          "end": 10.48
+        },
+        {
+          "text": "a",
+          "start": 10.48,
+          "end": 10.62
+        },
+        {
+          "text": "sod",
+          "start": 10.62,
+          "end": 10.78
+        },
+        {
+          "text": "of",
+          "start": 10.78,
+          "end": 10.96
+        },
+        {
+          "text": "turf.",
+          "start": 10.96,
+          "end": 11.2
+        },
+        {
+          "text": "Our.",
+          "start": 11.78,
+          "end": 11.96
+        },
+        {
+          "text": "Little.",
+          "start": 12.28,
+          "end": 12.44
+        },
+        {
+          "text": "Beggar.",
+          "start": 13.0,
+          "end": 13.3
+        },
+        {
+          "text": "Baby.",
+          "start": 13.54,
+          "end": 13.7
+        },
+        {
+          "text": "Meant",
+          "start": 14.1,
+          "end": 14.34
+        },
+        {
+          "text": "nothing.",
+          "start": 14.34,
+          "end": 14.58
+        },
+        {
+          "text": "Mistake",
+          "start": 15.0,
+          "end": 15.3
+        },
+        {
+          "text": "of",
+          "start": 15.3,
+          "end": 15.44
+        },
+        {
+          "text": "nature.",
+          "start": 15.44,
+          "end": 15.64
+        },
+        {
+          "text": "If",
+          "start": 16.16,
+          "end": 16.26
+        },
+        {
+          "text": "it's",
+          "start": 16.26,
+          "end": 16.46
+        },
+        {
+          "text": "healthy",
+          "start": 16.46,
+          "end": 16.7
+        },
+        {
+          "text": "it's",
+          "start": 16.7,
+          "end": 16.96
+        },
+        {
+          "text": "from",
+          "start": 16.96,
+          "end": 17.08
+        },
+        {
+          "text": "the",
+          "start": 17.08,
+          "end": 17.2
+        },
+        {
+          "text": "mother.",
+          "start": 17.2,
+          "end": 17.4
+        },
+        {
+          "text": "If",
+          "start": 17.76,
+          "end": 17.86
+        },
+        {
+          "text": "not",
+          "start": 17.86,
+          "end": 18.06
+        },
+        {
+          "text": "from",
+          "start": 18.06,
+          "end": 18.24
+        },
+        {
+          "text": "the",
+          "start": 18.24,
+          "end": 18.38
+        },
+        {
+          "text": "man.",
+          "start": 18.38,
+          "end": 18.66
+        },
+        {
+          "text": "Better",
+          "start": 19.18,
+          "end": 19.42
+        },
+        {
+          "text": "luck",
+          "start": 19.42,
+          "end": 19.66
+        },
+        {
+          "text": "next",
+          "start": 19.66,
+          "end": 19.92
+        },
+        {
+          "text": "time.",
+          "start": 19.92,
+          "end": 20.36
+        }
+      ],
+      "stats": {
+        "expected_words": 57,
+        "heard_words": 57,
+        "matched_words": 57
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5405440920148976
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f9ba3e24ea2f6e378d874d5f8b7b12c984d9a43db8005669f6389b270eec5aed",
+  "selected_reasons": []
+}

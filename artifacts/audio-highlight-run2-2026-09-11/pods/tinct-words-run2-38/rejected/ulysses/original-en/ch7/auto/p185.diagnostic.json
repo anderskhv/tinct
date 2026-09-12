@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "0ced62b12a23b633f6cf63c0d0a147953e3344e7f0385f5411c3888123a50db5",
+  "attempts": [
+    {
+      "asr_seconds": 0.08778042101766914,
+      "alignment_seconds": 0.00016476103337481618,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He went in.",
+        "hotwords": "He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He went in.",
+          "start": 0.02,
+          "end": 0.94,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " went",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in.",
+              "start": 0.68,
+              "end": 0.94,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "went",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "in.",
+          "start": 0.68,
+          "end": 0.94
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "went",
+        "in."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "went",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in.",
+          "start": 0.68,
+          "end": 0.94,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "went",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "in.",
+          "start": 0.68,
+          "end": 0.94
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0879956420394592
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "18dc658986d61a312599b55ca5c0fec4c95240bf8bedd81fa7753d1cc7fa6101",
+  "selected_reasons": []
+}

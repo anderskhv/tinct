@@ -1,0 +1,163 @@
+{
+  "complete": true,
+  "signature": "b3111fd56c57be52e10704da70d090114f63cfcf6419ac9f1dc22670638dfcd6",
+  "attempts": [
+    {
+      "asr_seconds": 0.08908064803108573,
+      "alignment_seconds": 9.924103505909443e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Kyrie a lesson",
+          "start": 0.05,
+          "end": 1.13,
+          "words": [
+            {
+              "text": " Kyrie",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.6124267578125
+            },
+            {
+              "text": " a",
+              "start": 0.67,
+              "end": 0.85,
+              "probability": 0.54150390625
+            },
+            {
+              "text": " lesson",
+              "start": 0.85,
+              "end": 1.13,
+              "probability": 0.95751953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kyrie",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "a",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "raw": "lesson",
+          "start": 0.85,
+          "end": 1.13
+        }
+      ],
+      "expected_tokens": [
+        "Kyrie",
+        "Eleison!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kyrie",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "kyrie",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.67,
+          "end": 0.85,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lesson",
+          "start": 0.85,
+          "end": 1.13,
+          "key": "lesson",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kyrie",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Eleison!",
+          "start": 0.67,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.0892158389906399
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f4983e0b559091855e4a5748db2d7f6e1a651bdce3c77c3e8c1be206ff47c6f3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "212585d2695212d9b570a4d673812e8117738216557208d2842be1033fb91ff1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1042454430134967,
+      "alignment_seconds": 0.00018186098895967007,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—I am come to pay you another visit.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I am come to pay you another visit.",
+          "start": 0.05,
+          "end": 1.67,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " am",
+              "start": 0.51,
+              "end": 0.59,
+              "probability": 0.10595703125
+            },
+            {
+              "text": " come",
+              "start": 0.59,
+              "end": 0.69,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " to",
+              "start": 0.69,
+              "end": 0.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " pay",
+              "start": 0.83,
+              "end": 0.97,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " you",
+              "start": 0.97,
+              "end": 1.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " another",
+              "start": 1.17,
+              "end": 1.37,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " visit.",
+              "start": 1.37,
+              "end": 1.67,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "am",
+          "start": 0.51,
+          "end": 0.59
+        },
+        {
+          "raw": "come",
+          "start": 0.59,
+          "end": 0.69
+        },
+        {
+          "raw": "to",
+          "start": 0.69,
+          "end": 0.83
+        },
+        {
+          "raw": "pay",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "raw": "you",
+          "start": 0.97,
+          "end": 1.17
+        },
+        {
+          "raw": "another",
+          "start": 1.17,
+          "end": 1.37
+        },
+        {
+          "raw": "visit.",
+          "start": 1.37,
+          "end": 1.67
+        }
+      ],
+      "expected_tokens": [
+        "—I",
+        "am",
+        "come",
+        "to",
+        "pay",
+        "you",
+        "another",
+        "visit."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.51,
+          "end": 0.59,
+          "key": "am",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 0.59,
+          "end": 0.69,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.69,
+          "end": 0.83,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pay",
+          "start": 0.83,
+          "end": 0.97,
+          "key": "pay",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.97,
+          "end": 1.17,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 1.17,
+          "end": 1.37,
+          "key": "another",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "visit.",
+          "start": 1.37,
+          "end": 1.67,
+          "key": "visit",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—I",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "am",
+          "start": 0.51,
+          "end": 0.59
+        },
+        {
+          "text": "come",
+          "start": 0.59,
+          "end": 0.69
+        },
+        {
+          "text": "to",
+          "start": 0.69,
+          "end": 0.83
+        },
+        {
+          "text": "pay",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "text": "you",
+          "start": 0.97,
+          "end": 1.17
+        },
+        {
+          "text": "another",
+          "start": 1.17,
+          "end": 1.37
+        },
+        {
+          "text": "visit.",
+          "start": 1.37,
+          "end": 1.67
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1045019649900496
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "175a5fed4feb0c813f0c042285c5ac7582e575e99410286409269b85365c026f",
+  "selected_reasons": []
+}

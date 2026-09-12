@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "b329606bccf51b961a629620a1157232bcd6e2984b872c3a118e0d47def0ef4e",
+  "attempts": [
+    {
+      "asr_seconds": 0.12569542898563668,
+      "alignment_seconds": 0.0001978810178115964,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Quite so, Martin Cunningham said. Mary Anderson is up there now.",
+        "hotwords": "Quite, Martin, Cunningham, Mary, Anderson"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Quite so, Martin Cunningham said. Mary Anderson is up there now.",
+          "start": 0.05,
+          "end": 4.27,
+          "words": [
+            {
+              "text": " Quite",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.5458984375
+            },
+            {
+              "text": " so,",
+              "start": 0.57,
+              "end": 0.95,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Martin",
+              "start": 1.33,
+              "end": 1.45,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " Cunningham",
+              "start": 1.45,
+              "end": 1.87,
+              "probability": 0.98828125
+            },
+            {
+              "text": " said.",
+              "start": 1.87,
+              "end": 2.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Mary",
+              "start": 2.77,
+              "end": 3.01,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " Anderson",
+              "start": 3.01,
+              "end": 3.41,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " is",
+              "start": 3.41,
+              "end": 3.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " up",
+              "start": 3.67,
+              "end": 3.79,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " there",
+              "start": 3.79,
+              "end": 3.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " now.",
+              "start": 3.97,
+              "end": 4.27,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quite",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "so,",
+          "start": 0.57,
+          "end": 0.95
+        },
+        {
+          "raw": "Martin",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "raw": "Cunningham",
+          "start": 1.45,
+          "end": 1.87
+        },
+        {
+          "raw": "said.",
+          "start": 1.87,
+          "end": 2.31
+        },
+        {
+          "raw": "Mary",
+          "start": 2.77,
+          "end": 3.01
+        },
+        {
+          "raw": "Anderson",
+          "start": 3.01,
+          "end": 3.41
+        },
+        {
+          "raw": "is",
+          "start": 3.41,
+          "end": 3.67
+        },
+        {
+          "raw": "up",
+          "start": 3.67,
+          "end": 3.79
+        },
+        {
+          "raw": "there",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "raw": "now.",
+          "start": 3.97,
+          "end": 4.27
+        }
+      ],
+      "expected_tokens": [
+        "—Quite",
+        "so,",
+        "Martin",
+        "Cunningham",
+        "said.",
+        "Mary",
+        "Anderson",
+        "is",
+        "up",
+        "there",
+        "now."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Quite",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "quite",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 0.57,
+          "end": 0.95,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Martin",
+          "start": 1.33,
+          "end": 1.45,
+          "key": "martin",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Cunningham",
+          "start": 1.45,
+          "end": 1.87,
+          "key": "cunningham",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.87,
+          "end": 2.31,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Mary",
+          "start": 2.77,
+          "end": 3.01,
+          "key": "mary",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Anderson",
+          "start": 3.01,
+          "end": 3.41,
+          "key": "anderson",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.41,
+          "end": 3.67,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 3.67,
+          "end": 3.79,
+          "key": "up",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 3.79,
+          "end": 3.97,
+          "key": "there",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 3.97,
+          "end": 4.27,
+          "key": "now",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Quite",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "so,",
+          "start": 0.57,
+          "end": 0.95
+        },
+        {
+          "text": "Martin",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "text": "Cunningham",
+          "start": 1.45,
+          "end": 1.87
+        },
+        {
+          "text": "said.",
+          "start": 1.87,
+          "end": 2.31
+        },
+        {
+          "text": "Mary",
+          "start": 2.77,
+          "end": 3.01
+        },
+        {
+          "text": "Anderson",
+          "start": 3.01,
+          "end": 3.41
+        },
+        {
+          "text": "is",
+          "start": 3.41,
+          "end": 3.67
+        },
+        {
+          "text": "up",
+          "start": 3.67,
+          "end": 3.79
+        },
+        {
+          "text": "there",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "text": "now.",
+          "start": 3.97,
+          "end": 4.27
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12597173999529332
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0ec760a8a7356ec6feff01e9a3ded1c9b1e1b381c695ee6991e62f5d407cca14",
+  "selected_reasons": []
+}

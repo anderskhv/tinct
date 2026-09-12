@@ -1,0 +1,524 @@
+{
+  "complete": true,
+  "signature": "0a03ccae00e103f94454b9836e8d91a0d084aac2c6aa08197660414a34d1d1fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.1445002180407755,
+      "alignment_seconds": 0.0002472909982316196,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " T'was rank and fame that tempted thee, T'was empire charmed thy heart",
+          "start": 0.08,
+          "end": 4.44,
+          "words": [
+            {
+              "text": " T",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.0748291015625
+            },
+            {
+              "text": "'was",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.764892578125
+            },
+            {
+              "text": " rank",
+              "start": 0.66,
+              "end": 0.98,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " and",
+              "start": 0.98,
+              "end": 1.16,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " fame",
+              "start": 1.16,
+              "end": 1.4,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " that",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " tempted",
+              "start": 1.6,
+              "end": 1.9,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " thee,",
+              "start": 1.9,
+              "end": 2.26,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " T",
+              "start": 2.86,
+              "end": 2.86,
+              "probability": 0.6865234375
+            },
+            {
+              "text": "'was",
+              "start": 2.86,
+              "end": 3.06,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " empire",
+              "start": 3.06,
+              "end": 3.46,
+              "probability": 0.87890625
+            },
+            {
+              "text": " charmed",
+              "start": 3.46,
+              "end": 3.98,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " thy",
+              "start": 3.98,
+              "end": 4.12,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " heart",
+              "start": 4.12,
+              "end": 4.44,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "T",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "'was",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "rank",
+          "start": 0.66,
+          "end": 0.98
+        },
+        {
+          "raw": "and",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "raw": "fame",
+          "start": 1.16,
+          "end": 1.4
+        },
+        {
+          "raw": "that",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "tempted",
+          "start": 1.6,
+          "end": 1.9
+        },
+        {
+          "raw": "thee,",
+          "start": 1.9,
+          "end": 2.26
+        },
+        {
+          "raw": "T",
+          "start": 2.86,
+          "end": 2.86
+        },
+        {
+          "raw": "'was",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "raw": "empire",
+          "start": 3.06,
+          "end": 3.46
+        },
+        {
+          "raw": "charmed",
+          "start": 3.46,
+          "end": 3.98
+        },
+        {
+          "raw": "thy",
+          "start": 3.98,
+          "end": 4.12
+        },
+        {
+          "raw": "heart",
+          "start": 4.12,
+          "end": 4.44
+        }
+      ],
+      "expected_tokens": [
+        "'Twas",
+        "rank",
+        "and",
+        "fame",
+        "that",
+        "tempted",
+        "thee,",
+        "'Twas",
+        "empire",
+        "charmed",
+        "thy",
+        "heart."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          7,
+          2,
+          8
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          10
+        ],
+        [
+          "equal",
+          8,
+          12,
+          10,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "T",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "t",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "'was",
+          "start": 0.54,
+          "end": 0.66,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "rank",
+          "start": 0.66,
+          "end": 0.98,
+          "key": "rank",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.98,
+          "end": 1.16,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fame",
+          "start": 1.16,
+          "end": 1.4,
+          "key": "fame",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tempted",
+          "start": 1.6,
+          "end": 1.9,
+          "key": "tempted",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 1.9,
+          "end": 2.26,
+          "key": "thee",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "T",
+          "start": 2.86,
+          "end": 2.86,
+          "key": "t",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "'was",
+          "start": 2.86,
+          "end": 3.06,
+          "key": "was",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "empire",
+          "start": 3.06,
+          "end": 3.46,
+          "key": "empire",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "charmed",
+          "start": 3.46,
+          "end": 3.98,
+          "key": "charmed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 3.98,
+          "end": 4.12,
+          "key": "thy",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 4.12,
+          "end": 4.44,
+          "key": "heart",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "'Twas",
+          "start": 0.0,
+          "end": 0.33
+        },
+        {
+          "text": "rank",
+          "start": 0.66,
+          "end": 0.98
+        },
+        {
+          "text": "and",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "text": "fame",
+          "start": 1.16,
+          "end": 1.4
+        },
+        {
+          "text": "that",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "tempted",
+          "start": 1.6,
+          "end": 1.9
+        },
+        {
+          "text": "thee,",
+          "start": 1.9,
+          "end": 2.26
+        },
+        {
+          "text": "'Twas",
+          "start": 2.26,
+          "end": 2.66
+        },
+        {
+          "text": "empire",
+          "start": 3.06,
+          "end": 3.46
+        },
+        {
+          "text": "charmed",
+          "start": 3.46,
+          "end": 3.98
+        },
+        {
+          "text": "thy",
+          "start": 3.98,
+          "end": 4.12
+        },
+        {
+          "text": "heart.",
+          "start": 4.12,
+          "end": 4.44
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 14,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14485079003497958
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a8b16681eaa3a020a4274cd1583df5743b6750d8d6f2e6cd38a1d4bc030a5ce9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

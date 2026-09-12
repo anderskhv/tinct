@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "a65bbc197dea7cab3ec9d5bb17a1ccd69610052fbf087dbd8851efe79968e266",
+  "attempts": [
+    {
+      "asr_seconds": 0.12702642002841458,
+      "alignment_seconds": 7.960095535963774e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Orthographical.",
+          "start": 0.05,
+          "end": 1.03,
+          "words": [
+            {
+              "text": " Orthographical.",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.857421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Orthographical.",
+          "start": 0.05,
+          "end": 1.03
+        }
+      ],
+      "expected_tokens": [
+        "Orthographical"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Orthographical.",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "orthographical",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Orthographical",
+          "start": 0.05,
+          "end": 1.03
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12713228102074936
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bd0579c05a5835839773658a5a39206dfd5a2a45989929eef6f2e5705307fc24",
+  "selected_reasons": []
+}

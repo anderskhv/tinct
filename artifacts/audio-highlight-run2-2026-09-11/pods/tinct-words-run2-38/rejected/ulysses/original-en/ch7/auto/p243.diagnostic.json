@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "b19b5c77a4845b1b5bf7f64410f7cb3e98e2f537e8a8643b1876e8f4a4180f77",
+  "attempts": [
+    {
+      "asr_seconds": 0.1505378219881095,
+      "alignment_seconds": 0.00023013202007859945,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Eh? You bloody old Roman empire? Myles Crawford said.",
+        "hotwords": "Eh, You, Roman, Myles, Crawford"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Eh, You bloody old Roman empire? Myles Crawford said.",
+          "start": 0.05,
+          "end": 3.59,
+          "words": [
+            {
+              "text": " Eh,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.00928497314453125
+            },
+            {
+              "text": " You",
+              "start": 0.83,
+              "end": 0.91,
+              "probability": 0.00801849365234375
+            },
+            {
+              "text": " bloody",
+              "start": 0.91,
+              "end": 1.09,
+              "probability": 0.8251953125
+            },
+            {
+              "text": " old",
+              "start": 1.09,
+              "end": 1.37,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " Roman",
+              "start": 1.37,
+              "end": 1.65,
+              "probability": 0.861328125
+            },
+            {
+              "text": " empire?",
+              "start": 1.65,
+              "end": 2.13,
+              "probability": 0.1077880859375
+            },
+            {
+              "text": " Myles",
+              "start": 2.65,
+              "end": 2.89,
+              "probability": 0.5894775390625
+            },
+            {
+              "text": " Crawford",
+              "start": 2.89,
+              "end": 3.25,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " said.",
+              "start": 3.25,
+              "end": 3.59,
+              "probability": 0.98291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Eh,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "You",
+          "start": 0.83,
+          "end": 0.91
+        },
+        {
+          "raw": "bloody",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "raw": "old",
+          "start": 1.09,
+          "end": 1.37
+        },
+        {
+          "raw": "Roman",
+          "start": 1.37,
+          "end": 1.65
+        },
+        {
+          "raw": "empire?",
+          "start": 1.65,
+          "end": 2.13
+        },
+        {
+          "raw": "Myles",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "raw": "Crawford",
+          "start": 2.89,
+          "end": 3.25
+        },
+        {
+          "raw": "said.",
+          "start": 3.25,
+          "end": 3.59
+        }
+      ],
+      "expected_tokens": [
+        "—Eh?",
+        "You",
+        "bloody",
+        "old",
+        "Roman",
+        "empire?",
+        "Myles",
+        "Crawford",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Eh,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "eh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 0.83,
+          "end": 0.91,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bloody",
+          "start": 0.91,
+          "end": 1.09,
+          "key": "bloody",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 1.09,
+          "end": 1.37,
+          "key": "old",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Roman",
+          "start": 1.37,
+          "end": 1.65,
+          "key": "roman",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "empire?",
+          "start": 1.65,
+          "end": 2.13,
+          "key": "empire",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Myles",
+          "start": 2.65,
+          "end": 2.89,
+          "key": "myles",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Crawford",
+          "start": 2.89,
+          "end": 3.25,
+          "key": "crawford",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 3.25,
+          "end": 3.59,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Eh?",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "You",
+          "start": 0.83,
+          "end": 0.91
+        },
+        {
+          "text": "bloody",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "text": "old",
+          "start": 1.09,
+          "end": 1.37
+        },
+        {
+          "text": "Roman",
+          "start": 1.37,
+          "end": 1.65
+        },
+        {
+          "text": "empire?",
+          "start": 1.65,
+          "end": 2.13
+        },
+        {
+          "text": "Myles",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "text": "Crawford",
+          "start": 2.89,
+          "end": 3.25
+        },
+        {
+          "text": "said.",
+          "start": 3.25,
+          "end": 3.59
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15086249395972118
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e801995e9279b1f029f31e29548a9a77b1471fc723f9c6d4016efc3ff59e7a97",
+  "selected_reasons": []
+}

@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "6d51decb4ef90d5bfa74b102689b27f7bd04025364b69c5172a6f642742ec349",
+  "attempts": [
+    {
+      "asr_seconds": 0.0976883260300383,
+      "alignment_seconds": 0.00011949101462960243,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " those slightly rambunctious females.",
+          "start": 0.08,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " those",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.71923828125
+            },
+            {
+              "text": " slightly",
+              "start": 0.54,
+              "end": 0.92,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " rambunctious",
+              "start": 0.92,
+              "end": 1.54,
+              "probability": 0.9671630859375
+            },
+            {
+              "text": " females.",
+              "start": 1.54,
+              "end": 1.86,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "those",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "slightly",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "raw": "rambunctious",
+          "start": 0.92,
+          "end": 1.54
+        },
+        {
+          "raw": "females.",
+          "start": 1.54,
+          "end": 1.86
+        }
+      ],
+      "expected_tokens": [
+        "Those",
+        "Slightly",
+        "Rambunctious",
+        "Females"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "those",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "those",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "slightly",
+          "start": 0.54,
+          "end": 0.92,
+          "key": "slightly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "rambunctious",
+          "start": 0.92,
+          "end": 1.54,
+          "key": "rambunctious",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "females.",
+          "start": 1.54,
+          "end": 1.86,
+          "key": "females",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Those",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "Slightly",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "text": "Rambunctious",
+          "start": 0.92,
+          "end": 1.54
+        },
+        {
+          "text": "Females",
+          "start": 1.54,
+          "end": 1.86
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09785308700520545
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d3dbdfe77f2e15289b2d7d59a2d63fe6d91cf30cf775f77bd6e0b4228d1eb443",
+  "selected_reasons": []
+}

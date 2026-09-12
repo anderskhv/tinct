@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "d33e8e35d2b769d02e714f03582b33d7ef68d50456da660a3e2704c22c53e3ad",
+  "attempts": [
+    {
+      "asr_seconds": 0.10022921004565433,
+      "alignment_seconds": 8.532003266736865e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Monks!",
+        "hotwords": "Monks"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Monks!",
+          "start": 0.02,
+          "end": 0.9,
+          "words": [
+            {
+              "text": " Monks!",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.909423828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Monks!",
+          "start": 0.02,
+          "end": 0.9
+        }
+      ],
+      "expected_tokens": [
+        "—Monks!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Monks!",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "monks",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Monks!",
+          "start": 0.02,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10034265101421624
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "babb4cf1a846564025a3237f35aeaaae867dd55865803beaae2991cf65587e88",
+  "selected_reasons": []
+}

@@ -1,0 +1,891 @@
+{
+  "complete": true,
+  "signature": "2ec63b100251f5a8331481f685029d97afcc5cd6b9daba953da6deca944df293",
+  "attempts": [
+    {
+      "asr_seconds": 0.2811643349705264,
+      "alignment_seconds": 0.0003695010091178119,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I was down there for the Cork Park races on Easter Monday,\" Ned Lambert said.",
+          "start": 0.05,
+          "end": 4.37,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.417724609375
+            },
+            {
+              "text": " was",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " down",
+              "start": 0.61,
+              "end": 0.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " there",
+              "start": 0.85,
+              "end": 1.03,
+              "probability": 0.99609375
+            },
+            {
+              "text": " for",
+              "start": 1.03,
+              "end": 1.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 1.19,
+              "end": 1.31,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Cork",
+              "start": 1.31,
+              "end": 1.51,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " Park",
+              "start": 1.51,
+              "end": 1.77,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " races",
+              "start": 1.77,
+              "end": 2.15,
+              "probability": 0.818359375
+            },
+            {
+              "text": " on",
+              "start": 2.15,
+              "end": 2.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Easter",
+              "start": 2.39,
+              "end": 2.77,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Monday,\"",
+              "start": 2.77,
+              "end": 3.57,
+              "probability": 0.767333984375
+            },
+            {
+              "text": " Ned",
+              "start": 3.57,
+              "end": 3.63,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Lambert",
+              "start": 3.63,
+              "end": 3.97,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " said.",
+              "start": 3.97,
+              "end": 4.37,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " Same old six-and-eight-pence, stopped with Dick Tyvee.",
+          "start": 4.91,
+          "end": 8.53,
+          "words": [
+            {
+              "text": " Same",
+              "start": 4.91,
+              "end": 5.21,
+              "probability": 0.271728515625
+            },
+            {
+              "text": " old",
+              "start": 5.21,
+              "end": 5.49,
+              "probability": 0.98046875
+            },
+            {
+              "text": " six",
+              "start": 5.49,
+              "end": 5.89,
+              "probability": 0.66455078125
+            },
+            {
+              "text": "-and",
+              "start": 5.89,
+              "end": 6.13,
+              "probability": 0.6705322265625
+            },
+            {
+              "text": "-eight",
+              "start": 6.13,
+              "end": 6.33,
+              "probability": 0.98828125
+            },
+            {
+              "text": "-pence,",
+              "start": 6.33,
+              "end": 6.67,
+              "probability": 0.8317057291666666
+            },
+            {
+              "text": " stopped",
+              "start": 7.07,
+              "end": 7.49,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " with",
+              "start": 7.49,
+              "end": 7.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Dick",
+              "start": 7.73,
+              "end": 7.99,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " Tyvee.",
+              "start": 7.99,
+              "end": 8.53,
+              "probability": 0.6920572916666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "was",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "down",
+          "start": 0.61,
+          "end": 0.85
+        },
+        {
+          "raw": "there",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "raw": "for",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "raw": "the",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "raw": "Cork",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "raw": "Park",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "raw": "races",
+          "start": 1.77,
+          "end": 2.15
+        },
+        {
+          "raw": "on",
+          "start": 2.15,
+          "end": 2.39
+        },
+        {
+          "raw": "Easter",
+          "start": 2.39,
+          "end": 2.77
+        },
+        {
+          "raw": "Monday,\"",
+          "start": 2.77,
+          "end": 3.57
+        },
+        {
+          "raw": "Ned",
+          "start": 3.57,
+          "end": 3.63
+        },
+        {
+          "raw": "Lambert",
+          "start": 3.63,
+          "end": 3.97
+        },
+        {
+          "raw": "said.",
+          "start": 3.97,
+          "end": 4.37
+        },
+        {
+          "raw": "Same",
+          "start": 4.91,
+          "end": 5.21
+        },
+        {
+          "raw": "old",
+          "start": 5.21,
+          "end": 5.49
+        },
+        {
+          "raw": "six",
+          "start": 5.49,
+          "end": 5.89
+        },
+        {
+          "raw": "-and",
+          "start": 5.89,
+          "end": 6.13
+        },
+        {
+          "raw": "-eight",
+          "start": 6.13,
+          "end": 6.33
+        },
+        {
+          "raw": "-pence,",
+          "start": 6.33,
+          "end": 6.67
+        },
+        {
+          "raw": "stopped",
+          "start": 7.07,
+          "end": 7.49
+        },
+        {
+          "raw": "with",
+          "start": 7.49,
+          "end": 7.73
+        },
+        {
+          "raw": "Dick",
+          "start": 7.73,
+          "end": 7.99
+        },
+        {
+          "raw": "Tyvee.",
+          "start": 7.99,
+          "end": 8.53
+        }
+      ],
+      "expected_tokens": [
+        "—I",
+        "was",
+        "down",
+        "there",
+        "for",
+        "the",
+        "Cork",
+        "park",
+        "races",
+        "on",
+        "Easter",
+        "Monday,",
+        "Ned",
+        "Lambert",
+        "said.",
+        "Same",
+        "old",
+        "six",
+        "and",
+        "eightpence.",
+        "Stopped",
+        "with",
+        "Dick",
+        "Tivy."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          21
+        ],
+        [
+          "equal",
+          20,
+          23,
+          21,
+          24
+        ],
+        [
+          "replace",
+          23,
+          24,
+          24,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          19,
+          20,
+          19,
+          21
+        ],
+        [
+          "replace",
+          23,
+          24,
+          24,
+          25
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.51,
+          "end": 0.61,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 0.61,
+          "end": 0.85,
+          "key": "down",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 0.85,
+          "end": 1.03,
+          "key": "there",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.03,
+          "end": 1.19,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.19,
+          "end": 1.31,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Cork",
+          "start": 1.31,
+          "end": 1.51,
+          "key": "cork",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Park",
+          "start": 1.51,
+          "end": 1.77,
+          "key": "park",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "races",
+          "start": 1.77,
+          "end": 2.15,
+          "key": "races",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.15,
+          "end": 2.39,
+          "key": "on",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Easter",
+          "start": 2.39,
+          "end": 2.77,
+          "key": "easter",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Monday,\"",
+          "start": 2.77,
+          "end": 3.57,
+          "key": "monday",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Ned",
+          "start": 3.57,
+          "end": 3.63,
+          "key": "ned",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Lambert",
+          "start": 3.63,
+          "end": 3.97,
+          "key": "lambert",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 3.97,
+          "end": 4.37,
+          "key": "said",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Same",
+          "start": 4.91,
+          "end": 5.21,
+          "key": "same",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 5.21,
+          "end": 5.49,
+          "key": "old",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "six",
+          "start": 5.49,
+          "end": 5.89,
+          "key": "six",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "-and",
+          "start": 5.89,
+          "end": 6.13,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "-eight",
+          "start": 6.13,
+          "end": 6.33,
+          "key": "eight",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "-pence,",
+          "start": 6.33,
+          "end": 6.67,
+          "key": "pence",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "stopped",
+          "start": 7.07,
+          "end": 7.49,
+          "key": "stopped",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 7.49,
+          "end": 7.73,
+          "key": "with",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Dick",
+          "start": 7.73,
+          "end": 7.99,
+          "key": "dick",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Tyvee.",
+          "start": 7.99,
+          "end": 8.53,
+          "key": "tyvee",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—I",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "was",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "down",
+          "start": 0.61,
+          "end": 0.85
+        },
+        {
+          "text": "there",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "text": "for",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "text": "the",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "text": "Cork",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "text": "park",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "text": "races",
+          "start": 1.77,
+          "end": 2.15
+        },
+        {
+          "text": "on",
+          "start": 2.15,
+          "end": 2.39
+        },
+        {
+          "text": "Easter",
+          "start": 2.39,
+          "end": 2.77
+        },
+        {
+          "text": "Monday,",
+          "start": 2.77,
+          "end": 3.57
+        },
+        {
+          "text": "Ned",
+          "start": 3.57,
+          "end": 3.63
+        },
+        {
+          "text": "Lambert",
+          "start": 3.63,
+          "end": 3.97
+        },
+        {
+          "text": "said.",
+          "start": 3.97,
+          "end": 4.37
+        },
+        {
+          "text": "Same",
+          "start": 4.91,
+          "end": 5.21
+        },
+        {
+          "text": "old",
+          "start": 5.21,
+          "end": 5.49
+        },
+        {
+          "text": "six",
+          "start": 5.49,
+          "end": 5.89
+        },
+        {
+          "text": "and",
+          "start": 5.89,
+          "end": 6.13
+        },
+        {
+          "text": "eightpence.",
+          "start": 6.13,
+          "end": 6.6
+        },
+        {
+          "text": "Stopped",
+          "start": 7.07,
+          "end": 7.49
+        },
+        {
+          "text": "with",
+          "start": 7.49,
+          "end": 7.73
+        },
+        {
+          "text": "Dick",
+          "start": 7.73,
+          "end": 7.99
+        },
+        {
+          "text": "Tivy.",
+          "start": 7.99,
+          "end": 8.26
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 25,
+        "matched_words": 22
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.2816835379926488
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b90c14243792719884d1907d91bd69547076a04054d7a6c0378844d40f9218b3",
+  "selected_reasons": []
+}

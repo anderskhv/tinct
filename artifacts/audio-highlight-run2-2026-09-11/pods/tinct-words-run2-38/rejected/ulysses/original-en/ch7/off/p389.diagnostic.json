@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "a1a4b9185a25c2d63604879e7cfd73475993c03c3ccccf8bd4fc343e375e03b1",
+  "attempts": [
+    {
+      "asr_seconds": 0.12426097504794598,
+      "alignment_seconds": 0.00012152100680395961,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Italia magistra artium",
+          "start": 0.05,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Italia",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.87109375
+            },
+            {
+              "text": " magistra",
+              "start": 0.89,
+              "end": 1.71,
+              "probability": 0.6870930989583334
+            },
+            {
+              "text": " artium",
+              "start": 1.71,
+              "end": 2.15,
+              "probability": 0.640869140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Italia",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "magistra",
+          "start": 0.89,
+          "end": 1.71
+        },
+        {
+          "raw": "artium",
+          "start": 1.71,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "Italia,",
+        "Magistra",
+        "Artium"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Italia",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "italia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "magistra",
+          "start": 0.89,
+          "end": 1.71,
+          "key": "magistra",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "artium",
+          "start": 1.71,
+          "end": 2.15,
+          "key": "artium",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Italia,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Magistra",
+          "start": 0.89,
+          "end": 1.71
+        },
+        {
+          "text": "Artium",
+          "start": 1.71,
+          "end": 2.15
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12442157603800297
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "eeb1423c38f2f5ed07c3992230a0b15445f473524c1df52b9777fb5fd56d0bdc",
+  "selected_reasons": []
+}

@@ -1,0 +1,645 @@
+{
+  "complete": true,
+  "signature": "c4b2148d90edc7ceb34d375c52e552f96d7469c0a55bdf4636e4b0aff0a77f7a",
+  "attempts": [
+    {
+      "asr_seconds": 0.206785258022137,
+      "alignment_seconds": 0.0002457809750922024,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—How are you, Simon? Ned Lambert said softly, clasping hands. Haven't seen you for a month of Sundays.",
+        "hotwords": "How, Simon, Ned, Lambert, Haven't, Sundays"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " How are you, Simon? Ned Lambert said softly, clasping hands. Haven't seen you for a month",
+          "start": 0.08,
+          "end": 5.86,
+          "words": [
+            {
+              "text": " How",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.2298583984375
+            },
+            {
+              "text": " are",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " you,",
+              "start": 0.66,
+              "end": 0.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Simon?",
+              "start": 0.9,
+              "end": 1.24,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Ned",
+              "start": 1.76,
+              "end": 1.94,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Lambert",
+              "start": 1.94,
+              "end": 2.32,
+              "probability": 0.990234375
+            },
+            {
+              "text": " said",
+              "start": 2.32,
+              "end": 2.58,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " softly,",
+              "start": 2.58,
+              "end": 3.12,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " clasping",
+              "start": 3.4,
+              "end": 3.8,
+              "probability": 0.992431640625
+            },
+            {
+              "text": " hands.",
+              "start": 3.8,
+              "end": 4.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Haven't",
+              "start": 4.88,
+              "end": 5.16,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " seen",
+              "start": 5.16,
+              "end": 5.3,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " you",
+              "start": 5.3,
+              "end": 5.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 5.5,
+              "end": 5.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 5.64,
+              "end": 5.76,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " month",
+              "start": 5.76,
+              "end": 5.86,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " of Sundays.",
+          "start": 5.86,
+          "end": 6.34,
+          "words": [
+            {
+              "text": " of",
+              "start": 5.86,
+              "end": 6.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Sundays.",
+              "start": 6.04,
+              "end": 6.34,
+              "probability": 0.91357421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "are",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "you,",
+          "start": 0.66,
+          "end": 0.86
+        },
+        {
+          "raw": "Simon?",
+          "start": 0.9,
+          "end": 1.24
+        },
+        {
+          "raw": "Ned",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "raw": "Lambert",
+          "start": 1.94,
+          "end": 2.32
+        },
+        {
+          "raw": "said",
+          "start": 2.32,
+          "end": 2.58
+        },
+        {
+          "raw": "softly,",
+          "start": 2.58,
+          "end": 3.12
+        },
+        {
+          "raw": "clasping",
+          "start": 3.4,
+          "end": 3.8
+        },
+        {
+          "raw": "hands.",
+          "start": 3.8,
+          "end": 4.22
+        },
+        {
+          "raw": "Haven't",
+          "start": 4.88,
+          "end": 5.16
+        },
+        {
+          "raw": "seen",
+          "start": 5.16,
+          "end": 5.3
+        },
+        {
+          "raw": "you",
+          "start": 5.3,
+          "end": 5.5
+        },
+        {
+          "raw": "for",
+          "start": 5.5,
+          "end": 5.64
+        },
+        {
+          "raw": "a",
+          "start": 5.64,
+          "end": 5.76
+        },
+        {
+          "raw": "month",
+          "start": 5.76,
+          "end": 5.86
+        },
+        {
+          "raw": "of",
+          "start": 5.86,
+          "end": 6.04
+        },
+        {
+          "raw": "Sundays.",
+          "start": 6.04,
+          "end": 6.34
+        }
+      ],
+      "expected_tokens": [
+        "—How",
+        "are",
+        "you,",
+        "Simon?",
+        "Ned",
+        "Lambert",
+        "said",
+        "softly,",
+        "clasping",
+        "hands.",
+        "Haven't",
+        "seen",
+        "you",
+        "for",
+        "a",
+        "month",
+        "of",
+        "Sundays."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "How",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "how",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.54,
+          "end": 0.66,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 0.66,
+          "end": 0.86,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Simon?",
+          "start": 0.9,
+          "end": 1.24,
+          "key": "simon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Ned",
+          "start": 1.76,
+          "end": 1.94,
+          "key": "ned",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Lambert",
+          "start": 1.94,
+          "end": 2.32,
+          "key": "lambert",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.32,
+          "end": 2.58,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "softly,",
+          "start": 2.58,
+          "end": 3.12,
+          "key": "softly",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "clasping",
+          "start": 3.4,
+          "end": 3.8,
+          "key": "clasping",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hands.",
+          "start": 3.8,
+          "end": 4.22,
+          "key": "hands",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Haven't",
+          "start": 4.88,
+          "end": 5.16,
+          "key": "havent",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 5.16,
+          "end": 5.3,
+          "key": "seen",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.3,
+          "end": 5.5,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.5,
+          "end": 5.64,
+          "key": "for",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.64,
+          "end": 5.76,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "month",
+          "start": 5.76,
+          "end": 5.86,
+          "key": "month",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.86,
+          "end": 6.04,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Sundays.",
+          "start": 6.04,
+          "end": 6.34,
+          "key": "sundays",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—How",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "are",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "you,",
+          "start": 0.66,
+          "end": 0.86
+        },
+        {
+          "text": "Simon?",
+          "start": 0.9,
+          "end": 1.24
+        },
+        {
+          "text": "Ned",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "text": "Lambert",
+          "start": 1.94,
+          "end": 2.32
+        },
+        {
+          "text": "said",
+          "start": 2.32,
+          "end": 2.58
+        },
+        {
+          "text": "softly,",
+          "start": 2.58,
+          "end": 3.12
+        },
+        {
+          "text": "clasping",
+          "start": 3.4,
+          "end": 3.8
+        },
+        {
+          "text": "hands.",
+          "start": 3.8,
+          "end": 4.22
+        },
+        {
+          "text": "Haven't",
+          "start": 4.88,
+          "end": 5.16
+        },
+        {
+          "text": "seen",
+          "start": 5.16,
+          "end": 5.3
+        },
+        {
+          "text": "you",
+          "start": 5.3,
+          "end": 5.5
+        },
+        {
+          "text": "for",
+          "start": 5.5,
+          "end": 5.64
+        },
+        {
+          "text": "a",
+          "start": 5.64,
+          "end": 5.76
+        },
+        {
+          "text": "month",
+          "start": 5.76,
+          "end": 5.86
+        },
+        {
+          "text": "of",
+          "start": 5.86,
+          "end": 6.04
+        },
+        {
+          "text": "Sundays.",
+          "start": 6.04,
+          "end": 6.34
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20711078000022098
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "74a13d3395772a257479eab032f69cec5e95923113f925f8d89764f690c87981",
+  "selected_reasons": []
+}

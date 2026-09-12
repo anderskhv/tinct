@@ -1,0 +1,376 @@
+{
+  "complete": true,
+  "signature": "84ae26a9e55447afd7775ba4516ef56a26d221fd5a61380f384ae7e837e76291",
+  "attempts": [
+    {
+      "asr_seconds": 0.13423965102992952,
+      "alignment_seconds": 0.00019214098574593663,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " In farial tone, he addressed J.J. O'Mala.",
+          "start": 0.05,
+          "end": 2.83,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " farial",
+              "start": 0.55,
+              "end": 0.93,
+              "probability": 0.26361083984375
+            },
+            {
+              "text": " tone,",
+              "start": 0.93,
+              "end": 1.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 1.63,
+              "end": 1.71,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " addressed",
+              "start": 1.71,
+              "end": 1.95,
+              "probability": 0.982421875
+            },
+            {
+              "text": " J",
+              "start": 1.95,
+              "end": 2.21,
+              "probability": 0.41162109375
+            },
+            {
+              "text": ".J.",
+              "start": 2.21,
+              "end": 2.39,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " O",
+              "start": 2.45,
+              "end": 2.55,
+              "probability": 0.3505859375
+            },
+            {
+              "text": "'Mala.",
+              "start": 2.55,
+              "end": 2.83,
+              "probability": 0.8330078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "farial",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "raw": "tone,",
+          "start": 0.93,
+          "end": 1.29
+        },
+        {
+          "raw": "he",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "raw": "addressed",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "raw": "J",
+          "start": 1.95,
+          "end": 2.21
+        },
+        {
+          "raw": ".J.",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "raw": "O",
+          "start": 2.45,
+          "end": 2.55
+        },
+        {
+          "raw": "'Mala.",
+          "start": 2.55,
+          "end": 2.83
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "ferial",
+        "tone",
+        "he",
+        "addressed",
+        "J.",
+        "J.",
+        "O'Molloy:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          7,
+          2,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "farial",
+          "start": 0.55,
+          "end": 0.93,
+          "key": "farial",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tone,",
+          "start": 0.93,
+          "end": 1.29,
+          "key": "tone",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.63,
+          "end": 1.71,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "addressed",
+          "start": 1.71,
+          "end": 1.95,
+          "key": "addressed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "J",
+          "start": 1.95,
+          "end": 2.21,
+          "key": "j",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": ".J.",
+          "start": 2.21,
+          "end": 2.39,
+          "key": "j",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 2.45,
+          "end": 2.55,
+          "key": "o",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "'Mala.",
+          "start": 2.55,
+          "end": 2.83,
+          "key": "mala",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "ferial",
+          "start": 0.55,
+          "end": 0.74
+        },
+        {
+          "text": "tone",
+          "start": 0.93,
+          "end": 1.29
+        },
+        {
+          "text": "he",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "text": "addressed",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "text": "J.",
+          "start": 1.95,
+          "end": 2.21
+        },
+        {
+          "text": "J.",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "text": "O'Molloy:",
+          "start": 2.39,
+          "end": 2.61
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13450572203146294
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f6d86c5f29c384672ac160bf0fbb1d8839555f4305b1719267659a4032be3eb5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "9fc4fc7fe1e71fb52a814aa4159eb0c67b8db3324f0211aabd9c1af327e8152e",
+  "attempts": [
+    {
+      "asr_seconds": 0.0835488709853962,
+      "alignment_seconds": 0.00011181097943335772,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tail gone now.",
+          "start": 0.05,
+          "end": 1.11,
+          "words": [
+            {
+              "text": " Tail",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.5830078125
+            },
+            {
+              "text": " gone",
+              "start": 0.59,
+              "end": 0.81,
+              "probability": 0.6826171875
+            },
+            {
+              "text": " now.",
+              "start": 0.81,
+              "end": 1.11,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tail",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "gone",
+          "start": 0.59,
+          "end": 0.81
+        },
+        {
+          "raw": "now.",
+          "start": 0.81,
+          "end": 1.11
+        }
+      ],
+      "expected_tokens": [
+        "Tail",
+        "gone",
+        "now."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tail",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "tail",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gone",
+          "start": 0.59,
+          "end": 0.81,
+          "key": "gone",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 0.81,
+          "end": 1.11,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Tail",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "gone",
+          "start": 0.59,
+          "end": 0.81
+        },
+        {
+          "text": "now.",
+          "start": 0.81,
+          "end": 1.11
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08370151196140796
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "29701dc2f0907801ce7f81fed4e88dc9e31639112b86fb27bd56f472d2f0f032",
+  "selected_reasons": []
+}

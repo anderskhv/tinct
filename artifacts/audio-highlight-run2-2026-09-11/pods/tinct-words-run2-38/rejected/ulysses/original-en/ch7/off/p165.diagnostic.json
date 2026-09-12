@@ -1,0 +1,435 @@
+{
+  "complete": true,
+  "signature": "7be6aa0a695c5e1e2a425e558306f2119d517b8c17466af32235602b6e9af975",
+  "attempts": [
+    {
+      "asr_seconds": 0.1356586889596656,
+      "alignment_seconds": 0.00023558095563203096,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Get an owthat, you bloody old pedagogue,\" the editor said in recognition.",
+          "start": 0.02,
+          "end": 4.58,
+          "words": [
+            {
+              "text": " Get",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.1798095703125
+            },
+            {
+              "text": " an",
+              "start": 0.62,
+              "end": 0.8,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " owthat,",
+              "start": 0.8,
+              "end": 1.16,
+              "probability": 0.4448445638020833
+            },
+            {
+              "text": " you",
+              "start": 1.5,
+              "end": 1.6,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " bloody",
+              "start": 1.6,
+              "end": 1.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " old",
+              "start": 1.84,
+              "end": 2.16,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " pedagogue,\"",
+              "start": 2.16,
+              "end": 3.12,
+              "probability": 0.7821451822916666
+            },
+            {
+              "text": " the",
+              "start": 3.12,
+              "end": 3.32,
+              "probability": 0.990234375
+            },
+            {
+              "text": " editor",
+              "start": 3.32,
+              "end": 3.6,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " said",
+              "start": 3.6,
+              "end": 3.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 3.94,
+              "end": 4.1,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " recognition.",
+              "start": 4.1,
+              "end": 4.58,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Get",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "an",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "raw": "owthat,",
+          "start": 0.8,
+          "end": 1.16
+        },
+        {
+          "raw": "you",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "raw": "bloody",
+          "start": 1.6,
+          "end": 1.84
+        },
+        {
+          "raw": "old",
+          "start": 1.84,
+          "end": 2.16
+        },
+        {
+          "raw": "pedagogue,\"",
+          "start": 2.16,
+          "end": 3.12
+        },
+        {
+          "raw": "the",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "raw": "editor",
+          "start": 3.32,
+          "end": 3.6
+        },
+        {
+          "raw": "said",
+          "start": 3.6,
+          "end": 3.94
+        },
+        {
+          "raw": "in",
+          "start": 3.94,
+          "end": 4.1
+        },
+        {
+          "raw": "recognition.",
+          "start": 4.1,
+          "end": 4.58
+        }
+      ],
+      "expected_tokens": [
+        "—Getonouthat,",
+        "you",
+        "bloody",
+        "old",
+        "pedagogue!",
+        "the",
+        "editor",
+        "said",
+        "in",
+        "recognition."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "equal",
+          1,
+          10,
+          3,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Get",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "get",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 0.62,
+          "end": 0.8,
+          "key": "an",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "owthat,",
+          "start": 0.8,
+          "end": 1.16,
+          "key": "owthat",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.5,
+          "end": 1.6,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bloody",
+          "start": 1.6,
+          "end": 1.84,
+          "key": "bloody",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 1.84,
+          "end": 2.16,
+          "key": "old",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pedagogue,\"",
+          "start": 2.16,
+          "end": 3.12,
+          "key": "pedagogue",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.12,
+          "end": 3.32,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "editor",
+          "start": 3.32,
+          "end": 3.6,
+          "key": "editor",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.6,
+          "end": 3.94,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.94,
+          "end": 4.1,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "recognition.",
+          "start": 4.1,
+          "end": 4.58,
+          "key": "recognition",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Getonouthat,",
+          "start": 0.0,
+          "end": 0.75
+        },
+        {
+          "text": "you",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "text": "bloody",
+          "start": 1.6,
+          "end": 1.84
+        },
+        {
+          "text": "old",
+          "start": 1.84,
+          "end": 2.16
+        },
+        {
+          "text": "pedagogue!",
+          "start": 2.16,
+          "end": 3.12
+        },
+        {
+          "text": "the",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "text": "editor",
+          "start": 3.32,
+          "end": 3.6
+        },
+        {
+          "text": "said",
+          "start": 3.6,
+          "end": 3.94
+        },
+        {
+          "text": "in",
+          "start": 3.94,
+          "end": 4.1
+        },
+        {
+          "text": "recognition.",
+          "start": 4.1,
+          "end": 4.58
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 12,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.13599612098187208
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f8bf97d10d0171560744638f8d7f50aa10c3f75ea6f6aba697422b49aa4f7071",
+  "selected_reasons": []
+}

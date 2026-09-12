@@ -1,0 +1,377 @@
+{
+  "complete": true,
+  "signature": "b8da09bb6e827f1177a5520e1c20fdaae54ed451ff3c39916b6b037eda6bd82b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1454807069967501,
+      "alignment_seconds": 0.00021749100415036082,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Not in Trezun judicium cum servo chul, domine.",
+          "start": 0.08,
+          "end": 2.96,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.50732421875
+            },
+            {
+              "text": " in",
+              "start": 0.58,
+              "end": 0.72,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " Trezun",
+              "start": 0.72,
+              "end": 1.0,
+              "probability": 0.4468587239583333
+            },
+            {
+              "text": " judicium",
+              "start": 1.0,
+              "end": 1.46,
+              "probability": 0.7599283854166666
+            },
+            {
+              "text": " cum",
+              "start": 1.46,
+              "end": 1.64,
+              "probability": 0.446533203125
+            },
+            {
+              "text": " servo",
+              "start": 1.64,
+              "end": 2.0,
+              "probability": 0.81591796875
+            },
+            {
+              "text": " chul,",
+              "start": 2.0,
+              "end": 2.34,
+              "probability": 0.27471923828125
+            },
+            {
+              "text": " domine.",
+              "start": 2.58,
+              "end": 2.96,
+              "probability": 0.54998779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "in",
+          "start": 0.58,
+          "end": 0.72
+        },
+        {
+          "raw": "Trezun",
+          "start": 0.72,
+          "end": 1.0
+        },
+        {
+          "raw": "judicium",
+          "start": 1.0,
+          "end": 1.46
+        },
+        {
+          "raw": "cum",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "raw": "servo",
+          "start": 1.64,
+          "end": 2.0
+        },
+        {
+          "raw": "chul,",
+          "start": 2.0,
+          "end": 2.34
+        },
+        {
+          "raw": "domine.",
+          "start": 2.58,
+          "end": 2.96
+        }
+      ],
+      "expected_tokens": [
+        "_—Non",
+        "intres",
+        "in",
+        "judicium",
+        "cum",
+        "servo",
+        "tuo,",
+        "Domine._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          3,
+          1,
+          2
+        ],
+        [
+          "insert",
+          3,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          6,
+          3,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "insert",
+          3,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Not",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "not",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.58,
+          "end": 0.72,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Trezun",
+          "start": 0.72,
+          "end": 1.0,
+          "key": "trezun",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "judicium",
+          "start": 1.0,
+          "end": 1.46,
+          "key": "judicium",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cum",
+          "start": 1.46,
+          "end": 1.64,
+          "key": "cum",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "servo",
+          "start": 1.64,
+          "end": 2.0,
+          "key": "servo",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "chul,",
+          "start": 2.0,
+          "end": 2.34,
+          "key": "chul",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "domine.",
+          "start": 2.58,
+          "end": 2.96,
+          "key": "domine",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_—Non",
+          "start": 0.0,
+          "end": 0.29
+        },
+        {
+          "text": "intres",
+          "start": 0.29,
+          "end": 0.435
+        },
+        {
+          "text": "in",
+          "start": 0.58,
+          "end": 0.72
+        },
+        {
+          "text": "judicium",
+          "start": 1.0,
+          "end": 1.46
+        },
+        {
+          "text": "cum",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "text": "servo",
+          "start": 1.64,
+          "end": 2.0
+        },
+        {
+          "text": "tuo,",
+          "start": 2.0,
+          "end": 2.29
+        },
+        {
+          "text": "Domine._",
+          "start": 2.58,
+          "end": 2.96
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 0.625,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.145770748029463
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5a30f6c20d9470701b4fd300b5d37c9e36a6ecbcfebe3a752e4db623ba4d3567",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "182290feb103328609a5ce324bcafe0c231218013f982f6ff9e6f55ced02d839",
+  "attempts": [
+    {
+      "asr_seconds": 0.1042972729774192,
+      "alignment_seconds": 0.0002054109936580062,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He set off again to walk by Stephen's side.",
+          "start": 0.05,
+          "end": 2.45,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.8515625
+            },
+            {
+              "text": " set",
+              "start": 0.49,
+              "end": 0.67,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " off",
+              "start": 0.67,
+              "end": 0.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " again",
+              "start": 0.81,
+              "end": 1.05,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 1.05,
+              "end": 1.25,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " walk",
+              "start": 1.25,
+              "end": 1.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " by",
+              "start": 1.45,
+              "end": 1.71,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Stephen's",
+              "start": 1.71,
+              "end": 2.15,
+              "probability": 0.78564453125
+            },
+            {
+              "text": " side.",
+              "start": 2.15,
+              "end": 2.45,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "set",
+          "start": 0.49,
+          "end": 0.67
+        },
+        {
+          "raw": "off",
+          "start": 0.67,
+          "end": 0.81
+        },
+        {
+          "raw": "again",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "raw": "to",
+          "start": 1.05,
+          "end": 1.25
+        },
+        {
+          "raw": "walk",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "raw": "by",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "raw": "Stephen's",
+          "start": 1.71,
+          "end": 2.15
+        },
+        {
+          "raw": "side.",
+          "start": 2.15,
+          "end": 2.45
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "set",
+        "off",
+        "again",
+        "to",
+        "walk",
+        "by",
+        "Stephen's",
+        "side."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 0.49,
+          "end": 0.67,
+          "key": "set",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 0.67,
+          "end": 0.81,
+          "key": "off",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 0.81,
+          "end": 1.05,
+          "key": "again",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.05,
+          "end": 1.25,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "walk",
+          "start": 1.25,
+          "end": 1.45,
+          "key": "walk",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.45,
+          "end": 1.71,
+          "key": "by",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Stephen's",
+          "start": 1.71,
+          "end": 2.15,
+          "key": "stephens",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "side.",
+          "start": 2.15,
+          "end": 2.45,
+          "key": "side",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "set",
+          "start": 0.49,
+          "end": 0.67
+        },
+        {
+          "text": "off",
+          "start": 0.67,
+          "end": 0.81
+        },
+        {
+          "text": "again",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "text": "to",
+          "start": 1.05,
+          "end": 1.25
+        },
+        {
+          "text": "walk",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "text": "by",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "text": "Stephen's",
+          "start": 1.71,
+          "end": 2.15
+        },
+        {
+          "text": "side.",
+          "start": 2.15,
+          "end": 2.45
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10458036500494927
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d7637f1ee2031d2893d67087e2f3193a217adb7f7ae48fd13fd473996c6c94cb",
+  "selected_reasons": []
+}

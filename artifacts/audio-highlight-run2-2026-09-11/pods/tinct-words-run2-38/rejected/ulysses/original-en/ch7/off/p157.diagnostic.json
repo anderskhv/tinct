@@ -1,0 +1,717 @@
+{
+  "complete": true,
+  "signature": "044db4ac4b68948a0735b4535730dec006cddf98bb97d378a8d123fe3e80b1ed",
+  "attempts": [
+    {
+      "asr_seconds": 0.2217106909956783,
+      "alignment_seconds": 0.0002602310269139707,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He took off his silk hat and, blowing out impatiently his bushy mustache, Welsh combed",
+          "start": 0.05,
+          "end": 5.73,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " took",
+              "start": 0.49,
+              "end": 0.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " off",
+              "start": 0.61,
+              "end": 0.81,
+              "probability": 0.99609375
+            },
+            {
+              "text": " his",
+              "start": 0.81,
+              "end": 0.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " silk",
+              "start": 0.99,
+              "end": 1.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hat",
+              "start": 1.23,
+              "end": 1.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and,",
+              "start": 1.59,
+              "end": 2.17,
+              "probability": 0.552734375
+            },
+            {
+              "text": " blowing",
+              "start": 2.31,
+              "end": 2.43,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " out",
+              "start": 2.43,
+              "end": 2.71,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " impatiently",
+              "start": 2.71,
+              "end": 3.51,
+              "probability": 0.977783203125
+            },
+            {
+              "text": " his",
+              "start": 3.51,
+              "end": 3.67,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " bushy",
+              "start": 3.67,
+              "end": 4.05,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " mustache,",
+              "start": 4.05,
+              "end": 4.57,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " Welsh",
+              "start": 5.27,
+              "end": 5.33,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " combed",
+              "start": 5.33,
+              "end": 5.73,
+              "probability": 0.97900390625
+            }
+          ]
+        },
+        {
+          "text": " his hair with raking fingers.",
+          "start": 5.73,
+          "end": 7.05,
+          "words": [
+            {
+              "text": " his",
+              "start": 5.73,
+              "end": 5.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hair",
+              "start": 5.83,
+              "end": 6.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 6.05,
+              "end": 6.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " raking",
+              "start": 6.25,
+              "end": 6.63,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " fingers.",
+              "start": 6.63,
+              "end": 7.05,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "took",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "raw": "off",
+          "start": 0.61,
+          "end": 0.81
+        },
+        {
+          "raw": "his",
+          "start": 0.81,
+          "end": 0.99
+        },
+        {
+          "raw": "silk",
+          "start": 0.99,
+          "end": 1.23
+        },
+        {
+          "raw": "hat",
+          "start": 1.23,
+          "end": 1.59
+        },
+        {
+          "raw": "and,",
+          "start": 1.59,
+          "end": 2.17
+        },
+        {
+          "raw": "blowing",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "raw": "out",
+          "start": 2.43,
+          "end": 2.71
+        },
+        {
+          "raw": "impatiently",
+          "start": 2.71,
+          "end": 3.51
+        },
+        {
+          "raw": "his",
+          "start": 3.51,
+          "end": 3.67
+        },
+        {
+          "raw": "bushy",
+          "start": 3.67,
+          "end": 4.05
+        },
+        {
+          "raw": "mustache,",
+          "start": 4.05,
+          "end": 4.57
+        },
+        {
+          "raw": "Welsh",
+          "start": 5.27,
+          "end": 5.33
+        },
+        {
+          "raw": "combed",
+          "start": 5.33,
+          "end": 5.73
+        },
+        {
+          "raw": "his",
+          "start": 5.73,
+          "end": 5.83
+        },
+        {
+          "raw": "hair",
+          "start": 5.83,
+          "end": 6.05
+        },
+        {
+          "raw": "with",
+          "start": 6.05,
+          "end": 6.25
+        },
+        {
+          "raw": "raking",
+          "start": 6.25,
+          "end": 6.63
+        },
+        {
+          "raw": "fingers.",
+          "start": 6.63,
+          "end": 7.05
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "took",
+        "off",
+        "his",
+        "silk",
+        "hat",
+        "and,",
+        "blowing",
+        "out",
+        "impatiently",
+        "his",
+        "bushy",
+        "moustache,",
+        "welshcombed",
+        "his",
+        "hair",
+        "with",
+        "raking",
+        "fingers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          14,
+          12,
+          15
+        ],
+        [
+          "equal",
+          14,
+          19,
+          15,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          14,
+          12,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 0.49,
+          "end": 0.61,
+          "key": "took",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 0.61,
+          "end": 0.81,
+          "key": "off",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.81,
+          "end": 0.99,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "silk",
+          "start": 0.99,
+          "end": 1.23,
+          "key": "silk",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hat",
+          "start": 1.23,
+          "end": 1.59,
+          "key": "hat",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and,",
+          "start": 1.59,
+          "end": 2.17,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "blowing",
+          "start": 2.31,
+          "end": 2.43,
+          "key": "blowing",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.43,
+          "end": 2.71,
+          "key": "out",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "impatiently",
+          "start": 2.71,
+          "end": 3.51,
+          "key": "impatiently",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.51,
+          "end": 3.67,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "bushy",
+          "start": 3.67,
+          "end": 4.05,
+          "key": "bushy",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "mustache,",
+          "start": 4.05,
+          "end": 4.57,
+          "key": "mustache",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Welsh",
+          "start": 5.27,
+          "end": 5.33,
+          "key": "welsh",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "combed",
+          "start": 5.33,
+          "end": 5.73,
+          "key": "combed",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.73,
+          "end": 5.83,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "hair",
+          "start": 5.83,
+          "end": 6.05,
+          "key": "hair",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.05,
+          "end": 6.25,
+          "key": "with",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "raking",
+          "start": 6.25,
+          "end": 6.63,
+          "key": "raking",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "fingers.",
+          "start": 6.63,
+          "end": 7.05,
+          "key": "fingers",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "took",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "text": "off",
+          "start": 0.61,
+          "end": 0.81
+        },
+        {
+          "text": "his",
+          "start": 0.81,
+          "end": 0.99
+        },
+        {
+          "text": "silk",
+          "start": 0.99,
+          "end": 1.23
+        },
+        {
+          "text": "hat",
+          "start": 1.23,
+          "end": 1.59
+        },
+        {
+          "text": "and,",
+          "start": 1.59,
+          "end": 2.17
+        },
+        {
+          "text": "blowing",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "out",
+          "start": 2.43,
+          "end": 2.71
+        },
+        {
+          "text": "impatiently",
+          "start": 2.71,
+          "end": 3.51
+        },
+        {
+          "text": "his",
+          "start": 3.51,
+          "end": 3.67
+        },
+        {
+          "text": "bushy",
+          "start": 3.67,
+          "end": 4.05
+        },
+        {
+          "text": "moustache,",
+          "start": 4.05,
+          "end": 4.89
+        },
+        {
+          "text": "welshcombed",
+          "start": 4.89,
+          "end": 5.31
+        },
+        {
+          "text": "his",
+          "start": 5.73,
+          "end": 5.83
+        },
+        {
+          "text": "hair",
+          "start": 5.83,
+          "end": 6.05
+        },
+        {
+          "text": "with",
+          "start": 6.05,
+          "end": 6.25
+        },
+        {
+          "text": "raking",
+          "start": 6.25,
+          "end": 6.63
+        },
+        {
+          "text": "fingers.",
+          "start": 6.63,
+          "end": 7.05
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 20,
+        "matched_words": 17
+      },
+      "match_ratio": 0.8947368421052632,
+      "rejection_reasons": [],
+      "seconds": 0.2220749729895033
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "88f815e0ab7f1ef27d76a3b2d5c2e00b1fb215e687ef0cda8042d22cd918652c",
+  "selected_reasons": []
+}

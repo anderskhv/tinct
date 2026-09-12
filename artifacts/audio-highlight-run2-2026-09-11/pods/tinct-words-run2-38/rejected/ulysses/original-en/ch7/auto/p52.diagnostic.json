@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "2d1f4dba5b231b55595223430f472d0a1cd59a8c0103a97344047f8976bd26fa",
+  "attempts": [
+    {
+      "asr_seconds": 0.13598073000321165,
+      "alignment_seconds": 0.00020165095338597894,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Thanks, old man, Hynes said. I'll tap him too.",
+        "hotwords": "Thanks, Hynes, I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thanks, old man, Hynes said. I'll tap him too.",
+          "start": 0.08,
+          "end": 2.8,
+          "words": [
+            {
+              "text": " Thanks,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.224365234375
+            },
+            {
+              "text": " old",
+              "start": 0.86,
+              "end": 0.88,
+              "probability": 0.646484375
+            },
+            {
+              "text": " man,",
+              "start": 0.88,
+              "end": 1.16,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Hynes",
+              "start": 1.34,
+              "end": 1.46,
+              "probability": 0.023956298828125
+            },
+            {
+              "text": " said.",
+              "start": 1.46,
+              "end": 1.72,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " I'll",
+              "start": 2.04,
+              "end": 2.2,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " tap",
+              "start": 2.2,
+              "end": 2.38,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " him",
+              "start": 2.38,
+              "end": 2.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " too.",
+              "start": 2.56,
+              "end": 2.8,
+              "probability": 0.397705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thanks,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "old",
+          "start": 0.86,
+          "end": 0.88
+        },
+        {
+          "raw": "man,",
+          "start": 0.88,
+          "end": 1.16
+        },
+        {
+          "raw": "Hynes",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "raw": "said.",
+          "start": 1.46,
+          "end": 1.72
+        },
+        {
+          "raw": "I'll",
+          "start": 2.04,
+          "end": 2.2
+        },
+        {
+          "raw": "tap",
+          "start": 2.2,
+          "end": 2.38
+        },
+        {
+          "raw": "him",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "raw": "too.",
+          "start": 2.56,
+          "end": 2.8
+        }
+      ],
+      "expected_tokens": [
+        "—Thanks,",
+        "old",
+        "man,",
+        "Hynes",
+        "said.",
+        "I'll",
+        "tap",
+        "him",
+        "too."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thanks,",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "thanks",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 0.86,
+          "end": 0.88,
+          "key": "old",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 0.88,
+          "end": 1.16,
+          "key": "man",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Hynes",
+          "start": 1.34,
+          "end": 1.46,
+          "key": "hynes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.46,
+          "end": 1.72,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.04,
+          "end": 2.2,
+          "key": "ill",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tap",
+          "start": 2.2,
+          "end": 2.38,
+          "key": "tap",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.38,
+          "end": 2.56,
+          "key": "him",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 2.56,
+          "end": 2.8,
+          "key": "too",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Thanks,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "old",
+          "start": 0.86,
+          "end": 0.88
+        },
+        {
+          "text": "man,",
+          "start": 0.88,
+          "end": 1.16
+        },
+        {
+          "text": "Hynes",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "text": "said.",
+          "start": 1.46,
+          "end": 1.72
+        },
+        {
+          "text": "I'll",
+          "start": 2.04,
+          "end": 2.2
+        },
+        {
+          "text": "tap",
+          "start": 2.2,
+          "end": 2.38
+        },
+        {
+          "text": "him",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "text": "too.",
+          "start": 2.56,
+          "end": 2.8
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1362568910117261
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dd34519d4477b5d056ee1352ad890d76755b816c79f464c3eba0cc0dda47acc5",
+  "selected_reasons": []
+}

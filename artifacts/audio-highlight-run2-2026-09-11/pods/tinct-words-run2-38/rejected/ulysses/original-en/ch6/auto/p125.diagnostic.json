@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "30262eb773408a1ff3a4fc9bd6f20c3b3baf354ee62b25035c2f6174ea011cfc",
+  "attempts": [
+    {
+      "asr_seconds": 0.15692855301313102,
+      "alignment_seconds": 0.0002164510078728199,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Drown Barabbas! Mr Dedalus cried. I wish to Christ he did!",
+        "hotwords": "Drown, Barabbas, Mr, Dedalus, I, Christ"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Drown, Barabbas, Mr, Dedalus cried. I wish to Christ he did!",
+          "start": 0.05,
+          "end": 4.11,
+          "words": [
+            {
+              "text": " Drown,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.59881591796875
+            },
+            {
+              "text": " Barabbas,",
+              "start": 0.85,
+              "end": 1.37,
+              "probability": 0.8810221354166666
+            },
+            {
+              "text": " Mr,",
+              "start": 1.55,
+              "end": 1.85,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " Dedalus",
+              "start": 2.03,
+              "end": 2.23,
+              "probability": 0.56982421875
+            },
+            {
+              "text": " cried.",
+              "start": 2.23,
+              "end": 2.57,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " I",
+              "start": 3.09,
+              "end": 3.15,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " wish",
+              "start": 3.15,
+              "end": 3.27,
+              "probability": 0.65234375
+            },
+            {
+              "text": " to",
+              "start": 3.27,
+              "end": 3.43,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Christ",
+              "start": 3.43,
+              "end": 3.65,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " he",
+              "start": 3.65,
+              "end": 3.87,
+              "probability": 0.68408203125
+            },
+            {
+              "text": " did!",
+              "start": 3.87,
+              "end": 4.11,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Drown,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Barabbas,",
+          "start": 0.85,
+          "end": 1.37
+        },
+        {
+          "raw": "Mr,",
+          "start": 1.55,
+          "end": 1.85
+        },
+        {
+          "raw": "Dedalus",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "raw": "cried.",
+          "start": 2.23,
+          "end": 2.57
+        },
+        {
+          "raw": "I",
+          "start": 3.09,
+          "end": 3.15
+        },
+        {
+          "raw": "wish",
+          "start": 3.15,
+          "end": 3.27
+        },
+        {
+          "raw": "to",
+          "start": 3.27,
+          "end": 3.43
+        },
+        {
+          "raw": "Christ",
+          "start": 3.43,
+          "end": 3.65
+        },
+        {
+          "raw": "he",
+          "start": 3.65,
+          "end": 3.87
+        },
+        {
+          "raw": "did!",
+          "start": 3.87,
+          "end": 4.11
+        }
+      ],
+      "expected_tokens": [
+        "—Drown",
+        "Barabbas!",
+        "Mr",
+        "Dedalus",
+        "cried.",
+        "I",
+        "wish",
+        "to",
+        "Christ",
+        "he",
+        "did!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Drown,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "drown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Barabbas,",
+          "start": 0.85,
+          "end": 1.37,
+          "key": "barabbas",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mr,",
+          "start": 1.55,
+          "end": 1.85,
+          "key": "mr",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Dedalus",
+          "start": 2.03,
+          "end": 2.23,
+          "key": "dedalus",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cried.",
+          "start": 2.23,
+          "end": 2.57,
+          "key": "cried",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.09,
+          "end": 3.15,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wish",
+          "start": 3.15,
+          "end": 3.27,
+          "key": "wish",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.27,
+          "end": 3.43,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Christ",
+          "start": 3.43,
+          "end": 3.65,
+          "key": "christ",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.65,
+          "end": 3.87,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "did!",
+          "start": 3.87,
+          "end": 4.11,
+          "key": "did",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Drown",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Barabbas!",
+          "start": 0.85,
+          "end": 1.37
+        },
+        {
+          "text": "Mr",
+          "start": 1.55,
+          "end": 1.85
+        },
+        {
+          "text": "Dedalus",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "text": "cried.",
+          "start": 2.23,
+          "end": 2.57
+        },
+        {
+          "text": "I",
+          "start": 3.09,
+          "end": 3.15
+        },
+        {
+          "text": "wish",
+          "start": 3.15,
+          "end": 3.27
+        },
+        {
+          "text": "to",
+          "start": 3.27,
+          "end": 3.43
+        },
+        {
+          "text": "Christ",
+          "start": 3.43,
+          "end": 3.65
+        },
+        {
+          "text": "he",
+          "start": 3.65,
+          "end": 3.87
+        },
+        {
+          "text": "did!",
+          "start": 3.87,
+          "end": 4.11
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15723065403290093
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b02c799329041bc643cdebc457cd8c2d683e9fc9fd84cc87e6b1c2f823cd1499",
+  "selected_reasons": []
+}

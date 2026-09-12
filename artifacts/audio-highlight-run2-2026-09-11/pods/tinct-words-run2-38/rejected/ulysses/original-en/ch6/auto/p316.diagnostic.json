@@ -1,0 +1,1377 @@
+{
+  "complete": true,
+  "signature": "db839ed87572ee31d331d4abdee8a3de98e27d599866f17c4ba8567329dc76cf",
+  "attempts": [
+    {
+      "asr_seconds": 0.157655460992828,
+      "alignment_seconds": 0.00025682098930701613,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mr O'Connell shook all their hands in silence. Mr Dedalus said:",
+        "hotwords": "Mr, O'Connell, Dedalus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mr. O'Connell shook all their hands in silence. Mr Dedalus said...",
+          "start": 0.05,
+          "end": 4.99,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " O",
+              "start": 0.79,
+              "end": 0.83,
+              "probability": 0.98291015625
+            },
+            {
+              "text": "'Connell",
+              "start": 0.83,
+              "end": 1.09,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " shook",
+              "start": 1.09,
+              "end": 1.35,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " all",
+              "start": 1.35,
+              "end": 1.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " their",
+              "start": 1.59,
+              "end": 1.77,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " hands",
+              "start": 1.77,
+              "end": 2.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 2.07,
+              "end": 2.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " silence.",
+              "start": 2.33,
+              "end": 2.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Mr",
+              "start": 3.37,
+              "end": 3.59,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Dedalus",
+              "start": 3.59,
+              "end": 4.05,
+              "probability": 0.1470494270324707
+            },
+            {
+              "text": " said...",
+              "start": 4.05,
+              "end": 4.99,
+              "probability": 0.6973876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "O",
+          "start": 0.79,
+          "end": 0.83
+        },
+        {
+          "raw": "'Connell",
+          "start": 0.83,
+          "end": 1.09
+        },
+        {
+          "raw": "shook",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "raw": "all",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "raw": "their",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "raw": "hands",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "raw": "in",
+          "start": 2.07,
+          "end": 2.33
+        },
+        {
+          "raw": "silence.",
+          "start": 2.33,
+          "end": 2.77
+        },
+        {
+          "raw": "Mr",
+          "start": 3.37,
+          "end": 3.59
+        },
+        {
+          "raw": "Dedalus",
+          "start": 3.59,
+          "end": 4.05
+        },
+        {
+          "raw": "said...",
+          "start": 4.05,
+          "end": 4.99
+        }
+      ],
+      "expected_tokens": [
+        "Mr",
+        "O'Connell",
+        "shook",
+        "all",
+        "their",
+        "hands",
+        "in",
+        "silence.",
+        "Mr",
+        "Dedalus",
+        "said:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          11,
+          3,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 0.79,
+          "end": 0.83,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'Connell",
+          "start": 0.83,
+          "end": 1.09,
+          "key": "connell",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shook",
+          "start": 1.09,
+          "end": 1.35,
+          "key": "shook",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.35,
+          "end": 1.59,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 1.59,
+          "end": 1.77,
+          "key": "their",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 1.77,
+          "end": 2.07,
+          "key": "hands",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.07,
+          "end": 2.33,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "silence.",
+          "start": 2.33,
+          "end": 2.77,
+          "key": "silence",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Mr",
+          "start": 3.37,
+          "end": 3.59,
+          "key": "mr",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Dedalus",
+          "start": 3.59,
+          "end": 4.05,
+          "key": "dedalus",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "said...",
+          "start": 4.05,
+          "end": 4.99,
+          "key": "said",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "O'Connell",
+          "start": 0.67,
+          "end": 0.88
+        },
+        {
+          "text": "shook",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "text": "all",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "text": "their",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "text": "hands",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "text": "in",
+          "start": 2.07,
+          "end": 2.33
+        },
+        {
+          "text": "silence.",
+          "start": 2.33,
+          "end": 2.77
+        },
+        {
+          "text": "Mr",
+          "start": 3.37,
+          "end": 3.59
+        },
+        {
+          "text": "Dedalus",
+          "start": 3.59,
+          "end": 4.05
+        },
+        {
+          "text": "said:",
+          "start": 4.05,
+          "end": 4.99
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.1579965139972046
+    },
+    {
+      "asr_seconds": 0.1425304770236835,
+      "alignment_seconds": 0.00023687095381319523,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Mr, O'Connell, Dedalus"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Mr. O'Connell shook all their hands in silence, Mr. Dedalus said.",
+          "start": 0.05,
+          "end": 4.37,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " O",
+              "start": 0.79,
+              "end": 0.83,
+              "probability": 0.98291015625
+            },
+            {
+              "text": "'Connell",
+              "start": 0.83,
+              "end": 1.09,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " shook",
+              "start": 1.09,
+              "end": 1.35,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " all",
+              "start": 1.35,
+              "end": 1.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " their",
+              "start": 1.59,
+              "end": 1.77,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " hands",
+              "start": 1.77,
+              "end": 2.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 2.07,
+              "end": 2.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " silence,",
+              "start": 2.33,
+              "end": 2.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Mr.",
+              "start": 3.35,
+              "end": 3.61,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Dedalus",
+              "start": 3.79,
+              "end": 4.05,
+              "probability": 0.3258056640625
+            },
+            {
+              "text": " said.",
+              "start": 4.05,
+              "end": 4.37,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "O",
+          "start": 0.79,
+          "end": 0.83
+        },
+        {
+          "raw": "'Connell",
+          "start": 0.83,
+          "end": 1.09
+        },
+        {
+          "raw": "shook",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "raw": "all",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "raw": "their",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "raw": "hands",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "raw": "in",
+          "start": 2.07,
+          "end": 2.33
+        },
+        {
+          "raw": "silence,",
+          "start": 2.33,
+          "end": 2.79
+        },
+        {
+          "raw": "Mr.",
+          "start": 3.35,
+          "end": 3.61
+        },
+        {
+          "raw": "Dedalus",
+          "start": 3.79,
+          "end": 4.05
+        },
+        {
+          "raw": "said.",
+          "start": 4.05,
+          "end": 4.37
+        }
+      ],
+      "expected_tokens": [
+        "Mr",
+        "O'Connell",
+        "shook",
+        "all",
+        "their",
+        "hands",
+        "in",
+        "silence.",
+        "Mr",
+        "Dedalus",
+        "said:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          11,
+          3,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 0.79,
+          "end": 0.83,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'Connell",
+          "start": 0.83,
+          "end": 1.09,
+          "key": "connell",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shook",
+          "start": 1.09,
+          "end": 1.35,
+          "key": "shook",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.35,
+          "end": 1.59,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 1.59,
+          "end": 1.77,
+          "key": "their",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 1.77,
+          "end": 2.07,
+          "key": "hands",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.07,
+          "end": 2.33,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "silence,",
+          "start": 2.33,
+          "end": 2.79,
+          "key": "silence",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 3.35,
+          "end": 3.61,
+          "key": "mr",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Dedalus",
+          "start": 3.79,
+          "end": 4.05,
+          "key": "dedalus",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 4.05,
+          "end": 4.37,
+          "key": "said",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "O'Connell",
+          "start": 0.67,
+          "end": 0.88
+        },
+        {
+          "text": "shook",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "text": "all",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "text": "their",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "text": "hands",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "text": "in",
+          "start": 2.07,
+          "end": 2.33
+        },
+        {
+          "text": "silence.",
+          "start": 2.33,
+          "end": 2.79
+        },
+        {
+          "text": "Mr",
+          "start": 3.35,
+          "end": 3.61
+        },
+        {
+          "text": "Dedalus",
+          "start": 3.79,
+          "end": 4.05
+        },
+        {
+          "text": "said:",
+          "start": 4.05,
+          "end": 4.37
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.1428625090047717
+    },
+    {
+      "asr_seconds": 0.16538949497044086,
+      "alignment_seconds": 0.00024322199169546366,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mr. O'Connell shook all their hands in silence.",
+          "start": 0.05,
+          "end": 2.77,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " O",
+              "start": 0.79,
+              "end": 0.83,
+              "probability": 0.98291015625
+            },
+            {
+              "text": "'Connell",
+              "start": 0.83,
+              "end": 1.09,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " shook",
+              "start": 1.09,
+              "end": 1.35,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " all",
+              "start": 1.35,
+              "end": 1.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " their",
+              "start": 1.59,
+              "end": 1.77,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " hands",
+              "start": 1.77,
+              "end": 2.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 2.07,
+              "end": 2.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " silence.",
+              "start": 2.33,
+              "end": 2.77,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Mr. Deadallis said...",
+          "start": 3.37,
+          "end": 4.99,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 3.37,
+              "end": 3.59,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Deadallis",
+              "start": 3.79,
+              "end": 4.15,
+              "probability": 0.5008138020833334
+            },
+            {
+              "text": " said...",
+              "start": 4.15,
+              "end": 4.99,
+              "probability": 0.677001953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "O",
+          "start": 0.79,
+          "end": 0.83
+        },
+        {
+          "raw": "'Connell",
+          "start": 0.83,
+          "end": 1.09
+        },
+        {
+          "raw": "shook",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "raw": "all",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "raw": "their",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "raw": "hands",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "raw": "in",
+          "start": 2.07,
+          "end": 2.33
+        },
+        {
+          "raw": "silence.",
+          "start": 2.33,
+          "end": 2.77
+        },
+        {
+          "raw": "Mr.",
+          "start": 3.37,
+          "end": 3.59
+        },
+        {
+          "raw": "Deadallis",
+          "start": 3.79,
+          "end": 4.15
+        },
+        {
+          "raw": "said...",
+          "start": 4.15,
+          "end": 4.99
+        }
+      ],
+      "expected_tokens": [
+        "Mr",
+        "O'Connell",
+        "shook",
+        "all",
+        "their",
+        "hands",
+        "in",
+        "silence.",
+        "Mr",
+        "Dedalus",
+        "said:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          9,
+          3,
+          10
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          11
+        ],
+        [
+          "equal",
+          10,
+          11,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 0.79,
+          "end": 0.83,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'Connell",
+          "start": 0.83,
+          "end": 1.09,
+          "key": "connell",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shook",
+          "start": 1.09,
+          "end": 1.35,
+          "key": "shook",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.35,
+          "end": 1.59,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 1.59,
+          "end": 1.77,
+          "key": "their",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 1.77,
+          "end": 2.07,
+          "key": "hands",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.07,
+          "end": 2.33,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "silence.",
+          "start": 2.33,
+          "end": 2.77,
+          "key": "silence",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 3.37,
+          "end": 3.59,
+          "key": "mr",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Deadallis",
+          "start": 3.79,
+          "end": 4.15,
+          "key": "deadallis",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "said...",
+          "start": 4.15,
+          "end": 4.99,
+          "key": "said",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "O'Connell",
+          "start": 0.67,
+          "end": 0.88
+        },
+        {
+          "text": "shook",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "text": "all",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "text": "their",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "text": "hands",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "text": "in",
+          "start": 2.07,
+          "end": 2.33
+        },
+        {
+          "text": "silence.",
+          "start": 2.33,
+          "end": 2.77
+        },
+        {
+          "text": "Mr",
+          "start": 3.37,
+          "end": 3.59
+        },
+        {
+          "text": "Dedalus",
+          "start": 3.59,
+          "end": 3.87
+        },
+        {
+          "text": "said:",
+          "start": 4.15,
+          "end": 4.99
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16572478698799387
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "26bcde7cf3aa908e12808722d8ab8afc3f00dc08d9fd4f7dd5d8af80cfc47e14",
+  "selected_reasons": []
+}

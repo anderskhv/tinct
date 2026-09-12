@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "f2247e65ea526bda58b67daa399673926975fe957a7902ee230d07d17dcf0781",
+  "attempts": [
+    {
+      "asr_seconds": 0.10297700500814244,
+      "alignment_seconds": 0.00014438095968216658,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Doughy Daw! he cried.",
+        "hotwords": "Doughy, Daw"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Doughy Daw, he cried.",
+          "start": 0.05,
+          "end": 1.45,
+          "words": [
+            {
+              "text": " Doughy",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.324005126953125
+            },
+            {
+              "text": " Daw,",
+              "start": 0.69,
+              "end": 0.89,
+              "probability": 0.1016845703125
+            },
+            {
+              "text": " he",
+              "start": 1.09,
+              "end": 1.19,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " cried.",
+              "start": 1.19,
+              "end": 1.45,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Doughy",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Daw,",
+          "start": 0.69,
+          "end": 0.89
+        },
+        {
+          "raw": "he",
+          "start": 1.09,
+          "end": 1.19
+        },
+        {
+          "raw": "cried.",
+          "start": 1.19,
+          "end": 1.45
+        }
+      ],
+      "expected_tokens": [
+        "—Doughy",
+        "Daw!",
+        "he",
+        "cried."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Doughy",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "doughy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Daw,",
+          "start": 0.69,
+          "end": 0.89,
+          "key": "daw",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.09,
+          "end": 1.19,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cried.",
+          "start": 1.19,
+          "end": 1.45,
+          "key": "cried",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Doughy",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Daw!",
+          "start": 0.69,
+          "end": 0.89
+        },
+        {
+          "text": "he",
+          "start": 1.09,
+          "end": 1.19
+        },
+        {
+          "text": "cried.",
+          "start": 1.19,
+          "end": 1.45
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10317098599625751
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "752593e509b5d8ffd97159557cdddc074c5cfda0bbbf0b88455db371e8b807fb",
+  "selected_reasons": []
+}

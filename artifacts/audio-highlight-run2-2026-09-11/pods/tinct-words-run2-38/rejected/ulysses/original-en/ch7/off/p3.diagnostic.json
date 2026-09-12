@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "22e01917ee2629e6b96f770820aa3a04877c66a2fb71b72dc03a61f66205bc14",
+  "attempts": [
+    {
+      "asr_seconds": 0.09658234001835808,
+      "alignment_seconds": 0.00014442100655287504,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Come on, sand them out green.",
+          "start": 0.05,
+          "end": 1.81,
+          "words": [
+            {
+              "text": " Come",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " on,",
+              "start": 0.55,
+              "end": 0.83,
+              "probability": 0.994140625
+            },
+            {
+              "text": " sand",
+              "start": 1.13,
+              "end": 1.27,
+              "probability": 0.36083984375
+            },
+            {
+              "text": " them",
+              "start": 1.27,
+              "end": 1.39,
+              "probability": 0.3955078125
+            },
+            {
+              "text": " out",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " green.",
+              "start": 1.51,
+              "end": 1.81,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Come",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "on,",
+          "start": 0.55,
+          "end": 0.83
+        },
+        {
+          "raw": "sand",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "raw": "them",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "raw": "out",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "green.",
+          "start": 1.51,
+          "end": 1.81
+        }
+      ],
+      "expected_tokens": [
+        "—Come",
+        "on,",
+        "Sandymount",
+        "Green!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          5
+        ],
+        [
+          "equal",
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Come",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "come",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 0.55,
+          "end": 0.83,
+          "key": "on",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sand",
+          "start": 1.13,
+          "end": 1.27,
+          "key": "sand",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 1.27,
+          "end": 1.39,
+          "key": "them",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.39,
+          "end": 1.51,
+          "key": "out",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "green.",
+          "start": 1.51,
+          "end": 1.81,
+          "key": "green",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Come",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "on,",
+          "start": 0.55,
+          "end": 0.83
+        },
+        {
+          "text": "Sandymount",
+          "start": 0.83,
+          "end": 1.17
+        },
+        {
+          "text": "Green!",
+          "start": 1.51,
+          "end": 1.81
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09678355103824288
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cab8415976da1fc042465bc7b6db6a138ff2e3e6be2f2d8788c3e5a90d45b532",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

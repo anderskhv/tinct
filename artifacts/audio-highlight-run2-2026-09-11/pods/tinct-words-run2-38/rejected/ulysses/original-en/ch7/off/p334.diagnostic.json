@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "3cbc3626702a1557d68f4bf21bef6c76fc380155b454caa0b21b1cca5277e193",
+  "attempts": [
+    {
+      "asr_seconds": 0.0846722639980726,
+      "alignment_seconds": 0.0001294810208491981,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Steven turned in surprise.",
+          "start": 0.08,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " Steven",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.58056640625
+            },
+            {
+              "text": " turned",
+              "start": 0.68,
+              "end": 0.98,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 0.98,
+              "end": 1.18,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " surprise.",
+              "start": 1.18,
+              "end": 1.62,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Steven",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "turned",
+          "start": 0.68,
+          "end": 0.98
+        },
+        {
+          "raw": "in",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "raw": "surprise.",
+          "start": 1.18,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "Stephen",
+        "turned",
+        "in",
+        "surprise."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Steven",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "steven",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 0.68,
+          "end": 0.98,
+          "key": "turned",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.98,
+          "end": 1.18,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "surprise.",
+          "start": 1.18,
+          "end": 1.62,
+          "key": "surprise",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Stephen",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "turned",
+          "start": 0.68,
+          "end": 0.98
+        },
+        {
+          "text": "in",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "text": "surprise.",
+          "start": 1.18,
+          "end": 1.62
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.0848483849549666
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0a5d874684f1eea8bd486f4c304c2aca2fea7fc06df6ba3ab0bf9af1a3216781",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

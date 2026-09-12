@@ -1,0 +1,93 @@
+{
+  "complete": true,
+  "signature": "649b47ea0d90185cb6257fd6e9a0933b147c71f947eb638de2ffd1dc20321b9a",
+  "attempts": [
+    {
+      "asr_seconds": 0.4127087179804221,
+      "alignment_seconds": 8.991995127871633e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_—Freeman!_"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " FREEMAN.",
+          "start": 0.08,
+          "end": 0.9,
+          "words": [
+            {
+              "text": " FREEMAN.",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.5715726216634115
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "FREEMAN.",
+          "start": 0.08,
+          "end": 0.9
+        }
+      ],
+      "expected_tokens": [
+        "_—Freeman!_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "FREEMAN.",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "freeman",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_—Freeman!_",
+          "start": 0.08,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.41282594797667116
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6f09327453dc0a16e811fa9b29c522f620ebf26115f13a24da935560a0199fc0",
+  "selected_reasons": []
+}

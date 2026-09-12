@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "e312ed82f9d3f9a4e5cdcbc1f2bd80bb0cbd6c9e2c0c6b2b1fe7952cdbd360cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.09256193600594997,
+      "alignment_seconds": 0.0001267109764739871,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mr Dedalus sighed.",
+        "hotwords": "Mr, Dedalus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mr. Dedalus sighed.",
+          "start": 0.02,
+          "end": 1.44,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " Dedalus",
+              "start": 0.84,
+              "end": 1.06,
+              "probability": 0.34307861328125
+            },
+            {
+              "text": " sighed.",
+              "start": 1.06,
+              "end": 1.44,
+              "probability": 0.9541015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Dedalus",
+          "start": 0.84,
+          "end": 1.06
+        },
+        {
+          "raw": "sighed.",
+          "start": 1.06,
+          "end": 1.44
+        }
+      ],
+      "expected_tokens": [
+        "Mr",
+        "Dedalus",
+        "sighed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dedalus",
+          "start": 0.84,
+          "end": 1.06,
+          "key": "dedalus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sighed.",
+          "start": 1.06,
+          "end": 1.44,
+          "key": "sighed",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Dedalus",
+          "start": 0.84,
+          "end": 1.06
+        },
+        {
+          "text": "sighed.",
+          "start": 1.06,
+          "end": 1.44
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09273279702756554
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5e9cfd83c598883c8eb59b68567b9b72f641d8fcf54fc2a1e6f41e1c0b9180f1",
+  "selected_reasons": []
+}

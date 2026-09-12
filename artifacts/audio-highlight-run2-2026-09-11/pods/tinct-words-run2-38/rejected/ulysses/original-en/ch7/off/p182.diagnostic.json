@@ -1,0 +1,176 @@
+{
+  "complete": true,
+  "signature": "4e1c34bbfb4165ea8410e0dcc4109058c0c039cc54d45c395f1783744a7e666f",
+  "attempts": [
+    {
+      "asr_seconds": 0.10300770599860698,
+      "alignment_seconds": 0.0001270109787583351,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bing bang bang bang",
+          "start": 0.02,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " Bing",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.64306640625
+            },
+            {
+              "text": " bang",
+              "start": 0.56,
+              "end": 0.72,
+              "probability": 0.285400390625
+            },
+            {
+              "text": " bang",
+              "start": 0.72,
+              "end": 1.0,
+              "probability": 0.60205078125
+            },
+            {
+              "text": " bang",
+              "start": 1.0,
+              "end": 1.28,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bing",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "bang",
+          "start": 0.56,
+          "end": 0.72
+        },
+        {
+          "raw": "bang",
+          "start": 0.72,
+          "end": 1.0
+        },
+        {
+          "raw": "bang",
+          "start": 1.0,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "—Bingbang,",
+        "bangbang."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bing",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "bing",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "bang",
+          "start": 0.56,
+          "end": 0.72,
+          "key": "bang",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bang",
+          "start": 0.72,
+          "end": 1.0,
+          "key": "bang",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bang",
+          "start": 1.0,
+          "end": 1.28,
+          "key": "bang",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Bingbang,",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "text": "bangbang.",
+          "start": 0.64,
+          "end": 0.96
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 4,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.103181537007913
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "74948ad1e62929fb28c8d512cf7768c032ac19b61855b56d63f10b02cc1c4abe",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

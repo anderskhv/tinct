@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "c359385b67c33d1f6195eda7fa6f745afd03aea71ac287f6928a423db166a54d",
+  "attempts": [
+    {
+      "asr_seconds": 0.09711702901404351,
+      "alignment_seconds": 0.00011632003588601947,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ned Lambert glanced back.",
+          "start": 0.02,
+          "end": 1.7,
+          "words": [
+            {
+              "text": " Ned",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Lambert",
+              "start": 0.6,
+              "end": 1.02,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " glanced",
+              "start": 1.02,
+              "end": 1.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " back.",
+              "start": 1.32,
+              "end": 1.7,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ned",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "Lambert",
+          "start": 0.6,
+          "end": 1.02
+        },
+        {
+          "raw": "glanced",
+          "start": 1.02,
+          "end": 1.32
+        },
+        {
+          "raw": "back.",
+          "start": 1.32,
+          "end": 1.7
+        }
+      ],
+      "expected_tokens": [
+        "Ned",
+        "Lambert",
+        "glanced",
+        "back."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ned",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "ned",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lambert",
+          "start": 0.6,
+          "end": 1.02,
+          "key": "lambert",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "glanced",
+          "start": 1.02,
+          "end": 1.32,
+          "key": "glanced",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "back.",
+          "start": 1.32,
+          "end": 1.7,
+          "key": "back",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ned",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "Lambert",
+          "start": 0.6,
+          "end": 1.02
+        },
+        {
+          "text": "glanced",
+          "start": 1.02,
+          "end": 1.32
+        },
+        {
+          "text": "back.",
+          "start": 1.32,
+          "end": 1.7
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0972782300086692
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e3e9d974cce75f95213ea4809b6d636a7723df82b95191cbd53ee597f6400055",
+  "selected_reasons": []
+}

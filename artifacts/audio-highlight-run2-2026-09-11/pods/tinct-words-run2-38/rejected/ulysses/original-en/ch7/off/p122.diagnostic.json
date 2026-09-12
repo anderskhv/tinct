@@ -1,0 +1,621 @@
+{
+  "complete": true,
+  "signature": "564504f804b400dd3e311135af6b02eb94c5e1c88207eca633a491eeb871aece",
+  "attempts": [
+    {
+      "asr_seconds": 0.18953281099675223,
+      "alignment_seconds": 0.0002847520518116653,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A recently discovered fragment of Cicero, Professor Mack Hugh answered with pomp of tone,",
+          "start": 0.05,
+          "end": 5.53,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " recently",
+              "start": 0.55,
+              "end": 0.87,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " discovered",
+              "start": 0.87,
+              "end": 1.47,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " fragment",
+              "start": 1.47,
+              "end": 1.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 1.95,
+              "end": 2.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Cicero,",
+              "start": 2.19,
+              "end": 2.65,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Professor",
+              "start": 3.19,
+              "end": 3.41,
+              "probability": 0.90234375
+            },
+            {
+              "text": " Mack",
+              "start": 3.41,
+              "end": 3.67,
+              "probability": 0.320556640625
+            },
+            {
+              "text": " Hugh",
+              "start": 3.67,
+              "end": 4.01,
+              "probability": 0.66845703125
+            },
+            {
+              "text": " answered",
+              "start": 4.01,
+              "end": 4.47,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " with",
+              "start": 4.47,
+              "end": 4.77,
+              "probability": 0.994140625
+            },
+            {
+              "text": " pomp",
+              "start": 4.77,
+              "end": 5.01,
+              "probability": 0.76171875
+            },
+            {
+              "text": " of",
+              "start": 5.01,
+              "end": 5.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " tone,",
+              "start": 5.19,
+              "end": 5.53,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " our lovely land.",
+          "start": 6.15,
+          "end": 7.07,
+          "words": [
+            {
+              "text": " our",
+              "start": 6.15,
+              "end": 6.33,
+              "probability": 0.05145263671875
+            },
+            {
+              "text": " lovely",
+              "start": 6.33,
+              "end": 6.69,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " land.",
+              "start": 6.69,
+              "end": 7.07,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "recently",
+          "start": 0.55,
+          "end": 0.87
+        },
+        {
+          "raw": "discovered",
+          "start": 0.87,
+          "end": 1.47
+        },
+        {
+          "raw": "fragment",
+          "start": 1.47,
+          "end": 1.95
+        },
+        {
+          "raw": "of",
+          "start": 1.95,
+          "end": 2.19
+        },
+        {
+          "raw": "Cicero,",
+          "start": 2.19,
+          "end": 2.65
+        },
+        {
+          "raw": "Professor",
+          "start": 3.19,
+          "end": 3.41
+        },
+        {
+          "raw": "Mack",
+          "start": 3.41,
+          "end": 3.67
+        },
+        {
+          "raw": "Hugh",
+          "start": 3.67,
+          "end": 4.01
+        },
+        {
+          "raw": "answered",
+          "start": 4.01,
+          "end": 4.47
+        },
+        {
+          "raw": "with",
+          "start": 4.47,
+          "end": 4.77
+        },
+        {
+          "raw": "pomp",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "raw": "of",
+          "start": 5.01,
+          "end": 5.19
+        },
+        {
+          "raw": "tone,",
+          "start": 5.19,
+          "end": 5.53
+        },
+        {
+          "raw": "our",
+          "start": 6.15,
+          "end": 6.33
+        },
+        {
+          "raw": "lovely",
+          "start": 6.33,
+          "end": 6.69
+        },
+        {
+          "raw": "land.",
+          "start": 6.69,
+          "end": 7.07
+        }
+      ],
+      "expected_tokens": [
+        "—A",
+        "recently",
+        "discovered",
+        "fragment",
+        "of",
+        "Cicero,",
+        "professor",
+        "MacHugh",
+        "answered",
+        "with",
+        "pomp",
+        "of",
+        "tone.",
+        "_Our",
+        "lovely",
+        "land_."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "equal",
+          8,
+          16,
+          9,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "recently",
+          "start": 0.55,
+          "end": 0.87,
+          "key": "recently",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "discovered",
+          "start": 0.87,
+          "end": 1.47,
+          "key": "discovered",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fragment",
+          "start": 1.47,
+          "end": 1.95,
+          "key": "fragment",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.95,
+          "end": 2.19,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Cicero,",
+          "start": 2.19,
+          "end": 2.65,
+          "key": "cicero",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Professor",
+          "start": 3.19,
+          "end": 3.41,
+          "key": "professor",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Mack",
+          "start": 3.41,
+          "end": 3.67,
+          "key": "mack",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Hugh",
+          "start": 3.67,
+          "end": 4.01,
+          "key": "hugh",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "answered",
+          "start": 4.01,
+          "end": 4.47,
+          "key": "answered",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.47,
+          "end": 4.77,
+          "key": "with",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "pomp",
+          "start": 4.77,
+          "end": 5.01,
+          "key": "pomp",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.01,
+          "end": 5.19,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "tone,",
+          "start": 5.19,
+          "end": 5.53,
+          "key": "tone",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 6.15,
+          "end": 6.33,
+          "key": "our",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "lovely",
+          "start": 6.33,
+          "end": 6.69,
+          "key": "lovely",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "land.",
+          "start": 6.69,
+          "end": 7.07,
+          "key": "land",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—A",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "recently",
+          "start": 0.55,
+          "end": 0.87
+        },
+        {
+          "text": "discovered",
+          "start": 0.87,
+          "end": 1.47
+        },
+        {
+          "text": "fragment",
+          "start": 1.47,
+          "end": 1.95
+        },
+        {
+          "text": "of",
+          "start": 1.95,
+          "end": 2.19
+        },
+        {
+          "text": "Cicero,",
+          "start": 2.19,
+          "end": 2.65
+        },
+        {
+          "text": "professor",
+          "start": 3.19,
+          "end": 3.41
+        },
+        {
+          "text": "MacHugh",
+          "start": 3.41,
+          "end": 3.71
+        },
+        {
+          "text": "answered",
+          "start": 4.01,
+          "end": 4.47
+        },
+        {
+          "text": "with",
+          "start": 4.47,
+          "end": 4.77
+        },
+        {
+          "text": "pomp",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "text": "of",
+          "start": 5.01,
+          "end": 5.19
+        },
+        {
+          "text": "tone.",
+          "start": 5.19,
+          "end": 5.53
+        },
+        {
+          "text": "_Our",
+          "start": 6.15,
+          "end": 6.33
+        },
+        {
+          "text": "lovely",
+          "start": 6.33,
+          "end": 6.69
+        },
+        {
+          "text": "land_.",
+          "start": 6.69,
+          "end": 7.07
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.18993232300272211
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "213b17c5d34843f9c31f6abea6c739cf261335f5810ca36172616a3b5742620f",
+  "selected_reasons": []
+}

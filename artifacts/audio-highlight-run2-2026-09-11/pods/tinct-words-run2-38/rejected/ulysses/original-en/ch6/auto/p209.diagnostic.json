@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "4feab8629c06254b026a6739f8d19281d5283f88c767dd93652051833170ec37",
+  "attempts": [
+    {
+      "asr_seconds": 0.13138744694879279,
+      "alignment_seconds": 0.00022714096121490002,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Though lost to sight, Mr Dedalus said, to memory dear.",
+        "hotwords": "Though, Mr, Dedalus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Though lost to sight, Mr. Dedalus said, to memory dear.",
+          "start": 0.08,
+          "end": 3.58,
+          "words": [
+            {
+              "text": " Though",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " lost",
+              "start": 0.54,
+              "end": 0.82,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " to",
+              "start": 0.82,
+              "end": 1.04,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " sight,",
+              "start": 1.04,
+              "end": 1.36,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Mr.",
+              "start": 1.8,
+              "end": 1.92,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Dedalus",
+              "start": 2.1,
+              "end": 2.28,
+              "probability": 0.23703765869140625
+            },
+            {
+              "text": " said,",
+              "start": 2.28,
+              "end": 2.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 2.86,
+              "end": 2.96,
+              "probability": 0.65771484375
+            },
+            {
+              "text": " memory",
+              "start": 2.96,
+              "end": 3.26,
+              "probability": 0.6669921875
+            },
+            {
+              "text": " dear.",
+              "start": 3.26,
+              "end": 3.58,
+              "probability": 0.72216796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Though",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "lost",
+          "start": 0.54,
+          "end": 0.82
+        },
+        {
+          "raw": "to",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "raw": "sight,",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "raw": "Dedalus",
+          "start": 2.1,
+          "end": 2.28
+        },
+        {
+          "raw": "said,",
+          "start": 2.28,
+          "end": 2.62
+        },
+        {
+          "raw": "to",
+          "start": 2.86,
+          "end": 2.96
+        },
+        {
+          "raw": "memory",
+          "start": 2.96,
+          "end": 3.26
+        },
+        {
+          "raw": "dear.",
+          "start": 3.26,
+          "end": 3.58
+        }
+      ],
+      "expected_tokens": [
+        "—Though",
+        "lost",
+        "to",
+        "sight,",
+        "Mr",
+        "Dedalus",
+        "said,",
+        "to",
+        "memory",
+        "dear."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Though",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "though",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lost",
+          "start": 0.54,
+          "end": 0.82,
+          "key": "lost",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.82,
+          "end": 1.04,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sight,",
+          "start": 1.04,
+          "end": 1.36,
+          "key": "sight",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.8,
+          "end": 1.92,
+          "key": "mr",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Dedalus",
+          "start": 2.1,
+          "end": 2.28,
+          "key": "dedalus",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 2.28,
+          "end": 2.62,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.86,
+          "end": 2.96,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "memory",
+          "start": 2.96,
+          "end": 3.26,
+          "key": "memory",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "dear.",
+          "start": 3.26,
+          "end": 3.58,
+          "key": "dear",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Though",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "lost",
+          "start": 0.54,
+          "end": 0.82
+        },
+        {
+          "text": "to",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "text": "sight,",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "text": "Mr",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "text": "Dedalus",
+          "start": 2.1,
+          "end": 2.28
+        },
+        {
+          "text": "said,",
+          "start": 2.28,
+          "end": 2.62
+        },
+        {
+          "text": "to",
+          "start": 2.86,
+          "end": 2.96
+        },
+        {
+          "text": "memory",
+          "start": 2.96,
+          "end": 3.26
+        },
+        {
+          "text": "dear.",
+          "start": 3.26,
+          "end": 3.58
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13170097797410563
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "185d320ca862dae41931e950aeecea43350fdc630db36e52c6128bc2a1a401e9",
+  "selected_reasons": []
+}

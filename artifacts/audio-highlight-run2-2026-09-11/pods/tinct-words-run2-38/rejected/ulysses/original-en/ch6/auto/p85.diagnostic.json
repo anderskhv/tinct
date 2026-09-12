@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "678e1e6dd7bcc2580b717e0d2f95b4a3278f00c6ded8d83c18ba103b63445078",
+  "attempts": [
+    {
+      "asr_seconds": 0.10376357100903988,
+      "alignment_seconds": 0.00018374103819951415,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Who? Mr Dedalus asked.",
+        "hotwords": "Who, Mr, Dedalus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Who, Mr. Dedalus asked.",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Who,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.407958984375
+            },
+            {
+              "text": " Mr.",
+              "start": 0.97,
+              "end": 1.11,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " Dedalus",
+              "start": 1.31,
+              "end": 1.49,
+              "probability": 0.51416015625
+            },
+            {
+              "text": " asked.",
+              "start": 1.49,
+              "end": 1.95,
+              "probability": 0.9453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "raw": "Dedalus",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "raw": "asked.",
+          "start": 1.49,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "—Who?",
+        "Mr",
+        "Dedalus",
+        "asked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "who",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.97,
+          "end": 1.11,
+          "key": "mr",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dedalus",
+          "start": 1.31,
+          "end": 1.49,
+          "key": "dedalus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "asked.",
+          "start": 1.49,
+          "end": 1.95,
+          "key": "asked",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Who?",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Mr",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "text": "Dedalus",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "text": "asked.",
+          "start": 1.49,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10400361201027408
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d96e63361e38d17ae0bfb6458c708fac2256ea8c636f86e5999369585769aad5",
+  "selected_reasons": []
+}

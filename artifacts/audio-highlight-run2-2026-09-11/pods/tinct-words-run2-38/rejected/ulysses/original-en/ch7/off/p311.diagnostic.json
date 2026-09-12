@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "5711ebb6babf9221e1fb6e847ee99b5387896c5fe6fcf9dbaa8ab0161214666a",
+  "attempts": [
+    {
+      "asr_seconds": 0.10213019995717332,
+      "alignment_seconds": 0.00023062096443027258,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The turf, Lenihan put in.",
+          "start": 0.02,
+          "end": 1.82,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.70068359375
+            },
+            {
+              "text": " turf,",
+              "start": 0.5,
+              "end": 0.78,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " Lenihan",
+              "start": 1.12,
+              "end": 1.4,
+              "probability": 0.7840169270833334
+            },
+            {
+              "text": " put",
+              "start": 1.4,
+              "end": 1.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in.",
+              "start": 1.58,
+              "end": 1.82,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "turf,",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "raw": "Lenihan",
+          "start": 1.12,
+          "end": 1.4
+        },
+        {
+          "raw": "put",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "raw": "in.",
+          "start": 1.58,
+          "end": 1.82
+        }
+      ],
+      "expected_tokens": [
+        "—The",
+        "turf,",
+        "Lenehan",
+        "put",
+        "in."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "turf,",
+          "start": 0.5,
+          "end": 0.78,
+          "key": "turf",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lenihan",
+          "start": 1.12,
+          "end": 1.4,
+          "key": "lenihan",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 1.4,
+          "end": 1.58,
+          "key": "put",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in.",
+          "start": 1.58,
+          "end": 1.82,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "turf,",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "text": "Lenehan",
+          "start": 0.78,
+          "end": 1.09
+        },
+        {
+          "text": "put",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "text": "in.",
+          "start": 1.58,
+          "end": 1.82
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10243161197286099
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e7702c675dfd88e11145b41c742452a894631a601a4d9e320c45d52b4b92f15a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

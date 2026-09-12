@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "f97207cff7a8c32c889fd7650300d1dbc013c4cd7a244eef96bf17b3b6173762",
+  "attempts": [
+    {
+      "asr_seconds": 0.08294050896074623,
+      "alignment_seconds": 9.407103061676025e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He looked around",
+          "start": 0.02,
+          "end": 1.02,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.916015625
+            },
+            {
+              "text": " looked",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " around",
+              "start": 0.66,
+              "end": 1.02,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "looked",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "around",
+          "start": 0.66,
+          "end": 1.02
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "looked",
+        "around."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 0.5,
+          "end": 0.66,
+          "key": "looked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "around",
+          "start": 0.66,
+          "end": 1.02,
+          "key": "around",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "looked",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "around.",
+          "start": 0.66,
+          "end": 1.02
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.083070199994836
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fa17cfe072f8cc4c645794be32314e36ceca1ddaa07802e7d6dd20ac019169e5",
+  "selected_reasons": []
+}
