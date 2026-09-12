@@ -1,0 +1,1056 @@
+{
+  "complete": true,
+  "signature": "7bce29839b91e3e880cbe780314b59f858b5c0e658eff2b6a7394e3240042279",
+  "attempts": [
+    {
+      "asr_seconds": 0.2850465103983879,
+      "alignment_seconds": 0.0004288535565137863,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Flourish. Exeunt Lear, Burgundy, Cornwall, Albany, Gloucester and Attendants._]",
+        "hotwords": "Exeunt, Lear, Burgundy, Cornwall, Albany, Gloucester, Attendants._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Flourish. Exeunt Lear, Burgundy, Cornwall, Albany, Gloucester and Attendants._",
+          "start": 0.05,
+          "end": 5.79,
+          "words": [
+            {
+              "text": " Flourish.",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.85546875
+            },
+            {
+              "text": " Exeunt",
+              "start": 1.39,
+              "end": 1.75,
+              "probability": 0.7858072916666666
+            },
+            {
+              "text": " Lear,",
+              "start": 1.75,
+              "end": 1.95,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " Burgundy,",
+              "start": 2.37,
+              "end": 2.63,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " Cornwall,",
+              "start": 2.99,
+              "end": 3.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Albany,",
+              "start": 3.79,
+              "end": 3.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Gloucester",
+              "start": 4.25,
+              "end": 4.53,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 4.53,
+              "end": 4.69,
+              "probability": 0.362548828125
+            },
+            {
+              "text": " Attendants._",
+              "start": 4.69,
+              "end": 5.79,
+              "probability": 0.33026127020517987
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Flourish.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Exeunt",
+          "start": 1.39,
+          "end": 1.75
+        },
+        {
+          "raw": "Lear,",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "raw": "Burgundy,",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "raw": "Cornwall,",
+          "start": 2.99,
+          "end": 3.11
+        },
+        {
+          "raw": "Albany,",
+          "start": 3.79,
+          "end": 3.79
+        },
+        {
+          "raw": "Gloucester",
+          "start": 4.25,
+          "end": 4.53
+        },
+        {
+          "raw": "and",
+          "start": 4.53,
+          "end": 4.69
+        },
+        {
+          "raw": "Attendants._",
+          "start": 4.69,
+          "end": 5.79
+        }
+      ],
+      "expected_tokens": [
+        "[_Flourish.",
+        "Exeunt",
+        "Lear,",
+        "Burgundy,",
+        "Cornwall,",
+        "Albany,",
+        "Gloucester",
+        "and",
+        "Attendants._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Flourish.",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "flourish",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Exeunt",
+          "start": 1.39,
+          "end": 1.75,
+          "key": "exeunt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lear,",
+          "start": 1.75,
+          "end": 1.95,
+          "key": "lear",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Burgundy,",
+          "start": 2.37,
+          "end": 2.63,
+          "key": "burgundy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Cornwall,",
+          "start": 2.99,
+          "end": 3.11,
+          "key": "cornwall",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Albany,",
+          "start": 3.79,
+          "end": 3.79,
+          "key": "albany",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Gloucester",
+          "start": 4.25,
+          "end": 4.53,
+          "key": "gloucester",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.53,
+          "end": 4.69,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Attendants._",
+          "start": 4.69,
+          "end": 5.79,
+          "key": "attendants_",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Flourish.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Exeunt",
+          "start": 1.39,
+          "end": 1.75
+        },
+        {
+          "text": "Lear,",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "text": "Burgundy,",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "text": "Cornwall,",
+          "start": 2.99,
+          "end": 3.11
+        },
+        {
+          "text": "Albany,",
+          "start": 3.79,
+          "end": 3.79
+        },
+        {
+          "text": "Gloucester",
+          "start": 4.25,
+          "end": 4.53
+        },
+        {
+          "text": "and",
+          "start": 4.53,
+          "end": 4.69
+        },
+        {
+          "text": "Attendants._]",
+          "start": 4.69,
+          "end": 5.24
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.2856266610324383
+    },
+    {
+      "asr_seconds": 0.3140550423413515,
+      "alignment_seconds": 0.0007024668157100677,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Exeunt, Lear, Burgundy, Cornwall, Albany, Gloucester, Attendants._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Flourish. Exeunt, Lear, Burgundy, Cornwall, Albany, Gloucester, Attendants._",
+          "start": 0.05,
+          "end": 5.79,
+          "words": [
+            {
+              "text": " Flourish.",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.85546875
+            },
+            {
+              "text": " Exeunt,",
+              "start": 1.37,
+              "end": 1.77,
+              "probability": 0.7858072916666666
+            },
+            {
+              "text": " Lear,",
+              "start": 1.83,
+              "end": 1.95,
+              "probability": 0.80859375
+            },
+            {
+              "text": " Burgundy,",
+              "start": 2.37,
+              "end": 2.63,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " Cornwall,",
+              "start": 2.99,
+              "end": 3.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Albany,",
+              "start": 3.79,
+              "end": 3.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Gloucester,",
+              "start": 4.25,
+              "end": 4.53,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " Attendants._",
+              "start": 4.63,
+              "end": 5.79,
+              "probability": 0.23145596186319986
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Flourish.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Exeunt,",
+          "start": 1.37,
+          "end": 1.77
+        },
+        {
+          "raw": "Lear,",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "raw": "Burgundy,",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "raw": "Cornwall,",
+          "start": 2.99,
+          "end": 3.13
+        },
+        {
+          "raw": "Albany,",
+          "start": 3.79,
+          "end": 3.79
+        },
+        {
+          "raw": "Gloucester,",
+          "start": 4.25,
+          "end": 4.53
+        },
+        {
+          "raw": "Attendants._",
+          "start": 4.63,
+          "end": 5.79
+        }
+      ],
+      "expected_tokens": [
+        "[_Flourish.",
+        "Exeunt",
+        "Lear,",
+        "Burgundy,",
+        "Cornwall,",
+        "Albany,",
+        "Gloucester",
+        "and",
+        "Attendants._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Flourish.",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "flourish",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Exeunt,",
+          "start": 1.37,
+          "end": 1.77,
+          "key": "exeunt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lear,",
+          "start": 1.83,
+          "end": 1.95,
+          "key": "lear",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Burgundy,",
+          "start": 2.37,
+          "end": 2.63,
+          "key": "burgundy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Cornwall,",
+          "start": 2.99,
+          "end": 3.13,
+          "key": "cornwall",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Albany,",
+          "start": 3.79,
+          "end": 3.79,
+          "key": "albany",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Gloucester,",
+          "start": 4.25,
+          "end": 4.53,
+          "key": "gloucester",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Attendants._",
+          "start": 4.63,
+          "end": 5.79,
+          "key": "attendants_",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Flourish.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Exeunt",
+          "start": 1.37,
+          "end": 1.77
+        },
+        {
+          "text": "Lear,",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "text": "Burgundy,",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "text": "Cornwall,",
+          "start": 2.99,
+          "end": 3.13
+        },
+        {
+          "text": "Albany,",
+          "start": 3.79,
+          "end": 3.79
+        },
+        {
+          "text": "Gloucester",
+          "start": 4.25,
+          "end": 4.53
+        },
+        {
+          "text": "and",
+          "start": 4.53,
+          "end": 5.16
+        },
+        {
+          "text": "Attendants._]",
+          "start": 5.16,
+          "end": 5.475
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.31493348255753517
+    },
+    {
+      "asr_seconds": 0.30156787671148777,
+      "alignment_seconds": 0.00039586424827575684,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Flourish, Exeunt Lear, Burgundy, Cornwall, Albany, Gloucester, and attendance.",
+          "start": 0.05,
+          "end": 5.05,
+          "words": [
+            {
+              "text": " Flourish,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.85546875
+            },
+            {
+              "text": " Exeunt",
+              "start": 1.39,
+              "end": 1.75,
+              "probability": 0.660400390625
+            },
+            {
+              "text": " Lear,",
+              "start": 1.75,
+              "end": 1.95,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " Burgundy,",
+              "start": 2.37,
+              "end": 2.63,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Cornwall,",
+              "start": 2.99,
+              "end": 3.13,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Albany,",
+              "start": 3.61,
+              "end": 3.79,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Gloucester,",
+              "start": 4.25,
+              "end": 4.53,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 4.63,
+              "end": 4.71,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " attendance.",
+              "start": 4.71,
+              "end": 5.05,
+              "probability": 0.6904296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Flourish,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Exeunt",
+          "start": 1.39,
+          "end": 1.75
+        },
+        {
+          "raw": "Lear,",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "raw": "Burgundy,",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "raw": "Cornwall,",
+          "start": 2.99,
+          "end": 3.13
+        },
+        {
+          "raw": "Albany,",
+          "start": 3.61,
+          "end": 3.79
+        },
+        {
+          "raw": "Gloucester,",
+          "start": 4.25,
+          "end": 4.53
+        },
+        {
+          "raw": "and",
+          "start": 4.63,
+          "end": 4.71
+        },
+        {
+          "raw": "attendance.",
+          "start": 4.71,
+          "end": 5.05
+        }
+      ],
+      "expected_tokens": [
+        "[_Flourish.",
+        "Exeunt",
+        "Lear,",
+        "Burgundy,",
+        "Cornwall,",
+        "Albany,",
+        "Gloucester",
+        "and",
+        "Attendants._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Flourish,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "flourish",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Exeunt",
+          "start": 1.39,
+          "end": 1.75,
+          "key": "exeunt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lear,",
+          "start": 1.75,
+          "end": 1.95,
+          "key": "lear",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Burgundy,",
+          "start": 2.37,
+          "end": 2.63,
+          "key": "burgundy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Cornwall,",
+          "start": 2.99,
+          "end": 3.13,
+          "key": "cornwall",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Albany,",
+          "start": 3.61,
+          "end": 3.79,
+          "key": "albany",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Gloucester,",
+          "start": 4.25,
+          "end": 4.53,
+          "key": "gloucester",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.63,
+          "end": 4.71,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "attendance.",
+          "start": 4.71,
+          "end": 5.05,
+          "key": "attendance",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Flourish.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Exeunt",
+          "start": 1.39,
+          "end": 1.75
+        },
+        {
+          "text": "Lear,",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "text": "Burgundy,",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "text": "Cornwall,",
+          "start": 2.99,
+          "end": 3.13
+        },
+        {
+          "text": "Albany,",
+          "start": 3.61,
+          "end": 3.79
+        },
+        {
+          "text": "Gloucester",
+          "start": 4.25,
+          "end": 4.53
+        },
+        {
+          "text": "and",
+          "start": 4.63,
+          "end": 4.71
+        },
+        {
+          "text": "Attendants._]",
+          "start": 4.71,
+          "end": 4.88
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.3020936008542776
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bac0c1a744a1fbeb1f6804d410e3cdfaed088d79e085b24de12acd60ecfea797",
+  "selected_reasons": []
+}

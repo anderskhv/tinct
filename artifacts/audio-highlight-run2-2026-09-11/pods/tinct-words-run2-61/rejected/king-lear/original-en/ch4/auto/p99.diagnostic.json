@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "090698a3d1bfe88b22d5e7eb00dd9f15c56942f1ba0a614d1e61d1232bcbc417",
+  "attempts": [
+    {
+      "asr_seconds": 0.23767710477113724,
+      "alignment_seconds": 0.0004684850573539734,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. An you lie, sirrah, we'll have you whipped.",
+        "hotwords": "Lear, An"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, An you lie, sirrah, we'll have you whipped.",
+          "start": 0.05,
+          "end": 2.47,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.48291015625
+            },
+            {
+              "text": " An",
+              "start": 1.11,
+              "end": 1.19,
+              "probability": 0.0009074211120605469
+            },
+            {
+              "text": " you",
+              "start": 1.19,
+              "end": 1.27,
+              "probability": 0.022308349609375
+            },
+            {
+              "text": " lie,",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " sirrah,",
+              "start": 1.65,
+              "end": 1.83,
+              "probability": 0.13782119750976562
+            },
+            {
+              "text": " we'll",
+              "start": 1.83,
+              "end": 1.99,
+              "probability": 0.666015625
+            },
+            {
+              "text": " have",
+              "start": 1.99,
+              "end": 2.07,
+              "probability": 0.98828125
+            },
+            {
+              "text": " you",
+              "start": 2.07,
+              "end": 2.21,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " whipped.",
+              "start": 2.21,
+              "end": 2.47,
+              "probability": 0.95166015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "An",
+          "start": 1.11,
+          "end": 1.19
+        },
+        {
+          "raw": "you",
+          "start": 1.19,
+          "end": 1.27
+        },
+        {
+          "raw": "lie,",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "sirrah,",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "raw": "we'll",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "raw": "have",
+          "start": 1.99,
+          "end": 2.07
+        },
+        {
+          "raw": "you",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "raw": "whipped.",
+          "start": 2.21,
+          "end": 2.47
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "An",
+        "you",
+        "lie,",
+        "sirrah,",
+        "we'll",
+        "have",
+        "you",
+        "whipped."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "An",
+          "start": 1.11,
+          "end": 1.19,
+          "key": "an",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.19,
+          "end": 1.27,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lie,",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "lie",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sirrah,",
+          "start": 1.65,
+          "end": 1.83,
+          "key": "sirrah",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "we'll",
+          "start": 1.83,
+          "end": 1.99,
+          "key": "well",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.99,
+          "end": 2.07,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.07,
+          "end": 2.21,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "whipped.",
+          "start": 2.21,
+          "end": 2.47,
+          "key": "whipped",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "An",
+          "start": 1.11,
+          "end": 1.19
+        },
+        {
+          "text": "you",
+          "start": 1.19,
+          "end": 1.27
+        },
+        {
+          "text": "lie,",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "sirrah,",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "text": "we'll",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "text": "have",
+          "start": 1.99,
+          "end": 2.07
+        },
+        {
+          "text": "you",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "text": "whipped.",
+          "start": 2.21,
+          "end": 2.47
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2383289895951748
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c167cc2bc83c12dbc3480008081b24999bac519cae2555316db50dd9aa59cc80",
+  "selected_reasons": []
+}

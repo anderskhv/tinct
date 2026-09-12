@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "d83ad629f71324593addb07ee5d5e436015910b3d424d998fb87f7b9667fe250",
+  "attempts": [
+    {
+      "asr_seconds": 0.12429172545671463,
+      "alignment_seconds": 0.0003896765410900116,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. Are you our daughter?",
+        "hotwords": "Lear, Are"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, Are you our daughter?",
+          "start": 0.02,
+          "end": 1.58,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.5732421875
+            },
+            {
+              "text": " Are",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.01165771484375
+            },
+            {
+              "text": " you",
+              "start": 1.14,
+              "end": 1.24,
+              "probability": 0.7421875
+            },
+            {
+              "text": " our",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " daughter?",
+              "start": 1.36,
+              "end": 1.58,
+              "probability": 0.60107421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Are",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "you",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "raw": "our",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "daughter?",
+          "start": 1.36,
+          "end": 1.58
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Are",
+        "you",
+        "our",
+        "daughter?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Are",
+          "start": 1.04,
+          "end": 1.14,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.14,
+          "end": 1.24,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "our",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "daughter?",
+          "start": 1.36,
+          "end": 1.58,
+          "key": "daughter",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Are",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "text": "you",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "text": "our",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "daughter?",
+          "start": 1.36,
+          "end": 1.58
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12482456490397453
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c91ad15fe4a93ee4c439ac9c96a420c7c36b01f9292ebc47167910f9b5519696",
+  "selected_reasons": []
+}

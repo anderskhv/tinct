@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "bf8f9e16520a194953839eab1737c4f35966991a4e50dd2f8e334be63612e292",
+  "attempts": [
+    {
+      "asr_seconds": 0.1232136320322752,
+      "alignment_seconds": 0.0002184789627790451,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fool",
+          "start": 0.08,
+          "end": 0.66,
+          "words": [
+            {
+              "text": " Fool",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.8056640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fool",
+          "start": 0.08,
+          "end": 0.66
+        }
+      ],
+      "expected_tokens": [
+        "Fool."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fool",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "fool",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fool.",
+          "start": 0.08,
+          "end": 0.66
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1235048659145832
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "041fd439ffd446039aa39b1deef619cda3ac4eceb5a225dfa83294f79b89c7e3",
+  "selected_reasons": []
+}

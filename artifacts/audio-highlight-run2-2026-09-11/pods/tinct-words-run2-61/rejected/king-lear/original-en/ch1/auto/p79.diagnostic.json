@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "12f218b105551660273daca3676b92ba4b1655e164cb4ce5244700b20323cc43",
+  "attempts": [
+    {
+      "asr_seconds": 0.21390417590737343,
+      "alignment_seconds": 0.0004561077803373337,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. Nothing: I have sworn; I am firm.",
+        "hotwords": "Lear, Nothing, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, Nothing, I have sworn I am firm.",
+          "start": 0.05,
+          "end": 2.81,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.5107421875
+            },
+            {
+              "text": " Nothing,",
+              "start": 1.03,
+              "end": 1.17,
+              "probability": 0.0106048583984375
+            },
+            {
+              "text": " I",
+              "start": 1.65,
+              "end": 1.73,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " have",
+              "start": 1.73,
+              "end": 1.83,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " sworn",
+              "start": 1.83,
+              "end": 2.15,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " I",
+              "start": 2.15,
+              "end": 2.43,
+              "probability": 0.896484375
+            },
+            {
+              "text": " am",
+              "start": 2.43,
+              "end": 2.53,
+              "probability": 0.98828125
+            },
+            {
+              "text": " firm.",
+              "start": 2.53,
+              "end": 2.81,
+              "probability": 0.9462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Nothing,",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "raw": "I",
+          "start": 1.65,
+          "end": 1.73
+        },
+        {
+          "raw": "have",
+          "start": 1.73,
+          "end": 1.83
+        },
+        {
+          "raw": "sworn",
+          "start": 1.83,
+          "end": 2.15
+        },
+        {
+          "raw": "I",
+          "start": 2.15,
+          "end": 2.43
+        },
+        {
+          "raw": "am",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "raw": "firm.",
+          "start": 2.53,
+          "end": 2.81
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Nothing:",
+        "I",
+        "have",
+        "sworn;",
+        "I",
+        "am",
+        "firm."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nothing,",
+          "start": 1.03,
+          "end": 1.17,
+          "key": "nothing",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.65,
+          "end": 1.73,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.73,
+          "end": 1.83,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sworn",
+          "start": 1.83,
+          "end": 2.15,
+          "key": "sworn",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.15,
+          "end": 2.43,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.43,
+          "end": 2.53,
+          "key": "am",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "firm.",
+          "start": 2.53,
+          "end": 2.81,
+          "key": "firm",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Nothing:",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "text": "I",
+          "start": 1.65,
+          "end": 1.73
+        },
+        {
+          "text": "have",
+          "start": 1.73,
+          "end": 1.83
+        },
+        {
+          "text": "sworn;",
+          "start": 1.83,
+          "end": 2.15
+        },
+        {
+          "text": "I",
+          "start": 2.15,
+          "end": 2.43
+        },
+        {
+          "text": "am",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "text": "firm.",
+          "start": 2.53,
+          "end": 2.81
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21452881209552288
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "87191ea241342f1d1fcb77096aac030b7ae799827ffa9a4378ad5dfcfb37b3c0",
+  "selected_reasons": []
+}

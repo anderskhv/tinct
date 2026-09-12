@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "4cd17c166fa327547623bf4eb7a6d5427137092c5d66de2355de02b8bf2ee347",
+  "attempts": [
+    {
+      "asr_seconds": 0.2442594077438116,
+      "alignment_seconds": 0.000539436936378479,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. Attend the lords of France and Burgundy, Gloucester.",
+        "hotwords": "Lear, Attend, France, Burgundy, Gloucester"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, Attend the lords of France and Burgundy, Gloucester.",
+          "start": 0.05,
+          "end": 3.61,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.533203125
+            },
+            {
+              "text": " Attend",
+              "start": 1.17,
+              "end": 1.39,
+              "probability": 0.0188140869140625
+            },
+            {
+              "text": " the",
+              "start": 1.39,
+              "end": 1.59,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " lords",
+              "start": 1.59,
+              "end": 1.71,
+              "probability": 0.1611328125
+            },
+            {
+              "text": " of",
+              "start": 1.71,
+              "end": 1.97,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " France",
+              "start": 1.97,
+              "end": 2.25,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " and",
+              "start": 2.25,
+              "end": 2.49,
+              "probability": 0.658203125
+            },
+            {
+              "text": " Burgundy,",
+              "start": 2.49,
+              "end": 2.97,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Gloucester.",
+              "start": 3.31,
+              "end": 3.61,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Attend",
+          "start": 1.17,
+          "end": 1.39
+        },
+        {
+          "raw": "the",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "raw": "lords",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "raw": "of",
+          "start": 1.71,
+          "end": 1.97
+        },
+        {
+          "raw": "France",
+          "start": 1.97,
+          "end": 2.25
+        },
+        {
+          "raw": "and",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "raw": "Burgundy,",
+          "start": 2.49,
+          "end": 2.97
+        },
+        {
+          "raw": "Gloucester.",
+          "start": 3.31,
+          "end": 3.61
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Attend",
+        "the",
+        "lords",
+        "of",
+        "France",
+        "and",
+        "Burgundy,",
+        "Gloucester."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Attend",
+          "start": 1.17,
+          "end": 1.39,
+          "key": "attend",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.39,
+          "end": 1.59,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lords",
+          "start": 1.59,
+          "end": 1.71,
+          "key": "lords",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.71,
+          "end": 1.97,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "France",
+          "start": 1.97,
+          "end": 2.25,
+          "key": "france",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.25,
+          "end": 2.49,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Burgundy,",
+          "start": 2.49,
+          "end": 2.97,
+          "key": "burgundy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Gloucester.",
+          "start": 3.31,
+          "end": 3.61,
+          "key": "gloucester",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Attend",
+          "start": 1.17,
+          "end": 1.39
+        },
+        {
+          "text": "the",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "text": "lords",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "text": "of",
+          "start": 1.71,
+          "end": 1.97
+        },
+        {
+          "text": "France",
+          "start": 1.97,
+          "end": 2.25
+        },
+        {
+          "text": "and",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "text": "Burgundy,",
+          "start": 2.49,
+          "end": 2.97
+        },
+        {
+          "text": "Gloucester.",
+          "start": 3.31,
+          "end": 3.61
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24500417709350586
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "66e3ec7c30163cfcc14b3bb4802d452c25968996516eac0f431339ff846fab6a",
+  "selected_reasons": []
+}

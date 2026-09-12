@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "4084223178586a8f4823c754d9c71a388fb860b72c232b48de1a13dd1d033aa7",
+  "attempts": [
+    {
+      "asr_seconds": 0.1265532486140728,
+      "alignment_seconds": 0.00023184716701507568,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. How old art thou?",
+        "hotwords": "Lear, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, How old art thou?",
+          "start": 0.02,
+          "end": 1.66,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.55419921875
+            },
+            {
+              "text": " How",
+              "start": 1.04,
+              "end": 1.06,
+              "probability": 0.0975341796875
+            },
+            {
+              "text": " old",
+              "start": 1.06,
+              "end": 1.2,
+              "probability": 0.1724853515625
+            },
+            {
+              "text": " art",
+              "start": 1.2,
+              "end": 1.4,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " thou?",
+              "start": 1.4,
+              "end": 1.66,
+              "probability": 0.978515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "How",
+          "start": 1.04,
+          "end": 1.06
+        },
+        {
+          "raw": "old",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "raw": "art",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "raw": "thou?",
+          "start": 1.4,
+          "end": 1.66
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "How",
+        "old",
+        "art",
+        "thou?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.04,
+          "end": 1.06,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 1.06,
+          "end": 1.2,
+          "key": "old",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 1.2,
+          "end": 1.4,
+          "key": "art",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou?",
+          "start": 1.4,
+          "end": 1.66,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "How",
+          "start": 1.04,
+          "end": 1.06
+        },
+        {
+          "text": "old",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "text": "art",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "text": "thou?",
+          "start": 1.4,
+          "end": 1.66
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12686743214726448
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7c9504f4bec2b21addfb774d628dd2de5f3491e6f8ee1e1d1c882d6f71a301b8",
+  "selected_reasons": []
+}

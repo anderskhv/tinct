@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "3905adb5bef292bb7d6c45c67174927c947b7baad3bcf1311d081beba1a8ea14",
+  "attempts": [
+    {
+      "asr_seconds": 0.2268687728792429,
+      "alignment_seconds": 0.0004986319690942764,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fool, let me hire him too. Here's my cockscomb.",
+          "start": 0.08,
+          "end": 3.12,
+          "words": [
+            {
+              "text": " Fool,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " let",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " me",
+              "start": 1.2,
+              "end": 1.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hire",
+              "start": 1.3,
+              "end": 1.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him",
+              "start": 1.5,
+              "end": 1.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " too.",
+              "start": 1.68,
+              "end": 1.96,
+              "probability": 0.767578125
+            },
+            {
+              "text": " Here's",
+              "start": 2.24,
+              "end": 2.42,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " my",
+              "start": 2.42,
+              "end": 2.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " cockscomb.",
+              "start": 2.52,
+              "end": 3.12,
+              "probability": 0.6138102213541666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fool,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "let",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "me",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "raw": "hire",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "raw": "him",
+          "start": 1.5,
+          "end": 1.68
+        },
+        {
+          "raw": "too.",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "raw": "Here's",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "raw": "my",
+          "start": 2.42,
+          "end": 2.52
+        },
+        {
+          "raw": "cockscomb.",
+          "start": 2.52,
+          "end": 3.12
+        }
+      ],
+      "expected_tokens": [
+        "Fool.",
+        "Let",
+        "me",
+        "hire",
+        "him",
+        "too;",
+        "here's",
+        "my",
+        "coxcomb."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fool,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "fool",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.0,
+          "end": 1.2,
+          "key": "let",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.2,
+          "end": 1.3,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hire",
+          "start": 1.3,
+          "end": 1.5,
+          "key": "hire",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.5,
+          "end": 1.68,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 1.68,
+          "end": 1.96,
+          "key": "too",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Here's",
+          "start": 2.24,
+          "end": 2.42,
+          "key": "heres",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.42,
+          "end": 2.52,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "cockscomb.",
+          "start": 2.52,
+          "end": 3.12,
+          "key": "cockscomb",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fool.",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Let",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "me",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "text": "hire",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "text": "him",
+          "start": 1.5,
+          "end": 1.68
+        },
+        {
+          "text": "too;",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "text": "here's",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "text": "my",
+          "start": 2.42,
+          "end": 2.52
+        },
+        {
+          "text": "coxcomb.",
+          "start": 2.52,
+          "end": 2.82
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.22755381651222706
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0b54df40304c94c2464822f897ce5c308c1e97e78887f2cdc48600d2a813ab08",
+  "selected_reasons": []
+}

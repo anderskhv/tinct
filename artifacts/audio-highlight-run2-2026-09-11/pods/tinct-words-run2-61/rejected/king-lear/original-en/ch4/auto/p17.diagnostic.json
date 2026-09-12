@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "7b426c09d0cee8ad1e1f69a829c4bfe0abe10c8d14d104d64b656df14ddd4772",
+  "attempts": [
+    {
+      "asr_seconds": 0.14305302128195763,
+      "alignment_seconds": 0.000293143093585968,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. What's that?",
+        "hotwords": "Lear, What's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, What's that?",
+          "start": 0.02,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.66650390625
+            },
+            {
+              "text": " What's",
+              "start": 0.92,
+              "end": 1.06,
+              "probability": 0.4958229064941406
+            },
+            {
+              "text": " that?",
+              "start": 1.06,
+              "end": 1.28,
+              "probability": 0.72900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "What's",
+          "start": 0.92,
+          "end": 1.06
+        },
+        {
+          "raw": "that?",
+          "start": 1.06,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "What's",
+        "that?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 0.92,
+          "end": 1.06,
+          "key": "whats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 1.06,
+          "end": 1.28,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "What's",
+          "start": 0.92,
+          "end": 1.06
+        },
+        {
+          "text": "that?",
+          "start": 1.06,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14347530528903008
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9a1633402dc0a7c166f2386270dc5793c2a04ce9e0df3f24d6722a746e136759",
+  "selected_reasons": []
+}

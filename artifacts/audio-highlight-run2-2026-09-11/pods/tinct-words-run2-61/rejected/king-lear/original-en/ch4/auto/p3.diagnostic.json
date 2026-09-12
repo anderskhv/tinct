@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "2cdc7a6659d35e9a9a4f2e9dbb0cf19e7c4d7604fb67a37d8d8d93a78d210982",
+  "attempts": [
+    {
+      "asr_seconds": 3.7718019392341375,
+      "alignment_seconds": 0.0005705896764993668,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. Let me not stay a jot for dinner; go get it ready.",
+        "hotwords": "Lear, Let"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, Let me not stay a jot for dinner. Go get it ready.",
+          "start": 0.02,
+          "end": 3.34,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.6748046875
+            },
+            {
+              "text": " Let",
+              "start": 1.02,
+              "end": 1.18,
+              "probability": 0.008270263671875
+            },
+            {
+              "text": " me",
+              "start": 1.18,
+              "end": 1.26,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " not",
+              "start": 1.26,
+              "end": 1.42,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " stay",
+              "start": 1.42,
+              "end": 1.64,
+              "probability": 0.98046875
+            },
+            {
+              "text": " a",
+              "start": 1.64,
+              "end": 1.76,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " jot",
+              "start": 1.76,
+              "end": 1.94,
+              "probability": 0.7568359375
+            },
+            {
+              "text": " for",
+              "start": 1.94,
+              "end": 2.12,
+              "probability": 0.98828125
+            },
+            {
+              "text": " dinner.",
+              "start": 2.12,
+              "end": 2.36,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Go",
+              "start": 2.82,
+              "end": 2.9,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " get",
+              "start": 2.9,
+              "end": 3.02,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " it",
+              "start": 3.02,
+              "end": 3.14,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " ready.",
+              "start": 3.14,
+              "end": 3.34,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Let",
+          "start": 1.02,
+          "end": 1.18
+        },
+        {
+          "raw": "me",
+          "start": 1.18,
+          "end": 1.26
+        },
+        {
+          "raw": "not",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "raw": "stay",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "raw": "a",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "raw": "jot",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "raw": "for",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "raw": "dinner.",
+          "start": 2.12,
+          "end": 2.36
+        },
+        {
+          "raw": "Go",
+          "start": 2.82,
+          "end": 2.9
+        },
+        {
+          "raw": "get",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "raw": "it",
+          "start": 3.02,
+          "end": 3.14
+        },
+        {
+          "raw": "ready.",
+          "start": 3.14,
+          "end": 3.34
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Let",
+        "me",
+        "not",
+        "stay",
+        "a",
+        "jot",
+        "for",
+        "dinner;",
+        "go",
+        "get",
+        "it",
+        "ready."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 1.02,
+          "end": 1.18,
+          "key": "let",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.18,
+          "end": 1.26,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.26,
+          "end": 1.42,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "stay",
+          "start": 1.42,
+          "end": 1.64,
+          "key": "stay",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.64,
+          "end": 1.76,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "jot",
+          "start": 1.76,
+          "end": 1.94,
+          "key": "jot",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.94,
+          "end": 2.12,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "dinner.",
+          "start": 2.12,
+          "end": 2.36,
+          "key": "dinner",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 2.82,
+          "end": 2.9,
+          "key": "go",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 2.9,
+          "end": 3.02,
+          "key": "get",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.02,
+          "end": 3.14,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ready.",
+          "start": 3.14,
+          "end": 3.34,
+          "key": "ready",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Let",
+          "start": 1.02,
+          "end": 1.18
+        },
+        {
+          "text": "me",
+          "start": 1.18,
+          "end": 1.26
+        },
+        {
+          "text": "not",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "text": "stay",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "text": "a",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "text": "jot",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "text": "for",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "text": "dinner;",
+          "start": 2.12,
+          "end": 2.36
+        },
+        {
+          "text": "go",
+          "start": 2.82,
+          "end": 2.9
+        },
+        {
+          "text": "get",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "text": "it",
+          "start": 3.02,
+          "end": 3.14
+        },
+        {
+          "text": "ready.",
+          "start": 3.14,
+          "end": 3.34
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.772624660283327
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a2b830943c2f92c70aaa7d0763f0d56caa2bd6e27aa222b6709f29421abbfb6b",
+  "selected_reasons": []
+}

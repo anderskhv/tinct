@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "438dc413e0056e3e03b371910d674c8f0bc1afb950fb8ece33c068cccfa873e4",
+  "attempts": [
+    {
+      "asr_seconds": 0.2524322383105755,
+      "alignment_seconds": 0.00043187662959098816,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oswald, I'll not be struck, my lord.",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Oswald,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.454345703125
+            },
+            {
+              "text": " I'll",
+              "start": 1.25,
+              "end": 1.37,
+              "probability": 0.970458984375
+            },
+            {
+              "text": " not",
+              "start": 1.37,
+              "end": 1.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 1.47,
+              "end": 1.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " struck,",
+              "start": 1.61,
+              "end": 1.87,
+              "probability": 0.99609375
+            },
+            {
+              "text": " my",
+              "start": 1.99,
+              "end": 2.09,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " lord.",
+              "start": 2.09,
+              "end": 2.33,
+              "probability": 0.849609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "I'll",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "raw": "not",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "raw": "be",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "raw": "struck,",
+          "start": 1.61,
+          "end": 1.87
+        },
+        {
+          "raw": "my",
+          "start": 1.99,
+          "end": 2.09
+        },
+        {
+          "raw": "lord.",
+          "start": 2.09,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "Oswald.",
+        "I'll",
+        "not",
+        "be",
+        "struck,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "oswald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.25,
+          "end": 1.37,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.37,
+          "end": 1.47,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.47,
+          "end": 1.61,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "struck,",
+          "start": 1.61,
+          "end": 1.87,
+          "key": "struck",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.99,
+          "end": 2.09,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 2.09,
+          "end": 2.33,
+          "key": "lord",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Oswald.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "I'll",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "text": "not",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "text": "be",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "text": "struck,",
+          "start": 1.61,
+          "end": 1.87
+        },
+        {
+          "text": "my",
+          "start": 1.99,
+          "end": 2.09
+        },
+        {
+          "text": "lord.",
+          "start": 2.09,
+          "end": 2.33
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25302086770534515
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5425d742b8cc63a4a16fa85784b703ef559b770ca4b7d2e92b4fdecf47db136c",
+  "selected_reasons": []
+}

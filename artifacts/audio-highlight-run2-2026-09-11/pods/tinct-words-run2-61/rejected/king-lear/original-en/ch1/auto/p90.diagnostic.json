@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "bafef1a7748dfb2da7cbf906f2834a0cce1c320319f231d58d772c761f7ebc03",
+  "attempts": [
+    {
+      "asr_seconds": 0.21375026926398277,
+      "alignment_seconds": 0.00026482343673706055,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "France. Come, my fair Cordelia.",
+        "hotwords": "France, Come, Cordelia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " France, Come, my fair Cordelia.",
+          "start": 0.08,
+          "end": 2.28,
+          "words": [
+            {
+              "text": " France,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.857421875
+            },
+            {
+              "text": " Come,",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.1082763671875
+            },
+            {
+              "text": " my",
+              "start": 1.52,
+              "end": 1.6,
+              "probability": 0.544921875
+            },
+            {
+              "text": " fair",
+              "start": 1.6,
+              "end": 1.78,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " Cordelia.",
+              "start": 1.78,
+              "end": 2.28,
+              "probability": 0.897216796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "France,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "Come,",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "my",
+          "start": 1.52,
+          "end": 1.6
+        },
+        {
+          "raw": "fair",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "raw": "Cordelia.",
+          "start": 1.78,
+          "end": 2.28
+        }
+      ],
+      "expected_tokens": [
+        "France.",
+        "Come,",
+        "my",
+        "fair",
+        "Cordelia."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "France,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "france",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.52,
+          "end": 1.6,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 1.6,
+          "end": 1.78,
+          "key": "fair",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Cordelia.",
+          "start": 1.78,
+          "end": 2.28,
+          "key": "cordelia",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "France.",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "Come,",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "my",
+          "start": 1.52,
+          "end": 1.6
+        },
+        {
+          "text": "fair",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "text": "Cordelia.",
+          "start": 1.78,
+          "end": 2.28
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2141277026385069
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "099a0ad46daa6e0ab8ccdd90477fb0348dbe8e9e592dc68a2ba4851a24ac748c",
+  "selected_reasons": []
+}

@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "1d19f6bc184ee74f33b8d73593ef9aa5d651ea6f86314bd3c2daacae2b8c2629",
+  "attempts": [
+    {
+      "asr_seconds": 0.23837804608047009,
+      "alignment_seconds": 0.0005763769149780273,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. Better thou hadst Not been born than not to have pleas'd me better.",
+        "hotwords": "Lear"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear. Better thou hadst Not been born than not to have pleas'd me better.",
+          "start": 0.05,
+          "end": 4.03,
+          "words": [
+            {
+              "text": " Lear.",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.414794921875
+            },
+            {
+              "text": " Better",
+              "start": 1.15,
+              "end": 1.45,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " thou",
+              "start": 1.45,
+              "end": 1.69,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " hadst",
+              "start": 1.69,
+              "end": 2.05,
+              "probability": 0.958251953125
+            },
+            {
+              "text": " Not",
+              "start": 2.05,
+              "end": 2.19,
+              "probability": 0.0002123117446899414
+            },
+            {
+              "text": " been",
+              "start": 2.19,
+              "end": 2.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " born",
+              "start": 2.33,
+              "end": 2.63,
+              "probability": 0.91015625
+            },
+            {
+              "text": " than",
+              "start": 2.63,
+              "end": 2.85,
+              "probability": 0.2437744140625
+            },
+            {
+              "text": " not",
+              "start": 2.85,
+              "end": 3.05,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " to",
+              "start": 3.05,
+              "end": 3.17,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " have",
+              "start": 3.17,
+              "end": 3.27,
+              "probability": 0.720703125
+            },
+            {
+              "text": " pleas'd",
+              "start": 3.27,
+              "end": 3.67,
+              "probability": 0.4841766357421875
+            },
+            {
+              "text": " me",
+              "start": 3.67,
+              "end": 3.77,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " better.",
+              "start": 3.77,
+              "end": 4.03,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Better",
+          "start": 1.15,
+          "end": 1.45
+        },
+        {
+          "raw": "thou",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "raw": "hadst",
+          "start": 1.69,
+          "end": 2.05
+        },
+        {
+          "raw": "Not",
+          "start": 2.05,
+          "end": 2.19
+        },
+        {
+          "raw": "been",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "raw": "born",
+          "start": 2.33,
+          "end": 2.63
+        },
+        {
+          "raw": "than",
+          "start": 2.63,
+          "end": 2.85
+        },
+        {
+          "raw": "not",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "raw": "to",
+          "start": 3.05,
+          "end": 3.17
+        },
+        {
+          "raw": "have",
+          "start": 3.17,
+          "end": 3.27
+        },
+        {
+          "raw": "pleas'd",
+          "start": 3.27,
+          "end": 3.67
+        },
+        {
+          "raw": "me",
+          "start": 3.67,
+          "end": 3.77
+        },
+        {
+          "raw": "better.",
+          "start": 3.77,
+          "end": 4.03
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Better",
+        "thou",
+        "hadst",
+        "Not",
+        "been",
+        "born",
+        "than",
+        "not",
+        "to",
+        "have",
+        "pleas'd",
+        "me",
+        "better."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear.",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Better",
+          "start": 1.15,
+          "end": 1.45,
+          "key": "better",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.45,
+          "end": 1.69,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hadst",
+          "start": 1.69,
+          "end": 2.05,
+          "key": "hadst",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 2.05,
+          "end": 2.19,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 2.19,
+          "end": 2.33,
+          "key": "been",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "born",
+          "start": 2.33,
+          "end": 2.63,
+          "key": "born",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.63,
+          "end": 2.85,
+          "key": "than",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.85,
+          "end": 3.05,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.05,
+          "end": 3.17,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.17,
+          "end": 3.27,
+          "key": "have",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "pleas'd",
+          "start": 3.27,
+          "end": 3.67,
+          "key": "pleasd",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.67,
+          "end": 3.77,
+          "key": "me",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "better.",
+          "start": 3.77,
+          "end": 4.03,
+          "key": "better",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Better",
+          "start": 1.15,
+          "end": 1.45
+        },
+        {
+          "text": "thou",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "text": "hadst",
+          "start": 1.69,
+          "end": 2.05
+        },
+        {
+          "text": "Not",
+          "start": 2.05,
+          "end": 2.19
+        },
+        {
+          "text": "been",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "text": "born",
+          "start": 2.33,
+          "end": 2.63
+        },
+        {
+          "text": "than",
+          "start": 2.63,
+          "end": 2.85
+        },
+        {
+          "text": "not",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "text": "to",
+          "start": 3.05,
+          "end": 3.17
+        },
+        {
+          "text": "have",
+          "start": 3.17,
+          "end": 3.27
+        },
+        {
+          "text": "pleas'd",
+          "start": 3.27,
+          "end": 3.67
+        },
+        {
+          "text": "me",
+          "start": 3.67,
+          "end": 3.77
+        },
+        {
+          "text": "better.",
+          "start": 3.77,
+          "end": 4.03
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23918148316442966
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "834eecb384df1cb38311569fb48d2294c2b8d0b55cc58ab3df0502c1c5a61f35",
+  "selected_reasons": []
+}

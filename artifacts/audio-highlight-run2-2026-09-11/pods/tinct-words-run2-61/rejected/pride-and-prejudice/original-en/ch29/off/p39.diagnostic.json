@@ -1,0 +1,247 @@
+{
+  "complete": true,
+  "signature": "c16448e3ac9698b9a5966ca74f381274ad9b791234ae4b5aedcf55ad405cc8cb",
+  "attempts": [
+    {
+      "asr_seconds": 0.13597761653363705,
+      "alignment_seconds": 0.00040412135422229767,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I am not one in twenty.",
+          "start": 0.02,
+          "end": 1.46,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.880859375
+            },
+            {
+              "text": " am",
+              "start": 0.52,
+              "end": 0.6,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " not",
+              "start": 0.6,
+              "end": 0.76,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " one",
+              "start": 0.76,
+              "end": 0.94,
+              "probability": 0.64306640625
+            },
+            {
+              "text": " in",
+              "start": 0.94,
+              "end": 1.1,
+              "probability": 0.953125
+            },
+            {
+              "text": " twenty.",
+              "start": 1.1,
+              "end": 1.46,
+              "probability": 0.6708984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "am",
+          "start": 0.52,
+          "end": 0.6
+        },
+        {
+          "raw": "not",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "raw": "one",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "raw": "in",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "raw": "twenty.",
+          "start": 1.1,
+          "end": 1.46
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "am",
+        "not",
+        "one-and-twenty.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.52,
+          "end": 0.6,
+          "key": "am",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.6,
+          "end": 0.76,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 0.76,
+          "end": 0.94,
+          "key": "one",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.94,
+          "end": 1.1,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "twenty.",
+          "start": 1.1,
+          "end": 1.46,
+          "key": "twenty",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "am",
+          "start": 0.52,
+          "end": 0.6
+        },
+        {
+          "text": "not",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "text": "one-and-twenty.\"",
+          "start": 0.76,
+          "end": 1.11
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13652312383055687
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "83fb101c72d8bb17526d2d4953f6917aadffae2e5654da847d1bf227dfffd127",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

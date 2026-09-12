@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "9c1320abacd9607bacb0592c50f543ad185ac3838a672975bc7f3cca57e226d4",
+  "attempts": [
+    {
+      "asr_seconds": 0.12368376180529594,
+      "alignment_seconds": 0.00015730597078800201,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Giving Kent his cap.",
+          "start": 0.02,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " Giving",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.378662109375
+            },
+            {
+              "text": " Kent",
+              "start": 0.6,
+              "end": 0.86,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " his",
+              "start": 0.86,
+              "end": 1.04,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " cap.",
+              "start": 1.04,
+              "end": 1.32,
+              "probability": 0.97900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Giving",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "Kent",
+          "start": 0.6,
+          "end": 0.86
+        },
+        {
+          "raw": "his",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "raw": "cap.",
+          "start": 1.04,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "[_Giving",
+        "Kent",
+        "his",
+        "cap._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Giving",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "giving",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Kent",
+          "start": 0.6,
+          "end": 0.86,
+          "key": "kent",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.86,
+          "end": 1.04,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cap.",
+          "start": 1.04,
+          "end": 1.32,
+          "key": "cap",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Giving",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "Kent",
+          "start": 0.6,
+          "end": 0.86
+        },
+        {
+          "text": "his",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "text": "cap._]",
+          "start": 1.04,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12389786168932915
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "af0bdeb39ff7f3488a7a7f08565bbb864cf54227fd4140dec865363daf6f246b",
+  "selected_reasons": []
+}

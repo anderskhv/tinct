@@ -1,0 +1,227 @@
+{
+  "complete": true,
+  "signature": "efee0361e0e9bfd063a7f12e21fd8fcdde881cfe2e1c85c7ee7343c737b4431e",
+  "attempts": [
+    {
+      "asr_seconds": 0.16129228100180626,
+      "alignment_seconds": 0.00018494576215744019,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A side, then poor Cordelia.",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.142333984375
+            },
+            {
+              "text": " side,",
+              "start": 0.49,
+              "end": 0.83,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " then",
+              "start": 1.21,
+              "end": 1.37,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " poor",
+              "start": 1.37,
+              "end": 1.61,
+              "probability": 0.978515625
+            },
+            {
+              "text": " Cordelia.",
+              "start": 1.61,
+              "end": 2.07,
+              "probability": 0.974365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "side,",
+          "start": 0.49,
+          "end": 0.83
+        },
+        {
+          "raw": "then",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "raw": "poor",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "raw": "Cordelia.",
+          "start": 1.61,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside._]",
+        "Then",
+        "poor",
+        "Cordelia,"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          4,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "side,",
+          "start": 0.49,
+          "end": 0.83,
+          "key": "side",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.21,
+          "end": 1.37,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 1.37,
+          "end": 1.61,
+          "key": "poor",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Cordelia.",
+          "start": 1.61,
+          "end": 2.07,
+          "key": "cordelia",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside._]",
+          "start": 0.0,
+          "end": 0.605
+        },
+        {
+          "text": "Then",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "text": "poor",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "text": "Cordelia,",
+          "start": 1.61,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16154132597148418
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c381b84030b67c7133290c0c2b38bd1a2efc7188cd4282c9e0cd487526cc6cd5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,513 @@
+{
+  "complete": true,
+  "signature": "bd152f7d7b1eedbac7e03f08a1baa6d324efb7b89231a9aa048a7a646d2290c0",
+  "attempts": [
+    {
+      "asr_seconds": 0.26224372535943985,
+      "alignment_seconds": 0.0007382407784461975,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Kent. A very honest-hearted fellow, and as poor as the King.",
+        "hotwords": "Kent, A, King"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Kent, A, King Kent. A very honest-hearted fellow, and as poor as the King.",
+          "start": 0.05,
+          "end": 3.53,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.908203125
+            },
+            {
+              "text": " A,",
+              "start": 1.09,
+              "end": 1.23,
+              "probability": 0.04669189453125
+            },
+            {
+              "text": " King",
+              "start": 1.33,
+              "end": 1.49,
+              "probability": 1.0132789611816406e-06
+            },
+            {
+              "text": " Kent.",
+              "start": 1.49,
+              "end": 1.49,
+              "probability": 0.005435943603515625
+            },
+            {
+              "text": " A",
+              "start": 1.49,
+              "end": 1.49,
+              "probability": 0.69921875
+            },
+            {
+              "text": " very",
+              "start": 1.49,
+              "end": 1.49,
+              "probability": 0.37060546875
+            },
+            {
+              "text": " honest",
+              "start": 1.49,
+              "end": 1.81,
+              "probability": 0.97021484375
+            },
+            {
+              "text": "-hearted",
+              "start": 1.81,
+              "end": 2.07,
+              "probability": 0.66455078125
+            },
+            {
+              "text": " fellow,",
+              "start": 2.07,
+              "end": 2.45,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " and",
+              "start": 2.77,
+              "end": 2.77,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " as",
+              "start": 2.77,
+              "end": 2.91,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " poor",
+              "start": 2.91,
+              "end": 3.07,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " as",
+              "start": 3.07,
+              "end": 3.23,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 3.23,
+              "end": 3.33,
+              "probability": 0.916015625
+            },
+            {
+              "text": " King.",
+              "start": 3.33,
+              "end": 3.53,
+              "probability": 0.3505859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "A,",
+          "start": 1.09,
+          "end": 1.23
+        },
+        {
+          "raw": "King",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "raw": "Kent.",
+          "start": 1.49,
+          "end": 1.49
+        },
+        {
+          "raw": "A",
+          "start": 1.49,
+          "end": 1.49
+        },
+        {
+          "raw": "very",
+          "start": 1.49,
+          "end": 1.49
+        },
+        {
+          "raw": "honest",
+          "start": 1.49,
+          "end": 1.81
+        },
+        {
+          "raw": "-hearted",
+          "start": 1.81,
+          "end": 2.07
+        },
+        {
+          "raw": "fellow,",
+          "start": 2.07,
+          "end": 2.45
+        },
+        {
+          "raw": "and",
+          "start": 2.77,
+          "end": 2.77
+        },
+        {
+          "raw": "as",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "raw": "poor",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "raw": "as",
+          "start": 3.07,
+          "end": 3.23
+        },
+        {
+          "raw": "the",
+          "start": 3.23,
+          "end": 3.33
+        },
+        {
+          "raw": "King.",
+          "start": 3.33,
+          "end": 3.53
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "A",
+        "very",
+        "honest-hearted",
+        "fellow,",
+        "and",
+        "as",
+        "poor",
+        "as",
+        "the",
+        "King."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          3
+        ],
+        [
+          "equal",
+          0,
+          11,
+          3,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "A,",
+          "start": 1.09,
+          "end": 1.23,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "King",
+          "start": 1.33,
+          "end": 1.49,
+          "key": "king",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Kent.",
+          "start": 1.49,
+          "end": 1.49,
+          "key": "kent",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.49,
+          "end": 1.49,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 1.49,
+          "end": 1.49,
+          "key": "very",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "honest -hearted",
+          "start": 1.49,
+          "end": 2.07,
+          "key": "honesthearted",
+          "pieces": [
+            6,
+            7
+          ]
+        },
+        {
+          "raw": "fellow,",
+          "start": 2.07,
+          "end": 2.45,
+          "key": "fellow",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.77,
+          "end": 2.77,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.77,
+          "end": 2.91,
+          "key": "as",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 2.91,
+          "end": 3.07,
+          "key": "poor",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.07,
+          "end": 3.23,
+          "key": "as",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.23,
+          "end": 3.33,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "King.",
+          "start": 3.33,
+          "end": 3.53,
+          "key": "king",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 3,
+          "text": "honest-hearted",
+          "heard": "honest -hearted",
+          "heard_indexes": [
+            6,
+            7
+          ],
+          "start": 1.49,
+          "end": 2.07
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 1.49,
+          "end": 1.49
+        },
+        {
+          "text": "A",
+          "start": 1.49,
+          "end": 1.49
+        },
+        {
+          "text": "very",
+          "start": 1.49,
+          "end": 1.49
+        },
+        {
+          "text": "honest-hearted",
+          "start": 1.49,
+          "end": 2.07
+        },
+        {
+          "text": "fellow,",
+          "start": 2.07,
+          "end": 2.45
+        },
+        {
+          "text": "and",
+          "start": 2.77,
+          "end": 2.77
+        },
+        {
+          "text": "as",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "text": "poor",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "text": "as",
+          "start": 3.07,
+          "end": 3.23
+        },
+        {
+          "text": "the",
+          "start": 3.23,
+          "end": 3.33
+        },
+        {
+          "text": "King.",
+          "start": 3.33,
+          "end": 3.53
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 14,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2632531560957432
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "49c0d68fd62d51846c4987682b20a4e030233d4419f8d8e665b04c2657e64c3f",
+  "selected_reasons": []
+}

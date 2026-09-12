@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "ea1d3cb2338fd620bbee1a766a515a657957e2ca53d0c11684d97199735bdee4",
+  "attempts": [
+    {
+      "asr_seconds": 0.19462654367089272,
+      "alignment_seconds": 0.0005521979182958603,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Knight. Sir, he answered me in the roundest manner, he would not.",
+        "hotwords": "Knight, Sir"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Knight, Sir, he answered me in the roundest manner, he would not.",
+          "start": 0.05,
+          "end": 3.93,
+          "words": [
+            {
+              "text": " Knight,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.0687255859375
+            },
+            {
+              "text": " Sir,",
+              "start": 0.97,
+              "end": 1.27,
+              "probability": 0.1973876953125
+            },
+            {
+              "text": " he",
+              "start": 1.71,
+              "end": 1.81,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " answered",
+              "start": 1.81,
+              "end": 2.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me",
+              "start": 2.13,
+              "end": 2.33,
+              "probability": 0.9921875
+            },
+            {
+              "text": " in",
+              "start": 2.33,
+              "end": 2.43,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 2.43,
+              "end": 2.53,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " roundest",
+              "start": 2.53,
+              "end": 2.91,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " manner,",
+              "start": 2.91,
+              "end": 3.21,
+              "probability": 0.994140625
+            },
+            {
+              "text": " he",
+              "start": 3.43,
+              "end": 3.51,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " would",
+              "start": 3.51,
+              "end": 3.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not.",
+              "start": 3.65,
+              "end": 3.93,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Knight,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Sir,",
+          "start": 0.97,
+          "end": 1.27
+        },
+        {
+          "raw": "he",
+          "start": 1.71,
+          "end": 1.81
+        },
+        {
+          "raw": "answered",
+          "start": 1.81,
+          "end": 2.13
+        },
+        {
+          "raw": "me",
+          "start": 2.13,
+          "end": 2.33
+        },
+        {
+          "raw": "in",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "raw": "the",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "raw": "roundest",
+          "start": 2.53,
+          "end": 2.91
+        },
+        {
+          "raw": "manner,",
+          "start": 2.91,
+          "end": 3.21
+        },
+        {
+          "raw": "he",
+          "start": 3.43,
+          "end": 3.51
+        },
+        {
+          "raw": "would",
+          "start": 3.51,
+          "end": 3.65
+        },
+        {
+          "raw": "not.",
+          "start": 3.65,
+          "end": 3.93
+        }
+      ],
+      "expected_tokens": [
+        "Knight.",
+        "Sir,",
+        "he",
+        "answered",
+        "me",
+        "in",
+        "the",
+        "roundest",
+        "manner,",
+        "he",
+        "would",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Knight,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "knight",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir,",
+          "start": 0.97,
+          "end": 1.27,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.71,
+          "end": 1.81,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "answered",
+          "start": 1.81,
+          "end": 2.13,
+          "key": "answered",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.13,
+          "end": 2.33,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.33,
+          "end": 2.43,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.43,
+          "end": 2.53,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "roundest",
+          "start": 2.53,
+          "end": 2.91,
+          "key": "roundest",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "manner,",
+          "start": 2.91,
+          "end": 3.21,
+          "key": "manner",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.43,
+          "end": 3.51,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 3.51,
+          "end": 3.65,
+          "key": "would",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 3.65,
+          "end": 3.93,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Knight.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Sir,",
+          "start": 0.97,
+          "end": 1.27
+        },
+        {
+          "text": "he",
+          "start": 1.71,
+          "end": 1.81
+        },
+        {
+          "text": "answered",
+          "start": 1.81,
+          "end": 2.13
+        },
+        {
+          "text": "me",
+          "start": 2.13,
+          "end": 2.33
+        },
+        {
+          "text": "in",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "text": "the",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "text": "roundest",
+          "start": 2.53,
+          "end": 2.91
+        },
+        {
+          "text": "manner,",
+          "start": 2.91,
+          "end": 3.21
+        },
+        {
+          "text": "he",
+          "start": 3.43,
+          "end": 3.51
+        },
+        {
+          "text": "would",
+          "start": 3.51,
+          "end": 3.65
+        },
+        {
+          "text": "not.",
+          "start": 3.65,
+          "end": 3.93
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.195402717217803
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "30534cc480d056022de81bed7c09ba476a19329333d1bdd60ced88b5be64cf05",
+  "selected_reasons": []
+}

@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "b97df60be0b06c80f41eadef974cbcf7edd407d7eb239e864d97b7815d612e23",
+  "attempts": [
+    {
+      "asr_seconds": 0.2835088074207306,
+      "alignment_seconds": 0.0005412343889474869,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Regan. Such unconstant starts are we like to have from him as this of Kent's banishment.",
+        "hotwords": "Regan, Such, Kent's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Regan, Such unconstant starts are we like to have from him as this of Kent's banishment.",
+          "start": 0.05,
+          "end": 5.49,
+          "words": [
+            {
+              "text": " Regan,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.5966796875
+            },
+            {
+              "text": " Such",
+              "start": 1.31,
+              "end": 1.65,
+              "probability": 0.045196533203125
+            },
+            {
+              "text": " unconstant",
+              "start": 1.65,
+              "end": 2.45,
+              "probability": 0.8621419270833334
+            },
+            {
+              "text": " starts",
+              "start": 2.45,
+              "end": 2.77,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " are",
+              "start": 2.77,
+              "end": 3.03,
+              "probability": 0.8134765625
+            },
+            {
+              "text": " we",
+              "start": 3.03,
+              "end": 3.17,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " like",
+              "start": 3.17,
+              "end": 3.31,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " to",
+              "start": 3.31,
+              "end": 3.47,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " have",
+              "start": 3.47,
+              "end": 3.63,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " from",
+              "start": 3.63,
+              "end": 3.81,
+              "probability": 0.9765625
+            },
+            {
+              "text": " him",
+              "start": 3.81,
+              "end": 4.01,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " as",
+              "start": 4.01,
+              "end": 4.21,
+              "probability": 0.947265625
+            },
+            {
+              "text": " this",
+              "start": 4.21,
+              "end": 4.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 4.45,
+              "end": 4.65,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Kent's",
+              "start": 4.65,
+              "end": 5.05,
+              "probability": 0.90625
+            },
+            {
+              "text": " banishment.",
+              "start": 5.05,
+              "end": 5.49,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Such",
+          "start": 1.31,
+          "end": 1.65
+        },
+        {
+          "raw": "unconstant",
+          "start": 1.65,
+          "end": 2.45
+        },
+        {
+          "raw": "starts",
+          "start": 2.45,
+          "end": 2.77
+        },
+        {
+          "raw": "are",
+          "start": 2.77,
+          "end": 3.03
+        },
+        {
+          "raw": "we",
+          "start": 3.03,
+          "end": 3.17
+        },
+        {
+          "raw": "like",
+          "start": 3.17,
+          "end": 3.31
+        },
+        {
+          "raw": "to",
+          "start": 3.31,
+          "end": 3.47
+        },
+        {
+          "raw": "have",
+          "start": 3.47,
+          "end": 3.63
+        },
+        {
+          "raw": "from",
+          "start": 3.63,
+          "end": 3.81
+        },
+        {
+          "raw": "him",
+          "start": 3.81,
+          "end": 4.01
+        },
+        {
+          "raw": "as",
+          "start": 4.01,
+          "end": 4.21
+        },
+        {
+          "raw": "this",
+          "start": 4.21,
+          "end": 4.45
+        },
+        {
+          "raw": "of",
+          "start": 4.45,
+          "end": 4.65
+        },
+        {
+          "raw": "Kent's",
+          "start": 4.65,
+          "end": 5.05
+        },
+        {
+          "raw": "banishment.",
+          "start": 5.05,
+          "end": 5.49
+        }
+      ],
+      "expected_tokens": [
+        "Regan.",
+        "Such",
+        "unconstant",
+        "starts",
+        "are",
+        "we",
+        "like",
+        "to",
+        "have",
+        "from",
+        "him",
+        "as",
+        "this",
+        "of",
+        "Kent's",
+        "banishment."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "regan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Such",
+          "start": 1.31,
+          "end": 1.65,
+          "key": "such",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "unconstant",
+          "start": 1.65,
+          "end": 2.45,
+          "key": "unconstant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "starts",
+          "start": 2.45,
+          "end": 2.77,
+          "key": "starts",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.77,
+          "end": 3.03,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 3.03,
+          "end": 3.17,
+          "key": "we",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.17,
+          "end": 3.31,
+          "key": "like",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.31,
+          "end": 3.47,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.47,
+          "end": 3.63,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.63,
+          "end": 3.81,
+          "key": "from",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.81,
+          "end": 4.01,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.01,
+          "end": 4.21,
+          "key": "as",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.21,
+          "end": 4.45,
+          "key": "this",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.45,
+          "end": 4.65,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Kent's",
+          "start": 4.65,
+          "end": 5.05,
+          "key": "kents",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "banishment.",
+          "start": 5.05,
+          "end": 5.49,
+          "key": "banishment",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Regan.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Such",
+          "start": 1.31,
+          "end": 1.65
+        },
+        {
+          "text": "unconstant",
+          "start": 1.65,
+          "end": 2.45
+        },
+        {
+          "text": "starts",
+          "start": 2.45,
+          "end": 2.77
+        },
+        {
+          "text": "are",
+          "start": 2.77,
+          "end": 3.03
+        },
+        {
+          "text": "we",
+          "start": 3.03,
+          "end": 3.17
+        },
+        {
+          "text": "like",
+          "start": 3.17,
+          "end": 3.31
+        },
+        {
+          "text": "to",
+          "start": 3.31,
+          "end": 3.47
+        },
+        {
+          "text": "have",
+          "start": 3.47,
+          "end": 3.63
+        },
+        {
+          "text": "from",
+          "start": 3.63,
+          "end": 3.81
+        },
+        {
+          "text": "him",
+          "start": 3.81,
+          "end": 4.01
+        },
+        {
+          "text": "as",
+          "start": 4.01,
+          "end": 4.21
+        },
+        {
+          "text": "this",
+          "start": 4.21,
+          "end": 4.45
+        },
+        {
+          "text": "of",
+          "start": 4.45,
+          "end": 4.65
+        },
+        {
+          "text": "Kent's",
+          "start": 4.65,
+          "end": 5.05
+        },
+        {
+          "text": "banishment.",
+          "start": 5.05,
+          "end": 5.49
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28430331125855446
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d10f8982cf4a59fd5e41a85e17193cf0d3f52cd1c61fb48ba44a7cf06acf9ef0",
+  "selected_reasons": []
+}

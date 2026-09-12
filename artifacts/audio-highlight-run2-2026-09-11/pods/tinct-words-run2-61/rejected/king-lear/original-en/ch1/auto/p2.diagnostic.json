@@ -1,0 +1,1374 @@
+{
+  "complete": true,
+  "signature": "16462e6ed58295c2fa1a77a572965e646d2f829dfb1aa4a42bd8fb6ca79a317e",
+  "attempts": [
+    {
+      "asr_seconds": 0.45416799560189247,
+      "alignment_seconds": 0.0009090807288885117,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gloucester. It did always seem so to us; but now, in the division of the kingdom, it appears not which of the Dukes he values most, for qualities are so weighed that curiosity in neither can make choice of either's moiety.",
+        "hotwords": "Gloucester, Dukes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gloucester. It did always seem so to us. But now, in the division of the kingdom, it appears not which of the Dukes he values most, for qualities are so weighed that curiosity in neither can make choice of either's moiety.",
+          "start": 0.02,
+          "end": 13.1,
+          "words": [
+            {
+              "text": " Gloucester.",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.745849609375
+            },
+            {
+              "text": " It",
+              "start": 1.4,
+              "end": 1.54,
+              "probability": 0.984375
+            },
+            {
+              "text": " did",
+              "start": 1.54,
+              "end": 1.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " always",
+              "start": 1.64,
+              "end": 1.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " seem",
+              "start": 1.96,
+              "end": 2.26,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " so",
+              "start": 2.26,
+              "end": 2.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 2.54,
+              "end": 2.7,
+              "probability": 0.9921875
+            },
+            {
+              "text": " us.",
+              "start": 2.7,
+              "end": 2.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " But",
+              "start": 3.52,
+              "end": 3.62,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " now,",
+              "start": 3.62,
+              "end": 3.92,
+              "probability": 0.990234375
+            },
+            {
+              "text": " in",
+              "start": 4.14,
+              "end": 4.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 4.3,
+              "end": 4.4,
+              "probability": 0.98828125
+            },
+            {
+              "text": " division",
+              "start": 4.4,
+              "end": 4.7,
+              "probability": 0.845703125
+            },
+            {
+              "text": " of",
+              "start": 4.7,
+              "end": 4.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 4.9,
+              "end": 5.02,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " kingdom,",
+              "start": 5.02,
+              "end": 5.24,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " it",
+              "start": 5.68,
+              "end": 5.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " appears",
+              "start": 5.74,
+              "end": 6.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " not",
+              "start": 6.06,
+              "end": 6.42,
+              "probability": 0.994140625
+            },
+            {
+              "text": " which",
+              "start": 6.42,
+              "end": 6.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 6.62,
+              "end": 6.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.76,
+              "end": 6.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Dukes",
+              "start": 6.88,
+              "end": 7.16,
+              "probability": 0.5206298828125
+            },
+            {
+              "text": " he",
+              "start": 7.16,
+              "end": 7.28,
+              "probability": 0.96875
+            },
+            {
+              "text": " values",
+              "start": 7.28,
+              "end": 7.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " most,",
+              "start": 7.62,
+              "end": 8.12,
+              "probability": 0.99609375
+            },
+            {
+              "text": " for",
+              "start": 8.6,
+              "end": 8.78,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " qualities",
+              "start": 8.78,
+              "end": 9.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " are",
+              "start": 9.18,
+              "end": 9.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " so",
+              "start": 9.38,
+              "end": 9.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " weighed",
+              "start": 9.68,
+              "end": 10.02,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " that",
+              "start": 10.02,
+              "end": 10.3,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " curiosity",
+              "start": 10.3,
+              "end": 10.8,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 10.8,
+              "end": 11.24,
+              "probability": 0.66552734375
+            },
+            {
+              "text": " neither",
+              "start": 11.24,
+              "end": 11.44,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " can",
+              "start": 11.44,
+              "end": 11.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " make",
+              "start": 11.7,
+              "end": 11.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " choice",
+              "start": 11.88,
+              "end": 12.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 12.18,
+              "end": 12.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " either's",
+              "start": 12.44,
+              "end": 12.78,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " moiety.",
+              "start": 12.78,
+              "end": 13.1,
+              "probability": 0.96826171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gloucester.",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "It",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "raw": "did",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "raw": "always",
+          "start": 1.64,
+          "end": 1.96
+        },
+        {
+          "raw": "seem",
+          "start": 1.96,
+          "end": 2.26
+        },
+        {
+          "raw": "so",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "raw": "to",
+          "start": 2.54,
+          "end": 2.7
+        },
+        {
+          "raw": "us.",
+          "start": 2.7,
+          "end": 2.96
+        },
+        {
+          "raw": "But",
+          "start": 3.52,
+          "end": 3.62
+        },
+        {
+          "raw": "now,",
+          "start": 3.62,
+          "end": 3.92
+        },
+        {
+          "raw": "in",
+          "start": 4.14,
+          "end": 4.3
+        },
+        {
+          "raw": "the",
+          "start": 4.3,
+          "end": 4.4
+        },
+        {
+          "raw": "division",
+          "start": 4.4,
+          "end": 4.7
+        },
+        {
+          "raw": "of",
+          "start": 4.7,
+          "end": 4.9
+        },
+        {
+          "raw": "the",
+          "start": 4.9,
+          "end": 5.02
+        },
+        {
+          "raw": "kingdom,",
+          "start": 5.02,
+          "end": 5.24
+        },
+        {
+          "raw": "it",
+          "start": 5.68,
+          "end": 5.74
+        },
+        {
+          "raw": "appears",
+          "start": 5.74,
+          "end": 6.06
+        },
+        {
+          "raw": "not",
+          "start": 6.06,
+          "end": 6.42
+        },
+        {
+          "raw": "which",
+          "start": 6.42,
+          "end": 6.62
+        },
+        {
+          "raw": "of",
+          "start": 6.62,
+          "end": 6.76
+        },
+        {
+          "raw": "the",
+          "start": 6.76,
+          "end": 6.88
+        },
+        {
+          "raw": "Dukes",
+          "start": 6.88,
+          "end": 7.16
+        },
+        {
+          "raw": "he",
+          "start": 7.16,
+          "end": 7.28
+        },
+        {
+          "raw": "values",
+          "start": 7.28,
+          "end": 7.62
+        },
+        {
+          "raw": "most,",
+          "start": 7.62,
+          "end": 8.12
+        },
+        {
+          "raw": "for",
+          "start": 8.6,
+          "end": 8.78
+        },
+        {
+          "raw": "qualities",
+          "start": 8.78,
+          "end": 9.18
+        },
+        {
+          "raw": "are",
+          "start": 9.18,
+          "end": 9.38
+        },
+        {
+          "raw": "so",
+          "start": 9.38,
+          "end": 9.68
+        },
+        {
+          "raw": "weighed",
+          "start": 9.68,
+          "end": 10.02
+        },
+        {
+          "raw": "that",
+          "start": 10.02,
+          "end": 10.3
+        },
+        {
+          "raw": "curiosity",
+          "start": 10.3,
+          "end": 10.8
+        },
+        {
+          "raw": "in",
+          "start": 10.8,
+          "end": 11.24
+        },
+        {
+          "raw": "neither",
+          "start": 11.24,
+          "end": 11.44
+        },
+        {
+          "raw": "can",
+          "start": 11.44,
+          "end": 11.7
+        },
+        {
+          "raw": "make",
+          "start": 11.7,
+          "end": 11.88
+        },
+        {
+          "raw": "choice",
+          "start": 11.88,
+          "end": 12.18
+        },
+        {
+          "raw": "of",
+          "start": 12.18,
+          "end": 12.44
+        },
+        {
+          "raw": "either's",
+          "start": 12.44,
+          "end": 12.78
+        },
+        {
+          "raw": "moiety.",
+          "start": 12.78,
+          "end": 13.1
+        }
+      ],
+      "expected_tokens": [
+        "Gloucester.",
+        "It",
+        "did",
+        "always",
+        "seem",
+        "so",
+        "to",
+        "us;",
+        "but",
+        "now,",
+        "in",
+        "the",
+        "division",
+        "of",
+        "the",
+        "kingdom,",
+        "it",
+        "appears",
+        "not",
+        "which",
+        "of",
+        "the",
+        "Dukes",
+        "he",
+        "values",
+        "most,",
+        "for",
+        "qualities",
+        "are",
+        "so",
+        "weighed",
+        "that",
+        "curiosity",
+        "in",
+        "neither",
+        "can",
+        "make",
+        "choice",
+        "of",
+        "either's",
+        "moiety."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          41,
+          0,
+          41
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gloucester.",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "gloucester",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 1.4,
+          "end": 1.54,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.54,
+          "end": 1.64,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "always",
+          "start": 1.64,
+          "end": 1.96,
+          "key": "always",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 1.96,
+          "end": 2.26,
+          "key": "seem",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.26,
+          "end": 2.54,
+          "key": "so",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.54,
+          "end": 2.7,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "us.",
+          "start": 2.7,
+          "end": 2.96,
+          "key": "us",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 3.52,
+          "end": 3.62,
+          "key": "but",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 3.62,
+          "end": 3.92,
+          "key": "now",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.14,
+          "end": 4.3,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.3,
+          "end": 4.4,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "division",
+          "start": 4.4,
+          "end": 4.7,
+          "key": "division",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.7,
+          "end": 4.9,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.9,
+          "end": 5.02,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "kingdom,",
+          "start": 5.02,
+          "end": 5.24,
+          "key": "kingdom",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.68,
+          "end": 5.74,
+          "key": "it",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "appears",
+          "start": 5.74,
+          "end": 6.06,
+          "key": "appears",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.06,
+          "end": 6.42,
+          "key": "not",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 6.42,
+          "end": 6.62,
+          "key": "which",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.62,
+          "end": 6.76,
+          "key": "of",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.76,
+          "end": 6.88,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Dukes",
+          "start": 6.88,
+          "end": 7.16,
+          "key": "dukes",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 7.16,
+          "end": 7.28,
+          "key": "he",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "values",
+          "start": 7.28,
+          "end": 7.62,
+          "key": "values",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "most,",
+          "start": 7.62,
+          "end": 8.12,
+          "key": "most",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.6,
+          "end": 8.78,
+          "key": "for",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "qualities",
+          "start": 8.78,
+          "end": 9.18,
+          "key": "qualities",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 9.18,
+          "end": 9.38,
+          "key": "are",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 9.38,
+          "end": 9.68,
+          "key": "so",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "weighed",
+          "start": 9.68,
+          "end": 10.02,
+          "key": "weighed",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 10.02,
+          "end": 10.3,
+          "key": "that",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "curiosity",
+          "start": 10.3,
+          "end": 10.8,
+          "key": "curiosity",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 10.8,
+          "end": 11.24,
+          "key": "in",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "neither",
+          "start": 11.24,
+          "end": 11.44,
+          "key": "neither",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 11.44,
+          "end": 11.7,
+          "key": "can",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 11.7,
+          "end": 11.88,
+          "key": "make",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "choice",
+          "start": 11.88,
+          "end": 12.18,
+          "key": "choice",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.18,
+          "end": 12.44,
+          "key": "of",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "either's",
+          "start": 12.44,
+          "end": 12.78,
+          "key": "eithers",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "moiety.",
+          "start": 12.78,
+          "end": 13.1,
+          "key": "moiety",
+          "pieces": [
+            40
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gloucester.",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "It",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "text": "did",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "text": "always",
+          "start": 1.64,
+          "end": 1.96
+        },
+        {
+          "text": "seem",
+          "start": 1.96,
+          "end": 2.26
+        },
+        {
+          "text": "so",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "text": "to",
+          "start": 2.54,
+          "end": 2.7
+        },
+        {
+          "text": "us;",
+          "start": 2.7,
+          "end": 2.96
+        },
+        {
+          "text": "but",
+          "start": 3.52,
+          "end": 3.62
+        },
+        {
+          "text": "now,",
+          "start": 3.62,
+          "end": 3.92
+        },
+        {
+          "text": "in",
+          "start": 4.14,
+          "end": 4.3
+        },
+        {
+          "text": "the",
+          "start": 4.3,
+          "end": 4.4
+        },
+        {
+          "text": "division",
+          "start": 4.4,
+          "end": 4.7
+        },
+        {
+          "text": "of",
+          "start": 4.7,
+          "end": 4.9
+        },
+        {
+          "text": "the",
+          "start": 4.9,
+          "end": 5.02
+        },
+        {
+          "text": "kingdom,",
+          "start": 5.02,
+          "end": 5.24
+        },
+        {
+          "text": "it",
+          "start": 5.68,
+          "end": 5.74
+        },
+        {
+          "text": "appears",
+          "start": 5.74,
+          "end": 6.06
+        },
+        {
+          "text": "not",
+          "start": 6.06,
+          "end": 6.42
+        },
+        {
+          "text": "which",
+          "start": 6.42,
+          "end": 6.62
+        },
+        {
+          "text": "of",
+          "start": 6.62,
+          "end": 6.76
+        },
+        {
+          "text": "the",
+          "start": 6.76,
+          "end": 6.88
+        },
+        {
+          "text": "Dukes",
+          "start": 6.88,
+          "end": 7.16
+        },
+        {
+          "text": "he",
+          "start": 7.16,
+          "end": 7.28
+        },
+        {
+          "text": "values",
+          "start": 7.28,
+          "end": 7.62
+        },
+        {
+          "text": "most,",
+          "start": 7.62,
+          "end": 8.12
+        },
+        {
+          "text": "for",
+          "start": 8.6,
+          "end": 8.78
+        },
+        {
+          "text": "qualities",
+          "start": 8.78,
+          "end": 9.18
+        },
+        {
+          "text": "are",
+          "start": 9.18,
+          "end": 9.38
+        },
+        {
+          "text": "so",
+          "start": 9.38,
+          "end": 9.68
+        },
+        {
+          "text": "weighed",
+          "start": 9.68,
+          "end": 10.02
+        },
+        {
+          "text": "that",
+          "start": 10.02,
+          "end": 10.3
+        },
+        {
+          "text": "curiosity",
+          "start": 10.3,
+          "end": 10.8
+        },
+        {
+          "text": "in",
+          "start": 10.8,
+          "end": 11.24
+        },
+        {
+          "text": "neither",
+          "start": 11.24,
+          "end": 11.44
+        },
+        {
+          "text": "can",
+          "start": 11.44,
+          "end": 11.7
+        },
+        {
+          "text": "make",
+          "start": 11.7,
+          "end": 11.88
+        },
+        {
+          "text": "choice",
+          "start": 11.88,
+          "end": 12.18
+        },
+        {
+          "text": "of",
+          "start": 12.18,
+          "end": 12.44
+        },
+        {
+          "text": "either's",
+          "start": 12.44,
+          "end": 12.78
+        },
+        {
+          "text": "moiety.",
+          "start": 12.78,
+          "end": 13.1
+        }
+      ],
+      "stats": {
+        "expected_words": 41,
+        "heard_words": 41,
+        "matched_words": 41
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.45548866875469685
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "58d80a222ddb908d6d14ee30d79e5bbb19f47a79e0f1ec5f44aecf64b5a6690a",
+  "selected_reasons": []
+}

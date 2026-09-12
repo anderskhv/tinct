@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "f263ba420b0c8b22077fbeaf111e2f041ecf19aaead225c69e09639b21e7ba9c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1881103403866291,
+      "alignment_seconds": 0.0004597660154104233,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leer, how now, my pretty knave, how dost thou?",
+          "start": 0.05,
+          "end": 2.53,
+          "words": [
+            {
+              "text": " Leer,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.59173583984375
+            },
+            {
+              "text": " how",
+              "start": 0.97,
+              "end": 1.13,
+              "probability": 0.9453125
+            },
+            {
+              "text": " now,",
+              "start": 1.13,
+              "end": 1.25,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " my",
+              "start": 1.33,
+              "end": 1.41,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " pretty",
+              "start": 1.41,
+              "end": 1.61,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " knave,",
+              "start": 1.61,
+              "end": 1.95,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " how",
+              "start": 2.05,
+              "end": 2.07,
+              "probability": 0.984375
+            },
+            {
+              "text": " dost",
+              "start": 2.07,
+              "end": 2.27,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " thou?",
+              "start": 2.27,
+              "end": 2.53,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leer,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "how",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "raw": "now,",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "raw": "my",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "raw": "pretty",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "raw": "knave,",
+          "start": 1.61,
+          "end": 1.95
+        },
+        {
+          "raw": "how",
+          "start": 2.05,
+          "end": 2.07
+        },
+        {
+          "raw": "dost",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "raw": "thou?",
+          "start": 2.27,
+          "end": 2.53
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "How",
+        "now,",
+        "my",
+        "pretty",
+        "knave,",
+        "how",
+        "dost",
+        "thou?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          9,
+          1,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leer,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "leer",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 0.97,
+          "end": 1.13,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 1.13,
+          "end": 1.25,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.33,
+          "end": 1.41,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pretty",
+          "start": 1.41,
+          "end": 1.61,
+          "key": "pretty",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "knave,",
+          "start": 1.61,
+          "end": 1.95,
+          "key": "knave",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 2.05,
+          "end": 2.07,
+          "key": "how",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 2.07,
+          "end": 2.27,
+          "key": "dost",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thou?",
+          "start": 2.27,
+          "end": 2.53,
+          "key": "thou",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.0,
+          "end": 0.485
+        },
+        {
+          "text": "How",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "text": "now,",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "text": "my",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "text": "pretty",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "text": "knave,",
+          "start": 1.61,
+          "end": 1.95
+        },
+        {
+          "text": "how",
+          "start": 2.05,
+          "end": 2.07
+        },
+        {
+          "text": "dost",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "text": "thou?",
+          "start": 2.27,
+          "end": 2.53
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.1887324284762144
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f6e45609826831c3480c0476579f4dc95e0f1d23620bba7114a262f36bcd9fdf",
+  "selected_reasons": []
+}

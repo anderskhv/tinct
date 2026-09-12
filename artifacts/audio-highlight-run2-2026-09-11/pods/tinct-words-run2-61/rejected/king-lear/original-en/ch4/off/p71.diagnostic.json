@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "1baf6f9d0468a50b6b443cecbf34514a842dcb3c462e74e33c1c1d67be95c170",
+  "attempts": [
+    {
+      "asr_seconds": 0.21192923933267593,
+      "alignment_seconds": 0.00042473524808883667,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lear, take heed zero the whip.",
+          "start": 0.02,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.7041015625
+            },
+            {
+              "text": " take",
+              "start": 1.0,
+              "end": 1.16,
+              "probability": 0.955078125
+            },
+            {
+              "text": " heed",
+              "start": 1.16,
+              "end": 1.36,
+              "probability": 0.46923828125
+            },
+            {
+              "text": " zero",
+              "start": 1.36,
+              "end": 1.62,
+              "probability": 0.73486328125
+            },
+            {
+              "text": " the",
+              "start": 1.62,
+              "end": 1.78,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " whip.",
+              "start": 1.78,
+              "end": 1.98,
+              "probability": 0.73046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "take",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "raw": "heed",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "raw": "zero",
+          "start": 1.36,
+          "end": 1.62
+        },
+        {
+          "raw": "the",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "raw": "whip.",
+          "start": 1.78,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Take",
+        "heed,",
+        "sirrah,",
+        "the",
+        "whip."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 1.0,
+          "end": 1.16,
+          "key": "take",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "heed",
+          "start": 1.16,
+          "end": 1.36,
+          "key": "heed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "zero",
+          "start": 1.36,
+          "end": 1.62,
+          "key": "zero",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.62,
+          "end": 1.78,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "whip.",
+          "start": 1.78,
+          "end": 1.98,
+          "key": "whip",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Take",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "text": "heed,",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "text": "sirrah,",
+          "start": 1.36,
+          "end": 1.49
+        },
+        {
+          "text": "the",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "text": "whip.",
+          "start": 1.78,
+          "end": 1.98
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2124951407313347
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8ab17139777448109140d3c009e945eeaf62ff66e293740099d6e08636111ead",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

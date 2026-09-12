@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "0cbb39893a5324e1285d6b5b49f9a831c321ee1a1b221dc127289ff8f5d56d6c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2637782208621502,
+      "alignment_seconds": 0.0006053484976291656,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. Now, my friendly knave, I thank thee: there's earnest of thy service.",
+        "hotwords": "Lear, Now, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, Now, my friendly knave, I thank thee, there's earnest of thy service.",
+          "start": 0.05,
+          "end": 4.41,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.253662109375
+            },
+            {
+              "text": " Now,",
+              "start": 1.03,
+              "end": 1.25,
+              "probability": 0.033935546875
+            },
+            {
+              "text": " my",
+              "start": 1.41,
+              "end": 1.47,
+              "probability": 0.90625
+            },
+            {
+              "text": " friendly",
+              "start": 1.47,
+              "end": 1.71,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " knave,",
+              "start": 1.71,
+              "end": 2.07,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " I",
+              "start": 2.15,
+              "end": 2.23,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " thank",
+              "start": 2.23,
+              "end": 2.43,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " thee,",
+              "start": 2.43,
+              "end": 2.71,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " there's",
+              "start": 3.17,
+              "end": 3.37,
+              "probability": 0.5208740234375
+            },
+            {
+              "text": " earnest",
+              "start": 3.37,
+              "end": 3.69,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " of",
+              "start": 3.69,
+              "end": 3.89,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " thy",
+              "start": 3.89,
+              "end": 4.01,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " service.",
+              "start": 4.01,
+              "end": 4.41,
+              "probability": 0.97119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Now,",
+          "start": 1.03,
+          "end": 1.25
+        },
+        {
+          "raw": "my",
+          "start": 1.41,
+          "end": 1.47
+        },
+        {
+          "raw": "friendly",
+          "start": 1.47,
+          "end": 1.71
+        },
+        {
+          "raw": "knave,",
+          "start": 1.71,
+          "end": 2.07
+        },
+        {
+          "raw": "I",
+          "start": 2.15,
+          "end": 2.23
+        },
+        {
+          "raw": "thank",
+          "start": 2.23,
+          "end": 2.43
+        },
+        {
+          "raw": "thee,",
+          "start": 2.43,
+          "end": 2.71
+        },
+        {
+          "raw": "there's",
+          "start": 3.17,
+          "end": 3.37
+        },
+        {
+          "raw": "earnest",
+          "start": 3.37,
+          "end": 3.69
+        },
+        {
+          "raw": "of",
+          "start": 3.69,
+          "end": 3.89
+        },
+        {
+          "raw": "thy",
+          "start": 3.89,
+          "end": 4.01
+        },
+        {
+          "raw": "service.",
+          "start": 4.01,
+          "end": 4.41
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Now,",
+        "my",
+        "friendly",
+        "knave,",
+        "I",
+        "thank",
+        "thee:",
+        "there's",
+        "earnest",
+        "of",
+        "thy",
+        "service."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Now,",
+          "start": 1.03,
+          "end": 1.25,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.41,
+          "end": 1.47,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "friendly",
+          "start": 1.47,
+          "end": 1.71,
+          "key": "friendly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "knave,",
+          "start": 1.71,
+          "end": 2.07,
+          "key": "knave",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.15,
+          "end": 2.23,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 2.23,
+          "end": 2.43,
+          "key": "thank",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 2.43,
+          "end": 2.71,
+          "key": "thee",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "there's",
+          "start": 3.17,
+          "end": 3.37,
+          "key": "theres",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "earnest",
+          "start": 3.37,
+          "end": 3.69,
+          "key": "earnest",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.69,
+          "end": 3.89,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 3.89,
+          "end": 4.01,
+          "key": "thy",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "service.",
+          "start": 4.01,
+          "end": 4.41,
+          "key": "service",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Now,",
+          "start": 1.03,
+          "end": 1.25
+        },
+        {
+          "text": "my",
+          "start": 1.41,
+          "end": 1.47
+        },
+        {
+          "text": "friendly",
+          "start": 1.47,
+          "end": 1.71
+        },
+        {
+          "text": "knave,",
+          "start": 1.71,
+          "end": 2.07
+        },
+        {
+          "text": "I",
+          "start": 2.15,
+          "end": 2.23
+        },
+        {
+          "text": "thank",
+          "start": 2.23,
+          "end": 2.43
+        },
+        {
+          "text": "thee:",
+          "start": 2.43,
+          "end": 2.71
+        },
+        {
+          "text": "there's",
+          "start": 3.17,
+          "end": 3.37
+        },
+        {
+          "text": "earnest",
+          "start": 3.37,
+          "end": 3.69
+        },
+        {
+          "text": "of",
+          "start": 3.69,
+          "end": 3.89
+        },
+        {
+          "text": "thy",
+          "start": 3.89,
+          "end": 4.01
+        },
+        {
+          "text": "service.",
+          "start": 4.01,
+          "end": 4.41
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26463852636516094
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1f6ca1ba3afac4e47283daf7da63985a5793bfeff976c6962d0860b9369e9f1f",
+  "selected_reasons": []
+}

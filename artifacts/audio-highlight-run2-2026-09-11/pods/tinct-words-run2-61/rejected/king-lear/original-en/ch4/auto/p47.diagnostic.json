@@ -1,0 +1,150 @@
+{
+  "complete": true,
+  "signature": "304266c02b1463ee8d0d11b72b55e78911de37e4f8b78fea79a197e1cbf21b13",
+  "attempts": [
+    {
+      "asr_seconds": 0.13191029615700245,
+      "alignment_seconds": 0.0003754589706659317,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Re-enter Oswald.",
+        "hotwords": "Re-enter, Oswald"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Re-enter Oswald.",
+          "start": 0.05,
+          "end": 1.17,
+          "words": [
+            {
+              "text": " Re",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.9248046875
+            },
+            {
+              "text": "-enter",
+              "start": 0.57,
+              "end": 0.77,
+              "probability": 0.7181396484375
+            },
+            {
+              "text": " Oswald.",
+              "start": 0.77,
+              "end": 1.17,
+              "probability": 0.57666015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Re",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "-enter",
+          "start": 0.57,
+          "end": 0.77
+        },
+        {
+          "raw": "Oswald.",
+          "start": 0.77,
+          "end": 1.17
+        }
+      ],
+      "expected_tokens": [
+        "Re-enter",
+        "Oswald."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Re -enter",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "reenter",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "Oswald.",
+          "start": 0.77,
+          "end": 1.17,
+          "key": "oswald",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "Re-enter",
+          "heard": "Re -enter",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.05,
+          "end": 0.77
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Re-enter",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Oswald.",
+          "start": 0.77,
+          "end": 1.17
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13239945843815804
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5708cf7cd75e3b18f55b33c2f8b8abd5dac0f9a234532f847ee23fc203c20f80",
+  "selected_reasons": []
+}

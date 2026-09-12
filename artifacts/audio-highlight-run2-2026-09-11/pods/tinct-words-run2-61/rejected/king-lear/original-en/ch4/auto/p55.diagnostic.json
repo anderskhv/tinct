@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "a8630c539778ac39c2c32de28250a748f31639f476501fad68bb5a70a3bf1032",
+  "attempts": [
+    {
+      "asr_seconds": 0.2290287297219038,
+      "alignment_seconds": 0.0004237089306116104,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Kent. Nor tripp'd neither, you base football player.",
+        "hotwords": "Kent, Nor"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Kent, Nor tripp'd neither, you base football player.",
+          "start": 0.05,
+          "end": 3.01,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " Nor",
+              "start": 1.05,
+              "end": 1.27,
+              "probability": 0.0159912109375
+            },
+            {
+              "text": " tripp'd",
+              "start": 1.27,
+              "end": 1.65,
+              "probability": 0.40062832832336426
+            },
+            {
+              "text": " neither,",
+              "start": 1.65,
+              "end": 1.81,
+              "probability": 0.927734375
+            },
+            {
+              "text": " you",
+              "start": 1.95,
+              "end": 2.05,
+              "probability": 0.6455078125
+            },
+            {
+              "text": " base",
+              "start": 2.05,
+              "end": 2.23,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " football",
+              "start": 2.23,
+              "end": 2.59,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " player.",
+              "start": 2.59,
+              "end": 3.01,
+              "probability": 0.974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Nor",
+          "start": 1.05,
+          "end": 1.27
+        },
+        {
+          "raw": "tripp'd",
+          "start": 1.27,
+          "end": 1.65
+        },
+        {
+          "raw": "neither,",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "raw": "you",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "raw": "base",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "raw": "football",
+          "start": 2.23,
+          "end": 2.59
+        },
+        {
+          "raw": "player.",
+          "start": 2.59,
+          "end": 3.01
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "Nor",
+        "tripp'd",
+        "neither,",
+        "you",
+        "base",
+        "football",
+        "player."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nor",
+          "start": 1.05,
+          "end": 1.27,
+          "key": "nor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tripp'd",
+          "start": 1.27,
+          "end": 1.65,
+          "key": "trippd",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "neither,",
+          "start": 1.65,
+          "end": 1.81,
+          "key": "neither",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.95,
+          "end": 2.05,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "base",
+          "start": 2.05,
+          "end": 2.23,
+          "key": "base",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "football",
+          "start": 2.23,
+          "end": 2.59,
+          "key": "football",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "player.",
+          "start": 2.59,
+          "end": 3.01,
+          "key": "player",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Nor",
+          "start": 1.05,
+          "end": 1.27
+        },
+        {
+          "text": "tripp'd",
+          "start": 1.27,
+          "end": 1.65
+        },
+        {
+          "text": "neither,",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "text": "you",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "text": "base",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "text": "football",
+          "start": 2.23,
+          "end": 2.59
+        },
+        {
+          "text": "player.",
+          "start": 2.59,
+          "end": 3.01
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2296353466808796
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "63613b3eb86b218c050c17c777933f64940e6706b155197902ac9cafeb0f8c38",
+  "selected_reasons": []
+}

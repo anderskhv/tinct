@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "4db42b64d244b7674c06b1f00edea887d5e3214ef9ff1d4c9fec069e71f42354",
+  "attempts": [
+    {
+      "asr_seconds": 0.2084201406687498,
+      "alignment_seconds": 0.0005238652229309082,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_To Goneril and Regan._] And your large speeches may your deeds",
+        "hotwords": "Goneril, Regan._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " to Goneril and Regan. And your large speeches may your deeds.",
+          "start": 0.02,
+          "end": 3.82,
+          "words": [
+            {
+              "text": " to",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.256591796875
+            },
+            {
+              "text": " Goneril",
+              "start": 0.5,
+              "end": 1.0,
+              "probability": 0.4390462239583333
+            },
+            {
+              "text": " and",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " Regan.",
+              "start": 1.2,
+              "end": 1.58,
+              "probability": 0.6876220703125
+            },
+            {
+              "text": " And",
+              "start": 2.2,
+              "end": 2.3,
+              "probability": 0.89453125
+            },
+            {
+              "text": " your",
+              "start": 2.3,
+              "end": 2.4,
+              "probability": 0.970703125
+            },
+            {
+              "text": " large",
+              "start": 2.4,
+              "end": 2.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " speeches",
+              "start": 2.7,
+              "end": 3.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " may",
+              "start": 3.1,
+              "end": 3.38,
+              "probability": 0.73681640625
+            },
+            {
+              "text": " your",
+              "start": 3.38,
+              "end": 3.56,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " deeds.",
+              "start": 3.56,
+              "end": 3.82,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "to",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Goneril",
+          "start": 0.5,
+          "end": 1.0
+        },
+        {
+          "raw": "and",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "Regan.",
+          "start": 1.2,
+          "end": 1.58
+        },
+        {
+          "raw": "And",
+          "start": 2.2,
+          "end": 2.3
+        },
+        {
+          "raw": "your",
+          "start": 2.3,
+          "end": 2.4
+        },
+        {
+          "raw": "large",
+          "start": 2.4,
+          "end": 2.7
+        },
+        {
+          "raw": "speeches",
+          "start": 2.7,
+          "end": 3.1
+        },
+        {
+          "raw": "may",
+          "start": 3.1,
+          "end": 3.38
+        },
+        {
+          "raw": "your",
+          "start": 3.38,
+          "end": 3.56
+        },
+        {
+          "raw": "deeds.",
+          "start": 3.56,
+          "end": 3.82
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Goneril",
+        "and",
+        "Regan._]",
+        "And",
+        "your",
+        "large",
+        "speeches",
+        "may",
+        "your",
+        "deeds"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "to",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Goneril",
+          "start": 0.5,
+          "end": 1.0,
+          "key": "goneril",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.0,
+          "end": 1.2,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Regan.",
+          "start": 1.2,
+          "end": 1.58,
+          "key": "regan",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 2.2,
+          "end": 2.3,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.3,
+          "end": 2.4,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "large",
+          "start": 2.4,
+          "end": 2.7,
+          "key": "large",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "speeches",
+          "start": 2.7,
+          "end": 3.1,
+          "key": "speeches",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 3.1,
+          "end": 3.38,
+          "key": "may",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.38,
+          "end": 3.56,
+          "key": "your",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "deeds.",
+          "start": 3.56,
+          "end": 3.82,
+          "key": "deeds",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Goneril",
+          "start": 0.5,
+          "end": 1.0
+        },
+        {
+          "text": "and",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "Regan._]",
+          "start": 1.2,
+          "end": 1.58
+        },
+        {
+          "text": "And",
+          "start": 2.2,
+          "end": 2.3
+        },
+        {
+          "text": "your",
+          "start": 2.3,
+          "end": 2.4
+        },
+        {
+          "text": "large",
+          "start": 2.4,
+          "end": 2.7
+        },
+        {
+          "text": "speeches",
+          "start": 2.7,
+          "end": 3.1
+        },
+        {
+          "text": "may",
+          "start": 3.1,
+          "end": 3.38
+        },
+        {
+          "text": "your",
+          "start": 3.38,
+          "end": 3.56
+        },
+        {
+          "text": "deeds",
+          "start": 3.56,
+          "end": 3.82
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20913900434970856
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "19c5ac9c8add472f018466039cda9453d9ea2dc8237ce9c3afc9f7b8de1aaf23",
+  "selected_reasons": []
+}

@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "f7e1214e8e9557e995412e2588a71a7402dcbaede580292f80ef1d157be20045",
+  "attempts": [
+    {
+      "asr_seconds": 0.0956745371222496,
+      "alignment_seconds": 0.00011880509555339813,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Oswald.",
+          "start": 0.02,
+          "end": 1.08,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.875
+            },
+            {
+              "text": " Oswald.",
+              "start": 0.68,
+              "end": 1.08,
+              "probability": 0.7890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Oswald.",
+          "start": 0.68,
+          "end": 1.08
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Oswald."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Oswald.",
+          "start": 0.68,
+          "end": 1.08,
+          "key": "oswald",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Oswald.",
+          "start": 0.68,
+          "end": 1.08
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0958343967795372
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "efbadc47ce4ed9a0f9e846bbccf631fbd6ee1c4724a0f679da8325d56c5c7983",
+  "selected_reasons": []
+}

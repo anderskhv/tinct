@@ -1,0 +1,587 @@
+{
+  "complete": true,
+  "signature": "5160d3f35f07ed2f95319995e62c851ef883793257584485da5c6bb90336c485",
+  "attempts": [
+    {
+      "asr_seconds": 0.11934679374098778,
+      "alignment_seconds": 0.0002097487449645996,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes, ma'am, all.\"",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, ma'am, all.",
+          "start": 0.4,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.4,
+              "end": 0.64,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " ma",
+              "start": 0.8,
+              "end": 0.84,
+              "probability": 0.7080078125
+            },
+            {
+              "text": "'am,",
+              "start": 0.84,
+              "end": 0.96,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " all.",
+              "start": 1.02,
+              "end": 1.14,
+              "probability": 0.97265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.4,
+          "end": 0.64
+        },
+        {
+          "raw": "ma",
+          "start": 0.8,
+          "end": 0.84
+        },
+        {
+          "raw": "'am,",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "raw": "all.",
+          "start": 1.02,
+          "end": 1.14
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "ma'am,",
+        "all.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.4,
+          "end": 0.64,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ma",
+          "start": 0.8,
+          "end": 0.84,
+          "key": "ma",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'am,",
+          "start": 0.84,
+          "end": 0.96,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all.",
+          "start": 1.02,
+          "end": 1.14,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.4,
+          "end": 0.64
+        },
+        {
+          "text": "ma'am,",
+          "start": 0.64,
+          "end": 0.83
+        },
+        {
+          "text": "all.\"",
+          "start": 1.02,
+          "end": 1.14
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11962723173201084
+    },
+    {
+      "asr_seconds": 0.12805342487990856,
+      "alignment_seconds": 0.00035109929740428925,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Yes"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Yes, ma'am all",
+          "start": 0.36,
+          "end": 1.16,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.36,
+              "end": 0.64,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " ma",
+              "start": 0.78,
+              "end": 0.84,
+              "probability": 0.7080078125
+            },
+            {
+              "text": "'am",
+              "start": 0.84,
+              "end": 0.94,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " all",
+              "start": 0.94,
+              "end": 1.16,
+              "probability": 0.8525390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.36,
+          "end": 0.64
+        },
+        {
+          "raw": "ma",
+          "start": 0.78,
+          "end": 0.84
+        },
+        {
+          "raw": "'am",
+          "start": 0.84,
+          "end": 0.94
+        },
+        {
+          "raw": "all",
+          "start": 0.94,
+          "end": 1.16
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "ma'am,",
+        "all.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.36,
+          "end": 0.64,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ma",
+          "start": 0.78,
+          "end": 0.84,
+          "key": "ma",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'am",
+          "start": 0.84,
+          "end": 0.94,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.94,
+          "end": 1.16,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.36,
+          "end": 0.64
+        },
+        {
+          "text": "ma'am,",
+          "start": 0.64,
+          "end": 0.79
+        },
+        {
+          "text": "all.\"",
+          "start": 0.94,
+          "end": 1.16
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1285195704549551
+    },
+    {
+      "asr_seconds": 0.13259904272854328,
+      "alignment_seconds": 0.0003824140876531601,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, ma'am all.",
+          "start": 0.02,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " ma",
+              "start": 0.8,
+              "end": 0.84,
+              "probability": 0.7080078125
+            },
+            {
+              "text": "'am",
+              "start": 0.84,
+              "end": 0.94,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " all.",
+              "start": 0.94,
+              "end": 1.14,
+              "probability": 0.8525390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "ma",
+          "start": 0.8,
+          "end": 0.84
+        },
+        {
+          "raw": "'am",
+          "start": 0.84,
+          "end": 0.94
+        },
+        {
+          "raw": "all.",
+          "start": 0.94,
+          "end": 1.14
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "ma'am,",
+        "all.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ma",
+          "start": 0.8,
+          "end": 0.84,
+          "key": "ma",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'am",
+          "start": 0.84,
+          "end": 0.94,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all.",
+          "start": 0.94,
+          "end": 1.14,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "ma'am,",
+          "start": 0.64,
+          "end": 0.79
+        },
+        {
+          "text": "all.\"",
+          "start": 0.94,
+          "end": 1.14
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13310007937252522
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ef6af3d1cd9e35e1757e1b7d427a9b3f4d399e27843796172c234c3e07a1afec",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

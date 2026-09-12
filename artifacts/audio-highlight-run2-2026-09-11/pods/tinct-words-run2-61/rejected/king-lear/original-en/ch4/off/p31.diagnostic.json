@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "b0fbbf50df8e1816ce382adb0b844fbce3856dab110b16dcc067d07b3a9820b5",
+  "attempts": [
+    {
+      "asr_seconds": 0.1874874085187912,
+      "alignment_seconds": 0.0004256591200828552,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Where's my fool? Oh, I think the world's asleep",
+          "start": 0.39,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " Where's",
+              "start": 0.39,
+              "end": 0.67,
+              "probability": 0.897216796875
+            },
+            {
+              "text": " my",
+              "start": 0.67,
+              "end": 0.81,
+              "probability": 0.99609375
+            },
+            {
+              "text": " fool?",
+              "start": 0.81,
+              "end": 1.13,
+              "probability": 0.939453125
+            },
+            {
+              "text": " Oh,",
+              "start": 1.69,
+              "end": 1.81,
+              "probability": 0.5224609375
+            },
+            {
+              "text": " I",
+              "start": 1.87,
+              "end": 2.01,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " think",
+              "start": 2.01,
+              "end": 2.15,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 2.15,
+              "end": 2.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " world's",
+              "start": 2.27,
+              "end": 2.61,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " asleep",
+              "start": 2.61,
+              "end": 2.93,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Where's",
+          "start": 0.39,
+          "end": 0.67
+        },
+        {
+          "raw": "my",
+          "start": 0.67,
+          "end": 0.81
+        },
+        {
+          "raw": "fool?",
+          "start": 0.81,
+          "end": 1.13
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "raw": "I",
+          "start": 1.87,
+          "end": 2.01
+        },
+        {
+          "raw": "think",
+          "start": 2.01,
+          "end": 2.15
+        },
+        {
+          "raw": "the",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "raw": "world's",
+          "start": 2.27,
+          "end": 2.61
+        },
+        {
+          "raw": "asleep",
+          "start": 2.61,
+          "end": 2.93
+        }
+      ],
+      "expected_tokens": [
+        "Where's",
+        "my",
+        "fool?",
+        "Ho,",
+        "I",
+        "think",
+        "the",
+        "world's",
+        "asleep."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          9,
+          4,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Where's",
+          "start": 0.39,
+          "end": 0.67,
+          "key": "wheres",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.67,
+          "end": 0.81,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fool?",
+          "start": 0.81,
+          "end": 1.13,
+          "key": "fool",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.69,
+          "end": 1.81,
+          "key": "oh",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.87,
+          "end": 2.01,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 2.01,
+          "end": 2.15,
+          "key": "think",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.15,
+          "end": 2.27,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "world's",
+          "start": 2.27,
+          "end": 2.61,
+          "key": "worlds",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "asleep",
+          "start": 2.61,
+          "end": 2.93,
+          "key": "asleep",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Where's",
+          "start": 0.39,
+          "end": 0.67
+        },
+        {
+          "text": "my",
+          "start": 0.67,
+          "end": 0.81
+        },
+        {
+          "text": "fool?",
+          "start": 0.81,
+          "end": 1.13
+        },
+        {
+          "text": "Ho,",
+          "start": 1.13,
+          "end": 1.5
+        },
+        {
+          "text": "I",
+          "start": 1.87,
+          "end": 2.01
+        },
+        {
+          "text": "think",
+          "start": 2.01,
+          "end": 2.15
+        },
+        {
+          "text": "the",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "text": "world's",
+          "start": 2.27,
+          "end": 2.61
+        },
+        {
+          "text": "asleep.",
+          "start": 2.61,
+          "end": 2.93
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.1880637500435114
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9de9b224d14879619587f44adbee00b4a4fba7104e4519f7cb5bc5b2d548301e",
+  "selected_reasons": []
+}

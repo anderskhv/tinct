@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "beef0b02e8541611c330f58c661e9412eea22685c8f6333ad6259d0623e86ec1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1434340476989746,
+      "alignment_seconds": 0.0004446953535079956,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lear, out of my sight.",
+          "start": 0.02,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.61279296875
+            },
+            {
+              "text": " out",
+              "start": 0.94,
+              "end": 1.04,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.994140625
+            },
+            {
+              "text": " my",
+              "start": 1.14,
+              "end": 1.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sight.",
+              "start": 1.24,
+              "end": 1.54,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "out",
+          "start": 0.94,
+          "end": 1.04
+        },
+        {
+          "raw": "of",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "my",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "raw": "sight.",
+          "start": 1.24,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Out",
+        "of",
+        "my",
+        "sight!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 0.94,
+          "end": 1.04,
+          "key": "out",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.04,
+          "end": 1.14,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.14,
+          "end": 1.24,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sight.",
+          "start": 1.24,
+          "end": 1.54,
+          "key": "sight",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Out",
+          "start": 0.94,
+          "end": 1.04
+        },
+        {
+          "text": "of",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "text": "my",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "text": "sight!",
+          "start": 1.24,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14400531724095345
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "84fb0ab9baaa1b505535e55de49b634e2060339ae8f54fdb85b0e817751e4a9c",
+  "selected_reasons": []
+}

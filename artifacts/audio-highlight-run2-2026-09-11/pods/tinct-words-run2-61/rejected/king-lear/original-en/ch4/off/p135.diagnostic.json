@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "9188ec5e312bb0b6eea557696b2ebdf7124378609c3340b093d4d973a4ed42bb",
+  "attempts": [
+    {
+      "asr_seconds": 0.14915026351809502,
+      "alignment_seconds": 0.00018622912466526031,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Albany, what's the matter, sir?",
+          "start": 0.08,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " Albany,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.962890625
+            },
+            {
+              "text": " what's",
+              "start": 1.16,
+              "end": 1.34,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " the",
+              "start": 1.34,
+              "end": 1.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " matter,",
+              "start": 1.44,
+              "end": 1.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sir?",
+              "start": 1.9,
+              "end": 1.98,
+              "probability": 0.92138671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Albany,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "what's",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "raw": "the",
+          "start": 1.34,
+          "end": 1.44
+        },
+        {
+          "raw": "matter,",
+          "start": 1.44,
+          "end": 1.7
+        },
+        {
+          "raw": "sir?",
+          "start": 1.9,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "Albany.",
+        "What's",
+        "the",
+        "matter,",
+        "sir?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Albany,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "albany",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 1.16,
+          "end": 1.34,
+          "key": "whats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.34,
+          "end": 1.44,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "matter,",
+          "start": 1.44,
+          "end": 1.7,
+          "key": "matter",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 1.9,
+          "end": 1.98,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Albany.",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "What's",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "text": "the",
+          "start": 1.34,
+          "end": 1.44
+        },
+        {
+          "text": "matter,",
+          "start": 1.44,
+          "end": 1.7
+        },
+        {
+          "text": "sir?",
+          "start": 1.9,
+          "end": 1.98
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14941239170730114
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6545b6b3dfe303a8c345098519bcd5626d8dbfeead238cbd02af58b90af34d31",
+  "selected_reasons": []
+}

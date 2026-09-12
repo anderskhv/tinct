@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "86df6c20d5dca937c82635ae8932d3e93ad7a7a3aadff6a085613f189069567d",
+  "attempts": [
+    {
+      "asr_seconds": 0.23083352483808994,
+      "alignment_seconds": 0.000528331845998764,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That justly thinks Dean Hast, most rightly said.",
+          "start": 0.08,
+          "end": 2.88,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.70263671875
+            },
+            {
+              "text": " justly",
+              "start": 0.54,
+              "end": 0.92,
+              "probability": 0.87890625
+            },
+            {
+              "text": " thinks",
+              "start": 0.92,
+              "end": 1.2,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " Dean",
+              "start": 1.2,
+              "end": 1.42,
+              "probability": 0.1868896484375
+            },
+            {
+              "text": " Hast,",
+              "start": 1.42,
+              "end": 1.82,
+              "probability": 0.4639892578125
+            },
+            {
+              "text": " most",
+              "start": 2.04,
+              "end": 2.22,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " rightly",
+              "start": 2.22,
+              "end": 2.48,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " said.",
+              "start": 2.48,
+              "end": 2.88,
+              "probability": 0.97314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "justly",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "raw": "thinks",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "raw": "Dean",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "raw": "Hast,",
+          "start": 1.42,
+          "end": 1.82
+        },
+        {
+          "raw": "most",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "raw": "rightly",
+          "start": 2.22,
+          "end": 2.48
+        },
+        {
+          "raw": "said.",
+          "start": 2.48,
+          "end": 2.88
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "justly",
+        "think'st",
+        "and",
+        "hast",
+        "most",
+        "rightly",
+        "said!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "justly",
+          "start": 0.54,
+          "end": 0.92,
+          "key": "justly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thinks",
+          "start": 0.92,
+          "end": 1.2,
+          "key": "thinks",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Dean",
+          "start": 1.2,
+          "end": 1.42,
+          "key": "dean",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Hast,",
+          "start": 1.42,
+          "end": 1.82,
+          "key": "hast",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 2.04,
+          "end": 2.22,
+          "key": "most",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "rightly",
+          "start": 2.22,
+          "end": 2.48,
+          "key": "rightly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.48,
+          "end": 2.88,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "justly",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "text": "think'st",
+          "start": 0.92,
+          "end": 1.17
+        },
+        {
+          "text": "and",
+          "start": 1.17,
+          "end": 1.295
+        },
+        {
+          "text": "hast",
+          "start": 1.42,
+          "end": 1.82
+        },
+        {
+          "text": "most",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "text": "rightly",
+          "start": 2.22,
+          "end": 2.48
+        },
+        {
+          "text": "said!",
+          "start": 2.48,
+          "end": 2.88
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2315518856048584
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e8dd192d8c51763405ea72e6b362263df2991c71a833716f452ece161adb7b66",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

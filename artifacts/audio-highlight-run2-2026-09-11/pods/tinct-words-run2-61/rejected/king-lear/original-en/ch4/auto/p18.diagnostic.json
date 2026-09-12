@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "2f3597610aa4867fc28b6b04e7ba3cbc9d4714f2746e02b8fa4eba080ff9ae30",
+  "attempts": [
+    {
+      "asr_seconds": 0.12680676206946373,
+      "alignment_seconds": 0.00027730874717235565,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Kent. Authority.",
+        "hotwords": "Kent, Authority"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Kent, Authority.",
+          "start": 0.08,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " Authority.",
+              "start": 0.9,
+              "end": 1.28,
+              "probability": 0.6142578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Authority.",
+          "start": 0.9,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "Authority."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Authority.",
+          "start": 0.9,
+          "end": 1.28,
+          "key": "authority",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Authority.",
+          "start": 0.9,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12718290649354458
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "27238a3ec4860e65cad13bf8097f758e4dae39a66948a27e3046cd3f5d3c0187",
+  "selected_reasons": []
+}
