@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "01bb0019f84fb468c610ee8e785b95cf21e1b5e5892bbe357f15b866565c520a",
+  "attempts": [
+    {
+      "asr_seconds": 0.12255082465708256,
+      "alignment_seconds": 0.000310288742184639,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Captain. I'll do't, my lord.",
+        "hotwords": "Captain, I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Captain, I'll dot my lord.",
+          "start": 0.05,
+          "end": 1.87,
+          "words": [
+            {
+              "text": " Captain,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " I'll",
+              "start": 1.13,
+              "end": 1.25,
+              "probability": 0.978271484375
+            },
+            {
+              "text": " dot",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " my",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " lord.",
+              "start": 1.65,
+              "end": 1.87,
+              "probability": 0.515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Captain,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "I'll",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "raw": "dot",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "my",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "lord.",
+          "start": 1.65,
+          "end": 1.87
+        }
+      ],
+      "expected_tokens": [
+        "Captain.",
+        "I'll",
+        "do't,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Captain,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "captain",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.13,
+          "end": 1.25,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dot",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "dot",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.65,
+          "end": 1.87,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Captain.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "I'll",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "text": "do't,",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "text": "my",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "text": "lord.",
+          "start": 1.65,
+          "end": 1.87
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12297524511814117
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ea02aecbc21987092aa2ce0be72fad45f9556f787aa68258dc653e8a97d1dfa9",
+  "selected_reasons": []
+}

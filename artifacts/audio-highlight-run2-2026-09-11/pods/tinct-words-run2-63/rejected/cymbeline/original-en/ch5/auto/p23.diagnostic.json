@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "49fa26280ad54ec2e671234da3ac1eb2fe7bbfa037f7a008e9f95d92af9dc064",
+  "attempts": [
+    {
+      "asr_seconds": 0.2022324912250042,
+      "alignment_seconds": 0.0004188530147075653,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iachimo. What do you esteem it at?",
+        "hotwords": "Iachimo, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iachimo, What do you esteem it at?",
+          "start": 0.52,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " Iachimo,",
+              "start": 0.52,
+              "end": 0.92,
+              "probability": 0.31191476186116535
+            },
+            {
+              "text": " What",
+              "start": 1.24,
+              "end": 1.38,
+              "probability": 0.0186920166015625
+            },
+            {
+              "text": " do",
+              "start": 1.38,
+              "end": 1.48,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " you",
+              "start": 1.48,
+              "end": 1.56,
+              "probability": 0.994140625
+            },
+            {
+              "text": " esteem",
+              "start": 1.56,
+              "end": 1.84,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " it",
+              "start": 1.84,
+              "end": 1.96,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " at?",
+              "start": 1.96,
+              "end": 2.16,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iachimo,",
+          "start": 0.52,
+          "end": 0.92
+        },
+        {
+          "raw": "What",
+          "start": 1.24,
+          "end": 1.38
+        },
+        {
+          "raw": "do",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "raw": "you",
+          "start": 1.48,
+          "end": 1.56
+        },
+        {
+          "raw": "esteem",
+          "start": 1.56,
+          "end": 1.84
+        },
+        {
+          "raw": "it",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "raw": "at?",
+          "start": 1.96,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "Iachimo.",
+        "What",
+        "do",
+        "you",
+        "esteem",
+        "it",
+        "at?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iachimo,",
+          "start": 0.52,
+          "end": 0.92,
+          "key": "iachimo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.24,
+          "end": 1.38,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.38,
+          "end": 1.48,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.48,
+          "end": 1.56,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "esteem",
+          "start": 1.56,
+          "end": 1.84,
+          "key": "esteem",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.84,
+          "end": 1.96,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at?",
+          "start": 1.96,
+          "end": 2.16,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iachimo.",
+          "start": 0.52,
+          "end": 0.92
+        },
+        {
+          "text": "What",
+          "start": 1.24,
+          "end": 1.38
+        },
+        {
+          "text": "do",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "text": "you",
+          "start": 1.48,
+          "end": 1.56
+        },
+        {
+          "text": "esteem",
+          "start": 1.56,
+          "end": 1.84
+        },
+        {
+          "text": "it",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "text": "at?",
+          "start": 1.96,
+          "end": 2.16
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20280610769987106
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "82e8ef1fc10bc64d14a8bdadb26c90de18411dc2af9a80e98fb7792a26e50838",
+  "selected_reasons": []
+}

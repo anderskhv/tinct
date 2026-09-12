@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "ef6e20b60bf2040b7e5867af8214fd32d478abf44b7980f7b61549be5fc7a70b",
+  "attempts": [
+    {
+      "asr_seconds": 0.29635567031800747,
+      "alignment_seconds": 0.0005641952157020569,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "most infinitely tied. Reflect upon him accordingly, as you value your trust.",
+        "hotwords": "Reflect"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Most infinitely tied. Reflect upon him accordingly, as you value your trust.",
+          "start": 0.05,
+          "end": 4.97,
+          "words": [
+            {
+              "text": " Most",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.68896484375
+            },
+            {
+              "text": " infinitely",
+              "start": 0.65,
+              "end": 1.17,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " tied.",
+              "start": 1.17,
+              "end": 1.65,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " Reflect",
+              "start": 2.17,
+              "end": 2.55,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " upon",
+              "start": 2.55,
+              "end": 2.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " him",
+              "start": 2.87,
+              "end": 3.11,
+              "probability": 0.62060546875
+            },
+            {
+              "text": " accordingly,",
+              "start": 3.11,
+              "end": 3.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " as",
+              "start": 3.99,
+              "end": 4.07,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " you",
+              "start": 4.07,
+              "end": 4.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " value",
+              "start": 4.21,
+              "end": 4.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 4.43,
+              "end": 4.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " trust.",
+              "start": 4.67,
+              "end": 4.97,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Most",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "infinitely",
+          "start": 0.65,
+          "end": 1.17
+        },
+        {
+          "raw": "tied.",
+          "start": 1.17,
+          "end": 1.65
+        },
+        {
+          "raw": "Reflect",
+          "start": 2.17,
+          "end": 2.55
+        },
+        {
+          "raw": "upon",
+          "start": 2.55,
+          "end": 2.87
+        },
+        {
+          "raw": "him",
+          "start": 2.87,
+          "end": 3.11
+        },
+        {
+          "raw": "accordingly,",
+          "start": 3.11,
+          "end": 3.57
+        },
+        {
+          "raw": "as",
+          "start": 3.99,
+          "end": 4.07
+        },
+        {
+          "raw": "you",
+          "start": 4.07,
+          "end": 4.21
+        },
+        {
+          "raw": "value",
+          "start": 4.21,
+          "end": 4.43
+        },
+        {
+          "raw": "your",
+          "start": 4.43,
+          "end": 4.67
+        },
+        {
+          "raw": "trust.",
+          "start": 4.67,
+          "end": 4.97
+        }
+      ],
+      "expected_tokens": [
+        "most",
+        "infinitely",
+        "tied.",
+        "Reflect",
+        "upon",
+        "him",
+        "accordingly,",
+        "as",
+        "you",
+        "value",
+        "your",
+        "trust."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Most",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "most",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "infinitely",
+          "start": 0.65,
+          "end": 1.17,
+          "key": "infinitely",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tied.",
+          "start": 1.17,
+          "end": 1.65,
+          "key": "tied",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Reflect",
+          "start": 2.17,
+          "end": 2.55,
+          "key": "reflect",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.55,
+          "end": 2.87,
+          "key": "upon",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.87,
+          "end": 3.11,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "accordingly,",
+          "start": 3.11,
+          "end": 3.57,
+          "key": "accordingly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.99,
+          "end": 4.07,
+          "key": "as",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.07,
+          "end": 4.21,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "value",
+          "start": 4.21,
+          "end": 4.43,
+          "key": "value",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.43,
+          "end": 4.67,
+          "key": "your",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "trust.",
+          "start": 4.67,
+          "end": 4.97,
+          "key": "trust",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "most",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "infinitely",
+          "start": 0.65,
+          "end": 1.17
+        },
+        {
+          "text": "tied.",
+          "start": 1.17,
+          "end": 1.65
+        },
+        {
+          "text": "Reflect",
+          "start": 2.17,
+          "end": 2.55
+        },
+        {
+          "text": "upon",
+          "start": 2.55,
+          "end": 2.87
+        },
+        {
+          "text": "him",
+          "start": 2.87,
+          "end": 3.11
+        },
+        {
+          "text": "accordingly,",
+          "start": 3.11,
+          "end": 3.57
+        },
+        {
+          "text": "as",
+          "start": 3.99,
+          "end": 4.07
+        },
+        {
+          "text": "you",
+          "start": 4.07,
+          "end": 4.21
+        },
+        {
+          "text": "value",
+          "start": 4.21,
+          "end": 4.43
+        },
+        {
+          "text": "your",
+          "start": 4.43,
+          "end": 4.67
+        },
+        {
+          "text": "trust.",
+          "start": 4.67,
+          "end": 4.97
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2971651665866375
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "288f9b339a4885e8a08df2f91f1d64593eb2b58458cbf2e804416d427f1bc99d",
+  "selected_reasons": []
+}

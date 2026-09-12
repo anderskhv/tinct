@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "a172d136785560bc45fed3a6acec91d6e2f23f3b67701a0f86a4038df56321b7",
+  "attempts": [
+    {
+      "asr_seconds": 0.2054410558193922,
+      "alignment_seconds": 0.00044608116149902344,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cloten, still I swear I love you.",
+          "start": 0.0,
+          "end": 2.14,
+          "words": [
+            {
+              "text": " Cloten,",
+              "start": 0.0,
+              "end": 0.78,
+              "probability": 0.46728515625
+            },
+            {
+              "text": " still",
+              "start": 1.06,
+              "end": 1.22,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " I",
+              "start": 1.22,
+              "end": 1.38,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " swear",
+              "start": 1.38,
+              "end": 1.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 1.58,
+              "end": 1.76,
+              "probability": 0.962890625
+            },
+            {
+              "text": " love",
+              "start": 1.76,
+              "end": 1.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you.",
+              "start": 1.9,
+              "end": 2.14,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cloten,",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "raw": "still",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "raw": "swear",
+          "start": 1.38,
+          "end": 1.58
+        },
+        {
+          "raw": "I",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "raw": "love",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "raw": "you.",
+          "start": 1.9,
+          "end": 2.14
+        }
+      ],
+      "expected_tokens": [
+        "Cloten.",
+        "Still",
+        "I",
+        "swear",
+        "I",
+        "love",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cloten,",
+          "start": 0.0,
+          "end": 0.78,
+          "key": "cloten",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 1.06,
+          "end": 1.22,
+          "key": "still",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.38,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "swear",
+          "start": 1.38,
+          "end": 1.58,
+          "key": "swear",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.58,
+          "end": 1.76,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 1.76,
+          "end": 1.9,
+          "key": "love",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.9,
+          "end": 2.14,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cloten.",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "text": "Still",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "text": "I",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "text": "swear",
+          "start": 1.38,
+          "end": 1.58
+        },
+        {
+          "text": "I",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "text": "love",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "text": "you.",
+          "start": 1.9,
+          "end": 2.14
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.206067381426692
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a34dbc30c543fb2b3177610d25ea809920505101bc37cde0248cfb18128b2a8a",
+  "selected_reasons": []
+}

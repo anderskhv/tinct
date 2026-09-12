@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "bf091bab03bcc33f813a80fb5672702c33bf0290203920515b86466b079e54ef",
+  "attempts": [
+    {
+      "asr_seconds": 0.20211897045373917,
+      "alignment_seconds": 0.0003994256258010864,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lady. Ay, To keep her chamber.",
+        "hotwords": "Lady, Ay, To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lady, Ay, To keep her chamber.",
+          "start": 0.05,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " Lady,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.73779296875
+            },
+            {
+              "text": " Ay,",
+              "start": 1.07,
+              "end": 1.31,
+              "probability": 0.0010623931884765625
+            },
+            {
+              "text": " To",
+              "start": 1.39,
+              "end": 1.47,
+              "probability": 0.036102294921875
+            },
+            {
+              "text": " keep",
+              "start": 1.47,
+              "end": 1.61,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " her",
+              "start": 1.61,
+              "end": 1.79,
+              "probability": 0.962890625
+            },
+            {
+              "text": " chamber.",
+              "start": 1.79,
+              "end": 2.09,
+              "probability": 0.87841796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lady,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.07,
+          "end": 1.31
+        },
+        {
+          "raw": "To",
+          "start": 1.39,
+          "end": 1.47
+        },
+        {
+          "raw": "keep",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "raw": "her",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "raw": "chamber.",
+          "start": 1.79,
+          "end": 2.09
+        }
+      ],
+      "expected_tokens": [
+        "Lady.",
+        "Ay,",
+        "To",
+        "keep",
+        "her",
+        "chamber."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lady,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "lady",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.07,
+          "end": 1.31,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 1.39,
+          "end": 1.47,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 1.47,
+          "end": 1.61,
+          "key": "keep",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.61,
+          "end": 1.79,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "chamber.",
+          "start": 1.79,
+          "end": 2.09,
+          "key": "chamber",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lady.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Ay,",
+          "start": 1.07,
+          "end": 1.31
+        },
+        {
+          "text": "To",
+          "start": 1.39,
+          "end": 1.47
+        },
+        {
+          "text": "keep",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "text": "her",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "text": "chamber.",
+          "start": 1.79,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20267916098237038
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4953817f6b97189f1fd6bcbf23c5a664dc18d02b7ef4655dfca5ff73321791f0",
+  "selected_reasons": []
+}

@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "6c6b14a971a65ce6f7a08a4ec1f75c36c33f8581e60ccc891a6dae3f2502268e",
+  "attempts": [
+    {
+      "asr_seconds": 0.2611919976770878,
+      "alignment_seconds": 0.000520145520567894,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Edmund. Well thought on: take my sword, Give it the captain.",
+        "hotwords": "Edmund, Well, Give"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Edmund, Well thought on. Take my sword, Give it the captain.",
+          "start": 0.08,
+          "end": 3.54,
+          "words": [
+            {
+              "text": " Edmund,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.71923828125
+            },
+            {
+              "text": " Well",
+              "start": 1.26,
+              "end": 1.46,
+              "probability": 0.0264739990234375
+            },
+            {
+              "text": " thought",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " on.",
+              "start": 1.66,
+              "end": 1.94,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " Take",
+              "start": 2.18,
+              "end": 2.28,
+              "probability": 0.955078125
+            },
+            {
+              "text": " my",
+              "start": 2.28,
+              "end": 2.5,
+              "probability": 0.9765625
+            },
+            {
+              "text": " sword,",
+              "start": 2.5,
+              "end": 2.78,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Give",
+              "start": 3.0,
+              "end": 3.02,
+              "probability": 0.025421142578125
+            },
+            {
+              "text": " it",
+              "start": 3.02,
+              "end": 3.12,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 3.12,
+              "end": 3.26,
+              "probability": 0.96875
+            },
+            {
+              "text": " captain.",
+              "start": 3.26,
+              "end": 3.54,
+              "probability": 0.5546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edmund,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Well",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "raw": "thought",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "on.",
+          "start": 1.66,
+          "end": 1.94
+        },
+        {
+          "raw": "Take",
+          "start": 2.18,
+          "end": 2.28
+        },
+        {
+          "raw": "my",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "raw": "sword,",
+          "start": 2.5,
+          "end": 2.78
+        },
+        {
+          "raw": "Give",
+          "start": 3.0,
+          "end": 3.02
+        },
+        {
+          "raw": "it",
+          "start": 3.02,
+          "end": 3.12
+        },
+        {
+          "raw": "the",
+          "start": 3.12,
+          "end": 3.26
+        },
+        {
+          "raw": "captain.",
+          "start": 3.26,
+          "end": 3.54
+        }
+      ],
+      "expected_tokens": [
+        "Edmund.",
+        "Well",
+        "thought",
+        "on:",
+        "take",
+        "my",
+        "sword,",
+        "Give",
+        "it",
+        "the",
+        "captain."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edmund,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "edmund",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Well",
+          "start": 1.26,
+          "end": 1.46,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 1.46,
+          "end": 1.66,
+          "key": "thought",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 1.66,
+          "end": 1.94,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Take",
+          "start": 2.18,
+          "end": 2.28,
+          "key": "take",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.28,
+          "end": 2.5,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sword,",
+          "start": 2.5,
+          "end": 2.78,
+          "key": "sword",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Give",
+          "start": 3.0,
+          "end": 3.02,
+          "key": "give",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.02,
+          "end": 3.12,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.12,
+          "end": 3.26,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "captain.",
+          "start": 3.26,
+          "end": 3.54,
+          "key": "captain",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edmund.",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Well",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "text": "thought",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "text": "on:",
+          "start": 1.66,
+          "end": 1.94
+        },
+        {
+          "text": "take",
+          "start": 2.18,
+          "end": 2.28
+        },
+        {
+          "text": "my",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "text": "sword,",
+          "start": 2.5,
+          "end": 2.78
+        },
+        {
+          "text": "Give",
+          "start": 3.0,
+          "end": 3.02
+        },
+        {
+          "text": "it",
+          "start": 3.02,
+          "end": 3.12
+        },
+        {
+          "text": "the",
+          "start": 3.12,
+          "end": 3.26
+        },
+        {
+          "text": "captain.",
+          "start": 3.26,
+          "end": 3.54
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2619463559240103
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ea3e4669d592958b3fed5036f62a3cb9d2234e11e21b91b6ae11d367da6a563d",
+  "selected_reasons": []
+}

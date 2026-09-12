@@ -1,0 +1,194 @@
+{
+  "complete": true,
+  "signature": "fe6317b5482617db86015c7bdb4284490ca1d3c969d1a872b8879f2a546e48cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.18995149061083794,
+      "alignment_seconds": 0.00037215277552604675,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Imogen, Hanao Pisanio.",
+          "start": 0.05,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " Imogen,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.877685546875
+            },
+            {
+              "text": " Hanao",
+              "start": 1.15,
+              "end": 1.45,
+              "probability": 0.3485514322916667
+            },
+            {
+              "text": " Pisanio.",
+              "start": 1.45,
+              "end": 2.05,
+              "probability": 0.6053059895833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Imogen,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Hanao",
+          "start": 1.15,
+          "end": 1.45
+        },
+        {
+          "raw": "Pisanio.",
+          "start": 1.45,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "Imogen.",
+        "How",
+        "now,",
+        "Pisanio?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          4,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Imogen,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "imogen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hanao",
+          "start": 1.15,
+          "end": 1.45,
+          "key": "hanao",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Pisanio.",
+          "start": 1.45,
+          "end": 2.05,
+          "key": "pisanio",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Imogen.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "How",
+          "start": 0.81,
+          "end": 1.13
+        },
+        {
+          "text": "now,",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "text": "Pisanio?",
+          "start": 1.45,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19043339975178242
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d10fd044f0132abc8fd988e9736ecb86f850fed1b0827069002368ff2a36deb4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

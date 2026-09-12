@@ -1,0 +1,620 @@
+{
+  "complete": true,
+  "signature": "1d3095af0ec54dc3f553161e6f03cb019ee5bc63fe0a61c1b94a1c85651a16ad",
+  "attempts": [
+    {
+      "asr_seconds": 0.43182325921952724,
+      "alignment_seconds": 0.0005878955125808716,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Aside._] Here comes a flattering rascal; upon him",
+        "hotwords": "Here"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Aside, here comes a flattering rascal, upon him",
+          "start": 0.05,
+          "end": 3.45,
+          "words": [
+            {
+              "text": " Aside,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.6865234375
+            },
+            {
+              "text": " here",
+              "start": 1.31,
+              "end": 1.47,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " comes",
+              "start": 1.47,
+              "end": 1.65,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 1.65,
+              "end": 1.79,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " flattering",
+              "start": 1.79,
+              "end": 2.13,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " rascal,",
+              "start": 2.13,
+              "end": 2.69,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " upon",
+              "start": 2.87,
+              "end": 3.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him",
+              "start": 3.13,
+              "end": 3.45,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " Here comes a flattering rascal, upon him Aside, here comes a flattering rascal, upon",
+          "start": 3.45,
+          "end": 4.07,
+          "words": [
+            {
+              "text": " Here",
+              "start": 3.45,
+              "end": 3.45,
+              "probability": 0.00019347667694091797
+            },
+            {
+              "text": " comes",
+              "start": 3.45,
+              "end": 3.47,
+              "probability": 0.00528717041015625
+            },
+            {
+              "text": " a",
+              "start": 3.47,
+              "end": 3.47,
+              "probability": 0.11517333984375
+            },
+            {
+              "text": " flattering",
+              "start": 3.47,
+              "end": 3.47,
+              "probability": 5.9604644775390625e-06
+            },
+            {
+              "text": " rascal,",
+              "start": 3.47,
+              "end": 3.47,
+              "probability": 0.004589647054672241
+            },
+            {
+              "text": " upon",
+              "start": 3.57,
+              "end": 3.57,
+              "probability": 2.6881694793701172e-05
+            },
+            {
+              "text": " him",
+              "start": 3.57,
+              "end": 3.57,
+              "probability": 0.016510009765625
+            },
+            {
+              "text": " Aside,",
+              "start": 3.57,
+              "end": 4.05,
+              "probability": 5.960464477539063e-08
+            },
+            {
+              "text": " here",
+              "start": 4.05,
+              "end": 4.07,
+              "probability": 0.00289154052734375
+            },
+            {
+              "text": " comes",
+              "start": 4.07,
+              "end": 4.07,
+              "probability": 0.4658203125
+            },
+            {
+              "text": " a",
+              "start": 4.07,
+              "end": 4.07,
+              "probability": 0.5703125
+            },
+            {
+              "text": " flattering",
+              "start": 4.07,
+              "end": 4.07,
+              "probability": 0.027587890625
+            },
+            {
+              "text": " rascal,",
+              "start": 4.07,
+              "end": 4.07,
+              "probability": 0.7763671875
+            },
+            {
+              "text": " upon",
+              "start": 4.07,
+              "end": 4.07,
+              "probability": 0.41845703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "here",
+          "start": 1.31,
+          "end": 1.47
+        },
+        {
+          "raw": "comes",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "raw": "a",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "raw": "flattering",
+          "start": 1.79,
+          "end": 2.13
+        },
+        {
+          "raw": "rascal,",
+          "start": 2.13,
+          "end": 2.69
+        },
+        {
+          "raw": "upon",
+          "start": 2.87,
+          "end": 3.13
+        },
+        {
+          "raw": "him",
+          "start": 3.13,
+          "end": 3.45
+        },
+        {
+          "raw": "Here",
+          "start": 3.45,
+          "end": 3.45
+        },
+        {
+          "raw": "comes",
+          "start": 3.45,
+          "end": 3.47
+        },
+        {
+          "raw": "a",
+          "start": 3.47,
+          "end": 3.47
+        },
+        {
+          "raw": "flattering",
+          "start": 3.47,
+          "end": 3.47
+        },
+        {
+          "raw": "rascal,",
+          "start": 3.47,
+          "end": 3.47
+        },
+        {
+          "raw": "upon",
+          "start": 3.57,
+          "end": 3.57
+        },
+        {
+          "raw": "him",
+          "start": 3.57,
+          "end": 3.57
+        },
+        {
+          "raw": "Aside,",
+          "start": 3.57,
+          "end": 4.05
+        },
+        {
+          "raw": "here",
+          "start": 4.05,
+          "end": 4.07
+        },
+        {
+          "raw": "comes",
+          "start": 4.07,
+          "end": 4.07
+        },
+        {
+          "raw": "a",
+          "start": 4.07,
+          "end": 4.07
+        },
+        {
+          "raw": "flattering",
+          "start": 4.07,
+          "end": 4.07
+        },
+        {
+          "raw": "rascal,",
+          "start": 4.07,
+          "end": 4.07
+        },
+        {
+          "raw": "upon",
+          "start": 4.07,
+          "end": 4.07
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside._]",
+        "Here",
+        "comes",
+        "a",
+        "flattering",
+        "rascal;",
+        "upon",
+        "him"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "insert",
+          8,
+          8,
+          8,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          8,
+          8,
+          8,
+          22
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 1.31,
+          "end": 1.47,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 1.47,
+          "end": 1.65,
+          "key": "comes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.65,
+          "end": 1.79,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "flattering",
+          "start": 1.79,
+          "end": 2.13,
+          "key": "flattering",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "rascal,",
+          "start": 2.13,
+          "end": 2.69,
+          "key": "rascal",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.87,
+          "end": 3.13,
+          "key": "upon",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.13,
+          "end": 3.45,
+          "key": "him",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Here",
+          "start": 3.45,
+          "end": 3.45,
+          "key": "here",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 3.45,
+          "end": 3.47,
+          "key": "comes",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.47,
+          "end": 3.47,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "flattering",
+          "start": 3.47,
+          "end": 3.47,
+          "key": "flattering",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "rascal,",
+          "start": 3.47,
+          "end": 3.47,
+          "key": "rascal",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 3.57,
+          "end": 3.57,
+          "key": "upon",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.57,
+          "end": 3.57,
+          "key": "him",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Aside,",
+          "start": 3.57,
+          "end": 4.05,
+          "key": "aside",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 4.05,
+          "end": 4.07,
+          "key": "here",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 4.07,
+          "end": 4.07,
+          "key": "comes",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.07,
+          "end": 4.07,
+          "key": "a",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "flattering",
+          "start": 4.07,
+          "end": 4.07,
+          "key": "flattering",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "rascal,",
+          "start": 4.07,
+          "end": 4.07,
+          "key": "rascal",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 4.07,
+          "end": 4.07,
+          "key": "upon",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside._]",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Here",
+          "start": 1.31,
+          "end": 1.47
+        },
+        {
+          "text": "comes",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "text": "a",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "text": "flattering",
+          "start": 1.79,
+          "end": 2.13
+        },
+        {
+          "text": "rascal;",
+          "start": 2.13,
+          "end": 2.69
+        },
+        {
+          "text": "upon",
+          "start": 2.87,
+          "end": 3.13
+        },
+        {
+          "text": "him",
+          "start": 3.13,
+          "end": 3.45
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 22,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.43278093077242374
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f0799c0e56da1e4558960d1a7c3f46e38b81eea37da2ecd80e59d0108df89bcd",
+  "selected_reasons": []
+}

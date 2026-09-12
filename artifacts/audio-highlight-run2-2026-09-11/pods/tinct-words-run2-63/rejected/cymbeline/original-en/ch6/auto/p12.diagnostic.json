@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "431bab1c26704b7dcd89b274b44cb4c5b08bd2c59db4728eeff6b62be9aec303",
+  "attempts": [
+    {
+      "asr_seconds": 0.12566119991242886,
+      "alignment_seconds": 0.00023920275270938873,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Pisanio.",
+        "hotwords": "Enter, Pisanio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Pisanio.",
+          "start": 0.08,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " Pisanio.",
+              "start": 0.68,
+              "end": 1.28,
+              "probability": 0.5331013997395834
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Pisanio.",
+          "start": 0.68,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Pisanio."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pisanio.",
+          "start": 0.68,
+          "end": 1.28,
+          "key": "pisanio",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Pisanio.",
+          "start": 0.68,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12598777934908867
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9eec01cb9e28f9a00aff6868fcb93d3743c9d2ee7f3556be2bfa5780994d1e09",
+  "selected_reasons": []
+}

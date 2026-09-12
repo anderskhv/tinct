@@ -1,0 +1,562 @@
+{
+  "complete": true,
+  "signature": "d67c56db2b02a9c7b190f1a3bebdfce683f726bb938ce8b1d238c6b720a7d6c7",
+  "attempts": [
+    {
+      "asr_seconds": 0.22251903638243675,
+      "alignment_seconds": 0.0006107427179813385,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Kent, if fortune brag of two she loved and hated, one of them we behold.",
+          "start": 0.05,
+          "end": 4.79,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " if",
+              "start": 1.09,
+              "end": 1.33,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " fortune",
+              "start": 1.33,
+              "end": 1.69,
+              "probability": 0.880859375
+            },
+            {
+              "text": " brag",
+              "start": 1.69,
+              "end": 2.07,
+              "probability": 0.938232421875
+            },
+            {
+              "text": " of",
+              "start": 2.07,
+              "end": 2.19,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " two",
+              "start": 2.19,
+              "end": 2.41,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " she",
+              "start": 2.41,
+              "end": 2.65,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " loved",
+              "start": 2.65,
+              "end": 2.91,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 2.91,
+              "end": 3.13,
+              "probability": 0.974609375
+            },
+            {
+              "text": " hated,",
+              "start": 3.13,
+              "end": 3.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " one",
+              "start": 3.99,
+              "end": 4.07,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " of",
+              "start": 4.07,
+              "end": 4.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " them",
+              "start": 4.17,
+              "end": 4.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " we",
+              "start": 4.27,
+              "end": 4.43,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " behold.",
+              "start": 4.43,
+              "end": 4.79,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "if",
+          "start": 1.09,
+          "end": 1.33
+        },
+        {
+          "raw": "fortune",
+          "start": 1.33,
+          "end": 1.69
+        },
+        {
+          "raw": "brag",
+          "start": 1.69,
+          "end": 2.07
+        },
+        {
+          "raw": "of",
+          "start": 2.07,
+          "end": 2.19
+        },
+        {
+          "raw": "two",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "raw": "she",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "raw": "loved",
+          "start": 2.65,
+          "end": 2.91
+        },
+        {
+          "raw": "and",
+          "start": 2.91,
+          "end": 3.13
+        },
+        {
+          "raw": "hated,",
+          "start": 3.13,
+          "end": 3.47
+        },
+        {
+          "raw": "one",
+          "start": 3.99,
+          "end": 4.07
+        },
+        {
+          "raw": "of",
+          "start": 4.07,
+          "end": 4.17
+        },
+        {
+          "raw": "them",
+          "start": 4.17,
+          "end": 4.27
+        },
+        {
+          "raw": "we",
+          "start": 4.27,
+          "end": 4.43
+        },
+        {
+          "raw": "behold.",
+          "start": 4.43,
+          "end": 4.79
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "If",
+        "Fortune",
+        "brag",
+        "of",
+        "two",
+        "she",
+        "lov'd",
+        "and",
+        "hated,",
+        "One",
+        "of",
+        "them",
+        "we",
+        "behold."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          15,
+          8,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.09,
+          "end": 1.33,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fortune",
+          "start": 1.33,
+          "end": 1.69,
+          "key": "fortune",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "brag",
+          "start": 1.69,
+          "end": 2.07,
+          "key": "brag",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.07,
+          "end": 2.19,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 2.19,
+          "end": 2.41,
+          "key": "two",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.41,
+          "end": 2.65,
+          "key": "she",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "loved",
+          "start": 2.65,
+          "end": 2.91,
+          "key": "loved",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.91,
+          "end": 3.13,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hated,",
+          "start": 3.13,
+          "end": 3.47,
+          "key": "hated",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 3.99,
+          "end": 4.07,
+          "key": "one",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.07,
+          "end": 4.17,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 4.17,
+          "end": 4.27,
+          "key": "them",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 4.27,
+          "end": 4.43,
+          "key": "we",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "behold.",
+          "start": 4.43,
+          "end": 4.79,
+          "key": "behold",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "If",
+          "start": 1.09,
+          "end": 1.33
+        },
+        {
+          "text": "Fortune",
+          "start": 1.33,
+          "end": 1.69
+        },
+        {
+          "text": "brag",
+          "start": 1.69,
+          "end": 2.07
+        },
+        {
+          "text": "of",
+          "start": 2.07,
+          "end": 2.19
+        },
+        {
+          "text": "two",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "text": "she",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "text": "lov'd",
+          "start": 2.65,
+          "end": 2.78
+        },
+        {
+          "text": "and",
+          "start": 2.91,
+          "end": 3.13
+        },
+        {
+          "text": "hated,",
+          "start": 3.13,
+          "end": 3.47
+        },
+        {
+          "text": "One",
+          "start": 3.99,
+          "end": 4.07
+        },
+        {
+          "text": "of",
+          "start": 4.07,
+          "end": 4.17
+        },
+        {
+          "text": "them",
+          "start": 4.17,
+          "end": 4.27
+        },
+        {
+          "text": "we",
+          "start": 4.27,
+          "end": 4.43
+        },
+        {
+          "text": "behold.",
+          "start": 4.43,
+          "end": 4.79
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.22336641140282154
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d4a609ec9fc1b543443aa9d9d047b2427c3fe7f70e81c908b8cfea7c789a37ad",
+  "selected_reasons": []
+}

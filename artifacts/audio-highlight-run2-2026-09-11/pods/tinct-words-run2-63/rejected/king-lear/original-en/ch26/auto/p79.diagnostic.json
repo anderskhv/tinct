@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "858dd672a5a3585a4714b5ca2e146e7a6caf41273a9e9cacf285fcb34f300bea",
+  "attempts": [
+    {
+      "asr_seconds": 0.27452999353408813,
+      "alignment_seconds": 0.0005714427679777145,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Albany. Where have you hid yourself? How have you known the miseries of your father?",
+        "hotwords": "Albany, Where, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Albany, Where have you hid yourself? How have you known the miseries of your father?",
+          "start": 0.08,
+          "end": 4.38,
+          "words": [
+            {
+              "text": " Albany,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " Where",
+              "start": 1.24,
+              "end": 1.38,
+              "probability": 0.0227203369140625
+            },
+            {
+              "text": " have",
+              "start": 1.38,
+              "end": 1.5,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " you",
+              "start": 1.5,
+              "end": 1.62,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " hid",
+              "start": 1.62,
+              "end": 1.78,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " yourself?",
+              "start": 1.78,
+              "end": 2.16,
+              "probability": 0.951171875
+            },
+            {
+              "text": " How",
+              "start": 2.82,
+              "end": 2.92,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " have",
+              "start": 2.92,
+              "end": 3.04,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 3.04,
+              "end": 3.14,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " known",
+              "start": 3.14,
+              "end": 3.3,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " the",
+              "start": 3.3,
+              "end": 3.48,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " miseries",
+              "start": 3.48,
+              "end": 3.82,
+              "probability": 0.918212890625
+            },
+            {
+              "text": " of",
+              "start": 3.82,
+              "end": 4.02,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " your",
+              "start": 4.02,
+              "end": 4.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " father?",
+              "start": 4.14,
+              "end": 4.38,
+              "probability": 0.95849609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Albany,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "Where",
+          "start": 1.24,
+          "end": 1.38
+        },
+        {
+          "raw": "have",
+          "start": 1.38,
+          "end": 1.5
+        },
+        {
+          "raw": "you",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "raw": "hid",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "raw": "yourself?",
+          "start": 1.78,
+          "end": 2.16
+        },
+        {
+          "raw": "How",
+          "start": 2.82,
+          "end": 2.92
+        },
+        {
+          "raw": "have",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "raw": "you",
+          "start": 3.04,
+          "end": 3.14
+        },
+        {
+          "raw": "known",
+          "start": 3.14,
+          "end": 3.3
+        },
+        {
+          "raw": "the",
+          "start": 3.3,
+          "end": 3.48
+        },
+        {
+          "raw": "miseries",
+          "start": 3.48,
+          "end": 3.82
+        },
+        {
+          "raw": "of",
+          "start": 3.82,
+          "end": 4.02
+        },
+        {
+          "raw": "your",
+          "start": 4.02,
+          "end": 4.14
+        },
+        {
+          "raw": "father?",
+          "start": 4.14,
+          "end": 4.38
+        }
+      ],
+      "expected_tokens": [
+        "Albany.",
+        "Where",
+        "have",
+        "you",
+        "hid",
+        "yourself?",
+        "How",
+        "have",
+        "you",
+        "known",
+        "the",
+        "miseries",
+        "of",
+        "your",
+        "father?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Albany,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "albany",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 1.24,
+          "end": 1.38,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.38,
+          "end": 1.5,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.5,
+          "end": 1.62,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hid",
+          "start": 1.62,
+          "end": 1.78,
+          "key": "hid",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "yourself?",
+          "start": 1.78,
+          "end": 2.16,
+          "key": "yourself",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.82,
+          "end": 2.92,
+          "key": "how",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.92,
+          "end": 3.04,
+          "key": "have",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.04,
+          "end": 3.14,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "known",
+          "start": 3.14,
+          "end": 3.3,
+          "key": "known",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.3,
+          "end": 3.48,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "miseries",
+          "start": 3.48,
+          "end": 3.82,
+          "key": "miseries",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.82,
+          "end": 4.02,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.02,
+          "end": 4.14,
+          "key": "your",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "father?",
+          "start": 4.14,
+          "end": 4.38,
+          "key": "father",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Albany.",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "Where",
+          "start": 1.24,
+          "end": 1.38
+        },
+        {
+          "text": "have",
+          "start": 1.38,
+          "end": 1.5
+        },
+        {
+          "text": "you",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "text": "hid",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "text": "yourself?",
+          "start": 1.78,
+          "end": 2.16
+        },
+        {
+          "text": "How",
+          "start": 2.82,
+          "end": 2.92
+        },
+        {
+          "text": "have",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "text": "you",
+          "start": 3.04,
+          "end": 3.14
+        },
+        {
+          "text": "known",
+          "start": 3.14,
+          "end": 3.3
+        },
+        {
+          "text": "the",
+          "start": 3.3,
+          "end": 3.48
+        },
+        {
+          "text": "miseries",
+          "start": 3.48,
+          "end": 3.82
+        },
+        {
+          "text": "of",
+          "start": 3.82,
+          "end": 4.02
+        },
+        {
+          "text": "your",
+          "start": 4.02,
+          "end": 4.14
+        },
+        {
+          "text": "father?",
+          "start": 4.14,
+          "end": 4.38
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2753510884940624
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b30ae3cffa7e55a229f47bbf8750fc0305953e02c39ba45b03d1fbea3713754e",
+  "selected_reasons": []
+}

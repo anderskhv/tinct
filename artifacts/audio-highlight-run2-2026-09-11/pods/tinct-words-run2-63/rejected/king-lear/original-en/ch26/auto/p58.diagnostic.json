@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "0d45d046a1c530bb6aed0dd98efcdc28f74bf1159d1c5dedcc79429f34d96a77",
+  "attempts": [
+    {
+      "asr_seconds": 0.19858969748020172,
+      "alignment_seconds": 0.0004907678812742233,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Edgar. What's he that speaks for Edmund, Earl of Gloucester?",
+        "hotwords": "Edgar, What's, Edmund, Earl, Gloucester"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Edgar, What's he that speaks for Edmund, Earl of Gloucester?",
+          "start": 0.08,
+          "end": 3.4,
+          "words": [
+            {
+              "text": " Edgar,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " What's",
+              "start": 1.08,
+              "end": 1.3,
+              "probability": 0.508453369140625
+            },
+            {
+              "text": " he",
+              "start": 1.3,
+              "end": 1.36,
+              "probability": 0.365234375
+            },
+            {
+              "text": " that",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.9140625
+            },
+            {
+              "text": " speaks",
+              "start": 1.5,
+              "end": 1.72,
+              "probability": 0.828125
+            },
+            {
+              "text": " for",
+              "start": 1.72,
+              "end": 1.98,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Edmund,",
+              "start": 1.98,
+              "end": 2.28,
+              "probability": 0.873046875
+            },
+            {
+              "text": " Earl",
+              "start": 2.66,
+              "end": 2.78,
+              "probability": 0.984375
+            },
+            {
+              "text": " of",
+              "start": 2.78,
+              "end": 2.96,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Gloucester?",
+              "start": 2.96,
+              "end": 3.4,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edgar,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "What's",
+          "start": 1.08,
+          "end": 1.3
+        },
+        {
+          "raw": "he",
+          "start": 1.3,
+          "end": 1.36
+        },
+        {
+          "raw": "that",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "speaks",
+          "start": 1.5,
+          "end": 1.72
+        },
+        {
+          "raw": "for",
+          "start": 1.72,
+          "end": 1.98
+        },
+        {
+          "raw": "Edmund,",
+          "start": 1.98,
+          "end": 2.28
+        },
+        {
+          "raw": "Earl",
+          "start": 2.66,
+          "end": 2.78
+        },
+        {
+          "raw": "of",
+          "start": 2.78,
+          "end": 2.96
+        },
+        {
+          "raw": "Gloucester?",
+          "start": 2.96,
+          "end": 3.4
+        }
+      ],
+      "expected_tokens": [
+        "Edgar.",
+        "What's",
+        "he",
+        "that",
+        "speaks",
+        "for",
+        "Edmund,",
+        "Earl",
+        "of",
+        "Gloucester?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edgar,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "edgar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 1.08,
+          "end": 1.3,
+          "key": "whats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.3,
+          "end": 1.36,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.36,
+          "end": 1.5,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "speaks",
+          "start": 1.5,
+          "end": 1.72,
+          "key": "speaks",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.72,
+          "end": 1.98,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Edmund,",
+          "start": 1.98,
+          "end": 2.28,
+          "key": "edmund",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Earl",
+          "start": 2.66,
+          "end": 2.78,
+          "key": "earl",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.78,
+          "end": 2.96,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Gloucester?",
+          "start": 2.96,
+          "end": 3.4,
+          "key": "gloucester",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edgar.",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "What's",
+          "start": 1.08,
+          "end": 1.3
+        },
+        {
+          "text": "he",
+          "start": 1.3,
+          "end": 1.36
+        },
+        {
+          "text": "that",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "speaks",
+          "start": 1.5,
+          "end": 1.72
+        },
+        {
+          "text": "for",
+          "start": 1.72,
+          "end": 1.98
+        },
+        {
+          "text": "Edmund,",
+          "start": 1.98,
+          "end": 2.28
+        },
+        {
+          "text": "Earl",
+          "start": 2.66,
+          "end": 2.78
+        },
+        {
+          "text": "of",
+          "start": 2.78,
+          "end": 2.96
+        },
+        {
+          "text": "Gloucester?",
+          "start": 2.96,
+          "end": 3.4
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19927350990474224
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e7b7fdd6c98a77b0ec8cc2d17c5aa718bd78dae98303208850b8057a81c63db4",
+  "selected_reasons": []
+}

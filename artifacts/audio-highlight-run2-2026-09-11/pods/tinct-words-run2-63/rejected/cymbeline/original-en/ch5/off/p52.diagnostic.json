@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "9e41a6ed47548ea8dec107e83cf2cfff3c473ebd68969fc97c37b8f2318c1edb",
+  "attempts": [
+    {
+      "asr_seconds": 0.11809743940830231,
+      "alignment_seconds": 0.0002435930073261261,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Posthumus agreed.",
+          "start": 0.05,
+          "end": 1.55,
+          "words": [
+            {
+              "text": " Posthumus",
+              "start": 0.05,
+              "end": 1.13,
+              "probability": 0.752685546875
+            },
+            {
+              "text": " agreed.",
+              "start": 1.13,
+              "end": 1.55,
+              "probability": 0.78369140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Posthumus",
+          "start": 0.05,
+          "end": 1.13
+        },
+        {
+          "raw": "agreed.",
+          "start": 1.13,
+          "end": 1.55
+        }
+      ],
+      "expected_tokens": [
+        "Posthumus.",
+        "Agreed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Posthumus",
+          "start": 0.05,
+          "end": 1.13,
+          "key": "posthumus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "agreed.",
+          "start": 1.13,
+          "end": 1.55,
+          "key": "agreed",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Posthumus.",
+          "start": 0.05,
+          "end": 1.13
+        },
+        {
+          "text": "Agreed.",
+          "start": 1.13,
+          "end": 1.55
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11843225359916687
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8468c4b817e57512f3b228a9969e8cc53fdfef2897cf60563a38019de5077da9",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "775e739aa95ac36a5ebd900a35d09b58cc5b0539688262cc58942c1499e4c3cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.14766511507332325,
+      "alignment_seconds": 0.00033696554601192474,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Cymbeline and Lords.",
+        "hotwords": "Enter, Cymbeline, Lords"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Cymbeline and Lords.",
+          "start": 0.18,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.18,
+              "end": 0.68,
+              "probability": 0.853515625
+            },
+            {
+              "text": " Cymbeline",
+              "start": 0.68,
+              "end": 1.16,
+              "probability": 0.5945231119791666
+            },
+            {
+              "text": " and",
+              "start": 1.16,
+              "end": 1.38,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " Lords.",
+              "start": 1.38,
+              "end": 1.62,
+              "probability": 0.82861328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.18,
+          "end": 0.68
+        },
+        {
+          "raw": "Cymbeline",
+          "start": 0.68,
+          "end": 1.16
+        },
+        {
+          "raw": "and",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "raw": "Lords.",
+          "start": 1.38,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Cymbeline",
+        "and",
+        "Lords."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.18,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cymbeline",
+          "start": 0.68,
+          "end": 1.16,
+          "key": "cymbeline",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.16,
+          "end": 1.38,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lords.",
+          "start": 1.38,
+          "end": 1.62,
+          "key": "lords",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.18,
+          "end": 0.68
+        },
+        {
+          "text": "Cymbeline",
+          "start": 0.68,
+          "end": 1.16
+        },
+        {
+          "text": "and",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "text": "Lords.",
+          "start": 1.38,
+          "end": 1.62
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14812604151666164
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "32aadcd79d1cd5d165415ee8e1951bfb2a22f75b833199375ffe95d9e9b0869b",
+  "selected_reasons": []
+}

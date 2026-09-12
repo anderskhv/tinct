@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "de9c969f554f98b8fde9ddb2a4fd5b5ac27ec694932eda720b49cf7c579e24a9",
+  "attempts": [
+    {
+      "asr_seconds": 0.12378682754933834,
+      "alignment_seconds": 0.0002477560192346573,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Posthumus.",
+          "start": 0.08,
+          "end": 1.42,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.9609375
+            },
+            {
+              "text": " Posthumus.",
+              "start": 0.68,
+              "end": 1.42,
+              "probability": 0.6444498697916666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Posthumus.",
+          "start": 0.68,
+          "end": 1.42
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Posthumus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Posthumus.",
+          "start": 0.68,
+          "end": 1.42,
+          "key": "posthumus",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Posthumus.",
+          "start": 0.68,
+          "end": 1.42
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12414714321494102
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6ce5a9f13ed1ab6aaee35e35d9a3c5c689700e51b40f6da2464896afc36210a4",
+  "selected_reasons": []
+}

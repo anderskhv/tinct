@@ -1,0 +1,734 @@
+{
+  "complete": true,
+  "signature": "6db8e57ea794d293a456d9498c788fc099efcceffb1441993256c2ab1a08ffaf",
+  "attempts": [
+    {
+      "asr_seconds": 0.39097858406603336,
+      "alignment_seconds": 0.0007953867316246033,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Edgar. Kent, sir, the banish'd Kent; who in disguise Follow'd his enemy king and did him service Improper for a slave.",
+        "hotwords": "Edgar, Kent, Follow'd, Improper"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Edgar, Kent, sir, the banish'd Kent, who in disguise Follow'd his enemy king and did him service Improper for a slave.",
+          "start": 0.05,
+          "end": 7.45,
+          "words": [
+            {
+              "text": " Edgar,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.71875
+            },
+            {
+              "text": " Kent,",
+              "start": 1.25,
+              "end": 1.27,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " sir,",
+              "start": 1.45,
+              "end": 1.63,
+              "probability": 0.74365234375
+            },
+            {
+              "text": " the",
+              "start": 2.05,
+              "end": 2.09,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " banish'd",
+              "start": 2.09,
+              "end": 2.61,
+              "probability": 0.21906280517578125
+            },
+            {
+              "text": " Kent,",
+              "start": 2.61,
+              "end": 2.81,
+              "probability": 0.923828125
+            },
+            {
+              "text": " who",
+              "start": 3.41,
+              "end": 3.55,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " in",
+              "start": 3.55,
+              "end": 3.69,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " disguise",
+              "start": 3.69,
+              "end": 4.05,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Follow'd",
+              "start": 4.05,
+              "end": 4.61,
+              "probability": 0.047141075134277344
+            },
+            {
+              "text": " his",
+              "start": 4.61,
+              "end": 4.71,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " enemy",
+              "start": 4.71,
+              "end": 4.99,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " king",
+              "start": 4.99,
+              "end": 5.35,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " and",
+              "start": 5.35,
+              "end": 5.59,
+              "probability": 0.6162109375
+            },
+            {
+              "text": " did",
+              "start": 5.59,
+              "end": 5.71,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " him",
+              "start": 5.71,
+              "end": 5.89,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " service",
+              "start": 5.89,
+              "end": 6.27,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " Improper",
+              "start": 6.27,
+              "end": 6.83,
+              "probability": 0.538848876953125
+            },
+            {
+              "text": " for",
+              "start": 6.83,
+              "end": 7.03,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " a",
+              "start": 7.03,
+              "end": 7.17,
+              "probability": 0.99609375
+            },
+            {
+              "text": " slave.",
+              "start": 7.17,
+              "end": 7.45,
+              "probability": 0.98095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edgar,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Kent,",
+          "start": 1.25,
+          "end": 1.27
+        },
+        {
+          "raw": "sir,",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "raw": "the",
+          "start": 2.05,
+          "end": 2.09
+        },
+        {
+          "raw": "banish'd",
+          "start": 2.09,
+          "end": 2.61
+        },
+        {
+          "raw": "Kent,",
+          "start": 2.61,
+          "end": 2.81
+        },
+        {
+          "raw": "who",
+          "start": 3.41,
+          "end": 3.55
+        },
+        {
+          "raw": "in",
+          "start": 3.55,
+          "end": 3.69
+        },
+        {
+          "raw": "disguise",
+          "start": 3.69,
+          "end": 4.05
+        },
+        {
+          "raw": "Follow'd",
+          "start": 4.05,
+          "end": 4.61
+        },
+        {
+          "raw": "his",
+          "start": 4.61,
+          "end": 4.71
+        },
+        {
+          "raw": "enemy",
+          "start": 4.71,
+          "end": 4.99
+        },
+        {
+          "raw": "king",
+          "start": 4.99,
+          "end": 5.35
+        },
+        {
+          "raw": "and",
+          "start": 5.35,
+          "end": 5.59
+        },
+        {
+          "raw": "did",
+          "start": 5.59,
+          "end": 5.71
+        },
+        {
+          "raw": "him",
+          "start": 5.71,
+          "end": 5.89
+        },
+        {
+          "raw": "service",
+          "start": 5.89,
+          "end": 6.27
+        },
+        {
+          "raw": "Improper",
+          "start": 6.27,
+          "end": 6.83
+        },
+        {
+          "raw": "for",
+          "start": 6.83,
+          "end": 7.03
+        },
+        {
+          "raw": "a",
+          "start": 7.03,
+          "end": 7.17
+        },
+        {
+          "raw": "slave.",
+          "start": 7.17,
+          "end": 7.45
+        }
+      ],
+      "expected_tokens": [
+        "Edgar.",
+        "Kent,",
+        "sir,",
+        "the",
+        "banish'd",
+        "Kent;",
+        "who",
+        "in",
+        "disguise",
+        "Follow'd",
+        "his",
+        "enemy",
+        "king",
+        "and",
+        "did",
+        "him",
+        "service",
+        "Improper",
+        "for",
+        "a",
+        "slave."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edgar,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "edgar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Kent,",
+          "start": 1.25,
+          "end": 1.27,
+          "key": "kent",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.45,
+          "end": 1.63,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.05,
+          "end": 2.09,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "banish'd",
+          "start": 2.09,
+          "end": 2.61,
+          "key": "banishd",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Kent,",
+          "start": 2.61,
+          "end": 2.81,
+          "key": "kent",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 3.41,
+          "end": 3.55,
+          "key": "who",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.55,
+          "end": 3.69,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "disguise",
+          "start": 3.69,
+          "end": 4.05,
+          "key": "disguise",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Follow'd",
+          "start": 4.05,
+          "end": 4.61,
+          "key": "followd",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.61,
+          "end": 4.71,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "enemy",
+          "start": 4.71,
+          "end": 4.99,
+          "key": "enemy",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "king",
+          "start": 4.99,
+          "end": 5.35,
+          "key": "king",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.35,
+          "end": 5.59,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 5.59,
+          "end": 5.71,
+          "key": "did",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 5.71,
+          "end": 5.89,
+          "key": "him",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "service",
+          "start": 5.89,
+          "end": 6.27,
+          "key": "service",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Improper",
+          "start": 6.27,
+          "end": 6.83,
+          "key": "improper",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 6.83,
+          "end": 7.03,
+          "key": "for",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.03,
+          "end": 7.17,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "slave.",
+          "start": 7.17,
+          "end": 7.45,
+          "key": "slave",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edgar.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Kent,",
+          "start": 1.25,
+          "end": 1.27
+        },
+        {
+          "text": "sir,",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "text": "the",
+          "start": 2.05,
+          "end": 2.09
+        },
+        {
+          "text": "banish'd",
+          "start": 2.09,
+          "end": 2.61
+        },
+        {
+          "text": "Kent;",
+          "start": 2.61,
+          "end": 2.81
+        },
+        {
+          "text": "who",
+          "start": 3.41,
+          "end": 3.55
+        },
+        {
+          "text": "in",
+          "start": 3.55,
+          "end": 3.69
+        },
+        {
+          "text": "disguise",
+          "start": 3.69,
+          "end": 4.05
+        },
+        {
+          "text": "Follow'd",
+          "start": 4.05,
+          "end": 4.61
+        },
+        {
+          "text": "his",
+          "start": 4.61,
+          "end": 4.71
+        },
+        {
+          "text": "enemy",
+          "start": 4.71,
+          "end": 4.99
+        },
+        {
+          "text": "king",
+          "start": 4.99,
+          "end": 5.35
+        },
+        {
+          "text": "and",
+          "start": 5.35,
+          "end": 5.59
+        },
+        {
+          "text": "did",
+          "start": 5.59,
+          "end": 5.71
+        },
+        {
+          "text": "him",
+          "start": 5.71,
+          "end": 5.89
+        },
+        {
+          "text": "service",
+          "start": 5.89,
+          "end": 6.27
+        },
+        {
+          "text": "Improper",
+          "start": 6.27,
+          "end": 6.83
+        },
+        {
+          "text": "for",
+          "start": 6.83,
+          "end": 7.03
+        },
+        {
+          "text": "a",
+          "start": 7.03,
+          "end": 7.17
+        },
+        {
+          "text": "slave.",
+          "start": 7.17,
+          "end": 7.45
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3920743968337774
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6ae666d51e608f7ae67f233835b0033eca6db347e0e1ea33f80ec56a35f33c3d",
+  "selected_reasons": []
+}

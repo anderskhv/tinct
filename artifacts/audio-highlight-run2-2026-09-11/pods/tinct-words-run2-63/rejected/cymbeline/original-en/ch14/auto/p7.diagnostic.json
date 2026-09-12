@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "4d06610ed89c200c30bd18f97984c603ef30f86a52ee9090c2cf8d861c7a48b8",
+  "attempts": [
+    {
+      "asr_seconds": 0.216896777972579,
+      "alignment_seconds": 0.00045307353138923645,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Pisanio. Madam, here is a letter from my lord.",
+        "hotwords": "Pisanio, Madam"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pisanio, Madam, here is a letter from my lord.",
+          "start": 0.18,
+          "end": 3.1,
+          "words": [
+            {
+              "text": " Pisanio,",
+              "start": 0.18,
+              "end": 0.96,
+              "probability": 0.6228434244791666
+            },
+            {
+              "text": " Madam,",
+              "start": 1.58,
+              "end": 1.82,
+              "probability": 0.61273193359375
+            },
+            {
+              "text": " here",
+              "start": 2.1,
+              "end": 2.12,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " is",
+              "start": 2.12,
+              "end": 2.24,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " a",
+              "start": 2.24,
+              "end": 2.34,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " letter",
+              "start": 2.34,
+              "end": 2.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " from",
+              "start": 2.48,
+              "end": 2.72,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " my",
+              "start": 2.72,
+              "end": 2.88,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " lord.",
+              "start": 2.88,
+              "end": 3.1,
+              "probability": 0.57958984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pisanio,",
+          "start": 0.18,
+          "end": 0.96
+        },
+        {
+          "raw": "Madam,",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "raw": "here",
+          "start": 2.1,
+          "end": 2.12
+        },
+        {
+          "raw": "is",
+          "start": 2.12,
+          "end": 2.24
+        },
+        {
+          "raw": "a",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "raw": "letter",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "raw": "from",
+          "start": 2.48,
+          "end": 2.72
+        },
+        {
+          "raw": "my",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "raw": "lord.",
+          "start": 2.88,
+          "end": 3.1
+        }
+      ],
+      "expected_tokens": [
+        "Pisanio.",
+        "Madam,",
+        "here",
+        "is",
+        "a",
+        "letter",
+        "from",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pisanio,",
+          "start": 0.18,
+          "end": 0.96,
+          "key": "pisanio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Madam,",
+          "start": 1.58,
+          "end": 1.82,
+          "key": "madam",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 2.1,
+          "end": 2.12,
+          "key": "here",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.12,
+          "end": 2.24,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.24,
+          "end": 2.34,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 2.34,
+          "end": 2.48,
+          "key": "letter",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.48,
+          "end": 2.72,
+          "key": "from",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.72,
+          "end": 2.88,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 2.88,
+          "end": 3.1,
+          "key": "lord",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pisanio.",
+          "start": 0.18,
+          "end": 0.96
+        },
+        {
+          "text": "Madam,",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "text": "here",
+          "start": 2.1,
+          "end": 2.12
+        },
+        {
+          "text": "is",
+          "start": 2.12,
+          "end": 2.24
+        },
+        {
+          "text": "a",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "text": "letter",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "text": "from",
+          "start": 2.48,
+          "end": 2.72
+        },
+        {
+          "text": "my",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "text": "lord.",
+          "start": 2.88,
+          "end": 3.1
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21754725836217403
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ec858ec51c04c413e706081720ce32ae3080bcac9ce01ce4ec5c4f9b2a48881c",
+  "selected_reasons": []
+}

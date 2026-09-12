@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "df63eb1793d360555239640090c88e7dd144c17cbd37730d1587b7a4d7981bd8",
+  "attempts": [
+    {
+      "asr_seconds": 0.17970065586268902,
+      "alignment_seconds": 0.0004026386886835098,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Aside._] I do suspect you, madam;",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " aside, I do suspect you, madam.",
+          "start": 0.05,
+          "end": 2.47,
+          "words": [
+            {
+              "text": " aside,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.06964111328125
+            },
+            {
+              "text": " I",
+              "start": 1.33,
+              "end": 1.35,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " do",
+              "start": 1.35,
+              "end": 1.47,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " suspect",
+              "start": 1.47,
+              "end": 1.87,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you,",
+              "start": 1.87,
+              "end": 2.09,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " madam.",
+              "start": 2.17,
+              "end": 2.47,
+              "probability": 0.82470703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "aside,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "I",
+          "start": 1.33,
+          "end": 1.35
+        },
+        {
+          "raw": "do",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "raw": "suspect",
+          "start": 1.47,
+          "end": 1.87
+        },
+        {
+          "raw": "you,",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "raw": "madam.",
+          "start": 2.17,
+          "end": 2.47
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside._]",
+        "I",
+        "do",
+        "suspect",
+        "you,",
+        "madam;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "aside,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.33,
+          "end": 1.35,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.35,
+          "end": 1.47,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "suspect",
+          "start": 1.47,
+          "end": 1.87,
+          "key": "suspect",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.87,
+          "end": 2.09,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "madam.",
+          "start": 2.17,
+          "end": 2.47,
+          "key": "madam",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside._]",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "I",
+          "start": 1.33,
+          "end": 1.35
+        },
+        {
+          "text": "do",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "text": "suspect",
+          "start": 1.47,
+          "end": 1.87
+        },
+        {
+          "text": "you,",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "text": "madam;",
+          "start": 2.17,
+          "end": 2.47
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18025985918939114
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0f604c910f0f6be47018f0f482c2c249c4cab394d73ee5cb34bcd6555d675095",
+  "selected_reasons": []
+}

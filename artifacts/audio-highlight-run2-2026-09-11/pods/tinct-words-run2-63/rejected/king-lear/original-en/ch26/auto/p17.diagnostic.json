@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "93dc2e7e6ac374f7b6bb8d35613dcc059ab5e8af34c1f6509c307e24f9e26f3e",
+  "attempts": [
+    {
+      "asr_seconds": 0.3542460836470127,
+      "alignment_seconds": 0.0005099344998598099,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Goneril. Not so hot: In his own grace he doth exalt himself, More than in your addition.",
+        "hotwords": "Goneril, Not, More"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Goneril, Not so hot. In his own grace he doth exalt himself, More than in your addition.",
+          "start": 0.05,
+          "end": 5.67,
+          "words": [
+            {
+              "text": " Goneril,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.4214070638020833
+            },
+            {
+              "text": " Not",
+              "start": 1.29,
+              "end": 1.49,
+              "probability": 0.013153076171875
+            },
+            {
+              "text": " so",
+              "start": 1.49,
+              "end": 1.73,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " hot.",
+              "start": 1.73,
+              "end": 2.03,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " In",
+              "start": 2.49,
+              "end": 2.59,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " his",
+              "start": 2.59,
+              "end": 2.69,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " own",
+              "start": 2.69,
+              "end": 2.95,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " grace",
+              "start": 2.95,
+              "end": 3.23,
+              "probability": 0.951171875
+            },
+            {
+              "text": " he",
+              "start": 3.23,
+              "end": 3.49,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " doth",
+              "start": 3.49,
+              "end": 3.69,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " exalt",
+              "start": 3.69,
+              "end": 4.05,
+              "probability": 0.970458984375
+            },
+            {
+              "text": " himself,",
+              "start": 4.05,
+              "end": 4.45,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " More",
+              "start": 4.79,
+              "end": 4.93,
+              "probability": 0.254638671875
+            },
+            {
+              "text": " than",
+              "start": 4.93,
+              "end": 5.11,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " in",
+              "start": 5.11,
+              "end": 5.23,
+              "probability": 0.990234375
+            },
+            {
+              "text": " your",
+              "start": 5.23,
+              "end": 5.33,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " addition.",
+              "start": 5.33,
+              "end": 5.67,
+              "probability": 0.54345703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Goneril,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "Not",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "raw": "so",
+          "start": 1.49,
+          "end": 1.73
+        },
+        {
+          "raw": "hot.",
+          "start": 1.73,
+          "end": 2.03
+        },
+        {
+          "raw": "In",
+          "start": 2.49,
+          "end": 2.59
+        },
+        {
+          "raw": "his",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "raw": "own",
+          "start": 2.69,
+          "end": 2.95
+        },
+        {
+          "raw": "grace",
+          "start": 2.95,
+          "end": 3.23
+        },
+        {
+          "raw": "he",
+          "start": 3.23,
+          "end": 3.49
+        },
+        {
+          "raw": "doth",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "raw": "exalt",
+          "start": 3.69,
+          "end": 4.05
+        },
+        {
+          "raw": "himself,",
+          "start": 4.05,
+          "end": 4.45
+        },
+        {
+          "raw": "More",
+          "start": 4.79,
+          "end": 4.93
+        },
+        {
+          "raw": "than",
+          "start": 4.93,
+          "end": 5.11
+        },
+        {
+          "raw": "in",
+          "start": 5.11,
+          "end": 5.23
+        },
+        {
+          "raw": "your",
+          "start": 5.23,
+          "end": 5.33
+        },
+        {
+          "raw": "addition.",
+          "start": 5.33,
+          "end": 5.67
+        }
+      ],
+      "expected_tokens": [
+        "Goneril.",
+        "Not",
+        "so",
+        "hot:",
+        "In",
+        "his",
+        "own",
+        "grace",
+        "he",
+        "doth",
+        "exalt",
+        "himself,",
+        "More",
+        "than",
+        "in",
+        "your",
+        "addition."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Goneril,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "goneril",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 1.29,
+          "end": 1.49,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.49,
+          "end": 1.73,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hot.",
+          "start": 1.73,
+          "end": 2.03,
+          "key": "hot",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 2.49,
+          "end": 2.59,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.59,
+          "end": 2.69,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 2.69,
+          "end": 2.95,
+          "key": "own",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "grace",
+          "start": 2.95,
+          "end": 3.23,
+          "key": "grace",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.23,
+          "end": 3.49,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.49,
+          "end": 3.69,
+          "key": "doth",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "exalt",
+          "start": 3.69,
+          "end": 4.05,
+          "key": "exalt",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "himself,",
+          "start": 4.05,
+          "end": 4.45,
+          "key": "himself",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "More",
+          "start": 4.79,
+          "end": 4.93,
+          "key": "more",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 4.93,
+          "end": 5.11,
+          "key": "than",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.11,
+          "end": 5.23,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.23,
+          "end": 5.33,
+          "key": "your",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "addition.",
+          "start": 5.33,
+          "end": 5.67,
+          "key": "addition",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Goneril.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "Not",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "text": "so",
+          "start": 1.49,
+          "end": 1.73
+        },
+        {
+          "text": "hot:",
+          "start": 1.73,
+          "end": 2.03
+        },
+        {
+          "text": "In",
+          "start": 2.49,
+          "end": 2.59
+        },
+        {
+          "text": "his",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "text": "own",
+          "start": 2.69,
+          "end": 2.95
+        },
+        {
+          "text": "grace",
+          "start": 2.95,
+          "end": 3.23
+        },
+        {
+          "text": "he",
+          "start": 3.23,
+          "end": 3.49
+        },
+        {
+          "text": "doth",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "text": "exalt",
+          "start": 3.69,
+          "end": 4.05
+        },
+        {
+          "text": "himself,",
+          "start": 4.05,
+          "end": 4.45
+        },
+        {
+          "text": "More",
+          "start": 4.79,
+          "end": 4.93
+        },
+        {
+          "text": "than",
+          "start": 4.93,
+          "end": 5.11
+        },
+        {
+          "text": "in",
+          "start": 5.11,
+          "end": 5.23
+        },
+        {
+          "text": "your",
+          "start": 5.23,
+          "end": 5.33
+        },
+        {
+          "text": "addition.",
+          "start": 5.33,
+          "end": 5.67
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.35497116670012474
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ae53b83c3d5397bbf995beabf41979e5ca69297da1f2709daa8f83ba626d1fbc",
+  "selected_reasons": []
+}

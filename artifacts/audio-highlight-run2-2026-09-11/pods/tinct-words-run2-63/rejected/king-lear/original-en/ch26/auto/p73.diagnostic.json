@@ -1,0 +1,125 @@
+{
+  "complete": true,
+  "signature": "769315098fb86bab892be5e5993788ff263551fe4e3d2eda173873d4d63fa4ab",
+  "attempts": [
+    {
+      "asr_seconds": 0.1306827776134014,
+      "alignment_seconds": 0.0002651344984769821,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "govern her."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Govern her.",
+          "start": 0.05,
+          "end": 0.97,
+          "words": [
+            {
+              "text": " Govern",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.34326171875
+            },
+            {
+              "text": " her.",
+              "start": 0.69,
+              "end": 0.97,
+              "probability": 0.93896484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Govern",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "her.",
+          "start": 0.69,
+          "end": 0.97
+        }
+      ],
+      "expected_tokens": [
+        "govern",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Govern",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "govern",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 0.69,
+          "end": 0.97,
+          "key": "her",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "govern",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "her.",
+          "start": 0.69,
+          "end": 0.97
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13105393387377262
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bd33c2e5947889b1ad0fddcdcfe0521bcbedb509b46b1281299e96c74fa15510",
+  "selected_reasons": []
+}

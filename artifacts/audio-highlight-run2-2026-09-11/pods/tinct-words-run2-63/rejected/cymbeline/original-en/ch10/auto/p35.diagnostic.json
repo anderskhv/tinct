@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "d4f353d83befc15bbd7a8e72b06dccc532ca14f8d818f95bb86bd866a647e954",
+  "attempts": [
+    {
+      "asr_seconds": 0.3787927497178316,
+      "alignment_seconds": 0.0006610248237848282,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lady. That's more Than some whose tailors are as dear as yours Can justly boast of. What's your lordship's pleasure?",
+        "hotwords": "Lady, That's, Than, Can, What's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lady, That's more Than some whose tailors are as dear as yours Can justly boast of. What's your lordship's pleasure?",
+          "start": 0.05,
+          "end": 6.93,
+          "words": [
+            {
+              "text": " Lady,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.845703125
+            },
+            {
+              "text": " That's",
+              "start": 1.13,
+              "end": 1.53,
+              "probability": 0.49008941650390625
+            },
+            {
+              "text": " more",
+              "start": 1.53,
+              "end": 1.65,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Than",
+              "start": 1.65,
+              "end": 1.87,
+              "probability": 0.0006895065307617188
+            },
+            {
+              "text": " some",
+              "start": 1.87,
+              "end": 2.13,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " whose",
+              "start": 2.13,
+              "end": 2.39,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " tailors",
+              "start": 2.39,
+              "end": 2.93,
+              "probability": 0.881591796875
+            },
+            {
+              "text": " are",
+              "start": 2.93,
+              "end": 3.09,
+              "probability": 0.61279296875
+            },
+            {
+              "text": " as",
+              "start": 3.09,
+              "end": 3.25,
+              "probability": 0.69580078125
+            },
+            {
+              "text": " dear",
+              "start": 3.25,
+              "end": 3.45,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " as",
+              "start": 3.45,
+              "end": 3.73,
+              "probability": 0.857421875
+            },
+            {
+              "text": " yours",
+              "start": 3.73,
+              "end": 3.99,
+              "probability": 0.63720703125
+            },
+            {
+              "text": " Can",
+              "start": 3.99,
+              "end": 4.29,
+              "probability": 0.0787353515625
+            },
+            {
+              "text": " justly",
+              "start": 4.29,
+              "end": 4.79,
+              "probability": 0.941650390625
+            },
+            {
+              "text": " boast",
+              "start": 4.79,
+              "end": 5.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of.",
+              "start": 5.01,
+              "end": 5.39,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " What's",
+              "start": 5.89,
+              "end": 6.07,
+              "probability": 0.984375
+            },
+            {
+              "text": " your",
+              "start": 6.07,
+              "end": 6.17,
+              "probability": 0.91015625
+            },
+            {
+              "text": " lordship's",
+              "start": 6.17,
+              "end": 6.75,
+              "probability": 0.8391927083333334
+            },
+            {
+              "text": " pleasure?",
+              "start": 6.75,
+              "end": 6.93,
+              "probability": 0.95068359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lady,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "That's",
+          "start": 1.13,
+          "end": 1.53
+        },
+        {
+          "raw": "more",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "raw": "Than",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "raw": "some",
+          "start": 1.87,
+          "end": 2.13
+        },
+        {
+          "raw": "whose",
+          "start": 2.13,
+          "end": 2.39
+        },
+        {
+          "raw": "tailors",
+          "start": 2.39,
+          "end": 2.93
+        },
+        {
+          "raw": "are",
+          "start": 2.93,
+          "end": 3.09
+        },
+        {
+          "raw": "as",
+          "start": 3.09,
+          "end": 3.25
+        },
+        {
+          "raw": "dear",
+          "start": 3.25,
+          "end": 3.45
+        },
+        {
+          "raw": "as",
+          "start": 3.45,
+          "end": 3.73
+        },
+        {
+          "raw": "yours",
+          "start": 3.73,
+          "end": 3.99
+        },
+        {
+          "raw": "Can",
+          "start": 3.99,
+          "end": 4.29
+        },
+        {
+          "raw": "justly",
+          "start": 4.29,
+          "end": 4.79
+        },
+        {
+          "raw": "boast",
+          "start": 4.79,
+          "end": 5.01
+        },
+        {
+          "raw": "of.",
+          "start": 5.01,
+          "end": 5.39
+        },
+        {
+          "raw": "What's",
+          "start": 5.89,
+          "end": 6.07
+        },
+        {
+          "raw": "your",
+          "start": 6.07,
+          "end": 6.17
+        },
+        {
+          "raw": "lordship's",
+          "start": 6.17,
+          "end": 6.75
+        },
+        {
+          "raw": "pleasure?",
+          "start": 6.75,
+          "end": 6.93
+        }
+      ],
+      "expected_tokens": [
+        "Lady.",
+        "That's",
+        "more",
+        "Than",
+        "some",
+        "whose",
+        "tailors",
+        "are",
+        "as",
+        "dear",
+        "as",
+        "yours",
+        "Can",
+        "justly",
+        "boast",
+        "of.",
+        "What's",
+        "your",
+        "lordship's",
+        "pleasure?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lady,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "lady",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 1.13,
+          "end": 1.53,
+          "key": "thats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 1.53,
+          "end": 1.65,
+          "key": "more",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Than",
+          "start": 1.65,
+          "end": 1.87,
+          "key": "than",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 1.87,
+          "end": 2.13,
+          "key": "some",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "whose",
+          "start": 2.13,
+          "end": 2.39,
+          "key": "whose",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tailors",
+          "start": 2.39,
+          "end": 2.93,
+          "key": "tailors",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.93,
+          "end": 3.09,
+          "key": "are",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.09,
+          "end": 3.25,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 3.25,
+          "end": 3.45,
+          "key": "dear",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.45,
+          "end": 3.73,
+          "key": "as",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "yours",
+          "start": 3.73,
+          "end": 3.99,
+          "key": "yours",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Can",
+          "start": 3.99,
+          "end": 4.29,
+          "key": "can",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "justly",
+          "start": 4.29,
+          "end": 4.79,
+          "key": "justly",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "boast",
+          "start": 4.79,
+          "end": 5.01,
+          "key": "boast",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of.",
+          "start": 5.01,
+          "end": 5.39,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 5.89,
+          "end": 6.07,
+          "key": "whats",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 6.07,
+          "end": 6.17,
+          "key": "your",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "lordship's",
+          "start": 6.17,
+          "end": 6.75,
+          "key": "lordships",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "pleasure?",
+          "start": 6.75,
+          "end": 6.93,
+          "key": "pleasure",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lady.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "That's",
+          "start": 1.13,
+          "end": 1.53
+        },
+        {
+          "text": "more",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "text": "Than",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "text": "some",
+          "start": 1.87,
+          "end": 2.13
+        },
+        {
+          "text": "whose",
+          "start": 2.13,
+          "end": 2.39
+        },
+        {
+          "text": "tailors",
+          "start": 2.39,
+          "end": 2.93
+        },
+        {
+          "text": "are",
+          "start": 2.93,
+          "end": 3.09
+        },
+        {
+          "text": "as",
+          "start": 3.09,
+          "end": 3.25
+        },
+        {
+          "text": "dear",
+          "start": 3.25,
+          "end": 3.45
+        },
+        {
+          "text": "as",
+          "start": 3.45,
+          "end": 3.73
+        },
+        {
+          "text": "yours",
+          "start": 3.73,
+          "end": 3.99
+        },
+        {
+          "text": "Can",
+          "start": 3.99,
+          "end": 4.29
+        },
+        {
+          "text": "justly",
+          "start": 4.29,
+          "end": 4.79
+        },
+        {
+          "text": "boast",
+          "start": 4.79,
+          "end": 5.01
+        },
+        {
+          "text": "of.",
+          "start": 5.01,
+          "end": 5.39
+        },
+        {
+          "text": "What's",
+          "start": 5.89,
+          "end": 6.07
+        },
+        {
+          "text": "your",
+          "start": 6.07,
+          "end": 6.17
+        },
+        {
+          "text": "lordship's",
+          "start": 6.17,
+          "end": 6.75
+        },
+        {
+          "text": "pleasure?",
+          "start": 6.75,
+          "end": 6.93
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.379716606810689
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "91fcf3ff809ced4f0cea9980aeb598498682a5cf7651ae6ffc23e51771fd3d30",
+  "selected_reasons": []
+}

@@ -1,0 +1,383 @@
+{
+  "complete": true,
+  "signature": "b16f4815fbb392d1fc2cb49340a10eb6d28fbbffb6b87eb89f88d72f0ca1526d",
+  "attempts": [
+    {
+      "asr_seconds": 0.20761375315487385,
+      "alignment_seconds": 0.0004774704575538635,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aya Chimo, let me my service tender on your lips.",
+          "start": 0.11,
+          "end": 2.95,
+          "words": [
+            {
+              "text": " Aya",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.559326171875
+            },
+            {
+              "text": " Chimo,",
+              "start": 0.63,
+              "end": 0.97,
+              "probability": 0.607421875
+            },
+            {
+              "text": " let",
+              "start": 1.43,
+              "end": 1.51,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " me",
+              "start": 1.51,
+              "end": 1.59,
+              "probability": 0.994140625
+            },
+            {
+              "text": " my",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " service",
+              "start": 1.75,
+              "end": 2.01,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " tender",
+              "start": 2.01,
+              "end": 2.37,
+              "probability": 0.982421875
+            },
+            {
+              "text": " on",
+              "start": 2.37,
+              "end": 2.59,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " your",
+              "start": 2.59,
+              "end": 2.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " lips.",
+              "start": 2.71,
+              "end": 2.95,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aya",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "Chimo,",
+          "start": 0.63,
+          "end": 0.97
+        },
+        {
+          "raw": "let",
+          "start": 1.43,
+          "end": 1.51
+        },
+        {
+          "raw": "me",
+          "start": 1.51,
+          "end": 1.59
+        },
+        {
+          "raw": "my",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "raw": "service",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "raw": "tender",
+          "start": 2.01,
+          "end": 2.37
+        },
+        {
+          "raw": "on",
+          "start": 2.37,
+          "end": 2.59
+        },
+        {
+          "raw": "your",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "raw": "lips.",
+          "start": 2.71,
+          "end": 2.95
+        }
+      ],
+      "expected_tokens": [
+        "Iachimo.",
+        "Let",
+        "me",
+        "my",
+        "service",
+        "tender",
+        "on",
+        "your",
+        "lips."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          9,
+          2,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aya",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "aya",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Chimo,",
+          "start": 0.63,
+          "end": 0.97,
+          "key": "chimo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.43,
+          "end": 1.51,
+          "key": "let",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.51,
+          "end": 1.59,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.59,
+          "end": 1.75,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "service",
+          "start": 1.75,
+          "end": 2.01,
+          "key": "service",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tender",
+          "start": 2.01,
+          "end": 2.37,
+          "key": "tender",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.37,
+          "end": 2.59,
+          "key": "on",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.59,
+          "end": 2.71,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lips.",
+          "start": 2.71,
+          "end": 2.95,
+          "key": "lips",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iachimo.",
+          "start": 0.0,
+          "end": 0.715
+        },
+        {
+          "text": "Let",
+          "start": 1.43,
+          "end": 1.51
+        },
+        {
+          "text": "me",
+          "start": 1.51,
+          "end": 1.59
+        },
+        {
+          "text": "my",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "text": "service",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "text": "tender",
+          "start": 2.01,
+          "end": 2.37
+        },
+        {
+          "text": "on",
+          "start": 2.37,
+          "end": 2.59
+        },
+        {
+          "text": "your",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "text": "lips.",
+          "start": 2.71,
+          "end": 2.95
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.2082876581698656
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "423b1317b3bf65e4a4c5de3259a466fc49be02ff7ce8c12fc7519e496bc20ca4",
+  "selected_reasons": []
+}

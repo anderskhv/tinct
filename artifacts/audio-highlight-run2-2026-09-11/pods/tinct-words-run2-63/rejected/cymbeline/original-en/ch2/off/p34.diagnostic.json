@@ -1,0 +1,735 @@
+{
+  "complete": true,
+  "signature": "149ac8e7da021167addf74ad929a944526c7a356893a79d08a3d0574e19199ff",
+  "attempts": [
+    {
+      "asr_seconds": 0.3902076929807663,
+      "alignment_seconds": 0.0009451434016227722,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Imogen, almost, sir. Heaven restore me. Would I were a neat herd's daughter, and my Leonatis our neighbor shepherd's son?",
+          "start": 0.02,
+          "end": 7.24,
+          "words": [
+            {
+              "text": " Imogen,",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 0.835693359375
+            },
+            {
+              "text": " almost,",
+              "start": 1.1,
+              "end": 1.38,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " sir.",
+              "start": 1.64,
+              "end": 1.76,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " Heaven",
+              "start": 2.34,
+              "end": 2.48,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " restore",
+              "start": 2.48,
+              "end": 2.92,
+              "probability": 0.841796875
+            },
+            {
+              "text": " me.",
+              "start": 2.92,
+              "end": 3.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Would",
+              "start": 3.7,
+              "end": 3.8,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " I",
+              "start": 3.8,
+              "end": 3.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " were",
+              "start": 3.9,
+              "end": 4.02,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " a",
+              "start": 4.02,
+              "end": 4.12,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " neat",
+              "start": 4.12,
+              "end": 4.32,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " herd's",
+              "start": 4.32,
+              "end": 4.72,
+              "probability": 0.81884765625
+            },
+            {
+              "text": " daughter,",
+              "start": 4.72,
+              "end": 4.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 5.22,
+              "end": 5.3,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " my",
+              "start": 5.3,
+              "end": 5.46,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Leonatis",
+              "start": 5.46,
+              "end": 5.94,
+              "probability": 0.50640869140625
+            },
+            {
+              "text": " our",
+              "start": 5.94,
+              "end": 6.14,
+              "probability": 0.77392578125
+            },
+            {
+              "text": " neighbor",
+              "start": 6.14,
+              "end": 6.38,
+              "probability": 0.78564453125
+            },
+            {
+              "text": " shepherd's",
+              "start": 6.38,
+              "end": 7.06,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " son?",
+              "start": 7.06,
+              "end": 7.24,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Imogen,",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "raw": "almost,",
+          "start": 1.1,
+          "end": 1.38
+        },
+        {
+          "raw": "sir.",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "raw": "Heaven",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "raw": "restore",
+          "start": 2.48,
+          "end": 2.92
+        },
+        {
+          "raw": "me.",
+          "start": 2.92,
+          "end": 3.26
+        },
+        {
+          "raw": "Would",
+          "start": 3.7,
+          "end": 3.8
+        },
+        {
+          "raw": "I",
+          "start": 3.8,
+          "end": 3.9
+        },
+        {
+          "raw": "were",
+          "start": 3.9,
+          "end": 4.02
+        },
+        {
+          "raw": "a",
+          "start": 4.02,
+          "end": 4.12
+        },
+        {
+          "raw": "neat",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "raw": "herd's",
+          "start": 4.32,
+          "end": 4.72
+        },
+        {
+          "raw": "daughter,",
+          "start": 4.72,
+          "end": 4.94
+        },
+        {
+          "raw": "and",
+          "start": 5.22,
+          "end": 5.3
+        },
+        {
+          "raw": "my",
+          "start": 5.3,
+          "end": 5.46
+        },
+        {
+          "raw": "Leonatis",
+          "start": 5.46,
+          "end": 5.94
+        },
+        {
+          "raw": "our",
+          "start": 5.94,
+          "end": 6.14
+        },
+        {
+          "raw": "neighbor",
+          "start": 6.14,
+          "end": 6.38
+        },
+        {
+          "raw": "shepherd's",
+          "start": 6.38,
+          "end": 7.06
+        },
+        {
+          "raw": "son?",
+          "start": 7.06,
+          "end": 7.24
+        }
+      ],
+      "expected_tokens": [
+        "Imogen.",
+        "Almost,",
+        "sir.",
+        "Heaven",
+        "restore",
+        "me!",
+        "Would",
+        "I",
+        "were",
+        "A",
+        "neat-herd's",
+        "daughter,",
+        "and",
+        "my",
+        "Leonatus",
+        "Our",
+        "neighbour",
+        "shepherd's",
+        "son!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ],
+        [
+          "equal",
+          17,
+          19,
+          17,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Imogen,",
+          "start": 0.02,
+          "end": 0.84,
+          "key": "imogen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "almost,",
+          "start": 1.1,
+          "end": 1.38,
+          "key": "almost",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.64,
+          "end": 1.76,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Heaven",
+          "start": 2.34,
+          "end": 2.48,
+          "key": "heaven",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "restore",
+          "start": 2.48,
+          "end": 2.92,
+          "key": "restore",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.92,
+          "end": 3.26,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Would",
+          "start": 3.7,
+          "end": 3.8,
+          "key": "would",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.8,
+          "end": 3.9,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 3.9,
+          "end": 4.02,
+          "key": "were",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.02,
+          "end": 4.12,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "neat herd's",
+          "start": 4.12,
+          "end": 4.72,
+          "key": "neatherds",
+          "pieces": [
+            10,
+            11
+          ]
+        },
+        {
+          "raw": "daughter,",
+          "start": 4.72,
+          "end": 4.94,
+          "key": "daughter",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.22,
+          "end": 5.3,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.3,
+          "end": 5.46,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Leonatis",
+          "start": 5.46,
+          "end": 5.94,
+          "key": "leonatis",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 5.94,
+          "end": 6.14,
+          "key": "our",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "neighbor",
+          "start": 6.14,
+          "end": 6.38,
+          "key": "neighbor",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "shepherd's",
+          "start": 6.38,
+          "end": 7.06,
+          "key": "shepherds",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "son?",
+          "start": 7.06,
+          "end": 7.24,
+          "key": "son",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 10,
+          "text": "neat-herd's",
+          "heard": "neat herd's",
+          "heard_indexes": [
+            10,
+            11
+          ],
+          "start": 4.12,
+          "end": 4.72
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Imogen.",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "text": "Almost,",
+          "start": 1.1,
+          "end": 1.38
+        },
+        {
+          "text": "sir.",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "text": "Heaven",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "text": "restore",
+          "start": 2.48,
+          "end": 2.92
+        },
+        {
+          "text": "me!",
+          "start": 2.92,
+          "end": 3.26
+        },
+        {
+          "text": "Would",
+          "start": 3.7,
+          "end": 3.8
+        },
+        {
+          "text": "I",
+          "start": 3.8,
+          "end": 3.9
+        },
+        {
+          "text": "were",
+          "start": 3.9,
+          "end": 4.02
+        },
+        {
+          "text": "A",
+          "start": 4.02,
+          "end": 4.12
+        },
+        {
+          "text": "neat-herd's",
+          "start": 4.12,
+          "end": 4.72
+        },
+        {
+          "text": "daughter,",
+          "start": 4.72,
+          "end": 4.94
+        },
+        {
+          "text": "and",
+          "start": 5.22,
+          "end": 5.3
+        },
+        {
+          "text": "my",
+          "start": 5.3,
+          "end": 5.46
+        },
+        {
+          "text": "Leonatus",
+          "start": 5.46,
+          "end": 5.7
+        },
+        {
+          "text": "Our",
+          "start": 5.94,
+          "end": 6.14
+        },
+        {
+          "text": "neighbour",
+          "start": 6.14,
+          "end": 6.26
+        },
+        {
+          "text": "shepherd's",
+          "start": 6.38,
+          "end": 7.06
+        },
+        {
+          "text": "son!",
+          "start": 7.06,
+          "end": 7.24
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 17
+      },
+      "match_ratio": 0.8947368421052632,
+      "rejection_reasons": [],
+      "seconds": 0.391453156247735
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6c2df3840db0bc8d307967d45642080f841c15f4cb26320828abf5694930916a",
+  "selected_reasons": []
+}

@@ -1,0 +1,2426 @@
+{
+  "complete": true,
+  "signature": "59467f27c92f59f0d1e783ad34c2731f0868b58ff6b7b7440ade45e56647f980",
+  "attempts": [
+    {
+      "asr_seconds": 0.8940371032804251,
+      "alignment_seconds": 0.0022752489894628525,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iachimo. Some dozen Romans of us, and your lord (The best feather of our wing) have mingled sums To buy a present for the Emperor; Which I, the factor for the rest, have done In France. 'Tis plate of rare device, and jewels Of rich and exquisite form, their values great; And I am something curious, being strange, To have them in safe stowage. May it please you To take them in protection?",
+        "hotwords": "Iachimo, Some, Romans, To, Emperor, Which, I, France, Tis, May"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iachimo, Some dozen Romans of us, and your lord The best feather of our wing, have mingled",
+          "start": 0.52,
+          "end": 5.84,
+          "words": [
+            {
+              "text": " Iachimo,",
+              "start": 0.52,
+              "end": 0.96,
+              "probability": 0.5084635416666666
+            },
+            {
+              "text": " Some",
+              "start": 1.34,
+              "end": 1.56,
+              "probability": 0.01239013671875
+            },
+            {
+              "text": " dozen",
+              "start": 1.56,
+              "end": 1.94,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Romans",
+              "start": 1.94,
+              "end": 2.28,
+              "probability": 0.978515625
+            },
+            {
+              "text": " of",
+              "start": 2.28,
+              "end": 2.5,
+              "probability": 0.9921875
+            },
+            {
+              "text": " us,",
+              "start": 2.5,
+              "end": 2.7,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " and",
+              "start": 2.94,
+              "end": 3.02,
+              "probability": 0.423583984375
+            },
+            {
+              "text": " your",
+              "start": 3.02,
+              "end": 3.16,
+              "probability": 0.611328125
+            },
+            {
+              "text": " lord",
+              "start": 3.16,
+              "end": 3.46,
+              "probability": 0.63623046875
+            },
+            {
+              "text": " The",
+              "start": 3.46,
+              "end": 3.72,
+              "probability": 0.1749267578125
+            },
+            {
+              "text": " best",
+              "start": 3.72,
+              "end": 4.0,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " feather",
+              "start": 4.0,
+              "end": 4.2,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " of",
+              "start": 4.2,
+              "end": 4.4,
+              "probability": 0.994140625
+            },
+            {
+              "text": " our",
+              "start": 4.4,
+              "end": 4.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wing,",
+              "start": 4.54,
+              "end": 4.82,
+              "probability": 0.9921875
+            },
+            {
+              "text": " have",
+              "start": 5.32,
+              "end": 5.44,
+              "probability": 0.21630859375
+            },
+            {
+              "text": " mingled",
+              "start": 5.44,
+              "end": 5.84,
+              "probability": 0.988037109375
+            }
+          ]
+        },
+        {
+          "text": " sums To buy a present for the Emperor, Which I, the factor for the rest, have done In France.",
+          "start": 5.84,
+          "end": 10.56,
+          "words": [
+            {
+              "text": " sums",
+              "start": 5.84,
+              "end": 6.0,
+              "probability": 0.34521484375
+            },
+            {
+              "text": " To",
+              "start": 6.0,
+              "end": 6.22,
+              "probability": 0.62255859375
+            },
+            {
+              "text": " buy",
+              "start": 6.22,
+              "end": 6.38,
+              "probability": 0.9921875
+            },
+            {
+              "text": " a",
+              "start": 6.38,
+              "end": 6.52,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " present",
+              "start": 6.52,
+              "end": 6.7,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " for",
+              "start": 6.7,
+              "end": 6.94,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 6.94,
+              "end": 7.1,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Emperor,",
+              "start": 7.1,
+              "end": 7.44,
+              "probability": 0.328369140625
+            },
+            {
+              "text": " Which",
+              "start": 7.88,
+              "end": 8.1,
+              "probability": 0.334716796875
+            },
+            {
+              "text": " I,",
+              "start": 8.1,
+              "end": 8.38,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " the",
+              "start": 8.52,
+              "end": 8.64,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " factor",
+              "start": 8.64,
+              "end": 8.86,
+              "probability": 0.783203125
+            },
+            {
+              "text": " for",
+              "start": 8.86,
+              "end": 9.1,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " the",
+              "start": 9.1,
+              "end": 9.24,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " rest,",
+              "start": 9.24,
+              "end": 9.48,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " have",
+              "start": 9.62,
+              "end": 9.72,
+              "probability": 0.471435546875
+            },
+            {
+              "text": " done",
+              "start": 9.72,
+              "end": 9.92,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " In",
+              "start": 9.92,
+              "end": 10.12,
+              "probability": 0.125
+            },
+            {
+              "text": " France.",
+              "start": 10.12,
+              "end": 10.56,
+              "probability": 0.98193359375
+            }
+          ]
+        },
+        {
+          "text": " Tis plate of rare device, and jewels Of rich and exquisite form, their values great,",
+          "start": 11.48,
+          "end": 16.46,
+          "words": [
+            {
+              "text": " Tis",
+              "start": 11.48,
+              "end": 11.68,
+              "probability": 0.0757598876953125
+            },
+            {
+              "text": " plate",
+              "start": 11.68,
+              "end": 11.88,
+              "probability": 0.5498046875
+            },
+            {
+              "text": " of",
+              "start": 11.88,
+              "end": 12.02,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " rare",
+              "start": 12.02,
+              "end": 12.22,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " device,",
+              "start": 12.22,
+              "end": 12.68,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " and",
+              "start": 13.16,
+              "end": 13.26,
+              "probability": 0.65673828125
+            },
+            {
+              "text": " jewels",
+              "start": 13.26,
+              "end": 13.44,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " Of",
+              "start": 13.44,
+              "end": 13.7,
+              "probability": 0.435546875
+            },
+            {
+              "text": " rich",
+              "start": 13.7,
+              "end": 14.0,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 14.0,
+              "end": 14.24,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " exquisite",
+              "start": 14.24,
+              "end": 14.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " form,",
+              "start": 14.66,
+              "end": 15.12,
+              "probability": 0.9921875
+            },
+            {
+              "text": " their",
+              "start": 15.54,
+              "end": 15.68,
+              "probability": 0.75830078125
+            },
+            {
+              "text": " values",
+              "start": 15.68,
+              "end": 16.04,
+              "probability": 0.892578125
+            },
+            {
+              "text": " great,",
+              "start": 16.04,
+              "end": 16.46,
+              "probability": 0.97607421875
+            }
+          ]
+        },
+        {
+          "text": " And I am something curious, being strange, To have them in safe stowage. May it please",
+          "start": 16.96,
+          "end": 21.7,
+          "words": [
+            {
+              "text": " And",
+              "start": 16.96,
+              "end": 17.12,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " I",
+              "start": 17.12,
+              "end": 17.22,
+              "probability": 0.9765625
+            },
+            {
+              "text": " am",
+              "start": 17.22,
+              "end": 17.3,
+              "probability": 0.7451171875
+            },
+            {
+              "text": " something",
+              "start": 17.3,
+              "end": 17.52,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " curious,",
+              "start": 17.52,
+              "end": 18.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " being",
+              "start": 18.22,
+              "end": 18.4,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " strange,",
+              "start": 18.4,
+              "end": 18.88,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " To",
+              "start": 19.18,
+              "end": 19.26,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " have",
+              "start": 19.26,
+              "end": 19.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them",
+              "start": 19.44,
+              "end": 19.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 19.6,
+              "end": 19.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " safe",
+              "start": 19.8,
+              "end": 20.04,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " stowage.",
+              "start": 20.04,
+              "end": 20.6,
+              "probability": 0.9899088541666666
+            },
+            {
+              "text": " May",
+              "start": 21.26,
+              "end": 21.36,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " it",
+              "start": 21.36,
+              "end": 21.52,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " please",
+              "start": 21.52,
+              "end": 21.7,
+              "probability": 0.97998046875
+            }
+          ]
+        },
+        {
+          "text": " you To take them in protection?",
+          "start": 21.7,
+          "end": 22.66,
+          "words": [
+            {
+              "text": " you",
+              "start": 21.7,
+              "end": 21.84,
+              "probability": 0.437255859375
+            },
+            {
+              "text": " To",
+              "start": 21.84,
+              "end": 21.96,
+              "probability": 5.841255187988281e-06
+            },
+            {
+              "text": " take",
+              "start": 21.96,
+              "end": 22.08,
+              "probability": 0.662109375
+            },
+            {
+              "text": " them",
+              "start": 22.08,
+              "end": 22.24,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " in",
+              "start": 22.24,
+              "end": 22.36,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " protection?",
+              "start": 22.36,
+              "end": 22.66,
+              "probability": 0.8408203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iachimo,",
+          "start": 0.52,
+          "end": 0.96
+        },
+        {
+          "raw": "Some",
+          "start": 1.34,
+          "end": 1.56
+        },
+        {
+          "raw": "dozen",
+          "start": 1.56,
+          "end": 1.94
+        },
+        {
+          "raw": "Romans",
+          "start": 1.94,
+          "end": 2.28
+        },
+        {
+          "raw": "of",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "raw": "us,",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "raw": "and",
+          "start": 2.94,
+          "end": 3.02
+        },
+        {
+          "raw": "your",
+          "start": 3.02,
+          "end": 3.16
+        },
+        {
+          "raw": "lord",
+          "start": 3.16,
+          "end": 3.46
+        },
+        {
+          "raw": "The",
+          "start": 3.46,
+          "end": 3.72
+        },
+        {
+          "raw": "best",
+          "start": 3.72,
+          "end": 4.0
+        },
+        {
+          "raw": "feather",
+          "start": 4.0,
+          "end": 4.2
+        },
+        {
+          "raw": "of",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "raw": "our",
+          "start": 4.4,
+          "end": 4.54
+        },
+        {
+          "raw": "wing,",
+          "start": 4.54,
+          "end": 4.82
+        },
+        {
+          "raw": "have",
+          "start": 5.32,
+          "end": 5.44
+        },
+        {
+          "raw": "mingled",
+          "start": 5.44,
+          "end": 5.84
+        },
+        {
+          "raw": "sums",
+          "start": 5.84,
+          "end": 6.0
+        },
+        {
+          "raw": "To",
+          "start": 6.0,
+          "end": 6.22
+        },
+        {
+          "raw": "buy",
+          "start": 6.22,
+          "end": 6.38
+        },
+        {
+          "raw": "a",
+          "start": 6.38,
+          "end": 6.52
+        },
+        {
+          "raw": "present",
+          "start": 6.52,
+          "end": 6.7
+        },
+        {
+          "raw": "for",
+          "start": 6.7,
+          "end": 6.94
+        },
+        {
+          "raw": "the",
+          "start": 6.94,
+          "end": 7.1
+        },
+        {
+          "raw": "Emperor,",
+          "start": 7.1,
+          "end": 7.44
+        },
+        {
+          "raw": "Which",
+          "start": 7.88,
+          "end": 8.1
+        },
+        {
+          "raw": "I,",
+          "start": 8.1,
+          "end": 8.38
+        },
+        {
+          "raw": "the",
+          "start": 8.52,
+          "end": 8.64
+        },
+        {
+          "raw": "factor",
+          "start": 8.64,
+          "end": 8.86
+        },
+        {
+          "raw": "for",
+          "start": 8.86,
+          "end": 9.1
+        },
+        {
+          "raw": "the",
+          "start": 9.1,
+          "end": 9.24
+        },
+        {
+          "raw": "rest,",
+          "start": 9.24,
+          "end": 9.48
+        },
+        {
+          "raw": "have",
+          "start": 9.62,
+          "end": 9.72
+        },
+        {
+          "raw": "done",
+          "start": 9.72,
+          "end": 9.92
+        },
+        {
+          "raw": "In",
+          "start": 9.92,
+          "end": 10.12
+        },
+        {
+          "raw": "France.",
+          "start": 10.12,
+          "end": 10.56
+        },
+        {
+          "raw": "Tis",
+          "start": 11.48,
+          "end": 11.68
+        },
+        {
+          "raw": "plate",
+          "start": 11.68,
+          "end": 11.88
+        },
+        {
+          "raw": "of",
+          "start": 11.88,
+          "end": 12.02
+        },
+        {
+          "raw": "rare",
+          "start": 12.02,
+          "end": 12.22
+        },
+        {
+          "raw": "device,",
+          "start": 12.22,
+          "end": 12.68
+        },
+        {
+          "raw": "and",
+          "start": 13.16,
+          "end": 13.26
+        },
+        {
+          "raw": "jewels",
+          "start": 13.26,
+          "end": 13.44
+        },
+        {
+          "raw": "Of",
+          "start": 13.44,
+          "end": 13.7
+        },
+        {
+          "raw": "rich",
+          "start": 13.7,
+          "end": 14.0
+        },
+        {
+          "raw": "and",
+          "start": 14.0,
+          "end": 14.24
+        },
+        {
+          "raw": "exquisite",
+          "start": 14.24,
+          "end": 14.66
+        },
+        {
+          "raw": "form,",
+          "start": 14.66,
+          "end": 15.12
+        },
+        {
+          "raw": "their",
+          "start": 15.54,
+          "end": 15.68
+        },
+        {
+          "raw": "values",
+          "start": 15.68,
+          "end": 16.04
+        },
+        {
+          "raw": "great,",
+          "start": 16.04,
+          "end": 16.46
+        },
+        {
+          "raw": "And",
+          "start": 16.96,
+          "end": 17.12
+        },
+        {
+          "raw": "I",
+          "start": 17.12,
+          "end": 17.22
+        },
+        {
+          "raw": "am",
+          "start": 17.22,
+          "end": 17.3
+        },
+        {
+          "raw": "something",
+          "start": 17.3,
+          "end": 17.52
+        },
+        {
+          "raw": "curious,",
+          "start": 17.52,
+          "end": 18.02
+        },
+        {
+          "raw": "being",
+          "start": 18.22,
+          "end": 18.4
+        },
+        {
+          "raw": "strange,",
+          "start": 18.4,
+          "end": 18.88
+        },
+        {
+          "raw": "To",
+          "start": 19.18,
+          "end": 19.26
+        },
+        {
+          "raw": "have",
+          "start": 19.26,
+          "end": 19.44
+        },
+        {
+          "raw": "them",
+          "start": 19.44,
+          "end": 19.6
+        },
+        {
+          "raw": "in",
+          "start": 19.6,
+          "end": 19.8
+        },
+        {
+          "raw": "safe",
+          "start": 19.8,
+          "end": 20.04
+        },
+        {
+          "raw": "stowage.",
+          "start": 20.04,
+          "end": 20.6
+        },
+        {
+          "raw": "May",
+          "start": 21.26,
+          "end": 21.36
+        },
+        {
+          "raw": "it",
+          "start": 21.36,
+          "end": 21.52
+        },
+        {
+          "raw": "please",
+          "start": 21.52,
+          "end": 21.7
+        },
+        {
+          "raw": "you",
+          "start": 21.7,
+          "end": 21.84
+        },
+        {
+          "raw": "To",
+          "start": 21.84,
+          "end": 21.96
+        },
+        {
+          "raw": "take",
+          "start": 21.96,
+          "end": 22.08
+        },
+        {
+          "raw": "them",
+          "start": 22.08,
+          "end": 22.24
+        },
+        {
+          "raw": "in",
+          "start": 22.24,
+          "end": 22.36
+        },
+        {
+          "raw": "protection?",
+          "start": 22.36,
+          "end": 22.66
+        }
+      ],
+      "expected_tokens": [
+        "Iachimo.",
+        "Some",
+        "dozen",
+        "Romans",
+        "of",
+        "us,",
+        "and",
+        "your",
+        "lord",
+        "(The",
+        "best",
+        "feather",
+        "of",
+        "our",
+        "wing)",
+        "have",
+        "mingled",
+        "sums",
+        "To",
+        "buy",
+        "a",
+        "present",
+        "for",
+        "the",
+        "Emperor;",
+        "Which",
+        "I,",
+        "the",
+        "factor",
+        "for",
+        "the",
+        "rest,",
+        "have",
+        "done",
+        "In",
+        "France.",
+        "'Tis",
+        "plate",
+        "of",
+        "rare",
+        "device,",
+        "and",
+        "jewels",
+        "Of",
+        "rich",
+        "and",
+        "exquisite",
+        "form,",
+        "their",
+        "values",
+        "great;",
+        "And",
+        "I",
+        "am",
+        "something",
+        "curious,",
+        "being",
+        "strange,",
+        "To",
+        "have",
+        "them",
+        "in",
+        "safe",
+        "stowage.",
+        "May",
+        "it",
+        "please",
+        "you",
+        "To",
+        "take",
+        "them",
+        "in",
+        "protection?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          73,
+          0,
+          73
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iachimo,",
+          "start": 0.52,
+          "end": 0.96,
+          "key": "iachimo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Some",
+          "start": 1.34,
+          "end": 1.56,
+          "key": "some",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dozen",
+          "start": 1.56,
+          "end": 1.94,
+          "key": "dozen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Romans",
+          "start": 1.94,
+          "end": 2.28,
+          "key": "romans",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.28,
+          "end": 2.5,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "us,",
+          "start": 2.5,
+          "end": 2.7,
+          "key": "us",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.94,
+          "end": 3.02,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.02,
+          "end": 3.16,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "lord",
+          "start": 3.16,
+          "end": 3.46,
+          "key": "lord",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.46,
+          "end": 3.72,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 3.72,
+          "end": 4.0,
+          "key": "best",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "feather",
+          "start": 4.0,
+          "end": 4.2,
+          "key": "feather",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.2,
+          "end": 4.4,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.4,
+          "end": 4.54,
+          "key": "our",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "wing,",
+          "start": 4.54,
+          "end": 4.82,
+          "key": "wing",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 5.32,
+          "end": 5.44,
+          "key": "have",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "mingled",
+          "start": 5.44,
+          "end": 5.84,
+          "key": "mingled",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "sums",
+          "start": 5.84,
+          "end": 6.0,
+          "key": "sums",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 6.0,
+          "end": 6.22,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "buy",
+          "start": 6.22,
+          "end": 6.38,
+          "key": "buy",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.38,
+          "end": 6.52,
+          "key": "a",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 6.52,
+          "end": 6.7,
+          "key": "present",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 6.7,
+          "end": 6.94,
+          "key": "for",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.94,
+          "end": 7.1,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Emperor,",
+          "start": 7.1,
+          "end": 7.44,
+          "key": "emperor",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 7.88,
+          "end": 8.1,
+          "key": "which",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 8.1,
+          "end": 8.38,
+          "key": "i",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.52,
+          "end": 8.64,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "factor",
+          "start": 8.64,
+          "end": 8.86,
+          "key": "factor",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.86,
+          "end": 9.1,
+          "key": "for",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.1,
+          "end": 9.24,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "rest,",
+          "start": 9.24,
+          "end": 9.48,
+          "key": "rest",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 9.62,
+          "end": 9.72,
+          "key": "have",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 9.72,
+          "end": 9.92,
+          "key": "done",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 9.92,
+          "end": 10.12,
+          "key": "in",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "France.",
+          "start": 10.12,
+          "end": 10.56,
+          "key": "france",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 11.48,
+          "end": 11.68,
+          "key": "tis",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "plate",
+          "start": 11.68,
+          "end": 11.88,
+          "key": "plate",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.88,
+          "end": 12.02,
+          "key": "of",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "rare",
+          "start": 12.02,
+          "end": 12.22,
+          "key": "rare",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "device,",
+          "start": 12.22,
+          "end": 12.68,
+          "key": "device",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.16,
+          "end": 13.26,
+          "key": "and",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "jewels",
+          "start": 13.26,
+          "end": 13.44,
+          "key": "jewels",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 13.44,
+          "end": 13.7,
+          "key": "of",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "rich",
+          "start": 13.7,
+          "end": 14.0,
+          "key": "rich",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 14.0,
+          "end": 14.24,
+          "key": "and",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "exquisite",
+          "start": 14.24,
+          "end": 14.66,
+          "key": "exquisite",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "form,",
+          "start": 14.66,
+          "end": 15.12,
+          "key": "form",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 15.54,
+          "end": 15.68,
+          "key": "their",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "values",
+          "start": 15.68,
+          "end": 16.04,
+          "key": "values",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "great,",
+          "start": 16.04,
+          "end": 16.46,
+          "key": "great",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 16.96,
+          "end": 17.12,
+          "key": "and",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 17.12,
+          "end": 17.22,
+          "key": "i",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 17.22,
+          "end": 17.3,
+          "key": "am",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 17.3,
+          "end": 17.52,
+          "key": "something",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "curious,",
+          "start": 17.52,
+          "end": 18.02,
+          "key": "curious",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 18.22,
+          "end": 18.4,
+          "key": "being",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "strange,",
+          "start": 18.4,
+          "end": 18.88,
+          "key": "strange",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 19.18,
+          "end": 19.26,
+          "key": "to",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 19.26,
+          "end": 19.44,
+          "key": "have",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 19.44,
+          "end": 19.6,
+          "key": "them",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 19.6,
+          "end": 19.8,
+          "key": "in",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "safe",
+          "start": 19.8,
+          "end": 20.04,
+          "key": "safe",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "stowage.",
+          "start": 20.04,
+          "end": 20.6,
+          "key": "stowage",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "May",
+          "start": 21.26,
+          "end": 21.36,
+          "key": "may",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 21.36,
+          "end": 21.52,
+          "key": "it",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "please",
+          "start": 21.52,
+          "end": 21.7,
+          "key": "please",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 21.7,
+          "end": 21.84,
+          "key": "you",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 21.84,
+          "end": 21.96,
+          "key": "to",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 21.96,
+          "end": 22.08,
+          "key": "take",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 22.08,
+          "end": 22.24,
+          "key": "them",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 22.24,
+          "end": 22.36,
+          "key": "in",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "protection?",
+          "start": 22.36,
+          "end": 22.66,
+          "key": "protection",
+          "pieces": [
+            72
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iachimo.",
+          "start": 0.52,
+          "end": 0.96
+        },
+        {
+          "text": "Some",
+          "start": 1.34,
+          "end": 1.56
+        },
+        {
+          "text": "dozen",
+          "start": 1.56,
+          "end": 1.94
+        },
+        {
+          "text": "Romans",
+          "start": 1.94,
+          "end": 2.28
+        },
+        {
+          "text": "of",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "text": "us,",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "text": "and",
+          "start": 2.94,
+          "end": 3.02
+        },
+        {
+          "text": "your",
+          "start": 3.02,
+          "end": 3.16
+        },
+        {
+          "text": "lord",
+          "start": 3.16,
+          "end": 3.46
+        },
+        {
+          "text": "(The",
+          "start": 3.46,
+          "end": 3.72
+        },
+        {
+          "text": "best",
+          "start": 3.72,
+          "end": 4.0
+        },
+        {
+          "text": "feather",
+          "start": 4.0,
+          "end": 4.2
+        },
+        {
+          "text": "of",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "text": "our",
+          "start": 4.4,
+          "end": 4.54
+        },
+        {
+          "text": "wing)",
+          "start": 4.54,
+          "end": 4.82
+        },
+        {
+          "text": "have",
+          "start": 5.32,
+          "end": 5.44
+        },
+        {
+          "text": "mingled",
+          "start": 5.44,
+          "end": 5.84
+        },
+        {
+          "text": "sums",
+          "start": 5.84,
+          "end": 6.0
+        },
+        {
+          "text": "To",
+          "start": 6.0,
+          "end": 6.22
+        },
+        {
+          "text": "buy",
+          "start": 6.22,
+          "end": 6.38
+        },
+        {
+          "text": "a",
+          "start": 6.38,
+          "end": 6.52
+        },
+        {
+          "text": "present",
+          "start": 6.52,
+          "end": 6.7
+        },
+        {
+          "text": "for",
+          "start": 6.7,
+          "end": 6.94
+        },
+        {
+          "text": "the",
+          "start": 6.94,
+          "end": 7.1
+        },
+        {
+          "text": "Emperor;",
+          "start": 7.1,
+          "end": 7.44
+        },
+        {
+          "text": "Which",
+          "start": 7.88,
+          "end": 8.1
+        },
+        {
+          "text": "I,",
+          "start": 8.1,
+          "end": 8.38
+        },
+        {
+          "text": "the",
+          "start": 8.52,
+          "end": 8.64
+        },
+        {
+          "text": "factor",
+          "start": 8.64,
+          "end": 8.86
+        },
+        {
+          "text": "for",
+          "start": 8.86,
+          "end": 9.1
+        },
+        {
+          "text": "the",
+          "start": 9.1,
+          "end": 9.24
+        },
+        {
+          "text": "rest,",
+          "start": 9.24,
+          "end": 9.48
+        },
+        {
+          "text": "have",
+          "start": 9.62,
+          "end": 9.72
+        },
+        {
+          "text": "done",
+          "start": 9.72,
+          "end": 9.92
+        },
+        {
+          "text": "In",
+          "start": 9.92,
+          "end": 10.12
+        },
+        {
+          "text": "France.",
+          "start": 10.12,
+          "end": 10.56
+        },
+        {
+          "text": "'Tis",
+          "start": 11.48,
+          "end": 11.68
+        },
+        {
+          "text": "plate",
+          "start": 11.68,
+          "end": 11.88
+        },
+        {
+          "text": "of",
+          "start": 11.88,
+          "end": 12.02
+        },
+        {
+          "text": "rare",
+          "start": 12.02,
+          "end": 12.22
+        },
+        {
+          "text": "device,",
+          "start": 12.22,
+          "end": 12.68
+        },
+        {
+          "text": "and",
+          "start": 13.16,
+          "end": 13.26
+        },
+        {
+          "text": "jewels",
+          "start": 13.26,
+          "end": 13.44
+        },
+        {
+          "text": "Of",
+          "start": 13.44,
+          "end": 13.7
+        },
+        {
+          "text": "rich",
+          "start": 13.7,
+          "end": 14.0
+        },
+        {
+          "text": "and",
+          "start": 14.0,
+          "end": 14.24
+        },
+        {
+          "text": "exquisite",
+          "start": 14.24,
+          "end": 14.66
+        },
+        {
+          "text": "form,",
+          "start": 14.66,
+          "end": 15.12
+        },
+        {
+          "text": "their",
+          "start": 15.54,
+          "end": 15.68
+        },
+        {
+          "text": "values",
+          "start": 15.68,
+          "end": 16.04
+        },
+        {
+          "text": "great;",
+          "start": 16.04,
+          "end": 16.46
+        },
+        {
+          "text": "And",
+          "start": 16.96,
+          "end": 17.12
+        },
+        {
+          "text": "I",
+          "start": 17.12,
+          "end": 17.22
+        },
+        {
+          "text": "am",
+          "start": 17.22,
+          "end": 17.3
+        },
+        {
+          "text": "something",
+          "start": 17.3,
+          "end": 17.52
+        },
+        {
+          "text": "curious,",
+          "start": 17.52,
+          "end": 18.02
+        },
+        {
+          "text": "being",
+          "start": 18.22,
+          "end": 18.4
+        },
+        {
+          "text": "strange,",
+          "start": 18.4,
+          "end": 18.88
+        },
+        {
+          "text": "To",
+          "start": 19.18,
+          "end": 19.26
+        },
+        {
+          "text": "have",
+          "start": 19.26,
+          "end": 19.44
+        },
+        {
+          "text": "them",
+          "start": 19.44,
+          "end": 19.6
+        },
+        {
+          "text": "in",
+          "start": 19.6,
+          "end": 19.8
+        },
+        {
+          "text": "safe",
+          "start": 19.8,
+          "end": 20.04
+        },
+        {
+          "text": "stowage.",
+          "start": 20.04,
+          "end": 20.6
+        },
+        {
+          "text": "May",
+          "start": 21.26,
+          "end": 21.36
+        },
+        {
+          "text": "it",
+          "start": 21.36,
+          "end": 21.52
+        },
+        {
+          "text": "please",
+          "start": 21.52,
+          "end": 21.7
+        },
+        {
+          "text": "you",
+          "start": 21.7,
+          "end": 21.84
+        },
+        {
+          "text": "To",
+          "start": 21.84,
+          "end": 21.96
+        },
+        {
+          "text": "take",
+          "start": 21.96,
+          "end": 22.08
+        },
+        {
+          "text": "them",
+          "start": 22.08,
+          "end": 22.24
+        },
+        {
+          "text": "in",
+          "start": 22.24,
+          "end": 22.36
+        },
+        {
+          "text": "protection?",
+          "start": 22.36,
+          "end": 22.66
+        }
+      ],
+      "stats": {
+        "expected_words": 73,
+        "heard_words": 73,
+        "matched_words": 73
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.8974566720426083
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f4fab4542bb6fcce908832ce28ffe9f3e3208404456fbd64ef06fd898ecaab63",
+  "selected_reasons": []
+}

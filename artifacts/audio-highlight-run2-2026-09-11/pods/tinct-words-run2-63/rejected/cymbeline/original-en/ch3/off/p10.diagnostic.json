@@ -1,0 +1,366 @@
+{
+  "complete": true,
+  "signature": "63db2bee94168e9bd0c1be6fc2aedd901a0bf01aff455ff083312213ac13860e",
+  "attempts": [
+    {
+      "asr_seconds": 0.21247110702097416,
+      "alignment_seconds": 0.00044265203177928925,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aside, nobody fled forward still, toward your face.",
+          "start": 0.02,
+          "end": 3.56,
+          "words": [
+            {
+              "text": " Aside,",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.43115234375
+            },
+            {
+              "text": " nobody",
+              "start": 1.46,
+              "end": 1.72,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " fled",
+              "start": 1.72,
+              "end": 2.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " forward",
+              "start": 2.0,
+              "end": 2.34,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " still,",
+              "start": 2.34,
+              "end": 2.74,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " toward",
+              "start": 2.9,
+              "end": 3.08,
+              "probability": 0.8310546875
+            },
+            {
+              "text": " your",
+              "start": 3.08,
+              "end": 3.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " face.",
+              "start": 3.26,
+              "end": 3.56,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside,",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "nobody",
+          "start": 1.46,
+          "end": 1.72
+        },
+        {
+          "raw": "fled",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "raw": "forward",
+          "start": 2.0,
+          "end": 2.34
+        },
+        {
+          "raw": "still,",
+          "start": 2.34,
+          "end": 2.74
+        },
+        {
+          "raw": "toward",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "raw": "your",
+          "start": 3.08,
+          "end": 3.26
+        },
+        {
+          "raw": "face.",
+          "start": 3.26,
+          "end": 3.56
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside._]",
+        "No;",
+        "but",
+        "he",
+        "fled",
+        "forward",
+        "still,",
+        "toward",
+        "your",
+        "face."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          4,
+          1,
+          2
+        ],
+        [
+          "equal",
+          4,
+          10,
+          2,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          4,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside,",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nobody",
+          "start": 1.46,
+          "end": 1.72,
+          "key": "nobody",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fled",
+          "start": 1.72,
+          "end": 2.0,
+          "key": "fled",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "forward",
+          "start": 2.0,
+          "end": 2.34,
+          "key": "forward",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "still,",
+          "start": 2.34,
+          "end": 2.74,
+          "key": "still",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "toward",
+          "start": 2.9,
+          "end": 3.08,
+          "key": "toward",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.08,
+          "end": 3.26,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "face.",
+          "start": 3.26,
+          "end": 3.56,
+          "key": "face",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside._]",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "No;",
+          "start": 0.76,
+          "end": 1.24
+        },
+        {
+          "text": "but",
+          "start": 1.24,
+          "end": 1.48
+        },
+        {
+          "text": "he",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "text": "fled",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "text": "forward",
+          "start": 2.0,
+          "end": 2.34
+        },
+        {
+          "text": "still,",
+          "start": 2.34,
+          "end": 2.74
+        },
+        {
+          "text": "toward",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "text": "your",
+          "start": 3.08,
+          "end": 3.26
+        },
+        {
+          "text": "face.",
+          "start": 3.26,
+          "end": 3.56
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21307573653757572
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7c7b0bb5568179689528e7bb117280de44475e5ad8811effcb2d41405aae0cba",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

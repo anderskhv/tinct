@@ -1,0 +1,835 @@
+{
+  "complete": true,
+  "signature": "12f73087166876c59cf9f83222ed45dc9f9ce1170ec7ce2bc07d12b2255daadf",
+  "attempts": [
+    {
+      "asr_seconds": 0.46404942870140076,
+      "alignment_seconds": 0.0006628502160310745,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " So, so, well done, well done. The violets, cowslips, and the primroses bear to my closet.",
+          "start": 0.05,
+          "end": 6.05,
+          "words": [
+            {
+              "text": " So,",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.74658203125
+            },
+            {
+              "text": " so,",
+              "start": 0.85,
+              "end": 0.85,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " well",
+              "start": 1.17,
+              "end": 1.43,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " done,",
+              "start": 1.43,
+              "end": 1.67,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " well",
+              "start": 1.91,
+              "end": 2.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " done.",
+              "start": 2.01,
+              "end": 2.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " The",
+              "start": 2.89,
+              "end": 3.01,
+              "probability": 0.98046875
+            },
+            {
+              "text": " violets,",
+              "start": 3.01,
+              "end": 3.53,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " cowslips,",
+              "start": 3.65,
+              "end": 4.15,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " and",
+              "start": 4.29,
+              "end": 4.35,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " the",
+              "start": 4.35,
+              "end": 4.45,
+              "probability": 0.9921875
+            },
+            {
+              "text": " primroses",
+              "start": 4.45,
+              "end": 5.13,
+              "probability": 0.9261067708333334
+            },
+            {
+              "text": " bear",
+              "start": 5.13,
+              "end": 5.33,
+              "probability": 0.73828125
+            },
+            {
+              "text": " to",
+              "start": 5.33,
+              "end": 5.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 5.51,
+              "end": 5.63,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " closet.",
+              "start": 5.63,
+              "end": 6.05,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " Fare thee well, Pisanio, think on my words.",
+          "start": 6.87,
+          "end": 9.05,
+          "words": [
+            {
+              "text": " Fare",
+              "start": 6.87,
+              "end": 6.95,
+              "probability": 0.837890625
+            },
+            {
+              "text": " thee",
+              "start": 6.95,
+              "end": 7.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " well,",
+              "start": 7.15,
+              "end": 7.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Pisanio,",
+              "start": 7.63,
+              "end": 8.09,
+              "probability": 0.6763102213541666
+            },
+            {
+              "text": " think",
+              "start": 8.33,
+              "end": 8.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " on",
+              "start": 8.41,
+              "end": 8.57,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " my",
+              "start": 8.57,
+              "end": 8.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " words.",
+              "start": 8.73,
+              "end": 9.05,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "So,",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "so,",
+          "start": 0.85,
+          "end": 0.85
+        },
+        {
+          "raw": "well",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "raw": "done,",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "raw": "well",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "raw": "done.",
+          "start": 2.01,
+          "end": 2.33
+        },
+        {
+          "raw": "The",
+          "start": 2.89,
+          "end": 3.01
+        },
+        {
+          "raw": "violets,",
+          "start": 3.01,
+          "end": 3.53
+        },
+        {
+          "raw": "cowslips,",
+          "start": 3.65,
+          "end": 4.15
+        },
+        {
+          "raw": "and",
+          "start": 4.29,
+          "end": 4.35
+        },
+        {
+          "raw": "the",
+          "start": 4.35,
+          "end": 4.45
+        },
+        {
+          "raw": "primroses",
+          "start": 4.45,
+          "end": 5.13
+        },
+        {
+          "raw": "bear",
+          "start": 5.13,
+          "end": 5.33
+        },
+        {
+          "raw": "to",
+          "start": 5.33,
+          "end": 5.51
+        },
+        {
+          "raw": "my",
+          "start": 5.51,
+          "end": 5.63
+        },
+        {
+          "raw": "closet.",
+          "start": 5.63,
+          "end": 6.05
+        },
+        {
+          "raw": "Fare",
+          "start": 6.87,
+          "end": 6.95
+        },
+        {
+          "raw": "thee",
+          "start": 6.95,
+          "end": 7.15
+        },
+        {
+          "raw": "well,",
+          "start": 7.15,
+          "end": 7.45
+        },
+        {
+          "raw": "Pisanio,",
+          "start": 7.63,
+          "end": 8.09
+        },
+        {
+          "raw": "think",
+          "start": 8.33,
+          "end": 8.41
+        },
+        {
+          "raw": "on",
+          "start": 8.41,
+          "end": 8.57
+        },
+        {
+          "raw": "my",
+          "start": 8.57,
+          "end": 8.73
+        },
+        {
+          "raw": "words.",
+          "start": 8.73,
+          "end": 9.05
+        }
+      ],
+      "expected_tokens": [
+        "So,",
+        "so.",
+        "Well",
+        "done,",
+        "well",
+        "done.",
+        "The",
+        "violets,",
+        "cowslips,",
+        "and",
+        "the",
+        "primroses,",
+        "Bear",
+        "to",
+        "my",
+        "closet.",
+        "Fare",
+        "thee",
+        "well,",
+        "Pisanio;",
+        "Think",
+        "on",
+        "my",
+        "words."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          24,
+          0,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "So,",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "so",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 0.85,
+          "end": 0.85,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.17,
+          "end": 1.43,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "done,",
+          "start": 1.43,
+          "end": 1.67,
+          "key": "done",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.91,
+          "end": 2.01,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "done.",
+          "start": 2.01,
+          "end": 2.33,
+          "key": "done",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.89,
+          "end": 3.01,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "violets,",
+          "start": 3.01,
+          "end": 3.53,
+          "key": "violets",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "cowslips,",
+          "start": 3.65,
+          "end": 4.15,
+          "key": "cowslips",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.29,
+          "end": 4.35,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.35,
+          "end": 4.45,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "primroses",
+          "start": 4.45,
+          "end": 5.13,
+          "key": "primroses",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 5.13,
+          "end": 5.33,
+          "key": "bear",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.33,
+          "end": 5.51,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.51,
+          "end": 5.63,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "closet.",
+          "start": 5.63,
+          "end": 6.05,
+          "key": "closet",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Fare",
+          "start": 6.87,
+          "end": 6.95,
+          "key": "fare",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 6.95,
+          "end": 7.15,
+          "key": "thee",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 7.15,
+          "end": 7.45,
+          "key": "well",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Pisanio,",
+          "start": 7.63,
+          "end": 8.09,
+          "key": "pisanio",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 8.33,
+          "end": 8.41,
+          "key": "think",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 8.41,
+          "end": 8.57,
+          "key": "on",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 8.57,
+          "end": 8.73,
+          "key": "my",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "words.",
+          "start": 8.73,
+          "end": 9.05,
+          "key": "words",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "So,",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "so.",
+          "start": 0.85,
+          "end": 0.85
+        },
+        {
+          "text": "Well",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "text": "done,",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "text": "well",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "text": "done.",
+          "start": 2.01,
+          "end": 2.33
+        },
+        {
+          "text": "The",
+          "start": 2.89,
+          "end": 3.01
+        },
+        {
+          "text": "violets,",
+          "start": 3.01,
+          "end": 3.53
+        },
+        {
+          "text": "cowslips,",
+          "start": 3.65,
+          "end": 4.15
+        },
+        {
+          "text": "and",
+          "start": 4.29,
+          "end": 4.35
+        },
+        {
+          "text": "the",
+          "start": 4.35,
+          "end": 4.45
+        },
+        {
+          "text": "primroses,",
+          "start": 4.45,
+          "end": 5.13
+        },
+        {
+          "text": "Bear",
+          "start": 5.13,
+          "end": 5.33
+        },
+        {
+          "text": "to",
+          "start": 5.33,
+          "end": 5.51
+        },
+        {
+          "text": "my",
+          "start": 5.51,
+          "end": 5.63
+        },
+        {
+          "text": "closet.",
+          "start": 5.63,
+          "end": 6.05
+        },
+        {
+          "text": "Fare",
+          "start": 6.87,
+          "end": 6.95
+        },
+        {
+          "text": "thee",
+          "start": 6.95,
+          "end": 7.15
+        },
+        {
+          "text": "well,",
+          "start": 7.15,
+          "end": 7.45
+        },
+        {
+          "text": "Pisanio;",
+          "start": 7.63,
+          "end": 8.09
+        },
+        {
+          "text": "Think",
+          "start": 8.33,
+          "end": 8.41
+        },
+        {
+          "text": "on",
+          "start": 8.41,
+          "end": 8.57
+        },
+        {
+          "text": "my",
+          "start": 8.57,
+          "end": 8.73
+        },
+        {
+          "text": "words.",
+          "start": 8.73,
+          "end": 9.05
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 24,
+        "matched_words": 24
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4649940486997366
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9fa74916b55c17392e2b2a3b5916887333970dd5bc69115af3ac8cee6e34b350",
+  "selected_reasons": []
+}

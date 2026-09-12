@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "309cba81a62c0a3b541806149df77a527b0e9c8eb11c18074795f25491578835",
+  "attempts": [
+    {
+      "asr_seconds": 0.18202068842947483,
+      "alignment_seconds": 0.0004053562879562378,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Edgar. Worthy prince, I know't.",
+        "hotwords": "Edgar, Worthy, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Edgar, Worthy prince, I know't.",
+          "start": 0.11,
+          "end": 2.13,
+          "words": [
+            {
+              "text": " Edgar,",
+              "start": 0.11,
+              "end": 0.71,
+              "probability": 0.7265625
+            },
+            {
+              "text": " Worthy",
+              "start": 1.07,
+              "end": 1.25,
+              "probability": 0.6409912109375
+            },
+            {
+              "text": " prince,",
+              "start": 1.25,
+              "end": 1.53,
+              "probability": 0.029388427734375
+            },
+            {
+              "text": " I",
+              "start": 1.67,
+              "end": 1.73,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " know't.",
+              "start": 1.73,
+              "end": 2.13,
+              "probability": 0.05289459228515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edgar,",
+          "start": 0.11,
+          "end": 0.71
+        },
+        {
+          "raw": "Worthy",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "raw": "prince,",
+          "start": 1.25,
+          "end": 1.53
+        },
+        {
+          "raw": "I",
+          "start": 1.67,
+          "end": 1.73
+        },
+        {
+          "raw": "know't.",
+          "start": 1.73,
+          "end": 2.13
+        }
+      ],
+      "expected_tokens": [
+        "Edgar.",
+        "Worthy",
+        "prince,",
+        "I",
+        "know't."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edgar,",
+          "start": 0.11,
+          "end": 0.71,
+          "key": "edgar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Worthy",
+          "start": 1.07,
+          "end": 1.25,
+          "key": "worthy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "prince,",
+          "start": 1.25,
+          "end": 1.53,
+          "key": "prince",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.67,
+          "end": 1.73,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "know't.",
+          "start": 1.73,
+          "end": 2.13,
+          "key": "knowt",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edgar.",
+          "start": 0.11,
+          "end": 0.71
+        },
+        {
+          "text": "Worthy",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "text": "prince,",
+          "start": 1.25,
+          "end": 1.53
+        },
+        {
+          "text": "I",
+          "start": 1.67,
+          "end": 1.73
+        },
+        {
+          "text": "know't.",
+          "start": 1.73,
+          "end": 2.13
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18257002532482147
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cd9bd20d04dcfd0de6f179715ff12952be38a7c4bae4b4a84a47d06e385f4e75",
+  "selected_reasons": []
+}

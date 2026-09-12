@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "ffa76a0319293d93896f799ada519665679112177dd251111ccc875565f5cbd0",
+  "attempts": [
+    {
+      "asr_seconds": 0.19726039841771126,
+      "alignment_seconds": 0.0003554895520210266,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Pisanio. 'Twill not be lost.",
+        "hotwords": "Pisanio, Twill"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pisanio, Twill not be lost.",
+          "start": 0.05,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " Pisanio,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.6149495442708334
+            },
+            {
+              "text": " Twill",
+              "start": 1.39,
+              "end": 1.49,
+              "probability": 0.6368408203125
+            },
+            {
+              "text": " not",
+              "start": 1.49,
+              "end": 1.63,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " be",
+              "start": 1.63,
+              "end": 1.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " lost.",
+              "start": 1.81,
+              "end": 2.11,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pisanio,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "Twill",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "raw": "not",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "raw": "be",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "raw": "lost.",
+          "start": 1.81,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "Pisanio.",
+        "'Twill",
+        "not",
+        "be",
+        "lost."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pisanio,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "pisanio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Twill",
+          "start": 1.39,
+          "end": 1.49,
+          "key": "twill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.49,
+          "end": 1.63,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.63,
+          "end": 1.81,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lost.",
+          "start": 1.81,
+          "end": 2.11,
+          "key": "lost",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pisanio.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "'Twill",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "text": "not",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "text": "be",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "text": "lost.",
+          "start": 1.81,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19777986779808998
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a41b49937f382cbf11eb5475573c6fbbc46ac97f1c3bcc4c6318e42b8dd9b721",
+  "selected_reasons": []
+}

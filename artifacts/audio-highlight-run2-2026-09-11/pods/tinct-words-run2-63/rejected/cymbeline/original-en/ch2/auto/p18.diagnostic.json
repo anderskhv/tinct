@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "4702ea4952108e4abdd599b0dac782bd9d47127404550f284274db074cab99a6",
+  "attempts": [
+    {
+      "asr_seconds": 0.17942497320473194,
+      "alignment_seconds": 0.0003212634474039078,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Posthumus. Alack, the King!",
+        "hotwords": "Posthumus, Alack, King"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Posthumus, Alack, the King!",
+          "start": 0.05,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " Posthumus,",
+              "start": 0.05,
+              "end": 1.13,
+              "probability": 0.8238932291666666
+            },
+            {
+              "text": " Alack,",
+              "start": 1.47,
+              "end": 1.71,
+              "probability": 0.4193115234375
+            },
+            {
+              "text": " the",
+              "start": 1.85,
+              "end": 1.85,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " King!",
+              "start": 1.85,
+              "end": 2.05,
+              "probability": 0.525390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Posthumus,",
+          "start": 0.05,
+          "end": 1.13
+        },
+        {
+          "raw": "Alack,",
+          "start": 1.47,
+          "end": 1.71
+        },
+        {
+          "raw": "the",
+          "start": 1.85,
+          "end": 1.85
+        },
+        {
+          "raw": "King!",
+          "start": 1.85,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "Posthumus.",
+        "Alack,",
+        "the",
+        "King!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Posthumus,",
+          "start": 0.05,
+          "end": 1.13,
+          "key": "posthumus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Alack,",
+          "start": 1.47,
+          "end": 1.71,
+          "key": "alack",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.85,
+          "end": 1.85,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "King!",
+          "start": 1.85,
+          "end": 2.05,
+          "key": "king",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Posthumus.",
+          "start": 0.05,
+          "end": 1.13
+        },
+        {
+          "text": "Alack,",
+          "start": 1.47,
+          "end": 1.71
+        },
+        {
+          "text": "the",
+          "start": 1.85,
+          "end": 1.85
+        },
+        {
+          "text": "King!",
+          "start": 1.85,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17986559122800827
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4207e3d5684a98bf79af64e43ada5c2f6ec10bbcf413088aca0a44efcc86eb1e",
+  "selected_reasons": []
+}

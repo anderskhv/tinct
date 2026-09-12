@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "0508a7413b62f6b49408df509185e490af15f7014b0af72572a6c654669c0256",
+  "attempts": [
+    {
+      "asr_seconds": 0.15291574783623219,
+      "alignment_seconds": 0.00042548030614852905,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cloutin, do you call me fool?",
+          "start": 0.4,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " Cloutin,",
+              "start": 0.4,
+              "end": 0.76,
+              "probability": 0.558349609375
+            },
+            {
+              "text": " do",
+              "start": 1.0,
+              "end": 1.12,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " you",
+              "start": 1.12,
+              "end": 1.22,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " call",
+              "start": 1.22,
+              "end": 1.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " fool?",
+              "start": 1.5,
+              "end": 1.72,
+              "probability": 0.35498046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cloutin,",
+          "start": 0.4,
+          "end": 0.76
+        },
+        {
+          "raw": "do",
+          "start": 1.0,
+          "end": 1.12
+        },
+        {
+          "raw": "you",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "raw": "call",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "raw": "me",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "fool?",
+          "start": 1.5,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "Cloten.",
+        "Do",
+        "you",
+        "call",
+        "me",
+        "fool?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cloutin,",
+          "start": 0.4,
+          "end": 0.76,
+          "key": "cloutin",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.0,
+          "end": 1.12,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.12,
+          "end": 1.22,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 1.22,
+          "end": 1.36,
+          "key": "call",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.36,
+          "end": 1.5,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fool?",
+          "start": 1.5,
+          "end": 1.72,
+          "key": "fool",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cloten.",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "Do",
+          "start": 1.0,
+          "end": 1.12
+        },
+        {
+          "text": "you",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "text": "call",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "text": "me",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "fool?",
+          "start": 1.5,
+          "end": 1.72
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1535583734512329
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6cff5dd9c9b775e878017b70d5926ab8d606559fb691ed8cb750803c159429d3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

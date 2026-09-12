@@ -1,0 +1,293 @@
+{
+  "complete": true,
+  "signature": "ec7b55a42a74c572f234fbbe22949ca74d17810ab871553af15c84fde1fdca06",
+  "attempts": [
+    {
+      "asr_seconds": 0.11553002521395683,
+      "alignment_seconds": 0.00019920803606510162,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leonatus._",
+        "hotwords": "Leonatus._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leonatus._",
+          "start": 0.02,
+          "end": 1.58,
+          "words": [
+            {
+              "text": " Leonatus._",
+              "start": 0.02,
+              "end": 1.58,
+              "probability": 0.19341915845870972
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leonatus._",
+          "start": 0.02,
+          "end": 1.58
+        }
+      ],
+      "expected_tokens": [
+        "Leonatus._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leonatus._",
+          "start": 0.02,
+          "end": 1.58,
+          "key": "leonatus_",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonatus._",
+          "start": 0.0,
+          "end": 0.79
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1157936155796051
+    },
+    {
+      "asr_seconds": 0.1193406879901886,
+      "alignment_seconds": 0.00021375715732574463,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Leonatus._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Leonatus._",
+          "start": 0.02,
+          "end": 1.58,
+          "words": [
+            {
+              "text": " Leonatus._",
+              "start": 0.02,
+              "end": 1.58,
+              "probability": 0.19341915845870972
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leonatus._",
+          "start": 0.02,
+          "end": 1.58
+        }
+      ],
+      "expected_tokens": [
+        "Leonatus._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leonatus._",
+          "start": 0.02,
+          "end": 1.58,
+          "key": "leonatus_",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonatus._",
+          "start": 0.0,
+          "end": 0.79
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11962425336241722
+    },
+    {
+      "asr_seconds": 0.12898746505379677,
+      "alignment_seconds": 0.00022780708968639374,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leonidas",
+          "start": 0.02,
+          "end": 0.96,
+          "words": [
+            {
+              "text": " Leonidas",
+              "start": 0.02,
+              "end": 0.96,
+              "probability": 0.5859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leonidas",
+          "start": 0.02,
+          "end": 0.96
+        }
+      ],
+      "expected_tokens": [
+        "Leonatus._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leonidas",
+          "start": 0.02,
+          "end": 0.96,
+          "key": "leonidas",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonatus._",
+          "start": 0.0,
+          "end": 0.48
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12928682565689087
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1fe1a6f75f6a6798b2d45dcea2a3aea415d65aaefc8796e53760f6ddf921a8fc",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

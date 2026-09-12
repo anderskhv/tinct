@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "e6bbc9ec61e6ad5bf212a9686bacebf34361d2d64705c9d1fd79a6d172a0bb37",
+  "attempts": [
+    {
+      "asr_seconds": 0.16461820900440216,
+      "alignment_seconds": 0.0002881661057472229,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iachimo. What's that?",
+        "hotwords": "Iachimo, What's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iachimo, What's that?",
+          "start": 0.08,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " Iachimo,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.3584696451822917
+            },
+            {
+              "text": " What's",
+              "start": 1.18,
+              "end": 1.38,
+              "probability": 0.5016098022460938
+            },
+            {
+              "text": " that?",
+              "start": 1.38,
+              "end": 1.62,
+              "probability": 0.76904296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iachimo,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "What's",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "raw": "that?",
+          "start": 1.38,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "Iachimo.",
+        "What's",
+        "that?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iachimo,",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "iachimo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 1.18,
+          "end": 1.38,
+          "key": "whats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 1.38,
+          "end": 1.62,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iachimo.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "What's",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "text": "that?",
+          "start": 1.38,
+          "end": 1.62
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16501287557184696
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "346e0fb93da84b156e7bdf7a1f78584ea13e18d5795b17c968d7cb533f0d38f5",
+  "selected_reasons": []
+}

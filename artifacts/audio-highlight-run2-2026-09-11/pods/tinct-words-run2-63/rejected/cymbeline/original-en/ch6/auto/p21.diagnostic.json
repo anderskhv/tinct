@@ -1,0 +1,4770 @@
+{
+  "complete": true,
+  "signature": "2a17979590a8cec10646a68eb62d3d3b430d9eb960a41769fdc0fe9dd5790f79",
+  "attempts": [
+    {
+      "asr_seconds": 3.952944254502654,
+      "alignment_seconds": 0.0022892076522111893,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Aside._] I do not like her. She doth think she has",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Aside, I do not like her. She doth think she has",
+          "start": 0.38,
+          "end": 3.04,
+          "words": [
+            {
+              "text": " Aside,",
+              "start": 0.38,
+              "end": 0.74,
+              "probability": 0.60986328125
+            },
+            {
+              "text": " I",
+              "start": 1.18,
+              "end": 1.36,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " do",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " not",
+              "start": 1.46,
+              "end": 1.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " like",
+              "start": 1.6,
+              "end": 1.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her.",
+              "start": 1.8,
+              "end": 1.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " She",
+              "start": 2.12,
+              "end": 2.2,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " doth",
+              "start": 2.2,
+              "end": 2.36,
+              "probability": 0.910888671875
+            },
+            {
+              "text": " think",
+              "start": 2.36,
+              "end": 2.5,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " she",
+              "start": 2.5,
+              "end": 2.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " has",
+              "start": 2.68,
+              "end": 3.04,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " I do not like her. She doth think she has",
+          "start": 3.04,
+          "end": 3.1,
+          "words": [
+            {
+              "text": " I",
+              "start": 3.04,
+              "end": 3.04,
+              "probability": 0.0015392303466796875
+            },
+            {
+              "text": " do",
+              "start": 3.04,
+              "end": 3.04,
+              "probability": 0.0096588134765625
+            },
+            {
+              "text": " not",
+              "start": 3.04,
+              "end": 3.04,
+              "probability": 0.2186279296875
+            },
+            {
+              "text": " like",
+              "start": 3.04,
+              "end": 3.04,
+              "probability": 0.0302581787109375
+            },
+            {
+              "text": " her.",
+              "start": 3.04,
+              "end": 3.04,
+              "probability": 0.0015878677368164062
+            },
+            {
+              "text": " She",
+              "start": 3.04,
+              "end": 3.1,
+              "probability": 0.1968994140625
+            },
+            {
+              "text": " doth",
+              "start": 3.1,
+              "end": 3.1,
+              "probability": 0.0020942091941833496
+            },
+            {
+              "text": " think",
+              "start": 3.1,
+              "end": 3.1,
+              "probability": 0.0022945404052734375
+            },
+            {
+              "text": " she",
+              "start": 3.1,
+              "end": 3.1,
+              "probability": 0.2471923828125
+            },
+            {
+              "text": " has",
+              "start": 3.1,
+              "end": 3.1,
+              "probability": 0.037353515625
+            }
+          ]
+        },
+        {
+          "text": " I do not like her. She doth think she has I do not like her. She doth think she has",
+          "start": 3.1,
+          "end": 3.16,
+          "words": [
+            {
+              "text": " I",
+              "start": 3.1,
+              "end": 3.1,
+              "probability": 0.0014286041259765625
+            },
+            {
+              "text": " do",
+              "start": 3.1,
+              "end": 3.1,
+              "probability": 0.0088348388671875
+            },
+            {
+              "text": " not",
+              "start": 3.1,
+              "end": 3.1,
+              "probability": 0.1923828125
+            },
+            {
+              "text": " like",
+              "start": 3.1,
+              "end": 3.1,
+              "probability": 0.0301055908203125
+            },
+            {
+              "text": " her.",
+              "start": 3.1,
+              "end": 3.1,
+              "probability": 0.001300811767578125
+            },
+            {
+              "text": " She",
+              "start": 3.1,
+              "end": 3.1,
+              "probability": 0.195068359375
+            },
+            {
+              "text": " doth",
+              "start": 3.1,
+              "end": 3.1,
+              "probability": 0.0018886923789978027
+            },
+            {
+              "text": " think",
+              "start": 3.1,
+              "end": 3.1,
+              "probability": 0.00272369384765625
+            },
+            {
+              "text": " she",
+              "start": 3.1,
+              "end": 3.1,
+              "probability": 0.255126953125
+            },
+            {
+              "text": " has",
+              "start": 3.1,
+              "end": 3.1,
+              "probability": 0.032379150390625
+            },
+            {
+              "text": " I",
+              "start": 3.1,
+              "end": 3.12,
+              "probability": 0.0005507469177246094
+            },
+            {
+              "text": " do",
+              "start": 3.12,
+              "end": 3.12,
+              "probability": 0.176025390625
+            },
+            {
+              "text": " not",
+              "start": 3.12,
+              "end": 3.12,
+              "probability": 0.73291015625
+            },
+            {
+              "text": " like",
+              "start": 3.12,
+              "end": 3.12,
+              "probability": 0.607421875
+            },
+            {
+              "text": " her.",
+              "start": 3.12,
+              "end": 3.12,
+              "probability": 0.7431640625
+            },
+            {
+              "text": " She",
+              "start": 3.14,
+              "end": 3.14,
+              "probability": 0.4169921875
+            },
+            {
+              "text": " doth",
+              "start": 3.14,
+              "end": 3.16,
+              "probability": 0.6822509765625
+            },
+            {
+              "text": " think",
+              "start": 3.16,
+              "end": 3.16,
+              "probability": 0.452880859375
+            },
+            {
+              "text": " she",
+              "start": 3.16,
+              "end": 3.16,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " has",
+              "start": 3.16,
+              "end": 3.16,
+              "probability": 0.347412109375
+            }
+          ]
+        },
+        {
+          "text": " I doth think she has I do not like her. She doth think she has I do not like her. She doth think she has I do not like her. She doth think she has I do not like her. She doth think she has I do not like her. She doth think she has I do not like her. She doth think she has I do not like her. She doth think she has I do not like her. She doth think she has I do not like her. She doth think she has I do not like her. She doth think she has I do not like her. She doth think she has I do not like her. She doth think she has I do not like her. She doth think she has I do not like her. She doth think she has I do not like her. She doth think she has I do not like her. She doth think she has I do not like her. She doth think she has I do not like her. She doth think she has I",
+          "start": 3.16,
+          "end": 3.62,
+          "words": [
+            {
+              "text": " I",
+              "start": 3.16,
+              "end": 3.62,
+              "probability": 0.0029125213623046875
+            },
+            {
+              "text": " doth",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.0002104640007019043
+            },
+            {
+              "text": " think",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.0037174224853515625
+            },
+            {
+              "text": " she",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.00978851318359375
+            },
+            {
+              "text": " has",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.0137176513671875
+            },
+            {
+              "text": " I",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.000545501708984375
+            },
+            {
+              "text": " do",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.0108795166015625
+            },
+            {
+              "text": " not",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.1134033203125
+            },
+            {
+              "text": " like",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.0124359130859375
+            },
+            {
+              "text": " her.",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.1845703125
+            },
+            {
+              "text": " She",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.08001708984375
+            },
+            {
+              "text": " doth",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.503814697265625
+            },
+            {
+              "text": " think",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.11688232421875
+            },
+            {
+              "text": " she",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.77734375
+            },
+            {
+              "text": " has",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.214599609375
+            },
+            {
+              "text": " I",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.445068359375
+            },
+            {
+              "text": " do",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.447265625
+            },
+            {
+              "text": " not",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " like",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.90625
+            },
+            {
+              "text": " her.",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " She",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.34033203125
+            },
+            {
+              "text": " doth",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " think",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.73291015625
+            },
+            {
+              "text": " she",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.921875
+            },
+            {
+              "text": " has",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.427734375
+            },
+            {
+              "text": " I",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.66796875
+            },
+            {
+              "text": " do",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.53125
+            },
+            {
+              "text": " not",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.958984375
+            },
+            {
+              "text": " like",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " her.",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " She",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.476318359375
+            },
+            {
+              "text": " doth",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.924072265625
+            },
+            {
+              "text": " think",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " she",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " has",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.48779296875
+            },
+            {
+              "text": " I",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.708984375
+            },
+            {
+              "text": " do",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.56640625
+            },
+            {
+              "text": " not",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.958984375
+            },
+            {
+              "text": " like",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " her.",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " She",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.5859375
+            },
+            {
+              "text": " doth",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.928955078125
+            },
+            {
+              "text": " think",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " she",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " has",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.47900390625
+            },
+            {
+              "text": " I",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.7197265625
+            },
+            {
+              "text": " do",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.58984375
+            },
+            {
+              "text": " not",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.9609375
+            },
+            {
+              "text": " like",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " her.",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.95703125
+            },
+            {
+              "text": " She",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.66552734375
+            },
+            {
+              "text": " doth",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.931640625
+            },
+            {
+              "text": " think",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " she",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " has",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.473876953125
+            },
+            {
+              "text": " I",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " do",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.62646484375
+            },
+            {
+              "text": " not",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " like",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " her.",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " She",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " doth",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.935791015625
+            },
+            {
+              "text": " think",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " she",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.95703125
+            },
+            {
+              "text": " has",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.44482421875
+            },
+            {
+              "text": " I",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.7353515625
+            },
+            {
+              "text": " do",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.6484375
+            },
+            {
+              "text": " not",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.96484375
+            },
+            {
+              "text": " like",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " her.",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.955078125
+            },
+            {
+              "text": " She",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.76513671875
+            },
+            {
+              "text": " doth",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.939208984375
+            },
+            {
+              "text": " think",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " she",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " has",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.44677734375
+            },
+            {
+              "text": " I",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.7451171875
+            },
+            {
+              "text": " do",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.67919921875
+            },
+            {
+              "text": " not",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.966796875
+            },
+            {
+              "text": " like",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.73193359375
+            },
+            {
+              "text": " her.",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " She",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " doth",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " think",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " she",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " has",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.4384765625
+            },
+            {
+              "text": " I",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.7529296875
+            },
+            {
+              "text": " do",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.693359375
+            },
+            {
+              "text": " not",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " like",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.70556640625
+            },
+            {
+              "text": " her.",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " She",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.80810546875
+            },
+            {
+              "text": " doth",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.946044921875
+            },
+            {
+              "text": " think",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " she",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " has",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.44970703125
+            },
+            {
+              "text": " I",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.76513671875
+            },
+            {
+              "text": " do",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.71142578125
+            },
+            {
+              "text": " not",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " like",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.69921875
+            },
+            {
+              "text": " her.",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " She",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " doth",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " think",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " she",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.962890625
+            },
+            {
+              "text": " has",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.457275390625
+            },
+            {
+              "text": " I",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.7734375
+            },
+            {
+              "text": " do",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.71435546875
+            },
+            {
+              "text": " not",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.97265625
+            },
+            {
+              "text": " like",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.6826171875
+            },
+            {
+              "text": " her.",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.96875
+            },
+            {
+              "text": " She",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.82666015625
+            },
+            {
+              "text": " doth",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.950927734375
+            },
+            {
+              "text": " think",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " she",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " has",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.4609375
+            },
+            {
+              "text": " I",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.77978515625
+            },
+            {
+              "text": " do",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " not",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " like",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.64404296875
+            },
+            {
+              "text": " her.",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.970703125
+            },
+            {
+              "text": " She",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.83203125
+            },
+            {
+              "text": " doth",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.953857421875
+            },
+            {
+              "text": " think",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.93359375
+            },
+            {
+              "text": " she",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " has",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.486083984375
+            },
+            {
+              "text": " I",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.78759765625
+            },
+            {
+              "text": " do",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.7490234375
+            },
+            {
+              "text": " not",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " like",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.6474609375
+            },
+            {
+              "text": " her.",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " She",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " doth",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.953369140625
+            },
+            {
+              "text": " think",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.93359375
+            },
+            {
+              "text": " she",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.958984375
+            },
+            {
+              "text": " has",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.51025390625
+            },
+            {
+              "text": " I",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.78759765625
+            },
+            {
+              "text": " do",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.740234375
+            },
+            {
+              "text": " not",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " like",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.68505859375
+            },
+            {
+              "text": " her.",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " She",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.8408203125
+            },
+            {
+              "text": " doth",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " think",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " she",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.958984375
+            },
+            {
+              "text": " has",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.52783203125
+            },
+            {
+              "text": " I",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.798828125
+            },
+            {
+              "text": " do",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.765625
+            },
+            {
+              "text": " not",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " like",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.6572265625
+            },
+            {
+              "text": " her.",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " She",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " doth",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " think",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.94140625
+            },
+            {
+              "text": " she",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " has",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.55078125
+            },
+            {
+              "text": " I",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.80419921875
+            },
+            {
+              "text": " do",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.787109375
+            },
+            {
+              "text": " not",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " like",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.6279296875
+            },
+            {
+              "text": " her.",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " She",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " doth",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " think",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " she",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " has",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.55810546875
+            },
+            {
+              "text": " I",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " do",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.80419921875
+            },
+            {
+              "text": " not",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " like",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.67236328125
+            },
+            {
+              "text": " her.",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " She",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.853515625
+            },
+            {
+              "text": " doth",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.94921875
+            },
+            {
+              "text": " think",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.94921875
+            },
+            {
+              "text": " she",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.95703125
+            },
+            {
+              "text": " has",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.57080078125
+            },
+            {
+              "text": " I",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.81494140625
+            },
+            {
+              "text": " do",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " not",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " like",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.681640625
+            },
+            {
+              "text": " her.",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " She",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " doth",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " think",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.953125
+            },
+            {
+              "text": " she",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " has",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.607421875
+            },
+            {
+              "text": " I",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.80322265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside,",
+          "start": 0.38,
+          "end": 0.74
+        },
+        {
+          "raw": "I",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "raw": "do",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "not",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "raw": "like",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "raw": "her.",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "raw": "She",
+          "start": 2.12,
+          "end": 2.2
+        },
+        {
+          "raw": "doth",
+          "start": 2.2,
+          "end": 2.36
+        },
+        {
+          "raw": "think",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "raw": "she",
+          "start": 2.5,
+          "end": 2.68
+        },
+        {
+          "raw": "has",
+          "start": 2.68,
+          "end": 3.04
+        },
+        {
+          "raw": "I",
+          "start": 3.04,
+          "end": 3.04
+        },
+        {
+          "raw": "do",
+          "start": 3.04,
+          "end": 3.04
+        },
+        {
+          "raw": "not",
+          "start": 3.04,
+          "end": 3.04
+        },
+        {
+          "raw": "like",
+          "start": 3.04,
+          "end": 3.04
+        },
+        {
+          "raw": "her.",
+          "start": 3.04,
+          "end": 3.04
+        },
+        {
+          "raw": "She",
+          "start": 3.04,
+          "end": 3.1
+        },
+        {
+          "raw": "doth",
+          "start": 3.1,
+          "end": 3.1
+        },
+        {
+          "raw": "think",
+          "start": 3.1,
+          "end": 3.1
+        },
+        {
+          "raw": "she",
+          "start": 3.1,
+          "end": 3.1
+        },
+        {
+          "raw": "has",
+          "start": 3.1,
+          "end": 3.1
+        },
+        {
+          "raw": "I",
+          "start": 3.1,
+          "end": 3.1
+        },
+        {
+          "raw": "do",
+          "start": 3.1,
+          "end": 3.1
+        },
+        {
+          "raw": "not",
+          "start": 3.1,
+          "end": 3.1
+        },
+        {
+          "raw": "like",
+          "start": 3.1,
+          "end": 3.1
+        },
+        {
+          "raw": "her.",
+          "start": 3.1,
+          "end": 3.1
+        },
+        {
+          "raw": "She",
+          "start": 3.1,
+          "end": 3.1
+        },
+        {
+          "raw": "doth",
+          "start": 3.1,
+          "end": 3.1
+        },
+        {
+          "raw": "think",
+          "start": 3.1,
+          "end": 3.1
+        },
+        {
+          "raw": "she",
+          "start": 3.1,
+          "end": 3.1
+        },
+        {
+          "raw": "has",
+          "start": 3.1,
+          "end": 3.1
+        },
+        {
+          "raw": "I",
+          "start": 3.1,
+          "end": 3.12
+        },
+        {
+          "raw": "do",
+          "start": 3.12,
+          "end": 3.12
+        },
+        {
+          "raw": "not",
+          "start": 3.12,
+          "end": 3.12
+        },
+        {
+          "raw": "like",
+          "start": 3.12,
+          "end": 3.12
+        },
+        {
+          "raw": "her.",
+          "start": 3.12,
+          "end": 3.12
+        },
+        {
+          "raw": "She",
+          "start": 3.14,
+          "end": 3.14
+        },
+        {
+          "raw": "doth",
+          "start": 3.14,
+          "end": 3.16
+        },
+        {
+          "raw": "think",
+          "start": 3.16,
+          "end": 3.16
+        },
+        {
+          "raw": "she",
+          "start": 3.16,
+          "end": 3.16
+        },
+        {
+          "raw": "has",
+          "start": 3.16,
+          "end": 3.16
+        },
+        {
+          "raw": "I",
+          "start": 3.16,
+          "end": 3.62
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside._]",
+        "I",
+        "do",
+        "not",
+        "like",
+        "her.",
+        "She",
+        "doth",
+        "think",
+        "she",
+        "has"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "insert",
+          11,
+          11,
+          11,
+          227
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          11,
+          11,
+          11,
+          227
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside,",
+          "start": 0.38,
+          "end": 0.74,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.18,
+          "end": 1.36,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.46,
+          "end": 1.6,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.6,
+          "end": 1.8,
+          "key": "like",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 1.8,
+          "end": 1.98,
+          "key": "her",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 2.12,
+          "end": 2.2,
+          "key": "she",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 2.2,
+          "end": 2.36,
+          "key": "doth",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 2.36,
+          "end": 2.5,
+          "key": "think",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.5,
+          "end": 2.68,
+          "key": "she",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 2.68,
+          "end": 3.04,
+          "key": "has",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.04,
+          "end": 3.04,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.04,
+          "end": 3.04,
+          "key": "do",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.04,
+          "end": 3.04,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.04,
+          "end": 3.04,
+          "key": "like",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.04,
+          "end": 3.04,
+          "key": "her",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.04,
+          "end": 3.1,
+          "key": "she",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.1,
+          "end": 3.1,
+          "key": "doth",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.1,
+          "end": 3.1,
+          "key": "think",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.1,
+          "end": 3.1,
+          "key": "she",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.1,
+          "end": 3.1,
+          "key": "has",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.1,
+          "end": 3.1,
+          "key": "i",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.1,
+          "end": 3.1,
+          "key": "do",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.1,
+          "end": 3.1,
+          "key": "not",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.1,
+          "end": 3.1,
+          "key": "like",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.1,
+          "end": 3.1,
+          "key": "her",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.1,
+          "end": 3.1,
+          "key": "she",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.1,
+          "end": 3.1,
+          "key": "doth",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.1,
+          "end": 3.1,
+          "key": "think",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.1,
+          "end": 3.1,
+          "key": "she",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.1,
+          "end": 3.1,
+          "key": "has",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.1,
+          "end": 3.12,
+          "key": "i",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.12,
+          "end": 3.12,
+          "key": "do",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.12,
+          "end": 3.12,
+          "key": "not",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.12,
+          "end": 3.12,
+          "key": "like",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.12,
+          "end": 3.12,
+          "key": "her",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.14,
+          "end": 3.14,
+          "key": "she",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.14,
+          "end": 3.16,
+          "key": "doth",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.16,
+          "end": 3.16,
+          "key": "think",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.16,
+          "end": 3.16,
+          "key": "she",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.16,
+          "end": 3.16,
+          "key": "has",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.16,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "doth",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "think",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "has",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "do",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "not",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "like",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "her",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "doth",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "think",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "has",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "do",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "not",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "like",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "her",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "doth",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "think",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "has",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "do",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "not",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "like",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "her",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "doth",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "think",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "has",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "do",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "not",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "like",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "her",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "doth",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "think",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "has",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "do",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "not",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "like",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "her",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "doth",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "think",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "has",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "do",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "not",
+          "pieces": [
+            98
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "like",
+          "pieces": [
+            99
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "her",
+          "pieces": [
+            100
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            101
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "doth",
+          "pieces": [
+            102
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "think",
+          "pieces": [
+            103
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            104
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "has",
+          "pieces": [
+            105
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            106
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "do",
+          "pieces": [
+            107
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "not",
+          "pieces": [
+            108
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "like",
+          "pieces": [
+            109
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "her",
+          "pieces": [
+            110
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            111
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "doth",
+          "pieces": [
+            112
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "think",
+          "pieces": [
+            113
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            114
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "has",
+          "pieces": [
+            115
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            116
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "do",
+          "pieces": [
+            117
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "not",
+          "pieces": [
+            118
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "like",
+          "pieces": [
+            119
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "her",
+          "pieces": [
+            120
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            121
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "doth",
+          "pieces": [
+            122
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "think",
+          "pieces": [
+            123
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            124
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "has",
+          "pieces": [
+            125
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            126
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "do",
+          "pieces": [
+            127
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "not",
+          "pieces": [
+            128
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "like",
+          "pieces": [
+            129
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "her",
+          "pieces": [
+            130
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            131
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "doth",
+          "pieces": [
+            132
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "think",
+          "pieces": [
+            133
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            134
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "has",
+          "pieces": [
+            135
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            136
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "do",
+          "pieces": [
+            137
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "not",
+          "pieces": [
+            138
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "like",
+          "pieces": [
+            139
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "her",
+          "pieces": [
+            140
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            141
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "doth",
+          "pieces": [
+            142
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "think",
+          "pieces": [
+            143
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            144
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "has",
+          "pieces": [
+            145
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            146
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "do",
+          "pieces": [
+            147
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "not",
+          "pieces": [
+            148
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "like",
+          "pieces": [
+            149
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "her",
+          "pieces": [
+            150
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            151
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "doth",
+          "pieces": [
+            152
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "think",
+          "pieces": [
+            153
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            154
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "has",
+          "pieces": [
+            155
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            156
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "do",
+          "pieces": [
+            157
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "not",
+          "pieces": [
+            158
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "like",
+          "pieces": [
+            159
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "her",
+          "pieces": [
+            160
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            161
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "doth",
+          "pieces": [
+            162
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "think",
+          "pieces": [
+            163
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            164
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "has",
+          "pieces": [
+            165
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            166
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "do",
+          "pieces": [
+            167
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "not",
+          "pieces": [
+            168
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "like",
+          "pieces": [
+            169
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "her",
+          "pieces": [
+            170
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            171
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "doth",
+          "pieces": [
+            172
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "think",
+          "pieces": [
+            173
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            174
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "has",
+          "pieces": [
+            175
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            176
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "do",
+          "pieces": [
+            177
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "not",
+          "pieces": [
+            178
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "like",
+          "pieces": [
+            179
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "her",
+          "pieces": [
+            180
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            181
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "doth",
+          "pieces": [
+            182
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "think",
+          "pieces": [
+            183
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            184
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "has",
+          "pieces": [
+            185
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            186
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "do",
+          "pieces": [
+            187
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "not",
+          "pieces": [
+            188
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "like",
+          "pieces": [
+            189
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "her",
+          "pieces": [
+            190
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            191
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "doth",
+          "pieces": [
+            192
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "think",
+          "pieces": [
+            193
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            194
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "has",
+          "pieces": [
+            195
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            196
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "do",
+          "pieces": [
+            197
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "not",
+          "pieces": [
+            198
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "like",
+          "pieces": [
+            199
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "her",
+          "pieces": [
+            200
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            201
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "doth",
+          "pieces": [
+            202
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "think",
+          "pieces": [
+            203
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            204
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "has",
+          "pieces": [
+            205
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            206
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "do",
+          "pieces": [
+            207
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "not",
+          "pieces": [
+            208
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "like",
+          "pieces": [
+            209
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "her",
+          "pieces": [
+            210
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            211
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "doth",
+          "pieces": [
+            212
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "think",
+          "pieces": [
+            213
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            214
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "has",
+          "pieces": [
+            215
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            216
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "do",
+          "pieces": [
+            217
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "not",
+          "pieces": [
+            218
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "like",
+          "pieces": [
+            219
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "her",
+          "pieces": [
+            220
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            221
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "doth",
+          "pieces": [
+            222
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "think",
+          "pieces": [
+            223
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "she",
+          "pieces": [
+            224
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "has",
+          "pieces": [
+            225
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            226
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside._]",
+          "start": 0.38,
+          "end": 0.74
+        },
+        {
+          "text": "I",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "text": "do",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "not",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "text": "like",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "text": "her.",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "text": "She",
+          "start": 2.12,
+          "end": 2.2
+        },
+        {
+          "text": "doth",
+          "start": 2.2,
+          "end": 2.36
+        },
+        {
+          "text": "think",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "text": "she",
+          "start": 2.5,
+          "end": 2.68
+        },
+        {
+          "text": "has",
+          "start": 2.68,
+          "end": 3.04
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 227,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.958491586148739
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a5dd37d4c4dff7de751d4d14298efc7f841c825314ece36be6eb4eca686b2cfb",
+  "selected_reasons": []
+}

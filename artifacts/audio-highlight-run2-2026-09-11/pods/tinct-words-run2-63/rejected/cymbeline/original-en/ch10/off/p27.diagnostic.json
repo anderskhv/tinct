@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "e8fb8f346c5cbfd9a86a2a1d5cebb623ae791da4e284a2a66852e8dbbf3ec15e",
+  "attempts": [
+    {
+      "asr_seconds": 0.10303068161010742,
+      "alignment_seconds": 0.00022042915225028992,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Nox",
+          "start": 0.02,
+          "end": 0.86,
+          "words": [
+            {
+              "text": " Nox",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.543701171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nox",
+          "start": 0.02,
+          "end": 0.86
+        }
+      ],
+      "expected_tokens": [
+        "[_Knocks._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nox",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "nox",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Knocks._]",
+          "start": 0.0,
+          "end": 0.43
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1033184826374054
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8e7aa04b2a307a0fd508724476405f20914e00ec93a29eae05148ab36e3bb7f0",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

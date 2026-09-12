@@ -1,0 +1,3174 @@
+{
+  "complete": true,
+  "signature": "0bc4836320cf47f573caf82c55a627091384ce2c678670923c3e3b0ce7e28ea4",
+  "attempts": [
+    {
+      "asr_seconds": 0.4308112319558859,
+      "alignment_seconds": 0.000708090141415596,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Le radici e corrispondenze,\" their roots (i.e. foundations) and correspondencies or relations with other states—a common meaning of \"correspondence\" and \"correspondency\" in the sixteenth and seventeenth centuries.",
+        "hotwords": "Le"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Le radici e corrispondens, their roots, i.e. foundations and correspondencies or relations",
+          "start": 0.05,
+          "end": 6.75,
+          "words": [
+            {
+              "text": " Le",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.0144500732421875
+            },
+            {
+              "text": " radici",
+              "start": 0.55,
+              "end": 0.97,
+              "probability": 0.03203582763671875
+            },
+            {
+              "text": " e",
+              "start": 0.97,
+              "end": 1.33,
+              "probability": 0.6259765625
+            },
+            {
+              "text": " corrispondens,",
+              "start": 1.33,
+              "end": 2.29,
+              "probability": 0.5816397666931152
+            },
+            {
+              "text": " their",
+              "start": 2.75,
+              "end": 2.95,
+              "probability": 0.8359375
+            },
+            {
+              "text": " roots,",
+              "start": 2.95,
+              "end": 3.25,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " i",
+              "start": 3.81,
+              "end": 3.83,
+              "probability": 0.8173828125
+            },
+            {
+              "text": ".e.",
+              "start": 3.83,
+              "end": 4.05,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " foundations",
+              "start": 4.17,
+              "end": 4.69,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " and",
+              "start": 4.69,
+              "end": 5.07,
+              "probability": 0.72802734375
+            },
+            {
+              "text": " correspondencies",
+              "start": 5.07,
+              "end": 6.03,
+              "probability": 0.7119140625
+            },
+            {
+              "text": " or",
+              "start": 6.03,
+              "end": 6.29,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " relations",
+              "start": 6.29,
+              "end": 6.75,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " with other states—a common meaning of correspondence and correspondency in the sixteenth and seventeenth",
+          "start": 6.75,
+          "end": 13.67,
+          "words": [
+            {
+              "text": " with",
+              "start": 6.75,
+              "end": 7.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " other",
+              "start": 7.05,
+              "end": 7.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " states—a",
+              "start": 7.31,
+              "end": 8.51,
+              "probability": 0.6382242838541666
+            },
+            {
+              "text": " common",
+              "start": 8.51,
+              "end": 8.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " meaning",
+              "start": 8.83,
+              "end": 9.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 9.15,
+              "end": 9.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " correspondence",
+              "start": 9.43,
+              "end": 10.07,
+              "probability": 0.76708984375
+            },
+            {
+              "text": " and",
+              "start": 10.07,
+              "end": 10.77,
+              "probability": 0.990234375
+            },
+            {
+              "text": " correspondency",
+              "start": 10.77,
+              "end": 11.75,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " in",
+              "start": 11.75,
+              "end": 12.21,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " the",
+              "start": 12.21,
+              "end": 12.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sixteenth",
+              "start": 12.35,
+              "end": 12.85,
+              "probability": 0.67822265625
+            },
+            {
+              "text": " and",
+              "start": 12.85,
+              "end": 13.07,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " seventeenth",
+              "start": 13.07,
+              "end": 13.67,
+              "probability": 0.98095703125
+            }
+          ]
+        },
+        {
+          "text": " centuries.",
+          "start": 13.67,
+          "end": 14.17,
+          "words": [
+            {
+              "text": " centuries.",
+              "start": 13.67,
+              "end": 14.17,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Le",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "radici",
+          "start": 0.55,
+          "end": 0.97
+        },
+        {
+          "raw": "e",
+          "start": 0.97,
+          "end": 1.33
+        },
+        {
+          "raw": "corrispondens,",
+          "start": 1.33,
+          "end": 2.29
+        },
+        {
+          "raw": "their",
+          "start": 2.75,
+          "end": 2.95
+        },
+        {
+          "raw": "roots,",
+          "start": 2.95,
+          "end": 3.25
+        },
+        {
+          "raw": "i",
+          "start": 3.81,
+          "end": 3.83
+        },
+        {
+          "raw": ".e.",
+          "start": 3.83,
+          "end": 4.05
+        },
+        {
+          "raw": "foundations",
+          "start": 4.17,
+          "end": 4.69
+        },
+        {
+          "raw": "and",
+          "start": 4.69,
+          "end": 5.07
+        },
+        {
+          "raw": "correspondencies",
+          "start": 5.07,
+          "end": 6.03
+        },
+        {
+          "raw": "or",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "raw": "relations",
+          "start": 6.29,
+          "end": 6.75
+        },
+        {
+          "raw": "with",
+          "start": 6.75,
+          "end": 7.05
+        },
+        {
+          "raw": "other",
+          "start": 7.05,
+          "end": 7.31
+        },
+        {
+          "raw": "states—a",
+          "start": 7.31,
+          "end": 8.51
+        },
+        {
+          "raw": "common",
+          "start": 8.51,
+          "end": 8.83
+        },
+        {
+          "raw": "meaning",
+          "start": 8.83,
+          "end": 9.15
+        },
+        {
+          "raw": "of",
+          "start": 9.15,
+          "end": 9.43
+        },
+        {
+          "raw": "correspondence",
+          "start": 9.43,
+          "end": 10.07
+        },
+        {
+          "raw": "and",
+          "start": 10.07,
+          "end": 10.77
+        },
+        {
+          "raw": "correspondency",
+          "start": 10.77,
+          "end": 11.75
+        },
+        {
+          "raw": "in",
+          "start": 11.75,
+          "end": 12.21
+        },
+        {
+          "raw": "the",
+          "start": 12.21,
+          "end": 12.35
+        },
+        {
+          "raw": "sixteenth",
+          "start": 12.35,
+          "end": 12.85
+        },
+        {
+          "raw": "and",
+          "start": 12.85,
+          "end": 13.07
+        },
+        {
+          "raw": "seventeenth",
+          "start": 13.07,
+          "end": 13.67
+        },
+        {
+          "raw": "centuries.",
+          "start": 13.67,
+          "end": 14.17
+        }
+      ],
+      "expected_tokens": [
+        "\"Le",
+        "radici",
+        "e",
+        "corrispondenze,\"",
+        "their",
+        "roots",
+        "(i.e.",
+        "foundations)",
+        "and",
+        "correspondencies",
+        "or",
+        "relations",
+        "with",
+        "other",
+        "states—a",
+        "common",
+        "meaning",
+        "of",
+        "\"correspondence\"",
+        "and",
+        "\"correspondency\"",
+        "in",
+        "the",
+        "sixteenth",
+        "and",
+        "seventeenth",
+        "centuries."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          27,
+          8,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Le",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "le",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "radici",
+          "start": 0.55,
+          "end": 0.97,
+          "key": "radici",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "e",
+          "start": 0.97,
+          "end": 1.33,
+          "key": "e",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "corrispondens,",
+          "start": 1.33,
+          "end": 2.29,
+          "key": "corrispondens",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 2.75,
+          "end": 2.95,
+          "key": "their",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "roots,",
+          "start": 2.95,
+          "end": 3.25,
+          "key": "roots",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "i",
+          "start": 3.81,
+          "end": 3.83,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": ".e.",
+          "start": 3.83,
+          "end": 4.05,
+          "key": "e",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "foundations",
+          "start": 4.17,
+          "end": 4.69,
+          "key": "foundations",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.69,
+          "end": 5.07,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "correspondencies",
+          "start": 5.07,
+          "end": 6.03,
+          "key": "correspondencies",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 6.03,
+          "end": 6.29,
+          "key": "or",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "relations",
+          "start": 6.29,
+          "end": 6.75,
+          "key": "relations",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.75,
+          "end": 7.05,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 7.05,
+          "end": 7.31,
+          "key": "other",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "states—a",
+          "start": 7.31,
+          "end": 8.51,
+          "key": "statesa",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "common",
+          "start": 8.51,
+          "end": 8.83,
+          "key": "common",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "meaning",
+          "start": 8.83,
+          "end": 9.15,
+          "key": "meaning",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.15,
+          "end": 9.43,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "correspondence",
+          "start": 9.43,
+          "end": 10.07,
+          "key": "correspondence",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.07,
+          "end": 10.77,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "correspondency",
+          "start": 10.77,
+          "end": 11.75,
+          "key": "correspondency",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.75,
+          "end": 12.21,
+          "key": "in",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.21,
+          "end": 12.35,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "sixteenth",
+          "start": 12.35,
+          "end": 12.85,
+          "key": "sixteenth",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.85,
+          "end": 13.07,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "seventeenth",
+          "start": 13.07,
+          "end": 13.67,
+          "key": "seventeenth",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "centuries.",
+          "start": 13.67,
+          "end": 14.17,
+          "key": "centuries",
+          "pieces": [
+            27
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Le",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "radici",
+          "start": 0.55,
+          "end": 0.97
+        },
+        {
+          "text": "e",
+          "start": 0.97,
+          "end": 1.33
+        },
+        {
+          "text": "corrispondenze,\"",
+          "start": 1.33,
+          "end": 2.04
+        },
+        {
+          "text": "their",
+          "start": 2.75,
+          "end": 2.95
+        },
+        {
+          "text": "roots",
+          "start": 2.95,
+          "end": 3.25
+        },
+        {
+          "text": "(i.e.",
+          "start": 3.25,
+          "end": 3.71
+        },
+        {
+          "text": "foundations)",
+          "start": 4.17,
+          "end": 4.69
+        },
+        {
+          "text": "and",
+          "start": 4.69,
+          "end": 5.07
+        },
+        {
+          "text": "correspondencies",
+          "start": 5.07,
+          "end": 6.03
+        },
+        {
+          "text": "or",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "text": "relations",
+          "start": 6.29,
+          "end": 6.75
+        },
+        {
+          "text": "with",
+          "start": 6.75,
+          "end": 7.05
+        },
+        {
+          "text": "other",
+          "start": 7.05,
+          "end": 7.31
+        },
+        {
+          "text": "states—a",
+          "start": 7.31,
+          "end": 8.51
+        },
+        {
+          "text": "common",
+          "start": 8.51,
+          "end": 8.83
+        },
+        {
+          "text": "meaning",
+          "start": 8.83,
+          "end": 9.15
+        },
+        {
+          "text": "of",
+          "start": 9.15,
+          "end": 9.43
+        },
+        {
+          "text": "\"correspondence\"",
+          "start": 9.43,
+          "end": 10.07
+        },
+        {
+          "text": "and",
+          "start": 10.07,
+          "end": 10.77
+        },
+        {
+          "text": "\"correspondency\"",
+          "start": 10.77,
+          "end": 11.75
+        },
+        {
+          "text": "in",
+          "start": 11.75,
+          "end": 12.21
+        },
+        {
+          "text": "the",
+          "start": 12.21,
+          "end": 12.35
+        },
+        {
+          "text": "sixteenth",
+          "start": 12.35,
+          "end": 12.85
+        },
+        {
+          "text": "and",
+          "start": 12.85,
+          "end": 13.07
+        },
+        {
+          "text": "seventeenth",
+          "start": 13.07,
+          "end": 13.67
+        },
+        {
+          "text": "centuries.",
+          "start": 13.67,
+          "end": 14.17
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 28,
+        "matched_words": 25
+      },
+      "match_ratio": 0.9259259259259259,
+      "rejection_reasons": [],
+      "seconds": 0.43179199658334255
+    },
+    {
+      "asr_seconds": 0.4494078140705824,
+      "alignment_seconds": 0.0007800422608852386,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Le"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " rádice e correspondens, their roots, i.e. foundations and correspondences or relations",
+          "start": 0.05,
+          "end": 6.73,
+          "words": [
+            {
+              "text": " rádice",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.2524228096008301
+            },
+            {
+              "text": " e",
+              "start": 0.91,
+              "end": 1.31,
+              "probability": 0.09197998046875
+            },
+            {
+              "text": " correspondens,",
+              "start": 1.31,
+              "end": 2.31,
+              "probability": 0.5712890625
+            },
+            {
+              "text": " their",
+              "start": 2.69,
+              "end": 2.95,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " roots,",
+              "start": 2.95,
+              "end": 3.27,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " i",
+              "start": 3.81,
+              "end": 3.83,
+              "probability": 0.82373046875
+            },
+            {
+              "text": ".e.",
+              "start": 3.83,
+              "end": 4.07,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " foundations",
+              "start": 4.17,
+              "end": 4.69,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " and",
+              "start": 4.69,
+              "end": 5.07,
+              "probability": 0.64892578125
+            },
+            {
+              "text": " correspondences",
+              "start": 5.07,
+              "end": 6.01,
+              "probability": 0.865234375
+            },
+            {
+              "text": " or",
+              "start": 6.01,
+              "end": 6.29,
+              "probability": 0.896484375
+            },
+            {
+              "text": " relations",
+              "start": 6.29,
+              "end": 6.73,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " with other states, a common meaning of correspondence and correspondency in the 16th and 17th centuries.",
+          "start": 6.73,
+          "end": 14.17,
+          "words": [
+            {
+              "text": " with",
+              "start": 6.73,
+              "end": 7.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " other",
+              "start": 7.05,
+              "end": 7.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " states,",
+              "start": 7.31,
+              "end": 7.69,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " a",
+              "start": 8.33,
+              "end": 8.51,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " common",
+              "start": 8.51,
+              "end": 8.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " meaning",
+              "start": 8.81,
+              "end": 9.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 9.17,
+              "end": 9.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " correspondence",
+              "start": 9.43,
+              "end": 10.09,
+              "probability": 0.76953125
+            },
+            {
+              "text": " and",
+              "start": 10.09,
+              "end": 10.79,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " correspondency",
+              "start": 10.79,
+              "end": 11.75,
+              "probability": 0.878662109375
+            },
+            {
+              "text": " in",
+              "start": 11.75,
+              "end": 12.21,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " the",
+              "start": 12.21,
+              "end": 12.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " 16th",
+              "start": 12.35,
+              "end": 12.95,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " and",
+              "start": 12.95,
+              "end": 13.07,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " 17th",
+              "start": 13.07,
+              "end": 14.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " centuries.",
+              "start": 14.17,
+              "end": 14.17,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "rádice",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "e",
+          "start": 0.91,
+          "end": 1.31
+        },
+        {
+          "raw": "correspondens,",
+          "start": 1.31,
+          "end": 2.31
+        },
+        {
+          "raw": "their",
+          "start": 2.69,
+          "end": 2.95
+        },
+        {
+          "raw": "roots,",
+          "start": 2.95,
+          "end": 3.27
+        },
+        {
+          "raw": "i",
+          "start": 3.81,
+          "end": 3.83
+        },
+        {
+          "raw": ".e.",
+          "start": 3.83,
+          "end": 4.07
+        },
+        {
+          "raw": "foundations",
+          "start": 4.17,
+          "end": 4.69
+        },
+        {
+          "raw": "and",
+          "start": 4.69,
+          "end": 5.07
+        },
+        {
+          "raw": "correspondences",
+          "start": 5.07,
+          "end": 6.01
+        },
+        {
+          "raw": "or",
+          "start": 6.01,
+          "end": 6.29
+        },
+        {
+          "raw": "relations",
+          "start": 6.29,
+          "end": 6.73
+        },
+        {
+          "raw": "with",
+          "start": 6.73,
+          "end": 7.05
+        },
+        {
+          "raw": "other",
+          "start": 7.05,
+          "end": 7.31
+        },
+        {
+          "raw": "states,",
+          "start": 7.31,
+          "end": 7.69
+        },
+        {
+          "raw": "a",
+          "start": 8.33,
+          "end": 8.51
+        },
+        {
+          "raw": "common",
+          "start": 8.51,
+          "end": 8.81
+        },
+        {
+          "raw": "meaning",
+          "start": 8.81,
+          "end": 9.17
+        },
+        {
+          "raw": "of",
+          "start": 9.17,
+          "end": 9.43
+        },
+        {
+          "raw": "correspondence",
+          "start": 9.43,
+          "end": 10.09
+        },
+        {
+          "raw": "and",
+          "start": 10.09,
+          "end": 10.79
+        },
+        {
+          "raw": "correspondency",
+          "start": 10.79,
+          "end": 11.75
+        },
+        {
+          "raw": "in",
+          "start": 11.75,
+          "end": 12.21
+        },
+        {
+          "raw": "the",
+          "start": 12.21,
+          "end": 12.35
+        },
+        {
+          "raw": "16th",
+          "start": 12.35,
+          "end": 12.95
+        },
+        {
+          "raw": "and",
+          "start": 12.95,
+          "end": 13.07
+        },
+        {
+          "raw": "17th",
+          "start": 13.07,
+          "end": 14.17
+        },
+        {
+          "raw": "centuries.",
+          "start": 14.17,
+          "end": 14.17
+        }
+      ],
+      "expected_tokens": [
+        "\"Le",
+        "radici",
+        "e",
+        "corrispondenze,\"",
+        "their",
+        "roots",
+        "(i.e.",
+        "foundations)",
+        "and",
+        "correspondencies",
+        "or",
+        "relations",
+        "with",
+        "other",
+        "states—a",
+        "common",
+        "meaning",
+        "of",
+        "\"correspondence\"",
+        "and",
+        "\"correspondency\"",
+        "in",
+        "the",
+        "sixteenth",
+        "and",
+        "seventeenth",
+        "centuries."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          3,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          2,
+          3
+        ],
+        [
+          "equal",
+          4,
+          6,
+          3,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          5,
+          7
+        ],
+        [
+          "equal",
+          7,
+          9,
+          7,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          14,
+          10,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ],
+        [
+          "equal",
+          15,
+          23,
+          16,
+          24
+        ],
+        [
+          "replace",
+          23,
+          24,
+          24,
+          25
+        ],
+        [
+          "equal",
+          24,
+          25,
+          25,
+          26
+        ],
+        [
+          "replace",
+          25,
+          26,
+          26,
+          27
+        ],
+        [
+          "equal",
+          26,
+          27,
+          27,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          2,
+          3
+        ],
+        [
+          "replace",
+          6,
+          7,
+          5,
+          7
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ],
+        [
+          "replace",
+          23,
+          24,
+          24,
+          25
+        ],
+        [
+          "replace",
+          25,
+          26,
+          26,
+          27
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "rádice",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "rádice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "e",
+          "start": 0.91,
+          "end": 1.31,
+          "key": "e",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "correspondens,",
+          "start": 1.31,
+          "end": 2.31,
+          "key": "correspondens",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 2.69,
+          "end": 2.95,
+          "key": "their",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "roots,",
+          "start": 2.95,
+          "end": 3.27,
+          "key": "roots",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "i",
+          "start": 3.81,
+          "end": 3.83,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": ".e.",
+          "start": 3.83,
+          "end": 4.07,
+          "key": "e",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "foundations",
+          "start": 4.17,
+          "end": 4.69,
+          "key": "foundations",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.69,
+          "end": 5.07,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "correspondences",
+          "start": 5.07,
+          "end": 6.01,
+          "key": "correspondences",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 6.01,
+          "end": 6.29,
+          "key": "or",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "relations",
+          "start": 6.29,
+          "end": 6.73,
+          "key": "relations",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.73,
+          "end": 7.05,
+          "key": "with",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 7.05,
+          "end": 7.31,
+          "key": "other",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "states,",
+          "start": 7.31,
+          "end": 7.69,
+          "key": "states",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.33,
+          "end": 8.51,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "common",
+          "start": 8.51,
+          "end": 8.81,
+          "key": "common",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "meaning",
+          "start": 8.81,
+          "end": 9.17,
+          "key": "meaning",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.17,
+          "end": 9.43,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "correspondence",
+          "start": 9.43,
+          "end": 10.09,
+          "key": "correspondence",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.09,
+          "end": 10.79,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "correspondency",
+          "start": 10.79,
+          "end": 11.75,
+          "key": "correspondency",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.75,
+          "end": 12.21,
+          "key": "in",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.21,
+          "end": 12.35,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "16th",
+          "start": 12.35,
+          "end": 12.95,
+          "key": "16th",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.95,
+          "end": 13.07,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "17th",
+          "start": 13.07,
+          "end": 14.17,
+          "key": "17th",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "centuries.",
+          "start": 14.17,
+          "end": 14.17,
+          "key": "centuries",
+          "pieces": [
+            27
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Le",
+          "start": 0.0,
+          "end": 0.455
+        },
+        {
+          "text": "radici",
+          "start": 0.455,
+          "end": 0.682
+        },
+        {
+          "text": "e",
+          "start": 0.91,
+          "end": 1.31
+        },
+        {
+          "text": "corrispondenze,\"",
+          "start": 1.31,
+          "end": 2.0
+        },
+        {
+          "text": "their",
+          "start": 2.69,
+          "end": 2.95
+        },
+        {
+          "text": "roots",
+          "start": 2.95,
+          "end": 3.27
+        },
+        {
+          "text": "(i.e.",
+          "start": 3.27,
+          "end": 3.72
+        },
+        {
+          "text": "foundations)",
+          "start": 4.17,
+          "end": 4.69
+        },
+        {
+          "text": "and",
+          "start": 4.69,
+          "end": 5.07
+        },
+        {
+          "text": "correspondencies",
+          "start": 5.07,
+          "end": 5.54
+        },
+        {
+          "text": "or",
+          "start": 6.01,
+          "end": 6.29
+        },
+        {
+          "text": "relations",
+          "start": 6.29,
+          "end": 6.73
+        },
+        {
+          "text": "with",
+          "start": 6.73,
+          "end": 7.05
+        },
+        {
+          "text": "other",
+          "start": 7.05,
+          "end": 7.31
+        },
+        {
+          "text": "states—a",
+          "start": 7.31,
+          "end": 7.91
+        },
+        {
+          "text": "common",
+          "start": 8.51,
+          "end": 8.81
+        },
+        {
+          "text": "meaning",
+          "start": 8.81,
+          "end": 9.17
+        },
+        {
+          "text": "of",
+          "start": 9.17,
+          "end": 9.43
+        },
+        {
+          "text": "\"correspondence\"",
+          "start": 9.43,
+          "end": 10.09
+        },
+        {
+          "text": "and",
+          "start": 10.09,
+          "end": 10.79
+        },
+        {
+          "text": "\"correspondency\"",
+          "start": 10.79,
+          "end": 11.75
+        },
+        {
+          "text": "in",
+          "start": 11.75,
+          "end": 12.21
+        },
+        {
+          "text": "the",
+          "start": 12.21,
+          "end": 12.35
+        },
+        {
+          "text": "sixteenth",
+          "start": 12.35,
+          "end": 12.65
+        },
+        {
+          "text": "and",
+          "start": 12.95,
+          "end": 13.07
+        },
+        {
+          "text": "seventeenth",
+          "start": 13.07,
+          "end": 13.62
+        },
+        {
+          "text": "centuries.",
+          "start": 14.17,
+          "end": 14.17
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 28,
+        "matched_words": 19
+      },
+      "match_ratio": 0.7037037037037037,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.45045996457338333
+    },
+    {
+      "asr_seconds": 0.4952826965600252,
+      "alignment_seconds": 0.000569663941860199,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Liratusae e correspondens, their roots, i.e. foundations and correspondences or relations",
+          "start": 0.05,
+          "end": 6.73,
+          "words": [
+            {
+              "text": " Liratusae",
+              "start": 0.05,
+              "end": 1.19,
+              "probability": 0.40692138671875
+            },
+            {
+              "text": " e",
+              "start": 1.19,
+              "end": 1.37,
+              "probability": 0.611328125
+            },
+            {
+              "text": " correspondens,",
+              "start": 1.37,
+              "end": 2.31,
+              "probability": 0.755615234375
+            },
+            {
+              "text": " their",
+              "start": 2.71,
+              "end": 2.95,
+              "probability": 0.8984375
+            },
+            {
+              "text": " roots,",
+              "start": 2.95,
+              "end": 3.27,
+              "probability": 0.982421875
+            },
+            {
+              "text": " i",
+              "start": 3.81,
+              "end": 3.83,
+              "probability": 0.580078125
+            },
+            {
+              "text": ".e.",
+              "start": 3.83,
+              "end": 4.07,
+              "probability": 0.994384765625
+            },
+            {
+              "text": " foundations",
+              "start": 4.17,
+              "end": 4.69,
+              "probability": 0.900390625
+            },
+            {
+              "text": " and",
+              "start": 4.69,
+              "end": 5.07,
+              "probability": 0.72802734375
+            },
+            {
+              "text": " correspondences",
+              "start": 5.07,
+              "end": 6.01,
+              "probability": 0.784912109375
+            },
+            {
+              "text": " or",
+              "start": 6.01,
+              "end": 6.29,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " relations",
+              "start": 6.29,
+              "end": 6.73,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " with other states, a common meaning of correspondence and correspondency in the 16th and 17th centuries.",
+          "start": 6.73,
+          "end": 14.19,
+          "words": [
+            {
+              "text": " with",
+              "start": 6.73,
+              "end": 7.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " other",
+              "start": 7.05,
+              "end": 7.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " states,",
+              "start": 7.31,
+              "end": 7.69,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " a",
+              "start": 8.31,
+              "end": 8.51,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " common",
+              "start": 8.51,
+              "end": 8.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " meaning",
+              "start": 8.81,
+              "end": 9.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 9.17,
+              "end": 9.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " correspondence",
+              "start": 9.43,
+              "end": 10.09,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " and",
+              "start": 10.09,
+              "end": 10.77,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " correspondency",
+              "start": 10.77,
+              "end": 11.75,
+              "probability": 0.897705078125
+            },
+            {
+              "text": " in",
+              "start": 11.75,
+              "end": 12.21,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " the",
+              "start": 12.21,
+              "end": 12.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " 16th",
+              "start": 12.35,
+              "end": 12.95,
+              "probability": 0.834716796875
+            },
+            {
+              "text": " and",
+              "start": 12.95,
+              "end": 13.07,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " 17th",
+              "start": 13.07,
+              "end": 14.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " centuries.",
+              "start": 14.19,
+              "end": 14.19,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Liratusae",
+          "start": 0.05,
+          "end": 1.19
+        },
+        {
+          "raw": "e",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "raw": "correspondens,",
+          "start": 1.37,
+          "end": 2.31
+        },
+        {
+          "raw": "their",
+          "start": 2.71,
+          "end": 2.95
+        },
+        {
+          "raw": "roots,",
+          "start": 2.95,
+          "end": 3.27
+        },
+        {
+          "raw": "i",
+          "start": 3.81,
+          "end": 3.83
+        },
+        {
+          "raw": ".e.",
+          "start": 3.83,
+          "end": 4.07
+        },
+        {
+          "raw": "foundations",
+          "start": 4.17,
+          "end": 4.69
+        },
+        {
+          "raw": "and",
+          "start": 4.69,
+          "end": 5.07
+        },
+        {
+          "raw": "correspondences",
+          "start": 5.07,
+          "end": 6.01
+        },
+        {
+          "raw": "or",
+          "start": 6.01,
+          "end": 6.29
+        },
+        {
+          "raw": "relations",
+          "start": 6.29,
+          "end": 6.73
+        },
+        {
+          "raw": "with",
+          "start": 6.73,
+          "end": 7.05
+        },
+        {
+          "raw": "other",
+          "start": 7.05,
+          "end": 7.31
+        },
+        {
+          "raw": "states,",
+          "start": 7.31,
+          "end": 7.69
+        },
+        {
+          "raw": "a",
+          "start": 8.31,
+          "end": 8.51
+        },
+        {
+          "raw": "common",
+          "start": 8.51,
+          "end": 8.81
+        },
+        {
+          "raw": "meaning",
+          "start": 8.81,
+          "end": 9.17
+        },
+        {
+          "raw": "of",
+          "start": 9.17,
+          "end": 9.43
+        },
+        {
+          "raw": "correspondence",
+          "start": 9.43,
+          "end": 10.09
+        },
+        {
+          "raw": "and",
+          "start": 10.09,
+          "end": 10.77
+        },
+        {
+          "raw": "correspondency",
+          "start": 10.77,
+          "end": 11.75
+        },
+        {
+          "raw": "in",
+          "start": 11.75,
+          "end": 12.21
+        },
+        {
+          "raw": "the",
+          "start": 12.21,
+          "end": 12.35
+        },
+        {
+          "raw": "16th",
+          "start": 12.35,
+          "end": 12.95
+        },
+        {
+          "raw": "and",
+          "start": 12.95,
+          "end": 13.07
+        },
+        {
+          "raw": "17th",
+          "start": 13.07,
+          "end": 14.19
+        },
+        {
+          "raw": "centuries.",
+          "start": 14.19,
+          "end": 14.19
+        }
+      ],
+      "expected_tokens": [
+        "\"Le",
+        "radici",
+        "e",
+        "corrispondenze,\"",
+        "their",
+        "roots",
+        "(i.e.",
+        "foundations)",
+        "and",
+        "correspondencies",
+        "or",
+        "relations",
+        "with",
+        "other",
+        "states—a",
+        "common",
+        "meaning",
+        "of",
+        "\"correspondence\"",
+        "and",
+        "\"correspondency\"",
+        "in",
+        "the",
+        "sixteenth",
+        "and",
+        "seventeenth",
+        "centuries."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          3,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          2,
+          3
+        ],
+        [
+          "equal",
+          4,
+          6,
+          3,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          5,
+          7
+        ],
+        [
+          "equal",
+          7,
+          9,
+          7,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          14,
+          10,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ],
+        [
+          "equal",
+          15,
+          23,
+          16,
+          24
+        ],
+        [
+          "replace",
+          23,
+          24,
+          24,
+          25
+        ],
+        [
+          "equal",
+          24,
+          25,
+          25,
+          26
+        ],
+        [
+          "replace",
+          25,
+          26,
+          26,
+          27
+        ],
+        [
+          "equal",
+          26,
+          27,
+          27,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          2,
+          3
+        ],
+        [
+          "replace",
+          6,
+          7,
+          5,
+          7
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ],
+        [
+          "replace",
+          23,
+          24,
+          24,
+          25
+        ],
+        [
+          "replace",
+          25,
+          26,
+          26,
+          27
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Liratusae",
+          "start": 0.05,
+          "end": 1.19,
+          "key": "liratusae",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "e",
+          "start": 1.19,
+          "end": 1.37,
+          "key": "e",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "correspondens,",
+          "start": 1.37,
+          "end": 2.31,
+          "key": "correspondens",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 2.71,
+          "end": 2.95,
+          "key": "their",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "roots,",
+          "start": 2.95,
+          "end": 3.27,
+          "key": "roots",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "i",
+          "start": 3.81,
+          "end": 3.83,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": ".e.",
+          "start": 3.83,
+          "end": 4.07,
+          "key": "e",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "foundations",
+          "start": 4.17,
+          "end": 4.69,
+          "key": "foundations",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.69,
+          "end": 5.07,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "correspondences",
+          "start": 5.07,
+          "end": 6.01,
+          "key": "correspondences",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 6.01,
+          "end": 6.29,
+          "key": "or",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "relations",
+          "start": 6.29,
+          "end": 6.73,
+          "key": "relations",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.73,
+          "end": 7.05,
+          "key": "with",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 7.05,
+          "end": 7.31,
+          "key": "other",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "states,",
+          "start": 7.31,
+          "end": 7.69,
+          "key": "states",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.31,
+          "end": 8.51,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "common",
+          "start": 8.51,
+          "end": 8.81,
+          "key": "common",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "meaning",
+          "start": 8.81,
+          "end": 9.17,
+          "key": "meaning",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.17,
+          "end": 9.43,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "correspondence",
+          "start": 9.43,
+          "end": 10.09,
+          "key": "correspondence",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.09,
+          "end": 10.77,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "correspondency",
+          "start": 10.77,
+          "end": 11.75,
+          "key": "correspondency",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.75,
+          "end": 12.21,
+          "key": "in",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.21,
+          "end": 12.35,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "16th",
+          "start": 12.35,
+          "end": 12.95,
+          "key": "16th",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.95,
+          "end": 13.07,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "17th",
+          "start": 13.07,
+          "end": 14.19,
+          "key": "17th",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "centuries.",
+          "start": 14.19,
+          "end": 14.19,
+          "key": "centuries",
+          "pieces": [
+            27
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Le",
+          "start": 0.0,
+          "end": 0.595
+        },
+        {
+          "text": "radici",
+          "start": 0.595,
+          "end": 0.892
+        },
+        {
+          "text": "e",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "text": "corrispondenze,\"",
+          "start": 1.37,
+          "end": 2.04
+        },
+        {
+          "text": "their",
+          "start": 2.71,
+          "end": 2.95
+        },
+        {
+          "text": "roots",
+          "start": 2.95,
+          "end": 3.27
+        },
+        {
+          "text": "(i.e.",
+          "start": 3.27,
+          "end": 3.72
+        },
+        {
+          "text": "foundations)",
+          "start": 4.17,
+          "end": 4.69
+        },
+        {
+          "text": "and",
+          "start": 4.69,
+          "end": 5.07
+        },
+        {
+          "text": "correspondencies",
+          "start": 5.07,
+          "end": 5.54
+        },
+        {
+          "text": "or",
+          "start": 6.01,
+          "end": 6.29
+        },
+        {
+          "text": "relations",
+          "start": 6.29,
+          "end": 6.73
+        },
+        {
+          "text": "with",
+          "start": 6.73,
+          "end": 7.05
+        },
+        {
+          "text": "other",
+          "start": 7.05,
+          "end": 7.31
+        },
+        {
+          "text": "states—a",
+          "start": 7.31,
+          "end": 7.91
+        },
+        {
+          "text": "common",
+          "start": 8.51,
+          "end": 8.81
+        },
+        {
+          "text": "meaning",
+          "start": 8.81,
+          "end": 9.17
+        },
+        {
+          "text": "of",
+          "start": 9.17,
+          "end": 9.43
+        },
+        {
+          "text": "\"correspondence\"",
+          "start": 9.43,
+          "end": 10.09
+        },
+        {
+          "text": "and",
+          "start": 10.09,
+          "end": 10.77
+        },
+        {
+          "text": "\"correspondency\"",
+          "start": 10.77,
+          "end": 11.75
+        },
+        {
+          "text": "in",
+          "start": 11.75,
+          "end": 12.21
+        },
+        {
+          "text": "the",
+          "start": 12.21,
+          "end": 12.35
+        },
+        {
+          "text": "sixteenth",
+          "start": 12.35,
+          "end": 12.65
+        },
+        {
+          "text": "and",
+          "start": 12.95,
+          "end": 13.07
+        },
+        {
+          "text": "seventeenth",
+          "start": 13.07,
+          "end": 13.63
+        },
+        {
+          "text": "centuries.",
+          "start": 14.19,
+          "end": 14.19
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 28,
+        "matched_words": 19
+      },
+      "match_ratio": 0.7037037037037037,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.49615374207496643
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fe73670ba7c3ca1fe4df28ee38e2ebb8efc2fb7e4125db6fdee43902c7916453",
+  "selected_reasons": []
+}

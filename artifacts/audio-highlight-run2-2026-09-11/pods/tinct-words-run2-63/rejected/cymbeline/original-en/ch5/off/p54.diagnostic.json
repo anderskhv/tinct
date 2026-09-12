@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "39fab8e23211faca3e51d5c817cb143d32e5d39d9f92fdf1e847b1981e517fb4",
+  "attempts": [
+    {
+      "asr_seconds": 0.19806965999305248,
+      "alignment_seconds": 0.0004302598536014557,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Frenchman, will this hold? Thank you.",
+          "start": 0.05,
+          "end": 2.29,
+          "words": [
+            {
+              "text": " Frenchman,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.537109375
+            },
+            {
+              "text": " will",
+              "start": 1.25,
+              "end": 1.39,
+              "probability": 0.95703125
+            },
+            {
+              "text": " this",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hold?",
+              "start": 1.55,
+              "end": 1.79,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Thank",
+              "start": 2.05,
+              "end": 2.05,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " you.",
+              "start": 2.05,
+              "end": 2.29,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Frenchman,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "will",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "raw": "this",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "hold?",
+          "start": 1.55,
+          "end": 1.79
+        },
+        {
+          "raw": "Thank",
+          "start": 2.05,
+          "end": 2.05
+        },
+        {
+          "raw": "you.",
+          "start": 2.05,
+          "end": 2.29
+        }
+      ],
+      "expected_tokens": [
+        "Frenchman.",
+        "Will",
+        "this",
+        "hold,",
+        "think",
+        "you?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Frenchman,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "frenchman",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.25,
+          "end": 1.39,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hold?",
+          "start": 1.55,
+          "end": 1.79,
+          "key": "hold",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Thank",
+          "start": 2.05,
+          "end": 2.05,
+          "key": "thank",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.05,
+          "end": 2.29,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Frenchman.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Will",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "text": "this",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "hold,",
+          "start": 1.55,
+          "end": 1.79
+        },
+        {
+          "text": "think",
+          "start": 1.79,
+          "end": 1.92
+        },
+        {
+          "text": "you?",
+          "start": 2.05,
+          "end": 2.29
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19864037074148655
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2753080f8f4259986c223285e3390310e760c25da05fdaf943176cb2cd26b72d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

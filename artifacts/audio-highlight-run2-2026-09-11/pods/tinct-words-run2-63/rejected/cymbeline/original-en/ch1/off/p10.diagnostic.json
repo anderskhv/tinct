@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "105df300be6f44ea36ef4e540c8b39a24d64b41a152cec808d4c2d9ce42ffef6",
+  "attempts": [
+    {
+      "asr_seconds": 0.24094358645379543,
+      "alignment_seconds": 0.0003769285976886749,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Second gentleman, what's his name and birth?",
+          "start": 0.08,
+          "end": 2.54,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " gentleman,",
+              "start": 0.72,
+              "end": 1.14,
+              "probability": 0.494873046875
+            },
+            {
+              "text": " what's",
+              "start": 1.66,
+              "end": 1.8,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " his",
+              "start": 1.8,
+              "end": 1.9,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " name",
+              "start": 1.9,
+              "end": 2.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 2.12,
+              "end": 2.32,
+              "probability": 0.947265625
+            },
+            {
+              "text": " birth?",
+              "start": 2.32,
+              "end": 2.54,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "gentleman,",
+          "start": 0.72,
+          "end": 1.14
+        },
+        {
+          "raw": "what's",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "raw": "his",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "raw": "name",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "raw": "and",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "raw": "birth?",
+          "start": 2.32,
+          "end": 2.54
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Gentleman.",
+        "What's",
+        "his",
+        "name",
+        "and",
+        "birth?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gentleman,",
+          "start": 0.72,
+          "end": 1.14,
+          "key": "gentleman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 1.66,
+          "end": 1.8,
+          "key": "whats",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.8,
+          "end": 1.9,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "name",
+          "start": 1.9,
+          "end": 2.12,
+          "key": "name",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.12,
+          "end": 2.32,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "birth?",
+          "start": 2.32,
+          "end": 2.54,
+          "key": "birth",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "Gentleman.",
+          "start": 0.72,
+          "end": 1.14
+        },
+        {
+          "text": "What's",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "text": "his",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "text": "name",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "text": "and",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "text": "birth?",
+          "start": 2.32,
+          "end": 2.54
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2414583172649145
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3d06e0accce0fc1653ea9bbe68612a9a8f2529aa1e8ec5df615b46dda29aeddd",
+  "selected_reasons": []
+}

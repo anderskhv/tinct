@@ -1,0 +1,615 @@
+{
+  "complete": true,
+  "signature": "140dea6992a9170836c65d5fe82c6d205774171ab8a86dc2d6ca072ffb83bcd8",
+  "attempts": [
+    {
+      "asr_seconds": 0.29484287463128567,
+      "alignment_seconds": 0.00045949965715408325,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Edmund, thou hast spoken right, tease true, the wheel has come full circle, I am here.",
+          "start": 0.02,
+          "end": 5.6,
+          "words": [
+            {
+              "text": " Edmund,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " thou",
+              "start": 1.22,
+              "end": 1.38,
+              "probability": 0.732421875
+            },
+            {
+              "text": " hast",
+              "start": 1.38,
+              "end": 1.64,
+              "probability": 0.96484375
+            },
+            {
+              "text": " spoken",
+              "start": 1.64,
+              "end": 1.96,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " right,",
+              "start": 1.96,
+              "end": 2.38,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " tease",
+              "start": 2.82,
+              "end": 2.86,
+              "probability": 0.619140625
+            },
+            {
+              "text": " true,",
+              "start": 2.86,
+              "end": 3.22,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 3.56,
+              "end": 3.66,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " wheel",
+              "start": 3.66,
+              "end": 3.84,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " has",
+              "start": 3.84,
+              "end": 4.04,
+              "probability": 0.544921875
+            },
+            {
+              "text": " come",
+              "start": 4.04,
+              "end": 4.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " full",
+              "start": 4.22,
+              "end": 4.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " circle,",
+              "start": 4.48,
+              "end": 4.84,
+              "probability": 0.982421875
+            },
+            {
+              "text": " I",
+              "start": 5.1,
+              "end": 5.16,
+              "probability": 0.9921875
+            },
+            {
+              "text": " am",
+              "start": 5.16,
+              "end": 5.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " here.",
+              "start": 5.28,
+              "end": 5.6,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edmund,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "thou",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "raw": "hast",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "raw": "spoken",
+          "start": 1.64,
+          "end": 1.96
+        },
+        {
+          "raw": "right,",
+          "start": 1.96,
+          "end": 2.38
+        },
+        {
+          "raw": "tease",
+          "start": 2.82,
+          "end": 2.86
+        },
+        {
+          "raw": "true,",
+          "start": 2.86,
+          "end": 3.22
+        },
+        {
+          "raw": "the",
+          "start": 3.56,
+          "end": 3.66
+        },
+        {
+          "raw": "wheel",
+          "start": 3.66,
+          "end": 3.84
+        },
+        {
+          "raw": "has",
+          "start": 3.84,
+          "end": 4.04
+        },
+        {
+          "raw": "come",
+          "start": 4.04,
+          "end": 4.22
+        },
+        {
+          "raw": "full",
+          "start": 4.22,
+          "end": 4.48
+        },
+        {
+          "raw": "circle,",
+          "start": 4.48,
+          "end": 4.84
+        },
+        {
+          "raw": "I",
+          "start": 5.1,
+          "end": 5.16
+        },
+        {
+          "raw": "am",
+          "start": 5.16,
+          "end": 5.28
+        },
+        {
+          "raw": "here.",
+          "start": 5.28,
+          "end": 5.6
+        }
+      ],
+      "expected_tokens": [
+        "Edmund.",
+        "Thou",
+        "hast",
+        "spoken",
+        "right,",
+        "'tis",
+        "true;",
+        "The",
+        "wheel",
+        "is",
+        "come",
+        "full",
+        "circle;",
+        "I",
+        "am",
+        "here."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          9,
+          6,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          16,
+          10,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edmund,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "edmund",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.22,
+          "end": 1.38,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 1.38,
+          "end": 1.64,
+          "key": "hast",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "spoken",
+          "start": 1.64,
+          "end": 1.96,
+          "key": "spoken",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "right,",
+          "start": 1.96,
+          "end": 2.38,
+          "key": "right",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 2.82,
+          "end": 2.86,
+          "key": "tease",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 2.86,
+          "end": 3.22,
+          "key": "true",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.56,
+          "end": 3.66,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wheel",
+          "start": 3.66,
+          "end": 3.84,
+          "key": "wheel",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.84,
+          "end": 4.04,
+          "key": "has",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 4.04,
+          "end": 4.22,
+          "key": "come",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "full",
+          "start": 4.22,
+          "end": 4.48,
+          "key": "full",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "circle,",
+          "start": 4.48,
+          "end": 4.84,
+          "key": "circle",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.1,
+          "end": 5.16,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 5.16,
+          "end": 5.28,
+          "key": "am",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 5.28,
+          "end": 5.6,
+          "key": "here",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edmund.",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Thou",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "text": "hast",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "text": "spoken",
+          "start": 1.64,
+          "end": 1.96
+        },
+        {
+          "text": "right,",
+          "start": 1.96,
+          "end": 2.38
+        },
+        {
+          "text": "'tis",
+          "start": 2.38,
+          "end": 2.62
+        },
+        {
+          "text": "true;",
+          "start": 2.86,
+          "end": 3.22
+        },
+        {
+          "text": "The",
+          "start": 3.56,
+          "end": 3.66
+        },
+        {
+          "text": "wheel",
+          "start": 3.66,
+          "end": 3.84
+        },
+        {
+          "text": "is",
+          "start": 3.84,
+          "end": 3.94
+        },
+        {
+          "text": "come",
+          "start": 4.04,
+          "end": 4.22
+        },
+        {
+          "text": "full",
+          "start": 4.22,
+          "end": 4.48
+        },
+        {
+          "text": "circle;",
+          "start": 4.48,
+          "end": 4.84
+        },
+        {
+          "text": "I",
+          "start": 5.1,
+          "end": 5.16
+        },
+        {
+          "text": "am",
+          "start": 5.16,
+          "end": 5.28
+        },
+        {
+          "text": "here.",
+          "start": 5.28,
+          "end": 5.6
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 14
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.2954803518950939
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "95b6219c3782630885e25b19b673750fa2f082ea13de078a09d8aa8c54b79df4",
+  "selected_reasons": []
+}

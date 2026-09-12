@@ -1,0 +1,291 @@
+{
+  "complete": true,
+  "signature": "66d381f3e67f29cbc5756910dfbfab7ce2ffbf2a0ec2469f2fc305b523a8b178",
+  "attempts": [
+    {
+      "asr_seconds": 0.11480687744915485,
+      "alignment_seconds": 0.00019861944019794464,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "her."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sorry.",
+          "start": 0.11,
+          "end": 0.65,
+          "words": [
+            {
+              "text": " Sorry.",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.85693359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sorry.",
+          "start": 0.11,
+          "end": 0.65
+        }
+      ],
+      "expected_tokens": [
+        "her."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sorry.",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "sorry",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "her.",
+          "start": 0.0,
+          "end": 0.325
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11507228761911392
+    },
+    {
+      "asr_seconds": 0.11043197475373745,
+      "alignment_seconds": 0.00019492767751216888,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Sorry.",
+          "start": 0.11,
+          "end": 0.65,
+          "words": [
+            {
+              "text": " Sorry.",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.85693359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sorry.",
+          "start": 0.11,
+          "end": 0.65
+        }
+      ],
+      "expected_tokens": [
+        "her."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sorry.",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "sorry",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "her.",
+          "start": 0.0,
+          "end": 0.325
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11070854775607586
+    },
+    {
+      "asr_seconds": 0.10832840763032436,
+      "alignment_seconds": 0.00019570812582969666,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sorry.",
+          "start": 0.11,
+          "end": 0.65,
+          "words": [
+            {
+              "text": " Sorry.",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.85693359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sorry.",
+          "start": 0.11,
+          "end": 0.65
+        }
+      ],
+      "expected_tokens": [
+        "her."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sorry.",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "sorry",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "her.",
+          "start": 0.0,
+          "end": 0.325
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1085894238203764
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8b28d9ba53f275d93cd3f6612a6b9bf285b1e7af13473687ef1d9cd000e84575",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "00bdd71bca569847a04659ddf2b5b8f362af028c4c0cfd6e7fd2e09f6a8b3d0f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2693606875836849,
+      "alignment_seconds": 0.0007513798773288727,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Queen. Fie! you must give way. Here is your servant. How now, sir! What news?",
+        "hotwords": "Queen, Fie, Here, How, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Queen, Fie, you must give way. Here is your servant. How now, sir! What news?",
+          "start": 0.05,
+          "end": 4.19,
+          "words": [
+            {
+              "text": " Queen,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.7275390625
+            },
+            {
+              "text": " Fie,",
+              "start": 1.01,
+              "end": 1.11,
+              "probability": 0.20965576171875
+            },
+            {
+              "text": " you",
+              "start": 1.23,
+              "end": 1.29,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " must",
+              "start": 1.29,
+              "end": 1.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " give",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " way.",
+              "start": 1.57,
+              "end": 1.85,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Here",
+              "start": 2.31,
+              "end": 2.35,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " is",
+              "start": 2.35,
+              "end": 2.43,
+              "probability": 0.23779296875
+            },
+            {
+              "text": " your",
+              "start": 2.43,
+              "end": 2.57,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " servant.",
+              "start": 2.57,
+              "end": 2.91,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " How",
+              "start": 3.11,
+              "end": 3.21,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " now,",
+              "start": 3.21,
+              "end": 3.47,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " sir!",
+              "start": 3.59,
+              "end": 3.63,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " What",
+              "start": 3.89,
+              "end": 3.93,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " news?",
+              "start": 3.93,
+              "end": 4.19,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Fie,",
+          "start": 1.01,
+          "end": 1.11
+        },
+        {
+          "raw": "you",
+          "start": 1.23,
+          "end": 1.29
+        },
+        {
+          "raw": "must",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "raw": "give",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "way.",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "raw": "Here",
+          "start": 2.31,
+          "end": 2.35
+        },
+        {
+          "raw": "is",
+          "start": 2.35,
+          "end": 2.43
+        },
+        {
+          "raw": "your",
+          "start": 2.43,
+          "end": 2.57
+        },
+        {
+          "raw": "servant.",
+          "start": 2.57,
+          "end": 2.91
+        },
+        {
+          "raw": "How",
+          "start": 3.11,
+          "end": 3.21
+        },
+        {
+          "raw": "now,",
+          "start": 3.21,
+          "end": 3.47
+        },
+        {
+          "raw": "sir!",
+          "start": 3.59,
+          "end": 3.63
+        },
+        {
+          "raw": "What",
+          "start": 3.89,
+          "end": 3.93
+        },
+        {
+          "raw": "news?",
+          "start": 3.93,
+          "end": 4.19
+        }
+      ],
+      "expected_tokens": [
+        "Queen.",
+        "Fie!",
+        "you",
+        "must",
+        "give",
+        "way.",
+        "Here",
+        "is",
+        "your",
+        "servant.",
+        "How",
+        "now,",
+        "sir!",
+        "What",
+        "news?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fie,",
+          "start": 1.01,
+          "end": 1.11,
+          "key": "fie",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.23,
+          "end": 1.29,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.29,
+          "end": 1.41,
+          "key": "must",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.41,
+          "end": 1.57,
+          "key": "give",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "way.",
+          "start": 1.57,
+          "end": 1.85,
+          "key": "way",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Here",
+          "start": 2.31,
+          "end": 2.35,
+          "key": "here",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.35,
+          "end": 2.43,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.43,
+          "end": 2.57,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "servant.",
+          "start": 2.57,
+          "end": 2.91,
+          "key": "servant",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 3.11,
+          "end": 3.21,
+          "key": "how",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 3.21,
+          "end": 3.47,
+          "key": "now",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "sir!",
+          "start": 3.59,
+          "end": 3.63,
+          "key": "sir",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 3.89,
+          "end": 3.93,
+          "key": "what",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "news?",
+          "start": 3.93,
+          "end": 4.19,
+          "key": "news",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Fie!",
+          "start": 1.01,
+          "end": 1.11
+        },
+        {
+          "text": "you",
+          "start": 1.23,
+          "end": 1.29
+        },
+        {
+          "text": "must",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "text": "give",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "way.",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "text": "Here",
+          "start": 2.31,
+          "end": 2.35
+        },
+        {
+          "text": "is",
+          "start": 2.35,
+          "end": 2.43
+        },
+        {
+          "text": "your",
+          "start": 2.43,
+          "end": 2.57
+        },
+        {
+          "text": "servant.",
+          "start": 2.57,
+          "end": 2.91
+        },
+        {
+          "text": "How",
+          "start": 3.11,
+          "end": 3.21
+        },
+        {
+          "text": "now,",
+          "start": 3.21,
+          "end": 3.47
+        },
+        {
+          "text": "sir!",
+          "start": 3.59,
+          "end": 3.63
+        },
+        {
+          "text": "What",
+          "start": 3.89,
+          "end": 3.93
+        },
+        {
+          "text": "news?",
+          "start": 3.93,
+          "end": 4.19
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2703700140118599
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9a46bfe5d1e11d3fc1e09c43099bdc8822835d4d8d960074e7fd74c050e13018",
+  "selected_reasons": []
+}

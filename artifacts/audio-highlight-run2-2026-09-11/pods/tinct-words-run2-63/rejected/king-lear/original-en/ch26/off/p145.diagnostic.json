@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "62500addfd5944dd0b7b7fd4ab3206e92c7e0bbd28bbadc4eea5796fe91fe576",
+  "attempts": [
+    {
+      "asr_seconds": 0.22836129926145077,
+      "alignment_seconds": 0.00040023960173130035,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Edgar, he faints. My lord, my lord.",
+          "start": 0.05,
+          "end": 2.49,
+          "words": [
+            {
+              "text": " Edgar,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.89453125
+            },
+            {
+              "text": " he",
+              "start": 0.85,
+              "end": 0.89,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " faints.",
+              "start": 0.89,
+              "end": 1.29,
+              "probability": 0.920654296875
+            },
+            {
+              "text": " My",
+              "start": 1.71,
+              "end": 1.81,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " lord,",
+              "start": 1.81,
+              "end": 2.03,
+              "probability": 0.69580078125
+            },
+            {
+              "text": " my",
+              "start": 2.17,
+              "end": 2.23,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " lord.",
+              "start": 2.23,
+              "end": 2.49,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edgar,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "he",
+          "start": 0.85,
+          "end": 0.89
+        },
+        {
+          "raw": "faints.",
+          "start": 0.89,
+          "end": 1.29
+        },
+        {
+          "raw": "My",
+          "start": 1.71,
+          "end": 1.81
+        },
+        {
+          "raw": "lord,",
+          "start": 1.81,
+          "end": 2.03
+        },
+        {
+          "raw": "my",
+          "start": 2.17,
+          "end": 2.23
+        },
+        {
+          "raw": "lord.",
+          "start": 2.23,
+          "end": 2.49
+        }
+      ],
+      "expected_tokens": [
+        "Edgar.",
+        "He",
+        "faints!",
+        "My",
+        "lord,",
+        "my",
+        "lord!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edgar,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "edgar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.85,
+          "end": 0.89,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "faints.",
+          "start": 0.89,
+          "end": 1.29,
+          "key": "faints",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.71,
+          "end": 1.81,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 1.81,
+          "end": 2.03,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.17,
+          "end": 2.23,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 2.23,
+          "end": 2.49,
+          "key": "lord",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edgar.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "He",
+          "start": 0.85,
+          "end": 0.89
+        },
+        {
+          "text": "faints!",
+          "start": 0.89,
+          "end": 1.29
+        },
+        {
+          "text": "My",
+          "start": 1.71,
+          "end": 1.81
+        },
+        {
+          "text": "lord,",
+          "start": 1.81,
+          "end": 2.03
+        },
+        {
+          "text": "my",
+          "start": 2.17,
+          "end": 2.23
+        },
+        {
+          "text": "lord!",
+          "start": 2.23,
+          "end": 2.49
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22891462966799736
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "671cbacd91b2c2a19b646376b9dc8c5b1fbb00573684675d1e323d6048919ee1",
+  "selected_reasons": []
+}

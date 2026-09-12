@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "af1a2ce3ff0b36550a422e607d3ec1fa97e53d37ef85eee096de9b2162ec6eb0",
+  "attempts": [
+    {
+      "asr_seconds": 0.1910637579858303,
+      "alignment_seconds": 0.00044500455260276794,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I am ignorant in what I am commanded.",
+          "start": 0.11,
+          "end": 2.27,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.11,
+              "end": 0.55,
+              "probability": 0.767578125
+            },
+            {
+              "text": " am",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " ignorant",
+              "start": 0.67,
+              "end": 1.15,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " in",
+              "start": 1.15,
+              "end": 1.57,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " what",
+              "start": 1.57,
+              "end": 1.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 1.65,
+              "end": 1.77,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " am",
+              "start": 1.77,
+              "end": 1.89,
+              "probability": 0.92578125
+            },
+            {
+              "text": " commanded.",
+              "start": 1.89,
+              "end": 2.27,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "raw": "am",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "ignorant",
+          "start": 0.67,
+          "end": 1.15
+        },
+        {
+          "raw": "in",
+          "start": 1.15,
+          "end": 1.57
+        },
+        {
+          "raw": "what",
+          "start": 1.57,
+          "end": 1.65
+        },
+        {
+          "raw": "I",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "raw": "am",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "raw": "commanded.",
+          "start": 1.89,
+          "end": 2.27
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "am",
+        "ignorant",
+        "in",
+        "what",
+        "I",
+        "am",
+        "commanded."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.55,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.55,
+          "end": 0.67,
+          "key": "am",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ignorant",
+          "start": 0.67,
+          "end": 1.15,
+          "key": "ignorant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.15,
+          "end": 1.57,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.57,
+          "end": 1.65,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.65,
+          "end": 1.77,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.77,
+          "end": 1.89,
+          "key": "am",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "commanded.",
+          "start": 1.89,
+          "end": 2.27,
+          "key": "commanded",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "text": "am",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "text": "ignorant",
+          "start": 0.67,
+          "end": 1.15
+        },
+        {
+          "text": "in",
+          "start": 1.15,
+          "end": 1.57
+        },
+        {
+          "text": "what",
+          "start": 1.57,
+          "end": 1.65
+        },
+        {
+          "text": "I",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "text": "am",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "text": "commanded.",
+          "start": 1.89,
+          "end": 2.27
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1916928756982088
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0e8ce3c778b1fad0d6ebf7ba9773762698553da709494db7c3ab75b778128044",
+  "selected_reasons": []
+}
