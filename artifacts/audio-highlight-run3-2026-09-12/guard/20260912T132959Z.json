@@ -1,0 +1,37 @@
+{
+ "checkedAt": "2026-09-12T13:30:00Z",
+ "ownerPrefix": "tinct-words-run3-",
+ "ownedPods": [
+  {
+   "id": "t7pv3kmw3p8h9k",
+   "name": "tinct-words-run3-2",
+   "status": "RUNNING",
+   "costPerHr": 0.49,
+   "uptimeSeconds": 19.116826,
+   "uptimeSource": "timestamp",
+   "gpu": null
+  },
+  {
+   "id": "0ovz79hr09d8wp",
+   "name": "tinct-words-run3-1",
+   "status": "RUNNING",
+   "costPerHr": 0.49,
+   "uptimeSeconds": 273.433881,
+   "uptimeSource": "timestamp",
+   "gpu": null
+  }
+ ],
+ "foreignPodsLeftAlone": [
+  {
+   "id": "zurxlhqh2uc6tb",
+   "name": "grieving_coffee_cod",
+   "status": "EXITED"
+  }
+ ],
+ "estimatedRunningCost": 0.0398,
+ "estimatedTotalSpend": 0.0398,
+ "budget": 20.0,
+ "actions": [],
+ "applied": true,
+ "unownedRunningPods": []
+}
