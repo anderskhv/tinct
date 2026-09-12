@@ -552,6 +552,82 @@ session. Kept current at every push.
   `continuity.md`, `provenance.json`, `manifest.json` and `README.md` updated;
   mechanical checks re-run and passing. No new glossary rendering row.
 
+- 2026-09-12 — **Book X drafted and frozen** (steps 1–3): `book10/candidate-v1.json`
+  (sha256 `95ce5f7c…`), 38 paragraphs 1:1 with Long's X.1–X.38, word ratio 0.994
+  (min paragraph 0.88 — X.23, whose whole difference is the nine-word bracketed
+  translator's note dropped as apparatus; next X.5 at 0.90 and X.13 at 0.95,
+  both dropped cross-references; max 1.08 at X.29, where "Severally" becomes
+  "One by one"; 26 of 38 sit between 0.99 and 1.02 and **five are byte-identical
+  to Long** — X.16, X.17, X.18, X.19, X.35). **Step 1: the staged original was
+  NOT rebuilt, and the check was NOT a re-run of the build.** The Book IX
+  round-1 reviewer's point is now the package's method: byte-identity to a
+  re-run proves only that the file matches the script, which is exactly how the
+  Book IV captions and the Book VII footnotes survived the first build. PG lines
+  5866–6374 were re-extracted by an **independent reconstruction written from
+  scratch**, `scripts/verify_book10_source.py`, and diffed word for word against
+  the staged Book X: **38 paragraphs, and the only four differences in the whole
+  book are the four documented dagger marks** (X.9 PG 6038, X.19 PG 6132, X.25
+  PG 6183, X.31 PG 6229). Class by class: **seventeen footnotes** in eleven
+  indented runs, all indented, none flush left, all stripped, with all seventeen
+  in-text markers gone (sixteen from flush-left text, one from inside Long's
+  indented verse at PG 6306 — which is why opener and flush-left marker counts
+  differ by one); no illustration caption; exactly one standalone flush-left line
+  (the `X.` header); no running head, page number or catchword; **verse present
+  and correctly joined** — Long's Homer couplet at PG 6305–6306 (indented five
+  spaces) into X.34, against the Odyssey quatrain at PG 6026–6029 (indented
+  seven spaces inside footnote [B]) dropped with the footnote; no verse citation
+  in the body; no Greek in the body. A flush-left footnote body of the VII.45
+  kind would have shown as a diff; none did. sha256 still `7798607d…`, 487
+  paragraphs, `git status` clean — **no rebuild, no accepted book reopened**.
+  Confirmation added to `PROVENANCE.md` §4. Source verified into
+  `book10/source-book10.json` (sha256 `db635cde…`). **Two glossary rows
+  extended before drafting** (committed and pushed before any paragraph was
+  written): Long's "political [social] animal" → **"a political being"** (X.2,
+  the bracket dropped under D11), and his "a good daemon [happiness]" → **"a
+  good god within—happiness"** (X.13, on the accepted Book VII's VII.17
+  rendering, the gloss folded as an apposition). No new rendering row.
+  **Second book drafted under the "shall" rule**, and the first under its
+  widened wording: 23 in Long, **six kept** (five first-person "I shall" at X.6;
+  X.36's "that there shall not be by him", the negative consecutive subjunctive
+  of the VIII.32 class) and **seventeen removed**, all plain futures; Book X
+  contains no deliberative question, so the widened clause does not itself fire.
+  Four dagger marks in four sections named in `review-instructions.md` with
+  their PG line numbers and kept as Long has them — X.9's falls at a sentence
+  boundary and affects no clause; X.25's falls at Long's comma after "afraid",
+  and that comma is **kept** on the VI.50 / VII.16 / VIII.51 practice. Four
+  cross-reference spans dropped in three paragraphs (X.5, X.13 ×2, X.26).
+  **Eighteen brackets: sixteen folded, two dropped under D11** (X.2 "[social]",
+  X.33 "[order]" — each a second English word for a Greek word whose primary
+  rendering Long has already given), **plus one further drop of the same family
+  that is not an alternative rendering**: X.23's "[The three last words are
+  omitted in the translation.]", a **translator's note** about Long's own
+  handling of Plato's Greek, dropped as apparatus with the cross-references and
+  footnotes (Standard Ebooks omits it too). **One bracket that looks like a D11
+  case is deliberately folded instead** — X.21's "[is wont]", because the
+  meditation *is* the double sense of the one Greek verb, so dropping it would
+  delete the observation rather than remove a note about Long's choices; the
+  VII.13 / VIII.57 principle in another form. No expansion. Base-text points
+  recorded after a word-level diff of the whole book against Standard Ebooks'
+  Long: **one PG slip** (X.15 "Let **me** see", rendered "Let **men** see",
+  which the parallel with "let them know" requires), **two places where PG is
+  right and SE is wrong** (X.6 "turn all my efforts" against SE's "turn an my
+  efforts"; X.36 "at least some one" against SE's "at last someone"), one slip
+  present in **both** texts in different clauses (X.32 "thou are" for "thou
+  art", which neither reaches the candidate), PG's Latin name forms kept at X.27
+  under D6, and five SE typographic paragraph breaks (X.2, X.13, X.28, X.34 ×2)
+  which are not section breaks — the IX.28 ruling. **Three decisions flagged for
+  the reviewer** (X.15's correction, the one departure from PG's letters in the
+  book; X.9's "Mimi" kept untranslated, where Long's only explanation is a
+  footnote the package drops; X.32's "You, only determine…", applying the
+  vocative-comma repair the Book IX review made at IX.40) **and one offered for
+  confirmation** (Long's comma after "afraid" kept inside the X.25 dagger
+  clause). Readable copy, `continuity.md`, `provenance.json`, `manifest.json`,
+  `README.md`, `review-instructions.md` and thirteen review packets (12×3 + 2)
+  pushed, built by `scripts/build_book_package.py 10` from
+  `scripts/candidates/book10.py`. Mechanical checks in `book10/README.md` pass.
+  **Stopped for independent review** (step 4). Findings expected under
+  `book10/review/`.
+
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
@@ -584,22 +660,28 @@ session. Kept current at every push.
 
 ## Next
 
-**Waiting on the coordinator: independent review of Book IX.**
-`book9/candidate-v1.json` (sha256 `b02cf135…`) is frozen, with fourteen packets,
-`review-instructions.md` and `manifest.json` in place; findings go under
-`book9/review/`. Two decisions are flagged there for an explicit ruling (IX.34
-"poor souls" for PG's "pool souls", the one departure from PG's letters in the
-book; IX.29 "insolence" followed from PG against Standard Ebooks' "indolence", a
-genuine variant rather than a slip) and one is offered for confirmation (IX.29
-"They themselves shall judge" kept as the emphatic "shall" licensed by the Book
-VIII rule). The reviewer is also asked to test the step-1 finding that the staged
-original needed **no** rebuild for Book IX, which is the sharpest form that test
-has taken: the illustration caption at PG line 5628 is inside this book. This
-agent does not review its own draft, and Book X has not been started.
+**Waiting on the coordinator: independent review of Book X.**
+`book10/candidate-v1.json` (sha256 `95ce5f7c…`) is frozen, with thirteen
+packets, `review-instructions.md` and `manifest.json` in place; findings go
+under `book10/review/`. Three decisions are flagged there for an explicit ruling
+(X.15 "Let men see" for PG's "Let me see", the one departure from PG's letters
+in the book; X.9 "Mimi" kept untranslated, where Long's only explanation is a
+footnote the package drops, and where the alternatives are an opaque word or an
+imported gloss; X.32 "You, only determine to live no longer unless you are
+such", applying the vocative-comma repair the Book IX round-1 review made at
+IX.40) and one is offered for confirmation (Long's comma after "afraid" kept
+inside the X.25 dagger clause, although by modern punctuation it separates a
+subject from its verb). The reviewer is also asked to test the step-1 no-rebuild
+finding **by the stronger method rather than by re-running either script** — an
+independently written extraction of PG lines 5866–6374, diffed word for word —
+which is the method Book X's own step 1 used and the method the Book IX reviewer
+introduced. This agent does not review its own draft, and Book XI has not been
+started.
 
-After the review: Book IX steps 6–8 (candidate v2, changes log, flow read,
-`ACCEPTANCE.md`), then Books X … XII in numerical order, each with its own
-review round.
+Book IX is **accepted** (`book9/ACCEPTANCE.md`, `candidate-v2.json` sha256
+`56dd7d13…`). After the Book X review: Book X steps 6–8 (candidate v2, changes
+log, flow read, `ACCEPTANCE.md`), then Books XI and XII in numerical order, each
+with its own review round.
 
 ## Needs Anders (listed, not waited on)
 
