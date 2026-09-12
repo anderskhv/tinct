@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "b30d90ac43abe140b84a769d368c0c250b76afb702d54ab521f31d022ba15bec",
+  "attempts": [
+    {
+      "asr_seconds": 0.18308277428150177,
+      "alignment_seconds": 0.0003766678273677826,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Queen Elizabeth. But how long fairly shall her sweet life last?",
+        "hotwords": "Queen, Elizabeth, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Queen Elizabeth. But how long fairly shall her sweet life last?",
+          "start": 0.05,
+          "end": 3.61,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " Elizabeth.",
+              "start": 0.57,
+              "end": 1.07,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " But",
+              "start": 1.63,
+              "end": 1.69,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " how",
+              "start": 1.69,
+              "end": 1.87,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " long",
+              "start": 1.87,
+              "end": 2.09,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " fairly",
+              "start": 2.09,
+              "end": 2.47,
+              "probability": 0.8251953125
+            },
+            {
+              "text": " shall",
+              "start": 2.47,
+              "end": 2.65,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " her",
+              "start": 2.65,
+              "end": 2.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sweet",
+              "start": 2.81,
+              "end": 3.03,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " life",
+              "start": 3.03,
+              "end": 3.25,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " last?",
+              "start": 3.25,
+              "end": 3.61,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Elizabeth.",
+          "start": 0.57,
+          "end": 1.07
+        },
+        {
+          "raw": "But",
+          "start": 1.63,
+          "end": 1.69
+        },
+        {
+          "raw": "how",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "raw": "long",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "raw": "fairly",
+          "start": 2.09,
+          "end": 2.47
+        },
+        {
+          "raw": "shall",
+          "start": 2.47,
+          "end": 2.65
+        },
+        {
+          "raw": "her",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "raw": "sweet",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "raw": "life",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "raw": "last?",
+          "start": 3.25,
+          "end": 3.61
+        }
+      ],
+      "expected_tokens": [
+        "Queen",
+        "Elizabeth.",
+        "But",
+        "how",
+        "long",
+        "fairly",
+        "shall",
+        "her",
+        "sweet",
+        "life",
+        "last?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Elizabeth.",
+          "start": 0.57,
+          "end": 1.07,
+          "key": "elizabeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 1.63,
+          "end": 1.69,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.69,
+          "end": 1.87,
+          "key": "how",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 1.87,
+          "end": 2.09,
+          "key": "long",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fairly",
+          "start": 2.09,
+          "end": 2.47,
+          "key": "fairly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.47,
+          "end": 2.65,
+          "key": "shall",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.65,
+          "end": 2.81,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 2.81,
+          "end": 3.03,
+          "key": "sweet",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "life",
+          "start": 3.03,
+          "end": 3.25,
+          "key": "life",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "last?",
+          "start": 3.25,
+          "end": 3.61,
+          "key": "last",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "Elizabeth.",
+          "start": 0.57,
+          "end": 1.07
+        },
+        {
+          "text": "But",
+          "start": 1.63,
+          "end": 1.69
+        },
+        {
+          "text": "how",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "text": "long",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "text": "fairly",
+          "start": 2.09,
+          "end": 2.47
+        },
+        {
+          "text": "shall",
+          "start": 2.47,
+          "end": 2.65
+        },
+        {
+          "text": "her",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "text": "sweet",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "text": "life",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "text": "last?",
+          "start": 3.25,
+          "end": 3.61
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18358715251088142
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c20b79081315e9af5c0e7f19c0c55ec70315e0df826100d265e434213e8eef8c",
+  "selected_reasons": []
+}

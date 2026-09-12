@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "9960a336ad3609b30417263fbc34baa86fd08d2a817a418f3d35628a233654e3",
+  "attempts": [
+    {
+      "asr_seconds": 0.19244280830025673,
+      "alignment_seconds": 0.00039646774530410767,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Queen Elizabeth profane dishonored and the third usurped",
+          "start": 0.05,
+          "end": 3.91,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " Elizabeth",
+              "start": 0.59,
+              "end": 1.09,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " profane",
+              "start": 1.09,
+              "end": 2.05,
+              "probability": 0.694091796875
+            },
+            {
+              "text": " dishonored",
+              "start": 2.05,
+              "end": 2.61,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " and",
+              "start": 2.61,
+              "end": 2.79,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " the",
+              "start": 2.79,
+              "end": 2.91,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " third",
+              "start": 2.91,
+              "end": 3.17,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " usurped",
+              "start": 3.17,
+              "end": 3.91,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "Elizabeth",
+          "start": 0.59,
+          "end": 1.09
+        },
+        {
+          "raw": "profane",
+          "start": 1.09,
+          "end": 2.05
+        },
+        {
+          "raw": "dishonored",
+          "start": 2.05,
+          "end": 2.61
+        },
+        {
+          "raw": "and",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "raw": "the",
+          "start": 2.79,
+          "end": 2.91
+        },
+        {
+          "raw": "third",
+          "start": 2.91,
+          "end": 3.17
+        },
+        {
+          "raw": "usurped",
+          "start": 3.17,
+          "end": 3.91
+        }
+      ],
+      "expected_tokens": [
+        "Queen",
+        "Elizabeth.",
+        "Profaned,",
+        "dishonoured,",
+        "and",
+        "the",
+        "third",
+        "usurped."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Elizabeth",
+          "start": 0.59,
+          "end": 1.09,
+          "key": "elizabeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "profane",
+          "start": 1.09,
+          "end": 2.05,
+          "key": "profane",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dishonored",
+          "start": 2.05,
+          "end": 2.61,
+          "key": "dishonored",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.61,
+          "end": 2.79,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.79,
+          "end": 2.91,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "third",
+          "start": 2.91,
+          "end": 3.17,
+          "key": "third",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "usurped",
+          "start": 3.17,
+          "end": 3.91,
+          "key": "usurped",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "Elizabeth.",
+          "start": 0.59,
+          "end": 1.09
+        },
+        {
+          "text": "Profaned,",
+          "start": 1.09,
+          "end": 1.85
+        },
+        {
+          "text": "dishonoured,",
+          "start": 1.85,
+          "end": 2.23
+        },
+        {
+          "text": "and",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "text": "the",
+          "start": 2.79,
+          "end": 2.91
+        },
+        {
+          "text": "third",
+          "start": 2.91,
+          "end": 3.17
+        },
+        {
+          "text": "usurped.",
+          "start": 3.17,
+          "end": 3.91
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1929716393351555
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6ea4b73f6a8eeb1bcbb91593a95fc5e96075580c56e0e9cb56ed9888f3257bcd",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "complete": true,
+  "signature": "004d959f17464ec58c61010a2eedd534b1de699034f8957c9cd5c329f3c75b16",
+  "attempts": [
+    {
+      "asr_seconds": 0.10052720829844475,
+      "alignment_seconds": 0.00014673545956611633,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Retires._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Retires.",
+          "start": 0.02,
+          "end": 0.96,
+          "words": [
+            {
+              "text": " Retires.",
+              "start": 0.02,
+              "end": 0.96,
+              "probability": 0.89892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Retires.",
+          "start": 0.02,
+          "end": 0.96
+        }
+      ],
+      "expected_tokens": [
+        "[_Retires._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Retires.",
+          "start": 0.02,
+          "end": 0.96,
+          "key": "retires",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Retires._]",
+          "start": 0.02,
+          "end": 0.96
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10071947425603867
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e97d25a47e5cf566e0c99ffe7380e5ea15bc58b2804b02dec8a10dde0d5dc17d",
+  "selected_reasons": []
+}

@@ -1,0 +1,750 @@
+{
+  "complete": true,
+  "signature": "d45e96cdd2d83d0ecf2b78814e8c3b68b3b4fd0333e59f023f3d0a3aec9366d1",
+  "attempts": [
+    {
+      "asr_seconds": 0.15420245751738548,
+      "alignment_seconds": 0.0003901533782482147,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_He sheweth him a paper._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He sheweth him a paper._",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " sheweth",
+              "start": 0.51,
+              "end": 0.85,
+              "probability": 0.20144081115722656
+            },
+            {
+              "text": " him",
+              "start": 0.85,
+              "end": 0.97,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " a",
+              "start": 0.97,
+              "end": 1.07,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " paper._",
+              "start": 1.07,
+              "end": 2.07,
+              "probability": 0.4716797173023224
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "sheweth",
+          "start": 0.51,
+          "end": 0.85
+        },
+        {
+          "raw": "him",
+          "start": 0.85,
+          "end": 0.97
+        },
+        {
+          "raw": "a",
+          "start": 0.97,
+          "end": 1.07
+        },
+        {
+          "raw": "paper._",
+          "start": 1.07,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "[_He",
+        "sheweth",
+        "him",
+        "a",
+        "paper._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sheweth",
+          "start": 0.51,
+          "end": 0.85,
+          "key": "sheweth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 0.85,
+          "end": 0.97,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.97,
+          "end": 1.07,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "paper._",
+          "start": 1.07,
+          "end": 2.07,
+          "key": "paper_",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "sheweth",
+          "start": 0.51,
+          "end": 0.85
+        },
+        {
+          "text": "him",
+          "start": 0.85,
+          "end": 0.97
+        },
+        {
+          "text": "a",
+          "start": 0.97,
+          "end": 1.07
+        },
+        {
+          "text": "paper._]",
+          "start": 1.07,
+          "end": 1.57
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15471461042761803
+    },
+    {
+      "asr_seconds": 0.13273179158568382,
+      "alignment_seconds": 0.0003525577485561371,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " He show with him a paper",
+          "start": 0.05,
+          "end": 1.35,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " show",
+              "start": 0.51,
+              "end": 0.71,
+              "probability": 0.666015625
+            },
+            {
+              "text": " with",
+              "start": 0.71,
+              "end": 0.87,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " him",
+              "start": 0.87,
+              "end": 0.97,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " a",
+              "start": 0.97,
+              "end": 1.09,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " paper",
+              "start": 1.09,
+              "end": 1.35,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "show",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "raw": "with",
+          "start": 0.71,
+          "end": 0.87
+        },
+        {
+          "raw": "him",
+          "start": 0.87,
+          "end": 0.97
+        },
+        {
+          "raw": "a",
+          "start": 0.97,
+          "end": 1.09
+        },
+        {
+          "raw": "paper",
+          "start": 1.09,
+          "end": 1.35
+        }
+      ],
+      "expected_tokens": [
+        "[_He",
+        "sheweth",
+        "him",
+        "a",
+        "paper._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          5,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 0.51,
+          "end": 0.71,
+          "key": "show",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.71,
+          "end": 0.87,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 0.87,
+          "end": 0.97,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.97,
+          "end": 1.09,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "paper",
+          "start": 1.09,
+          "end": 1.35,
+          "key": "paper",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "sheweth",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "text": "him",
+          "start": 0.87,
+          "end": 0.97
+        },
+        {
+          "text": "a",
+          "start": 0.97,
+          "end": 1.09
+        },
+        {
+          "text": "paper._]",
+          "start": 1.09,
+          "end": 1.35
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13314424082636833
+    },
+    {
+      "asr_seconds": 0.12924423813819885,
+      "alignment_seconds": 0.0003638342022895813,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He show with him a paper",
+          "start": 0.05,
+          "end": 1.35,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " show",
+              "start": 0.51,
+              "end": 0.71,
+              "probability": 0.666015625
+            },
+            {
+              "text": " with",
+              "start": 0.71,
+              "end": 0.87,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " him",
+              "start": 0.87,
+              "end": 0.97,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " a",
+              "start": 0.97,
+              "end": 1.09,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " paper",
+              "start": 1.09,
+              "end": 1.35,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "show",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "raw": "with",
+          "start": 0.71,
+          "end": 0.87
+        },
+        {
+          "raw": "him",
+          "start": 0.87,
+          "end": 0.97
+        },
+        {
+          "raw": "a",
+          "start": 0.97,
+          "end": 1.09
+        },
+        {
+          "raw": "paper",
+          "start": 1.09,
+          "end": 1.35
+        }
+      ],
+      "expected_tokens": [
+        "[_He",
+        "sheweth",
+        "him",
+        "a",
+        "paper._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          5,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 0.51,
+          "end": 0.71,
+          "key": "show",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.71,
+          "end": 0.87,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 0.87,
+          "end": 0.97,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.97,
+          "end": 1.09,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "paper",
+          "start": 1.09,
+          "end": 1.35,
+          "key": "paper",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "sheweth",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "text": "him",
+          "start": 0.87,
+          "end": 0.97
+        },
+        {
+          "text": "a",
+          "start": 0.97,
+          "end": 1.09
+        },
+        {
+          "text": "paper._]",
+          "start": 1.09,
+          "end": 1.35
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12972869351506233
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3e59a4e0c9b74cc006753bbbd348249343aa424946475379f34444c52f54ad7c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

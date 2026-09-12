@@ -1,0 +1,260 @@
+{
+  "complete": true,
+  "signature": "b23a412313a7f75e56a80b3e39aaeddeb78393d8e091b394d504cc9ec81d931c",
+  "attempts": [
+    {
+      "asr_seconds": 0.222152478992939,
+      "alignment_seconds": 0.00041515007615089417,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Norfolk, hear most gracious leech.",
+          "start": 0.05,
+          "end": 2.39,
+          "words": [
+            {
+              "text": " Norfolk,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.50341796875
+            },
+            {
+              "text": " hear",
+              "start": 1.27,
+              "end": 1.29,
+              "probability": 0.436279296875
+            },
+            {
+              "text": " most",
+              "start": 1.29,
+              "end": 1.55,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " gracious",
+              "start": 1.55,
+              "end": 1.93,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " leech.",
+              "start": 1.93,
+              "end": 2.39,
+              "probability": 0.4271240234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Norfolk,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "hear",
+          "start": 1.27,
+          "end": 1.29
+        },
+        {
+          "raw": "most",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "raw": "gracious",
+          "start": 1.55,
+          "end": 1.93
+        },
+        {
+          "raw": "leech.",
+          "start": 1.93,
+          "end": 2.39
+        }
+      ],
+      "expected_tokens": [
+        "Norfolk.",
+        "Here,",
+        "most",
+        "gracious",
+        "liege."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Norfolk,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "norfolk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 1.27,
+          "end": 1.29,
+          "key": "hear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 1.29,
+          "end": 1.55,
+          "key": "most",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gracious",
+          "start": 1.55,
+          "end": 1.93,
+          "key": "gracious",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "leech.",
+          "start": 1.93,
+          "end": 2.39,
+          "key": "leech",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Norfolk.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Here,",
+          "start": 0.85,
+          "end": 1.07
+        },
+        {
+          "text": "most",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "text": "gracious",
+          "start": 1.55,
+          "end": 1.93
+        },
+        {
+          "text": "liege.",
+          "start": 1.93,
+          "end": 2.16
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2226920947432518
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fa1a26ae75550df1059844f3e7fdd51379cfe5a5d371a59aaaee99686bb9ae8d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "567f6547a5983f258481ba3ddea92710d772e0cc18bd8c2b468ff865dc6c2d3e",
+  "attempts": [
+    {
+      "asr_seconds": 0.2718205004930496,
+      "alignment_seconds": 0.0004222169518470764,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Of butchered princes fight in thy behalf. King Henry's issue, Richmond, comforts thee.",
+        "hotwords": "Of, King, Henry's, Richmond"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Of butchered princes fight in thy behalf. King Henry's issue, Richmond, comforts thee.",
+          "start": 0.02,
+          "end": 5.62,
+          "words": [
+            {
+              "text": " Of",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.45849609375
+            },
+            {
+              "text": " butchered",
+              "start": 0.54,
+              "end": 0.9,
+              "probability": 0.9222005208333334
+            },
+            {
+              "text": " princes",
+              "start": 0.9,
+              "end": 1.18,
+              "probability": 0.95703125
+            },
+            {
+              "text": " fight",
+              "start": 1.18,
+              "end": 1.54,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " in",
+              "start": 1.54,
+              "end": 1.68,
+              "probability": 0.96484375
+            },
+            {
+              "text": " thy",
+              "start": 1.68,
+              "end": 1.78,
+              "probability": 0.9921875
+            },
+            {
+              "text": " behalf.",
+              "start": 1.78,
+              "end": 2.16,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " King",
+              "start": 2.86,
+              "end": 2.94,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Henry's",
+              "start": 2.94,
+              "end": 3.44,
+              "probability": 0.994384765625
+            },
+            {
+              "text": " issue,",
+              "start": 3.44,
+              "end": 3.74,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " Richmond,",
+              "start": 4.14,
+              "end": 4.42,
+              "probability": 0.990234375
+            },
+            {
+              "text": " comforts",
+              "start": 4.92,
+              "end": 5.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " thee.",
+              "start": 5.28,
+              "end": 5.62,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Of",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "butchered",
+          "start": 0.54,
+          "end": 0.9
+        },
+        {
+          "raw": "princes",
+          "start": 0.9,
+          "end": 1.18
+        },
+        {
+          "raw": "fight",
+          "start": 1.18,
+          "end": 1.54
+        },
+        {
+          "raw": "in",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "raw": "thy",
+          "start": 1.68,
+          "end": 1.78
+        },
+        {
+          "raw": "behalf.",
+          "start": 1.78,
+          "end": 2.16
+        },
+        {
+          "raw": "King",
+          "start": 2.86,
+          "end": 2.94
+        },
+        {
+          "raw": "Henry's",
+          "start": 2.94,
+          "end": 3.44
+        },
+        {
+          "raw": "issue,",
+          "start": 3.44,
+          "end": 3.74
+        },
+        {
+          "raw": "Richmond,",
+          "start": 4.14,
+          "end": 4.42
+        },
+        {
+          "raw": "comforts",
+          "start": 4.92,
+          "end": 5.28
+        },
+        {
+          "raw": "thee.",
+          "start": 5.28,
+          "end": 5.62
+        }
+      ],
+      "expected_tokens": [
+        "Of",
+        "butchered",
+        "princes",
+        "fight",
+        "in",
+        "thy",
+        "behalf.",
+        "King",
+        "Henry's",
+        "issue,",
+        "Richmond,",
+        "comforts",
+        "thee."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Of",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "of",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "butchered",
+          "start": 0.54,
+          "end": 0.9,
+          "key": "butchered",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "princes",
+          "start": 0.9,
+          "end": 1.18,
+          "key": "princes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fight",
+          "start": 1.18,
+          "end": 1.54,
+          "key": "fight",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.54,
+          "end": 1.68,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.68,
+          "end": 1.78,
+          "key": "thy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "behalf.",
+          "start": 1.78,
+          "end": 2.16,
+          "key": "behalf",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "King",
+          "start": 2.86,
+          "end": 2.94,
+          "key": "king",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Henry's",
+          "start": 2.94,
+          "end": 3.44,
+          "key": "henrys",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "issue,",
+          "start": 3.44,
+          "end": 3.74,
+          "key": "issue",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Richmond,",
+          "start": 4.14,
+          "end": 4.42,
+          "key": "richmond",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "comforts",
+          "start": 4.92,
+          "end": 5.28,
+          "key": "comforts",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 5.28,
+          "end": 5.62,
+          "key": "thee",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Of",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "butchered",
+          "start": 0.54,
+          "end": 0.9
+        },
+        {
+          "text": "princes",
+          "start": 0.9,
+          "end": 1.18
+        },
+        {
+          "text": "fight",
+          "start": 1.18,
+          "end": 1.54
+        },
+        {
+          "text": "in",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "text": "thy",
+          "start": 1.68,
+          "end": 1.78
+        },
+        {
+          "text": "behalf.",
+          "start": 1.78,
+          "end": 2.16
+        },
+        {
+          "text": "King",
+          "start": 2.86,
+          "end": 2.94
+        },
+        {
+          "text": "Henry's",
+          "start": 2.94,
+          "end": 3.44
+        },
+        {
+          "text": "issue,",
+          "start": 3.44,
+          "end": 3.74
+        },
+        {
+          "text": "Richmond,",
+          "start": 4.14,
+          "end": 4.42
+        },
+        {
+          "text": "comforts",
+          "start": 4.92,
+          "end": 5.28
+        },
+        {
+          "text": "thee.",
+          "start": 5.28,
+          "end": 5.62
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2724132090806961
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "65ae9f7325523134e8ed0d32655b46284c58c224f80e19a6815d435c473683f1",
+  "selected_reasons": []
+}

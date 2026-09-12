@@ -1,0 +1,221 @@
+{
+  "complete": true,
+  "signature": "f8b08d8bd4df7c91764145bac20174257733b395ac412aec1cb4d384bef1a215",
+  "attempts": [
+    {
+      "asr_seconds": 0.12276801839470863,
+      "alignment_seconds": 0.00034549832344055176,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "His oration to his soldiers."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " His oration to his soldiers.",
+          "start": 0.05,
+          "end": 1.65,
+          "words": [
+            {
+              "text": " His",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.392578125
+            },
+            {
+              "text": " oration",
+              "start": 0.53,
+              "end": 0.97,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " to",
+              "start": 0.97,
+              "end": 1.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 1.17,
+              "end": 1.29,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " soldiers.",
+              "start": 1.29,
+              "end": 1.65,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "His",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "oration",
+          "start": 0.53,
+          "end": 0.97
+        },
+        {
+          "raw": "to",
+          "start": 0.97,
+          "end": 1.17
+        },
+        {
+          "raw": "his",
+          "start": 1.17,
+          "end": 1.29
+        },
+        {
+          "raw": "soldiers.",
+          "start": 1.29,
+          "end": 1.65
+        }
+      ],
+      "expected_tokens": [
+        "His",
+        "oration",
+        "to",
+        "his",
+        "soldiers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "His",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "his",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "oration",
+          "start": 0.53,
+          "end": 0.97,
+          "key": "oration",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.97,
+          "end": 1.17,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.17,
+          "end": 1.29,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "soldiers.",
+          "start": 1.29,
+          "end": 1.65,
+          "key": "soldiers",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "His",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "oration",
+          "start": 0.53,
+          "end": 0.97
+        },
+        {
+          "text": "to",
+          "start": 0.97,
+          "end": 1.17
+        },
+        {
+          "text": "his",
+          "start": 1.17,
+          "end": 1.29
+        },
+        {
+          "text": "soldiers.",
+          "start": 1.29,
+          "end": 1.65
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1232379786670208
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "31d06fee5d7b1987d0c2af140b2a67195a32dfbc9bbb1e878b0cb42b2e74a228",
+  "selected_reasons": []
+}

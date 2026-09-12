@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "1bbecb177eaf39a7e1fdabd3d0bc00890ee6b0d48d6071ee34f5e21904c94baf",
+  "attempts": [
+    {
+      "asr_seconds": 0.1916058510541916,
+      "alignment_seconds": 0.0003830455243587494,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Stanley, know my good Lord, therefore mistrust me not.",
+          "start": 0.08,
+          "end": 3.56,
+          "words": [
+            {
+              "text": " Stanley,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.66796875
+            },
+            {
+              "text": " know",
+              "start": 1.22,
+              "end": 1.42,
+              "probability": 0.492919921875
+            },
+            {
+              "text": " my",
+              "start": 1.42,
+              "end": 1.6,
+              "probability": 0.966796875
+            },
+            {
+              "text": " good",
+              "start": 1.6,
+              "end": 1.78,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " Lord,",
+              "start": 1.78,
+              "end": 2.08,
+              "probability": 0.58447265625
+            },
+            {
+              "text": " therefore",
+              "start": 2.46,
+              "end": 2.64,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " mistrust",
+              "start": 2.64,
+              "end": 2.96,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " me",
+              "start": 2.96,
+              "end": 3.28,
+              "probability": 0.9765625
+            },
+            {
+              "text": " not.",
+              "start": 3.28,
+              "end": 3.56,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stanley,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "know",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "raw": "my",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "raw": "good",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "raw": "Lord,",
+          "start": 1.78,
+          "end": 2.08
+        },
+        {
+          "raw": "therefore",
+          "start": 2.46,
+          "end": 2.64
+        },
+        {
+          "raw": "mistrust",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "raw": "me",
+          "start": 2.96,
+          "end": 3.28
+        },
+        {
+          "raw": "not.",
+          "start": 3.28,
+          "end": 3.56
+        }
+      ],
+      "expected_tokens": [
+        "Stanley.",
+        "No,",
+        "my",
+        "good",
+        "lord;",
+        "therefore",
+        "mistrust",
+        "me",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          9,
+          2,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Stanley,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "stanley",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.22,
+          "end": 1.42,
+          "key": "know",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.42,
+          "end": 1.6,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.6,
+          "end": 1.78,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Lord,",
+          "start": 1.78,
+          "end": 2.08,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "therefore",
+          "start": 2.46,
+          "end": 2.64,
+          "key": "therefore",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "mistrust",
+          "start": 2.64,
+          "end": 2.96,
+          "key": "mistrust",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.96,
+          "end": 3.28,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 3.28,
+          "end": 3.56,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Stanley.",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "No,",
+          "start": 0.78,
+          "end": 1.1
+        },
+        {
+          "text": "my",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "text": "good",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "text": "lord;",
+          "start": 1.78,
+          "end": 2.08
+        },
+        {
+          "text": "therefore",
+          "start": 2.46,
+          "end": 2.64
+        },
+        {
+          "text": "mistrust",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "text": "me",
+          "start": 2.96,
+          "end": 3.28
+        },
+        {
+          "text": "not.",
+          "start": 3.28,
+          "end": 3.56
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.19213180243968964
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7305ffb444c3f194b65fb5575a9e7051ce1de21fb4c5385f1ab5fb8af63f6ce0",
+  "selected_reasons": []
+}

@@ -1,0 +1,1476 @@
+{
+  "complete": true,
+  "signature": "431de1644031218aa65b8b0b422a33ca05b4d07766a88c2ba347651f1719a2ff",
+  "attempts": [
+    {
+      "asr_seconds": 0.6138756647706032,
+      "alignment_seconds": 0.0010630711913108826,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Queen Elizabeth. Ah, my poor Princes! Ah, my tender babes, My unblown flowers, new-appearing sweets! If yet your gentle souls fly in the air And be not fixed in doom perpetual, Hover about me with your airy wings And hear your mother's lamentation.",
+        "hotwords": "Queen, Elizabeth, Ah, Princes, If, And, Hover"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Queen Elizabeth! Ah, my poor Princes! Ah, my tender babes, My unblown flowers, new-appearing sweets!",
+          "start": 0.02,
+          "end": 7.44,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.68994140625
+            },
+            {
+              "text": " Elizabeth!",
+              "start": 0.58,
+              "end": 1.1,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " Ah,",
+              "start": 1.82,
+              "end": 1.92,
+              "probability": 0.8564453125
+            },
+            {
+              "text": " my",
+              "start": 2.06,
+              "end": 2.2,
+              "probability": 0.9921875
+            },
+            {
+              "text": " poor",
+              "start": 2.2,
+              "end": 2.44,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Princes!",
+              "start": 2.44,
+              "end": 2.92,
+              "probability": 0.5246124267578125
+            },
+            {
+              "text": " Ah,",
+              "start": 3.62,
+              "end": 3.78,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " my",
+              "start": 3.92,
+              "end": 4.06,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " tender",
+              "start": 4.06,
+              "end": 4.44,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " babes,",
+              "start": 4.44,
+              "end": 4.96,
+              "probability": 0.85546875
+            },
+            {
+              "text": " My",
+              "start": 5.18,
+              "end": 5.28,
+              "probability": 0.265625
+            },
+            {
+              "text": " unblown",
+              "start": 5.28,
+              "end": 5.74,
+              "probability": 0.955322265625
+            },
+            {
+              "text": " flowers,",
+              "start": 5.74,
+              "end": 6.28,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " new",
+              "start": 6.54,
+              "end": 6.7,
+              "probability": 0.82958984375
+            },
+            {
+              "text": "-appearing",
+              "start": 6.7,
+              "end": 7.1,
+              "probability": 0.7576497395833334
+            },
+            {
+              "text": " sweets!",
+              "start": 7.1,
+              "end": 7.44,
+              "probability": 0.44921875
+            }
+          ]
+        },
+        {
+          "text": " If yet your gentle souls fly in the air And be not fixed in doom perpetual,",
+          "start": 8.16,
+          "end": 12.08,
+          "words": [
+            {
+              "text": " If",
+              "start": 8.16,
+              "end": 8.36,
+              "probability": 0.970703125
+            },
+            {
+              "text": " yet",
+              "start": 8.36,
+              "end": 8.54,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " your",
+              "start": 8.54,
+              "end": 8.72,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " gentle",
+              "start": 8.72,
+              "end": 9.06,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " souls",
+              "start": 9.06,
+              "end": 9.44,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " fly",
+              "start": 9.44,
+              "end": 9.8,
+              "probability": 0.385009765625
+            },
+            {
+              "text": " in",
+              "start": 9.8,
+              "end": 10.0,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " the",
+              "start": 10.0,
+              "end": 10.12,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " air",
+              "start": 10.12,
+              "end": 10.32,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " And",
+              "start": 10.32,
+              "end": 10.5,
+              "probability": 0.59375
+            },
+            {
+              "text": " be",
+              "start": 10.5,
+              "end": 10.64,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " not",
+              "start": 10.64,
+              "end": 10.86,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " fixed",
+              "start": 10.86,
+              "end": 11.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 11.14,
+              "end": 11.4,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " doom",
+              "start": 11.4,
+              "end": 11.64,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " perpetual,",
+              "start": 11.64,
+              "end": 12.08,
+              "probability": 0.81591796875
+            }
+          ]
+        },
+        {
+          "text": " Hover about me with your airy wings And hear your mother's lamentation.",
+          "start": 12.8,
+          "end": 16.2,
+          "words": [
+            {
+              "text": " Hover",
+              "start": 12.8,
+              "end": 12.82,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " about",
+              "start": 12.82,
+              "end": 13.14,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " me",
+              "start": 13.14,
+              "end": 13.38,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " with",
+              "start": 13.38,
+              "end": 13.52,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " your",
+              "start": 13.52,
+              "end": 13.66,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " airy",
+              "start": 13.66,
+              "end": 14.0,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " wings",
+              "start": 14.0,
+              "end": 14.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " And",
+              "start": 14.28,
+              "end": 14.64,
+              "probability": 0.59765625
+            },
+            {
+              "text": " hear",
+              "start": 14.64,
+              "end": 14.84,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " your",
+              "start": 14.84,
+              "end": 15.06,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " mother's",
+              "start": 15.06,
+              "end": 15.44,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " lamentation.",
+              "start": 15.44,
+              "end": 16.2,
+              "probability": 0.951904296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "Elizabeth!",
+          "start": 0.58,
+          "end": 1.1
+        },
+        {
+          "raw": "Ah,",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "raw": "my",
+          "start": 2.06,
+          "end": 2.2
+        },
+        {
+          "raw": "poor",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "raw": "Princes!",
+          "start": 2.44,
+          "end": 2.92
+        },
+        {
+          "raw": "Ah,",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "raw": "my",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "raw": "tender",
+          "start": 4.06,
+          "end": 4.44
+        },
+        {
+          "raw": "babes,",
+          "start": 4.44,
+          "end": 4.96
+        },
+        {
+          "raw": "My",
+          "start": 5.18,
+          "end": 5.28
+        },
+        {
+          "raw": "unblown",
+          "start": 5.28,
+          "end": 5.74
+        },
+        {
+          "raw": "flowers,",
+          "start": 5.74,
+          "end": 6.28
+        },
+        {
+          "raw": "new",
+          "start": 6.54,
+          "end": 6.7
+        },
+        {
+          "raw": "-appearing",
+          "start": 6.7,
+          "end": 7.1
+        },
+        {
+          "raw": "sweets!",
+          "start": 7.1,
+          "end": 7.44
+        },
+        {
+          "raw": "If",
+          "start": 8.16,
+          "end": 8.36
+        },
+        {
+          "raw": "yet",
+          "start": 8.36,
+          "end": 8.54
+        },
+        {
+          "raw": "your",
+          "start": 8.54,
+          "end": 8.72
+        },
+        {
+          "raw": "gentle",
+          "start": 8.72,
+          "end": 9.06
+        },
+        {
+          "raw": "souls",
+          "start": 9.06,
+          "end": 9.44
+        },
+        {
+          "raw": "fly",
+          "start": 9.44,
+          "end": 9.8
+        },
+        {
+          "raw": "in",
+          "start": 9.8,
+          "end": 10.0
+        },
+        {
+          "raw": "the",
+          "start": 10.0,
+          "end": 10.12
+        },
+        {
+          "raw": "air",
+          "start": 10.12,
+          "end": 10.32
+        },
+        {
+          "raw": "And",
+          "start": 10.32,
+          "end": 10.5
+        },
+        {
+          "raw": "be",
+          "start": 10.5,
+          "end": 10.64
+        },
+        {
+          "raw": "not",
+          "start": 10.64,
+          "end": 10.86
+        },
+        {
+          "raw": "fixed",
+          "start": 10.86,
+          "end": 11.14
+        },
+        {
+          "raw": "in",
+          "start": 11.14,
+          "end": 11.4
+        },
+        {
+          "raw": "doom",
+          "start": 11.4,
+          "end": 11.64
+        },
+        {
+          "raw": "perpetual,",
+          "start": 11.64,
+          "end": 12.08
+        },
+        {
+          "raw": "Hover",
+          "start": 12.8,
+          "end": 12.82
+        },
+        {
+          "raw": "about",
+          "start": 12.82,
+          "end": 13.14
+        },
+        {
+          "raw": "me",
+          "start": 13.14,
+          "end": 13.38
+        },
+        {
+          "raw": "with",
+          "start": 13.38,
+          "end": 13.52
+        },
+        {
+          "raw": "your",
+          "start": 13.52,
+          "end": 13.66
+        },
+        {
+          "raw": "airy",
+          "start": 13.66,
+          "end": 14.0
+        },
+        {
+          "raw": "wings",
+          "start": 14.0,
+          "end": 14.28
+        },
+        {
+          "raw": "And",
+          "start": 14.28,
+          "end": 14.64
+        },
+        {
+          "raw": "hear",
+          "start": 14.64,
+          "end": 14.84
+        },
+        {
+          "raw": "your",
+          "start": 14.84,
+          "end": 15.06
+        },
+        {
+          "raw": "mother's",
+          "start": 15.06,
+          "end": 15.44
+        },
+        {
+          "raw": "lamentation.",
+          "start": 15.44,
+          "end": 16.2
+        }
+      ],
+      "expected_tokens": [
+        "Queen",
+        "Elizabeth.",
+        "Ah,",
+        "my",
+        "poor",
+        "Princes!",
+        "Ah,",
+        "my",
+        "tender",
+        "babes,",
+        "My",
+        "unblown",
+        "flowers,",
+        "new-appearing",
+        "sweets!",
+        "If",
+        "yet",
+        "your",
+        "gentle",
+        "souls",
+        "fly",
+        "in",
+        "the",
+        "air",
+        "And",
+        "be",
+        "not",
+        "fixed",
+        "in",
+        "doom",
+        "perpetual,",
+        "Hover",
+        "about",
+        "me",
+        "with",
+        "your",
+        "airy",
+        "wings",
+        "And",
+        "hear",
+        "your",
+        "mother's",
+        "lamentation."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          43,
+          0,
+          43
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Elizabeth!",
+          "start": 0.58,
+          "end": 1.1,
+          "key": "elizabeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ah,",
+          "start": 1.82,
+          "end": 1.92,
+          "key": "ah",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.06,
+          "end": 2.2,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 2.2,
+          "end": 2.44,
+          "key": "poor",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Princes!",
+          "start": 2.44,
+          "end": 2.92,
+          "key": "princes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Ah,",
+          "start": 3.62,
+          "end": 3.78,
+          "key": "ah",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.92,
+          "end": 4.06,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tender",
+          "start": 4.06,
+          "end": 4.44,
+          "key": "tender",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "babes,",
+          "start": 4.44,
+          "end": 4.96,
+          "key": "babes",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 5.18,
+          "end": 5.28,
+          "key": "my",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "unblown",
+          "start": 5.28,
+          "end": 5.74,
+          "key": "unblown",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "flowers,",
+          "start": 5.74,
+          "end": 6.28,
+          "key": "flowers",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "new -appearing",
+          "start": 6.54,
+          "end": 7.1,
+          "key": "newappearing",
+          "pieces": [
+            13,
+            14
+          ]
+        },
+        {
+          "raw": "sweets!",
+          "start": 7.1,
+          "end": 7.44,
+          "key": "sweets",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 8.16,
+          "end": 8.36,
+          "key": "if",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 8.36,
+          "end": 8.54,
+          "key": "yet",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 8.54,
+          "end": 8.72,
+          "key": "your",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "gentle",
+          "start": 8.72,
+          "end": 9.06,
+          "key": "gentle",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "souls",
+          "start": 9.06,
+          "end": 9.44,
+          "key": "souls",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "fly",
+          "start": 9.44,
+          "end": 9.8,
+          "key": "fly",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 9.8,
+          "end": 10.0,
+          "key": "in",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.0,
+          "end": 10.12,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "air",
+          "start": 10.12,
+          "end": 10.32,
+          "key": "air",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 10.32,
+          "end": 10.5,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 10.5,
+          "end": 10.64,
+          "key": "be",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 10.64,
+          "end": 10.86,
+          "key": "not",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "fixed",
+          "start": 10.86,
+          "end": 11.14,
+          "key": "fixed",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.14,
+          "end": 11.4,
+          "key": "in",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "doom",
+          "start": 11.4,
+          "end": 11.64,
+          "key": "doom",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "perpetual,",
+          "start": 11.64,
+          "end": 12.08,
+          "key": "perpetual",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Hover",
+          "start": 12.8,
+          "end": 12.82,
+          "key": "hover",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 12.82,
+          "end": 13.14,
+          "key": "about",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 13.14,
+          "end": 13.38,
+          "key": "me",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 13.38,
+          "end": 13.52,
+          "key": "with",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 13.52,
+          "end": 13.66,
+          "key": "your",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "airy",
+          "start": 13.66,
+          "end": 14.0,
+          "key": "airy",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "wings",
+          "start": 14.0,
+          "end": 14.28,
+          "key": "wings",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 14.28,
+          "end": 14.64,
+          "key": "and",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 14.64,
+          "end": 14.84,
+          "key": "hear",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 14.84,
+          "end": 15.06,
+          "key": "your",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "mother's",
+          "start": 15.06,
+          "end": 15.44,
+          "key": "mothers",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "lamentation.",
+          "start": 15.44,
+          "end": 16.2,
+          "key": "lamentation",
+          "pieces": [
+            43
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 13,
+          "text": "new-appearing",
+          "heard": "new -appearing",
+          "heard_indexes": [
+            13,
+            14
+          ],
+          "start": 6.54,
+          "end": 7.1
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Queen",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "Elizabeth.",
+          "start": 0.58,
+          "end": 1.1
+        },
+        {
+          "text": "Ah,",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "text": "my",
+          "start": 2.06,
+          "end": 2.2
+        },
+        {
+          "text": "poor",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "text": "Princes!",
+          "start": 2.44,
+          "end": 2.92
+        },
+        {
+          "text": "Ah,",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "text": "my",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "text": "tender",
+          "start": 4.06,
+          "end": 4.44
+        },
+        {
+          "text": "babes,",
+          "start": 4.44,
+          "end": 4.96
+        },
+        {
+          "text": "My",
+          "start": 5.18,
+          "end": 5.28
+        },
+        {
+          "text": "unblown",
+          "start": 5.28,
+          "end": 5.74
+        },
+        {
+          "text": "flowers,",
+          "start": 5.74,
+          "end": 6.28
+        },
+        {
+          "text": "new-appearing",
+          "start": 6.54,
+          "end": 7.1
+        },
+        {
+          "text": "sweets!",
+          "start": 7.1,
+          "end": 7.44
+        },
+        {
+          "text": "If",
+          "start": 8.16,
+          "end": 8.36
+        },
+        {
+          "text": "yet",
+          "start": 8.36,
+          "end": 8.54
+        },
+        {
+          "text": "your",
+          "start": 8.54,
+          "end": 8.72
+        },
+        {
+          "text": "gentle",
+          "start": 8.72,
+          "end": 9.06
+        },
+        {
+          "text": "souls",
+          "start": 9.06,
+          "end": 9.44
+        },
+        {
+          "text": "fly",
+          "start": 9.44,
+          "end": 9.8
+        },
+        {
+          "text": "in",
+          "start": 9.8,
+          "end": 10.0
+        },
+        {
+          "text": "the",
+          "start": 10.0,
+          "end": 10.12
+        },
+        {
+          "text": "air",
+          "start": 10.12,
+          "end": 10.32
+        },
+        {
+          "text": "And",
+          "start": 10.32,
+          "end": 10.5
+        },
+        {
+          "text": "be",
+          "start": 10.5,
+          "end": 10.64
+        },
+        {
+          "text": "not",
+          "start": 10.64,
+          "end": 10.86
+        },
+        {
+          "text": "fixed",
+          "start": 10.86,
+          "end": 11.14
+        },
+        {
+          "text": "in",
+          "start": 11.14,
+          "end": 11.4
+        },
+        {
+          "text": "doom",
+          "start": 11.4,
+          "end": 11.64
+        },
+        {
+          "text": "perpetual,",
+          "start": 11.64,
+          "end": 12.08
+        },
+        {
+          "text": "Hover",
+          "start": 12.8,
+          "end": 12.82
+        },
+        {
+          "text": "about",
+          "start": 12.82,
+          "end": 13.14
+        },
+        {
+          "text": "me",
+          "start": 13.14,
+          "end": 13.38
+        },
+        {
+          "text": "with",
+          "start": 13.38,
+          "end": 13.52
+        },
+        {
+          "text": "your",
+          "start": 13.52,
+          "end": 13.66
+        },
+        {
+          "text": "airy",
+          "start": 13.66,
+          "end": 14.0
+        },
+        {
+          "text": "wings",
+          "start": 14.0,
+          "end": 14.28
+        },
+        {
+          "text": "And",
+          "start": 14.28,
+          "end": 14.64
+        },
+        {
+          "text": "hear",
+          "start": 14.64,
+          "end": 14.84
+        },
+        {
+          "text": "your",
+          "start": 14.84,
+          "end": 15.06
+        },
+        {
+          "text": "mother's",
+          "start": 15.06,
+          "end": 15.44
+        },
+        {
+          "text": "lamentation.",
+          "start": 15.44,
+          "end": 16.2
+        }
+      ],
+      "stats": {
+        "expected_words": 43,
+        "heard_words": 43,
+        "matched_words": 43
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6153420060873032
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "af06ce2d707492e239518903ef72bec2bd8517e0b10ace39d61777054b5b6ea9",
+  "selected_reasons": []
+}

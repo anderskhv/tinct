@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "39c62ce38e91bf53641c517677374feffafe3e666a3c1d10a0fc2b765043cb8f",
+  "attempts": [
+    {
+      "asr_seconds": 0.12564988061785698,
+      "alignment_seconds": 0.00029335543513298035,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Drama far off.",
+          "start": 0.02,
+          "end": 1.2,
+          "words": [
+            {
+              "text": " Drama",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.2451171875
+            },
+            {
+              "text": " far",
+              "start": 0.64,
+              "end": 0.9,
+              "probability": 0.5595703125
+            },
+            {
+              "text": " off.",
+              "start": 0.9,
+              "end": 1.2,
+              "probability": 0.97607421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Drama",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "far",
+          "start": 0.64,
+          "end": 0.9
+        },
+        {
+          "raw": "off.",
+          "start": 0.9,
+          "end": 1.2
+        }
+      ],
+      "expected_tokens": [
+        "[_Drum",
+        "afar",
+        "off._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Drama",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "drama",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 0.64,
+          "end": 0.9,
+          "key": "far",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "off.",
+          "start": 0.9,
+          "end": 1.2,
+          "key": "off",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Drum",
+          "start": 0.0,
+          "end": 0.45
+        },
+        {
+          "text": "afar",
+          "start": 0.45,
+          "end": 0.675
+        },
+        {
+          "text": "off._]",
+          "start": 0.9,
+          "end": 1.2
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12603932991623878
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "77177f035e998cd549015c8c4c64b7260fdc6f2b5d9bd4decb614e66190a6b90",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

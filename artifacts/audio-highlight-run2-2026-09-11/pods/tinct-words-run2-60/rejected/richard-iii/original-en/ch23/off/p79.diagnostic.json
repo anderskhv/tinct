@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "751ff953a399aa1d61572e1e39c502ff92d9904f03fe589f8ddbf3475e77f6de",
+  "attempts": [
+    {
+      "asr_seconds": 0.1952214278280735,
+      "alignment_seconds": 0.0004246532917022705,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To King Richard, think upon Vaughan and with guilty fear.",
+          "start": 0.02,
+          "end": 3.36,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.78076171875
+            },
+            {
+              "text": " King",
+              "start": 0.5,
+              "end": 0.7,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " Richard,",
+              "start": 0.7,
+              "end": 1.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " think",
+              "start": 1.68,
+              "end": 1.78,
+              "probability": 0.888671875
+            },
+            {
+              "text": " upon",
+              "start": 1.78,
+              "end": 2.06,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Vaughan",
+              "start": 2.06,
+              "end": 2.36,
+              "probability": 0.294189453125
+            },
+            {
+              "text": " and",
+              "start": 2.36,
+              "end": 2.58,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " with",
+              "start": 2.58,
+              "end": 2.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " guilty",
+              "start": 2.72,
+              "end": 3.02,
+              "probability": 0.986328125
+            },
+            {
+              "text": " fear.",
+              "start": 3.02,
+              "end": 3.36,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "King",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.7,
+          "end": 1.08
+        },
+        {
+          "raw": "think",
+          "start": 1.68,
+          "end": 1.78
+        },
+        {
+          "raw": "upon",
+          "start": 1.78,
+          "end": 2.06
+        },
+        {
+          "raw": "Vaughan",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "raw": "and",
+          "start": 2.36,
+          "end": 2.58
+        },
+        {
+          "raw": "with",
+          "start": 2.58,
+          "end": 2.72
+        },
+        {
+          "raw": "guilty",
+          "start": 2.72,
+          "end": 3.02
+        },
+        {
+          "raw": "fear.",
+          "start": 3.02,
+          "end": 3.36
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "King",
+        "Richard._]",
+        "Think",
+        "upon",
+        "Vaughan,",
+        "and",
+        "with",
+        "guilty",
+        "fear"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "King",
+          "start": 0.5,
+          "end": 0.7,
+          "key": "king",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.7,
+          "end": 1.08,
+          "key": "richard",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.68,
+          "end": 1.78,
+          "key": "think",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 1.78,
+          "end": 2.06,
+          "key": "upon",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Vaughan",
+          "start": 2.06,
+          "end": 2.36,
+          "key": "vaughan",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.36,
+          "end": 2.58,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.58,
+          "end": 2.72,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "guilty",
+          "start": 2.72,
+          "end": 3.02,
+          "key": "guilty",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fear.",
+          "start": 3.02,
+          "end": 3.36,
+          "key": "fear",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "King",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "text": "Richard._]",
+          "start": 0.7,
+          "end": 1.08
+        },
+        {
+          "text": "Think",
+          "start": 1.68,
+          "end": 1.78
+        },
+        {
+          "text": "upon",
+          "start": 1.78,
+          "end": 2.06
+        },
+        {
+          "text": "Vaughan,",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "text": "and",
+          "start": 2.36,
+          "end": 2.58
+        },
+        {
+          "text": "with",
+          "start": 2.58,
+          "end": 2.72
+        },
+        {
+          "text": "guilty",
+          "start": 2.72,
+          "end": 3.02
+        },
+        {
+          "text": "fear",
+          "start": 3.02,
+          "end": 3.36
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1958249770104885
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "48e19c13baad6bdd6b34c0329ce97a0d6345a0cc683bb9dfc3a18e71b355828f",
+  "selected_reasons": []
+}

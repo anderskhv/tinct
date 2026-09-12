@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "a5543eb8e866c330cf2df1dda61008bb248e075c79349ad21bebd0b7a603ac9a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1748221218585968,
+      "alignment_seconds": 0.00034854188561439514,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Third Messenger. Such proclamation hath been made, my lord.",
+        "hotwords": "Third, Messenger, Such"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Third Messenger, Such proclamation hath been made, my lord.",
+          "start": 0.05,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " Third",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.78125
+            },
+            {
+              "text": " Messenger,",
+              "start": 0.61,
+              "end": 1.07,
+              "probability": 0.481689453125
+            },
+            {
+              "text": " Such",
+              "start": 1.63,
+              "end": 1.77,
+              "probability": 0.443115234375
+            },
+            {
+              "text": " proclamation",
+              "start": 1.77,
+              "end": 2.23,
+              "probability": 0.7041015625
+            },
+            {
+              "text": " hath",
+              "start": 2.23,
+              "end": 2.61,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " been",
+              "start": 2.61,
+              "end": 2.81,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " made,",
+              "start": 2.81,
+              "end": 3.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " my",
+              "start": 3.27,
+              "end": 3.37,
+              "probability": 0.86328125
+            },
+            {
+              "text": " lord.",
+              "start": 3.37,
+              "end": 3.63,
+              "probability": 0.70263671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Messenger,",
+          "start": 0.61,
+          "end": 1.07
+        },
+        {
+          "raw": "Such",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "raw": "proclamation",
+          "start": 1.77,
+          "end": 2.23
+        },
+        {
+          "raw": "hath",
+          "start": 2.23,
+          "end": 2.61
+        },
+        {
+          "raw": "been",
+          "start": 2.61,
+          "end": 2.81
+        },
+        {
+          "raw": "made,",
+          "start": 2.81,
+          "end": 3.13
+        },
+        {
+          "raw": "my",
+          "start": 3.27,
+          "end": 3.37
+        },
+        {
+          "raw": "lord.",
+          "start": 3.37,
+          "end": 3.63
+        }
+      ],
+      "expected_tokens": [
+        "Third",
+        "Messenger.",
+        "Such",
+        "proclamation",
+        "hath",
+        "been",
+        "made,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "third",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Messenger,",
+          "start": 0.61,
+          "end": 1.07,
+          "key": "messenger",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Such",
+          "start": 1.63,
+          "end": 1.77,
+          "key": "such",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "proclamation",
+          "start": 1.77,
+          "end": 2.23,
+          "key": "proclamation",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 2.23,
+          "end": 2.61,
+          "key": "hath",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 2.61,
+          "end": 2.81,
+          "key": "been",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "made,",
+          "start": 2.81,
+          "end": 3.13,
+          "key": "made",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.27,
+          "end": 3.37,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 3.37,
+          "end": 3.63,
+          "key": "lord",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Third",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Messenger.",
+          "start": 0.61,
+          "end": 1.07
+        },
+        {
+          "text": "Such",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "text": "proclamation",
+          "start": 1.77,
+          "end": 2.23
+        },
+        {
+          "text": "hath",
+          "start": 2.23,
+          "end": 2.61
+        },
+        {
+          "text": "been",
+          "start": 2.61,
+          "end": 2.81
+        },
+        {
+          "text": "made,",
+          "start": 2.81,
+          "end": 3.13
+        },
+        {
+          "text": "my",
+          "start": 3.27,
+          "end": 3.37
+        },
+        {
+          "text": "lord.",
+          "start": 3.37,
+          "end": 3.63
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17529786750674248
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e4db420cfae7981ac2cfb571ef909f42df48b95bc11b9cf19b13fbb6dfd3405f",
+  "selected_reasons": []
+}

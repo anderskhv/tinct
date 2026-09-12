@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "044c2869f066794405394e5b6aef37430afb1e7509b343b5bd174a797f6cc974",
+  "attempts": [
+    {
+      "asr_seconds": 0.16532569751143456,
+      "alignment_seconds": 0.0003870278596878052,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Richard. My father's death—",
+        "hotwords": "King, Richard, My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Richard, My Father's Death.",
+          "start": 0.05,
+          "end": 2.13,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " Richard,",
+              "start": 0.55,
+              "end": 0.93,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " My",
+              "start": 1.37,
+              "end": 1.49,
+              "probability": 0.039398193359375
+            },
+            {
+              "text": " Father's",
+              "start": 1.49,
+              "end": 1.95,
+              "probability": 0.776611328125
+            },
+            {
+              "text": " Death.",
+              "start": 1.95,
+              "end": 2.13,
+              "probability": 0.8271484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "raw": "My",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "raw": "Father's",
+          "start": 1.49,
+          "end": 1.95
+        },
+        {
+          "raw": "Death.",
+          "start": 1.95,
+          "end": 2.13
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "My",
+        "father's",
+        "death—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.55,
+          "end": 0.93,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.37,
+          "end": 1.49,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Father's",
+          "start": 1.49,
+          "end": 1.95,
+          "key": "fathers",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Death.",
+          "start": 1.95,
+          "end": 2.13,
+          "key": "death",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Richard.",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "text": "My",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "text": "father's",
+          "start": 1.49,
+          "end": 1.95
+        },
+        {
+          "text": "death—",
+          "start": 1.95,
+          "end": 2.13
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16583719477057457
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e7332fc63abd2714d1ec9b22704ac93c4d0096a1e385f28d52253c4c14663b42",
+  "selected_reasons": []
+}

@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "4d4f4c106e234e8edd9c11c8296ee613fbe51f626d83688f76775909401fd2f5",
+  "attempts": [
+    {
+      "asr_seconds": 0.2246527448296547,
+      "alignment_seconds": 0.0004507489502429962,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To King Richard the first was I that helped thee to the crown",
+          "start": 0.02,
+          "end": 3.62,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.70263671875
+            },
+            {
+              "text": " King",
+              "start": 0.5,
+              "end": 0.72,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " Richard",
+              "start": 0.72,
+              "end": 1.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.1,
+              "end": 1.82,
+              "probability": 0.111572265625
+            },
+            {
+              "text": " first",
+              "start": 1.82,
+              "end": 2.1,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " was",
+              "start": 2.1,
+              "end": 2.3,
+              "probability": 0.98828125
+            },
+            {
+              "text": " I",
+              "start": 2.3,
+              "end": 2.5,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " that",
+              "start": 2.5,
+              "end": 2.66,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " helped",
+              "start": 2.66,
+              "end": 2.92,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " thee",
+              "start": 2.92,
+              "end": 3.12,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " to",
+              "start": 3.12,
+              "end": 3.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 3.22,
+              "end": 3.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " crown",
+              "start": 3.34,
+              "end": 3.62,
+              "probability": 0.94482421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "King",
+          "start": 0.5,
+          "end": 0.72
+        },
+        {
+          "raw": "Richard",
+          "start": 0.72,
+          "end": 1.1
+        },
+        {
+          "raw": "the",
+          "start": 1.1,
+          "end": 1.82
+        },
+        {
+          "raw": "first",
+          "start": 1.82,
+          "end": 2.1
+        },
+        {
+          "raw": "was",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "raw": "I",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "raw": "that",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "raw": "helped",
+          "start": 2.66,
+          "end": 2.92
+        },
+        {
+          "raw": "thee",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "raw": "to",
+          "start": 3.12,
+          "end": 3.22
+        },
+        {
+          "raw": "the",
+          "start": 3.22,
+          "end": 3.34
+        },
+        {
+          "raw": "crown",
+          "start": 3.34,
+          "end": 3.62
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "King",
+        "Richard._]",
+        "The",
+        "first",
+        "was",
+        "I",
+        "that",
+        "helped",
+        "thee",
+        "to",
+        "the",
+        "crown;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "King",
+          "start": 0.5,
+          "end": 0.72,
+          "key": "king",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Richard",
+          "start": 0.72,
+          "end": 1.1,
+          "key": "richard",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.1,
+          "end": 1.82,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 1.82,
+          "end": 2.1,
+          "key": "first",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.1,
+          "end": 2.3,
+          "key": "was",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.3,
+          "end": 2.5,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.5,
+          "end": 2.66,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "helped",
+          "start": 2.66,
+          "end": 2.92,
+          "key": "helped",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 2.92,
+          "end": 3.12,
+          "key": "thee",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.12,
+          "end": 3.22,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.22,
+          "end": 3.34,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "crown",
+          "start": 3.34,
+          "end": 3.62,
+          "key": "crown",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "King",
+          "start": 0.5,
+          "end": 0.72
+        },
+        {
+          "text": "Richard._]",
+          "start": 0.72,
+          "end": 1.1
+        },
+        {
+          "text": "The",
+          "start": 1.1,
+          "end": 1.82
+        },
+        {
+          "text": "first",
+          "start": 1.82,
+          "end": 2.1
+        },
+        {
+          "text": "was",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "text": "I",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "text": "that",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "text": "helped",
+          "start": 2.66,
+          "end": 2.92
+        },
+        {
+          "text": "thee",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "text": "to",
+          "start": 3.12,
+          "end": 3.22
+        },
+        {
+          "text": "the",
+          "start": 3.22,
+          "end": 3.34
+        },
+        {
+          "text": "crown;",
+          "start": 3.34,
+          "end": 3.62
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22529781982302666
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5d569cc7cade7e1a71cbb396b2e674daca4f468bacbfce04353a9c73337b0ca6",
+  "selected_reasons": []
+}

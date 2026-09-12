@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "d650c5a6fc502d61215dc6fbfa58c01562cf3a66c5ca3d493769ce753ea919d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.2110467180609703,
+      "alignment_seconds": 0.00039787963032722473,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Edward for Edward pays a dying debt.",
+          "start": 0.08,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " Edward",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.48046875
+            },
+            {
+              "text": " for",
+              "start": 0.68,
+              "end": 0.86,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " Edward",
+              "start": 0.86,
+              "end": 1.16,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " pays",
+              "start": 1.16,
+              "end": 1.42,
+              "probability": 0.966796875
+            },
+            {
+              "text": " a",
+              "start": 1.42,
+              "end": 1.58,
+              "probability": 0.994140625
+            },
+            {
+              "text": " dying",
+              "start": 1.58,
+              "end": 1.84,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " debt.",
+              "start": 1.84,
+              "end": 2.16,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edward",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "for",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "raw": "Edward",
+          "start": 0.86,
+          "end": 1.16
+        },
+        {
+          "raw": "pays",
+          "start": 1.16,
+          "end": 1.42
+        },
+        {
+          "raw": "a",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "raw": "dying",
+          "start": 1.58,
+          "end": 1.84
+        },
+        {
+          "raw": "debt.",
+          "start": 1.84,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "Edward",
+        "for",
+        "Edward",
+        "pays",
+        "a",
+        "dying",
+        "debt."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edward",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "edward",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.68,
+          "end": 0.86,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Edward",
+          "start": 0.86,
+          "end": 1.16,
+          "key": "edward",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "pays",
+          "start": 1.16,
+          "end": 1.42,
+          "key": "pays",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.42,
+          "end": 1.58,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "dying",
+          "start": 1.58,
+          "end": 1.84,
+          "key": "dying",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "debt.",
+          "start": 1.84,
+          "end": 2.16,
+          "key": "debt",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edward",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "for",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "text": "Edward",
+          "start": 0.86,
+          "end": 1.16
+        },
+        {
+          "text": "pays",
+          "start": 1.16,
+          "end": 1.42
+        },
+        {
+          "text": "a",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "text": "dying",
+          "start": 1.58,
+          "end": 1.84
+        },
+        {
+          "text": "debt.",
+          "start": 1.84,
+          "end": 2.16
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21160664036870003
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7834af03f8014ba48e20e5defacdbd3144b64bb445308816bc54c7280dd14dc4",
+  "selected_reasons": []
+}

@@ -1,0 +1,515 @@
+{
+  "complete": true,
+  "signature": "c2e7ace4c8c9fb58c9610437d20d5516542b539adce4a6ef02388f0b6c6d2360",
+  "attempts": [
+    {
+      "asr_seconds": 0.11446147412061691,
+      "alignment_seconds": 0.000374574214220047,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_All but Richmond leave his tent._]",
+        "hotwords": "Richmond"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All but Richmond leave his tent._",
+          "start": 0.08,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " but",
+              "start": 0.58,
+              "end": 0.74,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Richmond",
+              "start": 0.74,
+              "end": 1.0,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " leave",
+              "start": 1.0,
+              "end": 1.3,
+              "probability": 0.88671875
+            },
+            {
+              "text": " his",
+              "start": 1.3,
+              "end": 1.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " tent._",
+              "start": 1.48,
+              "end": 2.42,
+              "probability": 0.49853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "but",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "raw": "Richmond",
+          "start": 0.74,
+          "end": 1.0
+        },
+        {
+          "raw": "leave",
+          "start": 1.0,
+          "end": 1.3
+        },
+        {
+          "raw": "his",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "raw": "tent._",
+          "start": 1.48,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "[_All",
+        "but",
+        "Richmond",
+        "leave",
+        "his",
+        "tent._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 0.58,
+          "end": 0.74,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Richmond",
+          "start": 0.74,
+          "end": 1.0,
+          "key": "richmond",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 1.0,
+          "end": 1.3,
+          "key": "leave",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.3,
+          "end": 1.48,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tent._",
+          "start": 1.48,
+          "end": 2.42,
+          "key": "tent_",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_All",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "but",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "text": "Richmond",
+          "start": 0.74,
+          "end": 1.0
+        },
+        {
+          "text": "leave",
+          "start": 1.0,
+          "end": 1.3
+        },
+        {
+          "text": "his",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "text": "tent._]",
+          "start": 1.48,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11495977640151978
+    },
+    {
+      "asr_seconds": 0.12970559298992157,
+      "alignment_seconds": 0.00031521543860435486,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Richmond"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " All but Richmond leave his tent",
+          "start": 0.08,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " but",
+              "start": 0.58,
+              "end": 0.74,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Richmond",
+              "start": 0.74,
+              "end": 1.0,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " leave",
+              "start": 1.0,
+              "end": 1.3,
+              "probability": 0.88671875
+            },
+            {
+              "text": " his",
+              "start": 1.3,
+              "end": 1.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " tent",
+              "start": 1.48,
+              "end": 1.72,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "but",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "raw": "Richmond",
+          "start": 0.74,
+          "end": 1.0
+        },
+        {
+          "raw": "leave",
+          "start": 1.0,
+          "end": 1.3
+        },
+        {
+          "raw": "his",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "raw": "tent",
+          "start": 1.48,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "[_All",
+        "but",
+        "Richmond",
+        "leave",
+        "his",
+        "tent._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 0.58,
+          "end": 0.74,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Richmond",
+          "start": 0.74,
+          "end": 1.0,
+          "key": "richmond",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 1.0,
+          "end": 1.3,
+          "key": "leave",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.3,
+          "end": 1.48,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tent",
+          "start": 1.48,
+          "end": 1.72,
+          "key": "tent",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_All",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "but",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "text": "Richmond",
+          "start": 0.74,
+          "end": 1.0
+        },
+        {
+          "text": "leave",
+          "start": 1.0,
+          "end": 1.3
+        },
+        {
+          "text": "his",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "text": "tent._]",
+          "start": 1.48,
+          "end": 1.72
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1301456280052662
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "808958aa648f47a18cbbc2e05ad4c476d4bae269531fc813caab628611a8e667",
+  "selected_reasons": []
+}

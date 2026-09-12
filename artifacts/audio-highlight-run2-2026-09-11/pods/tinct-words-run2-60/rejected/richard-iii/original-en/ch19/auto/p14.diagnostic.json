@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "dc2a61c3ec9af32a0cfeca9986a1cd38cdf4abdb2f0277bed6574ca77aab9ac7",
+  "attempts": [
+    {
+      "asr_seconds": 0.2015146240592003,
+      "alignment_seconds": 0.0004198811948299408,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Aside_.] When holy Harry died, and my sweet son.",
+        "hotwords": "When, Harry"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Aside, when holy Harry died, and my sweet son.",
+          "start": 0.05,
+          "end": 3.15,
+          "words": [
+            {
+              "text": " Aside,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.35546875
+            },
+            {
+              "text": " when",
+              "start": 1.31,
+              "end": 1.43,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " holy",
+              "start": 1.43,
+              "end": 1.67,
+              "probability": 0.2138671875
+            },
+            {
+              "text": " Harry",
+              "start": 1.67,
+              "end": 1.87,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " died,",
+              "start": 1.87,
+              "end": 2.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 2.43,
+              "end": 2.49,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " my",
+              "start": 2.49,
+              "end": 2.63,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " sweet",
+              "start": 2.63,
+              "end": 2.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " son.",
+              "start": 2.83,
+              "end": 3.15,
+              "probability": 0.8232421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "when",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "raw": "holy",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "raw": "Harry",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "raw": "died,",
+          "start": 1.87,
+          "end": 2.23
+        },
+        {
+          "raw": "and",
+          "start": 2.43,
+          "end": 2.49
+        },
+        {
+          "raw": "my",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "raw": "sweet",
+          "start": 2.63,
+          "end": 2.83
+        },
+        {
+          "raw": "son.",
+          "start": 2.83,
+          "end": 3.15
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside_.]",
+        "When",
+        "holy",
+        "Harry",
+        "died,",
+        "and",
+        "my",
+        "sweet",
+        "son."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 1.31,
+          "end": 1.43,
+          "key": "when",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "holy",
+          "start": 1.43,
+          "end": 1.67,
+          "key": "holy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Harry",
+          "start": 1.67,
+          "end": 1.87,
+          "key": "harry",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "died,",
+          "start": 1.87,
+          "end": 2.23,
+          "key": "died",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.43,
+          "end": 2.49,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.49,
+          "end": 2.63,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 2.63,
+          "end": 2.83,
+          "key": "sweet",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "son.",
+          "start": 2.83,
+          "end": 3.15,
+          "key": "son",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside_.]",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "When",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "text": "holy",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "text": "Harry",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "text": "died,",
+          "start": 1.87,
+          "end": 2.23
+        },
+        {
+          "text": "and",
+          "start": 2.43,
+          "end": 2.49
+        },
+        {
+          "text": "my",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "text": "sweet",
+          "start": 2.63,
+          "end": 2.83
+        },
+        {
+          "text": "son.",
+          "start": 2.83,
+          "end": 3.15
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20209555700421333
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6b86abd88e396a49149e1c77dab14fdc440cbe73bdbda32fb219585cc031e91c",
+  "selected_reasons": []
+}

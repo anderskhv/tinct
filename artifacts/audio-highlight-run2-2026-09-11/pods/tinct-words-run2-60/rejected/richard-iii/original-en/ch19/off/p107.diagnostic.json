@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "1b54d301bbe88f371bc7091f5764848f56dd63ebd418325f28bed9e6efa3c807",
+  "attempts": [
+    {
+      "asr_seconds": 0.2434088997542858,
+      "alignment_seconds": 0.0004644468426704407,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Richard, say that I did all this for love of her.",
+          "start": 0.0,
+          "end": 3.02,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.0,
+              "end": 0.54,
+              "probability": 0.71240234375
+            },
+            {
+              "text": " Richard,",
+              "start": 0.54,
+              "end": 0.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " say",
+              "start": 1.38,
+              "end": 1.62,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " that",
+              "start": 1.62,
+              "end": 1.78,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " I",
+              "start": 1.78,
+              "end": 1.88,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " did",
+              "start": 1.88,
+              "end": 1.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " all",
+              "start": 1.98,
+              "end": 2.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " this",
+              "start": 2.14,
+              "end": 2.3,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " for",
+              "start": 2.3,
+              "end": 2.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " love",
+              "start": 2.5,
+              "end": 2.68,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " of",
+              "start": 2.68,
+              "end": 2.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her.",
+              "start": 2.86,
+              "end": 3.02,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.0,
+          "end": 0.54
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "raw": "say",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "raw": "that",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "raw": "I",
+          "start": 1.78,
+          "end": 1.88
+        },
+        {
+          "raw": "did",
+          "start": 1.88,
+          "end": 1.98
+        },
+        {
+          "raw": "all",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "raw": "this",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "raw": "for",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "raw": "love",
+          "start": 2.5,
+          "end": 2.68
+        },
+        {
+          "raw": "of",
+          "start": 2.68,
+          "end": 2.86
+        },
+        {
+          "raw": "her.",
+          "start": 2.86,
+          "end": 3.02
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "Say",
+        "that",
+        "I",
+        "did",
+        "all",
+        "this",
+        "for",
+        "love",
+        "of",
+        "her?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.0,
+          "end": 0.54,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.54,
+          "end": 0.92,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.38,
+          "end": 1.62,
+          "key": "say",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.62,
+          "end": 1.78,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.78,
+          "end": 1.88,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.88,
+          "end": 1.98,
+          "key": "did",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.98,
+          "end": 2.14,
+          "key": "all",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.14,
+          "end": 2.3,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.3,
+          "end": 2.5,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 2.5,
+          "end": 2.68,
+          "key": "love",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.68,
+          "end": 2.86,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 2.86,
+          "end": 3.02,
+          "key": "her",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.0,
+          "end": 0.54
+        },
+        {
+          "text": "Richard.",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "text": "Say",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "text": "that",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "text": "I",
+          "start": 1.78,
+          "end": 1.88
+        },
+        {
+          "text": "did",
+          "start": 1.88,
+          "end": 1.98
+        },
+        {
+          "text": "all",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "text": "this",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "text": "for",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "text": "love",
+          "start": 2.5,
+          "end": 2.68
+        },
+        {
+          "text": "of",
+          "start": 2.68,
+          "end": 2.86
+        },
+        {
+          "text": "her?",
+          "start": 2.86,
+          "end": 3.02
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24415916204452515
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c4e8bcd873c1dc1727359b9da6040c885a7739fdb1a0e3622f917aea36053b8d",
+  "selected_reasons": []
+}

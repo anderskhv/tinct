@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "e6deed6dffaf2b8c2f33e877a11ea5feb9c8a0e04c03cfbe28fd1bc81b52ce13",
+  "attempts": [
+    {
+      "asr_seconds": 0.143869761377573,
+      "alignment_seconds": 0.00023563578724861145,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Richard",
+          "start": 0.02,
+          "end": 0.88,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.79638671875
+            },
+            {
+              "text": " Richard",
+              "start": 0.54,
+              "end": 0.88,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "Richard",
+          "start": 0.54,
+          "end": 0.88
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard",
+          "start": 0.54,
+          "end": 0.88,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "Richard.",
+          "start": 0.54,
+          "end": 0.88
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1441929191350937
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3e4e336383cf82c1fc8a8d75eb5290261d1d3975bcf2ab6856978f95d5c3c01d",
+  "selected_reasons": []
+}

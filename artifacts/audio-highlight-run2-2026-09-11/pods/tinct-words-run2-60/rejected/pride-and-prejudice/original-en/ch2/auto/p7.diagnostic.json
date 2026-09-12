@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "86152b45afcb9d83b4b5014df23175718a0a078bf96d4ecf0ce5ee87fce2b9eb",
+  "attempts": [
+    {
+      "asr_seconds": 0.27611903101205826,
+      "alignment_seconds": 0.0006830319762229919,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Don't keep coughing so, Kitty, for heaven's sake! Have a little compassion on my nerves. You tear them to pieces.\"",
+        "hotwords": "Don't, Kitty, Have, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don't keep coughing so, Kitty, for heaven's sake! Have a little compassion on my nerves. You tear them to pieces.",
+          "start": 0.05,
+          "end": 6.23,
+          "words": [
+            {
+              "text": " Don't",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " keep",
+              "start": 0.67,
+              "end": 0.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " coughing",
+              "start": 0.83,
+              "end": 1.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " so,",
+              "start": 1.19,
+              "end": 1.55,
+              "probability": 0.6982421875
+            },
+            {
+              "text": " Kitty,",
+              "start": 1.73,
+              "end": 1.75,
+              "probability": 0.74853515625
+            },
+            {
+              "text": " for",
+              "start": 2.03,
+              "end": 2.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " heaven's",
+              "start": 2.11,
+              "end": 2.51,
+              "probability": 0.7232666015625
+            },
+            {
+              "text": " sake!",
+              "start": 2.51,
+              "end": 2.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Have",
+              "start": 3.33,
+              "end": 3.41,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " a",
+              "start": 3.41,
+              "end": 3.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " little",
+              "start": 3.49,
+              "end": 3.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " compassion",
+              "start": 3.63,
+              "end": 4.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " on",
+              "start": 4.07,
+              "end": 4.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 4.35,
+              "end": 4.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " nerves.",
+              "start": 4.49,
+              "end": 4.83,
+              "probability": 1.0
+            },
+            {
+              "text": " You",
+              "start": 5.31,
+              "end": 5.43,
+              "probability": 0.9921875
+            },
+            {
+              "text": " tear",
+              "start": 5.43,
+              "end": 5.61,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " them",
+              "start": 5.61,
+              "end": 5.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 5.79,
+              "end": 5.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " pieces.",
+              "start": 5.95,
+              "end": 6.23,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don't",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "keep",
+          "start": 0.67,
+          "end": 0.83
+        },
+        {
+          "raw": "coughing",
+          "start": 0.83,
+          "end": 1.19
+        },
+        {
+          "raw": "so,",
+          "start": 1.19,
+          "end": 1.55
+        },
+        {
+          "raw": "Kitty,",
+          "start": 1.73,
+          "end": 1.75
+        },
+        {
+          "raw": "for",
+          "start": 2.03,
+          "end": 2.11
+        },
+        {
+          "raw": "heaven's",
+          "start": 2.11,
+          "end": 2.51
+        },
+        {
+          "raw": "sake!",
+          "start": 2.51,
+          "end": 2.75
+        },
+        {
+          "raw": "Have",
+          "start": 3.33,
+          "end": 3.41
+        },
+        {
+          "raw": "a",
+          "start": 3.41,
+          "end": 3.49
+        },
+        {
+          "raw": "little",
+          "start": 3.49,
+          "end": 3.63
+        },
+        {
+          "raw": "compassion",
+          "start": 3.63,
+          "end": 4.07
+        },
+        {
+          "raw": "on",
+          "start": 4.07,
+          "end": 4.35
+        },
+        {
+          "raw": "my",
+          "start": 4.35,
+          "end": 4.49
+        },
+        {
+          "raw": "nerves.",
+          "start": 4.49,
+          "end": 4.83
+        },
+        {
+          "raw": "You",
+          "start": 5.31,
+          "end": 5.43
+        },
+        {
+          "raw": "tear",
+          "start": 5.43,
+          "end": 5.61
+        },
+        {
+          "raw": "them",
+          "start": 5.61,
+          "end": 5.79
+        },
+        {
+          "raw": "to",
+          "start": 5.79,
+          "end": 5.95
+        },
+        {
+          "raw": "pieces.",
+          "start": 5.95,
+          "end": 6.23
+        }
+      ],
+      "expected_tokens": [
+        "\"Don't",
+        "keep",
+        "coughing",
+        "so,",
+        "Kitty,",
+        "for",
+        "heaven's",
+        "sake!",
+        "Have",
+        "a",
+        "little",
+        "compassion",
+        "on",
+        "my",
+        "nerves.",
+        "You",
+        "tear",
+        "them",
+        "to",
+        "pieces.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don't",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "dont",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 0.67,
+          "end": 0.83,
+          "key": "keep",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "coughing",
+          "start": 0.83,
+          "end": 1.19,
+          "key": "coughing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 1.19,
+          "end": 1.55,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Kitty,",
+          "start": 1.73,
+          "end": 1.75,
+          "key": "kitty",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.03,
+          "end": 2.11,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "heaven's",
+          "start": 2.11,
+          "end": 2.51,
+          "key": "heavens",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sake!",
+          "start": 2.51,
+          "end": 2.75,
+          "key": "sake",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 3.33,
+          "end": 3.41,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.41,
+          "end": 3.49,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 3.49,
+          "end": 3.63,
+          "key": "little",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "compassion",
+          "start": 3.63,
+          "end": 4.07,
+          "key": "compassion",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.07,
+          "end": 4.35,
+          "key": "on",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.35,
+          "end": 4.49,
+          "key": "my",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "nerves.",
+          "start": 4.49,
+          "end": 4.83,
+          "key": "nerves",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 5.31,
+          "end": 5.43,
+          "key": "you",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "tear",
+          "start": 5.43,
+          "end": 5.61,
+          "key": "tear",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 5.61,
+          "end": 5.79,
+          "key": "them",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.79,
+          "end": 5.95,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "pieces.",
+          "start": 5.95,
+          "end": 6.23,
+          "key": "pieces",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Don't",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "keep",
+          "start": 0.67,
+          "end": 0.83
+        },
+        {
+          "text": "coughing",
+          "start": 0.83,
+          "end": 1.19
+        },
+        {
+          "text": "so,",
+          "start": 1.19,
+          "end": 1.55
+        },
+        {
+          "text": "Kitty,",
+          "start": 1.73,
+          "end": 1.75
+        },
+        {
+          "text": "for",
+          "start": 2.03,
+          "end": 2.11
+        },
+        {
+          "text": "heaven's",
+          "start": 2.11,
+          "end": 2.51
+        },
+        {
+          "text": "sake!",
+          "start": 2.51,
+          "end": 2.75
+        },
+        {
+          "text": "Have",
+          "start": 3.33,
+          "end": 3.41
+        },
+        {
+          "text": "a",
+          "start": 3.41,
+          "end": 3.49
+        },
+        {
+          "text": "little",
+          "start": 3.49,
+          "end": 3.63
+        },
+        {
+          "text": "compassion",
+          "start": 3.63,
+          "end": 4.07
+        },
+        {
+          "text": "on",
+          "start": 4.07,
+          "end": 4.35
+        },
+        {
+          "text": "my",
+          "start": 4.35,
+          "end": 4.49
+        },
+        {
+          "text": "nerves.",
+          "start": 4.49,
+          "end": 4.83
+        },
+        {
+          "text": "You",
+          "start": 5.31,
+          "end": 5.43
+        },
+        {
+          "text": "tear",
+          "start": 5.43,
+          "end": 5.61
+        },
+        {
+          "text": "them",
+          "start": 5.61,
+          "end": 5.79
+        },
+        {
+          "text": "to",
+          "start": 5.79,
+          "end": 5.95
+        },
+        {
+          "text": "pieces.\"",
+          "start": 5.95,
+          "end": 6.23
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2771352380514145
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4e88c969a672fe93b232eef19effb5c4157b7bd3893a04d003c78db9ceac5034",
+  "selected_reasons": []
+}

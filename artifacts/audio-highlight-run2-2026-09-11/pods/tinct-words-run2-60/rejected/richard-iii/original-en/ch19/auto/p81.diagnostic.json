@@ -1,0 +1,541 @@
+{
+  "complete": true,
+  "signature": "c0cfefd7fdbf39d713d910fc9ac81776d71bc3d9ddf2da69798be37858c9540b",
+  "attempts": [
+    {
+      "asr_seconds": 0.22502592206001282,
+      "alignment_seconds": 0.00045493990182876587,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Richard. You speak as if that I had slain my cousins.",
+        "hotwords": "King, Richard, You, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Richard, You, I King Richard. You speak as if that I had slain my cousins.",
+          "start": 0.05,
+          "end": 3.39,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.796875
+            },
+            {
+              "text": " Richard,",
+              "start": 0.55,
+              "end": 0.93,
+              "probability": 0.9921875
+            },
+            {
+              "text": " You,",
+              "start": 1.39,
+              "end": 1.61,
+              "probability": 0.016876220703125
+            },
+            {
+              "text": " I",
+              "start": 1.65,
+              "end": 1.87,
+              "probability": 0.00016939640045166016
+            },
+            {
+              "text": " King",
+              "start": 1.87,
+              "end": 1.87,
+              "probability": 8.463859558105469e-06
+            },
+            {
+              "text": " Richard.",
+              "start": 1.87,
+              "end": 1.87,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " You",
+              "start": 1.87,
+              "end": 1.87,
+              "probability": 0.765625
+            },
+            {
+              "text": " speak",
+              "start": 1.87,
+              "end": 1.87,
+              "probability": 0.2822265625
+            },
+            {
+              "text": " as",
+              "start": 1.87,
+              "end": 2.01,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " if",
+              "start": 2.01,
+              "end": 2.19,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " that",
+              "start": 2.19,
+              "end": 2.31,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " I",
+              "start": 2.31,
+              "end": 2.43,
+              "probability": 0.81884765625
+            },
+            {
+              "text": " had",
+              "start": 2.43,
+              "end": 2.55,
+              "probability": 0.974609375
+            },
+            {
+              "text": " slain",
+              "start": 2.55,
+              "end": 2.85,
+              "probability": 0.990234375
+            },
+            {
+              "text": " my",
+              "start": 2.85,
+              "end": 3.09,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " cousins.",
+              "start": 3.09,
+              "end": 3.39,
+              "probability": 0.955078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "raw": "You,",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "raw": "I",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "raw": "King",
+          "start": 1.87,
+          "end": 1.87
+        },
+        {
+          "raw": "Richard.",
+          "start": 1.87,
+          "end": 1.87
+        },
+        {
+          "raw": "You",
+          "start": 1.87,
+          "end": 1.87
+        },
+        {
+          "raw": "speak",
+          "start": 1.87,
+          "end": 1.87
+        },
+        {
+          "raw": "as",
+          "start": 1.87,
+          "end": 2.01
+        },
+        {
+          "raw": "if",
+          "start": 2.01,
+          "end": 2.19
+        },
+        {
+          "raw": "that",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "raw": "I",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "raw": "had",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "raw": "slain",
+          "start": 2.55,
+          "end": 2.85
+        },
+        {
+          "raw": "my",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "raw": "cousins.",
+          "start": 3.09,
+          "end": 3.39
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "You",
+        "speak",
+        "as",
+        "if",
+        "that",
+        "I",
+        "had",
+        "slain",
+        "my",
+        "cousins."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          4
+        ],
+        [
+          "equal",
+          0,
+          12,
+          4,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.55,
+          "end": 0.93,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "You,",
+          "start": 1.39,
+          "end": 1.61,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.65,
+          "end": 1.87,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "King",
+          "start": 1.87,
+          "end": 1.87,
+          "key": "king",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Richard.",
+          "start": 1.87,
+          "end": 1.87,
+          "key": "richard",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.87,
+          "end": 1.87,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 1.87,
+          "end": 1.87,
+          "key": "speak",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.87,
+          "end": 2.01,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.01,
+          "end": 2.19,
+          "key": "if",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.19,
+          "end": 2.31,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.31,
+          "end": 2.43,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.43,
+          "end": 2.55,
+          "key": "had",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "slain",
+          "start": 2.55,
+          "end": 2.85,
+          "key": "slain",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.85,
+          "end": 3.09,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "cousins.",
+          "start": 3.09,
+          "end": 3.39,
+          "key": "cousins",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 1.87,
+          "end": 1.87
+        },
+        {
+          "text": "Richard.",
+          "start": 1.87,
+          "end": 1.87
+        },
+        {
+          "text": "You",
+          "start": 1.87,
+          "end": 1.87
+        },
+        {
+          "text": "speak",
+          "start": 1.87,
+          "end": 1.87
+        },
+        {
+          "text": "as",
+          "start": 1.87,
+          "end": 2.01
+        },
+        {
+          "text": "if",
+          "start": 2.01,
+          "end": 2.19
+        },
+        {
+          "text": "that",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "text": "I",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "had",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "text": "slain",
+          "start": 2.55,
+          "end": 2.85
+        },
+        {
+          "text": "my",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "text": "cousins.",
+          "start": 3.09,
+          "end": 3.39
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 16,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22570133581757545
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b81c8bb7ec511fd5ba1c03768aaaa665f8a226a5d88257e4a826f00970aa0a21",
+  "selected_reasons": []
+}

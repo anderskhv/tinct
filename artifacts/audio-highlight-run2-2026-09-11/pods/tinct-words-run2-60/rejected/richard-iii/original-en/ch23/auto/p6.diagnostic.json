@@ -1,0 +1,677 @@
+{
+  "complete": true,
+  "signature": "b370e8365414bc92bae4ba8a380d4d80b5b70d21a9c99a5b2d5c2f163390c3e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.28032136708498,
+      "alignment_seconds": 0.0005154162645339966,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Norfolk. We must both give and take, my loving lord.",
+        "hotwords": "Norfolk, We"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Norfolk, We Norfolk. We Norfolk. We Norfolk. We Norfolk. We Norfolk. We Norfolk. We Norfolk. We must both give and take, my loving lord.",
+          "start": 0.05,
+          "end": 3.23,
+          "words": [
+            {
+              "text": " Norfolk,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.54833984375
+            },
+            {
+              "text": " We",
+              "start": 1.29,
+              "end": 1.35,
+              "probability": 0.016876220703125
+            },
+            {
+              "text": " Norfolk.",
+              "start": 1.35,
+              "end": 1.41,
+              "probability": 0.0
+            },
+            {
+              "text": " We",
+              "start": 1.41,
+              "end": 1.41,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " Norfolk.",
+              "start": 1.41,
+              "end": 1.47,
+              "probability": 0.00815582275390625
+            },
+            {
+              "text": " We",
+              "start": 1.47,
+              "end": 1.47,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Norfolk.",
+              "start": 1.47,
+              "end": 1.47,
+              "probability": 0.064697265625
+            },
+            {
+              "text": " We",
+              "start": 1.47,
+              "end": 1.47,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " Norfolk.",
+              "start": 1.47,
+              "end": 1.47,
+              "probability": 0.143310546875
+            },
+            {
+              "text": " We",
+              "start": 1.47,
+              "end": 1.47,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " Norfolk.",
+              "start": 1.47,
+              "end": 1.47,
+              "probability": 0.2042236328125
+            },
+            {
+              "text": " We",
+              "start": 1.47,
+              "end": 1.47,
+              "probability": 0.931640625
+            },
+            {
+              "text": " Norfolk.",
+              "start": 1.47,
+              "end": 1.47,
+              "probability": 0.1964111328125
+            },
+            {
+              "text": " We",
+              "start": 1.47,
+              "end": 1.47,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " Norfolk.",
+              "start": 1.47,
+              "end": 1.47,
+              "probability": 0.12164306640625
+            },
+            {
+              "text": " We",
+              "start": 1.47,
+              "end": 1.47,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " must",
+              "start": 1.47,
+              "end": 1.49,
+              "probability": 0.626953125
+            },
+            {
+              "text": " both",
+              "start": 1.49,
+              "end": 1.73,
+              "probability": 0.94140625
+            },
+            {
+              "text": " give",
+              "start": 1.73,
+              "end": 1.97,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " and",
+              "start": 1.97,
+              "end": 2.11,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " take,",
+              "start": 2.11,
+              "end": 2.35,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " my",
+              "start": 2.53,
+              "end": 2.63,
+              "probability": 0.806640625
+            },
+            {
+              "text": " loving",
+              "start": 2.63,
+              "end": 2.91,
+              "probability": 0.8203125
+            },
+            {
+              "text": " lord.",
+              "start": 2.91,
+              "end": 3.23,
+              "probability": 0.15576171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Norfolk,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "We",
+          "start": 1.29,
+          "end": 1.35
+        },
+        {
+          "raw": "Norfolk.",
+          "start": 1.35,
+          "end": 1.41
+        },
+        {
+          "raw": "We",
+          "start": 1.41,
+          "end": 1.41
+        },
+        {
+          "raw": "Norfolk.",
+          "start": 1.41,
+          "end": 1.47
+        },
+        {
+          "raw": "We",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "raw": "Norfolk.",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "raw": "We",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "raw": "Norfolk.",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "raw": "We",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "raw": "Norfolk.",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "raw": "We",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "raw": "Norfolk.",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "raw": "We",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "raw": "Norfolk.",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "raw": "We",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "raw": "must",
+          "start": 1.47,
+          "end": 1.49
+        },
+        {
+          "raw": "both",
+          "start": 1.49,
+          "end": 1.73
+        },
+        {
+          "raw": "give",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "raw": "and",
+          "start": 1.97,
+          "end": 2.11
+        },
+        {
+          "raw": "take,",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "raw": "my",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "raw": "loving",
+          "start": 2.63,
+          "end": 2.91
+        },
+        {
+          "raw": "lord.",
+          "start": 2.91,
+          "end": 3.23
+        }
+      ],
+      "expected_tokens": [
+        "Norfolk.",
+        "We",
+        "must",
+        "both",
+        "give",
+        "and",
+        "take,",
+        "my",
+        "loving",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          14
+        ],
+        [
+          "equal",
+          0,
+          10,
+          14,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Norfolk,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "norfolk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.29,
+          "end": 1.35,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Norfolk.",
+          "start": 1.35,
+          "end": 1.41,
+          "key": "norfolk",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.41,
+          "end": 1.41,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Norfolk.",
+          "start": 1.41,
+          "end": 1.47,
+          "key": "norfolk",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.47,
+          "end": 1.47,
+          "key": "we",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Norfolk.",
+          "start": 1.47,
+          "end": 1.47,
+          "key": "norfolk",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.47,
+          "end": 1.47,
+          "key": "we",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Norfolk.",
+          "start": 1.47,
+          "end": 1.47,
+          "key": "norfolk",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.47,
+          "end": 1.47,
+          "key": "we",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Norfolk.",
+          "start": 1.47,
+          "end": 1.47,
+          "key": "norfolk",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.47,
+          "end": 1.47,
+          "key": "we",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Norfolk.",
+          "start": 1.47,
+          "end": 1.47,
+          "key": "norfolk",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.47,
+          "end": 1.47,
+          "key": "we",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Norfolk.",
+          "start": 1.47,
+          "end": 1.47,
+          "key": "norfolk",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.47,
+          "end": 1.47,
+          "key": "we",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.47,
+          "end": 1.49,
+          "key": "must",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 1.49,
+          "end": 1.73,
+          "key": "both",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.73,
+          "end": 1.97,
+          "key": "give",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.97,
+          "end": 2.11,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "take,",
+          "start": 2.11,
+          "end": 2.35,
+          "key": "take",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.53,
+          "end": 2.63,
+          "key": "my",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "loving",
+          "start": 2.63,
+          "end": 2.91,
+          "key": "loving",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 2.91,
+          "end": 3.23,
+          "key": "lord",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Norfolk.",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "text": "We",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "text": "must",
+          "start": 1.47,
+          "end": 1.49
+        },
+        {
+          "text": "both",
+          "start": 1.49,
+          "end": 1.73
+        },
+        {
+          "text": "give",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "text": "and",
+          "start": 1.97,
+          "end": 2.11
+        },
+        {
+          "text": "take,",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "text": "my",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "text": "loving",
+          "start": 2.63,
+          "end": 2.91
+        },
+        {
+          "text": "lord.",
+          "start": 2.91,
+          "end": 3.23
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 24,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2811734564602375
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "45c9bf61d174b6f83e80b292757f60053713b41c6eefa1fbc97909e67959629d",
+  "selected_reasons": []
+}

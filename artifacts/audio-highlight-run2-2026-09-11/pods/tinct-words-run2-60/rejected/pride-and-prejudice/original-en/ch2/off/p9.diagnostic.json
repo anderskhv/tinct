@@ -1,0 +1,690 @@
+{
+  "complete": true,
+  "signature": "007beb0bf6af5e66f4a3950eb0b9b201fa2b965815dc663ea51756c1fca2dd94",
+  "attempts": [
+    {
+      "asr_seconds": 0.34157537668943405,
+      "alignment_seconds": 0.0005102232098579407,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I do not cough for my own amusement,\" replied Kitty fretfully.",
+          "start": 0.08,
+          "end": 3.82,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.08709716796875
+            },
+            {
+              "text": " do",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " not",
+              "start": 0.6,
+              "end": 0.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " cough",
+              "start": 0.78,
+              "end": 1.04,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " for",
+              "start": 1.04,
+              "end": 1.26,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " my",
+              "start": 1.26,
+              "end": 1.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " own",
+              "start": 1.42,
+              "end": 1.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " amusement,\"",
+              "start": 1.6,
+              "end": 2.44,
+              "probability": 0.778076171875
+            },
+            {
+              "text": " replied",
+              "start": 2.44,
+              "end": 2.9,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Kitty",
+              "start": 2.9,
+              "end": 3.26,
+              "probability": 0.97265625
+            },
+            {
+              "text": " fretfully.",
+              "start": 3.26,
+              "end": 3.82,
+              "probability": 0.931396484375
+            }
+          ]
+        },
+        {
+          "text": " When is your next ball to be Lizzie?",
+          "start": 4.5,
+          "end": 6.1,
+          "words": [
+            {
+              "text": " When",
+              "start": 4.5,
+              "end": 4.64,
+              "probability": 0.0239410400390625
+            },
+            {
+              "text": " is",
+              "start": 4.64,
+              "end": 4.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 4.78,
+              "end": 4.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " next",
+              "start": 4.9,
+              "end": 5.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ball",
+              "start": 5.14,
+              "end": 5.4,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " to",
+              "start": 5.4,
+              "end": 5.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 5.56,
+              "end": 5.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Lizzie?",
+              "start": 5.74,
+              "end": 6.1,
+              "probability": 0.8186848958333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "do",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "not",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "raw": "cough",
+          "start": 0.78,
+          "end": 1.04
+        },
+        {
+          "raw": "for",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "raw": "my",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "raw": "own",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "raw": "amusement,\"",
+          "start": 1.6,
+          "end": 2.44
+        },
+        {
+          "raw": "replied",
+          "start": 2.44,
+          "end": 2.9
+        },
+        {
+          "raw": "Kitty",
+          "start": 2.9,
+          "end": 3.26
+        },
+        {
+          "raw": "fretfully.",
+          "start": 3.26,
+          "end": 3.82
+        },
+        {
+          "raw": "When",
+          "start": 4.5,
+          "end": 4.64
+        },
+        {
+          "raw": "is",
+          "start": 4.64,
+          "end": 4.78
+        },
+        {
+          "raw": "your",
+          "start": 4.78,
+          "end": 4.9
+        },
+        {
+          "raw": "next",
+          "start": 4.9,
+          "end": 5.14
+        },
+        {
+          "raw": "ball",
+          "start": 5.14,
+          "end": 5.4
+        },
+        {
+          "raw": "to",
+          "start": 5.4,
+          "end": 5.56
+        },
+        {
+          "raw": "be",
+          "start": 5.56,
+          "end": 5.74
+        },
+        {
+          "raw": "Lizzie?",
+          "start": 5.74,
+          "end": 6.1
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "do",
+        "not",
+        "cough",
+        "for",
+        "my",
+        "own",
+        "amusement,\"",
+        "replied",
+        "Kitty,",
+        "fretfully.",
+        "\"When",
+        "is",
+        "your",
+        "next",
+        "ball",
+        "to",
+        "be,",
+        "Lizzy?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.5,
+          "end": 0.6,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.6,
+          "end": 0.78,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cough",
+          "start": 0.78,
+          "end": 1.04,
+          "key": "cough",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.04,
+          "end": 1.26,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.26,
+          "end": 1.42,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 1.42,
+          "end": 1.6,
+          "key": "own",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "amusement,\"",
+          "start": 1.6,
+          "end": 2.44,
+          "key": "amusement",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 2.44,
+          "end": 2.9,
+          "key": "replied",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Kitty",
+          "start": 2.9,
+          "end": 3.26,
+          "key": "kitty",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fretfully.",
+          "start": 3.26,
+          "end": 3.82,
+          "key": "fretfully",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "When",
+          "start": 4.5,
+          "end": 4.64,
+          "key": "when",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.64,
+          "end": 4.78,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.78,
+          "end": 4.9,
+          "key": "your",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "next",
+          "start": 4.9,
+          "end": 5.14,
+          "key": "next",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "ball",
+          "start": 5.14,
+          "end": 5.4,
+          "key": "ball",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.4,
+          "end": 5.56,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.56,
+          "end": 5.74,
+          "key": "be",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Lizzie?",
+          "start": 5.74,
+          "end": 6.1,
+          "key": "lizzie",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "do",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "not",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "text": "cough",
+          "start": 0.78,
+          "end": 1.04
+        },
+        {
+          "text": "for",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "text": "my",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "text": "own",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "text": "amusement,\"",
+          "start": 1.6,
+          "end": 2.44
+        },
+        {
+          "text": "replied",
+          "start": 2.44,
+          "end": 2.9
+        },
+        {
+          "text": "Kitty,",
+          "start": 2.9,
+          "end": 3.26
+        },
+        {
+          "text": "fretfully.",
+          "start": 3.26,
+          "end": 3.82
+        },
+        {
+          "text": "\"When",
+          "start": 4.5,
+          "end": 4.64
+        },
+        {
+          "text": "is",
+          "start": 4.64,
+          "end": 4.78
+        },
+        {
+          "text": "your",
+          "start": 4.78,
+          "end": 4.9
+        },
+        {
+          "text": "next",
+          "start": 4.9,
+          "end": 5.14
+        },
+        {
+          "text": "ball",
+          "start": 5.14,
+          "end": 5.4
+        },
+        {
+          "text": "to",
+          "start": 5.4,
+          "end": 5.56
+        },
+        {
+          "text": "be,",
+          "start": 5.56,
+          "end": 5.74
+        },
+        {
+          "text": "Lizzy?\"",
+          "start": 5.74,
+          "end": 5.92
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.34230266883969307
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "07f1777770071a8f65bf82dbe91f041e896607f3211f195c00eadf552a161d8e",
+  "selected_reasons": []
+}

@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "eff06f532c72ce63ccdcb861cc899d0ce09d5a6eb480a358e2b13d3532e1914f",
+  "attempts": [
+    {
+      "asr_seconds": 0.29818201065063477,
+      "alignment_seconds": 0.0005146786570549011,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Richard. That would I learn of you, As one being best acquainted with her humour.",
+        "hotwords": "King, Richard, That, I, As"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Richard, That would I learn of you, As one being best acquainted with her humour.",
+          "start": 0.0,
+          "end": 4.66,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.0,
+              "end": 0.56,
+              "probability": 0.62744140625
+            },
+            {
+              "text": " Richard,",
+              "start": 0.56,
+              "end": 0.96,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " That",
+              "start": 1.42,
+              "end": 1.68,
+              "probability": 0.0211639404296875
+            },
+            {
+              "text": " would",
+              "start": 1.68,
+              "end": 1.8,
+              "probability": 0.46044921875
+            },
+            {
+              "text": " I",
+              "start": 1.8,
+              "end": 1.96,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " learn",
+              "start": 1.96,
+              "end": 2.14,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " of",
+              "start": 2.14,
+              "end": 2.3,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " you,",
+              "start": 2.3,
+              "end": 2.52,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " As",
+              "start": 2.7,
+              "end": 2.84,
+              "probability": 0.28271484375
+            },
+            {
+              "text": " one",
+              "start": 2.84,
+              "end": 3.06,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " being",
+              "start": 3.06,
+              "end": 3.32,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " best",
+              "start": 3.32,
+              "end": 3.6,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " acquainted",
+              "start": 3.6,
+              "end": 3.98,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " with",
+              "start": 3.98,
+              "end": 4.28,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " her",
+              "start": 4.28,
+              "end": 4.44,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " humour.",
+              "start": 4.44,
+              "end": 4.66,
+              "probability": 0.2120361328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "raw": "That",
+          "start": 1.42,
+          "end": 1.68
+        },
+        {
+          "raw": "would",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "raw": "I",
+          "start": 1.8,
+          "end": 1.96
+        },
+        {
+          "raw": "learn",
+          "start": 1.96,
+          "end": 2.14
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "raw": "you,",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "raw": "As",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "raw": "one",
+          "start": 2.84,
+          "end": 3.06
+        },
+        {
+          "raw": "being",
+          "start": 3.06,
+          "end": 3.32
+        },
+        {
+          "raw": "best",
+          "start": 3.32,
+          "end": 3.6
+        },
+        {
+          "raw": "acquainted",
+          "start": 3.6,
+          "end": 3.98
+        },
+        {
+          "raw": "with",
+          "start": 3.98,
+          "end": 4.28
+        },
+        {
+          "raw": "her",
+          "start": 4.28,
+          "end": 4.44
+        },
+        {
+          "raw": "humour.",
+          "start": 4.44,
+          "end": 4.66
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "That",
+        "would",
+        "I",
+        "learn",
+        "of",
+        "you,",
+        "As",
+        "one",
+        "being",
+        "best",
+        "acquainted",
+        "with",
+        "her",
+        "humour."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.0,
+          "end": 0.56,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.56,
+          "end": 0.96,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 1.42,
+          "end": 1.68,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.68,
+          "end": 1.8,
+          "key": "would",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.8,
+          "end": 1.96,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "learn",
+          "start": 1.96,
+          "end": 2.14,
+          "key": "learn",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.3,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 2.3,
+          "end": 2.52,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 2.7,
+          "end": 2.84,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.84,
+          "end": 3.06,
+          "key": "one",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 3.06,
+          "end": 3.32,
+          "key": "being",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 3.32,
+          "end": 3.6,
+          "key": "best",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "acquainted",
+          "start": 3.6,
+          "end": 3.98,
+          "key": "acquainted",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.98,
+          "end": 4.28,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.28,
+          "end": 4.44,
+          "key": "her",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "humour.",
+          "start": 4.44,
+          "end": 4.66,
+          "key": "humour",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "text": "Richard.",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "text": "That",
+          "start": 1.42,
+          "end": 1.68
+        },
+        {
+          "text": "would",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "text": "I",
+          "start": 1.8,
+          "end": 1.96
+        },
+        {
+          "text": "learn",
+          "start": 1.96,
+          "end": 2.14
+        },
+        {
+          "text": "of",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "text": "you,",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "text": "As",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "text": "one",
+          "start": 2.84,
+          "end": 3.06
+        },
+        {
+          "text": "being",
+          "start": 3.06,
+          "end": 3.32
+        },
+        {
+          "text": "best",
+          "start": 3.32,
+          "end": 3.6
+        },
+        {
+          "text": "acquainted",
+          "start": 3.6,
+          "end": 3.98
+        },
+        {
+          "text": "with",
+          "start": 3.98,
+          "end": 4.28
+        },
+        {
+          "text": "her",
+          "start": 4.28,
+          "end": 4.44
+        },
+        {
+          "text": "humour.",
+          "start": 4.44,
+          "end": 4.66
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29891256242990494
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dcf3b67c905a75cba2b8057d611763804a5b3aa6710688fadfd86c12ee84b600",
+  "selected_reasons": []
+}

@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "f1b2a6911ec018a6f1c6f6732684faa795a5c80e5d54936c16a0040a76361e4d",
+  "attempts": [
+    {
+      "asr_seconds": 0.17652960121631622,
+      "alignment_seconds": 0.00038851797580718994,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Duchess. Where is kind Hastings?",
+        "hotwords": "Duchess, Where, Hastings"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Duchess, Where is kind Hastings?",
+          "start": 0.08,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Duchess,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.329345703125
+            },
+            {
+              "text": " Where",
+              "start": 1.16,
+              "end": 1.28,
+              "probability": 0.004398345947265625
+            },
+            {
+              "text": " is",
+              "start": 1.28,
+              "end": 1.4,
+              "probability": 0.59375
+            },
+            {
+              "text": " kind",
+              "start": 1.4,
+              "end": 1.62,
+              "probability": 0.53173828125
+            },
+            {
+              "text": " Hastings?",
+              "start": 1.62,
+              "end": 2.0,
+              "probability": 0.74609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duchess,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "Where",
+          "start": 1.16,
+          "end": 1.28
+        },
+        {
+          "raw": "is",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "raw": "kind",
+          "start": 1.4,
+          "end": 1.62
+        },
+        {
+          "raw": "Hastings?",
+          "start": 1.62,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "Duchess.",
+        "Where",
+        "is",
+        "kind",
+        "Hastings?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duchess,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "duchess",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 1.16,
+          "end": 1.28,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.28,
+          "end": 1.4,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 1.4,
+          "end": 1.62,
+          "key": "kind",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Hastings?",
+          "start": 1.62,
+          "end": 2.0,
+          "key": "hastings",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duchess.",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "Where",
+          "start": 1.16,
+          "end": 1.28
+        },
+        {
+          "text": "is",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "text": "kind",
+          "start": 1.4,
+          "end": 1.62
+        },
+        {
+          "text": "Hastings?",
+          "start": 1.62,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.177045326679945
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e53bf0a12177535c4a7cc2a684aefbc3898af2ec1cd024fc7a5895c605617c5a",
+  "selected_reasons": []
+}

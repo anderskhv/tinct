@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "5f73e21f2117e28077b8a70a58e6ba694a97f2e599cc27fd122560da09a15b63",
+  "attempts": [
+    {
+      "asr_seconds": 0.18949353694915771,
+      "alignment_seconds": 0.0003871843218803406,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Richmond. Good night, good Captain Blunt.",
+        "hotwords": "Richmond, Captain, Blunt"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Richmond, good night, good Captain Blunt.",
+          "start": 0.02,
+          "end": 2.76,
+          "words": [
+            {
+              "text": " Richmond,",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " good",
+              "start": 1.24,
+              "end": 1.44,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " night,",
+              "start": 1.44,
+              "end": 1.72,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " good",
+              "start": 1.96,
+              "end": 2.0,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " Captain",
+              "start": 2.0,
+              "end": 2.38,
+              "probability": 0.7626953125
+            },
+            {
+              "text": " Blunt.",
+              "start": 2.38,
+              "end": 2.76,
+              "probability": 0.97216796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richmond,",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "good",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "raw": "night,",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "raw": "good",
+          "start": 1.96,
+          "end": 2.0
+        },
+        {
+          "raw": "Captain",
+          "start": 2.0,
+          "end": 2.38
+        },
+        {
+          "raw": "Blunt.",
+          "start": 2.38,
+          "end": 2.76
+        }
+      ],
+      "expected_tokens": [
+        "Richmond.",
+        "Good",
+        "night,",
+        "good",
+        "Captain",
+        "Blunt."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richmond,",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "richmond",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.24,
+          "end": 1.44,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "night,",
+          "start": 1.44,
+          "end": 1.72,
+          "key": "night",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.96,
+          "end": 2.0,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Captain",
+          "start": 2.0,
+          "end": 2.38,
+          "key": "captain",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Blunt.",
+          "start": 2.38,
+          "end": 2.76,
+          "key": "blunt",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richmond.",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "Good",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "text": "night,",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "text": "good",
+          "start": 1.96,
+          "end": 2.0
+        },
+        {
+          "text": "Captain",
+          "start": 2.0,
+          "end": 2.38
+        },
+        {
+          "text": "Blunt.",
+          "start": 2.38,
+          "end": 2.76
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1900061033666134
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0545c140fede5d8531a649e616f6d4eb2db221cf1538131f8a00b39e394b9574",
+  "selected_reasons": []
+}

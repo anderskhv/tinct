@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "357d92d4cf80e3ec4665ba6654ea93194adf301c1e90209f81efcb8511ef5cf1",
+  "attempts": [
+    {
+      "asr_seconds": 0.18230952695012093,
+      "alignment_seconds": 0.00032123178243637085,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Stanley. Fortune and victory sit on thy helm!",
+        "hotwords": "Stanley, Fortune"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Stanley, Fortune and victory sit on thy helm!",
+          "start": 0.08,
+          "end": 2.98,
+          "words": [
+            {
+              "text": " Stanley,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.77880859375
+            },
+            {
+              "text": " Fortune",
+              "start": 1.44,
+              "end": 1.5,
+              "probability": 0.07257080078125
+            },
+            {
+              "text": " and",
+              "start": 1.5,
+              "end": 1.8,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " victory",
+              "start": 1.8,
+              "end": 2.04,
+              "probability": 0.45068359375
+            },
+            {
+              "text": " sit",
+              "start": 2.04,
+              "end": 2.38,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " on",
+              "start": 2.38,
+              "end": 2.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " thy",
+              "start": 2.52,
+              "end": 2.66,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " helm!",
+              "start": 2.66,
+              "end": 2.98,
+              "probability": 0.94091796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stanley,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "Fortune",
+          "start": 1.44,
+          "end": 1.5
+        },
+        {
+          "raw": "and",
+          "start": 1.5,
+          "end": 1.8
+        },
+        {
+          "raw": "victory",
+          "start": 1.8,
+          "end": 2.04
+        },
+        {
+          "raw": "sit",
+          "start": 2.04,
+          "end": 2.38
+        },
+        {
+          "raw": "on",
+          "start": 2.38,
+          "end": 2.52
+        },
+        {
+          "raw": "thy",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "raw": "helm!",
+          "start": 2.66,
+          "end": 2.98
+        }
+      ],
+      "expected_tokens": [
+        "Stanley.",
+        "Fortune",
+        "and",
+        "victory",
+        "sit",
+        "on",
+        "thy",
+        "helm!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Stanley,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "stanley",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fortune",
+          "start": 1.44,
+          "end": 1.5,
+          "key": "fortune",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.5,
+          "end": 1.8,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "victory",
+          "start": 1.8,
+          "end": 2.04,
+          "key": "victory",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sit",
+          "start": 2.04,
+          "end": 2.38,
+          "key": "sit",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.38,
+          "end": 2.52,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 2.52,
+          "end": 2.66,
+          "key": "thy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "helm!",
+          "start": 2.66,
+          "end": 2.98,
+          "key": "helm",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Stanley.",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "Fortune",
+          "start": 1.44,
+          "end": 1.5
+        },
+        {
+          "text": "and",
+          "start": 1.5,
+          "end": 1.8
+        },
+        {
+          "text": "victory",
+          "start": 1.8,
+          "end": 2.04
+        },
+        {
+          "text": "sit",
+          "start": 2.04,
+          "end": 2.38
+        },
+        {
+          "text": "on",
+          "start": 2.38,
+          "end": 2.52
+        },
+        {
+          "text": "thy",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "text": "helm!",
+          "start": 2.66,
+          "end": 2.98
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18279503285884857
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1dc206611ff287ab55c765285a8a15ea6ea71b60d6bc6a116625824811a5115f",
+  "selected_reasons": []
+}

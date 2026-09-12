@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "6be8ea8c92c229d742b36ad4fc178e85dd586fcab8b0dac1dd8a76a02bb0d74d",
+  "attempts": [
+    {
+      "asr_seconds": 0.21436866000294685,
+      "alignment_seconds": 0.00047753751277923584,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Richard, oh Radcliffe, I fear, I fear.",
+          "start": 0.05,
+          "end": 2.79,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " Richard,",
+              "start": 0.55,
+              "end": 0.95,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " oh",
+              "start": 1.49,
+              "end": 1.59,
+              "probability": 0.5595703125
+            },
+            {
+              "text": " Radcliffe,",
+              "start": 1.59,
+              "end": 1.97,
+              "probability": 0.57452392578125
+            },
+            {
+              "text": " I",
+              "start": 2.11,
+              "end": 2.17,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " fear,",
+              "start": 2.17,
+              "end": 2.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 2.51,
+              "end": 2.51,
+              "probability": 0.994140625
+            },
+            {
+              "text": " fear.",
+              "start": 2.51,
+              "end": 2.79,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "raw": "oh",
+          "start": 1.49,
+          "end": 1.59
+        },
+        {
+          "raw": "Radcliffe,",
+          "start": 1.59,
+          "end": 1.97
+        },
+        {
+          "raw": "I",
+          "start": 2.11,
+          "end": 2.17
+        },
+        {
+          "raw": "fear,",
+          "start": 2.17,
+          "end": 2.37
+        },
+        {
+          "raw": "I",
+          "start": 2.51,
+          "end": 2.51
+        },
+        {
+          "raw": "fear.",
+          "start": 2.51,
+          "end": 2.79
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "O",
+        "Ratcliffe,",
+        "I",
+        "fear,",
+        "I",
+        "fear!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.55,
+          "end": 0.95,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 1.49,
+          "end": 1.59,
+          "key": "oh",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Radcliffe,",
+          "start": 1.59,
+          "end": 1.97,
+          "key": "radcliffe",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.11,
+          "end": 2.17,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fear,",
+          "start": 2.17,
+          "end": 2.37,
+          "key": "fear",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.51,
+          "end": 2.51,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fear.",
+          "start": 2.51,
+          "end": 2.79,
+          "key": "fear",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Richard.",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "text": "O",
+          "start": 0.95,
+          "end": 1.53
+        },
+        {
+          "text": "Ratcliffe,",
+          "start": 1.53,
+          "end": 1.82
+        },
+        {
+          "text": "I",
+          "start": 2.11,
+          "end": 2.17
+        },
+        {
+          "text": "fear,",
+          "start": 2.17,
+          "end": 2.37
+        },
+        {
+          "text": "I",
+          "start": 2.51,
+          "end": 2.51
+        },
+        {
+          "text": "fear!",
+          "start": 2.51,
+          "end": 2.79
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21500850468873978
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "65ae82b8a3c6a6978ee6d3a67e75154bfbc01504bf4370afd1672267d9e22403",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

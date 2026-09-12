@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "89c4b27da4af0b1b0532fbd263381bd87f83047bfc6d454802340c2ce6308d13",
+  "attempts": [
+    {
+      "asr_seconds": 0.20713189989328384,
+      "alignment_seconds": 0.0004033297300338745,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Stanley. So deal with him as I prove true to you.",
+        "hotwords": "Stanley, So, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Stanley, So deal with him as I prove true to you.",
+          "start": 0.08,
+          "end": 3.16,
+          "words": [
+            {
+              "text": " Stanley,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " So",
+              "start": 1.2,
+              "end": 1.42,
+              "probability": 0.007793426513671875
+            },
+            {
+              "text": " deal",
+              "start": 1.42,
+              "end": 1.6,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " with",
+              "start": 1.6,
+              "end": 1.78,
+              "probability": 0.9921875
+            },
+            {
+              "text": " him",
+              "start": 1.78,
+              "end": 1.94,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " as",
+              "start": 1.94,
+              "end": 2.12,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " I",
+              "start": 2.12,
+              "end": 2.26,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " prove",
+              "start": 2.26,
+              "end": 2.46,
+              "probability": 0.9453125
+            },
+            {
+              "text": " true",
+              "start": 2.46,
+              "end": 2.74,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " to",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you.",
+              "start": 2.92,
+              "end": 3.16,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stanley,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "So",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "raw": "deal",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "raw": "with",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "raw": "him",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "raw": "as",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "raw": "prove",
+          "start": 2.26,
+          "end": 2.46
+        },
+        {
+          "raw": "true",
+          "start": 2.46,
+          "end": 2.74
+        },
+        {
+          "raw": "to",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "you.",
+          "start": 2.92,
+          "end": 3.16
+        }
+      ],
+      "expected_tokens": [
+        "Stanley.",
+        "So",
+        "deal",
+        "with",
+        "him",
+        "as",
+        "I",
+        "prove",
+        "true",
+        "to",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Stanley,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "stanley",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 1.2,
+          "end": 1.42,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "deal",
+          "start": 1.42,
+          "end": 1.6,
+          "key": "deal",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.6,
+          "end": 1.78,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.78,
+          "end": 1.94,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.94,
+          "end": 2.12,
+          "key": "as",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.26,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "prove",
+          "start": 2.26,
+          "end": 2.46,
+          "key": "prove",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "true",
+          "start": 2.46,
+          "end": 2.74,
+          "key": "true",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.92,
+          "end": 3.16,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Stanley.",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "So",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "text": "deal",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "text": "with",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "text": "him",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "text": "as",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "text": "I",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "text": "prove",
+          "start": 2.26,
+          "end": 2.46
+        },
+        {
+          "text": "true",
+          "start": 2.46,
+          "end": 2.74
+        },
+        {
+          "text": "to",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "you.",
+          "start": 2.92,
+          "end": 3.16
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20769810304045677
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d034809493c66243c3368105114790103e66f14a516a0753bfcacc64b83c97f3",
+  "selected_reasons": []
+}

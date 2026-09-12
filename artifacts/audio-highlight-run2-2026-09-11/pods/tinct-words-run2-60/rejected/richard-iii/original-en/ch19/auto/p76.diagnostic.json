@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "37c1d446720f8dac7c25bcccd929863c4cf5984cb1c9f96314d8ae1916a0ca00",
+  "attempts": [
+    {
+      "asr_seconds": 0.20040499046444893,
+      "alignment_seconds": 0.0003865361213684082,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Queen Elizabeth. And only in that safety died her brothers.",
+        "hotwords": "Queen, Elizabeth, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Queen Elizabeth. And only in that safety died her brothers.",
+          "start": 0.08,
+          "end": 3.52,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.97265625
+            },
+            {
+              "text": " Elizabeth.",
+              "start": 0.62,
+              "end": 1.14,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " And",
+              "start": 1.72,
+              "end": 1.76,
+              "probability": 0.97265625
+            },
+            {
+              "text": " only",
+              "start": 1.76,
+              "end": 2.0,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " in",
+              "start": 2.0,
+              "end": 2.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 2.16,
+              "end": 2.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " safety",
+              "start": 2.32,
+              "end": 2.7,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " died",
+              "start": 2.7,
+              "end": 3.06,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " her",
+              "start": 3.06,
+              "end": 3.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " brothers.",
+              "start": 3.24,
+              "end": 3.52,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "Elizabeth.",
+          "start": 0.62,
+          "end": 1.14
+        },
+        {
+          "raw": "And",
+          "start": 1.72,
+          "end": 1.76
+        },
+        {
+          "raw": "only",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "raw": "in",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "raw": "that",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "raw": "safety",
+          "start": 2.32,
+          "end": 2.7
+        },
+        {
+          "raw": "died",
+          "start": 2.7,
+          "end": 3.06
+        },
+        {
+          "raw": "her",
+          "start": 3.06,
+          "end": 3.24
+        },
+        {
+          "raw": "brothers.",
+          "start": 3.24,
+          "end": 3.52
+        }
+      ],
+      "expected_tokens": [
+        "Queen",
+        "Elizabeth.",
+        "And",
+        "only",
+        "in",
+        "that",
+        "safety",
+        "died",
+        "her",
+        "brothers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Elizabeth.",
+          "start": 0.62,
+          "end": 1.14,
+          "key": "elizabeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.72,
+          "end": 1.76,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 1.76,
+          "end": 2.0,
+          "key": "only",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.0,
+          "end": 2.16,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.16,
+          "end": 2.32,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "safety",
+          "start": 2.32,
+          "end": 2.7,
+          "key": "safety",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "died",
+          "start": 2.7,
+          "end": 3.06,
+          "key": "died",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.06,
+          "end": 3.24,
+          "key": "her",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "brothers.",
+          "start": 3.24,
+          "end": 3.52,
+          "key": "brothers",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "Elizabeth.",
+          "start": 0.62,
+          "end": 1.14
+        },
+        {
+          "text": "And",
+          "start": 1.72,
+          "end": 1.76
+        },
+        {
+          "text": "only",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "text": "in",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "text": "that",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "text": "safety",
+          "start": 2.32,
+          "end": 2.7
+        },
+        {
+          "text": "died",
+          "start": 2.7,
+          "end": 3.06
+        },
+        {
+          "text": "her",
+          "start": 3.06,
+          "end": 3.24
+        },
+        {
+          "text": "brothers.",
+          "start": 3.24,
+          "end": 3.52
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20094624534249306
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "254262e24ad7ad048912f6cdc5da200bcd5fe4e97e8246835905faca7a2f3ffc",
+  "selected_reasons": []
+}
