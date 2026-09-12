@@ -204,6 +204,40 @@ reproducible by running the script):
   for **17** indented footnote openers in eleven runs. The method — an
   independent reconstruction whose *rules* are then audited class by class
   against the raw text — is the standard for Book XI and after.
+  **Applied at Book XI step 1 (2026-09-12), and again no rebuild was made.**
+  PG lines 6376–6816 (after the `XI.` header at 6375, before the `XII.` header
+  at 6817) were re-extracted by `scripts/verify_book11_source.py`, written from
+  scratch, which audits its own rules before it reports its output. It
+  reconstructs **39 paragraphs**, matching the staged count, and **the only
+  differences in the whole book are the three dagger marks** at XI.8 (PG 6488),
+  XI.15 (PG 6544) and XI.17 (PG 6577) — exactly the three this section
+  documents. Class by class: **eleven footnotes**, openers at PG 6398, 6401,
+  6420, 6459, 6461, 6554, 6647, 6702, 6750, 6753 and 6757, **all indented four
+  spaces**, none flush left, all stripped (the consumption rule takes them in
+  seven blocks, because blank-line-adjacent notes are consumed together), and
+  footnote [A] at 6554 has a **two-paragraph body** whose second half at
+  6558–6559 carries no opener and is consumed with it; **eleven in-text
+  markers — ten in flush-left text plus one at the end of the indented verse
+  line 6442 — reconciling exactly with the eleven openers**; **no
+  illustration caption**; **no flush-left footnote opener**, so the VII.45
+  defect does not recur; **verse present and correctly joined** — Long's
+  three dramatic quotations in XI.6 at PG 6441–6442, 6446 and 6450, indented
+  **six** spaces against the footnotes' four, none of them adjacent to a
+  footnote run (flush-left text stands between every pair), so the
+  footnote-consumption rule cannot have swallowed them; **two verse citations in
+  the body**, `_Odyssey_, ix. 413.` (PG 6777, indented 26) and `HESIOD, _Works
+  and Days_, 184.` (PG 6780, indented 17), kept in the staged original under D5
+  and dropped from the candidate as apparatus; **no Greek in the body** (all five
+  `[Greek: …]` spans are inside indented footnote bodies); and the only three
+  standalone short flush-left lines are Long's own connectives in XI.6 ("And
+  again,—", "And,—", "And other things of the same kind."), not running
+  heads, page numbers or catchwords. A flush-left footnote body of the VII.45
+  kind would have been read by the reconstruction as ordinary text and would have
+  shown as a diff; none did. One rule of the build that this check found
+  undocumented is now recorded above (the space before punctuation). The staged
+  file's sha256 is unchanged at `7798607d…`, 487 paragraphs, twelve chapters,
+  section profile unchanged with **39** in Book 11, and `git status` is clean, so
+  **no accepted book is reopened**.
 - Long's footnotes removed. The build skipped footnotes by their indented
   `[A]` opener, but three in Book VII are printed flush left in the PG text
   ("See Aristophanes, Acharnenses, v. 661." and "From the Apologia, c. 16."
@@ -224,6 +258,20 @@ reproducible by running the script):
   rendered as `(Greek: …)`.
 - `--` and `---` rendered as an em dash; PG italic underscores removed (one
   case, VII.13 "the letter r").
+- **A space before `,` `;` `:` `.` `?` `!` is closed up.** Undocumented until
+  **Book XI step 1 (2026-09-12)**, where the independent reconstruction
+  `scripts/verify_book11_source.py` produced a fourth diff at XI.18 — PG line
+  6645 prints "present ...[A]" and the staged file has "present..." — and
+  the rule was found in the build. It fires in exactly **five lines in the whole
+  translation body**: 3156 (IV.19), 3779 (V.29), 4712 (VII.58), 4889 (VII.66)
+  and 6645 (XI.18), every one of them at an ellipsis marking a lacuna in Long's
+  Greek. **It changes no word anywhere**, so it is a typographic normalisation of
+  the same class as the em dashes, and **no rebuild was made**: four of the five
+  are in accepted books, nothing about them is apparatus, and D12's standard
+  (paragraph count unchanged, only the affected paragraphs differing) is not even
+  engaged because no paragraph would change. Documented here instead, and
+  reproduced in the reconstruction so that it and the staged file are compared on
+  the same rules.
 - Indented verse quotations (V.31, V.33, VII.40, VII.41, VII.43, VII.50, VII.51,
   X.34, XI.6, XI.31, XI.32, XII.3) are joined into the section's paragraph with
   spaces; line breaks are not preserved.

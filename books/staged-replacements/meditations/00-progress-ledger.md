@@ -717,6 +717,39 @@ session. Kept current at every push.
   updated; mechanical checks re-run and passing. No new glossary rendering row
   and no voice rule changed — one new ledger decision row (D13).
 
+- 2026-09-12 — **Book XI step 1: source verified, NO rebuild, and one
+  undocumented build rule found and documented.** The check was the established
+  stronger method, extended as the Book X reviewer extended it:
+  `scripts/verify_book11_source.py`, written from scratch, **audits its own
+  rules against the raw PG range before it reports its output**, then
+  reconstructs PG lines 6376–6816 and diffs them word for word against the
+  staged Book XI. Result: **39 paragraphs, matching the staged count, and the
+  only differences in the whole book are the three documented dagger marks** at
+  XI.8 (PG 6488), XI.15 (PG 6544) and XI.17 (PG 6577). The rule audit: **all
+  seventeen maximal indented runs enumerated with their indentation profiles**
+  — eleven footnote runs at **four** spaces, three verse runs in XI.6 at
+  **six** (PG 6441–6442, 6446, 6450), two verse citations at 26 and 17 (PG
+  6777, 6780), and one unmarked continuation of footnote [A]'s two-paragraph
+  body at 6558–6559 — with flush-left text standing between every verse run
+  and every footnote run, so the footnote-consumption rule **cannot** have
+  swallowed Long's verse; **the marker recount reconciles exactly**, ten
+  flush-left in-text markers plus one at the end of the indented verse line 6442
+  = eleven, for eleven indented openers; **no flush-left footnote opener** (the
+  VII.45 class) and **no illustration caption** (the Book IV class); the only
+  three standalone short flush-left lines are Long's own connectives in XI.6,
+  not running heads, page numbers or catchwords; and all five `[Greek: …]` spans
+  are inside footnote bodies, so there is no Greek in the body. **One rule of the
+  build was undocumented and is now documented**: a space before `,` `;` `:` `.`
+  `?` `!` is closed up, which produced a fourth diff at XI.18 on the first run.
+  It fires in exactly five lines in the whole translation body (IV.19, V.29,
+  VII.58, VII.66, XI.18), every one at an ellipsis marking a lacuna in Long's
+  Greek, and **changes no word anywhere** — a typographic normalisation of the
+  em-dash class, so **no rebuild was made** and D12's standard is not engaged;
+  recorded in `PROVENANCE.md` §4 and reproduced in the reconstruction so the two
+  are compared on the same rules. sha256 still `7798607d…`, 487 paragraphs,
+  twelve chapters, 39 in Book 11, `git status` clean, **no accepted book
+  reopened**.
+
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
