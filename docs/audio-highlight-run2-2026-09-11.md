@@ -37,3 +37,23 @@ Concurrency saturates around 12 pods; `dispatch.py` retries refused launches
 ## Numbers
 
 Filled in at close from `run_summary.py` and the publication journal.
+
+## Rejection classes seen so far
+
+Helper v2's normalisation removed the underscore/footnote/ellipsis classes that
+blocked run 1, but three classes survive and each one fails a whole chapter on a
+single paragraph:
+
+- **contractions** — text "You are quite right, he replied.", recogniser hears
+  "You're quite right, he replied." (`the-republic` ch3, 1 of 497 paragraphs,
+  ratio 0.67).
+- **grouped numerals** — text "Totals 2,186 550,943 378,347 £165,463", heard as
+  "Totals 2 ,180 6 ,550 ,940 3 ,378 ,347 £165 ,463" (`wealth-of-nations`, the
+  statistical tables; ratio 0.43).
+- **speaker-name punctuation and elisions** — "Antonio. He'ld sow't with
+  nettle-seed." heard as "Antonio, He 'ld sow't with nettle -seed."
+  (`the-tempest` ch3, 1 of 170 paragraphs, ratio 0.80).
+
+None of these is a timing error — the words are in the right places; the
+comparison tokenizer and the recogniser disagree about how to spell them. They
+are the natural run-3 normalisation candidates, in that order.
