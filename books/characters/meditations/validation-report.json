@@ -1,0 +1,28 @@
+{
+  "bookId": "meditations",
+  "scope": "All twelve Books in both English editions. A private notebook, not a dialogue or novel -- almost every entry is Reference, a teacher thanked in one Book 1 paragraph or a name in one of Marcus's own recurring \"where are they now\" lists. Two entries are Major for sustained engagement across multiple Books: Socrates and Antoninus Pius. Eleven Book 1 teachers are Supporting for a dedicated personal-memory paragraph each. Five genuine namesake collisions (\"Verus\", \"Antoninus\", \"Maximus\", \"Cato\", \"Severus\") resolved by location-scoped binding; two of them (Cato, plus an unrelated bare \"Scipio\" alongside it) leave one occurrence deliberately unbound rather than guessed; see build_meditations.py and README.md.",
+  "authoredEntries": 109,
+  "editions": {
+    "original-en": {
+      "sourceSha256": "4f811221abc8dd107da81c1a1ec7d75107094246c4353cd1884bba2943241afb",
+      "chapters": 12,
+      "paragraphs": 412,
+      "entries": 109,
+      "mentions": 165,
+      "omittedEntities": []
+    },
+    "modern-en": {
+      "sourceSha256": "e551f78e2ed26d47d2a24b8acded4996bf3044c0b9301b37f14cf283d634a254",
+      "chapters": 12,
+      "paragraphs": 412,
+      "entries": 109,
+      "mentions": 165,
+      "omittedEntities": []
+    }
+  },
+  "limits": [
+    "Authoring-agent source review; not independent editorial approval.",
+    "Named cast, speaking roles and named references; no claim of pronoun or every generic-title coverage.",
+    "No runtime registration or production verification in this content package."
+  ]
+}

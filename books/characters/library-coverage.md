@@ -20,7 +20,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Pride and Prejudice (`pride-and-prejudice`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Crime and Punishment (`crime-and-punishment`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Republic (`the-republic`) | validated-package | Awaiting integration by the release owner. 143 entities across 10 books. Content review is the authoring agent's own; independent editorial approval and production verification are still outstanding. |
-| Meditations (`meditations`) | in-progress | Lane A authoring claimed: build entity inventory from both English editions, author cards, run editorial checks before validated-package |
+| Meditations (`meditations`) | validated-package | awaiting-integration: register both English editions, version the asset, run app gates, and verify in production before changing appStatus |
 | The Divine Comedy (`divine-comedy`) | validated-package | Awaiting integration by the release owner. 589 entities across all 100 cantos; the largest package in the library. Content review is the authoring agent's own; independent editorial approval and production verification are still outstanding. |
 | Jane Eyre (`jane-eyre`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Aeneid (`the-aeneid`) | validated-package | Release owner: compare fingerprints, register both English editions and verify the three Pallases and the monster-named galleys in production |

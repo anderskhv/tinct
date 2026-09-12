@@ -398,9 +398,12 @@
     {
       "bookId": "meditations",
       "title": "Meditations",
-      "contentStatus": "in-progress",
+      "contentStatus": "validated-package",
       "appStatus": "not-integrated",
-      "reviewedEditions": [],
+      "reviewedEditions": [
+        "original-en",
+        "modern-en"
+      ],
       "sources": [
         {
           "edition": "modern-en",
@@ -418,7 +421,7 @@
         }
       ],
       "existingThreadCandidates": 0,
-      "nextAction": "Lane A authoring claimed: build entity inventory from both English editions, author cards, run editorial checks before validated-package"
+      "nextAction": "awaiting-integration: register both English editions, version the asset, run app gates, and verify in production before changing appStatus"
     },
     {
       "bookId": "divine-comedy",

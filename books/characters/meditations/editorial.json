@@ -1,0 +1,1318 @@
+{
+  "bookId": "meditations",
+  "contentVersion": "2026-09-12.1",
+  "coverage": "All twelve Books in both English editions. A private notebook, not a dialogue or novel -- almost every entry is Reference, a teacher thanked in one Book 1 paragraph or a name in one of Marcus's own recurring \"where are they now\" lists. Two entries are Major for sustained engagement across multiple Books: Socrates and Antoninus Pius. Eleven Book 1 teachers are Supporting for a dedicated personal-memory paragraph each. Five genuine namesake collisions (\"Verus\", \"Antoninus\", \"Maximus\", \"Cato\", \"Severus\") resolved by location-scoped binding; two of them (Cato, plus an unrelated bare \"Scipio\" alongside it) leave one occurrence deliberately unbound rather than guessed; see build_meditations.py and README.md.",
+  "entities": [
+    {
+      "id": "socrates",
+      "name": "Socrates",
+      "body": "The Athenian philosopher, invoked throughout as the standard of a life well lived: his equanimity in the face of death (Book 3), a sustained inquiry into what actually made him admirable rather than merely famous (Book 7), and a cluster of anecdotes about his poverty, his wife Xanthippe, and his refusal to fetch an innocent man for the Thirty Tyrants (Book 11).",
+      "aliases": [
+        "Socrates"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antoninus-pius",
+      "name": "Antoninus Pius",
+      "body": "Marcus's adoptive father and predecessor as emperor. Book 6 gives him the work's longest sustained character portrait -- his patience, freedom from vanity, thoroughness, and equanimity under criticism -- held up as the standard Marcus measures himself against elsewhere (Books 4, 8, 10). Marcus was born Marcus Annius Verus and took the name Antoninus on adoption; a handful of bare \"Antoninus\" mentions elsewhere in the text are Marcus referring to himself, not to his father, and are not bound to this entry.",
+      "aliases": [
+        "Antoninus Pius"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "verus-grandfather",
+      "name": "Verus (Marcus’s grandfather)",
+      "body": "Marcus's paternal grandfather, credited in the book's opening line with teaching him gentleness and freedom from anger. A second, unrelated \"Verus\" is Marcus's father, named later in Book 8.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "diognetus",
+      "name": "Diognetus",
+      "body": "A teacher credited with turning young Marcus away from superstition and showmen's tricks and toward philosophy, and with introducing him to Bacchius, Tandasis, and Marcianus.",
+      "aliases": [
+        "Diognetus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rusticus",
+      "name": "Junius Rusticus",
+      "body": "The teacher Marcus credits with first convincing him his life needed correction, with steering him away from showy rhetoric and toward plain writing, and with giving him his own copy of Epictetus's discourses.",
+      "aliases": [
+        "Rusticus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "apollonius",
+      "name": "Apollonius",
+      "body": "A Stoic teacher praised for combining unshakeable steadiness with warmth, and for taking favors from friends without becoming beholden to them.",
+      "aliases": [
+        "Apollonius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sextus",
+      "name": "Sextus",
+      "body": "A teacher praised for running his household with paternal warmth and for combining Stoic even-temperedness with genuine tenderness.",
+      "aliases": [
+        "Sextus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alexander-grammarian",
+      "name": "Alexander the Grammarian",
+      "body": "A grammar teacher credited with correcting others' language tactfully -- by supplying the right word in reply, never by pointing out the mistake directly. Not to be confused with Alexander the Platonist (also thanked in Book 1) or with Alexander the Great, named elsewhere in the book.",
+      "aliases": [
+        "Alexander the Grammarian"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fronto",
+      "name": "Fronto",
+      "body": "A teacher credited with warning Marcus how much envy, fraud, and hypocrisy attend absolute power, and how little natural affection the highborn often have.",
+      "aliases": [
+        "Fronto"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alexander-platonist",
+      "name": "Alexander the Platonist",
+      "body": "A Platonist teacher credited with teaching Marcus not to plead \"I have no time\" to friends who needed him. Not to be confused with Alexander the Grammarian (also thanked in Book 1) or with Alexander the Great, named elsewhere in the book.",
+      "aliases": [
+        "Alexander the Platonic",
+        "Alexander the Platonist"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "catulus",
+      "name": "Catulus",
+      "body": "A teacher credited with teaching Marcus not to dismiss a friend's complaint even when unfair, and to speak well of his own teachers, as he had heard was the practice of Domitius and Athenodotus.",
+      "aliases": [
+        "Catulus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "severus-brother",
+      "name": "Severus",
+      "body": "Marcus's \"brother\" (an honorific, not a blood relation) credited with introducing him to the examples of Thrasea, Helvidius, Cato, Dio, and Brutus, and with kindling his early ideal of a commonwealth governed by equal law. A second, unrelated bare \"Severus\" appears once more in Book 10's private list of namesakes (10:29); nothing there ties it back to this figure, so that occurrence is left unbound rather than assumed to be the same man.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "claudius-maximus",
+      "name": "Claudius Maximus",
+      "body": "A Stoic teacher praised for self-command, cheerfulness under hardship, and a manner so consistently upright that no one who knew him ever felt looked down on. A second, unrelated \"Maximus\" -- clearly a household figure, not this revered teacher -- appears once in Book 8's list of paired deaths (8:23).",
+      "aliases": [
+        "Claudius Maximus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bacchius",
+      "name": "Bacchius",
+      "body": "One of the teachers Diognetus first brought Marcus to hear.",
+      "aliases": [
+        "Bacchius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tandasis",
+      "name": "Tandasis",
+      "body": "One of the teachers Diognetus first brought Marcus to hear, named alongside Marcianus.",
+      "aliases": [
+        "Tandasis"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "marcianus",
+      "name": "Marcianus",
+      "body": "One of the teachers Diognetus first brought Marcus to hear, named alongside Tandasis.",
+      "aliases": [
+        "Marcianus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "domitius",
+      "name": "Domitius",
+      "body": "Cited, alongside Athenodotus, as an example of someone who spoke well of his own teachers on every occasion -- the practice Catulus taught Marcus to imitate.",
+      "aliases": [
+        "Domitius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "athenodotus",
+      "name": "Athenodotus",
+      "body": "Cited, alongside Domitius, as an example of someone who spoke well of his own teachers on every occasion -- the practice Catulus taught Marcus to imitate.",
+      "aliases": [
+        "Athenodotus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thrasea",
+      "name": "Thrasea",
+      "body": "Thrasea Paetus, the Roman senator executed under Nero for his principled opposition to imperial tyranny -- one of the exemplars of libertas that Severus introduced Marcus to.",
+      "aliases": [
+        "Thrasea"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "helvidius",
+      "name": "Helvidius",
+      "body": "Helvidius Priscus, the Roman senator and Stoic executed under Vespasian for defying imperial authority -- one of the exemplars of libertas that Severus introduced Marcus to.",
+      "aliases": [
+        "Helvidius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dio",
+      "name": "Dio",
+      "body": "Traditionally identified as Dio of Syracuse, the associate of Plato who tried to install philosophical rule there -- one of the exemplars of libertas that Severus introduced Marcus to, named alongside Brutus and Cato.",
+      "aliases": [
+        "Dio"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "brutus",
+      "name": "Brutus",
+      "body": "Marcus Junius Brutus, leader of the conspiracy against Julius Caesar -- one of the exemplars of libertas that Severus introduced Marcus to.",
+      "aliases": [
+        "Brutus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cato-the-younger",
+      "name": "Cato",
+      "body": "Cato the Younger, the Stoic senator and fierce opponent of Julius Caesar who became the standard Roman symbol of principled resistance to tyranny -- one of the exemplars of libertas that Severus introduced Marcus to (1:10), named alongside Thrasea, Helvidius, Dio, and Brutus. A second, unrelated bare \"Cato\" appears in Book 4's undifferentiated list of forgotten Roman names (4:27, alongside an equally unbound \"Scipio\"); nothing there distinguishes which Cato is meant, so that occurrence is left unbound rather than assumed to be this same man.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "benedicta",
+      "name": "Benedicta",
+      "body": "Named as a woman Marcus reports he never had any involvement with, in a passage thanking the gods for the restraint of his youth.",
+      "aliases": [
+        "Benedicta"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "theodotus",
+      "name": "Theodotus",
+      "body": "Named alongside Benedicta as someone Marcus reports he never had any involvement with, in a passage thanking the gods for the restraint of his youth.",
+      "aliases": [
+        "Theodotus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "chryses",
+      "name": "Chryses",
+      "body": "The priest of Apollo from the opening of Homer's Iliad, who prays for his daughter's return on the seashore and is answered. Marcus cites him as a precedent for a dream that once resolved a physical complaint of his own.",
+      "aliases": [
+        "Chryses"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hippocrates",
+      "name": "Hippocrates",
+      "body": "The celebrated Greek physician, cited as proof that even a healer of many is not spared his own death.",
+      "aliases": [
+        "Hippocrates"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pompey",
+      "name": "Pompey",
+      "body": "Pompey the Great, the Roman general, cited twice as an example of a great conqueror who nonetheless had to die like anyone else, grouped both times with Alexander and Julius Caesar.",
+      "aliases": [
+        "Pompeius",
+        "Pompey"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caius-julius-caesar",
+      "name": "Julius Caesar",
+      "body": "Named \"Caius Caesar\" (and, once, bare \"Caius\"), cited twice as an example of a great conqueror who nonetheless had to die like anyone else, grouped both times with Alexander and Pompey.",
+      "aliases": [
+        "Caius Caesar",
+        "Caius Cæsar",
+        "Caius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "heraclitus",
+      "name": "Heraclitus",
+      "body": "The philosopher of universal flux and periodic world-conflagration, cited repeatedly (Books 3, 4, 6) both for his death -- from dropsy, an irony given his own theories about fire and water -- and for his teaching that even sleepers contribute to the world's workings.",
+      "aliases": [
+        "Heraclitus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "democritus",
+      "name": "Democritus",
+      "body": "The atomist philosopher, cited as proof that even a great mind is not spared an undignified death -- killed, Marcus says, by lice.",
+      "aliases": [
+        "Democritus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phalaris",
+      "name": "Phalaris",
+      "body": "The tyrant of Acragas, proverbial in antiquity for cruelty, cited as an example of the intolerable use of power alongside Nero.",
+      "aliases": [
+        "Phalaris"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nero",
+      "name": "Nero",
+      "body": "The Roman emperor notorious for tyranny, cited alongside Phalaris as an example of the intolerable use of power.",
+      "aliases": [
+        "Nero"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cadicianus",
+      "name": "Cadicianus",
+      "body": "An otherwise unidentified name in a list of once-familiar Romans now forgotten, alongside Fabius, Julianus, and Lepidus. Original-en prints \"Cadiciant's,\" a Gutenberg transcription slip for \"Cadicianus's\"; both spellings are aliased and the slip is left as printed, not corrected.",
+      "aliases": [
+        "Cadicianus",
+        "Cadiciant"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fabius-obscure",
+      "name": "Fabius (Book 4)",
+      "body": "An otherwise unidentified name in a list of once-familiar Romans now forgotten, alongside Cadicianus, Julianus, and Lepidus. A different, fully named \"Fabius Catulinus\" appears later, in Book 12's separate list.",
+      "aliases": [
+        "Fabius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "julianus",
+      "name": "Julianus",
+      "body": "An otherwise unidentified name in a list of once-familiar Romans now forgotten, alongside Cadicianus, Fabius, and Lepidus.",
+      "aliases": [
+        "Julianus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lepidus",
+      "name": "Lepidus",
+      "body": "An otherwise unidentified name in a list of once-familiar Romans now forgotten, alongside Cadicianus, Fabius, and Julianus.",
+      "aliases": [
+        "Lepidus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "camillus",
+      "name": "Camillus",
+      "body": "Marcus Furius Camillus, the early Roman general and statesman sometimes called Rome's \"second founder,\" cited as the first name in a chronological list of once-famous Romans now fading into obscurity.",
+      "aliases": [
+        "Camillus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caeso",
+      "name": "Caeso",
+      "body": "An early, semi-legendary Roman name in the same list of once-famous Romans now forgotten, alongside Volesius and Leonnatus.",
+      "aliases": [
+        "Cæso",
+        "Caeso"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "volesius",
+      "name": "Volesius",
+      "body": "An early, semi-legendary Roman name in the same list of once-famous Romans now forgotten, alongside Caeso and Leonnatus.",
+      "aliases": [
+        "Volesius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leonnatus",
+      "name": "Leonnatus",
+      "body": "One of Alexander the Great's Macedonian generals, cited in the same list of once-famous names now forgotten, alongside Caeso and Volesius.",
+      "aliases": [
+        "Leonnatus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "augustus",
+      "name": "Augustus",
+      "body": "Rome's first emperor, cited repeatedly as an example of a once supremely powerful figure now reduced to a name in a list -- his whole court (Book 8) and household (Book 8) are cited as an example of the death of an entire retinue.",
+      "aliases": [
+        "Augustus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "agathon",
+      "name": "Agathon",
+      "body": "The Athenian tragic poet, a character in Plato's Symposium. Marcus quotes a saying attributed to him about minding one's own conduct rather than others' faults.",
+      "aliases": [
+        "Agathos",
+        "Agathon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cecrops",
+      "name": "Cecrops",
+      "body": "The legendary founding king of Athens. Marcus quotes an unnamed saying, \"beloved city of Cecrops,\" as a model for how he ought to address the world itself.",
+      "aliases": [
+        "Cecrops"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "vespasian",
+      "name": "Vespasian",
+      "body": "The Roman emperor, cited as an example of a bygone age whose people did all the same ordinary things people do now -- marrying, quarreling, dying -- and are now entirely gone.",
+      "aliases": [
+        "Vespasian"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "trajan",
+      "name": "Trajan",
+      "body": "The Roman emperor, cited alongside Vespasian as an example of a bygone age now entirely gone.",
+      "aliases": [
+        "Trajan"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alexander-the-great",
+      "name": "Alexander the Great",
+      "body": "The Macedonian conqueror, cited repeatedly (Books 3, 6, 8, 9, 10) as the paradigm case of a life of vast worldly power that ends, like any other, in death -- once compared directly to the mule driver who died alongside him.",
+      "aliases": [
+        "Alexander of Macedon",
+        "Alexander"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "crates",
+      "name": "Crates",
+      "body": "The Cynic philosopher, cited for a (lost) remark about Xenocrates.",
+      "aliases": [
+        "Crates"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "xenocrates",
+      "name": "Xenocrates",
+      "body": "The philosopher and head of Plato's Academy, the subject of a (lost) remark by Crates that Marcus tells the reader to look up.",
+      "aliases": [
+        "Xenocrates"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aesculapius",
+      "name": "Aesculapius",
+      "body": "The god of healing and medicine. Marcus asks rhetorically whether Aesculapius oversteps his own function the way a person might overstep theirs.",
+      "aliases": [
+        "Aesculapius"
+      ],
+      "category": "reference",
+      "kind": "cultural-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "chrysippus",
+      "name": "Chrysippus",
+      "body": "The Stoic philosopher and systematizer of the school, cited twice (Books 6, 7) -- once for a joke he made about a bad line being part of a larger comedy.",
+      "aliases": [
+        "Chrysippus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "philistio",
+      "name": "Philistio",
+      "body": "An otherwise unidentified name among a catalog of the dead of every profession, alongside Phoebus and Origanion.",
+      "aliases": [
+        "Philistio"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phoebus",
+      "name": "Phoebus",
+      "body": "An otherwise unidentified name among a catalog of the dead of every profession, alongside Philistio and Origanion -- likely an ordinary person bearing the god Apollo's epithet as a name, not the god himself.",
+      "aliases": [
+        "Phœbus",
+        "Phoebus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "origanion",
+      "name": "Origanion",
+      "body": "An otherwise unidentified name among a catalog of the dead of every profession, alongside Philistio and Phoebus.",
+      "aliases": [
+        "Origanion"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eudoxus",
+      "name": "Eudoxus",
+      "body": "The Greek astronomer and mathematician, cited in a catalog of great minds now dead, alongside Hipparchus and Archimedes.",
+      "aliases": [
+        "Eudoxus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hipparchus",
+      "name": "Hipparchus",
+      "body": "The Greek astronomer, cited in the same catalog of great minds now dead, alongside Eudoxus and Archimedes.",
+      "aliases": [
+        "Hipparchus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "archimedes",
+      "name": "Archimedes",
+      "body": "The Greek mathematician and engineer, cited in the same catalog of great minds now dead, alongside Eudoxus and Hipparchus.",
+      "aliases": [
+        "Archimedes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "menippus",
+      "name": "Menippus",
+      "body": "The Cynic satirist, cited as an example of those who mocked the brevity and fragility of human life, and who are themselves now just as dead as everyone else.",
+      "aliases": [
+        "Menippus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antisthenes",
+      "name": "Antisthenes",
+      "body": "The Cynic philosopher and associate of Socrates, cited for a one-line saying about the cost of good and bad deeds becoming known.",
+      "aliases": [
+        "Antisthenes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leon-of-salamis",
+      "name": "Leon of Salamis",
+      "body": "The Athenian whom the Thirty Tyrants ordered Socrates to arrest; Socrates's refusal, at personal risk, is cited as one of the acts that made him admirable. Named here by the epithet \"Salaminius,\" the Salaminian.",
+      "aliases": [
+        "Salaminius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "plato",
+      "name": "Plato",
+      "body": "The philosopher, cited repeatedly (Books 7, 9, 10, 11) as an authority -- his view that no soul errs willingly, his ideal \"commonwealth\" used as a byword for an unrealistic political hope, and, alongside Hesiod, as a source for the myth of the Isles of the Blessed.",
+      "aliases": [
+        "Plato"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "epicurus",
+      "name": "Epicurus",
+      "body": "The philosopher of atomism and pleasure, cited repeatedly (Books 7, 9, 10) as the representative of the view Marcus argues against -- that the world is mere accidental atoms rather than governed by providence -- though Marcus notes that even on Epicurus's own terms his conclusions about death still hold.",
+      "aliases": [
+        "Epicurus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "africanus",
+      "name": "Africanus",
+      "body": "Scipio Africanus, the Roman general who defeated Hannibal, cited alongside Augustus as proof that no man, however famous, is remembered forever.",
+      "aliases": [
+        "Africanus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "faustina",
+      "name": "Faustina",
+      "body": "Faustina the Elder, wife of Antoninus Pius, cited in Book 8's list of paired deaths: she predeceased her husband, who himself died afterward.",
+      "aliases": [
+        "Faustina"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hadrian",
+      "name": "Hadrian",
+      "body": "The Roman emperor and Antoninus Pius's predecessor, cited repeatedly (Books 4, 8, 10) as an example of a once-supreme figure now merely a name -- his whole court, his household attendants, and his own death are each cited in turn.",
+      "aliases": [
+        "Adrianus",
+        "Hadrian"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "celer",
+      "name": "Celer",
+      "body": "Named first in a chain of paired deaths in Hadrian's circle -- \"first Celer, [then] Hadrian; then Hadrian himself\" -- suggesting Celer predeceased the emperor he served.",
+      "aliases": [
+        "Celer"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charax",
+      "name": "Charax",
+      "body": "One of the once-\"austere\" figures Marcus lists as now dead and mostly forgotten, alongside Demetrius the Platonic and Eudaemon.",
+      "aliases": [
+        "Charax"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "demetrius-the-platonic",
+      "name": "Demetrius the Platonic",
+      "body": "One of the once-\"austere\" figures Marcus lists as now dead and mostly forgotten, alongside Charax and Eudaemon. A different, fully named \"Demetrius Phalereus\" appears later, in Book 9.",
+      "aliases": [
+        "Demetrius the Platonic"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eudaemon",
+      "name": "Eudaemon",
+      "body": "One of the once-\"austere\" figures Marcus lists as now dead and mostly forgotten, alongside Charax and Demetrius the Platonic.",
+      "aliases": [
+        "Eudaemon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "secunda",
+      "name": "Secunda",
+      "body": "Named in Book 8's list of paired deaths -- \"Secunda, Maximus; then Secunda herself\" -- suggesting she outlived a household figure named Maximus before dying in turn.",
+      "aliases": [
+        "Secunda"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "maximus-household",
+      "name": "Maximus (Book 8)",
+      "body": "An unidentified household figure named in Book 8's list of paired deaths, alongside Secunda -- not the revered Stoic teacher Claudius Maximus of Book 1, given the company he keeps here (Epitynchanus, Diotimus, Celer, Charax, Eudaemon).",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "epitynchanus",
+      "name": "Epitynchanus",
+      "body": "Named in Book 8's list of paired deaths -- \"Epitynchanus, Diotimus; then Epitynchanus himself\" -- suggesting he outlived Diotimus before dying in turn.",
+      "aliases": [
+        "Epitynchanus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "diotimus",
+      "name": "Diotimus",
+      "body": "Named twice in Book 8 as a companion of the powerful now dead: paired with Epitynchanus in the list of successive deaths (8:23), and named again, alongside Chabrias, as one of Hadrian's attendants who lingered by his tomb (8:34).",
+      "aliases": [
+        "Diotimus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lucilla",
+      "name": "Lucilla",
+      "body": "Traditionally identified as Domitia Lucilla, Marcus's mother. Opens Book 8's list of paired deaths: \"Lucilla buried Verus; then was Lucilla herself buried by others\" -- read as Marcus's mother outliving his father before dying in turn.",
+      "aliases": [
+        "Lucilla"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "verus-father",
+      "name": "Verus (Marcus’s father)",
+      "body": "Traditionally identified as Marcus's own father, who died when Marcus was a small child, in the couplet \"Lucilla buried Verus; then was Lucilla herself buried by others\" (8:23) -- read as Marcus's mother outliving his father before dying in turn. A second, unrelated \"Verus\" is Marcus's paternal grandfather, named in the book's opening line.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "senate",
+      "name": "The Senate",
+      "body": "The Roman Senate, cited among the institutions Augustus is recorded as having carefully managed.",
+      "aliases": [
+        "Senate"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "agrippa",
+      "name": "Agrippa",
+      "body": "Marcus Vipsanius Agrippa, Augustus's general and son-in-law, cited as part of the entire vanished court of Augustus.",
+      "aliases": [
+        "Agrippa"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "areus",
+      "name": "Areus",
+      "body": "Arius Didymus, the philosopher and close friend of Augustus, cited as part of the entire vanished court of Augustus.",
+      "aliases": [
+        "Areus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "maecenas",
+      "name": "Maecenas",
+      "body": "Gaius Maecenas, Augustus's celebrated patron and advisor, cited as part of the entire vanished court of Augustus.",
+      "aliases": [
+        "Mæcenas",
+        "Maecenas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "the-pompeys",
+      "name": "The Pompeys",
+      "body": "The family of Pompey the Great, cited as an example of an entire once-powerful lineage that eventually runs out, quoting an epitaph: \"He was the last of his own kindred.\"",
+      "aliases": [
+        "Pompeys"
+      ],
+      "category": "reference",
+      "kind": "family",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "panthea",
+      "name": "Panthea",
+      "body": "Named, alongside Pergamus, as an attendant who supposedly lingered by a master's tomb -- cited by Marcus as a foolish example of misplaced devotion to the dead.",
+      "aliases": [
+        "Panthea"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pergamus",
+      "name": "Pergamus",
+      "body": "Named, alongside Panthea, as an attendant who supposedly lingered by a master's tomb -- cited by Marcus as a foolish example of misplaced devotion to the dead.",
+      "aliases": [
+        "Pergamus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "chabrias",
+      "name": "Chabrias",
+      "body": "Named, alongside Diotimus, as one of Hadrian's attendants who supposedly lingered by the emperor's tomb -- cited by Marcus as a foolish example of misplaced devotion to the dead.",
+      "aliases": [
+        "Chabrias"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "demetrius-phalereus",
+      "name": "Demetrius Phalereus",
+      "body": "Demetrius of Phalerum, the Athenian statesman and philosopher who governed Athens under Macedonian oversight, cited alongside Alexander and Philip as an example of political men whose self-command Marcus refuses to imitate. A different, otherwise unidentified \"Demetrius the Platonic\" appears earlier, in Book 8.",
+      "aliases": [
+        "Demetrius Phalereus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "philip-of-macedon",
+      "name": "Philip of Macedon",
+      "body": "Alexander the Great's father, cited twice (Books 9, 10) alongside Alexander as an example of a once-supreme ruler whose entire court is now merely a name in a list.",
+      "aliases": [
+        "Philippus",
+        "Philip"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hesiod",
+      "name": "Hesiod",
+      "body": "The early Greek poet, cited alongside Plato as a source for the myth of the Isles of the Blessed (the Elysian Fields).",
+      "aliases": [
+        "Hesiod"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "croesus",
+      "name": "Croesus",
+      "body": "The legendarily wealthy king of Lydia, cited alongside Hadrian, Antoninus Pius, Philip, and Alexander as an example of a once-supreme figure whose entire court is now merely a name in a list.",
+      "aliases": [
+        "Crœsus",
+        "Croesus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "satyro",
+      "name": "Satyro",
+      "body": "An unidentified contemporary of Marcus's, the first in a private list of paired names (10:29) whose exact point of comparison -- to Socraticus and Eutyches, or Hymen -- is not recoverable from the text.",
+      "aliases": [
+        "Satyro"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "socraticus",
+      "name": "Socraticus",
+      "body": "An unidentified figure paired with Satyro in Marcus's private list of comparisons (10:29), alongside Eutyches or Hymen.",
+      "aliases": [
+        "Socraticus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eutyches",
+      "name": "Eutyches",
+      "body": "An unidentified figure paired with Satyro in Marcus's private list of comparisons (10:29), alongside Socraticus or Hymen.",
+      "aliases": [
+        "Eutyches"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hymen",
+      "name": "Hymen",
+      "body": "An unidentified figure paired with Satyro in Marcus's private list of comparisons (10:29) -- likely a person bearing the name of the Greek marriage-god as a personal name, rather than the god himself.",
+      "aliases": [
+        "Hymen"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "euphrates",
+      "name": "Euphrates",
+      "body": "Possibly Euphrates of Tyre, a Stoic philosopher of Marcus's own era praised by other contemporary writers, though the text gives no detail beyond the bare name in this private list of comparisons (10:29), paired with Eutychio and Sylvanus.",
+      "aliases": [
+        "Euphrates"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eutychio",
+      "name": "Eutychio",
+      "body": "An unidentified figure paired with Euphrates in Marcus's private list of comparisons (10:29), alongside Sylvanus.",
+      "aliases": [
+        "Eutychio"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sylvanus",
+      "name": "Sylvanus",
+      "body": "An unidentified figure paired with Euphrates in Marcus's private list of comparisons (10:29), alongside Eutychio.",
+      "aliases": [
+        "Sylvanus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alciphron",
+      "name": "Alciphron",
+      "body": "An unidentified figure in Marcus's private list of comparisons (10:29), paired with Tropaeophorus.",
+      "aliases": [
+        "Alciphron"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tropaeophorus",
+      "name": "Tropaeophorus",
+      "body": "An unidentified figure paired with Alciphron in Marcus's private list of comparisons (10:29).",
+      "aliases": [
+        "Tropaeophorus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "xenophon",
+      "name": "Xenophon",
+      "body": "The Athenian historian and associate of Socrates, cited as one half of the closing pair in Marcus's private list of comparisons (10:29), alongside Crito or Severus.",
+      "aliases": [
+        "Xenophon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "crito",
+      "name": "Crito",
+      "body": "Socrates's friend, present at his death in Plato's dialogues, cited as one of the figures Xenophon is compared to in Marcus's private list of comparisons (10:29).",
+      "aliases": [
+        "Crito"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "empedocles",
+      "name": "Empedocles",
+      "body": "The philosopher whose image of the soul as a perfect, self-sufficient sphere Marcus borrows twice (Books 11, 12) as a model for the ideal disposition of the mind.",
+      "aliases": [
+        "Empedocles"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phocion",
+      "name": "Phocion",
+      "body": "The Athenian statesman noted for showing his critics their errors gently rather than scornfully -- cited as a model for how to respond to those who hate or contemn you, so long as the anecdote isn't exaggerated.",
+      "aliases": [
+        "Phocion"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "diogenes",
+      "name": "Diogenes",
+      "body": "The Cynic philosopher, cited twice (Books 8, 11) as an example of genuine philosophical seriousness -- once for having earned, through his own directness, the liberty later claimed by Old Comedy.",
+      "aliases": [
+        "Diogenes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hercules",
+      "name": "Hercules",
+      "body": "The mythical hero, invoked as \"the guide and leader of the Muses\" as the source of a tenth maxim about not resenting that wicked people exist.",
+      "aliases": [
+        "Hercules"
+      ],
+      "category": "reference",
+      "kind": "cultural-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "perdiccas",
+      "name": "Perdiccas",
+      "body": "Traditionally identified as Perdiccas II, king of Macedon and a contemporary of Socrates, said to have invited Socrates to his court -- an invitation Socrates is quoted here as having declined.",
+      "aliases": [
+        "Perdiccas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "xanthippe",
+      "name": "Xanthippe",
+      "body": "Socrates's wife, named in an anecdote about Socrates good-naturedly wearing an animal skin after she took his clothes away.",
+      "aliases": [
+        "Xanthippe"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fabius-catulinus",
+      "name": "Fabius Catulinus",
+      "body": "An otherwise unidentified Roman named in Book 12's list of vanished examples of \"vehement prosecution in worldly matters,\" alongside Lucius Lupus, Stertinius, Tiberius, and Velius Rufus. A different, unrelated bare \"Fabius\" appears earlier, in Book 4's separate list.",
+      "aliases": [
+        "Fabius Catulinus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lucius-lupus",
+      "name": "Lucius Lupus",
+      "body": "An otherwise unidentified Roman named in the same Book 12 list, alongside Fabius Catulinus, Stertinius, Tiberius, and Velius Rufus.",
+      "aliases": [
+        "Lucius Lupus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "stertinius",
+      "name": "Stertinius",
+      "body": "An otherwise unidentified Roman named in the same Book 12 list, alongside Fabius Catulinus, Lucius Lupus, Tiberius, and Velius Rufus.",
+      "aliases": [
+        "Stertinius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tiberius",
+      "name": "Tiberius",
+      "body": "The Roman emperor who spent his final years in seclusion at Capreae (Capri), named in the same Book 12 list as an example of \"vehement prosecution in worldly matters\" now vanished.",
+      "aliases": [
+        "Tiberius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "velius-rufus",
+      "name": "Velius Rufus",
+      "body": "An otherwise unidentified Roman named in the same Book 12 list, alongside Fabius Catulinus, Lucius Lupus, and Stertinius.",
+      "aliases": [
+        "Velius Rufus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    }
+  ]
+}
