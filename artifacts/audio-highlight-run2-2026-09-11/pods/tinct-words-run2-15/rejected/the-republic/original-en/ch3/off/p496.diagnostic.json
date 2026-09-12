@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "2dde6fea77a0e2f1abac8cb748ac25daf2728ce816aa916c8bd917da7f668809",
+  "attempts": [
+    {
+      "asr_seconds": 0.11311561986804008,
+      "alignment_seconds": 0.0003440938889980316,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes,\" said Glocken.",
+          "start": 0.02,
+          "end": 1.5,
+          "words": [
+            {
+              "text": " Yes,\"",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.26348876953125
+            },
+            {
+              "text": " said",
+              "start": 0.8,
+              "end": 1.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Glocken.",
+              "start": 1.02,
+              "end": 1.5,
+              "probability": 0.5996907552083334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,\"",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "said",
+          "start": 0.8,
+          "end": 1.02
+        },
+        {
+          "raw": "Glocken.",
+          "start": 1.02,
+          "end": 1.5
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "said",
+        "Glaucon."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,\"",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.8,
+          "end": 1.02,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Glocken.",
+          "start": 1.02,
+          "end": 1.5,
+          "key": "glocken",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "said",
+          "start": 0.8,
+          "end": 1.02
+        },
+        {
+          "text": "Glaucon.",
+          "start": 1.02,
+          "end": 1.26
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11361055076122284
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c72ff9d04de62a2e759cc06f4af8ce0622d1f41a6dae48baf9129984536aa011",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

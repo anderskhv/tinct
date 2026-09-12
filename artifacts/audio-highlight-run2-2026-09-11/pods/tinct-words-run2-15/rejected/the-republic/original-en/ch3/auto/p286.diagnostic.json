@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "a3d120a676882a44f509c733b03f794e260ca427b6d9e26518b68231e2523515",
+  "attempts": [
+    {
+      "asr_seconds": 0.1286950372159481,
+      "alignment_seconds": 0.000288449227809906,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, the greatest.",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, the greatest.",
+          "start": 0.02,
+          "end": 1.2,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " the",
+              "start": 0.84,
+              "end": 0.88,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " greatest.",
+              "start": 0.88,
+              "end": 1.2,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "the",
+          "start": 0.84,
+          "end": 0.88
+        },
+        {
+          "raw": "greatest.",
+          "start": 0.88,
+          "end": 1.2
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "the",
+        "greatest."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.84,
+          "end": 0.88,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "greatest.",
+          "start": 0.88,
+          "end": 1.2,
+          "key": "greatest",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "the",
+          "start": 0.84,
+          "end": 0.88
+        },
+        {
+          "text": "greatest.",
+          "start": 0.88,
+          "end": 1.2
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1290808469057083
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b100aac1894f15e86ed15fdf4cbac2950bcd016b6947bfdce793c48c652ff172",
+  "selected_reasons": []
+}

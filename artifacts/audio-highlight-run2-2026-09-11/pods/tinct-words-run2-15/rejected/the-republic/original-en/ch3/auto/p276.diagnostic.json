@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "81260cb51e75425140bad1afeaac9433870530a15dcc8e477431462c9ad29e7a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1175963543355465,
+      "alignment_seconds": 0.00024664774537086487,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The fairest indeed.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The fairest indeed.",
+          "start": 0.02,
+          "end": 1.16,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.71240234375
+            },
+            {
+              "text": " fairest",
+              "start": 0.48,
+              "end": 0.86,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " indeed.",
+              "start": 0.86,
+              "end": 1.16,
+              "probability": 0.88330078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "fairest",
+          "start": 0.48,
+          "end": 0.86
+        },
+        {
+          "raw": "indeed.",
+          "start": 0.86,
+          "end": 1.16
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "fairest",
+        "indeed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fairest",
+          "start": 0.48,
+          "end": 0.86,
+          "key": "fairest",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "indeed.",
+          "start": 0.86,
+          "end": 1.16,
+          "key": "indeed",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "fairest",
+          "start": 0.48,
+          "end": 0.86
+        },
+        {
+          "text": "indeed.",
+          "start": 0.86,
+          "end": 1.16
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11793821677565575
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f9f9db68e85851ec4e5d3f3ccbd9c3bbb45cce9b3e17731d66a230fe220ca5ad",
+  "selected_reasons": []
+}

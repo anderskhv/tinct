@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "07c8d07cc9d6acd8dafd3fd129306c5538617c4dd027f4b7e00c800527fc2db5",
+  "attempts": [
+    {
+      "asr_seconds": 0.11790463328361511,
+      "alignment_seconds": 0.0002675950527191162,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " again of Teresias.",
+          "start": 0.05,
+          "end": 1.35,
+          "words": [
+            {
+              "text": " again",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.57421875
+            },
+            {
+              "text": " of",
+              "start": 0.65,
+              "end": 0.79,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " Teresias.",
+              "start": 0.79,
+              "end": 1.35,
+              "probability": 0.5574951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "again",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "of",
+          "start": 0.65,
+          "end": 0.79
+        },
+        {
+          "raw": "Teresias.",
+          "start": 0.79,
+          "end": 1.35
+        }
+      ],
+      "expected_tokens": [
+        "Again",
+        "of",
+        "Tiresias:—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "again",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "again",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.65,
+          "end": 0.79,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Teresias.",
+          "start": 0.79,
+          "end": 1.35,
+          "key": "teresias",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Again",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "of",
+          "start": 0.65,
+          "end": 0.79
+        },
+        {
+          "text": "Tiresias:—",
+          "start": 0.79,
+          "end": 1.07
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11825759708881378
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1e1a6d5020d8f0a8705a723861477fc833cedf39414b69ba18b2612811b2f534",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

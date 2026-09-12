@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "d0a89c5bbd8b590dc872b1d3964637ca5dc0d044b6dcc0593e18572112954a89",
+  "attempts": [
+    {
+      "asr_seconds": 0.10445494949817657,
+      "alignment_seconds": 0.0002011917531490326,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clearly.",
+          "start": 0.08,
+          "end": 0.68,
+          "words": [
+            {
+              "text": " Clearly.",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.6240234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clearly.",
+          "start": 0.08,
+          "end": 0.68
+        }
+      ],
+      "expected_tokens": [
+        "Clearly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clearly.",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "clearly",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clearly.",
+          "start": 0.08,
+          "end": 0.68
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10472144559025764
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "18e1a5378b4c525110b791b3574148cab6eb35304d771548a442d2fa43c08e4b",
+  "selected_reasons": []
+}

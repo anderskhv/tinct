@@ -1,0 +1,2617 @@
+{
+  "complete": true,
+  "signature": "3b9236194decd736bd1e54a336cb58e584ff79ee2a5fdb8c40b08b4c2ba96359",
+  "attempts": [
+    {
+      "asr_seconds": 0.7489419132471085,
+      "alignment_seconds": 0.0012951530516147614,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And you would agree with me in saying that one of them is simple and has but slight changes; and if the harmony and rhythm are also chosen for their simplicity, the result is that the speaker, if he speaks correctly, is always pretty much the same in style, and he will keep within the limits of a single harmony (for the changes are not great), and in like manner he will make use of nearly the same rhythm?"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And you would agree with me in saying that one of them is simple and has but slight changes,",
+          "start": 0.08,
+          "end": 4.84,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.578125
+            },
+            {
+              "text": " you",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.974609375
+            },
+            {
+              "text": " would",
+              "start": 0.66,
+              "end": 0.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " agree",
+              "start": 0.76,
+              "end": 1.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 1.02,
+              "end": 1.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 1.18,
+              "end": 1.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 1.42,
+              "end": 1.76,
+              "probability": 0.923828125
+            },
+            {
+              "text": " saying",
+              "start": 1.76,
+              "end": 2.0,
+              "probability": 0.99609375
+            },
+            {
+              "text": " that",
+              "start": 2.0,
+              "end": 2.22,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " one",
+              "start": 2.22,
+              "end": 2.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 2.38,
+              "end": 2.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " them",
+              "start": 2.5,
+              "end": 2.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 2.6,
+              "end": 2.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " simple",
+              "start": 2.78,
+              "end": 3.16,
+              "probability": 0.947265625
+            },
+            {
+              "text": " and",
+              "start": 3.16,
+              "end": 3.44,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " has",
+              "start": 3.44,
+              "end": 3.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " but",
+              "start": 3.68,
+              "end": 3.94,
+              "probability": 0.96484375
+            },
+            {
+              "text": " slight",
+              "start": 3.94,
+              "end": 4.28,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " changes,",
+              "start": 4.28,
+              "end": 4.84,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " and if the harmony and rhythm are also chosen for their simplicity, the result is that the",
+          "start": 4.96,
+          "end": 10.26,
+          "words": [
+            {
+              "text": " and",
+              "start": 4.96,
+              "end": 5.64,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " if",
+              "start": 5.64,
+              "end": 5.74,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " the",
+              "start": 5.74,
+              "end": 5.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " harmony",
+              "start": 5.9,
+              "end": 6.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 6.2,
+              "end": 6.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " rhythm",
+              "start": 6.5,
+              "end": 6.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " are",
+              "start": 6.76,
+              "end": 6.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " also",
+              "start": 6.96,
+              "end": 7.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " chosen",
+              "start": 7.26,
+              "end": 7.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " for",
+              "start": 7.56,
+              "end": 7.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " their",
+              "start": 7.86,
+              "end": 8.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " simplicity,",
+              "start": 8.04,
+              "end": 8.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 9.02,
+              "end": 9.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " result",
+              "start": 9.32,
+              "end": 9.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " is",
+              "start": 9.62,
+              "end": 9.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 9.88,
+              "end": 10.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 10.08,
+              "end": 10.26,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " speaker, if he speaks correctly, is always pretty much the same in style, and he will",
+          "start": 10.26,
+          "end": 15.66,
+          "words": [
+            {
+              "text": " speaker,",
+              "start": 10.26,
+              "end": 10.66,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " if",
+              "start": 11.04,
+              "end": 11.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 11.2,
+              "end": 11.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " speaks",
+              "start": 11.32,
+              "end": 11.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " correctly,",
+              "start": 11.58,
+              "end": 12.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " is",
+              "start": 12.56,
+              "end": 12.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " always",
+              "start": 12.76,
+              "end": 13.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " pretty",
+              "start": 13.08,
+              "end": 13.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " much",
+              "start": 13.38,
+              "end": 13.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 13.6,
+              "end": 13.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " same",
+              "start": 13.86,
+              "end": 14.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 14.14,
+              "end": 14.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " style,",
+              "start": 14.36,
+              "end": 14.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 15.2,
+              "end": 15.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 15.42,
+              "end": 15.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " will",
+              "start": 15.54,
+              "end": 15.66,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " keep within the limits of a single harmony, for the changes are not great, and in like",
+          "start": 15.66,
+          "end": 20.68,
+          "words": [
+            {
+              "text": " keep",
+              "start": 15.66,
+              "end": 15.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " within",
+              "start": 15.9,
+              "end": 16.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 16.18,
+              "end": 16.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " limits",
+              "start": 16.34,
+              "end": 16.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 16.58,
+              "end": 16.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 16.8,
+              "end": 16.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " single",
+              "start": 16.94,
+              "end": 17.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " harmony,",
+              "start": 17.24,
+              "end": 17.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " for",
+              "start": 18.22,
+              "end": 18.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 18.42,
+              "end": 18.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " changes",
+              "start": 18.54,
+              "end": 18.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " are",
+              "start": 18.86,
+              "end": 19.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 19.1,
+              "end": 19.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " great,",
+              "start": 19.3,
+              "end": 19.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 20.16,
+              "end": 20.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 20.38,
+              "end": 20.5,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " like",
+              "start": 20.5,
+              "end": 20.68,
+              "probability": 0.99169921875
+            }
+          ]
+        },
+        {
+          "text": " manner he will make use of nearly the same rhythm?",
+          "start": 20.68,
+          "end": 23.14,
+          "words": [
+            {
+              "text": " manner",
+              "start": 20.68,
+              "end": 21.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " he",
+              "start": 21.02,
+              "end": 21.24,
+              "probability": 0.912109375
+            },
+            {
+              "text": " will",
+              "start": 21.24,
+              "end": 21.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " make",
+              "start": 21.36,
+              "end": 21.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " use",
+              "start": 21.54,
+              "end": 21.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 21.78,
+              "end": 21.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " nearly",
+              "start": 21.98,
+              "end": 22.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 22.2,
+              "end": 22.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " same",
+              "start": 22.5,
+              "end": 22.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " rhythm?",
+              "start": 22.8,
+              "end": 23.14,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "you",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "would",
+          "start": 0.66,
+          "end": 0.76
+        },
+        {
+          "raw": "agree",
+          "start": 0.76,
+          "end": 1.02
+        },
+        {
+          "raw": "with",
+          "start": 1.02,
+          "end": 1.18
+        },
+        {
+          "raw": "me",
+          "start": 1.18,
+          "end": 1.42
+        },
+        {
+          "raw": "in",
+          "start": 1.42,
+          "end": 1.76
+        },
+        {
+          "raw": "saying",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "raw": "that",
+          "start": 2.0,
+          "end": 2.22
+        },
+        {
+          "raw": "one",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "raw": "of",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "raw": "them",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "raw": "is",
+          "start": 2.6,
+          "end": 2.78
+        },
+        {
+          "raw": "simple",
+          "start": 2.78,
+          "end": 3.16
+        },
+        {
+          "raw": "and",
+          "start": 3.16,
+          "end": 3.44
+        },
+        {
+          "raw": "has",
+          "start": 3.44,
+          "end": 3.68
+        },
+        {
+          "raw": "but",
+          "start": 3.68,
+          "end": 3.94
+        },
+        {
+          "raw": "slight",
+          "start": 3.94,
+          "end": 4.28
+        },
+        {
+          "raw": "changes,",
+          "start": 4.28,
+          "end": 4.84
+        },
+        {
+          "raw": "and",
+          "start": 4.96,
+          "end": 5.64
+        },
+        {
+          "raw": "if",
+          "start": 5.64,
+          "end": 5.74
+        },
+        {
+          "raw": "the",
+          "start": 5.74,
+          "end": 5.9
+        },
+        {
+          "raw": "harmony",
+          "start": 5.9,
+          "end": 6.2
+        },
+        {
+          "raw": "and",
+          "start": 6.2,
+          "end": 6.5
+        },
+        {
+          "raw": "rhythm",
+          "start": 6.5,
+          "end": 6.76
+        },
+        {
+          "raw": "are",
+          "start": 6.76,
+          "end": 6.96
+        },
+        {
+          "raw": "also",
+          "start": 6.96,
+          "end": 7.26
+        },
+        {
+          "raw": "chosen",
+          "start": 7.26,
+          "end": 7.56
+        },
+        {
+          "raw": "for",
+          "start": 7.56,
+          "end": 7.86
+        },
+        {
+          "raw": "their",
+          "start": 7.86,
+          "end": 8.04
+        },
+        {
+          "raw": "simplicity,",
+          "start": 8.04,
+          "end": 8.56
+        },
+        {
+          "raw": "the",
+          "start": 9.02,
+          "end": 9.32
+        },
+        {
+          "raw": "result",
+          "start": 9.32,
+          "end": 9.62
+        },
+        {
+          "raw": "is",
+          "start": 9.62,
+          "end": 9.88
+        },
+        {
+          "raw": "that",
+          "start": 9.88,
+          "end": 10.08
+        },
+        {
+          "raw": "the",
+          "start": 10.08,
+          "end": 10.26
+        },
+        {
+          "raw": "speaker,",
+          "start": 10.26,
+          "end": 10.66
+        },
+        {
+          "raw": "if",
+          "start": 11.04,
+          "end": 11.2
+        },
+        {
+          "raw": "he",
+          "start": 11.2,
+          "end": 11.32
+        },
+        {
+          "raw": "speaks",
+          "start": 11.32,
+          "end": 11.58
+        },
+        {
+          "raw": "correctly,",
+          "start": 11.58,
+          "end": 12.08
+        },
+        {
+          "raw": "is",
+          "start": 12.56,
+          "end": 12.76
+        },
+        {
+          "raw": "always",
+          "start": 12.76,
+          "end": 13.08
+        },
+        {
+          "raw": "pretty",
+          "start": 13.08,
+          "end": 13.38
+        },
+        {
+          "raw": "much",
+          "start": 13.38,
+          "end": 13.6
+        },
+        {
+          "raw": "the",
+          "start": 13.6,
+          "end": 13.86
+        },
+        {
+          "raw": "same",
+          "start": 13.86,
+          "end": 14.14
+        },
+        {
+          "raw": "in",
+          "start": 14.14,
+          "end": 14.36
+        },
+        {
+          "raw": "style,",
+          "start": 14.36,
+          "end": 14.72
+        },
+        {
+          "raw": "and",
+          "start": 15.2,
+          "end": 15.42
+        },
+        {
+          "raw": "he",
+          "start": 15.42,
+          "end": 15.54
+        },
+        {
+          "raw": "will",
+          "start": 15.54,
+          "end": 15.66
+        },
+        {
+          "raw": "keep",
+          "start": 15.66,
+          "end": 15.9
+        },
+        {
+          "raw": "within",
+          "start": 15.9,
+          "end": 16.18
+        },
+        {
+          "raw": "the",
+          "start": 16.18,
+          "end": 16.34
+        },
+        {
+          "raw": "limits",
+          "start": 16.34,
+          "end": 16.58
+        },
+        {
+          "raw": "of",
+          "start": 16.58,
+          "end": 16.8
+        },
+        {
+          "raw": "a",
+          "start": 16.8,
+          "end": 16.94
+        },
+        {
+          "raw": "single",
+          "start": 16.94,
+          "end": 17.24
+        },
+        {
+          "raw": "harmony,",
+          "start": 17.24,
+          "end": 17.68
+        },
+        {
+          "raw": "for",
+          "start": 18.22,
+          "end": 18.42
+        },
+        {
+          "raw": "the",
+          "start": 18.42,
+          "end": 18.54
+        },
+        {
+          "raw": "changes",
+          "start": 18.54,
+          "end": 18.86
+        },
+        {
+          "raw": "are",
+          "start": 18.86,
+          "end": 19.1
+        },
+        {
+          "raw": "not",
+          "start": 19.1,
+          "end": 19.3
+        },
+        {
+          "raw": "great,",
+          "start": 19.3,
+          "end": 19.64
+        },
+        {
+          "raw": "and",
+          "start": 20.16,
+          "end": 20.38
+        },
+        {
+          "raw": "in",
+          "start": 20.38,
+          "end": 20.5
+        },
+        {
+          "raw": "like",
+          "start": 20.5,
+          "end": 20.68
+        },
+        {
+          "raw": "manner",
+          "start": 20.68,
+          "end": 21.02
+        },
+        {
+          "raw": "he",
+          "start": 21.02,
+          "end": 21.24
+        },
+        {
+          "raw": "will",
+          "start": 21.24,
+          "end": 21.36
+        },
+        {
+          "raw": "make",
+          "start": 21.36,
+          "end": 21.54
+        },
+        {
+          "raw": "use",
+          "start": 21.54,
+          "end": 21.78
+        },
+        {
+          "raw": "of",
+          "start": 21.78,
+          "end": 21.98
+        },
+        {
+          "raw": "nearly",
+          "start": 21.98,
+          "end": 22.2
+        },
+        {
+          "raw": "the",
+          "start": 22.2,
+          "end": 22.5
+        },
+        {
+          "raw": "same",
+          "start": 22.5,
+          "end": 22.8
+        },
+        {
+          "raw": "rhythm?",
+          "start": 22.8,
+          "end": 23.14
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "you",
+        "would",
+        "agree",
+        "with",
+        "me",
+        "in",
+        "saying",
+        "that",
+        "one",
+        "of",
+        "them",
+        "is",
+        "simple",
+        "and",
+        "has",
+        "but",
+        "slight",
+        "changes;",
+        "and",
+        "if",
+        "the",
+        "harmony",
+        "and",
+        "rhythm",
+        "are",
+        "also",
+        "chosen",
+        "for",
+        "their",
+        "simplicity,",
+        "the",
+        "result",
+        "is",
+        "that",
+        "the",
+        "speaker,",
+        "if",
+        "he",
+        "speaks",
+        "correctly,",
+        "is",
+        "always",
+        "pretty",
+        "much",
+        "the",
+        "same",
+        "in",
+        "style,",
+        "and",
+        "he",
+        "will",
+        "keep",
+        "within",
+        "the",
+        "limits",
+        "of",
+        "a",
+        "single",
+        "harmony",
+        "(for",
+        "the",
+        "changes",
+        "are",
+        "not",
+        "great),",
+        "and",
+        "in",
+        "like",
+        "manner",
+        "he",
+        "will",
+        "make",
+        "use",
+        "of",
+        "nearly",
+        "the",
+        "same",
+        "rhythm?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          79,
+          0,
+          79
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.54,
+          "end": 0.66,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 0.66,
+          "end": 0.76,
+          "key": "would",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "agree",
+          "start": 0.76,
+          "end": 1.02,
+          "key": "agree",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.02,
+          "end": 1.18,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.18,
+          "end": 1.42,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.42,
+          "end": 1.76,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "saying",
+          "start": 1.76,
+          "end": 2.0,
+          "key": "saying",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.0,
+          "end": 2.22,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.22,
+          "end": 2.38,
+          "key": "one",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.38,
+          "end": 2.5,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 2.5,
+          "end": 2.6,
+          "key": "them",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.6,
+          "end": 2.78,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "simple",
+          "start": 2.78,
+          "end": 3.16,
+          "key": "simple",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.16,
+          "end": 3.44,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.44,
+          "end": 3.68,
+          "key": "has",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.68,
+          "end": 3.94,
+          "key": "but",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "slight",
+          "start": 3.94,
+          "end": 4.28,
+          "key": "slight",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "changes,",
+          "start": 4.28,
+          "end": 4.84,
+          "key": "changes",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.96,
+          "end": 5.64,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 5.64,
+          "end": 5.74,
+          "key": "if",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.74,
+          "end": 5.9,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "harmony",
+          "start": 5.9,
+          "end": 6.2,
+          "key": "harmony",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.2,
+          "end": 6.5,
+          "key": "and",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "rhythm",
+          "start": 6.5,
+          "end": 6.76,
+          "key": "rhythm",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 6.76,
+          "end": 6.96,
+          "key": "are",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "also",
+          "start": 6.96,
+          "end": 7.26,
+          "key": "also",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "chosen",
+          "start": 7.26,
+          "end": 7.56,
+          "key": "chosen",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 7.56,
+          "end": 7.86,
+          "key": "for",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 7.86,
+          "end": 8.04,
+          "key": "their",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "simplicity,",
+          "start": 8.04,
+          "end": 8.56,
+          "key": "simplicity",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.02,
+          "end": 9.32,
+          "key": "the",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "result",
+          "start": 9.32,
+          "end": 9.62,
+          "key": "result",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 9.62,
+          "end": 9.88,
+          "key": "is",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 9.88,
+          "end": 10.08,
+          "key": "that",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.08,
+          "end": 10.26,
+          "key": "the",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "speaker,",
+          "start": 10.26,
+          "end": 10.66,
+          "key": "speaker",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 11.04,
+          "end": 11.2,
+          "key": "if",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 11.2,
+          "end": 11.32,
+          "key": "he",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "speaks",
+          "start": 11.32,
+          "end": 11.58,
+          "key": "speaks",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "correctly,",
+          "start": 11.58,
+          "end": 12.08,
+          "key": "correctly",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 12.56,
+          "end": 12.76,
+          "key": "is",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "always",
+          "start": 12.76,
+          "end": 13.08,
+          "key": "always",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "pretty",
+          "start": 13.08,
+          "end": 13.38,
+          "key": "pretty",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 13.38,
+          "end": 13.6,
+          "key": "much",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.6,
+          "end": 13.86,
+          "key": "the",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 13.86,
+          "end": 14.14,
+          "key": "same",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 14.14,
+          "end": 14.36,
+          "key": "in",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "style,",
+          "start": 14.36,
+          "end": 14.72,
+          "key": "style",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 15.2,
+          "end": 15.42,
+          "key": "and",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 15.42,
+          "end": 15.54,
+          "key": "he",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 15.54,
+          "end": 15.66,
+          "key": "will",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 15.66,
+          "end": 15.9,
+          "key": "keep",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 15.9,
+          "end": 16.18,
+          "key": "within",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.18,
+          "end": 16.34,
+          "key": "the",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "limits",
+          "start": 16.34,
+          "end": 16.58,
+          "key": "limits",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.58,
+          "end": 16.8,
+          "key": "of",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 16.8,
+          "end": 16.94,
+          "key": "a",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "single",
+          "start": 16.94,
+          "end": 17.24,
+          "key": "single",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "harmony,",
+          "start": 17.24,
+          "end": 17.68,
+          "key": "harmony",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 18.22,
+          "end": 18.42,
+          "key": "for",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.42,
+          "end": 18.54,
+          "key": "the",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "changes",
+          "start": 18.54,
+          "end": 18.86,
+          "key": "changes",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 18.86,
+          "end": 19.1,
+          "key": "are",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 19.1,
+          "end": 19.3,
+          "key": "not",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "great,",
+          "start": 19.3,
+          "end": 19.64,
+          "key": "great",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 20.16,
+          "end": 20.38,
+          "key": "and",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 20.38,
+          "end": 20.5,
+          "key": "in",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 20.5,
+          "end": 20.68,
+          "key": "like",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "manner",
+          "start": 20.68,
+          "end": 21.02,
+          "key": "manner",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 21.02,
+          "end": 21.24,
+          "key": "he",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 21.24,
+          "end": 21.36,
+          "key": "will",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 21.36,
+          "end": 21.54,
+          "key": "make",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "use",
+          "start": 21.54,
+          "end": 21.78,
+          "key": "use",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 21.78,
+          "end": 21.98,
+          "key": "of",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "nearly",
+          "start": 21.98,
+          "end": 22.2,
+          "key": "nearly",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 22.2,
+          "end": 22.5,
+          "key": "the",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 22.5,
+          "end": 22.8,
+          "key": "same",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "rhythm?",
+          "start": 22.8,
+          "end": 23.14,
+          "key": "rhythm",
+          "pieces": [
+            78
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "you",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "would",
+          "start": 0.66,
+          "end": 0.76
+        },
+        {
+          "text": "agree",
+          "start": 0.76,
+          "end": 1.02
+        },
+        {
+          "text": "with",
+          "start": 1.02,
+          "end": 1.18
+        },
+        {
+          "text": "me",
+          "start": 1.18,
+          "end": 1.42
+        },
+        {
+          "text": "in",
+          "start": 1.42,
+          "end": 1.76
+        },
+        {
+          "text": "saying",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "text": "that",
+          "start": 2.0,
+          "end": 2.22
+        },
+        {
+          "text": "one",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "text": "of",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "text": "them",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "text": "is",
+          "start": 2.6,
+          "end": 2.78
+        },
+        {
+          "text": "simple",
+          "start": 2.78,
+          "end": 3.16
+        },
+        {
+          "text": "and",
+          "start": 3.16,
+          "end": 3.44
+        },
+        {
+          "text": "has",
+          "start": 3.44,
+          "end": 3.68
+        },
+        {
+          "text": "but",
+          "start": 3.68,
+          "end": 3.94
+        },
+        {
+          "text": "slight",
+          "start": 3.94,
+          "end": 4.28
+        },
+        {
+          "text": "changes;",
+          "start": 4.28,
+          "end": 4.84
+        },
+        {
+          "text": "and",
+          "start": 4.96,
+          "end": 5.64
+        },
+        {
+          "text": "if",
+          "start": 5.64,
+          "end": 5.74
+        },
+        {
+          "text": "the",
+          "start": 5.74,
+          "end": 5.9
+        },
+        {
+          "text": "harmony",
+          "start": 5.9,
+          "end": 6.2
+        },
+        {
+          "text": "and",
+          "start": 6.2,
+          "end": 6.5
+        },
+        {
+          "text": "rhythm",
+          "start": 6.5,
+          "end": 6.76
+        },
+        {
+          "text": "are",
+          "start": 6.76,
+          "end": 6.96
+        },
+        {
+          "text": "also",
+          "start": 6.96,
+          "end": 7.26
+        },
+        {
+          "text": "chosen",
+          "start": 7.26,
+          "end": 7.56
+        },
+        {
+          "text": "for",
+          "start": 7.56,
+          "end": 7.86
+        },
+        {
+          "text": "their",
+          "start": 7.86,
+          "end": 8.04
+        },
+        {
+          "text": "simplicity,",
+          "start": 8.04,
+          "end": 8.56
+        },
+        {
+          "text": "the",
+          "start": 9.02,
+          "end": 9.32
+        },
+        {
+          "text": "result",
+          "start": 9.32,
+          "end": 9.62
+        },
+        {
+          "text": "is",
+          "start": 9.62,
+          "end": 9.88
+        },
+        {
+          "text": "that",
+          "start": 9.88,
+          "end": 10.08
+        },
+        {
+          "text": "the",
+          "start": 10.08,
+          "end": 10.26
+        },
+        {
+          "text": "speaker,",
+          "start": 10.26,
+          "end": 10.66
+        },
+        {
+          "text": "if",
+          "start": 11.04,
+          "end": 11.2
+        },
+        {
+          "text": "he",
+          "start": 11.2,
+          "end": 11.32
+        },
+        {
+          "text": "speaks",
+          "start": 11.32,
+          "end": 11.58
+        },
+        {
+          "text": "correctly,",
+          "start": 11.58,
+          "end": 12.08
+        },
+        {
+          "text": "is",
+          "start": 12.56,
+          "end": 12.76
+        },
+        {
+          "text": "always",
+          "start": 12.76,
+          "end": 13.08
+        },
+        {
+          "text": "pretty",
+          "start": 13.08,
+          "end": 13.38
+        },
+        {
+          "text": "much",
+          "start": 13.38,
+          "end": 13.6
+        },
+        {
+          "text": "the",
+          "start": 13.6,
+          "end": 13.86
+        },
+        {
+          "text": "same",
+          "start": 13.86,
+          "end": 14.14
+        },
+        {
+          "text": "in",
+          "start": 14.14,
+          "end": 14.36
+        },
+        {
+          "text": "style,",
+          "start": 14.36,
+          "end": 14.72
+        },
+        {
+          "text": "and",
+          "start": 15.2,
+          "end": 15.42
+        },
+        {
+          "text": "he",
+          "start": 15.42,
+          "end": 15.54
+        },
+        {
+          "text": "will",
+          "start": 15.54,
+          "end": 15.66
+        },
+        {
+          "text": "keep",
+          "start": 15.66,
+          "end": 15.9
+        },
+        {
+          "text": "within",
+          "start": 15.9,
+          "end": 16.18
+        },
+        {
+          "text": "the",
+          "start": 16.18,
+          "end": 16.34
+        },
+        {
+          "text": "limits",
+          "start": 16.34,
+          "end": 16.58
+        },
+        {
+          "text": "of",
+          "start": 16.58,
+          "end": 16.8
+        },
+        {
+          "text": "a",
+          "start": 16.8,
+          "end": 16.94
+        },
+        {
+          "text": "single",
+          "start": 16.94,
+          "end": 17.24
+        },
+        {
+          "text": "harmony",
+          "start": 17.24,
+          "end": 17.68
+        },
+        {
+          "text": "(for",
+          "start": 18.22,
+          "end": 18.42
+        },
+        {
+          "text": "the",
+          "start": 18.42,
+          "end": 18.54
+        },
+        {
+          "text": "changes",
+          "start": 18.54,
+          "end": 18.86
+        },
+        {
+          "text": "are",
+          "start": 18.86,
+          "end": 19.1
+        },
+        {
+          "text": "not",
+          "start": 19.1,
+          "end": 19.3
+        },
+        {
+          "text": "great),",
+          "start": 19.3,
+          "end": 19.64
+        },
+        {
+          "text": "and",
+          "start": 20.16,
+          "end": 20.38
+        },
+        {
+          "text": "in",
+          "start": 20.38,
+          "end": 20.5
+        },
+        {
+          "text": "like",
+          "start": 20.5,
+          "end": 20.68
+        },
+        {
+          "text": "manner",
+          "start": 20.68,
+          "end": 21.02
+        },
+        {
+          "text": "he",
+          "start": 21.02,
+          "end": 21.24
+        },
+        {
+          "text": "will",
+          "start": 21.24,
+          "end": 21.36
+        },
+        {
+          "text": "make",
+          "start": 21.36,
+          "end": 21.54
+        },
+        {
+          "text": "use",
+          "start": 21.54,
+          "end": 21.78
+        },
+        {
+          "text": "of",
+          "start": 21.78,
+          "end": 21.98
+        },
+        {
+          "text": "nearly",
+          "start": 21.98,
+          "end": 22.2
+        },
+        {
+          "text": "the",
+          "start": 22.2,
+          "end": 22.5
+        },
+        {
+          "text": "same",
+          "start": 22.5,
+          "end": 22.8
+        },
+        {
+          "text": "rhythm?",
+          "start": 22.8,
+          "end": 23.14
+        }
+      ],
+      "stats": {
+        "expected_words": 79,
+        "heard_words": 79,
+        "matched_words": 79
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.750891663134098
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d6f2b77e55d871fb975454c60a3fe02cbc5dd523bad34a98b9959d2af9ca1e20",
+  "selected_reasons": []
+}

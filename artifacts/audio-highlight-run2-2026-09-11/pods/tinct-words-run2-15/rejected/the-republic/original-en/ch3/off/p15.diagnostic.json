@@ -1,0 +1,764 @@
+{
+  "complete": true,
+  "signature": "9fad8535a3a41abf5d0eb929a101d1adeca5066cbd00c0fe1e2e903a716879b7",
+  "attempts": [
+    {
+      "asr_seconds": 0.36789463832974434,
+      "alignment_seconds": 0.0004242509603500366,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To him even after death did Persephone grant mind that he alone should be wise, but the other souls are flitting shades",
+          "start": 0.02,
+          "end": 7.58,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " him",
+              "start": 0.5,
+              "end": 0.74,
+              "probability": 0.990234375
+            },
+            {
+              "text": " even",
+              "start": 0.74,
+              "end": 1.14,
+              "probability": 0.162841796875
+            },
+            {
+              "text": " after",
+              "start": 1.14,
+              "end": 1.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " death",
+              "start": 1.48,
+              "end": 1.8,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " did",
+              "start": 1.8,
+              "end": 2.04,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " Persephone",
+              "start": 2.04,
+              "end": 2.52,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " grant",
+              "start": 2.52,
+              "end": 2.84,
+              "probability": 0.9140625
+            },
+            {
+              "text": " mind",
+              "start": 2.84,
+              "end": 3.2,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " that",
+              "start": 3.2,
+              "end": 3.94,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " he",
+              "start": 3.94,
+              "end": 4.14,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " alone",
+              "start": 4.14,
+              "end": 4.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " should",
+              "start": 4.4,
+              "end": 4.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 4.68,
+              "end": 4.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wise,",
+              "start": 4.84,
+              "end": 5.18,
+              "probability": 0.9921875
+            },
+            {
+              "text": " but",
+              "start": 5.18,
+              "end": 5.9,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " the",
+              "start": 5.9,
+              "end": 6.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " other",
+              "start": 6.04,
+              "end": 6.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " souls",
+              "start": 6.28,
+              "end": 6.6,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " are",
+              "start": 6.6,
+              "end": 6.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " flitting",
+              "start": 6.88,
+              "end": 7.22,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " shades",
+              "start": 7.22,
+              "end": 7.58,
+              "probability": 0.97900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "him",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "raw": "even",
+          "start": 0.74,
+          "end": 1.14
+        },
+        {
+          "raw": "after",
+          "start": 1.14,
+          "end": 1.48
+        },
+        {
+          "raw": "death",
+          "start": 1.48,
+          "end": 1.8
+        },
+        {
+          "raw": "did",
+          "start": 1.8,
+          "end": 2.04
+        },
+        {
+          "raw": "Persephone",
+          "start": 2.04,
+          "end": 2.52
+        },
+        {
+          "raw": "grant",
+          "start": 2.52,
+          "end": 2.84
+        },
+        {
+          "raw": "mind",
+          "start": 2.84,
+          "end": 3.2
+        },
+        {
+          "raw": "that",
+          "start": 3.2,
+          "end": 3.94
+        },
+        {
+          "raw": "he",
+          "start": 3.94,
+          "end": 4.14
+        },
+        {
+          "raw": "alone",
+          "start": 4.14,
+          "end": 4.4
+        },
+        {
+          "raw": "should",
+          "start": 4.4,
+          "end": 4.68
+        },
+        {
+          "raw": "be",
+          "start": 4.68,
+          "end": 4.84
+        },
+        {
+          "raw": "wise,",
+          "start": 4.84,
+          "end": 5.18
+        },
+        {
+          "raw": "but",
+          "start": 5.18,
+          "end": 5.9
+        },
+        {
+          "raw": "the",
+          "start": 5.9,
+          "end": 6.04
+        },
+        {
+          "raw": "other",
+          "start": 6.04,
+          "end": 6.28
+        },
+        {
+          "raw": "souls",
+          "start": 6.28,
+          "end": 6.6
+        },
+        {
+          "raw": "are",
+          "start": 6.6,
+          "end": 6.88
+        },
+        {
+          "raw": "flitting",
+          "start": 6.88,
+          "end": 7.22
+        },
+        {
+          "raw": "shades",
+          "start": 7.22,
+          "end": 7.58
+        }
+      ],
+      "expected_tokens": [
+        "'(To",
+        "him",
+        "even",
+        "after",
+        "death",
+        "did",
+        "Persephone",
+        "grant",
+        "mind,)",
+        "that",
+        "he",
+        "alone",
+        "should",
+        "be",
+        "wise;",
+        "but",
+        "the",
+        "other",
+        "souls",
+        "are",
+        "flitting",
+        "shades.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 0.5,
+          "end": 0.74,
+          "key": "him",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 0.74,
+          "end": 1.14,
+          "key": "even",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 1.14,
+          "end": 1.48,
+          "key": "after",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "death",
+          "start": 1.48,
+          "end": 1.8,
+          "key": "death",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.8,
+          "end": 2.04,
+          "key": "did",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Persephone",
+          "start": 2.04,
+          "end": 2.52,
+          "key": "persephone",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "grant",
+          "start": 2.52,
+          "end": 2.84,
+          "key": "grant",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 2.84,
+          "end": 3.2,
+          "key": "mind",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.2,
+          "end": 3.94,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.94,
+          "end": 4.14,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "alone",
+          "start": 4.14,
+          "end": 4.4,
+          "key": "alone",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 4.4,
+          "end": 4.68,
+          "key": "should",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.68,
+          "end": 4.84,
+          "key": "be",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "wise,",
+          "start": 4.84,
+          "end": 5.18,
+          "key": "wise",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.18,
+          "end": 5.9,
+          "key": "but",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.9,
+          "end": 6.04,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 6.04,
+          "end": 6.28,
+          "key": "other",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "souls",
+          "start": 6.28,
+          "end": 6.6,
+          "key": "souls",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 6.6,
+          "end": 6.88,
+          "key": "are",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "flitting",
+          "start": 6.88,
+          "end": 7.22,
+          "key": "flitting",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "shades",
+          "start": 7.22,
+          "end": 7.58,
+          "key": "shades",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "'(To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "him",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "text": "even",
+          "start": 0.74,
+          "end": 1.14
+        },
+        {
+          "text": "after",
+          "start": 1.14,
+          "end": 1.48
+        },
+        {
+          "text": "death",
+          "start": 1.48,
+          "end": 1.8
+        },
+        {
+          "text": "did",
+          "start": 1.8,
+          "end": 2.04
+        },
+        {
+          "text": "Persephone",
+          "start": 2.04,
+          "end": 2.52
+        },
+        {
+          "text": "grant",
+          "start": 2.52,
+          "end": 2.84
+        },
+        {
+          "text": "mind,)",
+          "start": 2.84,
+          "end": 3.2
+        },
+        {
+          "text": "that",
+          "start": 3.2,
+          "end": 3.94
+        },
+        {
+          "text": "he",
+          "start": 3.94,
+          "end": 4.14
+        },
+        {
+          "text": "alone",
+          "start": 4.14,
+          "end": 4.4
+        },
+        {
+          "text": "should",
+          "start": 4.4,
+          "end": 4.68
+        },
+        {
+          "text": "be",
+          "start": 4.68,
+          "end": 4.84
+        },
+        {
+          "text": "wise;",
+          "start": 4.84,
+          "end": 5.18
+        },
+        {
+          "text": "but",
+          "start": 5.18,
+          "end": 5.9
+        },
+        {
+          "text": "the",
+          "start": 5.9,
+          "end": 6.04
+        },
+        {
+          "text": "other",
+          "start": 6.04,
+          "end": 6.28
+        },
+        {
+          "text": "souls",
+          "start": 6.28,
+          "end": 6.6
+        },
+        {
+          "text": "are",
+          "start": 6.6,
+          "end": 6.88
+        },
+        {
+          "text": "flitting",
+          "start": 6.88,
+          "end": 7.22
+        },
+        {
+          "text": "shades.'",
+          "start": 7.22,
+          "end": 7.58
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.36847927793860435
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0d166a94171e6032396b148b48c4d9f4da04dea8bebf6753d303f9b99a1f97b2",
+  "selected_reasons": []
+}

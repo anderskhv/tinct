@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "9381ab323a735124891f8f5e8a75b292936a9d58b76859d7ee466bd1e22c187d",
+  "attempts": [
+    {
+      "asr_seconds": 0.10693340376019478,
+      "alignment_seconds": 0.0002792254090309143,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, I do.",
+        "hotwords": "Yes, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, I do.",
+          "start": 0.02,
+          "end": 1.12,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " I",
+              "start": 0.76,
+              "end": 0.9,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " do.",
+              "start": 0.9,
+              "end": 1.12,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "I",
+          "start": 0.76,
+          "end": 0.9
+        },
+        {
+          "raw": "do.",
+          "start": 0.9,
+          "end": 1.12
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "I",
+        "do."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.76,
+          "end": 0.9,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do.",
+          "start": 0.9,
+          "end": 1.12,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "I",
+          "start": 0.76,
+          "end": 0.9
+        },
+        {
+          "text": "do.",
+          "start": 0.9,
+          "end": 1.12
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10730907320976257
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f5fc9e85f4b92d88a08800d277e288d085d5e321f637a9e45f1ed0a46bc71781",
+  "selected_reasons": []
+}

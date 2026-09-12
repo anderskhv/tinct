@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "0112b27d31571caee28c685a55c033e1f59e244756e53752319aa1c436259272",
+  "attempts": [
+    {
+      "asr_seconds": 0.1517280861735344,
+      "alignment_seconds": 0.00026313215494155884,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Next in order, we'll follow melody and song.",
+          "start": 0.05,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " Next",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " in",
+              "start": 0.67,
+              "end": 0.85,
+              "probability": 0.80859375
+            },
+            {
+              "text": " order,",
+              "start": 0.85,
+              "end": 1.03,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " we'll",
+              "start": 1.19,
+              "end": 1.29,
+              "probability": 0.962646484375
+            },
+            {
+              "text": " follow",
+              "start": 1.29,
+              "end": 1.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " melody",
+              "start": 1.55,
+              "end": 1.81,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " and",
+              "start": 1.81,
+              "end": 2.15,
+              "probability": 0.91796875
+            },
+            {
+              "text": " song.",
+              "start": 2.15,
+              "end": 2.43,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Next",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "in",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "raw": "order,",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "raw": "we'll",
+          "start": 1.19,
+          "end": 1.29
+        },
+        {
+          "raw": "follow",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "raw": "melody",
+          "start": 1.55,
+          "end": 1.81
+        },
+        {
+          "raw": "and",
+          "start": 1.81,
+          "end": 2.15
+        },
+        {
+          "raw": "song.",
+          "start": 2.15,
+          "end": 2.43
+        }
+      ],
+      "expected_tokens": [
+        "Next",
+        "in",
+        "order",
+        "will",
+        "follow",
+        "melody",
+        "and",
+        "song."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Next",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "next",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.67,
+          "end": 0.85,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "order,",
+          "start": 0.85,
+          "end": 1.03,
+          "key": "order",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "we'll",
+          "start": 1.19,
+          "end": 1.29,
+          "key": "well",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "follow",
+          "start": 1.29,
+          "end": 1.55,
+          "key": "follow",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "melody",
+          "start": 1.55,
+          "end": 1.81,
+          "key": "melody",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.81,
+          "end": 2.15,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "song.",
+          "start": 2.15,
+          "end": 2.43,
+          "key": "song",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Next",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "in",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "text": "order",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "text": "will",
+          "start": 1.03,
+          "end": 1.16
+        },
+        {
+          "text": "follow",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "text": "melody",
+          "start": 1.55,
+          "end": 1.81
+        },
+        {
+          "text": "and",
+          "start": 1.81,
+          "end": 2.15
+        },
+        {
+          "text": "song.",
+          "start": 2.15,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.15209148079156876
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "13bd2baa508b7a9811f8da8f079f027c6d8107bf1409e15fdb8bc0136df5691f",
+  "selected_reasons": []
+}

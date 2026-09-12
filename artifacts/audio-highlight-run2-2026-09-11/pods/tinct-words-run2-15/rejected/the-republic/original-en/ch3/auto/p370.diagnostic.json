@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "595db20b06ea71cf607994275a2b302e77fe6deb0e39ebd411fb7b89085048c2",
+  "attempts": [
+    {
+      "asr_seconds": 0.11483809351921082,
+      "alignment_seconds": 0.00029417499899864197,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Will you tell me?",
+        "hotwords": "Will"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Will you tell me?",
+          "start": 0.02,
+          "end": 1.08,
+          "words": [
+            {
+              "text": " Will",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.7763671875
+            },
+            {
+              "text": " you",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " tell",
+              "start": 0.66,
+              "end": 0.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me?",
+              "start": 0.88,
+              "end": 1.08,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Will",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "you",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "tell",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "raw": "me?",
+          "start": 0.88,
+          "end": 1.08
+        }
+      ],
+      "expected_tokens": [
+        "Will",
+        "you",
+        "tell",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Will",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "will",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 0.66,
+          "end": 0.88,
+          "key": "tell",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 0.88,
+          "end": 1.08,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Will",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "you",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "tell",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "text": "me?",
+          "start": 0.88,
+          "end": 1.08
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1152445450425148
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bdfe45967973a16d866f289e3ce51c53e09901f5938f7d27ce36408b17fe9c96",
+  "selected_reasons": []
+}

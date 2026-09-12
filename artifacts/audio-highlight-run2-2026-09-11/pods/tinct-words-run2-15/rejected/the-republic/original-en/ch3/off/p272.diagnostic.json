@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "8fca0f88307d27497d2fac83628ca4ec505ac57883bcb0ad5804ef831629d86a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1158992312848568,
+      "alignment_seconds": 0.00023489445447921753,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exactly.",
+          "start": 0.02,
+          "end": 0.8,
+          "words": [
+            {
+              "text": " Exactly.",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exactly.",
+          "start": 0.02,
+          "end": 0.8
+        }
+      ],
+      "expected_tokens": [
+        "Exactly—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exactly.",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "exactly",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Exactly—",
+          "start": 0.02,
+          "end": 0.8
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11620515584945679
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "faa0a05368611eacd90d466933e74e8eafb71f8cd7976d8bcc669bf4e351935a",
+  "selected_reasons": []
+}

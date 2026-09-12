@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "9ebb0045e91c8c0703e18b5223d817a2413eb18e5ba5cc89e3a2da5288511c9b",
+  "attempts": [
+    {
+      "asr_seconds": 0.10975151881575584,
+      "alignment_seconds": 0.00021212175488471985,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Assuredly.",
+        "hotwords": "Assuredly"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Assuredly.",
+          "start": 0.02,
+          "end": 1.0,
+          "words": [
+            {
+              "text": " Assuredly.",
+              "start": 0.02,
+              "end": 1.0,
+              "probability": 0.9148763020833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Assuredly.",
+          "start": 0.02,
+          "end": 1.0
+        }
+      ],
+      "expected_tokens": [
+        "Assuredly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Assuredly.",
+          "start": 0.02,
+          "end": 1.0,
+          "key": "assuredly",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Assuredly.",
+          "start": 0.02,
+          "end": 1.0
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11003277823328972
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e32fbc8bf64d2a931a73f68fbb174589da4ea94ba6c27e1d74ad5daae4c7eb7b",
+  "selected_reasons": []
+}

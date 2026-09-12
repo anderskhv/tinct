@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "5a5fa0ff41ec81d055691e82ca3f10f0f6d709e8eeaab655cf7d731fd8b11a40",
+  "attempts": [
+    {
+      "asr_seconds": 0.13736950978636742,
+      "alignment_seconds": 0.00022940710186958313,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, I remember.",
+        "hotwords": "Yes, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, I remember.",
+          "start": 0.02,
+          "end": 1.26,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " I",
+              "start": 0.82,
+              "end": 0.96,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " remember.",
+              "start": 0.96,
+              "end": 1.26,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "I",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "raw": "remember.",
+          "start": 0.96,
+          "end": 1.26
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "I",
+        "remember."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.82,
+          "end": 0.96,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "remember.",
+          "start": 0.96,
+          "end": 1.26,
+          "key": "remember",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "I",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "text": "remember.",
+          "start": 0.96,
+          "end": 1.26
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13767189905047417
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "772016e876f86b253e7d12b448a1058b43968277a35f0a373fec7bb7df43695d",
+  "selected_reasons": []
+}

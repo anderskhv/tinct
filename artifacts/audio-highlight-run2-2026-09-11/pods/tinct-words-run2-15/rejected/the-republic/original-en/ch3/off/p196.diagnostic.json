@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "2165f1985839085497b3159385df088487e24a8c4175197f632f7135ababec39",
+  "attempts": [
+    {
+      "asr_seconds": 0.13904331624507904,
+      "alignment_seconds": 0.0002768859267234802,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That is also perfectly true, he replied.",
+          "start": 0.11,
+          "end": 2.59,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.11,
+              "end": 0.53,
+              "probability": 0.63818359375
+            },
+            {
+              "text": " is",
+              "start": 0.53,
+              "end": 0.63,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " also",
+              "start": 0.63,
+              "end": 0.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " perfectly",
+              "start": 0.91,
+              "end": 1.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " true,",
+              "start": 1.31,
+              "end": 1.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 2.09,
+              "end": 2.21,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " replied.",
+              "start": 2.21,
+              "end": 2.59,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "raw": "also",
+          "start": 0.63,
+          "end": 0.91
+        },
+        {
+          "raw": "perfectly",
+          "start": 0.91,
+          "end": 1.31
+        },
+        {
+          "raw": "true,",
+          "start": 1.31,
+          "end": 1.75
+        },
+        {
+          "raw": "he",
+          "start": 2.09,
+          "end": 2.21
+        },
+        {
+          "raw": "replied.",
+          "start": 2.21,
+          "end": 2.59
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "is",
+        "also",
+        "perfectly",
+        "true,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.11,
+          "end": 0.53,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.63,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "also",
+          "start": 0.63,
+          "end": 0.91,
+          "key": "also",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "perfectly",
+          "start": 0.91,
+          "end": 1.31,
+          "key": "perfectly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 1.31,
+          "end": 1.75,
+          "key": "true",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.09,
+          "end": 2.21,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "replied.",
+          "start": 2.21,
+          "end": 2.59,
+          "key": "replied",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "text": "is",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "text": "also",
+          "start": 0.63,
+          "end": 0.91
+        },
+        {
+          "text": "perfectly",
+          "start": 0.91,
+          "end": 1.31
+        },
+        {
+          "text": "true,",
+          "start": 1.31,
+          "end": 1.75
+        },
+        {
+          "text": "he",
+          "start": 2.09,
+          "end": 2.21
+        },
+        {
+          "text": "replied.",
+          "start": 2.21,
+          "end": 2.59
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13943465799093246
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cdf1656e5d9936098d5cd9f01d2318e2e9d393f2b4fc7904ff02a2f3a87c4b00",
+  "selected_reasons": []
+}

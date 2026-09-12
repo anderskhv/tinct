@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "477cd938c212d41077c1d34b409b70c10899c918c8ca01ca726bb166adae3c62",
+  "attempts": [
+    {
+      "asr_seconds": 0.1040859967470169,
+      "alignment_seconds": 0.0001892372965812683,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Most assuredly.",
+        "hotwords": "Most"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Most assuredly.",
+          "start": 0.02,
+          "end": 1.24,
+          "words": [
+            {
+              "text": " Most",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.27587890625
+            },
+            {
+              "text": " assuredly.",
+              "start": 0.62,
+              "end": 1.24,
+              "probability": 0.995361328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Most",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "assuredly.",
+          "start": 0.62,
+          "end": 1.24
+        }
+      ],
+      "expected_tokens": [
+        "Most",
+        "assuredly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Most",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "most",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "assuredly.",
+          "start": 0.62,
+          "end": 1.24,
+          "key": "assuredly",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Most",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "assuredly.",
+          "start": 0.62,
+          "end": 1.24
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10433780774474144
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fa8932f4ba14a679fd67dd69dc5ec97af5ff1348b2e1178c14918acdd1f0d3f7",
+  "selected_reasons": []
+}

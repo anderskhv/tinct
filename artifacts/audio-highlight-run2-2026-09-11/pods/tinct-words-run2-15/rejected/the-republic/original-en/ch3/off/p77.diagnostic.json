@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "190040a43750cb6ca01b2c9a7fcb6cc6b1af30c433ed436e60d58018881e8c5b",
+  "attempts": [
+    {
+      "asr_seconds": 0.17803234606981277,
+      "alignment_seconds": 0.00040435418486595154,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Friend, sit still and obey my word.",
+          "start": 0.08,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " Friend,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " sit",
+              "start": 1.1,
+              "end": 1.24,
+              "probability": 0.98828125
+            },
+            {
+              "text": " still",
+              "start": 1.24,
+              "end": 1.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 1.56,
+              "end": 1.74,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " obey",
+              "start": 1.74,
+              "end": 1.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 1.96,
+              "end": 2.16,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " word.",
+              "start": 2.16,
+              "end": 2.44,
+              "probability": 0.97705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Friend,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "sit",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "raw": "still",
+          "start": 1.24,
+          "end": 1.56
+        },
+        {
+          "raw": "and",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "raw": "obey",
+          "start": 1.74,
+          "end": 1.96
+        },
+        {
+          "raw": "my",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "raw": "word.",
+          "start": 2.16,
+          "end": 2.44
+        }
+      ],
+      "expected_tokens": [
+        "'Friend,",
+        "sit",
+        "still",
+        "and",
+        "obey",
+        "my",
+        "word,'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Friend,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "friend",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sit",
+          "start": 1.1,
+          "end": 1.24,
+          "key": "sit",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 1.24,
+          "end": 1.56,
+          "key": "still",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.56,
+          "end": 1.74,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "obey",
+          "start": 1.74,
+          "end": 1.96,
+          "key": "obey",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.96,
+          "end": 2.16,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "word.",
+          "start": 2.16,
+          "end": 2.44,
+          "key": "word",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "'Friend,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "sit",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "text": "still",
+          "start": 1.24,
+          "end": 1.56
+        },
+        {
+          "text": "and",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "text": "obey",
+          "start": 1.74,
+          "end": 1.96
+        },
+        {
+          "text": "my",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "text": "word,'",
+          "start": 2.16,
+          "end": 2.44
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1785884089767933
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "faf650dd681916e5ab283668c15e4951adbd6a0a8f91b8db92ad599d7ca24582",
+  "selected_reasons": []
+}

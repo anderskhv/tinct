@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "dcd38b1f19d6dade08899ba381f964dbed223542efb6e246e55a0b10e0694013",
+  "attempts": [
+    {
+      "asr_seconds": 0.2086537629365921,
+      "alignment_seconds": 0.00020786002278327942,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " any of the craftsmen, whether he be priest or physician or carpenter.",
+          "start": 0.08,
+          "end": 4.06,
+          "words": [
+            {
+              "text": " any",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.390869140625
+            },
+            {
+              "text": " of",
+              "start": 0.6,
+              "end": 0.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 0.72,
+              "end": 0.84,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " craftsmen,",
+              "start": 0.84,
+              "end": 1.44,
+              "probability": 0.719482421875
+            },
+            {
+              "text": " whether",
+              "start": 1.9,
+              "end": 1.96,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " he",
+              "start": 1.96,
+              "end": 2.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 2.16,
+              "end": 2.32,
+              "probability": 0.9921875
+            },
+            {
+              "text": " priest",
+              "start": 2.32,
+              "end": 2.6,
+              "probability": 0.970703125
+            },
+            {
+              "text": " or",
+              "start": 2.6,
+              "end": 2.92,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " physician",
+              "start": 2.92,
+              "end": 3.24,
+              "probability": 0.9921875
+            },
+            {
+              "text": " or",
+              "start": 3.24,
+              "end": 3.58,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " carpenter.",
+              "start": 3.58,
+              "end": 4.06,
+              "probability": 0.997314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "any",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "of",
+          "start": 0.6,
+          "end": 0.72
+        },
+        {
+          "raw": "the",
+          "start": 0.72,
+          "end": 0.84
+        },
+        {
+          "raw": "craftsmen,",
+          "start": 0.84,
+          "end": 1.44
+        },
+        {
+          "raw": "whether",
+          "start": 1.9,
+          "end": 1.96
+        },
+        {
+          "raw": "he",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "raw": "be",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "raw": "priest",
+          "start": 2.32,
+          "end": 2.6
+        },
+        {
+          "raw": "or",
+          "start": 2.6,
+          "end": 2.92
+        },
+        {
+          "raw": "physician",
+          "start": 2.92,
+          "end": 3.24
+        },
+        {
+          "raw": "or",
+          "start": 3.24,
+          "end": 3.58
+        },
+        {
+          "raw": "carpenter.",
+          "start": 3.58,
+          "end": 4.06
+        }
+      ],
+      "expected_tokens": [
+        "'Any",
+        "of",
+        "the",
+        "craftsmen,",
+        "whether",
+        "he",
+        "be",
+        "priest",
+        "or",
+        "physician",
+        "or",
+        "carpenter,'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "any",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "any",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.6,
+          "end": 0.72,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.72,
+          "end": 0.84,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "craftsmen,",
+          "start": 0.84,
+          "end": 1.44,
+          "key": "craftsmen",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "whether",
+          "start": 1.9,
+          "end": 1.96,
+          "key": "whether",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.96,
+          "end": 2.16,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.16,
+          "end": 2.32,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "priest",
+          "start": 2.32,
+          "end": 2.6,
+          "key": "priest",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 2.6,
+          "end": 2.92,
+          "key": "or",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "physician",
+          "start": 2.92,
+          "end": 3.24,
+          "key": "physician",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 3.24,
+          "end": 3.58,
+          "key": "or",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "carpenter.",
+          "start": 3.58,
+          "end": 4.06,
+          "key": "carpenter",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "'Any",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "of",
+          "start": 0.6,
+          "end": 0.72
+        },
+        {
+          "text": "the",
+          "start": 0.72,
+          "end": 0.84
+        },
+        {
+          "text": "craftsmen,",
+          "start": 0.84,
+          "end": 1.44
+        },
+        {
+          "text": "whether",
+          "start": 1.9,
+          "end": 1.96
+        },
+        {
+          "text": "he",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "text": "be",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "text": "priest",
+          "start": 2.32,
+          "end": 2.6
+        },
+        {
+          "text": "or",
+          "start": 2.6,
+          "end": 2.92
+        },
+        {
+          "text": "physician",
+          "start": 2.92,
+          "end": 3.24
+        },
+        {
+          "text": "or",
+          "start": 3.24,
+          "end": 3.58
+        },
+        {
+          "text": "carpenter,'",
+          "start": 3.58,
+          "end": 4.06
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20894566178321838
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1d5933301dc7201cb4c2aa4aed874d576bbefb6c67639f7c2a019e05dbc540d4",
+  "selected_reasons": []
+}

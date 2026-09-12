@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "879d92cc88d1e2dfab0a4daa71a51755c49e85a9b9e21cbee8c93dd34e70e2d7",
+  "attempts": [
+    {
+      "asr_seconds": 0.12590112909674644,
+      "alignment_seconds": 0.0003792867064476013,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "You are quite right, Socrates.",
+        "hotwords": "You, Socrates"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You are quite right, Socrates.",
+          "start": 0.05,
+          "end": 1.69,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.900390625
+            },
+            {
+              "text": " are",
+              "start": 0.53,
+              "end": 0.63,
+              "probability": 0.791015625
+            },
+            {
+              "text": " quite",
+              "start": 0.63,
+              "end": 0.79,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " right,",
+              "start": 0.79,
+              "end": 1.15,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Socrates.",
+              "start": 1.45,
+              "end": 1.69,
+              "probability": 0.9580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "are",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "raw": "quite",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "raw": "right,",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "raw": "Socrates.",
+          "start": 1.45,
+          "end": 1.69
+        }
+      ],
+      "expected_tokens": [
+        "You",
+        "are",
+        "quite",
+        "right,",
+        "Socrates."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.53,
+          "end": 0.63,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 0.63,
+          "end": 0.79,
+          "key": "quite",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "right,",
+          "start": 0.79,
+          "end": 1.15,
+          "key": "right",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Socrates.",
+          "start": 1.45,
+          "end": 1.69,
+          "key": "socrates",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "You",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "are",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "text": "quite",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "text": "right,",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "text": "Socrates.",
+          "start": 1.45,
+          "end": 1.69
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.126407690346241
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f6badae7baf03f3fb41ee6d623da82c5fb4606105eecaa79ad3a562b848f0fa1",
+  "selected_reasons": []
+}

@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "ffc3d68b9499a164cf12886981b2cce106e069cfa65d696f62c3d3d30a8dc338",
+  "attempts": [
+    {
+      "asr_seconds": 0.2146664559841156,
+      "alignment_seconds": 0.00037218257784843445,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And in our opinion the guardians ought to have both these qualities?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And in our opinion the guardians ought to have both these qualities?",
+          "start": 0.05,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " in",
+              "start": 0.53,
+              "end": 0.61,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " our",
+              "start": 0.61,
+              "end": 0.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " opinion",
+              "start": 0.75,
+              "end": 1.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.11,
+              "end": 1.71,
+              "probability": 0.077392578125
+            },
+            {
+              "text": " guardians",
+              "start": 1.71,
+              "end": 2.09,
+              "probability": 0.190673828125
+            },
+            {
+              "text": " ought",
+              "start": 2.09,
+              "end": 2.39,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " to",
+              "start": 2.39,
+              "end": 2.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 2.55,
+              "end": 2.73,
+              "probability": 0.99609375
+            },
+            {
+              "text": " both",
+              "start": 2.73,
+              "end": 2.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " these",
+              "start": 2.93,
+              "end": 3.19,
+              "probability": 0.9765625
+            },
+            {
+              "text": " qualities?",
+              "start": 3.19,
+              "end": 3.63,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "in",
+          "start": 0.53,
+          "end": 0.61
+        },
+        {
+          "raw": "our",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "raw": "opinion",
+          "start": 0.75,
+          "end": 1.11
+        },
+        {
+          "raw": "the",
+          "start": 1.11,
+          "end": 1.71
+        },
+        {
+          "raw": "guardians",
+          "start": 1.71,
+          "end": 2.09
+        },
+        {
+          "raw": "ought",
+          "start": 2.09,
+          "end": 2.39
+        },
+        {
+          "raw": "to",
+          "start": 2.39,
+          "end": 2.55
+        },
+        {
+          "raw": "have",
+          "start": 2.55,
+          "end": 2.73
+        },
+        {
+          "raw": "both",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "raw": "these",
+          "start": 2.93,
+          "end": 3.19
+        },
+        {
+          "raw": "qualities?",
+          "start": 3.19,
+          "end": 3.63
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "in",
+        "our",
+        "opinion",
+        "the",
+        "guardians",
+        "ought",
+        "to",
+        "have",
+        "both",
+        "these",
+        "qualities?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.53,
+          "end": 0.61,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 0.61,
+          "end": 0.75,
+          "key": "our",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "opinion",
+          "start": 0.75,
+          "end": 1.11,
+          "key": "opinion",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.11,
+          "end": 1.71,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "guardians",
+          "start": 1.71,
+          "end": 2.09,
+          "key": "guardians",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ought",
+          "start": 2.09,
+          "end": 2.39,
+          "key": "ought",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.39,
+          "end": 2.55,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.55,
+          "end": 2.73,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 2.73,
+          "end": 2.93,
+          "key": "both",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 2.93,
+          "end": 3.19,
+          "key": "these",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "qualities?",
+          "start": 3.19,
+          "end": 3.63,
+          "key": "qualities",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "in",
+          "start": 0.53,
+          "end": 0.61
+        },
+        {
+          "text": "our",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "text": "opinion",
+          "start": 0.75,
+          "end": 1.11
+        },
+        {
+          "text": "the",
+          "start": 1.11,
+          "end": 1.71
+        },
+        {
+          "text": "guardians",
+          "start": 1.71,
+          "end": 2.09
+        },
+        {
+          "text": "ought",
+          "start": 2.09,
+          "end": 2.39
+        },
+        {
+          "text": "to",
+          "start": 2.39,
+          "end": 2.55
+        },
+        {
+          "text": "have",
+          "start": 2.55,
+          "end": 2.73
+        },
+        {
+          "text": "both",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "text": "these",
+          "start": 2.93,
+          "end": 3.19
+        },
+        {
+          "text": "qualities?",
+          "start": 3.19,
+          "end": 3.63
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21519286558032036
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1a3a83ea117d91e5972d2e0d74a244fd0dc9a77adf2f3f18932d966f2492057e",
+  "selected_reasons": []
+}

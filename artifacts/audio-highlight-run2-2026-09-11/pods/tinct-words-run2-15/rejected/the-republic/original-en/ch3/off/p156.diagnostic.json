@@ -1,0 +1,572 @@
+{
+  "complete": true,
+  "signature": "c0294ebd4c28c1cf76388191fe3f8b075a94b49ee7afaf98e10458280de09301",
+  "attempts": [
+    {
+      "asr_seconds": 0.3141906410455704,
+      "alignment_seconds": 0.0005691759288311005,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You mean, I suspect, to ask whether tragedy and comedy shall be admitted into our state.",
+          "start": 0.05,
+          "end": 4.99,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " mean,",
+              "start": 0.51,
+              "end": 0.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 0.89,
+              "end": 1.05,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " suspect,",
+              "start": 1.05,
+              "end": 1.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 1.91,
+              "end": 1.99,
+              "probability": 0.994140625
+            },
+            {
+              "text": " ask",
+              "start": 1.99,
+              "end": 2.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " whether",
+              "start": 2.27,
+              "end": 2.49,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " tragedy",
+              "start": 2.49,
+              "end": 2.91,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " and",
+              "start": 2.91,
+              "end": 3.19,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " comedy",
+              "start": 3.19,
+              "end": 3.59,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " shall",
+              "start": 3.59,
+              "end": 3.83,
+              "probability": 0.98046875
+            },
+            {
+              "text": " be",
+              "start": 3.83,
+              "end": 3.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " admitted",
+              "start": 3.97,
+              "end": 4.27,
+              "probability": 0.994140625
+            },
+            {
+              "text": " into",
+              "start": 4.27,
+              "end": 4.53,
+              "probability": 0.984375
+            },
+            {
+              "text": " our",
+              "start": 4.53,
+              "end": 4.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " state.",
+              "start": 4.69,
+              "end": 4.99,
+              "probability": 0.93701171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "mean,",
+          "start": 0.51,
+          "end": 0.73
+        },
+        {
+          "raw": "I",
+          "start": 0.89,
+          "end": 1.05
+        },
+        {
+          "raw": "suspect,",
+          "start": 1.05,
+          "end": 1.41
+        },
+        {
+          "raw": "to",
+          "start": 1.91,
+          "end": 1.99
+        },
+        {
+          "raw": "ask",
+          "start": 1.99,
+          "end": 2.27
+        },
+        {
+          "raw": "whether",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "raw": "tragedy",
+          "start": 2.49,
+          "end": 2.91
+        },
+        {
+          "raw": "and",
+          "start": 2.91,
+          "end": 3.19
+        },
+        {
+          "raw": "comedy",
+          "start": 3.19,
+          "end": 3.59
+        },
+        {
+          "raw": "shall",
+          "start": 3.59,
+          "end": 3.83
+        },
+        {
+          "raw": "be",
+          "start": 3.83,
+          "end": 3.97
+        },
+        {
+          "raw": "admitted",
+          "start": 3.97,
+          "end": 4.27
+        },
+        {
+          "raw": "into",
+          "start": 4.27,
+          "end": 4.53
+        },
+        {
+          "raw": "our",
+          "start": 4.53,
+          "end": 4.69
+        },
+        {
+          "raw": "state.",
+          "start": 4.69,
+          "end": 4.99
+        }
+      ],
+      "expected_tokens": [
+        "You",
+        "mean,",
+        "I",
+        "suspect,",
+        "to",
+        "ask",
+        "whether",
+        "tragedy",
+        "and",
+        "comedy",
+        "shall",
+        "be",
+        "admitted",
+        "into",
+        "our",
+        "State?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mean,",
+          "start": 0.51,
+          "end": 0.73,
+          "key": "mean",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.89,
+          "end": 1.05,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "suspect,",
+          "start": 1.05,
+          "end": 1.41,
+          "key": "suspect",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.91,
+          "end": 1.99,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 1.99,
+          "end": 2.27,
+          "key": "ask",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "whether",
+          "start": 2.27,
+          "end": 2.49,
+          "key": "whether",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "tragedy",
+          "start": 2.49,
+          "end": 2.91,
+          "key": "tragedy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.91,
+          "end": 3.19,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "comedy",
+          "start": 3.19,
+          "end": 3.59,
+          "key": "comedy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 3.59,
+          "end": 3.83,
+          "key": "shall",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.83,
+          "end": 3.97,
+          "key": "be",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "admitted",
+          "start": 3.97,
+          "end": 4.27,
+          "key": "admitted",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 4.27,
+          "end": 4.53,
+          "key": "into",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.53,
+          "end": 4.69,
+          "key": "our",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "state.",
+          "start": 4.69,
+          "end": 4.99,
+          "key": "state",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "You",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "mean,",
+          "start": 0.51,
+          "end": 0.73
+        },
+        {
+          "text": "I",
+          "start": 0.89,
+          "end": 1.05
+        },
+        {
+          "text": "suspect,",
+          "start": 1.05,
+          "end": 1.41
+        },
+        {
+          "text": "to",
+          "start": 1.91,
+          "end": 1.99
+        },
+        {
+          "text": "ask",
+          "start": 1.99,
+          "end": 2.27
+        },
+        {
+          "text": "whether",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "text": "tragedy",
+          "start": 2.49,
+          "end": 2.91
+        },
+        {
+          "text": "and",
+          "start": 2.91,
+          "end": 3.19
+        },
+        {
+          "text": "comedy",
+          "start": 3.19,
+          "end": 3.59
+        },
+        {
+          "text": "shall",
+          "start": 3.59,
+          "end": 3.83
+        },
+        {
+          "text": "be",
+          "start": 3.83,
+          "end": 3.97
+        },
+        {
+          "text": "admitted",
+          "start": 3.97,
+          "end": 4.27
+        },
+        {
+          "text": "into",
+          "start": 4.27,
+          "end": 4.53
+        },
+        {
+          "text": "our",
+          "start": 4.53,
+          "end": 4.69
+        },
+        {
+          "text": "State?",
+          "start": 4.69,
+          "end": 4.99
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3149811439216137
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f8758da26f5fd42650094055e75f19575800afd05caaf70c4c8d90d1b0c5c3dd",
+  "selected_reasons": []
+}

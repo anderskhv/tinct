@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "404d936948dc7962c9978400222592c29604806bec3f756efb49a73db584ad3c",
+  "attempts": [
+    {
+      "asr_seconds": 0.11816620826721191,
+      "alignment_seconds": 0.00010646134614944458,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Very true, he replied.",
+          "start": 0.08,
+          "end": 1.64,
+          "words": [
+            {
+              "text": " Very",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.330322265625
+            },
+            {
+              "text": " true,",
+              "start": 0.66,
+              "end": 0.98,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " he",
+              "start": 1.14,
+              "end": 1.28,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " replied.",
+              "start": 1.28,
+              "end": 1.64,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Very",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "true,",
+          "start": 0.66,
+          "end": 0.98
+        },
+        {
+          "raw": "he",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "raw": "replied.",
+          "start": 1.28,
+          "end": 1.64
+        }
+      ],
+      "expected_tokens": [
+        "Very",
+        "true,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Very",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "very",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 0.66,
+          "end": 0.98,
+          "key": "true",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.14,
+          "end": 1.28,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "replied.",
+          "start": 1.28,
+          "end": 1.64,
+          "key": "replied",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Very",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "true,",
+          "start": 0.66,
+          "end": 0.98
+        },
+        {
+          "text": "he",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "text": "replied.",
+          "start": 1.28,
+          "end": 1.64
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11830787733197212
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7811a62d83cd3f6e4a85ab70306e07059ea65ce32a1dc6509a9044c7882b0052",
+  "selected_reasons": []
+}
