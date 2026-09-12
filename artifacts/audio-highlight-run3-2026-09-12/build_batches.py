@@ -1,17 +1,16 @@
 """Cut run-3 pod batches, editions closest to complete first.
 
-Truth for "what is still missing" is this run's own production census
-(`missing-timings.json` from audit_production.py); sizing comes from run 2's
-survey where it measured the chapter, and from the production manifest
-otherwise.
+Truth for "what is still missing" is a live probe of production for every
+chapter run 2 measured (`quick-survey.json`), merged with the full census
+(`missing-timings.json`) when that is available. Sizing is run 2's own
+measurement of each chapter.
 
-Editions are ordered by how few chapters they still need, so the spend that
-fits inside the envelope buys as many *completed editions* as possible.
+Editions are ordered by how few chapters they still need, so the spend that fits
+inside the envelope buys as many *completed editions* as possible.
 """
 from __future__ import annotations
 
 import json
-import sys
 from collections import defaultdict
 from pathlib import Path
 
@@ -20,9 +19,11 @@ ROOT = HERE.parents[1]
 RUN2 = ROOT / "artifacts/audio-highlight-run2-2026-09-11"
 PARAGRAPH_BUDGET = 1000
 AUDIO_HOUR_BUDGET = 6.5
-
 SKIP_BOOKS = {"magna-carta", "faust-part-1", "as-you-like-it", "henry-iv-part-2",
               "taming-of-the-shrew"}
+# Phaedo's two chapters spell the speaker names out loud; they need re-recording,
+# not a comparison change.
+SKIP_CHAPTERS = {("phaedo", "original-en", 1), ("phaedo", "original-en", 7)}
 
 
 def skipped(book: str, edition: str) -> bool:
@@ -30,37 +31,29 @@ def skipped(book: str, edition: str) -> bool:
 
 
 def main() -> int:
-    missing = json.loads((HERE / "missing-timings.json").read_text())
-    survey = {(r["bookId"], r["edition"], r["chapter"]): r
-              for r in json.loads((RUN2 / "survey.json").read_text())}
-    # Run 1's repair queue and the four missing recordings stay out.
-    blocked = set()
-    for name in ("p1-repair-queue.json",):
-        path = ROOT / "artifacts/audio-highlight-queue-2026-09-11" / name
-        if path.exists():
-            for row in json.loads(path.read_text()):
-                blocked.add((row["bookId"], row["edition"], row["chapter"]))
-    # Phaedo's spelled-out-speaker chapters: re-recording, not alignment.
-    blocked |= {("phaedo", "original-en", 1), ("phaedo", "original-en", 7)}
-
+    survey = json.loads((HERE / "quick-survey.json").read_text())
+    repair = {(r["bookId"], r["edition"], r["chapter"])
+              for r in json.loads((ROOT / "artifacts/audio-highlight-queue-2026-09-11"
+                                   / "p1-repair-queue.json").read_text())}
     rows, dropped = [], defaultdict(int)
-    for row in missing:
-        key = (row["bookId"], row["edition"], row["chapter"])
-        if skipped(row["bookId"], row["edition"]):
+    for r in survey:
+        key = (r["bookId"], r["edition"], r["chapter"])
+        if r["wordsStatus"] in (200, 206):
+            continue
+        if skipped(r["bookId"], r["edition"]):
             dropped["skip-list"] += 1
             continue
-        if key in blocked:
-            dropped["repair/re-record"] += 1
+        if key in SKIP_CHAPTERS:
+            dropped["re-record"] += 1
             continue
-        if not row.get("manifest") or row.get("manifest") == 404:
+        if key in repair:
+            dropped["repair queue"] += 1
+            continue
+        if not (r.get("spokenParagraphs") or 0):
             dropped["no recording"] += 1
             continue
-        measured = survey.get(key)
-        rows.append({
-            "bookId": row["bookId"], "edition": row["edition"], "chapter": row["chapter"],
-            "spokenParagraphs": (measured or row).get("spokenParagraphs") or row.get("paragraphs") or 40,
-            "durationSeconds": (measured or row).get("durationSeconds") or 600.0,
-        })
+        rows.append({k: r[k] for k in ("bookId", "edition", "chapter",
+                                       "spokenParagraphs", "durationSeconds")})
 
     by_edition = defaultdict(list)
     for row in rows:
@@ -84,23 +77,28 @@ def main() -> int:
 
     manifest = []
     for index, batch in enumerate(batches, 1):
-        path = HERE / f"batch-{index}.json"
-        path.write_text(json.dumps([{k: r[k] for k in ("bookId", "edition", "chapter")}
-                                    for r in batch], indent=1))
-        manifest.append({"batch": index, "file": path.name, "chapters": len(batch),
-                         "editions": sorted({r["bookId"] + "/" + r["edition"] for r in batch}),
-                         "shortestEditionGap": min(len(by_edition[(r["bookId"], r["edition"])]) for r in batch),
+        (HERE / f"batch-{index}.json").write_text(json.dumps(
+            [{k: r[k] for k in ("bookId", "edition", "chapter")} for r in batch], indent=1))
+        manifest.append({"batch": index, "chapters": len(batch),
+                         "editions": sorted({f"{r['bookId']}/{r['edition']}" for r in batch}),
+                         "editionsCompletedIfAllPass": sorted(
+                             {f"{r['bookId']}/{r['edition']}" for r in batch
+                              if len(by_edition[(r["bookId"], r["edition"])])
+                              == sum(1 for x in batch if (x["bookId"], x["edition"])
+                                     == (r["bookId"], r["edition"]))}),
                          "paragraphs": sum(r["spokenParagraphs"] for r in batch),
                          "audioHours": round(sum(r["durationSeconds"] for r in batch) / 3600, 2)})
     (HERE / "batch-manifest.json").write_text(json.dumps(manifest, indent=1))
     (HERE / "targets.json").write_text(json.dumps(rows, indent=1))
-    print(f"{len(batches)} batches, {sum(m['chapters'] for m in manifest)} chapters, "
-          f"{len(by_edition)} editions; dropped {dict(dropped)}")
-    gaps = sorted(((len(v), k) for k, v in by_edition.items()))
-    print("editions by chapters still missing:",
-          {n: sum(1 for g, _ in gaps if g == n) for n in sorted({g for g, _ in gaps})})
-    for row in manifest[:12]:
-        print(row["batch"], row["chapters"], row["paragraphs"], row["audioHours"], row["editions"][:3])
+    gaps = defaultdict(int)
+    for key, v in by_edition.items():
+        gaps[len(v)] += 1
+    print(f"{len(batches)} batches, {len(rows)} chapters, {len(by_edition)} editions; "
+          f"dropped {dict(dropped)}")
+    print("editions by chapters still missing:", dict(sorted(gaps.items())))
+    for row in manifest[:10]:
+        print(row["batch"], row["chapters"], "ch", row["paragraphs"], "para",
+              row["audioHours"], "h  completes:", len(row["editionsCompletedIfAllPass"]))
     return 0
 
 
