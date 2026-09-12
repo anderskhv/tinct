@@ -30,6 +30,10 @@ NAME_MAP = [
     ("Saturn", "Cronus"),
     ("Diana", "Artemis"),
     ("Euryclea", "Eurycleia"),
+    ("Venus", "Aphrodite"),
+    ("Juno", "Hera"),
+    ("Vulcan", "Hephaestus"),
+    ("Ceres", "Demeter"),
 ]
 
 
@@ -74,6 +78,9 @@ def word_count(s):
 # guard is not theoretical.
 FROZEN = {
     1: "8316ff76cdbb5d82a572bc58b9388dc76f8ab70deddec6e0dbf75f406b510db9",
+    2: "frozen — see book02/provenance.json",
+    3: "2f2cf21583e9de6f9da86565e9c3888f3380e574bb4a93cbd0b055535162aefa",
+    4: "9c7d54af4bc6e32fefe5d3946a08565820b76d3d3c58a9fc45ec138b912e6553",
 }
 
 
