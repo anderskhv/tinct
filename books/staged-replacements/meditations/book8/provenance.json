@@ -1,0 +1,47 @@
+{
+ "repository": "anderskhv/tinct",
+ "branch": "claude/meditations-modern-en-20260911-v2",
+ "staged_original_path": "books/staged-replacements/meditations/meditations-original-en.staged.json",
+ "staged_original_sha256": "7798607dc6d8af0a25845b025405873c8a2597d44ed1f61eb5d803ba585e2830",
+ "staged_original_note": "The twice-rebuilt file, UNCHANGED at Book VIII step 1. It was rebuilt at Book IV step 1 (three PG illustration captions; 7bf2d1b1... -> b0ecf3da...) and at Book VII step 1 (three of Long's footnotes printed flush left in the PG text; b0ecf3da... -> 7798607d...). For Book VIII the PG source was re-read line by line (PG lines 4933-5418) for every class the two earlier rebuilds missed - footnote openers and bodies whether indented or flush left, illustration captions, running heads, page numbers, verse and verse citations - and none was found: Book VIII's nine footnotes (PG lines 4969, 5045, 5131, 5160, 5218, 5223, 5277, 5396, 5414) are all printed indented and were already stripped, there is no illustration caption in the book (the nearest, line 5628, is in Book IX), no running head, no page number, and no verse or verse citation at all. Proof: scripts/build_original_en_from_pg15877.py was re-run from source/pg15877-long-1862.txt and its output is BYTE-IDENTICAL to the file on the branch (cmp clean), sha256 still 7798607d..., 487 paragraphs, 12 chapters. No rebuild was made, so no paragraph anywhere in the file changed and no accepted book is reopened.",
+ "chapter_extracted": {
+  "number": 8,
+  "title": "Book 8",
+  "paragraphs": 61,
+  "extraction": "found by chapter.number == 8 in the staged original-en; paragraphs byte-identical"
+ },
+ "source_book8_json_sha256": "c380295dedc9eb9b409564ef43db3c441dce343bcbff03224e829ba22ac4f6bf",
+ "candidate_v1_json_sha256": "9f42a271ca37f1869612951cb4e8c50f06aea20d520bc0870d00daa41e48e906",
+ "translation_source": "George Long, 1862. Project Gutenberg #15877 (source/pg15877-long-1862.txt, sha256 6584df7e90d6035eece30d8028527290bf2508076963ee0376cb41db9cf88d5b), with the mechanical normalisations listed in PROVENANCE.md section 4. The only source used for the candidate. Standard Ebooks' Long (the edition PROVENANCE.md section 3 names) was consulted for the state of the base text only, by a word-level diff of the whole of Book VIII fetched 2026-09-12; no wording was taken from it. Results in continuity.md under unresolved source issues.",
+ "word_counts": {
+  "source": 4543,
+  "candidate": 4507,
+  "ratio": 0.992,
+  "min_paragraph_ratio": 0.89,
+  "note": "screening signal only; not evidence of semantic completeness. No paragraph falls below 0.89. The two lowest are VIII.8 (0.89), where the whole difference is the D11 drop of '[or ability]' twice and 'not to be vexed at' becoming 'not to resent', and VIII.13 (0.89), where it is 'on the occasion of every impression' becoming 'at every impression'. Next: VIII.3 (0.91, two D11 drops), VIII.9 (0.90, a dropped cross-reference). No paragraph was shortened by omitting content, and nothing was expanded: 39 of the 61 paragraphs are at ratio 0.99-1.02."
+ },
+ "dagger_marks": "Three in Book VIII of the PG text, in three sections: VIII.35 (line 5193), VIII.38 (line 5226), VIII.51 (line 5345). Three clauses, each named in review-instructions.md and kept as Long has them, with pronouns modernised and glossary renderings applied (the VI.50 reading, confirmed by the Book VII reviewer at VII.16). Matches PROVENANCE.md section 4. Long's own footnote at VIII.35 says the text is corrupt at the beginning of the paragraph.",
+ "generation_setting": "Drafted in-conversation by the content agent (Claude Opus 5 session), whole book read before drafting, glossary (one row extended for Book VIII first, committed and pushed before any paragraph was written) and the Book II, I, III, IV, V, VI and VII acceptance records read first. Zero Anthropic API calls; no scripts calling any LLM API; generate-editions.cjs not run.",
+ "build_script": "scripts/build_book_package.py 8, from scripts/candidates/book8.py (frozen candidate text)",
+ "workflow_step": "Steps 1-3 of WORKFLOW.md complete. Frozen for step 4, the coordinator's independent review. Findings expected under book8/review/.",
+ "apparatus": {
+  "cross_references_dropped": 4,
+  "d11_alternative_renderings_dropped": "9 items, 10 brackets (VIII.8's is the same bracket twice)",
+  "supplements_folded": 12,
+  "verse_citations": "none; Book VIII contains no verse",
+  "brackets_total": 22
+ },
+ "base_text_defects": [
+  "VIII.37 PG 'Fergamus' (line 5209); Standard Ebooks reads 'Pergamus', which is the name. Rendered 'Pergamus'. FLAGGED.",
+  "VIII.45 PG 'comformably' (line 5272); SE 'conformably'. A typographical slip; rendered 'according to' under the glossary row either way.",
+  "VIII.6 PG stray comma 'to take, them away hence' (line 4985); SE has none. Not reproduced, on the VII.54 precedent.",
+  "VIII.1 PG 'How thou shall seem' (line 4943); SE 'shalt'. A slip; the modernised 'how you will seem' is unaffected.",
+  "VIII.2 PG 'is the work of an intelligent living being'; SE drops 'the'. PG is right and is followed.",
+  "VIII.44 PG 'do not consider'; SE omits the 'not', which reverses the meditation. PG is right and is followed."
+ ],
+ "flagged_for_reviewer": [
+  "VIII.37 'Pergamus' rendered for PG's 'Fergamus' - the one place in Book VIII where the candidate departs from PG's letters",
+  "VIII.57 Long's transliterated Greek kept ((aktines), (apo tou ekteinesthai)) under the GLOSSARY.md exception added at Book VII acceptance - a weaker case than VII.13, since Long's English carries the etymology without it and Standard Ebooks moves both words to an endnote",
+  "VIII.51 and VIII.57 Long's 'effusion' / 'effused' kept, rather than rendered two ways or replaced by a phrase in one place and not the other"
+ ]
+}

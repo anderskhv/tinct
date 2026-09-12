@@ -14,3 +14,7 @@ staged corrected `original-en`).
   by `scripts/build_original_en_from_pg15877.py`.
 - `GLOSSARY.md` — stable renderings fixed before drafting.
 - `bookN/` — per-book drafting, review-packet, correction and acceptance files.
+
+Books I–VII are accepted (each `bookN/ACCEPTANCE.md` names the accepted file and
+its hash). Book VIII is drafted and frozen at `book8/candidate-v1.json`, waiting
+on its independent review.

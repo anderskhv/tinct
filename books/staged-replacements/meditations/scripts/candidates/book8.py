@@ -1,0 +1,127 @@
+# Meditations, Book VIII — modern-English candidate v1 (frozen text).
+# One entry per numbered meditation, aligned 1:1 with Long's VIII.1–VIII.61.
+BOOK = 8
+CANDIDATE = [
+# 1
+"1. This reflection also tends to remove the desire of empty fame: that it is no longer in your power to have lived the whole of your life, or at least your life from your youth upwards, like a philosopher; but both to many others and to yourself it is plain that you are far from philosophy. You have fallen into disorder, then, so that it is no longer easy for you to get the reputation of a philosopher; and your plan of life also opposes it. If, then, you have truly seen where the matter lies, throw away the thought of how you will seem to others, and be content if you shall live the rest of your life in such a way as your nature wills. Observe, then, what it wills, and let nothing else distract you; for you have had experience of many wanderings without having found happiness anywhere—not in syllogisms, nor in wealth, nor in reputation, nor in enjoyment, nor anywhere. Where is it, then? In doing what man's nature requires. How then shall a man do this? If he has principles from which come his feelings and his acts. What principles? Those which relate to good and bad: the belief that there is nothing good for man which does not make him just, temperate, manly, free; and that there is nothing bad which does not do the contrary to what has been mentioned.",
+# 2
+"2. When you do anything, ask yourself: How is this with respect to me? Shall I repent of it? A little time and I am dead, and all is gone. What more do I seek, if what I am now doing is the work of an intelligent living being, and a social being, and one who is under the same law with God?",
+# 3
+"3. Alexander and Caius and Pompeius, what are they in comparison with Diogenes and Heraclitus and Socrates? For they were acquainted with things, and their causes, and their matter, and the ruling parts of these men were the same. But as to the others, how many things had they to care for, and to how many things were they slaves!",
+# 4
+"4. Consider that men will do the same things nevertheless, even though you should burst.",
+# 5
+"5. This is the chief thing: do not be disturbed, for all things are according to the nature of the whole; and in a little time you will be nobody and nowhere, like Hadrianus and Augustus. In the next place, having fixed your eyes steadily on your business, look at it, and at the same time remembering that it is your duty to be a good man, and what man's nature demands, do that without turning aside; and speak as it seems to you most just, only let it be with a good disposition and with modesty and without hypocrisy.",
+# 6
+"6. The nature of the whole has this work to do—to remove to that place the things which are in this, to change them, to take them away from here, and to carry them there. All things are change, yet we need not fear anything new. All things are familiar to us; but the distribution of them still remains the same.",
+# 7
+"7. Every nature is contented with itself when it goes on its way well; and a rational nature goes on its way well when in its thoughts it assents to nothing false or uncertain, and when it directs its impulses to social acts only, and when it confines its desires and aversions to the things which are in its power, and when it is satisfied with everything that is assigned to it by the common nature. For of this common nature every particular nature is a part, as the nature of the leaf is a part of the nature of the plant; except that in the plant the nature of the leaf is part of a nature which has not perception or reason, and is subject to be impeded; but the nature of man is part of a nature which is not subject to impediments, and is intelligent and just, since it gives to everything in equal portions and according to its worth—times, substance, cause, activity, and incident. But examine, not to discover that any one thing compared with any other single thing is equal in all respects, but by taking all the parts together of one thing and comparing them with all the parts together of another.",
+# 8
+"8. You have not leisure to read. But you have leisure to check arrogance: you have leisure to be superior to pleasure and pain: you have leisure to be superior to love of fame, and not to resent stupid and ungrateful people, indeed even to care for them.",
+# 9
+"9. Let no man any longer hear you finding fault with the court life or with your own.",
+# 10
+"10. Repentance is a kind of self-reproof for having neglected something useful; but that which is good must be something useful, and the perfect good man should look after it. But no such man would ever repent of having refused any sensual pleasure. Pleasure, then, is neither good nor useful.",
+# 11
+"11. This thing, what is it in itself, in its own constitution? What is its substance and material? And what is its causal nature? And what is it doing in the world? And how long does it last?",
+# 12
+"12. When you rise from sleep with reluctance, remember that it is according to your constitution and according to human nature to perform social acts, but sleeping is common also to irrational animals. But that which is according to each individual's nature is also more peculiarly its own, and more suitable to its nature, and indeed also more agreeable.",
+# 13
+"13. Constantly, and, if it is possible, at every impression on the soul, apply to it the principles of physics, of ethics, and of dialectic.",
+# 14
+"14. Whatever man you meet with, immediately say to yourself: What opinions has this man about good and bad? For if with respect to pleasure and pain and the causes of each, and with respect to fame and disgrace, death and life, he has such and such opinions, it will seem nothing wonderful or strange to me if he does such and such things; and I shall bear in mind that he is compelled to do so.",
+# 15
+"15. Remember that as it is a shame to be surprised if the fig tree produces figs, so it is to be surprised if the world produces such and such things of which it is productive; and for the physician and the helmsman it is a shame to be surprised if a man has a fever, or if the wind is unfavorable.",
+# 16
+"16. Remember that to change your opinion and to follow him who corrects your error is as consistent with freedom as it is to persist in your error. For it is your own, the activity which is exerted according to your own impulse and judgment, and indeed according to your own understanding too.",
+# 17
+"17. If a thing is in your own power, why do you do it? but if it is in the power of another, whom do you blame—the atoms or the gods? Both are foolish. You must blame nobody. For if you can, correct the cause; but if you cannot do this, correct at least the thing itself; but if you cannot do even this, of what use is it to you to find fault? for nothing should be done without a purpose.",
+# 18
+"18. That which has died does not fall out of the universe. If it stays here, it also changes here, and is dissolved into its proper parts, which are elements of the universe and of yourself. And these too change, and they do not murmur.",
+# 19
+"19. Everything exists for some end—a horse, a vine. Why do you wonder? Even the sun will say, I am for some purpose, and the rest of the gods will say the same. For what purpose, then, are you—to enjoy pleasure? See if common sense allows this.",
+# 20
+"20. Nature has had regard in everything no less to the end than to the beginning and the continuance, just like the man who throws up a ball. What good is it, then, for the ball to be thrown up, or harm for it to come down, or even to have fallen? and what good is it to the bubble while it holds together, or what harm when it is burst? The same may be said of a light also.",
+# 21
+"21. Turn the body inside out, and see what kind of thing it is; and when it has grown old, what kind of thing it becomes, and when it is diseased. Short-lived are both the praiser and the praised, and the rememberer and the remembered: and all this in a nook of this part of the world; and not even here do all agree, no, not any one with himself: and the whole earth too is a point.",
+# 22
+"22. Attend to the matter which is before you, whether it is an opinion or an act or a word. You suffer this justly: for you choose rather to become good tomorrow than to be good today.",
+# 23
+"23. Am I doing anything? I do it with reference to the good of mankind. Does anything happen to me? I receive it and refer it to the gods, and the source of all things, from which all that happens is derived.",
+# 24
+"24. Such as bathing appears to you—oil, sweat, dirt, filthy water, all things disgusting—so is every part of life and everything.",
+# 25
+"25. Lucilla saw Verus die, and then Lucilla died. Secunda saw Maximus die, and then Secunda died. Epitynchanus saw Diotimus die, and then Epitynchanus died. Antoninus saw Faustina die, and then Antoninus died. Such is everything. Celer saw Hadrianus die, and then Celer died. And those sharp-witted men, either seers or men inflated with pride, where are they—for instance the sharp-witted men, Charax and Demetrius the Platonist, and Eudaemon, and any one else like them? All ephemeral, dead long ago. Some indeed have not been remembered even for a short time, and others have become the heroes of fables, and again others have disappeared even from fables. Remember this, then, that this little compound, yourself, must either be dissolved, or your poor breath must be extinguished, or be removed and placed elsewhere.",
+# 26
+"26. It is satisfaction to a man to do the proper works of a man. Now it is a proper work of a man to show kindness to his own kind, to despise the movements of the senses, to form a just judgment of plausible impressions, and to take a survey of the nature of the whole and of the things which happen in it.",
+# 27
+"27. There are three relations between you and other things: the one to the body which surrounds you; the second to the divine cause from which all things come to all; and the third to those who live with you.",
+# 28
+"28. Pain is either an evil to the body—then let the body say what it thinks of it—or to the soul; but it is in the power of the soul to maintain its own serenity and calm, and not to think that pain is an evil. For every judgment and impulse and desire and aversion is within, and no evil ascends so high.",
+# 29
+"29. Wipe out your imaginations by often saying to yourself: Now it is in my power to let no badness be in this soul, nor desire, nor any disturbance at all; but looking at all things I see what their nature is, and I use each according to its value.—Remember this power which you have from nature.",
+# 30
+"30. Speak both in the senate and to every man, whoever he may be, appropriately, not with any affectation: use plain speech.",
+# 31
+"31. Augustus' court, wife, daughter, descendants, ancestors, sister, Agrippa, kinsmen, intimates, friends; Areius, Maecenas, physicians, and sacrificing priests—the whole court is dead. Then turn to the rest, not considering the death of a single man but of a whole race, as of the Pompeii; and that which is inscribed on the tombs—The last of his race. Then consider what trouble those before them have had that they might leave a successor; and then, that of necessity some one must be the last. Again, here consider the death of a whole race.",
+# 32
+"32. It is your duty to order your life well in every single act; and if every act does its duty as far as is possible, be content; and no one is able to hinder you so that each act shall not do its duty.—But something external will stand in the way. Nothing will stand in the way of your acting justly and soberly and considerately.—But perhaps some other active power will be hindered. Well, but by accepting the hindrance and by being content to transfer your efforts to that which is allowed, another opportunity of action is immediately put before you in place of that which was hindered, and one which will adapt itself to this ordering of which we are speaking.",
+# 33
+"33. Receive wealth or prosperity without arrogance; and be ready to let it go.",
+# 34
+"34. If you have ever seen a hand cut off, or a foot, or a head, lying anywhere apart from the rest of the body, such does a man make himself, as far as he can, who is not content with what happens, and separates himself from others, or does anything unsocial. Suppose that you have detached yourself from the natural unity—for you were made by nature a part, but now you have cut yourself off—yet here there is this beautiful provision, that it is in your power again to unite yourself. God has allowed this to no other part, after it has been separated and cut asunder, to come together again. But consider the kindness by which he has distinguished man, for he has put it in his power not to be separated at all from the whole; and when he has been separated, he has allowed him to return and to be united and to resume his place as a part.",
+# 35
+"35. As the nature of the whole has given to every rational being all the other powers that it has, so we have received from it this power also. For as the universal nature converts and fixes in its predestined place everything which stands in the way and opposes it, and makes such things a part of itself, so also the rational being is able to make every hindrance its own material, and to use it for such purposes as it may have designed.",
+# 36
+"36. Do not disturb yourself by thinking of the whole of your life. Do not let your thoughts at once embrace all the various troubles which you may expect to befall you: but on every occasion ask yourself, What is there in this which is intolerable and past bearing? for you will be ashamed to confess. In the next place remember that neither the future nor the past pains you, but only the present. But this is reduced to a very little, if you only circumscribe it, and rebuke your mind if it is unable to hold out against even this.",
+# 37
+"37. Does Panthea or Pergamus now sit by the tomb of Verus? Does Chaurias or Diotimus sit by the tomb of Hadrianus? That would be ridiculous. Well, suppose they did sit there, would the dead be conscious of it? and if the dead were conscious, would they be pleased? and if they were pleased, would that make them immortal? Was it not in the order of destiny that these persons too should first become old women and old men and then die? What then would those do after these were dead? All this is foul smell and blood in a bag.",
+# 38
+"38. If you can see sharp, look and judge wisely, says the philosopher.",
+# 39
+"39. In the constitution of the rational being I see no virtue which is opposed to justice; but I see a virtue which is opposed to love of pleasure, and that is temperance.",
+# 40
+"40. If you take away your opinion about that which appears to give you pain, you yourself stand in perfect security.—Who is this self?—The reason.—But I am not reason.—Be it so. Let the reason itself, then, not trouble itself. But if any other part of you suffers, let it have its own opinion about itself.",
+# 41
+"41. Hindrance to the perceptions of sense is an evil to the animal nature. Hindrance to the impulses is equally an evil to the animal nature. And something else also is equally an impediment and an evil to the constitution of plants. So then that which is a hindrance to the intelligence is an evil to the intelligent nature. Apply all these things, then, to yourself. Does pain or sensuous pleasure affect you? The senses will look to that. Has any obstacle opposed you in your efforts towards an object? If indeed you were making this effort absolutely, certainly this obstacle is an evil to you considered as a rational being. But if you take into consideration the usual course of things, you have not yet been injured nor even impeded. The things, however, which are proper to the understanding no other man is used to impede, for neither fire, nor iron, nor tyrant, nor abuse, touches it in any way. When it has been made a sphere, it continues a sphere.",
+# 42
+"42. It is not fit that I should give myself pain, for I have never intentionally given pain even to another.",
+# 43
+"43. Different things delight different people; but it is my delight to keep the ruling part sound without turning away either from any man or from any of the things which happen to men, but looking at and receiving all with welcome eyes and using everything according to its value.",
+# 44
+"44. See that you secure this present time to yourself: for those who rather pursue fame after death do not consider that the men of after time will be exactly such as these whom they cannot bear now; and both are mortal. And what is it in any way to you if these men of after time utter this or that sound, or have this or that opinion about you?",
+# 45
+"45. Take me and cast me where you will; for there I shall keep my divine part calm, that is, content, if it can feel and act according to its proper constitution. Is this change of place sufficient reason why my soul should be unhappy and worse than it was, depressed, expanded, shrinking, frightened? and what will you find which is sufficient reason for this?",
+# 46
+"46. Nothing can happen to any man which is not a human accident, nor to an ox which is not according to the nature of an ox, nor to a vine which is not according to the nature of a vine, nor to a stone which is not proper to a stone. If, then, there happens to each thing both what is usual and natural, why should you complain? For the common nature brings nothing which may not be borne by you.",
+# 47
+"47. If you are pained by any external thing, it is not this thing that disturbs you, but your own judgment about it. And it is in your power to wipe out this judgment now. But if anything in your own disposition gives you pain, who hinders you from correcting your opinion? And even if you are pained because you are not doing some particular thing which seems to you to be right, why do you not rather act than complain?—But some insuperable obstacle is in the way?—Do not be grieved, then, for the cause of its not being done depends not on you.—But it is not worth while to live, if this cannot be done.—Take your departure, then, from life contentedly, just as he dies who is in full activity, and well pleased too with the things which are obstacles.",
+# 48
+"48. Remember that the ruling part is invincible, when, collected in itself, it is satisfied with itself, if it does nothing which it does not choose to do, even if it resist from mere obstinacy. What then will it be when it forms a judgment about anything aided by reason and deliberately? Therefore the mind which is free from passions is a citadel, for man has nothing more secure to which he can flee for refuge and for the future be impregnable. He then who has not seen this is an ignorant man; but he who has seen it and does not flee to this refuge is unhappy.",
+# 49
+"49. Say nothing more to yourself than what the first impressions report. Suppose that it has been reported to you that a certain person speaks ill of you. This has been reported; but that you have been injured, that has not been reported. I see that my child is sick. I do see; but that he is in danger, I do not see. Thus, then, always keep to the first impressions, and add nothing yourself from within, and then nothing happens to you. Or rather add something like a man who knows everything that happens in the world.",
+# 50
+"50. A cucumber is bitter—Throw it away.—There are briers in the road—Turn aside from them.—This is enough. Do not add, And why were such things made in the world? For you will be ridiculed by a man who is acquainted with nature, as you would be ridiculed by a carpenter and shoemaker if you found fault because you see in their workshop shavings and cuttings from the things which they make. And yet they have places into which they can throw these shavings and cuttings, and the universal nature has no external space; but the wondrous part of her art is that though she has circumscribed herself, everything within her which appears to decay and to grow old and to be useless she changes into herself, and again makes other new things from these very same, so that she requires neither substance from without nor wants a place into which she may cast that which decays. She is content, then, with her own space, and her own matter, and her own art.",
+# 51
+"51. Neither in your actions be sluggish nor in your conversation without method, nor wandering in your thoughts, nor let there be in your soul inward contention nor external effusion, nor in life be so busy as to have no leisure. Suppose that men kill you, cut you in pieces, curse you. What then can these things do to prevent your mind from remaining pure, wise, sober, just? For instance, if a man should stand by a limpid pure spring, and curse it, the spring never ceases sending up drinkable water; and if he should cast clay into it or filth, it will speedily disperse them and wash them out, and will not be at all polluted. How then shall you possess a perpetual fountain and not a mere well? By forming yourself hourly to freedom joined with contentment, simplicity, and modesty.",
+# 52
+"52. He who does not know what the world is, does not know where he is. And he who does not know for what purpose the world exists, does not know who he is, nor what the world is. But he who has failed in any one of these things could not even say for what purpose he exists himself. What then do you think of him who seeks the praise of those who applaud, of men who know neither where they are nor who they are?",
+# 53
+"53. Do you wish to be praised by a man who curses himself three times every hour? would you wish to please a man who does not please himself? Does a man please himself who repents of nearly everything that he does?",
+# 54
+"54. No longer let your breathing only act in concert with the air which surrounds you, but let your intelligence also now be in harmony with the intelligence which embraces all things. For the intelligent power is no less diffused in all parts and pervades all things for him who is willing to draw it to him than the power of the air for him who is able to breathe it.",
+# 55
+"55. Generally, wickedness does no harm at all to the universe; and particularly the wickedness of one man does no harm to another. It is only harmful to him who has it in his power to be released from it as soon as he shall choose.",
+# 56
+"56. To my own free will the free will of my neighbor is just as indifferent as his poor breath and flesh. For though we are made especially for the sake of one another, still the ruling power of each of us has its own office, for otherwise my neighbor's wickedness would be my harm, which God has not willed, in order that my unhappiness may not depend on another.",
+# 57
+"57. The sun appears to be poured down, and in all directions indeed it is diffused, yet it is not effused. For this diffusion is extension: accordingly its rays are called Extensions (aktines) because they are extended (apo tou ekteinesthai). But one may judge what kind of a thing a ray is, if he looks at the sun's light passing through a narrow opening into a darkened room, for it is extended in a straight line, and as it were is divided when it meets with any solid body which stands in the way and intercepts the air beyond; but there the light remains fixed and does not glide or fall off. Such, then, ought to be the outpouring and diffusion of the understanding, and it should in no way be an effusion, but an extension, and it should make no violent or impetuous collision with the obstacles which are in its way; nor yet fall down, but be fixed, and light up that which receives it. For a body will deprive itself of the illumination, if it does not admit it.",
+# 58
+"58. He who fears death either fears the loss of sensation or a different kind of sensation. But if you shall have no sensation, neither will you feel any harm; and if you shall acquire another kind of sensation, you will be a different kind of living being and you will not cease to live.",
+# 59
+"59. Men exist for the sake of one another. Teach them then, or bear with them.",
+# 60
+"60. In one way an arrow moves, in another way the mind. The mind indeed, both when it exercises caution and when it is employed about inquiry, moves straight onward not the less, and to its object.",
+# 61
+"61. Enter into every man's ruling part; and also let every other man enter into yours.",
+]

@@ -293,6 +293,59 @@ session. Kept current at every push.
   `continuity.md`, `provenance.json`, `manifest.json` and `README.md` updated.
   No new glossary rendering row.
 
+- 2026-09-12 — **Book VIII drafted and frozen** (steps 1–3): `book8/candidate-v1.json`
+  (sha256 `9f42a271…`), 61 paragraphs 1:1 with Long's VIII.1–VIII.61, word ratio
+  0.992 (min paragraph 0.89 — VIII.8 and VIII.13, both dropped apparatus and a
+  shortened idiom; no paragraph below 0.89, and 39 of 61 sit between 0.99 and
+  1.02). **Step 1: the staged original was NOT rebuilt, and the claim is proved
+  rather than asserted.** After two earlier rebuilds (Book IV, illustration
+  captions; Book VII, flush-left footnotes), PG #15877 was re-read line by line
+  for Book VIII (lines 4933–5418) for every one of those classes: nine
+  footnotes, **all indented** (lines 4969, 5045, 5131, 5160, 5218, 5223, 5277,
+  5396, 5414) and all already stripped; no flush-left footnote opener; no
+  illustration caption (the nearest, line 5628, is in Book IX); no running head,
+  page number or catchword; **no verse and no verse citation at all**; and the
+  two flush-left bracket lines in VIII.41 (5247, 5249) are Long's own bracketed
+  words wrapping, not footnote openers. `scripts/build_original_en_from_pg15877.py`
+  was then re-run and its output is **byte-identical** to the file on the branch
+  — `cmp` clean, sha256 still `7798607d…`, 487 paragraphs, 12 chapters — so no
+  paragraph anywhere changed and **no accepted book is reopened**. Source
+  verified into `book8/source-book8.json` (sha256 `c380295d…`). One glossary row
+  **extended before drafting** (the nature-of-the-whole row now covers Long's
+  third shape "the nature of the universal", VIII.5, VIII.6, VIII.35; committed
+  and pushed before any paragraph was written); no new rendering row needed.
+  Three dagger marks in three sections (VIII.35 line 5193, VIII.38 line 5226,
+  VIII.51 line 5345) named in `review-instructions.md` with their PG line
+  numbers and kept as Long has them. Four cross-references dropped (VIII.9,
+  VIII.12, VIII.40, VIII.41); **nine D11 drops in ten brackets** (VIII.3
+  "[forms]" and "[or conformable to their pursuits]", VIII.7 "[form]", VIII.8
+  "[or ability]" ×2, VIII.11 "[or form]", VIII.17 "[chance]", VIII.41
+  "[desires]" and "[unconditionally, or without any reservation]", VIII.52
+  "[avoids or]"); **twelve supplements folded**, each listed in
+  `book8/continuity.md` with the referent supplements named per the VI.50 and
+  VII.2 rulings (VIII.1 "[to others]", VIII.4 "[Consider]", VIII.17 "[that which
+  is the cause]", VIII.21 "[the body]", VIII.27 "[between thee and other
+  things]", VIII.33 "[wealth or prosperity]", VIII.45 "[change of place]" —
+  referent; VIII.6 "[to us]", VIII.31 "[but of a whole race]", VIII.41 "[into
+  consideration]", VIII.51 "[and not a mere well]", VIII.55 "[of one man]" —
+  completions). Twenty-two brackets, all accounted for. No expansion: nothing in
+  the book uses more words than Long for a term, and the twenty-one short
+  meditations stay at his length. Base-text points recorded after a word-level
+  diff of the whole book against Standard Ebooks' Long: four PG slips (VIII.1
+  "thou shall", VIII.6 stray comma, VIII.37 **"Fergamus"** rendered
+  **"Pergamus"**, VIII.45 "comformably") and **two places where PG is right and
+  SE is wrong** (VIII.2 "is the work", VIII.44 "do **not** consider"), both
+  followed as PG has them. **Three decisions flagged for the reviewer**: VIII.37
+  "Pergamus" (the one departure from PG's letters in the book), VIII.57's
+  transliterated Greek kept under the new glossary exception (a weaker case than
+  VII.13, since Long's English carries the etymology without it and SE moves it
+  to an endnote), and "effusion" / "effused" kept at VIII.51 and VIII.57.
+  Readable copy, `continuity.md`, `provenance.json`, `manifest.json`,
+  `README.md`, `review-instructions.md` and twenty-one review packets (20×3 + 1)
+  pushed, built by `scripts/build_book_package.py 8` from
+  `scripts/candidates/book8.py`. **Stopped for independent review** (step 4).
+  Findings expected under `book8/review/`.
+
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
@@ -325,15 +378,18 @@ session. Kept current at every push.
 
 ## Next
 
-**Waiting on the coordinator: independent review of Book VII.**
-`book7/candidate-v1.json` (sha256 `1823989f…`) is frozen, with twenty-five
+**Waiting on the coordinator: independent review of Book VIII.**
+`book8/candidate-v1.json` (sha256 `9f42a271…`) is frozen, with twenty-one
 packets, `review-instructions.md` and `manifest.json` in place; findings go
-under `book7/review/`. Six decisions are flagged there for an explicit ruling
-(listed in the Book VII entry above). This agent does not review its own
-draft, and Book VIII has not been started.
+under `book8/review/`. Three decisions are flagged there for an explicit ruling
+(VIII.37 "Pergamus" for PG's "Fergamus"; VIII.57's transliterated Greek kept
+under the glossary exception added at Book VII acceptance; "effusion" /
+"effused" kept at VIII.51 and VIII.57). The reviewer is also asked to test the
+step-1 finding that the staged original needed **no** rebuild for Book VIII.
+This agent does not review its own draft, and Book IX has not been started.
 
-After the review: Book VII steps 6–8 (candidate v2, changes log, flow read,
-`ACCEPTANCE.md`), then Books VIII … XII in numerical order, each with its own
+After the review: Book VIII steps 6–8 (candidate v2, changes log, flow read,
+`ACCEPTANCE.md`), then Books IX … XII in numerical order, each with its own
 review round.
 
 ## Needs Anders (listed, not waited on)
