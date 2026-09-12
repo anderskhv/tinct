@@ -5,7 +5,7 @@ import { LabBookPreface } from './LabBookPreface'
 import { getBookPreface } from '../data/bookPrefaces'
 import { LabChapterEnd } from './LabChapterEnd'
 import { CHAPTER_CHAT_MESSAGES, createChapterChatRequest } from './labChapterChat'
-import { LabDesktopPaginator } from './LabDesktopPaginator'
+import { LabDesktopPaginator, type LabLeafCapacity } from './LabDesktopPaginator'
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react'
 import { flushSync } from 'react-dom'
 import { readerPreviewSearch } from '../../public/lab/library-model.js'
@@ -66,6 +66,8 @@ import {
   labFontFamilyCss,
   labReadingFont,
   labFootProgress,
+  labBookPageEstimate,
+  labPageFolio,
   labReaderProgressLabel,
   LAB_PROGRESS_HOLD_MS,
   editionLabelFor,
@@ -509,6 +511,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const askInputRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null)
   /** Rendered page for the companion's reading trail; written once chapter progress is known. */
   const askPageRef = useRef<{ pageNumber: number; totalPages: number } | null>(null)
+  /** Words per page held for one leaf geometry, with the leaf it was measured at. */
+  const wordsPerPageRef = useRef<{ wordsPerPage: number; leafHeight: number } | null>(null)
+  /** Words one desktop leaf holds, measured from the layout by the paginator. */
+  const [desktopLeafCapacity, setDesktopLeafCapacity] = useState<LabLeafCapacity | null>(null)
   const playbackInterruptedRef = useRef<() => boolean>(() => false)
   const [gearOpen, setGearOpen] = useState(false)
   const [desktopAskOpen, setDesktopAskOpen] = useState(false)
@@ -2148,9 +2154,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     fullscreen ? 'fullscreen' : 'windowed',
   ].join(':')
   const desktopLayoutKey = `${layoutKeyFor(readerEditionKey)}:${desktopCompareActive}:${book.bookId}`
-  const applyDesktopPages = useCallback((pages: ChapterHearingPage[], content: string[], key: string) => {
+  const applyDesktopPages = useCallback((pages: ChapterHearingPage[], content: string[], key: string, capacity: LabLeafCapacity | null) => {
     applyNativePages(pages, content)
     setDesktopMeasuredKey(key)
+    setDesktopLeafCapacity(capacity)
   }, [applyNativePages])
   const standbyKey = layoutKeyFor(standbyEditionKey)
   const standbyKeyRef = useRef(standbyKey)
@@ -2163,6 +2170,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     prefs.margins,
     prefs.paragraphSpacing,
   ].join('|')
+  // The held words-per-page belongs to one type setting; the leaf height it was
+  // measured at is carried with it so a resized leaf re-measures on its own.
+  useEffect(() => { wordsPerPageRef.current = null }, [readerLayoutKey])
   const isOnline = readOnline(online)
   const frontispieceVisible = chapterCoverTitle != null
   // The chapter heading appears once, naming the chapter that will be read:
@@ -2316,9 +2326,26 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     .map(page => chapterPageSegments(page).reduce((total, segment) => total + Math.max(0, segment.to - segment.from), 0))
     .filter(count => count > 0)
     .sort((a, b) => a - b)
-  const measuredWordsPerPage = fullPageWordCounts.length > 0
-    ? fullPageWordCounts[Math.floor(fullPageWordCounts.length / 2)]
-    : Math.max(1, Math.round(chapterProgress.wordsTotal / Math.max(1, chapterProgress.totalPages)))
+  // Words per page belongs to the layout, not to the chapter in front of the
+  // reader. Chapters differ in word length by a few percent, and re-scaling the
+  // whole book's page count on every chapter change made the number walk
+  // backwards on a page turn. So the first chapter measured in a layout sets
+  // the figure and every later chapter reuses it, until the type size or the
+  // window changes and it is measured afresh. (A one-page Psalm has no full
+  // page of its own to measure, which is the other reason not to ask it.)
+  const freshCapacity: { wordsPerPage: number; leafHeight: number } | null = desktopPaging && desktopLeafCapacity !== null
+    ? desktopLeafCapacity
+    : fullPageWordCounts.length > 0
+      ? { wordsPerPage: fullPageWordCounts[Math.floor(fullPageWordCounts.length / 2)], leafHeight: 0 }
+      : null
+  const held = wordsPerPageRef.current
+  if (freshCapacity !== null && (held === null || held.leafHeight !== freshCapacity.leafHeight)) {
+    wordsPerPageRef.current = freshCapacity
+  }
+  const measuredWordsPerPage = wordsPerPageRef.current?.wordsPerPage
+    ?? freshCapacity?.wordsPerPage
+    ?? Math.max(1, Math.round(chapterProgress.wordsTotal / Math.max(1, chapterProgress.totalPages)))
+  const bookWordCount = getBook(book.bookId || 'bible')?.wordCount
   const progressInput = {
     mode: readerProgressMode,
     currentPage: chapterProgress.currentPage,
@@ -2328,16 +2355,33 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     chapterWordsRead: chapterProgress.wordsRead,
     chapterWordCounts: book.chapters,
     wordsPerPage: measuredWordsPerPage,
+    bookWordCount,
   }
-  // Both of the pill's numbers must come from one measured layout. On a
-  // chapter turn the new chapter's words arrive before its page map has been
-  // measured, and the provisional map divides the book by a page size it only
-  // guessed: crossing Odyssey Book 1 into Book 2 the pill read "68 / 1,891 of
-  // book" until the measurement landed and it settled on "50 / 1,413". So
-  // while the map on screen was not measured for the text on screen, the last
-  // measured label is held and the reader sees no mismatched pair. The hold is
-  // bounded: a measurement that never arrives — audio holds the paginator
-  // still — releases the pill rather than freezing it.
+  // Printed books, Bibles included, number continuously through the volume.
+  // The desktop spread therefore shows the book page, not the chapter page,
+  // and the percentage in the foot is derived from the very same estimate so
+  // the two figures can never contradict each other.
+  const bookPageEstimate = labBookPageEstimate({
+    currentPage: chapterProgress.currentPage,
+    totalPages: chapterProgress.totalPages,
+    chapterNumber: book.chapterNumber,
+    chapterWeights: book.chapters,
+    wordsPerPage: measuredWordsPerPage,
+    bookWordCount,
+  })
+  // Both of the pill's numbers must come from one measured layout. Words per
+  // page is now held across a chapter change, so the book scale no longer
+  // moves under the reader — but the pages of the chapter in front of them
+  // are still the provisional map for a moment after a chapter turn, and both
+  // the chapter pair ("N / M of chapter") and the book estimate are drawn
+  // through that M. Crossing Odyssey Book 1 into Book 2 the pill read
+  // "68 / 1,891 of book" for as long as a second and a half before settling
+  // on "50 / 1,413". So while the map on screen was not measured for the text
+  // on screen, the last measured label is held and no pair is shown that no
+  // layout produced. The hold is bounded: a measurement that never arrives —
+  // audio holds the paginator still — releases the pill rather than freezing
+  // it. The desktop leaf folios need no hold; they are already painted only
+  // on a measured map.
   const progressMeasured = !measuredPaging || nativeMeasuredContent === readerParagraphs
   const [progressHoldReleased, setProgressHoldReleased] = useState(false)
   useEffect(() => {
@@ -2347,7 +2391,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [progressMeasured])
   const liveProgressLabels = {
     phone: labReaderProgressLabel(progressInput),
-    book: labReaderProgressLabel({ ...progressInput, mode: 'book' }).split(' · ').at(-1) ?? '',
+    book: `${bookPageEstimate.percent}%`,
   }
   const measuredProgressLabelsRef = useRef(liveProgressLabels)
   if (progressMeasured) measuredProgressLabelsRef.current = liveProgressLabels
@@ -3896,8 +3940,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               : undefined}
           />}
           {desktopPaging && !chapterCoverTitle && !initialResolving && desktopMeasuredKey === desktopLayoutKey && nativeMeasuredContent === readerParagraphs && <div className="lab-desktop-page-footers" data-testid="lab-desktop-page-footers">
-            <span>{desktopCompareActive && <b>{bookEditions.find(edition => edition.key === prefs.primaryEdition)?.style === 'original' ? 'Original' : 'Read'} · {primaryEditionLabel}</b>}<span>{chapterProgress.currentPage}</span></span>
-            <span>{desktopCompareActive ? <><b>Compare · {editionLabelFor(prefs.compareEdition, bookEditions)}</b><span>{chapterProgress.currentPage}</span></> : chapterProgress.currentPage < chapterProgress.totalPages ? <span>{chapterProgress.currentPage + 1}</span> : null}</span>
+            <span>{desktopCompareActive && <b>{bookEditions.find(edition => edition.key === prefs.primaryEdition)?.style === 'original' ? 'Original' : 'Read'} · {primaryEditionLabel}</b>}<span>{labPageFolio(bookPageEstimate.page)}</span></span>
+            <span>{desktopCompareActive ? <><b>Compare · {editionLabelFor(prefs.compareEdition, bookEditions)}</b><span>{labPageFolio(bookPageEstimate.page)}</span></> : chapterProgress.currentPage < chapterProgress.totalPages ? <span>{labPageFolio(bookPageEstimate.page + 1)}</span> : null}</span>
           </div>}
           {!chapterCoverTitle && measuredPaging && !desktopPaging && (
             <LabNativePaginator

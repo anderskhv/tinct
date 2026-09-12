@@ -472,41 +472,130 @@ function labPageNumber(value: number): string {
  */
 export const LAB_PROGRESS_HOLD_MS = 2000
 
+/** The page number printed at the foot of a desktop leaf. */
+export function labPageFolio(value: number): string {
+  return labPageNumber(value)
+}
+
+export interface LabBookPageWeight {
+  number: number
+  wordCount?: number
+  paragraphCount?: number
+}
+
+export interface LabBookPageEstimate {
+  /** Continuous page number within the whole book, 1-based. */
+  page: number
+  /** Estimated pages in the whole book. */
+  totalPages: number
+  /** Share of the book read, derived from the two figures above. */
+  percent: number
+  /** False when no per-chapter weights were available and the figures are a crude fallback. */
+  honest: boolean
+}
+
+/**
+ * Per-chapter word weights for the book-page estimate.
+ *
+ * A chapter that carries its own `wordCount` (every book whose chapters are
+ * loaded as one document) uses it. The Bible ships 1,189 chapters as separate
+ * files and its manifest carries only a paragraph count, so the catalogue's
+ * whole-book `wordCount` is spread across chapters in proportion to their
+ * paragraph counts. Laying out 1,189 chapters to get a true page number is
+ * never worth it; this is accurate to about a page and costs nothing.
+ */
+export function labChapterWordWeights(
+  chapters: LabBookPageWeight[],
+  bookWordCount?: number,
+): Array<{ number: number; wordCount: number }> {
+  const ordered = [...chapters].sort((a, b) => a.number - b.number)
+  const known = ordered.reduce((total, chapter) => total + Math.max(0, chapter.wordCount || 0), 0)
+  if (known > 0) return ordered.map(chapter => ({ number: chapter.number, wordCount: Math.max(0, chapter.wordCount || 0) }))
+
+  const paragraphs = ordered.reduce((total, chapter) => total + Math.max(0, chapter.paragraphCount || 0), 0)
+  const bookWords = Math.max(0, bookWordCount || 0)
+  if (paragraphs <= 0 || bookWords <= 0) return ordered.map(chapter => ({ number: chapter.number, wordCount: 0 }))
+  return ordered.map(chapter => ({
+    number: chapter.number,
+    wordCount: (Math.max(0, chapter.paragraphCount || 0) / paragraphs) * bookWords,
+  }))
+}
+
+/**
+ * Where the reader's page sits in the whole volume.
+ *
+ * Printed books number continuously from the first page to the last, and a
+ * reflowing text cannot know the true figure without laying out every chapter.
+ * So the pages behind the reader are estimated from the cumulative word count
+ * divided by the words-per-page this layout actually measures, and the page
+ * *within* the current chapter is the real measured one. That keeps the number
+ * stable: it rises by exactly one per page turn, and the two leaves of a spread
+ * always read N and N+1. Change the window or the type size and the estimate
+ * moves with the newly measured words-per-page.
+ */
+export function labBookPageEstimate(input: {
+  currentPage: number
+  totalPages: number
+  chapterNumber: number
+  chapterWeights: LabBookPageWeight[]
+  wordsPerPage: number
+  bookWordCount?: number
+}): LabBookPageEstimate {
+  const weights = labChapterWordWeights(input.chapterWeights, input.bookWordCount)
+  const totalWords = weights.reduce((total, chapter) => total + chapter.wordCount, 0)
+  const chapterPages = Math.max(1, input.totalPages)
+  const currentPage = Math.max(1, Math.min(input.currentPage, chapterPages))
+
+  if (totalWords <= 0) {
+    // No weights at all: assume every chapter runs as long as this one.
+    const chapterCount = Math.max(1, weights.length)
+    const index = Math.max(0, weights.findIndex(chapter => chapter.number === input.chapterNumber))
+    const totalPages = Math.max(chapterPages, chapterPages * chapterCount)
+    const page = Math.max(1, Math.min(totalPages, index * chapterPages + currentPage))
+    return { page, totalPages, percent: clampPercent(page, totalPages), honest: false }
+  }
+
+  const capacity = Math.max(1, Math.round(input.wordsPerPage))
+  const before = weights.filter(chapter => chapter.number < input.chapterNumber)
+    .reduce((total, chapter) => total + chapter.wordCount, 0)
+  const chapterWords = weights.find(chapter => chapter.number === input.chapterNumber)?.wordCount ?? 0
+  const after = Math.max(0, totalWords - before - chapterWords)
+
+  const pagesBefore = Math.max(0, Math.round(before / capacity))
+  const pagesAfter = Math.max(0, Math.round(after / capacity))
+  const page = pagesBefore + currentPage
+  const totalPages = pagesBefore + chapterPages + pagesAfter
+  return { page, totalPages, percent: clampPercent(page, totalPages), honest: true }
+}
+
+function clampPercent(page: number, totalPages: number): number {
+  return Math.max(0, Math.min(100, Math.round((page / Math.max(1, totalPages)) * 100)))
+}
+
 export function labReaderProgressLabel(input: {
   mode: LabReaderProgressMode
   currentPage: number
   totalPages: number
   chapterPercent: number
   chapterNumber: number
-  chapterWordsRead: number
-  chapterWordCounts: Array<{ number: number; wordCount?: number }>
+  chapterWordCounts: LabBookPageWeight[]
   wordsPerPage: number
+  bookWordCount?: number
+  /** Retained for callers that still pass it; the book page is measured, not word-summed. */
+  chapterWordsRead?: number
 }): string {
   if (input.mode === 'chapter') {
-    return `${labPageNumber(input.currentPage)} / ${labPageNumber(input.totalPages)} of chapter · ${input.chapterPercent}%`
+    return `${labPageNumber(input.currentPage)} / ${labPageNumber(input.totalPages)} of chapter \u00b7 ${input.chapterPercent}%`
   }
-
-  const ordered = [...input.chapterWordCounts].sort((a, b) => a.number - b.number)
-  const totalWords = ordered.reduce((total, chapter) => total + Math.max(0, chapter.wordCount || 0), 0)
-  const wordsBefore = ordered
-    .filter(chapter => chapter.number < input.chapterNumber)
-    .reduce((total, chapter) => total + Math.max(0, chapter.wordCount || 0), 0)
-
-  if (totalWords <= 0) {
-    const chapterIndex = Math.max(0, ordered.findIndex(chapter => chapter.number === input.chapterNumber))
-    const chapterCount = Math.max(1, ordered.length)
-    const estimatedTotal = Math.max(input.totalPages, input.totalPages * chapterCount)
-    const estimatedPage = Math.max(1, Math.min(estimatedTotal, chapterIndex * input.totalPages + input.currentPage))
-    const estimatedPercent = Math.round((estimatedPage / Math.max(1, estimatedTotal)) * 100)
-    return `${labPageNumber(estimatedPage)} / ${labPageNumber(estimatedTotal)} of book · ${estimatedPercent}%`
-  }
-
-  const absoluteWords = Math.max(0, Math.min(totalWords, wordsBefore + input.chapterWordsRead))
-  const capacity = Math.max(1, Math.round(input.wordsPerPage))
-  const bookTotalPages = Math.max(1, Math.ceil(totalWords / capacity))
-  const bookPage = Math.max(1, Math.min(bookTotalPages, Math.ceil(Math.max(1, absoluteWords) / capacity)))
-  const bookPercent = Math.round((absoluteWords / totalWords) * 100)
-  return `${labPageNumber(bookPage)} / ${labPageNumber(bookTotalPages)} of book · ${bookPercent}%`
+  const estimate = labBookPageEstimate({
+    currentPage: input.currentPage,
+    totalPages: input.totalPages,
+    chapterNumber: input.chapterNumber,
+    chapterWeights: input.chapterWordCounts,
+    wordsPerPage: input.wordsPerPage,
+    bookWordCount: input.bookWordCount,
+  })
+  return `${labPageNumber(estimate.page)} / ${labPageNumber(estimate.totalPages)} of book \u00b7 ${estimate.percent}%`
 }
 
 export function editionLabelFor(key: string, editions: Edition[]): string {
