@@ -1,0 +1,166 @@
+[
+ {
+  "key": "wealth-of-nations/modern-en/ch11",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9919080256466947,
+    "reasons": [],
+    "validationErrors": [
+     "paragraph 282 word 72: invalid timed word",
+     "paragraph 282 word 85: invalid timed word",
+     "paragraph 282 word 92: invalid timed word",
+     "paragraph 282: non-monotonic start at word 73",
+     "paragraph 282: non-monotonic start at word 86",
+     "paragraph 282: non-monotonic start at word 93"
+    ],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-61/out/wealth-of-nations/modern-en/ch11/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9776033606013708,
+    "reasons": [
+     {
+      "paragraph": 276,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 278,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 279,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 280,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 281,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 287,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 288,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 289,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 290,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [
+     "paragraph 279 word 23: invalid timed word",
+     "paragraph 279: non-monotonic start at word 24",
+     "paragraph 282 word 37: invalid timed word",
+     "paragraph 282 word 44: invalid timed word",
+     "paragraph 282 word 51: invalid timed word",
+     "paragraph 282: non-monotonic start at word 38",
+     "paragraph 282: non-monotonic start at word 45",
+     "paragraph 282: non-monotonic start at word 52",
+     "paragraph 287 word 36: invalid timed word",
+     "paragraph 287 word 144: invalid timed word",
+     "paragraph 287 word 165: invalid timed word",
+     "paragraph 287: non-monotonic start at word 37",
+     "paragraph 287: non-monotonic start at word 145",
+     "paragraph 287: non-monotonic start at word 166"
+    ],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-61/out/wealth-of-nations/modern-en/ch11/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "wealth-of-nations/modern-en/ch12",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9989708404802744,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-61/out/wealth-of-nations/modern-en/ch12/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9979416809605489,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-61/out/wealth-of-nations/modern-en/ch12/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9989708404802744
+ },
+ {
+  "key": "wealth-of-nations/modern-en/ch13",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9926654442407068,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-61/out/wealth-of-nations/modern-en/ch13/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9888314719119853,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-61/out/wealth-of-nations/modern-en/ch13/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9926654442407068
+ },
+ {
+  "key": "wealth-of-nations/modern-en/ch14",
+  "arms": {
+   "auto": {
+    "status": "running",
+    "matchRatio": null,
+    "reasons": [],
+    "validationErrors": null,
+    "sidecar": null
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9780320968166272,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-61/out/wealth-of-nations/modern-en/ch14/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 0.9780320968166272
+ }
+]
