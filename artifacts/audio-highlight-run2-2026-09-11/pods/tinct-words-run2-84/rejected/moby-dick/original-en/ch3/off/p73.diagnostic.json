@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "56fff74511643b62673b79bace661fce7251b129d35c187627383613fb8ba1a8",
+  "attempts": [
+    {
+      "asr_seconds": 0.20996325928717852,
+      "alignment_seconds": 0.0004487205296754837,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I turned in and never slept better in my life.",
+          "start": 0.08,
+          "end": 2.98,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " turned",
+              "start": 0.56,
+              "end": 0.76,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " in",
+              "start": 0.76,
+              "end": 1.06,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 1.06,
+              "end": 1.52,
+              "probability": 0.6845703125
+            },
+            {
+              "text": " never",
+              "start": 1.52,
+              "end": 1.72,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " slept",
+              "start": 1.72,
+              "end": 2.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " better",
+              "start": 2.06,
+              "end": 2.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 2.38,
+              "end": 2.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 2.52,
+              "end": 2.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " life.",
+              "start": 2.66,
+              "end": 2.98,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "turned",
+          "start": 0.56,
+          "end": 0.76
+        },
+        {
+          "raw": "in",
+          "start": 0.76,
+          "end": 1.06
+        },
+        {
+          "raw": "and",
+          "start": 1.06,
+          "end": 1.52
+        },
+        {
+          "raw": "never",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "raw": "slept",
+          "start": 1.72,
+          "end": 2.06
+        },
+        {
+          "raw": "better",
+          "start": 2.06,
+          "end": 2.38
+        },
+        {
+          "raw": "in",
+          "start": 2.38,
+          "end": 2.52
+        },
+        {
+          "raw": "my",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "raw": "life.",
+          "start": 2.66,
+          "end": 2.98
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "turned",
+        "in,",
+        "and",
+        "never",
+        "slept",
+        "better",
+        "in",
+        "my",
+        "life."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 0.56,
+          "end": 0.76,
+          "key": "turned",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.76,
+          "end": 1.06,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.06,
+          "end": 1.52,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 1.52,
+          "end": 1.72,
+          "key": "never",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "slept",
+          "start": 1.72,
+          "end": 2.06,
+          "key": "slept",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 2.06,
+          "end": 2.38,
+          "key": "better",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.38,
+          "end": 2.52,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.52,
+          "end": 2.66,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "life.",
+          "start": 2.66,
+          "end": 2.98,
+          "key": "life",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "turned",
+          "start": 0.56,
+          "end": 0.76
+        },
+        {
+          "text": "in,",
+          "start": 0.76,
+          "end": 1.06
+        },
+        {
+          "text": "and",
+          "start": 1.06,
+          "end": 1.52
+        },
+        {
+          "text": "never",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "text": "slept",
+          "start": 1.72,
+          "end": 2.06
+        },
+        {
+          "text": "better",
+          "start": 2.06,
+          "end": 2.38
+        },
+        {
+          "text": "in",
+          "start": 2.38,
+          "end": 2.52
+        },
+        {
+          "text": "my",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "text": "life.",
+          "start": 2.66,
+          "end": 2.98
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2106029950082302
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dadac33f1e90f7bfbf968429baa43f0f133b664ffce562f3323e34e101e88e36",
+  "selected_reasons": []
+}

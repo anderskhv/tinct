@@ -1,0 +1,653 @@
+{
+  "complete": true,
+  "signature": "f71728662e0f3daa9a6685e212f72d1ff57dadd5520d3aca9ba3a89a319c4e5c",
+  "attempts": [
+    {
+      "asr_seconds": 0.4127581249922514,
+      "alignment_seconds": 0.000624755397439003,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Landlord, I've changed my mind about that harpoonier.",
+          "start": 0.02,
+          "end": 3.34,
+          "words": [
+            {
+              "text": " Landlord,",
+              "start": 0.02,
+              "end": 0.94,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " I've",
+              "start": 1.28,
+              "end": 1.48,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " changed",
+              "start": 1.48,
+              "end": 1.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 1.78,
+              "end": 2.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " mind",
+              "start": 2.04,
+              "end": 2.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " about",
+              "start": 2.3,
+              "end": 2.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 2.5,
+              "end": 2.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " harpoonier.",
+              "start": 2.7,
+              "end": 3.34,
+              "probability": 0.8297526041666666
+            }
+          ]
+        },
+        {
+          "text": " I shan't sleep with him, I'll try the bench here.",
+          "start": 4.0,
+          "end": 6.28,
+          "words": [
+            {
+              "text": " I",
+              "start": 4.0,
+              "end": 4.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shan't",
+              "start": 4.1,
+              "end": 4.46,
+              "probability": 0.875
+            },
+            {
+              "text": " sleep",
+              "start": 4.46,
+              "end": 4.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 4.62,
+              "end": 4.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him,",
+              "start": 4.8,
+              "end": 5.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I'll",
+              "start": 5.26,
+              "end": 5.42,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " try",
+              "start": 5.42,
+              "end": 5.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 5.58,
+              "end": 5.72,
+              "probability": 0.994140625
+            },
+            {
+              "text": " bench",
+              "start": 5.72,
+              "end": 5.94,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " here.",
+              "start": 5.94,
+              "end": 6.28,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Landlord,",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "raw": "I've",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "raw": "changed",
+          "start": 1.48,
+          "end": 1.78
+        },
+        {
+          "raw": "my",
+          "start": 1.78,
+          "end": 2.04
+        },
+        {
+          "raw": "mind",
+          "start": 2.04,
+          "end": 2.3
+        },
+        {
+          "raw": "about",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "raw": "that",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "raw": "harpoonier.",
+          "start": 2.7,
+          "end": 3.34
+        },
+        {
+          "raw": "I",
+          "start": 4.0,
+          "end": 4.1
+        },
+        {
+          "raw": "shan't",
+          "start": 4.1,
+          "end": 4.46
+        },
+        {
+          "raw": "sleep",
+          "start": 4.46,
+          "end": 4.62
+        },
+        {
+          "raw": "with",
+          "start": 4.62,
+          "end": 4.8
+        },
+        {
+          "raw": "him,",
+          "start": 4.8,
+          "end": 5.0
+        },
+        {
+          "raw": "I'll",
+          "start": 5.26,
+          "end": 5.42
+        },
+        {
+          "raw": "try",
+          "start": 5.42,
+          "end": 5.58
+        },
+        {
+          "raw": "the",
+          "start": 5.58,
+          "end": 5.72
+        },
+        {
+          "raw": "bench",
+          "start": 5.72,
+          "end": 5.94
+        },
+        {
+          "raw": "here.",
+          "start": 5.94,
+          "end": 6.28
+        }
+      ],
+      "expected_tokens": [
+        "\"Landlord!",
+        "I've",
+        "changed",
+        "my",
+        "mind",
+        "about",
+        "that",
+        "harpooneer.—I",
+        "shan't",
+        "sleep",
+        "with",
+        "him.",
+        "I'll",
+        "try",
+        "the",
+        "bench",
+        "here.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "equal",
+          8,
+          17,
+          9,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Landlord,",
+          "start": 0.02,
+          "end": 0.94,
+          "key": "landlord",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I've",
+          "start": 1.28,
+          "end": 1.48,
+          "key": "ive",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "changed",
+          "start": 1.48,
+          "end": 1.78,
+          "key": "changed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.78,
+          "end": 2.04,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 2.04,
+          "end": 2.3,
+          "key": "mind",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 2.3,
+          "end": 2.5,
+          "key": "about",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.5,
+          "end": 2.7,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "harpoonier.",
+          "start": 2.7,
+          "end": 3.34,
+          "key": "harpoonier",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.0,
+          "end": 4.1,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "shan't",
+          "start": 4.1,
+          "end": 4.46,
+          "key": "shant",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sleep",
+          "start": 4.46,
+          "end": 4.62,
+          "key": "sleep",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.62,
+          "end": 4.8,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 4.8,
+          "end": 5.0,
+          "key": "him",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 5.26,
+          "end": 5.42,
+          "key": "ill",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "try",
+          "start": 5.42,
+          "end": 5.58,
+          "key": "try",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.58,
+          "end": 5.72,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "bench",
+          "start": 5.72,
+          "end": 5.94,
+          "key": "bench",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 5.94,
+          "end": 6.28,
+          "key": "here",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Landlord!",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "text": "I've",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "text": "changed",
+          "start": 1.48,
+          "end": 1.78
+        },
+        {
+          "text": "my",
+          "start": 1.78,
+          "end": 2.04
+        },
+        {
+          "text": "mind",
+          "start": 2.04,
+          "end": 2.3
+        },
+        {
+          "text": "about",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "text": "that",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "text": "harpooneer.—I",
+          "start": 2.7,
+          "end": 3.4
+        },
+        {
+          "text": "shan't",
+          "start": 4.1,
+          "end": 4.46
+        },
+        {
+          "text": "sleep",
+          "start": 4.46,
+          "end": 4.62
+        },
+        {
+          "text": "with",
+          "start": 4.62,
+          "end": 4.8
+        },
+        {
+          "text": "him.",
+          "start": 4.8,
+          "end": 5.0
+        },
+        {
+          "text": "I'll",
+          "start": 5.26,
+          "end": 5.42
+        },
+        {
+          "text": "try",
+          "start": 5.42,
+          "end": 5.58
+        },
+        {
+          "text": "the",
+          "start": 5.58,
+          "end": 5.72
+        },
+        {
+          "text": "bench",
+          "start": 5.72,
+          "end": 5.94
+        },
+        {
+          "text": "here.\"",
+          "start": 5.94,
+          "end": 6.28
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.4135947059839964
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a3b6615d7bf970573988cf804e2afb3246ed69d99193ee5b9af32d69d0fc7e74",
+  "selected_reasons": []
+}

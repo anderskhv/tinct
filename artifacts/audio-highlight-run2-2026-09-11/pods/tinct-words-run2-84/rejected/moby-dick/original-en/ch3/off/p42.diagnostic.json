@@ -1,0 +1,459 @@
+{
+  "complete": true,
+  "signature": "0d571cc23b5076b3232dfa9853f757f90b0093421377e37b946564ab823c8daf",
+  "attempts": [
+    {
+      "asr_seconds": 0.22374567948281765,
+      "alignment_seconds": 0.0005689812824130058,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sarting, and that's the very reason he can't sell it, I guess.",
+          "start": 0.11,
+          "end": 3.47,
+          "words": [
+            {
+              "text": " Sarting,",
+              "start": 0.11,
+              "end": 0.87,
+              "probability": 0.70263671875
+            },
+            {
+              "text": " and",
+              "start": 1.13,
+              "end": 1.31,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " that's",
+              "start": 1.31,
+              "end": 1.57,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 1.57,
+              "end": 1.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " very",
+              "start": 1.69,
+              "end": 1.91,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " reason",
+              "start": 1.91,
+              "end": 2.21,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " he",
+              "start": 2.21,
+              "end": 2.41,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " can't",
+              "start": 2.41,
+              "end": 2.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sell",
+              "start": 2.73,
+              "end": 2.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it,",
+              "start": 2.89,
+              "end": 3.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 3.15,
+              "end": 3.23,
+              "probability": 0.982421875
+            },
+            {
+              "text": " guess.",
+              "start": 3.23,
+              "end": 3.47,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sarting,",
+          "start": 0.11,
+          "end": 0.87
+        },
+        {
+          "raw": "and",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "raw": "that's",
+          "start": 1.31,
+          "end": 1.57
+        },
+        {
+          "raw": "the",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "raw": "very",
+          "start": 1.69,
+          "end": 1.91
+        },
+        {
+          "raw": "reason",
+          "start": 1.91,
+          "end": 2.21
+        },
+        {
+          "raw": "he",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "raw": "can't",
+          "start": 2.41,
+          "end": 2.73
+        },
+        {
+          "raw": "sell",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "raw": "it,",
+          "start": 2.89,
+          "end": 3.09
+        },
+        {
+          "raw": "I",
+          "start": 3.15,
+          "end": 3.23
+        },
+        {
+          "raw": "guess.",
+          "start": 3.23,
+          "end": 3.47
+        }
+      ],
+      "expected_tokens": [
+        "\"Sartain,",
+        "and",
+        "that's",
+        "the",
+        "very",
+        "reason",
+        "he",
+        "can't",
+        "sell",
+        "it,",
+        "I",
+        "guess.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          12,
+          1,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sarting,",
+          "start": 0.11,
+          "end": 0.87,
+          "key": "sarting",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.13,
+          "end": 1.31,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 1.31,
+          "end": 1.57,
+          "key": "thats",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.57,
+          "end": 1.69,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 1.69,
+          "end": 1.91,
+          "key": "very",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "reason",
+          "start": 1.91,
+          "end": 2.21,
+          "key": "reason",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.21,
+          "end": 2.41,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "can't",
+          "start": 2.41,
+          "end": 2.73,
+          "key": "cant",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sell",
+          "start": 2.73,
+          "end": 2.89,
+          "key": "sell",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 2.89,
+          "end": 3.09,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.15,
+          "end": 3.23,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "guess.",
+          "start": 3.23,
+          "end": 3.47,
+          "key": "guess",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Sartain,",
+          "start": 0.0,
+          "end": 0.565
+        },
+        {
+          "text": "and",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "text": "that's",
+          "start": 1.31,
+          "end": 1.57
+        },
+        {
+          "text": "the",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "text": "very",
+          "start": 1.69,
+          "end": 1.91
+        },
+        {
+          "text": "reason",
+          "start": 1.91,
+          "end": 2.21
+        },
+        {
+          "text": "he",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "text": "can't",
+          "start": 2.41,
+          "end": 2.73
+        },
+        {
+          "text": "sell",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "text": "it,",
+          "start": 2.89,
+          "end": 3.09
+        },
+        {
+          "text": "I",
+          "start": 3.15,
+          "end": 3.23
+        },
+        {
+          "text": "guess.\"",
+          "start": 3.23,
+          "end": 3.47
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.22453847154974937
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d4d8452bb12c769c93120eaa318b921d46af492a20ca589a98cc8e09742ef45c",
+  "selected_reasons": []
+}
