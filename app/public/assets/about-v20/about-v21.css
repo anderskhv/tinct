@@ -199,3 +199,16 @@ mark.ask-mark,span.ask-mark{color:inherit;background-color:rgba(255,226,120,var(
 .story-root[data-bookshelf=true] .living-feed>:nth-child(28){--slop-arrival:1.990}
 /* The shelf behind the closing covers keeps a little warmth and colour instead of fading to grey. */
 .story-root[data-bookshelf=true] .scene-frame[data-scene=invitation] .closing-shelf-backdrop{filter:saturate(.8) brightness(1.15);opacity:calc(.4 * (1 - .5 * clamp(0,(var(--scene-progress) - .12) / .65,1)))}
+
+/* "Do we want to read better things?" (2026-09-12, Anders).
+   Desktop: the headline block sat high in the frame; it drops a little so it reads nearer the optical centre.
+   Phones: the scene stacks the question (the scene headline) over the three argument lines, and the export
+   sets those gaps in fixed px against a fixed 27px type size, so they crowd as soon as the type grows. The
+   stack now carries its own font-size and every gap is expressed in em, so the spacing grows with the type. */
+@media (min-width:701px){
+  .journey[data-scene=better] .journey-copy.scene-copy{transform:translateY(7svh)}
+}
+@media (max-width:700px){
+  .journey[data-scene=better] .better-arguments{font-size:clamp(24px,7.1vw,30px);gap:.92em;padding-top:.3em}
+  .journey[data-scene=better] .better-arguments p{font-size:1em}
+}
