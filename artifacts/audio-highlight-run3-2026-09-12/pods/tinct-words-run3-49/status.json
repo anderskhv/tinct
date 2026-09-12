@@ -1,0 +1,26 @@
+{
+ "phase": "failed",
+ "started": 1789227521.1061592,
+ "setup": {
+  "versions": {
+   "faster-whisper": "1.2.1",
+   "ctranslate2": "4.8.2",
+   "av": "18.1.0"
+  },
+  "commit": "c43ab3799d5b71c58b770ed22e1bd7bb9b2774cf",
+  "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5",
+  "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cuda_cupti/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cuda_nvrtc/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cuda_runtime/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cudnn/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cufft/lib:/usr/local/lib/python3.11/dist-packages/nvidia/curand/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cusolver/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cusparse/lib:/usr/local/lib/python3.11/dist-packages/nvidia/nccl/lib:/usr/local/lib/python3.11/dist-packages/nvidia/nvjitlink/lib:/usr/local/lib/python3.11/dist-packages/nvidia/nvtx/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64",
+  "gpu": "NVIDIA A40, 46068 MiB, 580.126.16",
+  "cuda_probe": "cuda devices 1\nmodel loaded on cuda\n",
+  "setup_seconds": 11.7
+ },
+ "job": {
+  "started": 1789227532.8388958,
+  "targets": 20,
+  "cohort_exit": 1,
+  "cohort_seconds": 298.0,
+  "error": "RuntimeError: cloud_cohort failed; see cohort.log",
+  "traceback": "Traceback (most recent call last):\n  File \"/workspace/run/pod_job.py\", line 174, in job\n    raise RuntimeError(\"cloud_cohort failed; see cohort.log\")\nRuntimeError: cloud_cohort failed; see cohort.log\n",
+  "finished": 1789227830.8723211
+ }
+}
