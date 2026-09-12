@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "5d6efdeff6d2ee2b23d84db6052e1f420134ecd78701f16e9f3284369c30200a",
+  "attempts": [
+    {
+      "asr_seconds": 0.11067911190912127,
+      "alignment_seconds": 0.00017109466716647148,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. He consul?",
+        "hotwords": "Brutus, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, He consul?",
+          "start": 0.05,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " He",
+              "start": 1.21,
+              "end": 1.25,
+              "probability": 0.140625
+            },
+            {
+              "text": " consul?",
+              "start": 1.25,
+              "end": 1.79,
+              "probability": 0.52740478515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "He",
+          "start": 1.21,
+          "end": 1.25
+        },
+        {
+          "raw": "consul?",
+          "start": 1.25,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "He",
+        "consul?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.21,
+          "end": 1.25,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "consul?",
+          "start": 1.25,
+          "end": 1.79,
+          "key": "consul",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "He",
+          "start": 1.21,
+          "end": 1.25
+        },
+        {
+          "text": "consul?",
+          "start": 1.25,
+          "end": 1.79
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11090953880921006
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1c4f1f23c9e5a9073cb036abf0a5095fd74c4cdfa63425d6c5aca8e8890f652d",
+  "selected_reasons": []
+}

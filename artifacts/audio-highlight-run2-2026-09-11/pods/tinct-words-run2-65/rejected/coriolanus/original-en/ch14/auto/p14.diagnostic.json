@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "66b2e05e296d9a3e49288153628184b9630a65b373a70f1c22bcffba49b042a5",
+  "attempts": [
+    {
+      "asr_seconds": 0.10849330760538578,
+      "alignment_seconds": 0.0001814449205994606,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Sicinius and Brutus.",
+        "hotwords": "Enter, Sicinius, Brutus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Sicinius and Brutus.",
+          "start": 0.08,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " Sicinius",
+              "start": 0.64,
+              "end": 1.22,
+              "probability": 0.5029296875
+            },
+            {
+              "text": " and",
+              "start": 1.22,
+              "end": 1.42,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Brutus.",
+              "start": 1.42,
+              "end": 1.86,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Sicinius",
+          "start": 0.64,
+          "end": 1.22
+        },
+        {
+          "raw": "and",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "raw": "Brutus.",
+          "start": 1.42,
+          "end": 1.86
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Sicinius",
+        "and",
+        "Brutus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sicinius",
+          "start": 0.64,
+          "end": 1.22,
+          "key": "sicinius",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.22,
+          "end": 1.42,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Brutus.",
+          "start": 1.42,
+          "end": 1.86,
+          "key": "brutus",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Sicinius",
+          "start": 0.64,
+          "end": 1.22
+        },
+        {
+          "text": "and",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "text": "Brutus.",
+          "start": 1.42,
+          "end": 1.86
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10874304501339793
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "53994d7f646a5eb1cbf2f2d4b970d1befd13e15decae1100b81c12eb99f18143",
+  "selected_reasons": []
+}

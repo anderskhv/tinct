@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "30739f1e457d35758ae9df7e0881075e36a2a9750cda15299f24f86cc2a1f3d1",
+  "attempts": [
+    {
+      "asr_seconds": 0.10026614600792527,
+      "alignment_seconds": 9.784288704395294e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Cominius.",
+        "hotwords": "Enter, Cominius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Cominius.",
+          "start": 0.08,
+          "end": 1.3,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " Cominius.",
+              "start": 0.7,
+              "end": 1.3,
+              "probability": 0.5625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Cominius.",
+          "start": 0.7,
+          "end": 1.3
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Cominius."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cominius.",
+          "start": 0.7,
+          "end": 1.3,
+          "key": "cominius",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Cominius.",
+          "start": 0.7,
+          "end": 1.3
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1003961400128901
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e7549a5346d0280007a8aa5083edaa2fbf9ed85f67a463a7ad989ff0c75ec069",
+  "selected_reasons": []
+}

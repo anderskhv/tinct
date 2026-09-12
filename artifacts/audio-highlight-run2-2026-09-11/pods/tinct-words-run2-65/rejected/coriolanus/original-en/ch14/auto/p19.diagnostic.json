@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "f0ee6016138aa1e1533d5a0136b9cb69e2e59fe01faa7a51ec81dbe323390fa2",
+  "attempts": [
+    {
+      "asr_seconds": 0.1080029639415443,
+      "alignment_seconds": 0.0001220828853547573,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Coriolanus. What makes this change?",
+        "hotwords": "Coriolanus, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, What makes this change?",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.7755533854166666
+            },
+            {
+              "text": " What",
+              "start": 1.47,
+              "end": 1.57,
+              "probability": 0.035064697265625
+            },
+            {
+              "text": " makes",
+              "start": 1.57,
+              "end": 1.69,
+              "probability": 0.720703125
+            },
+            {
+              "text": " this",
+              "start": 1.69,
+              "end": 1.97,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " change?",
+              "start": 1.97,
+              "end": 2.25,
+              "probability": 0.9765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "raw": "What",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "raw": "makes",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "raw": "this",
+          "start": 1.69,
+          "end": 1.97
+        },
+        {
+          "raw": "change?",
+          "start": 1.97,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "What",
+        "makes",
+        "this",
+        "change?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.47,
+          "end": 1.57,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "makes",
+          "start": 1.57,
+          "end": 1.69,
+          "key": "makes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.69,
+          "end": 1.97,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "change?",
+          "start": 1.97,
+          "end": 2.25,
+          "key": "change",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "text": "What",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "text": "makes",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "text": "this",
+          "start": 1.69,
+          "end": 1.97
+        },
+        {
+          "text": "change?",
+          "start": 1.97,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10816337866708636
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "997eb8bf4173ecbe5a011269c884db87275d996ddf752fc9d9683cb78c3ba03a",
+  "selected_reasons": []
+}

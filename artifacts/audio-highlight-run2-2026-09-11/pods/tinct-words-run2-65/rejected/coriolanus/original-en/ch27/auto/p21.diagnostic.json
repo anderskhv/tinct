@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "5ff941aa0718ead836808f26eba47862e35af796a4b8b2b071db49af7d665a92",
+  "attempts": [
+    {
+      "asr_seconds": 0.09311839984729886,
+      "alignment_seconds": 0.000169405248016119,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_A shout within._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A shout within.",
+          "start": 0.05,
+          "end": 1.03,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " shout",
+              "start": 0.53,
+              "end": 0.73,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " within.",
+              "start": 0.73,
+              "end": 1.03,
+              "probability": 0.94384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "shout",
+          "start": 0.53,
+          "end": 0.73
+        },
+        {
+          "raw": "within.",
+          "start": 0.73,
+          "end": 1.03
+        }
+      ],
+      "expected_tokens": [
+        "[_A",
+        "shout",
+        "within._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shout",
+          "start": 0.53,
+          "end": 0.73,
+          "key": "shout",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "within.",
+          "start": 0.73,
+          "end": 1.03,
+          "key": "within",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_A",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "shout",
+          "start": 0.53,
+          "end": 0.73
+        },
+        {
+          "text": "within._]",
+          "start": 0.73,
+          "end": 1.03
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09334520669654012
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2caf66eed0d719c06c52228146084be7bb1aa3c71db51c78dda52f928e5602b6",
+  "selected_reasons": []
+}

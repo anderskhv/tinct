@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "9f80837ca58449d47d2a097a83d098f836ebba0d429d599934d83a7335b36dcc",
+  "attempts": [
+    {
+      "asr_seconds": 0.19020779756829143,
+      "alignment_seconds": 0.0002618073485791683,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "All Conspirators. Kill, kill, kill, kill, kill him!",
+        "hotwords": "All, Conspirators"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All Conspirators. Kill, kill, kill, kill, kill him!",
+          "start": 0.02,
+          "end": 3.3,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.7783203125
+            },
+            {
+              "text": " Conspirators.",
+              "start": 0.58,
+              "end": 1.26,
+              "probability": 0.7336018880208334
+            },
+            {
+              "text": " Kill,",
+              "start": 1.88,
+              "end": 1.92,
+              "probability": 0.96484375
+            },
+            {
+              "text": " kill,",
+              "start": 2.14,
+              "end": 2.16,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " kill,",
+              "start": 2.3,
+              "end": 2.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " kill,",
+              "start": 2.66,
+              "end": 2.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " kill",
+              "start": 2.92,
+              "end": 3.04,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " him!",
+              "start": 3.04,
+              "end": 3.3,
+              "probability": 0.95849609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "Conspirators.",
+          "start": 0.58,
+          "end": 1.26
+        },
+        {
+          "raw": "Kill,",
+          "start": 1.88,
+          "end": 1.92
+        },
+        {
+          "raw": "kill,",
+          "start": 2.14,
+          "end": 2.16
+        },
+        {
+          "raw": "kill,",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "raw": "kill,",
+          "start": 2.66,
+          "end": 2.8
+        },
+        {
+          "raw": "kill",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "raw": "him!",
+          "start": 3.04,
+          "end": 3.3
+        }
+      ],
+      "expected_tokens": [
+        "All",
+        "Conspirators.",
+        "Kill,",
+        "kill,",
+        "kill,",
+        "kill,",
+        "kill",
+        "him!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Conspirators.",
+          "start": 0.58,
+          "end": 1.26,
+          "key": "conspirators",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Kill,",
+          "start": 1.88,
+          "end": 1.92,
+          "key": "kill",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "kill,",
+          "start": 2.14,
+          "end": 2.16,
+          "key": "kill",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "kill,",
+          "start": 2.3,
+          "end": 2.5,
+          "key": "kill",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "kill,",
+          "start": 2.66,
+          "end": 2.8,
+          "key": "kill",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "kill",
+          "start": 2.92,
+          "end": 3.04,
+          "key": "kill",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "him!",
+          "start": 3.04,
+          "end": 3.3,
+          "key": "him",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "Conspirators.",
+          "start": 0.58,
+          "end": 1.26
+        },
+        {
+          "text": "Kill,",
+          "start": 1.88,
+          "end": 1.92
+        },
+        {
+          "text": "kill,",
+          "start": 2.14,
+          "end": 2.16
+        },
+        {
+          "text": "kill,",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "text": "kill,",
+          "start": 2.66,
+          "end": 2.8
+        },
+        {
+          "text": "kill",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "text": "him!",
+          "start": 3.04,
+          "end": 3.3
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1905684876255691
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "81e1e2dc51384fb00e6202b12c2b5c2512bdcdaf30ec2626cc4b9afa4e6b8701",
+  "selected_reasons": []
+}

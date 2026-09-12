@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "de4ee1a4424d9eefdf574527a8f67d8513a5551935fd29be8cefe377de8bcb14",
+  "attempts": [
+    {
+      "asr_seconds": 0.26831241277977824,
+      "alignment_seconds": 0.00048301415517926216,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "All Plebeians. It shall be so, it shall be so! Let him away! He's banished, and it shall be so.",
+        "hotwords": "All, Plebeians, Let, He's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All, Plebeians, It shall be so, it shall be so! Let him away! He's banished, and it shall be so.",
+          "start": 0.05,
+          "end": 5.79,
+          "words": [
+            {
+              "text": " All,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.440185546875
+            },
+            {
+              "text": " Plebeians,",
+              "start": 0.75,
+              "end": 1.23,
+              "probability": 0.6542307535807291
+            },
+            {
+              "text": " It",
+              "start": 1.73,
+              "end": 1.83,
+              "probability": 0.090087890625
+            },
+            {
+              "text": " shall",
+              "start": 1.83,
+              "end": 1.95,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " be",
+              "start": 1.95,
+              "end": 2.13,
+              "probability": 0.9921875
+            },
+            {
+              "text": " so,",
+              "start": 2.13,
+              "end": 2.33,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " it",
+              "start": 2.47,
+              "end": 2.51,
+              "probability": 0.814453125
+            },
+            {
+              "text": " shall",
+              "start": 2.51,
+              "end": 2.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 2.67,
+              "end": 2.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so!",
+              "start": 2.85,
+              "end": 3.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Let",
+              "start": 3.45,
+              "end": 3.55,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " him",
+              "start": 3.55,
+              "end": 3.65,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " away!",
+              "start": 3.65,
+              "end": 3.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " He's",
+              "start": 4.33,
+              "end": 4.49,
+              "probability": 0.906494140625
+            },
+            {
+              "text": " banished,",
+              "start": 4.49,
+              "end": 4.79,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " and",
+              "start": 5.01,
+              "end": 5.09,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " it",
+              "start": 5.09,
+              "end": 5.19,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " shall",
+              "start": 5.19,
+              "end": 5.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 5.33,
+              "end": 5.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so.",
+              "start": 5.49,
+              "end": 5.79,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Plebeians,",
+          "start": 0.75,
+          "end": 1.23
+        },
+        {
+          "raw": "It",
+          "start": 1.73,
+          "end": 1.83
+        },
+        {
+          "raw": "shall",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "raw": "be",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "raw": "so,",
+          "start": 2.13,
+          "end": 2.33
+        },
+        {
+          "raw": "it",
+          "start": 2.47,
+          "end": 2.51
+        },
+        {
+          "raw": "shall",
+          "start": 2.51,
+          "end": 2.67
+        },
+        {
+          "raw": "be",
+          "start": 2.67,
+          "end": 2.85
+        },
+        {
+          "raw": "so!",
+          "start": 2.85,
+          "end": 3.13
+        },
+        {
+          "raw": "Let",
+          "start": 3.45,
+          "end": 3.55
+        },
+        {
+          "raw": "him",
+          "start": 3.55,
+          "end": 3.65
+        },
+        {
+          "raw": "away!",
+          "start": 3.65,
+          "end": 3.97
+        },
+        {
+          "raw": "He's",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "raw": "banished,",
+          "start": 4.49,
+          "end": 4.79
+        },
+        {
+          "raw": "and",
+          "start": 5.01,
+          "end": 5.09
+        },
+        {
+          "raw": "it",
+          "start": 5.09,
+          "end": 5.19
+        },
+        {
+          "raw": "shall",
+          "start": 5.19,
+          "end": 5.33
+        },
+        {
+          "raw": "be",
+          "start": 5.33,
+          "end": 5.49
+        },
+        {
+          "raw": "so.",
+          "start": 5.49,
+          "end": 5.79
+        }
+      ],
+      "expected_tokens": [
+        "All",
+        "Plebeians.",
+        "It",
+        "shall",
+        "be",
+        "so,",
+        "it",
+        "shall",
+        "be",
+        "so!",
+        "Let",
+        "him",
+        "away!",
+        "He's",
+        "banished,",
+        "and",
+        "it",
+        "shall",
+        "be",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Plebeians,",
+          "start": 0.75,
+          "end": 1.23,
+          "key": "plebeians",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 1.73,
+          "end": 1.83,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.83,
+          "end": 1.95,
+          "key": "shall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.95,
+          "end": 2.13,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 2.13,
+          "end": 2.33,
+          "key": "so",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.47,
+          "end": 2.51,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.51,
+          "end": 2.67,
+          "key": "shall",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.67,
+          "end": 2.85,
+          "key": "be",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "so!",
+          "start": 2.85,
+          "end": 3.13,
+          "key": "so",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 3.45,
+          "end": 3.55,
+          "key": "let",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.55,
+          "end": 3.65,
+          "key": "him",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "away!",
+          "start": 3.65,
+          "end": 3.97,
+          "key": "away",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 4.33,
+          "end": 4.49,
+          "key": "hes",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "banished,",
+          "start": 4.49,
+          "end": 4.79,
+          "key": "banished",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.01,
+          "end": 5.09,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.09,
+          "end": 5.19,
+          "key": "it",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 5.19,
+          "end": 5.33,
+          "key": "shall",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.33,
+          "end": 5.49,
+          "key": "be",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 5.49,
+          "end": 5.79,
+          "key": "so",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Plebeians.",
+          "start": 0.75,
+          "end": 1.23
+        },
+        {
+          "text": "It",
+          "start": 1.73,
+          "end": 1.83
+        },
+        {
+          "text": "shall",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "text": "be",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "text": "so,",
+          "start": 2.13,
+          "end": 2.33
+        },
+        {
+          "text": "it",
+          "start": 2.47,
+          "end": 2.51
+        },
+        {
+          "text": "shall",
+          "start": 2.51,
+          "end": 2.67
+        },
+        {
+          "text": "be",
+          "start": 2.67,
+          "end": 2.85
+        },
+        {
+          "text": "so!",
+          "start": 2.85,
+          "end": 3.13
+        },
+        {
+          "text": "Let",
+          "start": 3.45,
+          "end": 3.55
+        },
+        {
+          "text": "him",
+          "start": 3.55,
+          "end": 3.65
+        },
+        {
+          "text": "away!",
+          "start": 3.65,
+          "end": 3.97
+        },
+        {
+          "text": "He's",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "text": "banished,",
+          "start": 4.49,
+          "end": 4.79
+        },
+        {
+          "text": "and",
+          "start": 5.01,
+          "end": 5.09
+        },
+        {
+          "text": "it",
+          "start": 5.09,
+          "end": 5.19
+        },
+        {
+          "text": "shall",
+          "start": 5.19,
+          "end": 5.33
+        },
+        {
+          "text": "be",
+          "start": 5.33,
+          "end": 5.49
+        },
+        {
+          "text": "so.",
+          "start": 5.49,
+          "end": 5.79
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2689908226020634
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c975459a80dc75f9d9e2f53fa9af1e90a772c1254bbb947e9c9af06508817cbe",
+  "selected_reasons": []
+}

@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "c4a316e563ebe5d70eddd4cfa2b974598569092345f0855802d5aa54dcd72957",
+  "attempts": [
+    {
+      "asr_seconds": 0.20189858321100473,
+      "alignment_seconds": 0.00024451687932014465,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Third Citizen. How, not your own desire?",
+        "hotwords": "Third, Citizen, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Third, Citizen, How, not your own desire?",
+          "start": 0.05,
+          "end": 2.49,
+          "words": [
+            {
+              "text": " Third,",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.92578125
+            },
+            {
+              "text": " Citizen,",
+              "start": 0.75,
+              "end": 0.97,
+              "probability": 0.258056640625
+            },
+            {
+              "text": " How,",
+              "start": 1.57,
+              "end": 1.63,
+              "probability": 0.411376953125
+            },
+            {
+              "text": " not",
+              "start": 1.75,
+              "end": 1.81,
+              "probability": 0.264404296875
+            },
+            {
+              "text": " your",
+              "start": 1.81,
+              "end": 1.95,
+              "probability": 0.6611328125
+            },
+            {
+              "text": " own",
+              "start": 1.95,
+              "end": 2.13,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " desire?",
+              "start": 2.13,
+              "end": 2.49,
+              "probability": 0.61376953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Third,",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "Citizen,",
+          "start": 0.75,
+          "end": 0.97
+        },
+        {
+          "raw": "How,",
+          "start": 1.57,
+          "end": 1.63
+        },
+        {
+          "raw": "not",
+          "start": 1.75,
+          "end": 1.81
+        },
+        {
+          "raw": "your",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "raw": "own",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "raw": "desire?",
+          "start": 2.13,
+          "end": 2.49
+        }
+      ],
+      "expected_tokens": [
+        "Third",
+        "Citizen.",
+        "How,",
+        "not",
+        "your",
+        "own",
+        "desire?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Third,",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "third",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Citizen,",
+          "start": 0.75,
+          "end": 0.97,
+          "key": "citizen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "How,",
+          "start": 1.57,
+          "end": 1.63,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.75,
+          "end": 1.81,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.81,
+          "end": 1.95,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 1.95,
+          "end": 2.13,
+          "key": "own",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "desire?",
+          "start": 2.13,
+          "end": 2.49,
+          "key": "desire",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Third",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "Citizen.",
+          "start": 0.75,
+          "end": 0.97
+        },
+        {
+          "text": "How,",
+          "start": 1.57,
+          "end": 1.63
+        },
+        {
+          "text": "not",
+          "start": 1.75,
+          "end": 1.81
+        },
+        {
+          "text": "your",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "text": "own",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "text": "desire?",
+          "start": 2.13,
+          "end": 2.49
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2022341531701386
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c6e81858329457569d419586e3a11041fdc8f7c7ad262674804a6e6769854276",
+  "selected_reasons": []
+}

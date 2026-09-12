@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "0b695f1ba24c96acae14a520fb79abb57856423e68809d17e786c46235cf086a",
+  "attempts": [
+    {
+      "asr_seconds": 0.10335906688123941,
+      "alignment_seconds": 0.00017492473125457764,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Beats him away_.]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Beats him away.",
+          "start": 0.05,
+          "end": 1.05,
+          "words": [
+            {
+              "text": " Beats",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.5576171875
+            },
+            {
+              "text": " him",
+              "start": 0.59,
+              "end": 0.77,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " away.",
+              "start": 0.77,
+              "end": 1.05,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Beats",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "him",
+          "start": 0.59,
+          "end": 0.77
+        },
+        {
+          "raw": "away.",
+          "start": 0.77,
+          "end": 1.05
+        }
+      ],
+      "expected_tokens": [
+        "[_Beats",
+        "him",
+        "away_.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Beats",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "beats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 0.59,
+          "end": 0.77,
+          "key": "him",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "away.",
+          "start": 0.77,
+          "end": 1.05,
+          "key": "away",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Beats",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "him",
+          "start": 0.59,
+          "end": 0.77
+        },
+        {
+          "text": "away_.]",
+          "start": 0.77,
+          "end": 1.05
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10359320370480418
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d301d44830da179b05990f1352ca3c1ef0372795df266668617db22dde3f3a11",
+  "selected_reasons": []
+}

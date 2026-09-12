@@ -1,0 +1,459 @@
+{
+  "complete": true,
+  "signature": "395a2e933e44f9cc27e54d976206e90d278c25b1361f9f08a34405b11e0b76af",
+  "attempts": [
+    {
+      "asr_seconds": 0.17600205121561885,
+      "alignment_seconds": 0.00023803673684597015,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Third citizen we do sir tell us what hath brought you taut",
+          "start": 0.05,
+          "end": 3.97,
+          "words": [
+            {
+              "text": " Third",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " citizen",
+              "start": 0.59,
+              "end": 1.03,
+              "probability": 0.697265625
+            },
+            {
+              "text": " we",
+              "start": 1.03,
+              "end": 1.53,
+              "probability": 0.384033203125
+            },
+            {
+              "text": " do",
+              "start": 1.53,
+              "end": 1.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sir",
+              "start": 1.73,
+              "end": 2.01,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " tell",
+              "start": 2.01,
+              "end": 2.53,
+              "probability": 0.47265625
+            },
+            {
+              "text": " us",
+              "start": 2.53,
+              "end": 2.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " what",
+              "start": 2.69,
+              "end": 2.81,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " hath",
+              "start": 2.81,
+              "end": 2.97,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " brought",
+              "start": 2.97,
+              "end": 3.17,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 3.17,
+              "end": 3.37,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " taut",
+              "start": 3.37,
+              "end": 3.97,
+              "probability": 0.6429443359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "citizen",
+          "start": 0.59,
+          "end": 1.03
+        },
+        {
+          "raw": "we",
+          "start": 1.03,
+          "end": 1.53
+        },
+        {
+          "raw": "do",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "raw": "sir",
+          "start": 1.73,
+          "end": 2.01
+        },
+        {
+          "raw": "tell",
+          "start": 2.01,
+          "end": 2.53
+        },
+        {
+          "raw": "us",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "raw": "what",
+          "start": 2.69,
+          "end": 2.81
+        },
+        {
+          "raw": "hath",
+          "start": 2.81,
+          "end": 2.97
+        },
+        {
+          "raw": "brought",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "raw": "you",
+          "start": 3.17,
+          "end": 3.37
+        },
+        {
+          "raw": "taut",
+          "start": 3.37,
+          "end": 3.97
+        }
+      ],
+      "expected_tokens": [
+        "Third",
+        "Citizen.",
+        "We",
+        "do,",
+        "sir.",
+        "Tell",
+        "us",
+        "what",
+        "hath",
+        "brought",
+        "you",
+        "to't."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "third",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "citizen",
+          "start": 0.59,
+          "end": 1.03,
+          "key": "citizen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.03,
+          "end": 1.53,
+          "key": "we",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.53,
+          "end": 1.73,
+          "key": "do",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir",
+          "start": 1.73,
+          "end": 2.01,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 2.01,
+          "end": 2.53,
+          "key": "tell",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 2.53,
+          "end": 2.69,
+          "key": "us",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.69,
+          "end": 2.81,
+          "key": "what",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 2.81,
+          "end": 2.97,
+          "key": "hath",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "brought",
+          "start": 2.97,
+          "end": 3.17,
+          "key": "brought",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.17,
+          "end": 3.37,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "taut",
+          "start": 3.37,
+          "end": 3.97,
+          "key": "taut",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Third",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "Citizen.",
+          "start": 0.59,
+          "end": 1.03
+        },
+        {
+          "text": "We",
+          "start": 1.03,
+          "end": 1.53
+        },
+        {
+          "text": "do,",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "text": "sir.",
+          "start": 1.73,
+          "end": 2.01
+        },
+        {
+          "text": "Tell",
+          "start": 2.01,
+          "end": 2.53
+        },
+        {
+          "text": "us",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "text": "what",
+          "start": 2.69,
+          "end": 2.81
+        },
+        {
+          "text": "hath",
+          "start": 2.81,
+          "end": 2.97
+        },
+        {
+          "text": "brought",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "text": "you",
+          "start": 3.17,
+          "end": 3.37
+        },
+        {
+          "text": "to't.",
+          "start": 3.37,
+          "end": 3.67
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.17632991122081876
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c1bd24d628b74d1568528502bfbb9dd5bdc4bf8983fba00ea40f44782f5b7845",
+  "selected_reasons": []
+}

@@ -1,0 +1,331 @@
+{
+  "complete": true,
+  "signature": "9a32522833665b847c0db39e4c6682d7b76fbbf21e5e21f48fd85ef6a77c2177",
+  "attempts": [
+    {
+      "asr_seconds": 0.1874596979469061,
+      "alignment_seconds": 0.0001450241543352604,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sesinius. Yes, Mercy, if you report him truly.",
+          "start": 0.08,
+          "end": 3.34,
+          "words": [
+            {
+              "text": " Sesinius.",
+              "start": 0.08,
+              "end": 1.04,
+              "probability": 0.53399658203125
+            },
+            {
+              "text": " Yes,",
+              "start": 1.56,
+              "end": 1.74,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " Mercy,",
+              "start": 1.94,
+              "end": 2.02,
+              "probability": 0.65380859375
+            },
+            {
+              "text": " if",
+              "start": 2.36,
+              "end": 2.48,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 2.48,
+              "end": 2.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " report",
+              "start": 2.58,
+              "end": 2.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him",
+              "start": 2.86,
+              "end": 3.04,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " truly.",
+              "start": 3.04,
+              "end": 3.34,
+              "probability": 0.9306640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sesinius.",
+          "start": 0.08,
+          "end": 1.04
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "raw": "Mercy,",
+          "start": 1.94,
+          "end": 2.02
+        },
+        {
+          "raw": "if",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "raw": "you",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "raw": "report",
+          "start": 2.58,
+          "end": 2.86
+        },
+        {
+          "raw": "him",
+          "start": 2.86,
+          "end": 3.04
+        },
+        {
+          "raw": "truly.",
+          "start": 3.04,
+          "end": 3.34
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "Yes,",
+        "mercy,",
+        "if",
+        "you",
+        "report",
+        "him",
+        "truly."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          8,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sesinius.",
+          "start": 0.08,
+          "end": 1.04,
+          "key": "sesinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.56,
+          "end": 1.74,
+          "key": "yes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mercy,",
+          "start": 1.94,
+          "end": 2.02,
+          "key": "mercy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.36,
+          "end": 2.48,
+          "key": "if",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.48,
+          "end": 2.58,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "report",
+          "start": 2.58,
+          "end": 2.86,
+          "key": "report",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.86,
+          "end": 3.04,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "truly.",
+          "start": 3.04,
+          "end": 3.34,
+          "key": "truly",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "text": "Yes,",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "text": "mercy,",
+          "start": 1.94,
+          "end": 2.02
+        },
+        {
+          "text": "if",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "text": "you",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "text": "report",
+          "start": 2.58,
+          "end": 2.86
+        },
+        {
+          "text": "him",
+          "start": 2.86,
+          "end": 3.04
+        },
+        {
+          "text": "truly.",
+          "start": 3.04,
+          "end": 3.34
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.1876563737168908
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d6c6ad7b64d1afc9a06cd7392ab8838843310b25ccee1528217bc3584eb0fc29",
+  "selected_reasons": []
+}

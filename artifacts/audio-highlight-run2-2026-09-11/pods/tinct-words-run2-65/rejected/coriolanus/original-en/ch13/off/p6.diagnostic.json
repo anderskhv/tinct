@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "c60a7f27fb9b1552f778aab9deac58c7d3dfaefe7b4bda52e96d2dd53abe5781",
+  "attempts": [
+    {
+      "asr_seconds": 0.1818325025960803,
+      "alignment_seconds": 0.0002641580067574978,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Second Citizen, think you so. Which way do you judge my wit would fly?",
+          "start": 0.08,
+          "end": 4.18,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.69677734375
+            },
+            {
+              "text": " Citizen,",
+              "start": 0.72,
+              "end": 1.08,
+              "probability": 0.5830078125
+            },
+            {
+              "text": " think",
+              "start": 1.64,
+              "end": 1.76,
+              "probability": 0.53564453125
+            },
+            {
+              "text": " you",
+              "start": 1.76,
+              "end": 1.92,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " so.",
+              "start": 1.92,
+              "end": 2.16,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Which",
+              "start": 2.64,
+              "end": 2.74,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " way",
+              "start": 2.74,
+              "end": 2.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " do",
+              "start": 2.94,
+              "end": 3.06,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " you",
+              "start": 3.06,
+              "end": 3.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " judge",
+              "start": 3.16,
+              "end": 3.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " my",
+              "start": 3.32,
+              "end": 3.54,
+              "probability": 0.994140625
+            },
+            {
+              "text": " wit",
+              "start": 3.54,
+              "end": 3.7,
+              "probability": 0.7431640625
+            },
+            {
+              "text": " would",
+              "start": 3.7,
+              "end": 3.86,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " fly?",
+              "start": 3.86,
+              "end": 4.18,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "Citizen,",
+          "start": 0.72,
+          "end": 1.08
+        },
+        {
+          "raw": "think",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "raw": "you",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "raw": "so.",
+          "start": 1.92,
+          "end": 2.16
+        },
+        {
+          "raw": "Which",
+          "start": 2.64,
+          "end": 2.74
+        },
+        {
+          "raw": "way",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "raw": "do",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "raw": "you",
+          "start": 3.06,
+          "end": 3.16
+        },
+        {
+          "raw": "judge",
+          "start": 3.16,
+          "end": 3.32
+        },
+        {
+          "raw": "my",
+          "start": 3.32,
+          "end": 3.54
+        },
+        {
+          "raw": "wit",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "raw": "would",
+          "start": 3.7,
+          "end": 3.86
+        },
+        {
+          "raw": "fly?",
+          "start": 3.86,
+          "end": 4.18
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Citizen.",
+        "Think",
+        "you",
+        "so?",
+        "Which",
+        "way",
+        "do",
+        "you",
+        "judge",
+        "my",
+        "wit",
+        "would",
+        "fly?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Citizen,",
+          "start": 0.72,
+          "end": 1.08,
+          "key": "citizen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.64,
+          "end": 1.76,
+          "key": "think",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.76,
+          "end": 1.92,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 1.92,
+          "end": 2.16,
+          "key": "so",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 2.64,
+          "end": 2.74,
+          "key": "which",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 2.74,
+          "end": 2.94,
+          "key": "way",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.94,
+          "end": 3.06,
+          "key": "do",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.06,
+          "end": 3.16,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "judge",
+          "start": 3.16,
+          "end": 3.32,
+          "key": "judge",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.32,
+          "end": 3.54,
+          "key": "my",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "wit",
+          "start": 3.54,
+          "end": 3.7,
+          "key": "wit",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 3.7,
+          "end": 3.86,
+          "key": "would",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "fly?",
+          "start": 3.86,
+          "end": 4.18,
+          "key": "fly",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "Citizen.",
+          "start": 0.72,
+          "end": 1.08
+        },
+        {
+          "text": "Think",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "text": "you",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "text": "so?",
+          "start": 1.92,
+          "end": 2.16
+        },
+        {
+          "text": "Which",
+          "start": 2.64,
+          "end": 2.74
+        },
+        {
+          "text": "way",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "text": "do",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "text": "you",
+          "start": 3.06,
+          "end": 3.16
+        },
+        {
+          "text": "judge",
+          "start": 3.16,
+          "end": 3.32
+        },
+        {
+          "text": "my",
+          "start": 3.32,
+          "end": 3.54
+        },
+        {
+          "text": "wit",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "text": "would",
+          "start": 3.7,
+          "end": 3.86
+        },
+        {
+          "text": "fly?",
+          "start": 3.86,
+          "end": 4.18
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1822044337168336
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b937007d164fd9dd227527791ed8c2cb412cd8ff949373569b3e9672d7131a15",
+  "selected_reasons": []
+}

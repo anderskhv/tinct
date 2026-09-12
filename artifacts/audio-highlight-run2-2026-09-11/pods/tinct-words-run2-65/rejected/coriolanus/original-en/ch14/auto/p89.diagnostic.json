@@ -1,0 +1,679 @@
+{
+  "complete": true,
+  "signature": "9de5e9035a85f4f5e76c483f2274ed3bf708905796e6e0c9178f6577560b71b7",
+  "attempts": [
+    {
+      "asr_seconds": 0.11567891901358962,
+      "alignment_seconds": 0.0002156561240553856,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_They all bustle about Coriolanus._]",
+        "hotwords": "Coriolanus._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They all bustle about Coriolanus._",
+          "start": 0.02,
+          "end": 2.02,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " all",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bustle",
+              "start": 0.68,
+              "end": 1.06,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " about",
+              "start": 1.06,
+              "end": 1.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Coriolanus._",
+              "start": 1.26,
+              "end": 2.02,
+              "probability": 0.6107177734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "all",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "bustle",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "raw": "about",
+          "start": 1.06,
+          "end": 1.26
+        },
+        {
+          "raw": "Coriolanus._",
+          "start": 1.26,
+          "end": 2.02
+        }
+      ],
+      "expected_tokens": [
+        "[_They",
+        "all",
+        "bustle",
+        "about",
+        "Coriolanus._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bustle",
+          "start": 0.68,
+          "end": 1.06,
+          "key": "bustle",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 1.06,
+          "end": 1.26,
+          "key": "about",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Coriolanus._",
+          "start": 1.26,
+          "end": 2.02,
+          "key": "coriolanus_",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_They",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "all",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "bustle",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "text": "about",
+          "start": 1.06,
+          "end": 1.26
+        },
+        {
+          "text": "Coriolanus._]",
+          "start": 1.26,
+          "end": 1.64
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11596950702369213
+    },
+    {
+      "asr_seconds": 0.17432031128555536,
+      "alignment_seconds": 0.0002151159569621086,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Coriolanus._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " They all bustle about Coriolanus._",
+          "start": 0.02,
+          "end": 2.02,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " all",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bustle",
+              "start": 0.68,
+              "end": 1.06,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " about",
+              "start": 1.06,
+              "end": 1.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Coriolanus._",
+              "start": 1.26,
+              "end": 2.02,
+              "probability": 0.6107177734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "all",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "bustle",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "raw": "about",
+          "start": 1.06,
+          "end": 1.26
+        },
+        {
+          "raw": "Coriolanus._",
+          "start": 1.26,
+          "end": 2.02
+        }
+      ],
+      "expected_tokens": [
+        "[_They",
+        "all",
+        "bustle",
+        "about",
+        "Coriolanus._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bustle",
+          "start": 0.68,
+          "end": 1.06,
+          "key": "bustle",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 1.06,
+          "end": 1.26,
+          "key": "about",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Coriolanus._",
+          "start": 1.26,
+          "end": 2.02,
+          "key": "coriolanus_",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_They",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "all",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "bustle",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "text": "about",
+          "start": 1.06,
+          "end": 1.26
+        },
+        {
+          "text": "Coriolanus._]",
+          "start": 1.26,
+          "end": 1.64
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17461155029013753
+    },
+    {
+      "asr_seconds": 0.11500817909836769,
+      "alignment_seconds": 0.000202275812625885,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " They all bustle about Coriolanus.",
+          "start": 0.02,
+          "end": 1.92,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " all",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bustle",
+              "start": 0.68,
+              "end": 1.06,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " about",
+              "start": 1.06,
+              "end": 1.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Coriolanus.",
+              "start": 1.26,
+              "end": 1.92,
+              "probability": 0.8142903645833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "all",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "bustle",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "raw": "about",
+          "start": 1.06,
+          "end": 1.26
+        },
+        {
+          "raw": "Coriolanus.",
+          "start": 1.26,
+          "end": 1.92
+        }
+      ],
+      "expected_tokens": [
+        "[_They",
+        "all",
+        "bustle",
+        "about",
+        "Coriolanus._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bustle",
+          "start": 0.68,
+          "end": 1.06,
+          "key": "bustle",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 1.06,
+          "end": 1.26,
+          "key": "about",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Coriolanus.",
+          "start": 1.26,
+          "end": 1.92,
+          "key": "coriolanus",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_They",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "all",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "bustle",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "text": "about",
+          "start": 1.06,
+          "end": 1.26
+        },
+        {
+          "text": "Coriolanus._]",
+          "start": 1.26,
+          "end": 1.92
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11531395837664604
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c8d6fb713a3427f0a8cc453c372e1e8a9810ee3161f098f5b9481161e63024c5",
+  "selected_reasons": []
+}

@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "e3dacb1e675a352d1a0f0c6ab0e9be03ac0d78345a39b6c345dad106716e7420",
+  "attempts": [
+    {
+      "asr_seconds": 0.10731803392991424,
+      "alignment_seconds": 0.0002010962925851345,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Coriolanus draws his sword.",
+          "start": 0.05,
+          "end": 1.77,
+          "words": [
+            {
+              "text": " Coriolanus",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " draws",
+              "start": 0.97,
+              "end": 1.23,
+              "probability": 0.994140625
+            },
+            {
+              "text": " his",
+              "start": 1.23,
+              "end": 1.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sword.",
+              "start": 1.47,
+              "end": 1.77,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "draws",
+          "start": 0.97,
+          "end": 1.23
+        },
+        {
+          "raw": "his",
+          "start": 1.23,
+          "end": 1.47
+        },
+        {
+          "raw": "sword.",
+          "start": 1.47,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "[_Coriolanus",
+        "draws",
+        "his",
+        "sword._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "draws",
+          "start": 0.97,
+          "end": 1.23,
+          "key": "draws",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.23,
+          "end": 1.47,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sword.",
+          "start": 1.47,
+          "end": 1.77,
+          "key": "sword",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Coriolanus",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "draws",
+          "start": 0.97,
+          "end": 1.23
+        },
+        {
+          "text": "his",
+          "start": 1.23,
+          "end": 1.47
+        },
+        {
+          "text": "sword._]",
+          "start": 1.47,
+          "end": 1.77
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10758788185194135
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4ce1b145dcb676d393bb34e044998e8eeb71000f8aa5d97d8aca2366794ebe16",
+  "selected_reasons": []
+}

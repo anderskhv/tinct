@@ -1,0 +1,341 @@
+{
+  "complete": true,
+  "signature": "3df7956f90173eccb80249c0fbf4e96e7487bb38a116021046ffbf62272011a7",
+  "attempts": [
+    {
+      "asr_seconds": 2.4099127519875765,
+      "alignment_seconds": 0.00035484135150909424,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. We stay here for the people.",
+        "hotwords": "Brutus, We"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, We Brutus. We stay here for the people.",
+          "start": 0.51,
+          "end": 2.27,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.51,
+              "end": 0.91,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " We",
+              "start": 1.13,
+              "end": 1.29,
+              "probability": 0.0258941650390625
+            },
+            {
+              "text": " Brutus.",
+              "start": 1.29,
+              "end": 1.45,
+              "probability": 0.498291015625
+            },
+            {
+              "text": " We",
+              "start": 1.45,
+              "end": 1.45,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " stay",
+              "start": 1.45,
+              "end": 1.49,
+              "probability": 0.74365234375
+            },
+            {
+              "text": " here",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " for",
+              "start": 1.71,
+              "end": 1.89,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " the",
+              "start": 1.89,
+              "end": 1.99,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " people.",
+              "start": 1.99,
+              "end": 2.27,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.51,
+          "end": 0.91
+        },
+        {
+          "raw": "We",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "raw": "Brutus.",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "raw": "We",
+          "start": 1.45,
+          "end": 1.45
+        },
+        {
+          "raw": "stay",
+          "start": 1.45,
+          "end": 1.49
+        },
+        {
+          "raw": "here",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "for",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "raw": "the",
+          "start": 1.89,
+          "end": 1.99
+        },
+        {
+          "raw": "people.",
+          "start": 1.99,
+          "end": 2.27
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "We",
+        "stay",
+        "here",
+        "for",
+        "the",
+        "people."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "equal",
+          0,
+          7,
+          2,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.51,
+          "end": 0.91,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.13,
+          "end": 1.29,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Brutus.",
+          "start": 1.29,
+          "end": 1.45,
+          "key": "brutus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.45,
+          "end": 1.45,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "stay",
+          "start": 1.45,
+          "end": 1.49,
+          "key": "stay",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 1.49,
+          "end": 1.71,
+          "key": "here",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.71,
+          "end": 1.89,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.89,
+          "end": 1.99,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "people.",
+          "start": 1.99,
+          "end": 2.27,
+          "key": "people",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "text": "We",
+          "start": 1.45,
+          "end": 1.45
+        },
+        {
+          "text": "stay",
+          "start": 1.45,
+          "end": 1.49
+        },
+        {
+          "text": "here",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "text": "for",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "text": "the",
+          "start": 1.89,
+          "end": 1.99
+        },
+        {
+          "text": "people.",
+          "start": 1.99,
+          "end": 2.27
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.4104067469015718
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9a2c8790266cbd697032082a890554cd0b5968d5b174a4863b89d3a28f3421e8",
+  "selected_reasons": []
+}

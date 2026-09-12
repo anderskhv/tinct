@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "1c9cdfde498cf0a6c326f84414edcd4650a0e1e1ce762cc710642f149884b3b1",
+  "attempts": [
+    {
+      "asr_seconds": 0.12217898014932871,
+      "alignment_seconds": 0.00020938599482178688,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. Pray, let's go.",
+        "hotwords": "Brutus, Pray"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, Pray, let's go.",
+          "start": 0.46,
+          "end": 1.82,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.46,
+              "end": 0.9,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " Pray,",
+              "start": 1.24,
+              "end": 1.34,
+              "probability": 0.55609130859375
+            },
+            {
+              "text": " let's",
+              "start": 1.42,
+              "end": 1.6,
+              "probability": 0.61920166015625
+            },
+            {
+              "text": " go.",
+              "start": 1.6,
+              "end": 1.82,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.46,
+          "end": 0.9
+        },
+        {
+          "raw": "Pray,",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "raw": "let's",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "raw": "go.",
+          "start": 1.6,
+          "end": 1.82
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Pray,",
+        "let's",
+        "go."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.46,
+          "end": 0.9,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pray,",
+          "start": 1.24,
+          "end": 1.34,
+          "key": "pray",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "let's",
+          "start": 1.42,
+          "end": 1.6,
+          "key": "lets",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "go.",
+          "start": 1.6,
+          "end": 1.82,
+          "key": "go",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.46,
+          "end": 0.9
+        },
+        {
+          "text": "Pray,",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "text": "let's",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "text": "go.",
+          "start": 1.6,
+          "end": 1.82
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12245303811505437
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7864179e291d08dc371f33f08ee5884dbec43dbd7685f3e3351376088e5bd222",
+  "selected_reasons": []
+}

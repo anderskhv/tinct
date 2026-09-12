@@ -1,0 +1,227 @@
+{
+  "complete": true,
+  "signature": "1ca60f0310e8aea49509cfdd845c018dca58c60a9238d34008e92be72773006a",
+  "attempts": [
+    {
+      "asr_seconds": 0.12759948009625077,
+      "alignment_seconds": 0.00021210592240095139,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, saw you a Phidias.",
+          "start": 0.05,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.744140625
+            },
+            {
+              "text": " saw",
+              "start": 1.49,
+              "end": 1.51,
+              "probability": 0.191650390625
+            },
+            {
+              "text": " you",
+              "start": 1.51,
+              "end": 1.65,
+              "probability": 0.8984375
+            },
+            {
+              "text": " a",
+              "start": 1.65,
+              "end": 1.75,
+              "probability": 0.60205078125
+            },
+            {
+              "text": " Phidias.",
+              "start": 1.75,
+              "end": 2.11,
+              "probability": 0.5791015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "saw",
+          "start": 1.49,
+          "end": 1.51
+        },
+        {
+          "raw": "you",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "raw": "a",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "raw": "Phidias.",
+          "start": 1.75,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "Saw",
+        "you",
+        "Aufidius?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "saw",
+          "start": 1.49,
+          "end": 1.51,
+          "key": "saw",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.51,
+          "end": 1.65,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.65,
+          "end": 1.75,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Phidias.",
+          "start": 1.75,
+          "end": 2.11,
+          "key": "phidias",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "Saw",
+          "start": 1.49,
+          "end": 1.51
+        },
+        {
+          "text": "you",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "text": "Aufidius?",
+          "start": 1.65,
+          "end": 1.88
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1278883977793157
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "160dc976b91e2509ba2b4aea2ae746572d790ce72b439e18e0e7bd5265ddea6d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

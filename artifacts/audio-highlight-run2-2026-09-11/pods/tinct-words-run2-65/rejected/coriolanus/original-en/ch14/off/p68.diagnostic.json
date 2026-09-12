@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "4fe2592926e503a6454ee2fe021a6af0485c3d35c0df61bc008a3ce97affc02d",
+  "attempts": [
+    {
+      "asr_seconds": 0.10486318217590451,
+      "alignment_seconds": 0.00011316314339637756,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, manifest treason.",
+          "start": 0.08,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " manifest",
+              "start": 1.32,
+              "end": 1.62,
+              "probability": 0.5263671875
+            },
+            {
+              "text": " treason.",
+              "start": 1.62,
+              "end": 2.1,
+              "probability": 0.6767578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "manifest",
+          "start": 1.32,
+          "end": 1.62
+        },
+        {
+          "raw": "treason.",
+          "start": 1.62,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Manifest",
+        "treason."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "manifest",
+          "start": 1.32,
+          "end": 1.62,
+          "key": "manifest",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "treason.",
+          "start": 1.62,
+          "end": 2.1,
+          "key": "treason",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "Manifest",
+          "start": 1.32,
+          "end": 1.62
+        },
+        {
+          "text": "treason.",
+          "start": 1.62,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10501454584300518
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ba613bcc9034131292f110cc6b561166c42da929afb0ecdb823848847965620d",
+  "selected_reasons": []
+}

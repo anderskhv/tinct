@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "026e91d6a5350608ad423fd1c2bee505e2c62d1b77b8dee5c48d9fdff9108bac",
+  "attempts": [
+    {
+      "asr_seconds": 3.395900961011648,
+      "alignment_seconds": 0.000345081090927124,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Menenius. As Hercules did shake down mellow fruit. You have made fair work.",
+        "hotwords": "Menenius, As, Hercules, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Menenius. As Hercules did shake down mellow fruit. You have made fair work.",
+          "start": 0.05,
+          "end": 4.87,
+          "words": [
+            {
+              "text": " Menenius.",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.4202473958333333
+            },
+            {
+              "text": " As",
+              "start": 1.51,
+              "end": 1.61,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " Hercules",
+              "start": 1.61,
+              "end": 1.95,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " did",
+              "start": 1.95,
+              "end": 2.31,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shake",
+              "start": 2.31,
+              "end": 2.57,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " down",
+              "start": 2.57,
+              "end": 2.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mellow",
+              "start": 2.87,
+              "end": 3.29,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " fruit.",
+              "start": 3.29,
+              "end": 3.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " You",
+              "start": 3.99,
+              "end": 4.05,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " have",
+              "start": 4.05,
+              "end": 4.15,
+              "probability": 0.984375
+            },
+            {
+              "text": " made",
+              "start": 4.15,
+              "end": 4.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fair",
+              "start": 4.31,
+              "end": 4.57,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " work.",
+              "start": 4.57,
+              "end": 4.87,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menenius.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "As",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "raw": "Hercules",
+          "start": 1.61,
+          "end": 1.95
+        },
+        {
+          "raw": "did",
+          "start": 1.95,
+          "end": 2.31
+        },
+        {
+          "raw": "shake",
+          "start": 2.31,
+          "end": 2.57
+        },
+        {
+          "raw": "down",
+          "start": 2.57,
+          "end": 2.87
+        },
+        {
+          "raw": "mellow",
+          "start": 2.87,
+          "end": 3.29
+        },
+        {
+          "raw": "fruit.",
+          "start": 3.29,
+          "end": 3.53
+        },
+        {
+          "raw": "You",
+          "start": 3.99,
+          "end": 4.05
+        },
+        {
+          "raw": "have",
+          "start": 4.05,
+          "end": 4.15
+        },
+        {
+          "raw": "made",
+          "start": 4.15,
+          "end": 4.31
+        },
+        {
+          "raw": "fair",
+          "start": 4.31,
+          "end": 4.57
+        },
+        {
+          "raw": "work.",
+          "start": 4.57,
+          "end": 4.87
+        }
+      ],
+      "expected_tokens": [
+        "Menenius.",
+        "As",
+        "Hercules",
+        "did",
+        "shake",
+        "down",
+        "mellow",
+        "fruit.",
+        "You",
+        "have",
+        "made",
+        "fair",
+        "work."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menenius.",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "menenius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 1.51,
+          "end": 1.61,
+          "key": "as",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Hercules",
+          "start": 1.61,
+          "end": 1.95,
+          "key": "hercules",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.95,
+          "end": 2.31,
+          "key": "did",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shake",
+          "start": 2.31,
+          "end": 2.57,
+          "key": "shake",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 2.57,
+          "end": 2.87,
+          "key": "down",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "mellow",
+          "start": 2.87,
+          "end": 3.29,
+          "key": "mellow",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fruit.",
+          "start": 3.29,
+          "end": 3.53,
+          "key": "fruit",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 3.99,
+          "end": 4.05,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.05,
+          "end": 4.15,
+          "key": "have",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 4.15,
+          "end": 4.31,
+          "key": "made",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 4.31,
+          "end": 4.57,
+          "key": "fair",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "work.",
+          "start": 4.57,
+          "end": 4.87,
+          "key": "work",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menenius.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "As",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "text": "Hercules",
+          "start": 1.61,
+          "end": 1.95
+        },
+        {
+          "text": "did",
+          "start": 1.95,
+          "end": 2.31
+        },
+        {
+          "text": "shake",
+          "start": 2.31,
+          "end": 2.57
+        },
+        {
+          "text": "down",
+          "start": 2.57,
+          "end": 2.87
+        },
+        {
+          "text": "mellow",
+          "start": 2.87,
+          "end": 3.29
+        },
+        {
+          "text": "fruit.",
+          "start": 3.29,
+          "end": 3.53
+        },
+        {
+          "text": "You",
+          "start": 3.99,
+          "end": 4.05
+        },
+        {
+          "text": "have",
+          "start": 4.05,
+          "end": 4.15
+        },
+        {
+          "text": "made",
+          "start": 4.15,
+          "end": 4.31
+        },
+        {
+          "text": "fair",
+          "start": 4.31,
+          "end": 4.57
+        },
+        {
+          "text": "work.",
+          "start": 4.57,
+          "end": 4.87
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.396384095773101
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "456aab7bb5ba92821db72945b0b3b79b4a656e61680357a8a8633a18d84b83bd",
+  "selected_reasons": []
+}

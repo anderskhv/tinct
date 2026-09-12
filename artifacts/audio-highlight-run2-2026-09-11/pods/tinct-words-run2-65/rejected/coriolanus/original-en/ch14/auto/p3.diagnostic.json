@@ -1,0 +1,741 @@
+{
+  "complete": true,
+  "signature": "29a724dfd3d8da3622d9986185ea1331ab6b149ff4fd59a49f4e28f49550a3d5",
+  "attempts": [
+    {
+      "asr_seconds": 0.37473570089787245,
+      "alignment_seconds": 0.00048730429261922836,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Coriolanus. So then the Volsces stand but as at first, Ready, when time shall prompt them, to make road Upon's again.",
+        "hotwords": "Coriolanus, So, Volsces, Ready, Upon's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, So then the Volsces stand but as at first, Ready, when time shall prompt them,",
+          "start": 0.78,
+          "end": 5.98,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.78,
+              "end": 1.34,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " So",
+              "start": 1.34,
+              "end": 1.9,
+              "probability": 0.14501953125
+            },
+            {
+              "text": " then",
+              "start": 1.9,
+              "end": 2.04,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " the",
+              "start": 2.04,
+              "end": 2.18,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Volsces",
+              "start": 2.18,
+              "end": 2.58,
+              "probability": 0.07393646240234375
+            },
+            {
+              "text": " stand",
+              "start": 2.58,
+              "end": 2.94,
+              "probability": 0.98828125
+            },
+            {
+              "text": " but",
+              "start": 2.94,
+              "end": 3.24,
+              "probability": 0.367431640625
+            },
+            {
+              "text": " as",
+              "start": 3.24,
+              "end": 3.42,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " at",
+              "start": 3.42,
+              "end": 3.6,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " first,",
+              "start": 3.6,
+              "end": 3.92,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Ready,",
+              "start": 4.16,
+              "end": 4.24,
+              "probability": 0.24462890625
+            },
+            {
+              "text": " when",
+              "start": 4.74,
+              "end": 4.88,
+              "probability": 0.7939453125
+            },
+            {
+              "text": " time",
+              "start": 4.88,
+              "end": 5.18,
+              "probability": 0.79541015625
+            },
+            {
+              "text": " shall",
+              "start": 5.18,
+              "end": 5.4,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " prompt",
+              "start": 5.4,
+              "end": 5.66,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " them,",
+              "start": 5.66,
+              "end": 5.98,
+              "probability": 0.9501953125
+            }
+          ]
+        },
+        {
+          "text": " to make road Upon's again.",
+          "start": 5.98,
+          "end": 7.42,
+          "words": [
+            {
+              "text": " to",
+              "start": 5.98,
+              "end": 6.3,
+              "probability": 0.77880859375
+            },
+            {
+              "text": " make",
+              "start": 6.3,
+              "end": 6.48,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " road",
+              "start": 6.48,
+              "end": 6.76,
+              "probability": 0.71240234375
+            },
+            {
+              "text": " Upon's",
+              "start": 6.76,
+              "end": 7.18,
+              "probability": 0.4412599205970764
+            },
+            {
+              "text": " again.",
+              "start": 7.18,
+              "end": 7.42,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.78,
+          "end": 1.34
+        },
+        {
+          "raw": "So",
+          "start": 1.34,
+          "end": 1.9
+        },
+        {
+          "raw": "then",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "raw": "the",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "raw": "Volsces",
+          "start": 2.18,
+          "end": 2.58
+        },
+        {
+          "raw": "stand",
+          "start": 2.58,
+          "end": 2.94
+        },
+        {
+          "raw": "but",
+          "start": 2.94,
+          "end": 3.24
+        },
+        {
+          "raw": "as",
+          "start": 3.24,
+          "end": 3.42
+        },
+        {
+          "raw": "at",
+          "start": 3.42,
+          "end": 3.6
+        },
+        {
+          "raw": "first,",
+          "start": 3.6,
+          "end": 3.92
+        },
+        {
+          "raw": "Ready,",
+          "start": 4.16,
+          "end": 4.24
+        },
+        {
+          "raw": "when",
+          "start": 4.74,
+          "end": 4.88
+        },
+        {
+          "raw": "time",
+          "start": 4.88,
+          "end": 5.18
+        },
+        {
+          "raw": "shall",
+          "start": 5.18,
+          "end": 5.4
+        },
+        {
+          "raw": "prompt",
+          "start": 5.4,
+          "end": 5.66
+        },
+        {
+          "raw": "them,",
+          "start": 5.66,
+          "end": 5.98
+        },
+        {
+          "raw": "to",
+          "start": 5.98,
+          "end": 6.3
+        },
+        {
+          "raw": "make",
+          "start": 6.3,
+          "end": 6.48
+        },
+        {
+          "raw": "road",
+          "start": 6.48,
+          "end": 6.76
+        },
+        {
+          "raw": "Upon's",
+          "start": 6.76,
+          "end": 7.18
+        },
+        {
+          "raw": "again.",
+          "start": 7.18,
+          "end": 7.42
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "So",
+        "then",
+        "the",
+        "Volsces",
+        "stand",
+        "but",
+        "as",
+        "at",
+        "first,",
+        "Ready,",
+        "when",
+        "time",
+        "shall",
+        "prompt",
+        "them,",
+        "to",
+        "make",
+        "road",
+        "Upon's",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.78,
+          "end": 1.34,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 1.34,
+          "end": 1.9,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.9,
+          "end": 2.04,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.04,
+          "end": 2.18,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Volsces",
+          "start": 2.18,
+          "end": 2.58,
+          "key": "volsces",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "stand",
+          "start": 2.58,
+          "end": 2.94,
+          "key": "stand",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.94,
+          "end": 3.24,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.24,
+          "end": 3.42,
+          "key": "as",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.42,
+          "end": 3.6,
+          "key": "at",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "first,",
+          "start": 3.6,
+          "end": 3.92,
+          "key": "first",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Ready,",
+          "start": 4.16,
+          "end": 4.24,
+          "key": "ready",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 4.74,
+          "end": 4.88,
+          "key": "when",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 4.88,
+          "end": 5.18,
+          "key": "time",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 5.18,
+          "end": 5.4,
+          "key": "shall",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "prompt",
+          "start": 5.4,
+          "end": 5.66,
+          "key": "prompt",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 5.66,
+          "end": 5.98,
+          "key": "them",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.98,
+          "end": 6.3,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 6.3,
+          "end": 6.48,
+          "key": "make",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "road",
+          "start": 6.48,
+          "end": 6.76,
+          "key": "road",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Upon's",
+          "start": 6.76,
+          "end": 7.18,
+          "key": "upons",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 7.18,
+          "end": 7.42,
+          "key": "again",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.78,
+          "end": 1.34
+        },
+        {
+          "text": "So",
+          "start": 1.34,
+          "end": 1.9
+        },
+        {
+          "text": "then",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "text": "the",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "text": "Volsces",
+          "start": 2.18,
+          "end": 2.58
+        },
+        {
+          "text": "stand",
+          "start": 2.58,
+          "end": 2.94
+        },
+        {
+          "text": "but",
+          "start": 2.94,
+          "end": 3.24
+        },
+        {
+          "text": "as",
+          "start": 3.24,
+          "end": 3.42
+        },
+        {
+          "text": "at",
+          "start": 3.42,
+          "end": 3.6
+        },
+        {
+          "text": "first,",
+          "start": 3.6,
+          "end": 3.92
+        },
+        {
+          "text": "Ready,",
+          "start": 4.16,
+          "end": 4.24
+        },
+        {
+          "text": "when",
+          "start": 4.74,
+          "end": 4.88
+        },
+        {
+          "text": "time",
+          "start": 4.88,
+          "end": 5.18
+        },
+        {
+          "text": "shall",
+          "start": 5.18,
+          "end": 5.4
+        },
+        {
+          "text": "prompt",
+          "start": 5.4,
+          "end": 5.66
+        },
+        {
+          "text": "them,",
+          "start": 5.66,
+          "end": 5.98
+        },
+        {
+          "text": "to",
+          "start": 5.98,
+          "end": 6.3
+        },
+        {
+          "text": "make",
+          "start": 6.3,
+          "end": 6.48
+        },
+        {
+          "text": "road",
+          "start": 6.48,
+          "end": 6.76
+        },
+        {
+          "text": "Upon's",
+          "start": 6.76,
+          "end": 7.18
+        },
+        {
+          "text": "again.",
+          "start": 7.18,
+          "end": 7.42
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3754211710765958
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "77af67cc89484e71977f9816372870715a4ac5bc447618b05d8c1e3c7159f48f",
+  "selected_reasons": []
+}

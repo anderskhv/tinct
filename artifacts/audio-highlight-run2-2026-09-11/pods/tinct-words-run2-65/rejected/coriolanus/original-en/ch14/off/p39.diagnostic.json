@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "50b110986dc0202488d58e1b949414b39f8dc9ff6acd04894fcb88772568fea9",
+  "attempts": [
+    {
+      "asr_seconds": 0.1254508257843554,
+      "alignment_seconds": 0.00014980370178818703,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Menenius, let's be calm.",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " Menenius,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.5821940104166666
+            },
+            {
+              "text": " let's",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.962158203125
+            },
+            {
+              "text": " be",
+              "start": 1.49,
+              "end": 1.61,
+              "probability": 0.962890625
+            },
+            {
+              "text": " calm.",
+              "start": 1.61,
+              "end": 1.93,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menenius,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "let's",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "be",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "raw": "calm.",
+          "start": 1.61,
+          "end": 1.93
+        }
+      ],
+      "expected_tokens": [
+        "Menenius.",
+        "Let's",
+        "be",
+        "calm."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menenius,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "menenius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "let's",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "lets",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.49,
+          "end": 1.61,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "calm.",
+          "start": 1.61,
+          "end": 1.93,
+          "key": "calm",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menenius.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Let's",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "be",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "text": "calm.",
+          "start": 1.61,
+          "end": 1.93
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12564958212897182
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7009e4cb65c738c05b86e22adfc3703be8845194b380cccec8534e5892468665",
+  "selected_reasons": []
+}

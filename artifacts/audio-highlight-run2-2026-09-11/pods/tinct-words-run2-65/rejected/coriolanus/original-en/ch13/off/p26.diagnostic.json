@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "e22892cfabdaf17511bd600b38bc68907efe668b912864c5c525c991a22ccd1f",
+  "attempts": [
+    {
+      "asr_seconds": 0.11167279072105885,
+      "alignment_seconds": 0.00018747616559267044,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, mine own desert.",
+          "start": 0.08,
+          "end": 2.18,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.08,
+              "end": 1.1,
+              "probability": 0.8194986979166666
+            },
+            {
+              "text": " mine",
+              "start": 1.6,
+              "end": 1.64,
+              "probability": 0.5126953125
+            },
+            {
+              "text": " own",
+              "start": 1.64,
+              "end": 1.84,
+              "probability": 0.71337890625
+            },
+            {
+              "text": " desert.",
+              "start": 1.84,
+              "end": 2.18,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.08,
+          "end": 1.1
+        },
+        {
+          "raw": "mine",
+          "start": 1.6,
+          "end": 1.64
+        },
+        {
+          "raw": "own",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "raw": "desert.",
+          "start": 1.84,
+          "end": 2.18
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "Mine",
+        "own",
+        "desert."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.08,
+          "end": 1.1,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 1.6,
+          "end": 1.64,
+          "key": "mine",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 1.64,
+          "end": 1.84,
+          "key": "own",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "desert.",
+          "start": 1.84,
+          "end": 2.18,
+          "key": "desert",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.08,
+          "end": 1.1
+        },
+        {
+          "text": "Mine",
+          "start": 1.6,
+          "end": 1.64
+        },
+        {
+          "text": "own",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "text": "desert.",
+          "start": 1.84,
+          "end": 2.18
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11192983901128173
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ebc6143632014cfb0cb4e5672cfc670313a597a3c35384d87889a2dfc6d44fe8",
+  "selected_reasons": []
+}

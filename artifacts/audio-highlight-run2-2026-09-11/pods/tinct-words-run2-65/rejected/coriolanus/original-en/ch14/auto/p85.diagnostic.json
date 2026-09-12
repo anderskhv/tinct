@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "3e2521ba1a2eec0af6d5e7d899f18b7e34c726057e19952c128eb6af9607bc6d",
+  "attempts": [
+    {
+      "asr_seconds": 0.1845613531768322,
+      "alignment_seconds": 0.000304569024592638,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sicinius. Here's he that would take from you all your power.",
+        "hotwords": "Sicinius, Here's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sicinius, Here's he that would take from you all your power.",
+          "start": 0.64,
+          "end": 3.3,
+          "words": [
+            {
+              "text": " Sicinius,",
+              "start": 0.64,
+              "end": 1.0,
+              "probability": 0.5226898193359375
+            },
+            {
+              "text": " Here's",
+              "start": 1.54,
+              "end": 1.78,
+              "probability": 0.4493408203125
+            },
+            {
+              "text": " he",
+              "start": 1.78,
+              "end": 1.9,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " that",
+              "start": 1.9,
+              "end": 2.04,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " would",
+              "start": 2.04,
+              "end": 2.14,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " take",
+              "start": 2.14,
+              "end": 2.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " from",
+              "start": 2.32,
+              "end": 2.52,
+              "probability": 0.990234375
+            },
+            {
+              "text": " you",
+              "start": 2.52,
+              "end": 2.68,
+              "probability": 0.994140625
+            },
+            {
+              "text": " all",
+              "start": 2.68,
+              "end": 2.84,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " your",
+              "start": 2.84,
+              "end": 2.98,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " power.",
+              "start": 2.98,
+              "end": 3.3,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "raw": "Here's",
+          "start": 1.54,
+          "end": 1.78
+        },
+        {
+          "raw": "he",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "raw": "that",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "raw": "would",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "raw": "take",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "raw": "from",
+          "start": 2.32,
+          "end": 2.52
+        },
+        {
+          "raw": "you",
+          "start": 2.52,
+          "end": 2.68
+        },
+        {
+          "raw": "all",
+          "start": 2.68,
+          "end": 2.84
+        },
+        {
+          "raw": "your",
+          "start": 2.84,
+          "end": 2.98
+        },
+        {
+          "raw": "power.",
+          "start": 2.98,
+          "end": 3.3
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "Here's",
+        "he",
+        "that",
+        "would",
+        "take",
+        "from",
+        "you",
+        "all",
+        "your",
+        "power."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.64,
+          "end": 1.0,
+          "key": "sicinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Here's",
+          "start": 1.54,
+          "end": 1.78,
+          "key": "heres",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.78,
+          "end": 1.9,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.9,
+          "end": 2.04,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 2.04,
+          "end": 2.14,
+          "key": "would",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 2.14,
+          "end": 2.32,
+          "key": "take",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.32,
+          "end": 2.52,
+          "key": "from",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.52,
+          "end": 2.68,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.68,
+          "end": 2.84,
+          "key": "all",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.84,
+          "end": 2.98,
+          "key": "your",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "power.",
+          "start": 2.98,
+          "end": 3.3,
+          "key": "power",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "text": "Here's",
+          "start": 1.54,
+          "end": 1.78
+        },
+        {
+          "text": "he",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "text": "that",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "text": "would",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "text": "take",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "text": "from",
+          "start": 2.32,
+          "end": 2.52
+        },
+        {
+          "text": "you",
+          "start": 2.52,
+          "end": 2.68
+        },
+        {
+          "text": "all",
+          "start": 2.68,
+          "end": 2.84
+        },
+        {
+          "text": "your",
+          "start": 2.84,
+          "end": 2.98
+        },
+        {
+          "text": "power.",
+          "start": 2.98,
+          "end": 3.3
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18498609540984035
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "58272de53ff7ccbb81110a874ab24315bf743cf38fd621aad759b40a28f7b70e",
+  "selected_reasons": []
+}

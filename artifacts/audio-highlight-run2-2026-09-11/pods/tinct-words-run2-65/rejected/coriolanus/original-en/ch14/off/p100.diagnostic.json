@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "a7cbcf89e213f2ed5769c186a028c5e28730c4407b4982a625c05b57281588ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.17282138811424375,
+      "alignment_seconds": 0.000349939800798893,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, by the consent of all, we were established the people's magistrates.",
+          "start": 0.05,
+          "end": 4.33,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.986083984375
+            },
+            {
+              "text": " by",
+              "start": 1.29,
+              "end": 1.45,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " the",
+              "start": 1.45,
+              "end": 1.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " consent",
+              "start": 1.59,
+              "end": 1.87,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " of",
+              "start": 1.87,
+              "end": 2.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " all,",
+              "start": 2.07,
+              "end": 2.29,
+              "probability": 0.994140625
+            },
+            {
+              "text": " we",
+              "start": 2.57,
+              "end": 2.59,
+              "probability": 0.994140625
+            },
+            {
+              "text": " were",
+              "start": 2.59,
+              "end": 2.69,
+              "probability": 0.9921875
+            },
+            {
+              "text": " established",
+              "start": 2.69,
+              "end": 3.17,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " the",
+              "start": 3.17,
+              "end": 3.39,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " people's",
+              "start": 3.39,
+              "end": 3.81,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " magistrates.",
+              "start": 3.81,
+              "end": 4.33,
+              "probability": 0.982666015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "by",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "raw": "the",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "raw": "consent",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "raw": "of",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "raw": "all,",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "raw": "we",
+          "start": 2.57,
+          "end": 2.59
+        },
+        {
+          "raw": "were",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "raw": "established",
+          "start": 2.69,
+          "end": 3.17
+        },
+        {
+          "raw": "the",
+          "start": 3.17,
+          "end": 3.39
+        },
+        {
+          "raw": "people's",
+          "start": 3.39,
+          "end": 3.81
+        },
+        {
+          "raw": "magistrates.",
+          "start": 3.81,
+          "end": 4.33
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "By",
+        "the",
+        "consent",
+        "of",
+        "all,",
+        "we",
+        "were",
+        "established",
+        "The",
+        "people's",
+        "magistrates."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.29,
+          "end": 1.45,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.45,
+          "end": 1.59,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "consent",
+          "start": 1.59,
+          "end": 1.87,
+          "key": "consent",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.87,
+          "end": 2.07,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "all,",
+          "start": 2.07,
+          "end": 2.29,
+          "key": "all",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.57,
+          "end": 2.59,
+          "key": "we",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 2.59,
+          "end": 2.69,
+          "key": "were",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "established",
+          "start": 2.69,
+          "end": 3.17,
+          "key": "established",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.17,
+          "end": 3.39,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "people's",
+          "start": 3.39,
+          "end": 3.81,
+          "key": "peoples",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "magistrates.",
+          "start": 3.81,
+          "end": 4.33,
+          "key": "magistrates",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "By",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "text": "the",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "text": "consent",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "text": "of",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "text": "all,",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "text": "we",
+          "start": 2.57,
+          "end": 2.59
+        },
+        {
+          "text": "were",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "text": "established",
+          "start": 2.69,
+          "end": 3.17
+        },
+        {
+          "text": "The",
+          "start": 3.17,
+          "end": 3.39
+        },
+        {
+          "text": "people's",
+          "start": 3.39,
+          "end": 3.81
+        },
+        {
+          "text": "magistrates.",
+          "start": 3.81,
+          "end": 4.33
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17330768192186952
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6351a67006fad6a16fada0dee62e98921cd95b72739bebef4b648b843a5abed9",
+  "selected_reasons": []
+}

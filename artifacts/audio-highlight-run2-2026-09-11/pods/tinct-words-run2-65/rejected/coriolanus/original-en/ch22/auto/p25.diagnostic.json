@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "e03d6ae7349868b8fac1154c74586f71d47fc1611b7273ebba3df0035875b500",
+  "attempts": [
+    {
+      "asr_seconds": 0.27903125807642937,
+      "alignment_seconds": 0.0004950342699885368,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sicinius. We should by this, to all our lamentation, If he had gone forth consul, found it so.",
+        "hotwords": "Sicinius, We, If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sicinius, We should by this, to all our lamentation, If he had gone forth consul, found it so.",
+          "start": 0.64,
+          "end": 5.96,
+          "words": [
+            {
+              "text": " Sicinius,",
+              "start": 0.64,
+              "end": 1.0,
+              "probability": 0.5379536946614584
+            },
+            {
+              "text": " We",
+              "start": 1.4,
+              "end": 1.68,
+              "probability": 0.0296783447265625
+            },
+            {
+              "text": " should",
+              "start": 1.68,
+              "end": 1.8,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " by",
+              "start": 1.8,
+              "end": 1.96,
+              "probability": 0.0035724639892578125
+            },
+            {
+              "text": " this,",
+              "start": 1.96,
+              "end": 2.22,
+              "probability": 0.98046875
+            },
+            {
+              "text": " to",
+              "start": 2.38,
+              "end": 2.48,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " all",
+              "start": 2.48,
+              "end": 2.66,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " our",
+              "start": 2.66,
+              "end": 2.8,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " lamentation,",
+              "start": 2.8,
+              "end": 3.52,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " If",
+              "start": 3.82,
+              "end": 3.96,
+              "probability": 0.364013671875
+            },
+            {
+              "text": " he",
+              "start": 3.96,
+              "end": 4.04,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " had",
+              "start": 4.04,
+              "end": 4.14,
+              "probability": 0.986328125
+            },
+            {
+              "text": " gone",
+              "start": 4.14,
+              "end": 4.34,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " forth",
+              "start": 4.34,
+              "end": 4.62,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " consul,",
+              "start": 4.62,
+              "end": 5.16,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " found",
+              "start": 5.32,
+              "end": 5.48,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " it",
+              "start": 5.48,
+              "end": 5.66,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " so.",
+              "start": 5.66,
+              "end": 5.96,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "raw": "We",
+          "start": 1.4,
+          "end": 1.68
+        },
+        {
+          "raw": "should",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "raw": "by",
+          "start": 1.8,
+          "end": 1.96
+        },
+        {
+          "raw": "this,",
+          "start": 1.96,
+          "end": 2.22
+        },
+        {
+          "raw": "to",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "raw": "all",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "raw": "our",
+          "start": 2.66,
+          "end": 2.8
+        },
+        {
+          "raw": "lamentation,",
+          "start": 2.8,
+          "end": 3.52
+        },
+        {
+          "raw": "If",
+          "start": 3.82,
+          "end": 3.96
+        },
+        {
+          "raw": "he",
+          "start": 3.96,
+          "end": 4.04
+        },
+        {
+          "raw": "had",
+          "start": 4.04,
+          "end": 4.14
+        },
+        {
+          "raw": "gone",
+          "start": 4.14,
+          "end": 4.34
+        },
+        {
+          "raw": "forth",
+          "start": 4.34,
+          "end": 4.62
+        },
+        {
+          "raw": "consul,",
+          "start": 4.62,
+          "end": 5.16
+        },
+        {
+          "raw": "found",
+          "start": 5.32,
+          "end": 5.48
+        },
+        {
+          "raw": "it",
+          "start": 5.48,
+          "end": 5.66
+        },
+        {
+          "raw": "so.",
+          "start": 5.66,
+          "end": 5.96
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "We",
+        "should",
+        "by",
+        "this,",
+        "to",
+        "all",
+        "our",
+        "lamentation,",
+        "If",
+        "he",
+        "had",
+        "gone",
+        "forth",
+        "consul,",
+        "found",
+        "it",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.64,
+          "end": 1.0,
+          "key": "sicinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.4,
+          "end": 1.68,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 1.68,
+          "end": 1.8,
+          "key": "should",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.8,
+          "end": 1.96,
+          "key": "by",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 1.96,
+          "end": 2.22,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.38,
+          "end": 2.48,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.48,
+          "end": 2.66,
+          "key": "all",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 2.66,
+          "end": 2.8,
+          "key": "our",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "lamentation,",
+          "start": 2.8,
+          "end": 3.52,
+          "key": "lamentation",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 3.82,
+          "end": 3.96,
+          "key": "if",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.96,
+          "end": 4.04,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 4.04,
+          "end": 4.14,
+          "key": "had",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "gone",
+          "start": 4.14,
+          "end": 4.34,
+          "key": "gone",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "forth",
+          "start": 4.34,
+          "end": 4.62,
+          "key": "forth",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "consul,",
+          "start": 4.62,
+          "end": 5.16,
+          "key": "consul",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "found",
+          "start": 5.32,
+          "end": 5.48,
+          "key": "found",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.48,
+          "end": 5.66,
+          "key": "it",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 5.66,
+          "end": 5.96,
+          "key": "so",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "text": "We",
+          "start": 1.4,
+          "end": 1.68
+        },
+        {
+          "text": "should",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "text": "by",
+          "start": 1.8,
+          "end": 1.96
+        },
+        {
+          "text": "this,",
+          "start": 1.96,
+          "end": 2.22
+        },
+        {
+          "text": "to",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "text": "all",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "text": "our",
+          "start": 2.66,
+          "end": 2.8
+        },
+        {
+          "text": "lamentation,",
+          "start": 2.8,
+          "end": 3.52
+        },
+        {
+          "text": "If",
+          "start": 3.82,
+          "end": 3.96
+        },
+        {
+          "text": "he",
+          "start": 3.96,
+          "end": 4.04
+        },
+        {
+          "text": "had",
+          "start": 4.04,
+          "end": 4.14
+        },
+        {
+          "text": "gone",
+          "start": 4.14,
+          "end": 4.34
+        },
+        {
+          "text": "forth",
+          "start": 4.34,
+          "end": 4.62
+        },
+        {
+          "text": "consul,",
+          "start": 4.62,
+          "end": 5.16
+        },
+        {
+          "text": "found",
+          "start": 5.32,
+          "end": 5.48
+        },
+        {
+          "text": "it",
+          "start": 5.48,
+          "end": 5.66
+        },
+        {
+          "text": "so.",
+          "start": 5.66,
+          "end": 5.96
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27970573771744967
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "59a5e53ae0c45a7f623295330d6541b192440c82bbfd4d6f8305f20ad9a11afd",
+  "selected_reasons": []
+}

@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "4caef7b21abc4cf86ded9a34240b3b4e6f8e6712865d6383778f06d820f05085",
+  "attempts": [
+    {
+      "asr_seconds": 0.16411769203841686,
+      "alignment_seconds": 0.0002475269138813019,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Citizen. He has our voices, sir.",
+        "hotwords": "First, Citizen, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Citizen, He has our voices, sir.",
+          "start": 0.08,
+          "end": 2.56,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.859375
+            },
+            {
+              "text": " Citizen,",
+              "start": 0.64,
+              "end": 1.0,
+              "probability": 0.48779296875
+            },
+            {
+              "text": " He",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.043853759765625
+            },
+            {
+              "text": " has",
+              "start": 1.6,
+              "end": 1.72,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " our",
+              "start": 1.72,
+              "end": 1.9,
+              "probability": 0.986328125
+            },
+            {
+              "text": " voices,",
+              "start": 1.9,
+              "end": 2.16,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " sir.",
+              "start": 2.56,
+              "end": 2.56,
+              "probability": 0.6298828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Citizen,",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "raw": "He",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "has",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "raw": "our",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "raw": "voices,",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "raw": "sir.",
+          "start": 2.56,
+          "end": 2.56
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Citizen.",
+        "He",
+        "has",
+        "our",
+        "voices,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Citizen,",
+          "start": 0.64,
+          "end": 1.0,
+          "key": "citizen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 1.6,
+          "end": 1.72,
+          "key": "has",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 1.72,
+          "end": 1.9,
+          "key": "our",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "voices,",
+          "start": 1.9,
+          "end": 2.16,
+          "key": "voices",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 2.56,
+          "end": 2.56,
+          "key": "sir",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Citizen.",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "text": "He",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "has",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "text": "our",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "text": "voices,",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "text": "sir.",
+          "start": 2.56,
+          "end": 2.56
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1644593020901084
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f24bd4b8c7bce4a41375bb0f6a2ec311b1bb485789a3aeebe2e84cf72ae982f9",
+  "selected_reasons": []
+}

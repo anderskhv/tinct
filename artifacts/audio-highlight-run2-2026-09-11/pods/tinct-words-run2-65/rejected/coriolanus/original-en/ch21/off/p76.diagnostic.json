@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "cc9c31a39ebb664ac96bf5aec2adaffb6ae613e8779c8b18cbe7bc62364eed4b",
+  "attempts": [
+    {
+      "asr_seconds": 0.10027165617793798,
+      "alignment_seconds": 0.0001779845915734768,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter the third servingman.",
+          "start": 0.08,
+          "end": 1.64,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " the",
+              "start": 0.64,
+              "end": 0.82,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " third",
+              "start": 0.82,
+              "end": 1.06,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " servingman.",
+              "start": 1.06,
+              "end": 1.64,
+              "probability": 0.7314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "the",
+          "start": 0.64,
+          "end": 0.82
+        },
+        {
+          "raw": "third",
+          "start": 0.82,
+          "end": 1.06
+        },
+        {
+          "raw": "servingman.",
+          "start": 1.06,
+          "end": 1.64
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "the",
+        "Third",
+        "Servingman."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.64,
+          "end": 0.82,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "third",
+          "start": 0.82,
+          "end": 1.06,
+          "key": "third",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "servingman.",
+          "start": 1.06,
+          "end": 1.64,
+          "key": "servingman",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "the",
+          "start": 0.64,
+          "end": 0.82
+        },
+        {
+          "text": "Third",
+          "start": 0.82,
+          "end": 1.06
+        },
+        {
+          "text": "Servingman.",
+          "start": 1.06,
+          "end": 1.64
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10051471320912242
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "74e5d9f287f57de43c3a6c9708c07d5989eafa7c7e10d8f1168a5c52617599c5",
+  "selected_reasons": []
+}

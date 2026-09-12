@@ -1,0 +1,253 @@
+{
+  "complete": true,
+  "signature": "9dbf14dd7a04c58977466298fab31617b1b7280bb76bfc267b06ea6423da4081",
+  "attempts": [
+    {
+      "asr_seconds": 0.10876547591760755,
+      "alignment_seconds": 0.00023736711591482162,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "To say so to my husband."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To say so to my husband.",
+          "start": 0.02,
+          "end": 1.48,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.416748046875
+            },
+            {
+              "text": " say",
+              "start": 0.48,
+              "end": 0.66,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " so",
+              "start": 0.66,
+              "end": 0.88,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " to",
+              "start": 0.88,
+              "end": 1.0,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " my",
+              "start": 1.0,
+              "end": 1.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " husband.",
+              "start": 1.14,
+              "end": 1.48,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "say",
+          "start": 0.48,
+          "end": 0.66
+        },
+        {
+          "raw": "so",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "raw": "to",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "raw": "my",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "raw": "husband.",
+          "start": 1.14,
+          "end": 1.48
+        }
+      ],
+      "expected_tokens": [
+        "To",
+        "say",
+        "so",
+        "to",
+        "my",
+        "husband."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 0.48,
+          "end": 0.66,
+          "key": "say",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 0.66,
+          "end": 0.88,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.88,
+          "end": 1.0,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.0,
+          "end": 1.14,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "husband.",
+          "start": 1.14,
+          "end": 1.48,
+          "key": "husband",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "To",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "say",
+          "start": 0.48,
+          "end": 0.66
+        },
+        {
+          "text": "so",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "text": "to",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "text": "my",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "text": "husband.",
+          "start": 1.14,
+          "end": 1.48
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10908519523218274
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1b2d88cd3736d1de7d9ef0140d050b30c989a730f23802900a863c0dd767152f",
+  "selected_reasons": []
+}

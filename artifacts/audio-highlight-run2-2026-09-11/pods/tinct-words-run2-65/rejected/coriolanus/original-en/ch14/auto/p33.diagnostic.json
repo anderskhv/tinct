@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "35b0ebe736fee6f39532ac0698c8391447924deaae1564f82ef98a7cc5cdbc78",
+  "attempts": [
+    {
+      "asr_seconds": 0.13589331274852157,
+      "alignment_seconds": 0.00023477664217352867,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Coriolanus. Have you informed them sithence?",
+        "hotwords": "Coriolanus, Have"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, Have you informed them sithence?",
+          "start": 0.05,
+          "end": 2.83,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.05,
+              "end": 1.07,
+              "probability": 0.766845703125
+            },
+            {
+              "text": " Have",
+              "start": 1.53,
+              "end": 1.59,
+              "probability": 0.01259613037109375
+            },
+            {
+              "text": " you",
+              "start": 1.59,
+              "end": 1.71,
+              "probability": 0.974609375
+            },
+            {
+              "text": " informed",
+              "start": 1.71,
+              "end": 2.05,
+              "probability": 0.990234375
+            },
+            {
+              "text": " them",
+              "start": 2.05,
+              "end": 2.29,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " sithence?",
+              "start": 2.29,
+              "end": 2.83,
+              "probability": 0.1362457275390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "raw": "Have",
+          "start": 1.53,
+          "end": 1.59
+        },
+        {
+          "raw": "you",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "raw": "informed",
+          "start": 1.71,
+          "end": 2.05
+        },
+        {
+          "raw": "them",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "raw": "sithence?",
+          "start": 2.29,
+          "end": 2.83
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "Have",
+        "you",
+        "informed",
+        "them",
+        "sithence?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.05,
+          "end": 1.07,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 1.53,
+          "end": 1.59,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.59,
+          "end": 1.71,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "informed",
+          "start": 1.71,
+          "end": 2.05,
+          "key": "informed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 2.05,
+          "end": 2.29,
+          "key": "them",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sithence?",
+          "start": 2.29,
+          "end": 2.83,
+          "key": "sithence",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "text": "Have",
+          "start": 1.53,
+          "end": 1.59
+        },
+        {
+          "text": "you",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "text": "informed",
+          "start": 1.71,
+          "end": 2.05
+        },
+        {
+          "text": "them",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "text": "sithence?",
+          "start": 2.29,
+          "end": 2.83
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13621181203052402
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "534c96cf63b1deb4783a9fe60cb35646c8e61ff3010ec1de976903333ac76f54",
+  "selected_reasons": []
+}

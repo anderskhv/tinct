@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "f707d097e9d7bf4b540e1f7dbebe892240a4112fd73212ca1c070f3b220219c8",
+  "attempts": [
+    {
+      "asr_seconds": 0.1411121361888945,
+      "alignment_seconds": 0.00025691790506243706,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "All. Peace, peace, peace! Stay, hold, peace!",
+        "hotwords": "All, Stay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All, Peace, peace, peace! Stay, hold, peace!",
+          "start": 0.05,
+          "end": 2.73,
+          "words": [
+            {
+              "text": " All,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " Peace,",
+              "start": 0.87,
+              "end": 0.87,
+              "probability": 0.1064453125
+            },
+            {
+              "text": " peace,",
+              "start": 1.13,
+              "end": 1.13,
+              "probability": 0.07696533203125
+            },
+            {
+              "text": " peace!",
+              "start": 1.33,
+              "end": 1.51,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Stay,",
+              "start": 2.03,
+              "end": 2.11,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " hold,",
+              "start": 2.27,
+              "end": 2.39,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " peace!",
+              "start": 2.59,
+              "end": 2.73,
+              "probability": 0.8154296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Peace,",
+          "start": 0.87,
+          "end": 0.87
+        },
+        {
+          "raw": "peace,",
+          "start": 1.13,
+          "end": 1.13
+        },
+        {
+          "raw": "peace!",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "raw": "Stay,",
+          "start": 2.03,
+          "end": 2.11
+        },
+        {
+          "raw": "hold,",
+          "start": 2.27,
+          "end": 2.39
+        },
+        {
+          "raw": "peace!",
+          "start": 2.59,
+          "end": 2.73
+        }
+      ],
+      "expected_tokens": [
+        "All.",
+        "Peace,",
+        "peace,",
+        "peace!",
+        "Stay,",
+        "hold,",
+        "peace!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Peace,",
+          "start": 0.87,
+          "end": 0.87,
+          "key": "peace",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "peace,",
+          "start": 1.13,
+          "end": 1.13,
+          "key": "peace",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "peace!",
+          "start": 1.33,
+          "end": 1.51,
+          "key": "peace",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Stay,",
+          "start": 2.03,
+          "end": 2.11,
+          "key": "stay",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hold,",
+          "start": 2.27,
+          "end": 2.39,
+          "key": "hold",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "peace!",
+          "start": 2.59,
+          "end": 2.73,
+          "key": "peace",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Peace,",
+          "start": 0.87,
+          "end": 0.87
+        },
+        {
+          "text": "peace,",
+          "start": 1.13,
+          "end": 1.13
+        },
+        {
+          "text": "peace!",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "text": "Stay,",
+          "start": 2.03,
+          "end": 2.11
+        },
+        {
+          "text": "hold,",
+          "start": 2.27,
+          "end": 2.39
+        },
+        {
+          "text": "peace!",
+          "start": 2.59,
+          "end": 2.73
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14146033627912402
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6d25b084e5f998c280e9634a27f379a913c7be8ed498d07e9db1d0949696b2c8",
+  "selected_reasons": []
+}

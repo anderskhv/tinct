@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "5fcfb44a3cfd72d0da889bc53a5a8ae02f2c2fa3088edd43838ec981545e736c",
+  "attempts": [
+    {
+      "asr_seconds": 0.15527428267523646,
+      "alignment_seconds": 0.00016080494970083237,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fourth citizen you have received many wounds for your country",
+          "start": 0.05,
+          "end": 3.53,
+          "words": [
+            {
+              "text": " Fourth",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.763671875
+            },
+            {
+              "text": " citizen",
+              "start": 0.63,
+              "end": 1.05,
+              "probability": 0.409423828125
+            },
+            {
+              "text": " you",
+              "start": 1.05,
+              "end": 1.73,
+              "probability": 0.46533203125
+            },
+            {
+              "text": " have",
+              "start": 1.73,
+              "end": 1.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " received",
+              "start": 1.81,
+              "end": 2.11,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " many",
+              "start": 2.11,
+              "end": 2.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wounds",
+              "start": 2.43,
+              "end": 2.75,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " for",
+              "start": 2.75,
+              "end": 2.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 2.97,
+              "end": 3.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " country",
+              "start": 3.11,
+              "end": 3.53,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fourth",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "citizen",
+          "start": 0.63,
+          "end": 1.05
+        },
+        {
+          "raw": "you",
+          "start": 1.05,
+          "end": 1.73
+        },
+        {
+          "raw": "have",
+          "start": 1.73,
+          "end": 1.81
+        },
+        {
+          "raw": "received",
+          "start": 1.81,
+          "end": 2.11
+        },
+        {
+          "raw": "many",
+          "start": 2.11,
+          "end": 2.43
+        },
+        {
+          "raw": "wounds",
+          "start": 2.43,
+          "end": 2.75
+        },
+        {
+          "raw": "for",
+          "start": 2.75,
+          "end": 2.97
+        },
+        {
+          "raw": "your",
+          "start": 2.97,
+          "end": 3.11
+        },
+        {
+          "raw": "country",
+          "start": 3.11,
+          "end": 3.53
+        }
+      ],
+      "expected_tokens": [
+        "Fourth",
+        "Citizen.",
+        "You",
+        "have",
+        "received",
+        "many",
+        "wounds",
+        "for",
+        "your",
+        "country."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fourth",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "fourth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "citizen",
+          "start": 0.63,
+          "end": 1.05,
+          "key": "citizen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.05,
+          "end": 1.73,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.73,
+          "end": 1.81,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "received",
+          "start": 1.81,
+          "end": 2.11,
+          "key": "received",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 2.11,
+          "end": 2.43,
+          "key": "many",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wounds",
+          "start": 2.43,
+          "end": 2.75,
+          "key": "wounds",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.75,
+          "end": 2.97,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.97,
+          "end": 3.11,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "country",
+          "start": 3.11,
+          "end": 3.53,
+          "key": "country",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fourth",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Citizen.",
+          "start": 0.63,
+          "end": 1.05
+        },
+        {
+          "text": "You",
+          "start": 1.05,
+          "end": 1.73
+        },
+        {
+          "text": "have",
+          "start": 1.73,
+          "end": 1.81
+        },
+        {
+          "text": "received",
+          "start": 1.81,
+          "end": 2.11
+        },
+        {
+          "text": "many",
+          "start": 2.11,
+          "end": 2.43
+        },
+        {
+          "text": "wounds",
+          "start": 2.43,
+          "end": 2.75
+        },
+        {
+          "text": "for",
+          "start": 2.75,
+          "end": 2.97
+        },
+        {
+          "text": "your",
+          "start": 2.97,
+          "end": 3.11
+        },
+        {
+          "text": "country.",
+          "start": 3.11,
+          "end": 3.53
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15549273882061243
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b0572e0cc5f7e4b2958a9042e1bb54d4af9a2b0dc13029fe64cf488aeac4a759",
+  "selected_reasons": []
+}

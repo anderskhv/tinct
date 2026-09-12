@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "f100f06da0c5078abca98f80df9a70948ad8cbed9a0cbeefce1e03aa04d522bd",
+  "attempts": [
+    {
+      "asr_seconds": 0.09208918595686555,
+      "alignment_seconds": 0.00016740523278713226,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Here's Goodly Work.",
+          "start": 0.05,
+          "end": 1.23,
+          "words": [
+            {
+              "text": " Here's",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.933349609375
+            },
+            {
+              "text": " Goodly",
+              "start": 0.73,
+              "end": 0.99,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " Work.",
+              "start": 0.99,
+              "end": 1.23,
+              "probability": 0.53759765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Here's",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Goodly",
+          "start": 0.73,
+          "end": 0.99
+        },
+        {
+          "raw": "Work.",
+          "start": 0.99,
+          "end": 1.23
+        }
+      ],
+      "expected_tokens": [
+        "Here's",
+        "goodly",
+        "work."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Here's",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "heres",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Goodly",
+          "start": 0.73,
+          "end": 0.99,
+          "key": "goodly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Work.",
+          "start": 0.99,
+          "end": 1.23,
+          "key": "work",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Here's",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "goodly",
+          "start": 0.73,
+          "end": 0.99
+        },
+        {
+          "text": "work.",
+          "start": 0.99,
+          "end": 1.23
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09231526171788573
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "58d8fabc6ec5e07ef7363820de1f4bbd025f60c2d5d1b34b8242168444f13171",
+  "selected_reasons": []
+}

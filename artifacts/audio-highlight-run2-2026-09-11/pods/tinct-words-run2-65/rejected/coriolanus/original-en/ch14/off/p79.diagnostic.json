@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "d21f3f65256e11aa182d385ccf27a735776f8e3af96821875633a140ee2c58c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.09755275584757328,
+      "alignment_seconds": 0.00012872414663434029,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Coriolanus",
+          "start": 0.08,
+          "end": 1.0,
+          "words": [
+            {
+              "text": " Coriolanus",
+              "start": 0.08,
+              "end": 1.0,
+              "probability": 0.8111979166666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus",
+          "start": 0.08,
+          "end": 1.0
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus",
+          "start": 0.08,
+          "end": 1.0,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.08,
+          "end": 1.0
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09772295085713267
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "db86ace753af9babf7bfb7ab1a3a5138b6c46682edf772d700bec524eea751c2",
+  "selected_reasons": []
+}

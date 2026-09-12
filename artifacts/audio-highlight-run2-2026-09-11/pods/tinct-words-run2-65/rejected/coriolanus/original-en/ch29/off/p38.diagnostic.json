@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "c86929005b87e34e36f7ce86fae3faa28d544b468f6008204e6d1c2f40d10ba5",
+  "attempts": [
+    {
+      "asr_seconds": 0.10358189791440964,
+      "alignment_seconds": 0.00016435515135526657,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, ha.",
+          "start": 0.05,
+          "end": 1.49,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.8037109375
+            },
+            {
+              "text": " ha.",
+              "start": 1.25,
+              "end": 1.49,
+              "probability": 0.6865234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "raw": "ha.",
+          "start": 1.25,
+          "end": 1.49
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "Ha?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ha.",
+          "start": 1.25,
+          "end": 1.49,
+          "key": "ha",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "text": "Ha?",
+          "start": 1.25,
+          "end": 1.49
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10380177479237318
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a3baf6a983960605cf8deb04ddacfb0207392262cae8d1400b11f0614e601a7b",
+  "selected_reasons": []
+}

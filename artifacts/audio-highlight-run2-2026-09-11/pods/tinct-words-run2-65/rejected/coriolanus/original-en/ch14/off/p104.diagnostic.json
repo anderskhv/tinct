@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "41a90762a9734d33c45e12a626f52c049863125c051bfc152c565b2d2f2f7ab1",
+  "attempts": [
+    {
+      "asr_seconds": 0.14407314313575625,
+      "alignment_seconds": 0.0001981961540877819,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sesinius, this deserves death.",
+          "start": 0.08,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " Sesinius,",
+              "start": 0.08,
+              "end": 1.0,
+              "probability": 0.506317138671875
+            },
+            {
+              "text": " this",
+              "start": 1.32,
+              "end": 1.5,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " deserves",
+              "start": 1.5,
+              "end": 1.84,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " death.",
+              "start": 1.84,
+              "end": 2.22,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "raw": "this",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "raw": "deserves",
+          "start": 1.5,
+          "end": 1.84
+        },
+        {
+          "raw": "death.",
+          "start": 1.84,
+          "end": 2.22
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "This",
+        "deserves",
+        "death."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.08,
+          "end": 1.0,
+          "key": "sesinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.32,
+          "end": 1.5,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "deserves",
+          "start": 1.5,
+          "end": 1.84,
+          "key": "deserves",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "death.",
+          "start": 1.84,
+          "end": 2.22,
+          "key": "death",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "text": "This",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "text": "deserves",
+          "start": 1.5,
+          "end": 1.84
+        },
+        {
+          "text": "death.",
+          "start": 1.84,
+          "end": 2.22
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14434003084897995
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "37a9c70facd4cfed28e1eb515bcaba7844ceb46700005b05155886389a5580e5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

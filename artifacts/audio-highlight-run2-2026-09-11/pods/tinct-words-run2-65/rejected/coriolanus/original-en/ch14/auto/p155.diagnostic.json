@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "6839ed77838526b40f89751770ee21b5f3b93e64436a353ee7c3d36d6b930775",
+  "attempts": [
+    {
+      "asr_seconds": 0.18926115008071065,
+      "alignment_seconds": 0.00024877674877643585,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "All Plebeians. No, no, no, no, no!",
+        "hotwords": "All, Plebeians"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All, Plebeians No, no, no, no, no!",
+          "start": 0.02,
+          "end": 2.5,
+          "words": [
+            {
+              "text": " All,",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.8671875
+            },
+            {
+              "text": " Plebeians",
+              "start": 0.7,
+              "end": 1.12,
+              "probability": 0.6562754313151041
+            },
+            {
+              "text": " No,",
+              "start": 1.12,
+              "end": 1.68,
+              "probability": 0.01165008544921875
+            },
+            {
+              "text": " no,",
+              "start": 1.76,
+              "end": 1.82,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " no,",
+              "start": 1.82,
+              "end": 2.04,
+              "probability": 0.9921875
+            },
+            {
+              "text": " no,",
+              "start": 2.04,
+              "end": 2.22,
+              "probability": 0.994140625
+            },
+            {
+              "text": " no!",
+              "start": 2.22,
+              "end": 2.5,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "Plebeians",
+          "start": 0.7,
+          "end": 1.12
+        },
+        {
+          "raw": "No,",
+          "start": 1.12,
+          "end": 1.68
+        },
+        {
+          "raw": "no,",
+          "start": 1.76,
+          "end": 1.82
+        },
+        {
+          "raw": "no,",
+          "start": 1.82,
+          "end": 2.04
+        },
+        {
+          "raw": "no,",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "raw": "no!",
+          "start": 2.22,
+          "end": 2.5
+        }
+      ],
+      "expected_tokens": [
+        "All",
+        "Plebeians.",
+        "No,",
+        "no,",
+        "no,",
+        "no,",
+        "no!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All,",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Plebeians",
+          "start": 0.7,
+          "end": 1.12,
+          "key": "plebeians",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.12,
+          "end": 1.68,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 1.76,
+          "end": 1.82,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 1.82,
+          "end": 2.04,
+          "key": "no",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 2.04,
+          "end": 2.22,
+          "key": "no",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "no!",
+          "start": 2.22,
+          "end": 2.5,
+          "key": "no",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "Plebeians.",
+          "start": 0.7,
+          "end": 1.12
+        },
+        {
+          "text": "No,",
+          "start": 1.12,
+          "end": 1.68
+        },
+        {
+          "text": "no,",
+          "start": 1.76,
+          "end": 1.82
+        },
+        {
+          "text": "no,",
+          "start": 1.82,
+          "end": 2.04
+        },
+        {
+          "text": "no,",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "text": "no!",
+          "start": 2.22,
+          "end": 2.5
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18960120994597673
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e063ae372b7a23b5f00797f1d3ca76dc80e8860e21e61e90662d74993b29cc01",
+  "selected_reasons": []
+}

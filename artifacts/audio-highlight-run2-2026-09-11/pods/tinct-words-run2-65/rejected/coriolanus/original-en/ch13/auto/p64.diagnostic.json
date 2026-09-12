@@ -1,0 +1,320 @@
+{
+  "complete": true,
+  "signature": "bf55f220c89b6f40d1b2bf1335be41cfcd988389f0b97a51b17fecadb66a2162",
+  "attempts": [
+    {
+      "asr_seconds": 0.2878142171539366,
+      "alignment_seconds": 0.000201505608856678,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sicinius. There, Coriolanus.",
+        "hotwords": "Sicinius, There, Coriolanus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sicinius, There, Coriolanus",
+          "start": 0.08,
+          "end": 2.2,
+          "words": [
+            {
+              "text": " Sicinius,",
+              "start": 0.08,
+              "end": 1.0,
+              "probability": 0.5240987141927084
+            },
+            {
+              "text": " There,",
+              "start": 1.48,
+              "end": 1.54,
+              "probability": 0.0277862548828125
+            },
+            {
+              "text": " Coriolanus",
+              "start": 1.66,
+              "end": 2.2,
+              "probability": 0.8562825520833334
+            }
+          ]
+        },
+        {
+          "text": " Sicinius, There, Coriolus Sicinius, There, Coriolus Sicinius.",
+          "start": 2.2,
+          "end": 2.68,
+          "words": [
+            {
+              "text": " Sicinius,",
+              "start": 2.2,
+              "end": 2.2,
+              "probability": 0.00033652782440185547
+            },
+            {
+              "text": " There,",
+              "start": 2.2,
+              "end": 2.2,
+              "probability": 9.906291961669922e-05
+            },
+            {
+              "text": " Coriolus",
+              "start": 2.2,
+              "end": 2.36,
+              "probability": 0.006499767303466797
+            },
+            {
+              "text": " Sicinius,",
+              "start": 2.36,
+              "end": 2.48,
+              "probability": 0.6154047052065531
+            },
+            {
+              "text": " There,",
+              "start": 2.48,
+              "end": 2.68,
+              "probability": 0.1883544921875
+            },
+            {
+              "text": " Coriolus",
+              "start": 2.68,
+              "end": 2.68,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " Sicinius.",
+              "start": 2.68,
+              "end": 2.68,
+              "probability": 0.94140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "raw": "There,",
+          "start": 1.48,
+          "end": 1.54
+        },
+        {
+          "raw": "Coriolanus",
+          "start": 1.66,
+          "end": 2.2
+        },
+        {
+          "raw": "Sicinius,",
+          "start": 2.2,
+          "end": 2.2
+        },
+        {
+          "raw": "There,",
+          "start": 2.2,
+          "end": 2.2
+        },
+        {
+          "raw": "Coriolus",
+          "start": 2.2,
+          "end": 2.36
+        },
+        {
+          "raw": "Sicinius,",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "raw": "There,",
+          "start": 2.48,
+          "end": 2.68
+        },
+        {
+          "raw": "Coriolus",
+          "start": 2.68,
+          "end": 2.68
+        },
+        {
+          "raw": "Sicinius.",
+          "start": 2.68,
+          "end": 2.68
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "There,",
+        "Coriolanus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.08,
+          "end": 1.0,
+          "key": "sicinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "There,",
+          "start": 1.48,
+          "end": 1.54,
+          "key": "there",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Coriolanus",
+          "start": 1.66,
+          "end": 2.2,
+          "key": "coriolanus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sicinius,",
+          "start": 2.2,
+          "end": 2.2,
+          "key": "sicinius",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "There,",
+          "start": 2.2,
+          "end": 2.2,
+          "key": "there",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Coriolus",
+          "start": 2.2,
+          "end": 2.36,
+          "key": "coriolus",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Sicinius,",
+          "start": 2.36,
+          "end": 2.48,
+          "key": "sicinius",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "There,",
+          "start": 2.48,
+          "end": 2.68,
+          "key": "there",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Coriolus",
+          "start": 2.68,
+          "end": 2.68,
+          "key": "coriolus",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Sicinius.",
+          "start": 2.68,
+          "end": 2.68,
+          "key": "sicinius",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "text": "There,",
+          "start": 1.48,
+          "end": 1.54
+        },
+        {
+          "text": "Coriolanus.",
+          "start": 1.66,
+          "end": 2.2
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 10,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28813055623322725
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ce18efec6bc62e3ef11b7bfa936f3d8548af95cb78c15ce29049ea9192e406e3",
+  "selected_reasons": []
+}

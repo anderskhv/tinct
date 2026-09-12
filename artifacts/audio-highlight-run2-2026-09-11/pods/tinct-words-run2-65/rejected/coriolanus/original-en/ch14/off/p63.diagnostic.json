@@ -1,0 +1,212 @@
+{
+  "complete": true,
+  "signature": "e5b28159c15fc1134a498cbac5621fbabc84f229a21f555f88731a059d9f5884",
+  "attempts": [
+    {
+      "asr_seconds": 0.1399393822066486,
+      "alignment_seconds": 0.00014104368165135384,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, enough with over-measure.",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.971435546875
+            },
+            {
+              "text": " enough",
+              "start": 1.35,
+              "end": 1.43,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " with",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " over",
+              "start": 1.65,
+              "end": 1.87,
+              "probability": 0.9697265625
+            },
+            {
+              "text": "-measure.",
+              "start": 1.87,
+              "end": 2.25,
+              "probability": 0.8068033854166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "enough",
+          "start": 1.35,
+          "end": 1.43
+        },
+        {
+          "raw": "with",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "over",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "raw": "-measure.",
+          "start": 1.87,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Enough,",
+        "with",
+        "over-measure."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "enough",
+          "start": 1.35,
+          "end": 1.43,
+          "key": "enough",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "over -measure.",
+          "start": 1.65,
+          "end": 2.25,
+          "key": "overmeasure",
+          "pieces": [
+            3,
+            4
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 3,
+          "text": "over-measure.",
+          "heard": "over -measure.",
+          "heard_indexes": [
+            3,
+            4
+          ],
+          "start": 1.65,
+          "end": 2.25
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Enough,",
+          "start": 1.35,
+          "end": 1.43
+        },
+        {
+          "text": "with",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "text": "over-measure.",
+          "start": 1.65,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1401197873055935
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "16e285a6f1c773c346c9cbc62f15d0a1b6d3d84e0cecea1c41afa220972f1c76",
+  "selected_reasons": []
+}

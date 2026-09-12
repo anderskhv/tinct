@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "2b64c9076b6bbb0c2f9ba53f89154fc66598e00594f236a2ad4f87b3e2012b2a",
+  "attempts": [
+    {
+      "asr_seconds": 0.19504297012463212,
+      "alignment_seconds": 0.0003153192810714245,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Third Servingman. How, sir? Do you meddle with my master?",
+        "hotwords": "Third, Servingman, How, Do"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Third, Servingman, How, sir? Do you meddle with my master?",
+          "start": 0.05,
+          "end": 3.15,
+          "words": [
+            {
+              "text": " Third,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " Servingman,",
+              "start": 0.79,
+              "end": 1.21,
+              "probability": 0.418701171875
+            },
+            {
+              "text": " How,",
+              "start": 1.45,
+              "end": 1.51,
+              "probability": 0.342529296875
+            },
+            {
+              "text": " sir?",
+              "start": 1.61,
+              "end": 1.75,
+              "probability": 0.63623046875
+            },
+            {
+              "text": " Do",
+              "start": 2.17,
+              "end": 2.19,
+              "probability": 0.955078125
+            },
+            {
+              "text": " you",
+              "start": 2.19,
+              "end": 2.31,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " meddle",
+              "start": 2.31,
+              "end": 2.57,
+              "probability": 0.7088623046875
+            },
+            {
+              "text": " with",
+              "start": 2.57,
+              "end": 2.67,
+              "probability": 0.994140625
+            },
+            {
+              "text": " my",
+              "start": 2.67,
+              "end": 2.81,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " master?",
+              "start": 2.81,
+              "end": 3.15,
+              "probability": 0.82763671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Third,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Servingman,",
+          "start": 0.79,
+          "end": 1.21
+        },
+        {
+          "raw": "How,",
+          "start": 1.45,
+          "end": 1.51
+        },
+        {
+          "raw": "sir?",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "raw": "Do",
+          "start": 2.17,
+          "end": 2.19
+        },
+        {
+          "raw": "you",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "raw": "meddle",
+          "start": 2.31,
+          "end": 2.57
+        },
+        {
+          "raw": "with",
+          "start": 2.57,
+          "end": 2.67
+        },
+        {
+          "raw": "my",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "raw": "master?",
+          "start": 2.81,
+          "end": 3.15
+        }
+      ],
+      "expected_tokens": [
+        "Third",
+        "Servingman.",
+        "How,",
+        "sir?",
+        "Do",
+        "you",
+        "meddle",
+        "with",
+        "my",
+        "master?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Third,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "third",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Servingman,",
+          "start": 0.79,
+          "end": 1.21,
+          "key": "servingman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "How,",
+          "start": 1.45,
+          "end": 1.51,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 1.61,
+          "end": 1.75,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.17,
+          "end": 2.19,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.19,
+          "end": 2.31,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "meddle",
+          "start": 2.31,
+          "end": 2.57,
+          "key": "meddle",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.57,
+          "end": 2.67,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.67,
+          "end": 2.81,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "master?",
+          "start": 2.81,
+          "end": 3.15,
+          "key": "master",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Third",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Servingman.",
+          "start": 0.79,
+          "end": 1.21
+        },
+        {
+          "text": "How,",
+          "start": 1.45,
+          "end": 1.51
+        },
+        {
+          "text": "sir?",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "text": "Do",
+          "start": 2.17,
+          "end": 2.19
+        },
+        {
+          "text": "you",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "text": "meddle",
+          "start": 2.31,
+          "end": 2.57
+        },
+        {
+          "text": "with",
+          "start": 2.57,
+          "end": 2.67
+        },
+        {
+          "text": "my",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "text": "master?",
+          "start": 2.81,
+          "end": 3.15
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19547321321442723
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ba003b9ede4c799726ece88fcb5841097603d81281de79c4f966975f350aaec8",
+  "selected_reasons": []
+}

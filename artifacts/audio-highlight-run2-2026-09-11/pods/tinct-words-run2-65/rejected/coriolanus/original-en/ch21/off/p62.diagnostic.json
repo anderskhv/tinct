@@ -1,0 +1,298 @@
+{
+  "complete": true,
+  "signature": "8b8fb3b845c267244bde8fba6e1dfb2b172e4c81a3f443be1a27e3a82c4a992e",
+  "attempts": [
+    {
+      "asr_seconds": 0.11400213884189725,
+      "alignment_seconds": 0.0002399468794465065,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Two of the serving men come forward.",
+          "start": 0.05,
+          "end": 1.99,
+          "words": [
+            {
+              "text": " Two",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " of",
+              "start": 0.57,
+              "end": 0.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 0.73,
+              "end": 0.85,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " serving",
+              "start": 0.85,
+              "end": 1.13,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " men",
+              "start": 1.13,
+              "end": 1.35,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " come",
+              "start": 1.35,
+              "end": 1.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " forward.",
+              "start": 1.61,
+              "end": 1.99,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Two",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "of",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "raw": "the",
+          "start": 0.73,
+          "end": 0.85
+        },
+        {
+          "raw": "serving",
+          "start": 0.85,
+          "end": 1.13
+        },
+        {
+          "raw": "men",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "raw": "come",
+          "start": 1.35,
+          "end": 1.61
+        },
+        {
+          "raw": "forward.",
+          "start": 1.61,
+          "end": 1.99
+        }
+      ],
+      "expected_tokens": [
+        "Two",
+        "of",
+        "the",
+        "Servingmen",
+        "come",
+        "forward."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          6,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Two",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "two",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.57,
+          "end": 0.73,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.73,
+          "end": 0.85,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "serving",
+          "start": 0.85,
+          "end": 1.13,
+          "key": "serving",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 1.13,
+          "end": 1.35,
+          "key": "men",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.35,
+          "end": 1.61,
+          "key": "come",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "forward.",
+          "start": 1.61,
+          "end": 1.99,
+          "key": "forward",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Two",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "of",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "text": "the",
+          "start": 0.73,
+          "end": 0.85
+        },
+        {
+          "text": "Servingmen",
+          "start": 0.85,
+          "end": 1.1
+        },
+        {
+          "text": "come",
+          "start": 1.35,
+          "end": 1.61
+        },
+        {
+          "text": "forward.",
+          "start": 1.61,
+          "end": 1.99
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11433152901008725
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ebd73e74be21ec50b7fa5bc68b577e8991212f82340e4abfa201cc7194e292c8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

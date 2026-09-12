@@ -1,0 +1,708 @@
+{
+  "complete": true,
+  "signature": "d07725cd4dc2c64ebfdbaa1d662ba093fe8dc2d88fb840bbe91ec88531952cab",
+  "attempts": [
+    {
+      "asr_seconds": 0.3251455524004996,
+      "alignment_seconds": 0.00047435425221920013,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ophidias, whence calms thee thou, What wouldst thou thy name, why speak'st he not?",
+          "start": 0.55,
+          "end": 4.53,
+          "words": [
+            {
+              "text": " Ophidias,",
+              "start": 0.55,
+              "end": 1.03,
+              "probability": 0.529998779296875
+            },
+            {
+              "text": " whence",
+              "start": 1.29,
+              "end": 1.37,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " calms",
+              "start": 1.37,
+              "end": 1.77,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " thee",
+              "start": 1.77,
+              "end": 1.87,
+              "probability": 0.134033203125
+            },
+            {
+              "text": " thou,",
+              "start": 1.87,
+              "end": 2.13,
+              "probability": 0.8984375
+            },
+            {
+              "text": " What",
+              "start": 2.47,
+              "end": 2.53,
+              "probability": 0.29638671875
+            },
+            {
+              "text": " wouldst",
+              "start": 2.53,
+              "end": 2.77,
+              "probability": 0.849853515625
+            },
+            {
+              "text": " thou",
+              "start": 2.77,
+              "end": 2.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thy",
+              "start": 2.99,
+              "end": 3.29,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " name,",
+              "start": 3.29,
+              "end": 3.57,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " why",
+              "start": 3.69,
+              "end": 3.79,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " speak'st",
+              "start": 3.79,
+              "end": 4.19,
+              "probability": 0.8323567708333334
+            },
+            {
+              "text": " he",
+              "start": 4.19,
+              "end": 4.29,
+              "probability": 0.322265625
+            },
+            {
+              "text": " not?",
+              "start": 4.29,
+              "end": 4.53,
+              "probability": 0.89794921875
+            }
+          ]
+        },
+        {
+          "text": " Speak, man, what's thy name?",
+          "start": 4.99,
+          "end": 6.27,
+          "words": [
+            {
+              "text": " Speak,",
+              "start": 4.99,
+              "end": 5.19,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " man,",
+              "start": 5.47,
+              "end": 5.53,
+              "probability": 0.96484375
+            },
+            {
+              "text": " what's",
+              "start": 5.71,
+              "end": 5.87,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " thy",
+              "start": 5.87,
+              "end": 5.97,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " name?",
+              "start": 5.97,
+              "end": 6.27,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ophidias,",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "raw": "whence",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "raw": "calms",
+          "start": 1.37,
+          "end": 1.77
+        },
+        {
+          "raw": "thee",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "raw": "thou,",
+          "start": 1.87,
+          "end": 2.13
+        },
+        {
+          "raw": "What",
+          "start": 2.47,
+          "end": 2.53
+        },
+        {
+          "raw": "wouldst",
+          "start": 2.53,
+          "end": 2.77
+        },
+        {
+          "raw": "thou",
+          "start": 2.77,
+          "end": 2.99
+        },
+        {
+          "raw": "thy",
+          "start": 2.99,
+          "end": 3.29
+        },
+        {
+          "raw": "name,",
+          "start": 3.29,
+          "end": 3.57
+        },
+        {
+          "raw": "why",
+          "start": 3.69,
+          "end": 3.79
+        },
+        {
+          "raw": "speak'st",
+          "start": 3.79,
+          "end": 4.19
+        },
+        {
+          "raw": "he",
+          "start": 4.19,
+          "end": 4.29
+        },
+        {
+          "raw": "not?",
+          "start": 4.29,
+          "end": 4.53
+        },
+        {
+          "raw": "Speak,",
+          "start": 4.99,
+          "end": 5.19
+        },
+        {
+          "raw": "man,",
+          "start": 5.47,
+          "end": 5.53
+        },
+        {
+          "raw": "what's",
+          "start": 5.71,
+          "end": 5.87
+        },
+        {
+          "raw": "thy",
+          "start": 5.87,
+          "end": 5.97
+        },
+        {
+          "raw": "name?",
+          "start": 5.97,
+          "end": 6.27
+        }
+      ],
+      "expected_tokens": [
+        "Aufidius.",
+        "Whence",
+        "com'st",
+        "thou?",
+        "What",
+        "wouldst",
+        "thou?",
+        "Thy",
+        "name?",
+        "Why",
+        "speak'st",
+        "not?",
+        "Speak,",
+        "man.",
+        "What's",
+        "thy",
+        "name?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          11,
+          4,
+          12
+        ],
+        [
+          "insert",
+          11,
+          11,
+          12,
+          13
+        ],
+        [
+          "equal",
+          11,
+          17,
+          13,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "insert",
+          11,
+          11,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ophidias,",
+          "start": 0.55,
+          "end": 1.03,
+          "key": "ophidias",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "whence",
+          "start": 1.29,
+          "end": 1.37,
+          "key": "whence",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "calms",
+          "start": 1.37,
+          "end": 1.77,
+          "key": "calms",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.77,
+          "end": 1.87,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou,",
+          "start": 1.87,
+          "end": 2.13,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 2.47,
+          "end": 2.53,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wouldst",
+          "start": 2.53,
+          "end": 2.77,
+          "key": "wouldst",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.77,
+          "end": 2.99,
+          "key": "thou",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 2.99,
+          "end": 3.29,
+          "key": "thy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "name,",
+          "start": 3.29,
+          "end": 3.57,
+          "key": "name",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 3.69,
+          "end": 3.79,
+          "key": "why",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "speak'st",
+          "start": 3.79,
+          "end": 4.19,
+          "key": "speakst",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.19,
+          "end": 4.29,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "not?",
+          "start": 4.29,
+          "end": 4.53,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Speak,",
+          "start": 4.99,
+          "end": 5.19,
+          "key": "speak",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 5.47,
+          "end": 5.53,
+          "key": "man",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 5.71,
+          "end": 5.87,
+          "key": "whats",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 5.87,
+          "end": 5.97,
+          "key": "thy",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "name?",
+          "start": 5.97,
+          "end": 6.27,
+          "key": "name",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Aufidius.",
+          "start": 0.0,
+          "end": 0.645
+        },
+        {
+          "text": "Whence",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "text": "com'st",
+          "start": 1.37,
+          "end": 1.62
+        },
+        {
+          "text": "thou?",
+          "start": 1.87,
+          "end": 2.13
+        },
+        {
+          "text": "What",
+          "start": 2.47,
+          "end": 2.53
+        },
+        {
+          "text": "wouldst",
+          "start": 2.53,
+          "end": 2.77
+        },
+        {
+          "text": "thou?",
+          "start": 2.77,
+          "end": 2.99
+        },
+        {
+          "text": "Thy",
+          "start": 2.99,
+          "end": 3.29
+        },
+        {
+          "text": "name?",
+          "start": 3.29,
+          "end": 3.57
+        },
+        {
+          "text": "Why",
+          "start": 3.69,
+          "end": 3.79
+        },
+        {
+          "text": "speak'st",
+          "start": 3.79,
+          "end": 4.19
+        },
+        {
+          "text": "not?",
+          "start": 4.29,
+          "end": 4.53
+        },
+        {
+          "text": "Speak,",
+          "start": 4.99,
+          "end": 5.19
+        },
+        {
+          "text": "man.",
+          "start": 5.47,
+          "end": 5.53
+        },
+        {
+          "text": "What's",
+          "start": 5.71,
+          "end": 5.87
+        },
+        {
+          "text": "thy",
+          "start": 5.87,
+          "end": 5.97
+        },
+        {
+          "text": "name?",
+          "start": 5.97,
+          "end": 6.27
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 19,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8823529411764706,
+      "rejection_reasons": [],
+      "seconds": 0.3258319729939103
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4faffbfcf2123bab5211881dcf73999377a60ecd11b03fc7bce146344324c674",
+  "selected_reasons": []
+}

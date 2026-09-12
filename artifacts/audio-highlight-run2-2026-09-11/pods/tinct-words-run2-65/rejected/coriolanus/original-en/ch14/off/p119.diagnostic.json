@@ -1,0 +1,518 @@
+{
+  "complete": true,
+  "signature": "18d45bbc811ad6772bd4ef8429334d2ce7a06bd1fb747911b2a44fbecae721a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.20300694461911917,
+      "alignment_seconds": 0.00040596164762973785,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " In this mutiny the tribunes, the e-dials and the people are beat in.",
+          "start": 0.05,
+          "end": 4.19,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.935546875
+            },
+            {
+              "text": " this",
+              "start": 0.55,
+              "end": 0.79,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " mutiny",
+              "start": 0.79,
+              "end": 1.15,
+              "probability": 0.945556640625
+            },
+            {
+              "text": " the",
+              "start": 1.15,
+              "end": 1.37,
+              "probability": 0.6044921875
+            },
+            {
+              "text": " tribunes,",
+              "start": 1.37,
+              "end": 1.89,
+              "probability": 0.848388671875
+            },
+            {
+              "text": " the",
+              "start": 2.39,
+              "end": 2.43,
+              "probability": 0.982421875
+            },
+            {
+              "text": " e",
+              "start": 2.43,
+              "end": 2.61,
+              "probability": 0.327392578125
+            },
+            {
+              "text": "-dials",
+              "start": 2.61,
+              "end": 2.93,
+              "probability": 0.8343098958333334
+            },
+            {
+              "text": " and",
+              "start": 2.93,
+              "end": 3.13,
+              "probability": 0.5244140625
+            },
+            {
+              "text": " the",
+              "start": 3.13,
+              "end": 3.23,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " people",
+              "start": 3.23,
+              "end": 3.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " are",
+              "start": 3.45,
+              "end": 3.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " beat",
+              "start": 3.67,
+              "end": 3.89,
+              "probability": 0.7431640625
+            },
+            {
+              "text": " in.",
+              "start": 3.89,
+              "end": 4.19,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "this",
+          "start": 0.55,
+          "end": 0.79
+        },
+        {
+          "raw": "mutiny",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "raw": "the",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "raw": "tribunes,",
+          "start": 1.37,
+          "end": 1.89
+        },
+        {
+          "raw": "the",
+          "start": 2.39,
+          "end": 2.43
+        },
+        {
+          "raw": "e",
+          "start": 2.43,
+          "end": 2.61
+        },
+        {
+          "raw": "-dials",
+          "start": 2.61,
+          "end": 2.93
+        },
+        {
+          "raw": "and",
+          "start": 2.93,
+          "end": 3.13
+        },
+        {
+          "raw": "the",
+          "start": 3.13,
+          "end": 3.23
+        },
+        {
+          "raw": "people",
+          "start": 3.23,
+          "end": 3.45
+        },
+        {
+          "raw": "are",
+          "start": 3.45,
+          "end": 3.67
+        },
+        {
+          "raw": "beat",
+          "start": 3.67,
+          "end": 3.89
+        },
+        {
+          "raw": "in.",
+          "start": 3.89,
+          "end": 4.19
+        }
+      ],
+      "expected_tokens": [
+        "[_In",
+        "this",
+        "mutiny",
+        "the",
+        "Tribunes,",
+        "the",
+        "Aediles",
+        "and",
+        "the",
+        "People",
+        "are",
+        "beat",
+        "in._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          13,
+          8,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 0.55,
+          "end": 0.79,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "mutiny",
+          "start": 0.79,
+          "end": 1.15,
+          "key": "mutiny",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.15,
+          "end": 1.37,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tribunes,",
+          "start": 1.37,
+          "end": 1.89,
+          "key": "tribunes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.39,
+          "end": 2.43,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "e",
+          "start": 2.43,
+          "end": 2.61,
+          "key": "e",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "-dials",
+          "start": 2.61,
+          "end": 2.93,
+          "key": "dials",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.93,
+          "end": 3.13,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.13,
+          "end": 3.23,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "people",
+          "start": 3.23,
+          "end": 3.45,
+          "key": "people",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.45,
+          "end": 3.67,
+          "key": "are",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "beat",
+          "start": 3.67,
+          "end": 3.89,
+          "key": "beat",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in.",
+          "start": 3.89,
+          "end": 4.19,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_In",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "this",
+          "start": 0.55,
+          "end": 0.79
+        },
+        {
+          "text": "mutiny",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "text": "the",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "text": "Tribunes,",
+          "start": 1.37,
+          "end": 1.89
+        },
+        {
+          "text": "the",
+          "start": 2.39,
+          "end": 2.43
+        },
+        {
+          "text": "Aediles",
+          "start": 2.43,
+          "end": 2.68
+        },
+        {
+          "text": "and",
+          "start": 2.93,
+          "end": 3.13
+        },
+        {
+          "text": "the",
+          "start": 3.13,
+          "end": 3.23
+        },
+        {
+          "text": "People",
+          "start": 3.23,
+          "end": 3.45
+        },
+        {
+          "text": "are",
+          "start": 3.45,
+          "end": 3.67
+        },
+        {
+          "text": "beat",
+          "start": 3.67,
+          "end": 3.89
+        },
+        {
+          "text": "in._]",
+          "start": 3.89,
+          "end": 4.19
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.20356499077752233
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d796534583f1274591f584e07a37dadb57f84e91807fdaa02a8c2e8443185bd8",
+  "selected_reasons": []
+}

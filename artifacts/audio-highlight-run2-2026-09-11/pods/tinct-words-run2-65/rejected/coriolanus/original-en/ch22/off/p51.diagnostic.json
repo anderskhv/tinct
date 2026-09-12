@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "a1adc1f58a349edfc537fc9d600bd0fc2e84e8957c79fad80553608646cd754f",
+  "attempts": [
+    {
+      "asr_seconds": 0.16389517486095428,
+      "alignment_seconds": 0.0001288033090531826,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Menenius, what's the news? What's the news?",
+          "start": 0.02,
+          "end": 2.68,
+          "words": [
+            {
+              "text": " Menenius,",
+              "start": 0.02,
+              "end": 0.94,
+              "probability": 0.56640625
+            },
+            {
+              "text": " what's",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.955810546875
+            },
+            {
+              "text": " the",
+              "start": 1.46,
+              "end": 1.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " news?",
+              "start": 1.56,
+              "end": 1.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " What's",
+              "start": 2.18,
+              "end": 2.34,
+              "probability": 0.974609375
+            },
+            {
+              "text": " the",
+              "start": 2.34,
+              "end": 2.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " news?",
+              "start": 2.44,
+              "end": 2.68,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menenius,",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "raw": "what's",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "the",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "raw": "news?",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "raw": "What's",
+          "start": 2.18,
+          "end": 2.34
+        },
+        {
+          "raw": "the",
+          "start": 2.34,
+          "end": 2.44
+        },
+        {
+          "raw": "news?",
+          "start": 2.44,
+          "end": 2.68
+        }
+      ],
+      "expected_tokens": [
+        "Menenius.",
+        "What's",
+        "the",
+        "news?",
+        "What's",
+        "the",
+        "news?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menenius,",
+          "start": 0.02,
+          "end": 0.94,
+          "key": "menenius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 1.32,
+          "end": 1.46,
+          "key": "whats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.46,
+          "end": 1.56,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "news?",
+          "start": 1.56,
+          "end": 1.8,
+          "key": "news",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 2.18,
+          "end": 2.34,
+          "key": "whats",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.34,
+          "end": 2.44,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "news?",
+          "start": 2.44,
+          "end": 2.68,
+          "key": "news",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menenius.",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "text": "What's",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "text": "the",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "text": "news?",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "text": "What's",
+          "start": 2.18,
+          "end": 2.34
+        },
+        {
+          "text": "the",
+          "start": 2.34,
+          "end": 2.44
+        },
+        {
+          "text": "news?",
+          "start": 2.44,
+          "end": 2.68
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.164071099832654
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d99b718b2bd528eb4016cb6115eb92dc35391e19affce125de6cf022a6ddd310",
+  "selected_reasons": []
+}

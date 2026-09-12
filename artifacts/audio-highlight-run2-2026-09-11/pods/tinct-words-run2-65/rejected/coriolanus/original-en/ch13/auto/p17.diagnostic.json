@@ -1,0 +1,1516 @@
+{
+  "complete": true,
+  "signature": "9ed431297c48d71ef79544ba47a3e4eb5093b406d83445fac84e2671be9d97b0",
+  "attempts": [
+    {
+      "asr_seconds": 0.4959081318229437,
+      "alignment_seconds": 0.0008858558721840382,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Coriolanus. What must I say? \"I pray, sir\"—plague upon't! I cannot bring My tongue to such a pace. \"Look, sir, my wounds! I got them in my country's service when Some certain of your brethren roared and ran From th' noise of our own drums.\"",
+        "hotwords": "Coriolanus, What, I, Look, Some, From"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, What must I say? I pray, sir—plague upon't! I cannot bring My tongue to such a pace.",
+          "start": 0.65,
+          "end": 6.85,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.65,
+              "end": 1.09,
+              "probability": 0.5738932291666666
+            },
+            {
+              "text": " What",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.01012420654296875
+            },
+            {
+              "text": " must",
+              "start": 1.53,
+              "end": 1.69,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " I",
+              "start": 1.69,
+              "end": 1.87,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " say?",
+              "start": 1.87,
+              "end": 2.13,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " I",
+              "start": 2.73,
+              "end": 2.87,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " pray,",
+              "start": 2.87,
+              "end": 3.15,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " sir—plague",
+              "start": 3.29,
+              "end": 4.27,
+              "probability": 0.651702880859375
+            },
+            {
+              "text": " upon't!",
+              "start": 4.27,
+              "end": 4.81,
+              "probability": 0.25971412658691406
+            },
+            {
+              "text": " I",
+              "start": 5.03,
+              "end": 5.23,
+              "probability": 0.79443359375
+            },
+            {
+              "text": " cannot",
+              "start": 5.23,
+              "end": 5.45,
+              "probability": 0.974609375
+            },
+            {
+              "text": " bring",
+              "start": 5.45,
+              "end": 5.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " My",
+              "start": 5.69,
+              "end": 5.91,
+              "probability": 0.0031642913818359375
+            },
+            {
+              "text": " tongue",
+              "start": 5.91,
+              "end": 6.13,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 6.13,
+              "end": 6.33,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " such",
+              "start": 6.33,
+              "end": 6.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 6.47,
+              "end": 6.63,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " pace.",
+              "start": 6.63,
+              "end": 6.85,
+              "probability": 0.982421875
+            }
+          ]
+        },
+        {
+          "text": " Look, sir, my wounds! I got them in my country's service when Some certain of your brethren",
+          "start": 7.61,
+          "end": 11.95,
+          "words": [
+            {
+              "text": " Look,",
+              "start": 7.61,
+              "end": 7.77,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " sir,",
+              "start": 7.97,
+              "end": 8.03,
+              "probability": 0.9765625
+            },
+            {
+              "text": " my",
+              "start": 8.15,
+              "end": 8.27,
+              "probability": 0.6123046875
+            },
+            {
+              "text": " wounds!",
+              "start": 8.27,
+              "end": 8.61,
+              "probability": 0.91015625
+            },
+            {
+              "text": " I",
+              "start": 9.21,
+              "end": 9.31,
+              "probability": 0.96484375
+            },
+            {
+              "text": " got",
+              "start": 9.31,
+              "end": 9.45,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " them",
+              "start": 9.45,
+              "end": 9.59,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " in",
+              "start": 9.59,
+              "end": 9.67,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " my",
+              "start": 9.67,
+              "end": 9.81,
+              "probability": 0.5791015625
+            },
+            {
+              "text": " country's",
+              "start": 9.81,
+              "end": 10.29,
+              "probability": 0.953857421875
+            },
+            {
+              "text": " service",
+              "start": 10.29,
+              "end": 10.57,
+              "probability": 0.8671875
+            },
+            {
+              "text": " when",
+              "start": 10.57,
+              "end": 10.81,
+              "probability": 0.341552734375
+            },
+            {
+              "text": " Some",
+              "start": 10.81,
+              "end": 10.99,
+              "probability": 0.5244140625
+            },
+            {
+              "text": " certain",
+              "start": 10.99,
+              "end": 11.31,
+              "probability": 0.974609375
+            },
+            {
+              "text": " of",
+              "start": 11.31,
+              "end": 11.47,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " your",
+              "start": 11.47,
+              "end": 11.59,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " brethren",
+              "start": 11.59,
+              "end": 11.95,
+              "probability": 0.953125
+            }
+          ]
+        },
+        {
+          "text": " roared and ran From th' noise of our own drums.",
+          "start": 11.95,
+          "end": 15.03,
+          "words": [
+            {
+              "text": " roared",
+              "start": 11.95,
+              "end": 12.29,
+              "probability": 0.6611328125
+            },
+            {
+              "text": " and",
+              "start": 12.29,
+              "end": 12.57,
+              "probability": 0.59814453125
+            },
+            {
+              "text": " ran",
+              "start": 12.57,
+              "end": 12.79,
+              "probability": 0.6396484375
+            },
+            {
+              "text": " From",
+              "start": 12.79,
+              "end": 13.09,
+              "probability": 0.42822265625
+            },
+            {
+              "text": " th'",
+              "start": 13.09,
+              "end": 13.47,
+              "probability": 0.2548828125
+            },
+            {
+              "text": " noise",
+              "start": 13.93,
+              "end": 14.13,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " of",
+              "start": 14.13,
+              "end": 14.35,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " our",
+              "start": 14.35,
+              "end": 14.47,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " own",
+              "start": 14.47,
+              "end": 14.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " drums.",
+              "start": 14.69,
+              "end": 15.03,
+              "probability": 0.9765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.65,
+          "end": 1.09
+        },
+        {
+          "raw": "What",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "must",
+          "start": 1.53,
+          "end": 1.69
+        },
+        {
+          "raw": "I",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "raw": "say?",
+          "start": 1.87,
+          "end": 2.13
+        },
+        {
+          "raw": "I",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "raw": "pray,",
+          "start": 2.87,
+          "end": 3.15
+        },
+        {
+          "raw": "sir—plague",
+          "start": 3.29,
+          "end": 4.27
+        },
+        {
+          "raw": "upon't!",
+          "start": 4.27,
+          "end": 4.81
+        },
+        {
+          "raw": "I",
+          "start": 5.03,
+          "end": 5.23
+        },
+        {
+          "raw": "cannot",
+          "start": 5.23,
+          "end": 5.45
+        },
+        {
+          "raw": "bring",
+          "start": 5.45,
+          "end": 5.69
+        },
+        {
+          "raw": "My",
+          "start": 5.69,
+          "end": 5.91
+        },
+        {
+          "raw": "tongue",
+          "start": 5.91,
+          "end": 6.13
+        },
+        {
+          "raw": "to",
+          "start": 6.13,
+          "end": 6.33
+        },
+        {
+          "raw": "such",
+          "start": 6.33,
+          "end": 6.47
+        },
+        {
+          "raw": "a",
+          "start": 6.47,
+          "end": 6.63
+        },
+        {
+          "raw": "pace.",
+          "start": 6.63,
+          "end": 6.85
+        },
+        {
+          "raw": "Look,",
+          "start": 7.61,
+          "end": 7.77
+        },
+        {
+          "raw": "sir,",
+          "start": 7.97,
+          "end": 8.03
+        },
+        {
+          "raw": "my",
+          "start": 8.15,
+          "end": 8.27
+        },
+        {
+          "raw": "wounds!",
+          "start": 8.27,
+          "end": 8.61
+        },
+        {
+          "raw": "I",
+          "start": 9.21,
+          "end": 9.31
+        },
+        {
+          "raw": "got",
+          "start": 9.31,
+          "end": 9.45
+        },
+        {
+          "raw": "them",
+          "start": 9.45,
+          "end": 9.59
+        },
+        {
+          "raw": "in",
+          "start": 9.59,
+          "end": 9.67
+        },
+        {
+          "raw": "my",
+          "start": 9.67,
+          "end": 9.81
+        },
+        {
+          "raw": "country's",
+          "start": 9.81,
+          "end": 10.29
+        },
+        {
+          "raw": "service",
+          "start": 10.29,
+          "end": 10.57
+        },
+        {
+          "raw": "when",
+          "start": 10.57,
+          "end": 10.81
+        },
+        {
+          "raw": "Some",
+          "start": 10.81,
+          "end": 10.99
+        },
+        {
+          "raw": "certain",
+          "start": 10.99,
+          "end": 11.31
+        },
+        {
+          "raw": "of",
+          "start": 11.31,
+          "end": 11.47
+        },
+        {
+          "raw": "your",
+          "start": 11.47,
+          "end": 11.59
+        },
+        {
+          "raw": "brethren",
+          "start": 11.59,
+          "end": 11.95
+        },
+        {
+          "raw": "roared",
+          "start": 11.95,
+          "end": 12.29
+        },
+        {
+          "raw": "and",
+          "start": 12.29,
+          "end": 12.57
+        },
+        {
+          "raw": "ran",
+          "start": 12.57,
+          "end": 12.79
+        },
+        {
+          "raw": "From",
+          "start": 12.79,
+          "end": 13.09
+        },
+        {
+          "raw": "th'",
+          "start": 13.09,
+          "end": 13.47
+        },
+        {
+          "raw": "noise",
+          "start": 13.93,
+          "end": 14.13
+        },
+        {
+          "raw": "of",
+          "start": 14.13,
+          "end": 14.35
+        },
+        {
+          "raw": "our",
+          "start": 14.35,
+          "end": 14.47
+        },
+        {
+          "raw": "own",
+          "start": 14.47,
+          "end": 14.69
+        },
+        {
+          "raw": "drums.",
+          "start": 14.69,
+          "end": 15.03
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "What",
+        "must",
+        "I",
+        "say?",
+        "\"I",
+        "pray,",
+        "sir\"—plague",
+        "upon't!",
+        "I",
+        "cannot",
+        "bring",
+        "My",
+        "tongue",
+        "to",
+        "such",
+        "a",
+        "pace.",
+        "\"Look,",
+        "sir,",
+        "my",
+        "wounds!",
+        "I",
+        "got",
+        "them",
+        "in",
+        "my",
+        "country's",
+        "service",
+        "when",
+        "Some",
+        "certain",
+        "of",
+        "your",
+        "brethren",
+        "roared",
+        "and",
+        "ran",
+        "From",
+        "th'",
+        "noise",
+        "of",
+        "our",
+        "own",
+        "drums.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          45,
+          0,
+          45
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.65,
+          "end": 1.09,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.41,
+          "end": 1.53,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.53,
+          "end": 1.69,
+          "key": "must",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.69,
+          "end": 1.87,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "say?",
+          "start": 1.87,
+          "end": 2.13,
+          "key": "say",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.73,
+          "end": 2.87,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pray,",
+          "start": 2.87,
+          "end": 3.15,
+          "key": "pray",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sir—plague",
+          "start": 3.29,
+          "end": 4.27,
+          "key": "sirplague",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "upon't!",
+          "start": 4.27,
+          "end": 4.81,
+          "key": "upont",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.03,
+          "end": 5.23,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 5.23,
+          "end": 5.45,
+          "key": "cannot",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 5.45,
+          "end": 5.69,
+          "key": "bring",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 5.69,
+          "end": 5.91,
+          "key": "my",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "tongue",
+          "start": 5.91,
+          "end": 6.13,
+          "key": "tongue",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.13,
+          "end": 6.33,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 6.33,
+          "end": 6.47,
+          "key": "such",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.47,
+          "end": 6.63,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "pace.",
+          "start": 6.63,
+          "end": 6.85,
+          "key": "pace",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Look,",
+          "start": 7.61,
+          "end": 7.77,
+          "key": "look",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 7.97,
+          "end": 8.03,
+          "key": "sir",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 8.15,
+          "end": 8.27,
+          "key": "my",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "wounds!",
+          "start": 8.27,
+          "end": 8.61,
+          "key": "wounds",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.21,
+          "end": 9.31,
+          "key": "i",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 9.31,
+          "end": 9.45,
+          "key": "got",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 9.45,
+          "end": 9.59,
+          "key": "them",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 9.59,
+          "end": 9.67,
+          "key": "in",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 9.67,
+          "end": 9.81,
+          "key": "my",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "country's",
+          "start": 9.81,
+          "end": 10.29,
+          "key": "countrys",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "service",
+          "start": 10.29,
+          "end": 10.57,
+          "key": "service",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 10.57,
+          "end": 10.81,
+          "key": "when",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Some",
+          "start": 10.81,
+          "end": 10.99,
+          "key": "some",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "certain",
+          "start": 10.99,
+          "end": 11.31,
+          "key": "certain",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.31,
+          "end": 11.47,
+          "key": "of",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 11.47,
+          "end": 11.59,
+          "key": "your",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "brethren",
+          "start": 11.59,
+          "end": 11.95,
+          "key": "brethren",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "roared",
+          "start": 11.95,
+          "end": 12.29,
+          "key": "roared",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.29,
+          "end": 12.57,
+          "key": "and",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "ran",
+          "start": 12.57,
+          "end": 12.79,
+          "key": "ran",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "From",
+          "start": 12.79,
+          "end": 13.09,
+          "key": "from",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 13.09,
+          "end": 13.47,
+          "key": "th",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "noise",
+          "start": 13.93,
+          "end": 14.13,
+          "key": "noise",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.13,
+          "end": 14.35,
+          "key": "of",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 14.35,
+          "end": 14.47,
+          "key": "our",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 14.47,
+          "end": 14.69,
+          "key": "own",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "drums.",
+          "start": 14.69,
+          "end": 15.03,
+          "key": "drums",
+          "pieces": [
+            44
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.65,
+          "end": 1.09
+        },
+        {
+          "text": "What",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "text": "must",
+          "start": 1.53,
+          "end": 1.69
+        },
+        {
+          "text": "I",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "text": "say?",
+          "start": 1.87,
+          "end": 2.13
+        },
+        {
+          "text": "\"I",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "text": "pray,",
+          "start": 2.87,
+          "end": 3.15
+        },
+        {
+          "text": "sir\"—plague",
+          "start": 3.29,
+          "end": 4.27
+        },
+        {
+          "text": "upon't!",
+          "start": 4.27,
+          "end": 4.81
+        },
+        {
+          "text": "I",
+          "start": 5.03,
+          "end": 5.23
+        },
+        {
+          "text": "cannot",
+          "start": 5.23,
+          "end": 5.45
+        },
+        {
+          "text": "bring",
+          "start": 5.45,
+          "end": 5.69
+        },
+        {
+          "text": "My",
+          "start": 5.69,
+          "end": 5.91
+        },
+        {
+          "text": "tongue",
+          "start": 5.91,
+          "end": 6.13
+        },
+        {
+          "text": "to",
+          "start": 6.13,
+          "end": 6.33
+        },
+        {
+          "text": "such",
+          "start": 6.33,
+          "end": 6.47
+        },
+        {
+          "text": "a",
+          "start": 6.47,
+          "end": 6.63
+        },
+        {
+          "text": "pace.",
+          "start": 6.63,
+          "end": 6.85
+        },
+        {
+          "text": "\"Look,",
+          "start": 7.61,
+          "end": 7.77
+        },
+        {
+          "text": "sir,",
+          "start": 7.97,
+          "end": 8.03
+        },
+        {
+          "text": "my",
+          "start": 8.15,
+          "end": 8.27
+        },
+        {
+          "text": "wounds!",
+          "start": 8.27,
+          "end": 8.61
+        },
+        {
+          "text": "I",
+          "start": 9.21,
+          "end": 9.31
+        },
+        {
+          "text": "got",
+          "start": 9.31,
+          "end": 9.45
+        },
+        {
+          "text": "them",
+          "start": 9.45,
+          "end": 9.59
+        },
+        {
+          "text": "in",
+          "start": 9.59,
+          "end": 9.67
+        },
+        {
+          "text": "my",
+          "start": 9.67,
+          "end": 9.81
+        },
+        {
+          "text": "country's",
+          "start": 9.81,
+          "end": 10.29
+        },
+        {
+          "text": "service",
+          "start": 10.29,
+          "end": 10.57
+        },
+        {
+          "text": "when",
+          "start": 10.57,
+          "end": 10.81
+        },
+        {
+          "text": "Some",
+          "start": 10.81,
+          "end": 10.99
+        },
+        {
+          "text": "certain",
+          "start": 10.99,
+          "end": 11.31
+        },
+        {
+          "text": "of",
+          "start": 11.31,
+          "end": 11.47
+        },
+        {
+          "text": "your",
+          "start": 11.47,
+          "end": 11.59
+        },
+        {
+          "text": "brethren",
+          "start": 11.59,
+          "end": 11.95
+        },
+        {
+          "text": "roared",
+          "start": 11.95,
+          "end": 12.29
+        },
+        {
+          "text": "and",
+          "start": 12.29,
+          "end": 12.57
+        },
+        {
+          "text": "ran",
+          "start": 12.57,
+          "end": 12.79
+        },
+        {
+          "text": "From",
+          "start": 12.79,
+          "end": 13.09
+        },
+        {
+          "text": "th'",
+          "start": 13.09,
+          "end": 13.47
+        },
+        {
+          "text": "noise",
+          "start": 13.93,
+          "end": 14.13
+        },
+        {
+          "text": "of",
+          "start": 14.13,
+          "end": 14.35
+        },
+        {
+          "text": "our",
+          "start": 14.35,
+          "end": 14.47
+        },
+        {
+          "text": "own",
+          "start": 14.47,
+          "end": 14.69
+        },
+        {
+          "text": "drums.\"",
+          "start": 14.69,
+          "end": 15.03
+        }
+      ],
+      "stats": {
+        "expected_words": 45,
+        "heard_words": 45,
+        "matched_words": 45
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4972280110232532
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "45e31020ac23636b1050b6c2361fca7af72b90d85d771220253259e5bda921cf",
+  "selected_reasons": []
+}

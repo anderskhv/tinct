@@ -1,0 +1,195 @@
+{
+  "complete": true,
+  "signature": "ca3afdef309b6901ba79e2bc131657ed407eec728f6bf8898872dd0dd58a8613",
+  "attempts": [
+    {
+      "asr_seconds": 0.10736622381955385,
+      "alignment_seconds": 0.00017717620357871056,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter an e-dial.",
+          "start": 0.02,
+          "end": 1.12,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.92578125
+            },
+            {
+              "text": " an",
+              "start": 0.66,
+              "end": 0.8,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " e",
+              "start": 0.8,
+              "end": 0.96,
+              "probability": 0.2364501953125
+            },
+            {
+              "text": "-dial.",
+              "start": 0.96,
+              "end": 1.12,
+              "probability": 0.883056640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "an",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "raw": "e",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "raw": "-dial.",
+          "start": 0.96,
+          "end": 1.12
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "an",
+        "Aedile."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 0.66,
+          "end": 0.8,
+          "key": "an",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "e",
+          "start": 0.8,
+          "end": 0.96,
+          "key": "e",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "-dial.",
+          "start": 0.96,
+          "end": 1.12,
+          "key": "dial",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "an",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "text": "Aedile.",
+          "start": 0.8,
+          "end": 0.96
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10761078214272857
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7ea9446ce3465ec16e2ae718d9234d867ef06909846889aca519bdeb419b86b5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "c1478883a9ce15776b5d75b2dc7d8e11117c4fb64eb06b27fa298563009326fb",
+  "attempts": [
+    {
+      "asr_seconds": 0.1649826169013977,
+      "alignment_seconds": 0.0001483648084104061,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Servingman. Why do you say, \"thwack our general\"?",
+        "hotwords": "First, Servingman, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First, Servingman, Why do you say, Thwack Our General?",
+          "start": 0.05,
+          "end": 2.99,
+          "words": [
+            {
+              "text": " First,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.79638671875
+            },
+            {
+              "text": " Servingman,",
+              "start": 0.91,
+              "end": 1.15,
+              "probability": 0.4058837890625
+            },
+            {
+              "text": " Why",
+              "start": 1.59,
+              "end": 1.67,
+              "probability": 0.0377197265625
+            },
+            {
+              "text": " do",
+              "start": 1.67,
+              "end": 1.77,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " you",
+              "start": 1.77,
+              "end": 1.89,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " say,",
+              "start": 1.89,
+              "end": 2.11,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Thwack",
+              "start": 2.35,
+              "end": 2.53,
+              "probability": 0.6375732421875
+            },
+            {
+              "text": " Our",
+              "start": 2.53,
+              "end": 2.71,
+              "probability": 0.044464111328125
+            },
+            {
+              "text": " General?",
+              "start": 2.71,
+              "end": 2.99,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Servingman,",
+          "start": 0.91,
+          "end": 1.15
+        },
+        {
+          "raw": "Why",
+          "start": 1.59,
+          "end": 1.67
+        },
+        {
+          "raw": "do",
+          "start": 1.67,
+          "end": 1.77
+        },
+        {
+          "raw": "you",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "raw": "say,",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "raw": "Thwack",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "raw": "Our",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "raw": "General?",
+          "start": 2.71,
+          "end": 2.99
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Servingman.",
+        "Why",
+        "do",
+        "you",
+        "say,",
+        "\"thwack",
+        "our",
+        "general\"?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Servingman,",
+          "start": 0.91,
+          "end": 1.15,
+          "key": "servingman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 1.59,
+          "end": 1.67,
+          "key": "why",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.67,
+          "end": 1.77,
+          "key": "do",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.77,
+          "end": 1.89,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 1.89,
+          "end": 2.11,
+          "key": "say",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Thwack",
+          "start": 2.35,
+          "end": 2.53,
+          "key": "thwack",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 2.53,
+          "end": 2.71,
+          "key": "our",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "General?",
+          "start": 2.71,
+          "end": 2.99,
+          "key": "general",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Servingman.",
+          "start": 0.91,
+          "end": 1.15
+        },
+        {
+          "text": "Why",
+          "start": 1.59,
+          "end": 1.67
+        },
+        {
+          "text": "do",
+          "start": 1.67,
+          "end": 1.77
+        },
+        {
+          "text": "you",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "text": "say,",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "text": "\"thwack",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "text": "our",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "text": "general\"?",
+          "start": 2.71,
+          "end": 2.99
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16518510272726417
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5174b9d9644894d2fec7d63e63a82b1c59e0554f3b3899f44b5bedc4fbbcf1e3",
+  "selected_reasons": []
+}

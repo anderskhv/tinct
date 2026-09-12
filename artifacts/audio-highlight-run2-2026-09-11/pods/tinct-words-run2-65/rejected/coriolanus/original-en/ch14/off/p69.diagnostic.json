@@ -1,0 +1,260 @@
+{
+  "complete": true,
+  "signature": "2bf8936378c54559d99d4a557bb362becf8abe9c5fe33f2042018dcabb1a9da7",
+  "attempts": [
+    {
+      "asr_seconds": 0.16055985819548368,
+      "alignment_seconds": 0.0002436167560517788,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sesinius, there's a console, no.",
+          "start": 0.08,
+          "end": 2.3,
+          "words": [
+            {
+              "text": " Sesinius,",
+              "start": 0.08,
+              "end": 0.96,
+              "probability": 0.546630859375
+            },
+            {
+              "text": " there's",
+              "start": 1.2,
+              "end": 1.34,
+              "probability": 0.60150146484375
+            },
+            {
+              "text": " a",
+              "start": 1.34,
+              "end": 1.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " console,",
+              "start": 1.46,
+              "end": 1.76,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " no.",
+              "start": 2.08,
+              "end": 2.3,
+              "probability": 0.94384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "raw": "there's",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "raw": "a",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "raw": "console,",
+          "start": 1.46,
+          "end": 1.76
+        },
+        {
+          "raw": "no.",
+          "start": 2.08,
+          "end": 2.3
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "This",
+        "a",
+        "consul?",
+        "No."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.08,
+          "end": 0.96,
+          "key": "sesinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "there's",
+          "start": 1.2,
+          "end": 1.34,
+          "key": "theres",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.34,
+          "end": 1.46,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "console,",
+          "start": 1.46,
+          "end": 1.76,
+          "key": "console",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "no.",
+          "start": 2.08,
+          "end": 2.3,
+          "key": "no",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.0,
+          "end": 0.67
+        },
+        {
+          "text": "This",
+          "start": 0.67,
+          "end": 1.005
+        },
+        {
+          "text": "a",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "text": "consul?",
+          "start": 1.46,
+          "end": 1.77
+        },
+        {
+          "text": "No.",
+          "start": 2.08,
+          "end": 2.3
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 2
+      },
+      "match_ratio": 0.4,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1608817372471094
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "674131adb61df7a02b47d2f890b2ac3144d39d089f5984812906da19c2dd69ea",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

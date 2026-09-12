@@ -1,0 +1,766 @@
+{
+  "complete": true,
+  "signature": "e562ccb6db2e5e1616ca51e1630d01e60f117b82c4ab004a2ef6ca87bf736162",
+  "attempts": [
+    {
+      "asr_seconds": 0.3537654229439795,
+      "alignment_seconds": 0.0005287956446409225,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Menenius. Pray now, your news?— You have made fair work, I fear me.—Pray, your news? If Martius should be joined with Volscians—",
+        "hotwords": "Menenius, Pray, You, I, If, Martius, Volscians"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Menenius, Pray now, your news?—You have made fair work, I fear me.—Pray, your news?—If Martius should be joined with Volscians—",
+          "start": 0.02,
+          "end": 8.4,
+          "words": [
+            {
+              "text": " Menenius,",
+              "start": 0.02,
+              "end": 0.96,
+              "probability": 0.4567057291666667
+            },
+            {
+              "text": " Pray",
+              "start": 1.32,
+              "end": 1.42,
+              "probability": 0.5117874145507812
+            },
+            {
+              "text": " now,",
+              "start": 1.42,
+              "end": 1.56,
+              "probability": 0.978515625
+            },
+            {
+              "text": " your",
+              "start": 1.64,
+              "end": 1.72,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " news",
+              "start": 1.72,
+              "end": 2.08,
+              "probability": 0.97802734375
+            },
+            {
+              "text": "?—You",
+              "start": 2.08,
+              "end": 2.76,
+              "probability": 0.1470184326171875
+            },
+            {
+              "text": " have",
+              "start": 2.76,
+              "end": 2.84,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " made",
+              "start": 2.84,
+              "end": 3.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " fair",
+              "start": 3.0,
+              "end": 3.24,
+              "probability": 0.978515625
+            },
+            {
+              "text": " work,",
+              "start": 3.24,
+              "end": 3.5,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " I",
+              "start": 3.64,
+              "end": 3.68,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " fear",
+              "start": 3.68,
+              "end": 3.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me.—Pray,",
+              "start": 3.92,
+              "end": 4.96,
+              "probability": 0.7307465374469757
+            },
+            {
+              "text": " your",
+              "start": 5.04,
+              "end": 5.18,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " news",
+              "start": 5.18,
+              "end": 5.5,
+              "probability": 0.99609375
+            },
+            {
+              "text": "?—If",
+              "start": 5.5,
+              "end": 6.02,
+              "probability": 0.601806640625
+            },
+            {
+              "text": " Martius",
+              "start": 6.02,
+              "end": 6.44,
+              "probability": 0.5267333984375
+            },
+            {
+              "text": " should",
+              "start": 6.44,
+              "end": 6.64,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " be",
+              "start": 6.64,
+              "end": 6.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " joined",
+              "start": 6.8,
+              "end": 7.06,
+              "probability": 0.98828125
+            },
+            {
+              "text": " with",
+              "start": 7.06,
+              "end": 7.3,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Volscians—",
+              "start": 7.3,
+              "end": 8.4,
+              "probability": 0.2592582702636719
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menenius,",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "raw": "Pray",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "raw": "now,",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "raw": "your",
+          "start": 1.64,
+          "end": 1.72
+        },
+        {
+          "raw": "news",
+          "start": 1.72,
+          "end": 2.08
+        },
+        {
+          "raw": "?—You",
+          "start": 2.08,
+          "end": 2.76
+        },
+        {
+          "raw": "have",
+          "start": 2.76,
+          "end": 2.84
+        },
+        {
+          "raw": "made",
+          "start": 2.84,
+          "end": 3.0
+        },
+        {
+          "raw": "fair",
+          "start": 3.0,
+          "end": 3.24
+        },
+        {
+          "raw": "work,",
+          "start": 3.24,
+          "end": 3.5
+        },
+        {
+          "raw": "I",
+          "start": 3.64,
+          "end": 3.68
+        },
+        {
+          "raw": "fear",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "raw": "me.—Pray,",
+          "start": 3.92,
+          "end": 4.96
+        },
+        {
+          "raw": "your",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "raw": "news",
+          "start": 5.18,
+          "end": 5.5
+        },
+        {
+          "raw": "?—If",
+          "start": 5.5,
+          "end": 6.02
+        },
+        {
+          "raw": "Martius",
+          "start": 6.02,
+          "end": 6.44
+        },
+        {
+          "raw": "should",
+          "start": 6.44,
+          "end": 6.64
+        },
+        {
+          "raw": "be",
+          "start": 6.64,
+          "end": 6.8
+        },
+        {
+          "raw": "joined",
+          "start": 6.8,
+          "end": 7.06
+        },
+        {
+          "raw": "with",
+          "start": 7.06,
+          "end": 7.3
+        },
+        {
+          "raw": "Volscians—",
+          "start": 7.3,
+          "end": 8.4
+        }
+      ],
+      "expected_tokens": [
+        "Menenius.",
+        "Pray",
+        "now,",
+        "your",
+        "news?—",
+        "You",
+        "have",
+        "made",
+        "fair",
+        "work,",
+        "I",
+        "fear",
+        "me.—Pray,",
+        "your",
+        "news?",
+        "If",
+        "Martius",
+        "should",
+        "be",
+        "joined",
+        "with",
+        "Volscians—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menenius,",
+          "start": 0.02,
+          "end": 0.96,
+          "key": "menenius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pray",
+          "start": 1.32,
+          "end": 1.42,
+          "key": "pray",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 1.42,
+          "end": 1.56,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.64,
+          "end": 1.72,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "news",
+          "start": 1.72,
+          "end": 2.08,
+          "key": "news",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "?—You",
+          "start": 2.08,
+          "end": 2.76,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.76,
+          "end": 2.84,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 2.84,
+          "end": 3.0,
+          "key": "made",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 3.0,
+          "end": 3.24,
+          "key": "fair",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "work,",
+          "start": 3.24,
+          "end": 3.5,
+          "key": "work",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.64,
+          "end": 3.68,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "fear",
+          "start": 3.68,
+          "end": 3.92,
+          "key": "fear",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "me.—Pray,",
+          "start": 3.92,
+          "end": 4.96,
+          "key": "mepray",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.04,
+          "end": 5.18,
+          "key": "your",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "news",
+          "start": 5.18,
+          "end": 5.5,
+          "key": "news",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "?—If",
+          "start": 5.5,
+          "end": 6.02,
+          "key": "if",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Martius",
+          "start": 6.02,
+          "end": 6.44,
+          "key": "martius",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 6.44,
+          "end": 6.64,
+          "key": "should",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 6.64,
+          "end": 6.8,
+          "key": "be",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "joined",
+          "start": 6.8,
+          "end": 7.06,
+          "key": "joined",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 7.06,
+          "end": 7.3,
+          "key": "with",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Volscians—",
+          "start": 7.3,
+          "end": 8.4,
+          "key": "volscians",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menenius.",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "text": "Pray",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "text": "now,",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "text": "your",
+          "start": 1.64,
+          "end": 1.72
+        },
+        {
+          "text": "news?—",
+          "start": 1.72,
+          "end": 2.08
+        },
+        {
+          "text": "You",
+          "start": 2.08,
+          "end": 2.76
+        },
+        {
+          "text": "have",
+          "start": 2.76,
+          "end": 2.84
+        },
+        {
+          "text": "made",
+          "start": 2.84,
+          "end": 3.0
+        },
+        {
+          "text": "fair",
+          "start": 3.0,
+          "end": 3.24
+        },
+        {
+          "text": "work,",
+          "start": 3.24,
+          "end": 3.5
+        },
+        {
+          "text": "I",
+          "start": 3.64,
+          "end": 3.68
+        },
+        {
+          "text": "fear",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "text": "me.—Pray,",
+          "start": 3.92,
+          "end": 4.96
+        },
+        {
+          "text": "your",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "text": "news?",
+          "start": 5.18,
+          "end": 5.5
+        },
+        {
+          "text": "If",
+          "start": 5.5,
+          "end": 6.02
+        },
+        {
+          "text": "Martius",
+          "start": 6.02,
+          "end": 6.44
+        },
+        {
+          "text": "should",
+          "start": 6.44,
+          "end": 6.64
+        },
+        {
+          "text": "be",
+          "start": 6.64,
+          "end": 6.8
+        },
+        {
+          "text": "joined",
+          "start": 6.8,
+          "end": 7.06
+        },
+        {
+          "text": "with",
+          "start": 7.06,
+          "end": 7.3
+        },
+        {
+          "text": "Volscians—",
+          "start": 7.3,
+          "end": 8.4
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3545120651833713
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f08082d3b27a59275f6cdc8631b55ec26398f9b8b3f0fa7a53019d562f542fe2",
+  "selected_reasons": []
+}

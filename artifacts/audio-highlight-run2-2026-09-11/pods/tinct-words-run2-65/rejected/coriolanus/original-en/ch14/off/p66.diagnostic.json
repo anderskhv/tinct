@@ -1,0 +1,459 @@
+{
+  "complete": true,
+  "signature": "39e1d14da70ae0d638b54bebc9f1552885dd4ca11408dd3a53e1e25862a60203",
+  "attempts": [
+    {
+      "asr_seconds": 0.2634763023816049,
+      "alignment_seconds": 0.0001787547953426838,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sesinius has spoken like a traitor and shall answer as traitors do",
+          "start": 0.08,
+          "end": 4.56,
+          "words": [
+            {
+              "text": " Sesinius",
+              "start": 0.08,
+              "end": 1.04,
+              "probability": 0.53179931640625
+            },
+            {
+              "text": " has",
+              "start": 1.04,
+              "end": 1.72,
+              "probability": 0.587890625
+            },
+            {
+              "text": " spoken",
+              "start": 1.72,
+              "end": 2.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " like",
+              "start": 2.02,
+              "end": 2.26,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " traitor",
+              "start": 2.38,
+              "end": 2.64,
+              "probability": 0.7978515625
+            },
+            {
+              "text": " and",
+              "start": 2.64,
+              "end": 3.06,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " shall",
+              "start": 3.06,
+              "end": 3.22,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " answer",
+              "start": 3.22,
+              "end": 3.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 3.56,
+              "end": 3.82,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " traitors",
+              "start": 3.82,
+              "end": 4.16,
+              "probability": 0.948486328125
+            },
+            {
+              "text": " do",
+              "start": 4.16,
+              "end": 4.56,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sesinius",
+          "start": 0.08,
+          "end": 1.04
+        },
+        {
+          "raw": "has",
+          "start": 1.04,
+          "end": 1.72
+        },
+        {
+          "raw": "spoken",
+          "start": 1.72,
+          "end": 2.02
+        },
+        {
+          "raw": "like",
+          "start": 2.02,
+          "end": 2.26
+        },
+        {
+          "raw": "a",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "traitor",
+          "start": 2.38,
+          "end": 2.64
+        },
+        {
+          "raw": "and",
+          "start": 2.64,
+          "end": 3.06
+        },
+        {
+          "raw": "shall",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "raw": "answer",
+          "start": 3.22,
+          "end": 3.56
+        },
+        {
+          "raw": "as",
+          "start": 3.56,
+          "end": 3.82
+        },
+        {
+          "raw": "traitors",
+          "start": 3.82,
+          "end": 4.16
+        },
+        {
+          "raw": "do",
+          "start": 4.16,
+          "end": 4.56
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "'Has",
+        "spoken",
+        "like",
+        "a",
+        "traitor,",
+        "and",
+        "shall",
+        "answer",
+        "As",
+        "traitors",
+        "do."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          12,
+          1,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sesinius",
+          "start": 0.08,
+          "end": 1.04,
+          "key": "sesinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 1.04,
+          "end": 1.72,
+          "key": "has",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "spoken",
+          "start": 1.72,
+          "end": 2.02,
+          "key": "spoken",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 2.02,
+          "end": 2.26,
+          "key": "like",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.26,
+          "end": 2.38,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "traitor",
+          "start": 2.38,
+          "end": 2.64,
+          "key": "traitor",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.64,
+          "end": 3.06,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 3.06,
+          "end": 3.22,
+          "key": "shall",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "answer",
+          "start": 3.22,
+          "end": 3.56,
+          "key": "answer",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.56,
+          "end": 3.82,
+          "key": "as",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "traitors",
+          "start": 3.82,
+          "end": 4.16,
+          "key": "traitors",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 4.16,
+          "end": 4.56,
+          "key": "do",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "text": "'Has",
+          "start": 1.04,
+          "end": 1.72
+        },
+        {
+          "text": "spoken",
+          "start": 1.72,
+          "end": 2.02
+        },
+        {
+          "text": "like",
+          "start": 2.02,
+          "end": 2.26
+        },
+        {
+          "text": "a",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "traitor,",
+          "start": 2.38,
+          "end": 2.64
+        },
+        {
+          "text": "and",
+          "start": 2.64,
+          "end": 3.06
+        },
+        {
+          "text": "shall",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "text": "answer",
+          "start": 3.22,
+          "end": 3.56
+        },
+        {
+          "text": "As",
+          "start": 3.56,
+          "end": 3.82
+        },
+        {
+          "text": "traitors",
+          "start": 3.82,
+          "end": 4.16
+        },
+        {
+          "text": "do.",
+          "start": 4.16,
+          "end": 4.56
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.2637201389297843
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e6673c7d6802f28c4fa0f497f12e6f00c09fa020eb56ce01ad08b8d4fba96393",
+  "selected_reasons": []
+}

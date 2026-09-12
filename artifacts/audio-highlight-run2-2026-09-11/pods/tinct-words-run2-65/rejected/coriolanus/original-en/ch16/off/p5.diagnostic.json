@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "a1e9311904e7a04978da0385dc1c8d96da26baefad45d47570fbca0f9ee9152b",
+  "attempts": [
+    {
+      "asr_seconds": 0.11138017196208239,
+      "alignment_seconds": 0.00016403477638959885,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, how accompanied.",
+          "start": 0.05,
+          "end": 1.65,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.967041015625
+            },
+            {
+              "text": " how",
+              "start": 1.11,
+              "end": 1.23,
+              "probability": 0.8056640625
+            },
+            {
+              "text": " accompanied.",
+              "start": 1.23,
+              "end": 1.65,
+              "probability": 0.97216796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "how",
+          "start": 1.11,
+          "end": 1.23
+        },
+        {
+          "raw": "accompanied.",
+          "start": 1.23,
+          "end": 1.65
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "How",
+        "accompanied?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.11,
+          "end": 1.23,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "accompanied.",
+          "start": 1.23,
+          "end": 1.65,
+          "key": "accompanied",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "How",
+          "start": 1.11,
+          "end": 1.23
+        },
+        {
+          "text": "accompanied?",
+          "start": 1.23,
+          "end": 1.65
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11160143790766597
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "16b5e157b305652f6ec31c3ec09c80ef13fee834b051e99103db3221bc229951",
+  "selected_reasons": []
+}

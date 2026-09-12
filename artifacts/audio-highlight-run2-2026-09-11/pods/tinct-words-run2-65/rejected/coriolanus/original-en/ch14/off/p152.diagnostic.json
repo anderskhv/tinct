@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "48ff7da5c815f8fb43a16088e828a7a6215f754c42e81a77815aa11bc8db324d",
+  "attempts": [
+    {
+      "asr_seconds": 0.13200570922344923,
+      "alignment_seconds": 0.0002190261147916317,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sesinius. Consul. What consul?",
+          "start": 0.08,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " Sesinius.",
+              "start": 0.08,
+              "end": 0.98,
+              "probability": 0.528717041015625
+            },
+            {
+              "text": " Consul.",
+              "start": 1.34,
+              "end": 1.64,
+              "probability": 0.712890625
+            },
+            {
+              "text": " What",
+              "start": 1.84,
+              "end": 1.92,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " consul?",
+              "start": 1.92,
+              "end": 2.42,
+              "probability": 0.80615234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sesinius.",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "raw": "Consul.",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "raw": "What",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "raw": "consul?",
+          "start": 1.92,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "Consul?",
+        "What",
+        "consul?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sesinius.",
+          "start": 0.08,
+          "end": 0.98,
+          "key": "sesinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Consul.",
+          "start": 1.34,
+          "end": 1.64,
+          "key": "consul",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.84,
+          "end": 1.92,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "consul?",
+          "start": 1.92,
+          "end": 2.42,
+          "key": "consul",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.0,
+          "end": 0.67
+        },
+        {
+          "text": "Consul?",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "text": "What",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "text": "consul?",
+          "start": 1.92,
+          "end": 2.42
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13229413703083992
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2c5e4a98da42d5041bdc1813a5e9e97e4d78711445fc9dd6402cded42e49ebc8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,511 @@
+{
+  "complete": true,
+  "signature": "1106e3e7240df31d2e2eb25d085e3ca7ce3d7c8d051929df0abad2fb33a00dfd",
+  "attempts": [
+    {
+      "asr_seconds": 0.20024978509172797,
+      "alignment_seconds": 0.00017743464559316635,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, merely a wry, when he did love his country it honored him.",
+          "start": 0.51,
+          "end": 4.37,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.51,
+              "end": 0.95,
+              "probability": 0.994384765625
+            },
+            {
+              "text": " merely",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " a",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.72265625
+            },
+            {
+              "text": " wry,",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " when",
+              "start": 2.29,
+              "end": 2.49,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " he",
+              "start": 2.49,
+              "end": 2.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " did",
+              "start": 2.63,
+              "end": 2.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " love",
+              "start": 2.77,
+              "end": 2.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 2.99,
+              "end": 3.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " country",
+              "start": 3.17,
+              "end": 3.61,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " it",
+              "start": 3.61,
+              "end": 3.83,
+              "probability": 0.73681640625
+            },
+            {
+              "text": " honored",
+              "start": 3.83,
+              "end": 4.07,
+              "probability": 0.6845703125
+            },
+            {
+              "text": " him.",
+              "start": 4.07,
+              "end": 4.37,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.51,
+          "end": 0.95
+        },
+        {
+          "raw": "merely",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "a",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "wry,",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "when",
+          "start": 2.29,
+          "end": 2.49
+        },
+        {
+          "raw": "he",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "raw": "did",
+          "start": 2.63,
+          "end": 2.77
+        },
+        {
+          "raw": "love",
+          "start": 2.77,
+          "end": 2.99
+        },
+        {
+          "raw": "his",
+          "start": 2.99,
+          "end": 3.17
+        },
+        {
+          "raw": "country",
+          "start": 3.17,
+          "end": 3.61
+        },
+        {
+          "raw": "it",
+          "start": 3.61,
+          "end": 3.83
+        },
+        {
+          "raw": "honored",
+          "start": 3.83,
+          "end": 4.07
+        },
+        {
+          "raw": "him.",
+          "start": 4.07,
+          "end": 4.37
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Merely",
+        "awry.",
+        "When",
+        "he",
+        "did",
+        "love",
+        "his",
+        "country,",
+        "It",
+        "honoured",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          10,
+          4,
+          11
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          12
+        ],
+        [
+          "equal",
+          11,
+          12,
+          12,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.51,
+          "end": 0.95,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "merely",
+          "start": 1.23,
+          "end": 1.43,
+          "key": "merely",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wry,",
+          "start": 1.65,
+          "end": 1.85,
+          "key": "wry",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 2.29,
+          "end": 2.49,
+          "key": "when",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.49,
+          "end": 2.63,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 2.63,
+          "end": 2.77,
+          "key": "did",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 2.77,
+          "end": 2.99,
+          "key": "love",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.99,
+          "end": 3.17,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "country",
+          "start": 3.17,
+          "end": 3.61,
+          "key": "country",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.61,
+          "end": 3.83,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "honored",
+          "start": 3.83,
+          "end": 4.07,
+          "key": "honored",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 4.07,
+          "end": 4.37,
+          "key": "him",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.51,
+          "end": 0.95
+        },
+        {
+          "text": "Merely",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "text": "awry.",
+          "start": 1.43,
+          "end": 1.86
+        },
+        {
+          "text": "When",
+          "start": 2.29,
+          "end": 2.49
+        },
+        {
+          "text": "he",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "text": "did",
+          "start": 2.63,
+          "end": 2.77
+        },
+        {
+          "text": "love",
+          "start": 2.77,
+          "end": 2.99
+        },
+        {
+          "text": "his",
+          "start": 2.99,
+          "end": 3.17
+        },
+        {
+          "text": "country,",
+          "start": 3.17,
+          "end": 3.61
+        },
+        {
+          "text": "It",
+          "start": 3.61,
+          "end": 3.83
+        },
+        {
+          "text": "honoured",
+          "start": 3.83,
+          "end": 3.95
+        },
+        {
+          "text": "him.",
+          "start": 4.07,
+          "end": 4.37
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20049328170716763
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3a50bcc44362e044ed9902b23d7708551fbd373e6a3c955ee8edf001dd3a5b85",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

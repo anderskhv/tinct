@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "aab4bb0d80473b22a21cb172abba37590bb9ca4e5939210bc32eb54f38bb0bdc",
+  "attempts": [
+    {
+      "asr_seconds": 0.11304998071864247,
+      "alignment_seconds": 0.00020569562911987305,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. If it were so—",
+        "hotwords": "Brutus, If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, If it were so—",
+          "start": 0.61,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.61,
+              "end": 0.91,
+              "probability": 0.983642578125
+            },
+            {
+              "text": " If",
+              "start": 1.11,
+              "end": 1.19,
+              "probability": 0.022857666015625
+            },
+            {
+              "text": " it",
+              "start": 1.19,
+              "end": 1.27,
+              "probability": 0.55224609375
+            },
+            {
+              "text": " were",
+              "start": 1.27,
+              "end": 1.37,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " so—",
+              "start": 1.37,
+              "end": 2.07,
+              "probability": 0.46354055404663086
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.61,
+          "end": 0.91
+        },
+        {
+          "raw": "If",
+          "start": 1.11,
+          "end": 1.19
+        },
+        {
+          "raw": "it",
+          "start": 1.19,
+          "end": 1.27
+        },
+        {
+          "raw": "were",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "raw": "so—",
+          "start": 1.37,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "If",
+        "it",
+        "were",
+        "so—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.61,
+          "end": 0.91,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 1.11,
+          "end": 1.19,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.19,
+          "end": 1.27,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 1.27,
+          "end": 1.37,
+          "key": "were",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "so—",
+          "start": 1.37,
+          "end": 2.07,
+          "key": "so",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.61,
+          "end": 0.91
+        },
+        {
+          "text": "If",
+          "start": 1.11,
+          "end": 1.19
+        },
+        {
+          "text": "it",
+          "start": 1.19,
+          "end": 1.27
+        },
+        {
+          "text": "were",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "text": "so—",
+          "start": 1.37,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11333095887675881
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "816a43b77aeab09394588154aad3ec8683baf403c23b2fc190bd1d5396cc3534",
+  "selected_reasons": []
+}

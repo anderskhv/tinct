@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "92b46740afeb98a22744bdd9e819ed338f9fa8cda7fe230328f1c33ecac83538",
+  "attempts": [
+    {
+      "asr_seconds": 0.13734180619940162,
+      "alignment_seconds": 0.0002751876600086689,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Brutus and Sesinius with the rabble again.",
+          "start": 0.11,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " Brutus",
+              "start": 0.65,
+              "end": 1.11,
+              "probability": 0.982177734375
+            },
+            {
+              "text": " and",
+              "start": 1.11,
+              "end": 1.25,
+              "probability": 0.9765625
+            },
+            {
+              "text": " Sesinius",
+              "start": 1.25,
+              "end": 1.79,
+              "probability": 0.58367919921875
+            },
+            {
+              "text": " with",
+              "start": 1.79,
+              "end": 2.21,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " the",
+              "start": 2.21,
+              "end": 2.33,
+              "probability": 0.6669921875
+            },
+            {
+              "text": " rabble",
+              "start": 2.33,
+              "end": 2.63,
+              "probability": 0.976806640625
+            },
+            {
+              "text": " again.",
+              "start": 2.63,
+              "end": 2.93,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Brutus",
+          "start": 0.65,
+          "end": 1.11
+        },
+        {
+          "raw": "and",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "raw": "Sesinius",
+          "start": 1.25,
+          "end": 1.79
+        },
+        {
+          "raw": "with",
+          "start": 1.79,
+          "end": 2.21
+        },
+        {
+          "raw": "the",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "raw": "rabble",
+          "start": 2.33,
+          "end": 2.63
+        },
+        {
+          "raw": "again.",
+          "start": 2.63,
+          "end": 2.93
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Brutus",
+        "and",
+        "Sicinius",
+        "with",
+        "the",
+        "rabble",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Brutus",
+          "start": 0.65,
+          "end": 1.11,
+          "key": "brutus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.11,
+          "end": 1.25,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sesinius",
+          "start": 1.25,
+          "end": 1.79,
+          "key": "sesinius",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.79,
+          "end": 2.21,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.21,
+          "end": 2.33,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "rabble",
+          "start": 2.33,
+          "end": 2.63,
+          "key": "rabble",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 2.63,
+          "end": 2.93,
+          "key": "again",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Brutus",
+          "start": 0.65,
+          "end": 1.11
+        },
+        {
+          "text": "and",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "text": "Sicinius",
+          "start": 1.25,
+          "end": 1.52
+        },
+        {
+          "text": "with",
+          "start": 1.79,
+          "end": 2.21
+        },
+        {
+          "text": "the",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "text": "rabble",
+          "start": 2.33,
+          "end": 2.63
+        },
+        {
+          "text": "again.",
+          "start": 2.63,
+          "end": 2.93
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.1377155971713364
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "944a3a8e21d50af6731289767d02d49f8373f2087718c0fb043cbd0208562076",
+  "selected_reasons": []
+}

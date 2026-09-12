@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "13d93723d617f76c566608d315cfaa7ff7cb828a1801246a6b11b912cce1906c",
+  "attempts": [
+    {
+      "asr_seconds": 0.11188354715704918,
+      "alignment_seconds": 0.00019108597189188004,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, is this done?",
+          "start": 0.08,
+          "end": 1.96,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.08,
+              "end": 1.02,
+              "probability": 0.810546875
+            },
+            {
+              "text": " is",
+              "start": 1.4,
+              "end": 1.48,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " this",
+              "start": 1.48,
+              "end": 1.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " done?",
+              "start": 1.66,
+              "end": 1.96,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.08,
+          "end": 1.02
+        },
+        {
+          "raw": "is",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "raw": "this",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "raw": "done?",
+          "start": 1.66,
+          "end": 1.96
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "Is",
+        "this",
+        "done?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.08,
+          "end": 1.02,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.4,
+          "end": 1.48,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.48,
+          "end": 1.66,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "done?",
+          "start": 1.66,
+          "end": 1.96,
+          "key": "done",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.08,
+          "end": 1.02
+        },
+        {
+          "text": "Is",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "text": "this",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "text": "done?",
+          "start": 1.66,
+          "end": 1.96
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.112143665086478
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "266f60d4a557434c49225a001cc3e35b6acf318662db5cf31e96856284d0f794",
+  "selected_reasons": []
+}

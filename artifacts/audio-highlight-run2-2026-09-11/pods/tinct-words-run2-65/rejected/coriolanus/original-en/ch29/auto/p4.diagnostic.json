@@ -1,0 +1,396 @@
+{
+  "complete": true,
+  "signature": "7a475f50813bd30eb6bcdcb0c8e1bd59cf0717240efa232f0daccdb05af321ed",
+  "attempts": [
+    {
+      "asr_seconds": 0.09954942902550101,
+      "alignment_seconds": 0.00014594430103898048,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exeunt Attendants._]",
+        "hotwords": "Attendants._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt Attendants._",
+          "start": 0.05,
+          "end": 1.69,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.2963371276855469
+            },
+            {
+              "text": " Attendants._",
+              "start": 0.77,
+              "end": 1.69,
+              "probability": 0.31521862745285034
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Attendants._",
+          "start": 0.77,
+          "end": 1.69
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Attendants._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Attendants._",
+          "start": 0.77,
+          "end": 1.69,
+          "key": "attendants_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Attendants._]",
+          "start": 0.77,
+          "end": 1.23
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09973872499540448
+    },
+    {
+      "asr_seconds": 0.11001879721879959,
+      "alignment_seconds": 0.00016692513599991798,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Attendants._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exune Attendants._",
+          "start": 0.05,
+          "end": 1.69,
+          "words": [
+            {
+              "text": " Exune",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.788818359375
+            },
+            {
+              "text": " Attendants._",
+              "start": 0.75,
+              "end": 1.69,
+              "probability": 0.3088614344596863
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exune",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Attendants._",
+          "start": 0.75,
+          "end": 1.69
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Attendants._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exune",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "exune",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Attendants._",
+          "start": 0.75,
+          "end": 1.69,
+          "key": "attendants_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.0,
+          "end": 0.845
+        },
+        {
+          "text": "Attendants._]",
+          "start": 0.845,
+          "end": 1.268
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11023666383698583
+    },
+    {
+      "asr_seconds": 0.08971682004630566,
+      "alignment_seconds": 0.00018016528338193893,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exune attendance.",
+          "start": 0.05,
+          "end": 1.17,
+          "words": [
+            {
+              "text": " Exune",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.788818359375
+            },
+            {
+              "text": " attendance.",
+              "start": 0.75,
+              "end": 1.17,
+              "probability": 0.90576171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exune",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "attendance.",
+          "start": 0.75,
+          "end": 1.17
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Attendants._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exune",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "exune",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "attendance.",
+          "start": 0.75,
+          "end": 1.17,
+          "key": "attendance",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.0,
+          "end": 0.585
+        },
+        {
+          "text": "Attendants._]",
+          "start": 0.585,
+          "end": 0.877
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08994612703099847
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ce7ba7ac7a98ee78dd4eb46ee39cdf0b14437ca869b05b815a90af197cd97819",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "9d291f955cf43f095c25cc13dca64b431a1bf9f71e7e7d9de58423396316a44a",
+  "attempts": [
+    {
+      "asr_seconds": 3.3567663109861314,
+      "alignment_seconds": 0.0002670781686902046,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cominius. O, you have made good work!",
+        "hotwords": "Cominius, O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cominius, O, you have made good work!",
+          "start": 0.05,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " Cominius,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.5555826822916666
+            },
+            {
+              "text": " O,",
+              "start": 1.25,
+              "end": 1.49,
+              "probability": 0.0013446807861328125
+            },
+            {
+              "text": " you",
+              "start": 1.59,
+              "end": 1.69,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " have",
+              "start": 1.69,
+              "end": 1.77,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " made",
+              "start": 1.77,
+              "end": 1.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " good",
+              "start": 1.91,
+              "end": 2.11,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " work!",
+              "start": 2.11,
+              "end": 2.43,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cominius,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "O,",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "raw": "you",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "raw": "have",
+          "start": 1.69,
+          "end": 1.77
+        },
+        {
+          "raw": "made",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "raw": "good",
+          "start": 1.91,
+          "end": 2.11
+        },
+        {
+          "raw": "work!",
+          "start": 2.11,
+          "end": 2.43
+        }
+      ],
+      "expected_tokens": [
+        "Cominius.",
+        "O,",
+        "you",
+        "have",
+        "made",
+        "good",
+        "work!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cominius,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "cominius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.25,
+          "end": 1.49,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.59,
+          "end": 1.69,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.69,
+          "end": 1.77,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 1.77,
+          "end": 1.91,
+          "key": "made",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.91,
+          "end": 2.11,
+          "key": "good",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "work!",
+          "start": 2.11,
+          "end": 2.43,
+          "key": "work",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cominius.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "O,",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "text": "you",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "text": "have",
+          "start": 1.69,
+          "end": 1.77
+        },
+        {
+          "text": "made",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "text": "good",
+          "start": 1.91,
+          "end": 2.11
+        },
+        {
+          "text": "work!",
+          "start": 2.11,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.3571292916312814
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "34e3fe822330ef5c0410ed68daa4860b9ad71cb3a6711fdb282e7f89aad22cbd",
+  "selected_reasons": []
+}

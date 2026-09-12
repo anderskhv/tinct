@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "7456b54d78f879836912e7c881b7104287901d589016410d66820e0c92c24af9",
+  "attempts": [
+    {
+      "asr_seconds": 0.08208088530227542,
+      "alignment_seconds": 0.00015734508633613586,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Most welcome!",
+        "hotwords": "Most"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Most welcome!",
+          "start": 0.02,
+          "end": 1.12,
+          "words": [
+            {
+              "text": " Most",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.779296875
+            },
+            {
+              "text": " welcome!",
+              "start": 0.66,
+              "end": 1.12,
+              "probability": 0.7529296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Most",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "welcome!",
+          "start": 0.66,
+          "end": 1.12
+        }
+      ],
+      "expected_tokens": [
+        "Most",
+        "welcome!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Most",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "most",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "welcome!",
+          "start": 0.66,
+          "end": 1.12,
+          "key": "welcome",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Most",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "welcome!",
+          "start": 0.66,
+          "end": 1.12
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08229245198890567
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "727f2f23d1d24ea9de2db8145a5e4c7c2389771e389f5c2f676823c9bf3bfa6d",
+  "selected_reasons": []
+}

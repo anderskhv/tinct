@@ -1,0 +1,356 @@
+{
+  "complete": true,
+  "signature": "6765c7eae6caf82cf2772ba8258e179c6a2890a7f3db541a4df7fb854d77f798",
+  "attempts": [
+    {
+      "asr_seconds": 0.18500247597694397,
+      "alignment_seconds": 0.00028464803472161293,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sesinius, and affecting one's soul throne without assistance.",
+          "start": 0.08,
+          "end": 3.8,
+          "words": [
+            {
+              "text": " Sesinius,",
+              "start": 0.08,
+              "end": 1.0,
+              "probability": 0.5692138671875
+            },
+            {
+              "text": " and",
+              "start": 1.5,
+              "end": 1.6,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " affecting",
+              "start": 1.6,
+              "end": 1.92,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " one's",
+              "start": 1.92,
+              "end": 2.36,
+              "probability": 0.78125
+            },
+            {
+              "text": " soul",
+              "start": 2.36,
+              "end": 2.52,
+              "probability": 0.7119140625
+            },
+            {
+              "text": " throne",
+              "start": 2.52,
+              "end": 2.9,
+              "probability": 0.62158203125
+            },
+            {
+              "text": " without",
+              "start": 2.9,
+              "end": 3.32,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " assistance.",
+              "start": 3.32,
+              "end": 3.8,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "raw": "and",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "raw": "affecting",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "raw": "one's",
+          "start": 1.92,
+          "end": 2.36
+        },
+        {
+          "raw": "soul",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "raw": "throne",
+          "start": 2.52,
+          "end": 2.9
+        },
+        {
+          "raw": "without",
+          "start": 2.9,
+          "end": 3.32
+        },
+        {
+          "raw": "assistance.",
+          "start": 3.32,
+          "end": 3.8
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "And",
+        "affecting",
+        "one",
+        "sole",
+        "throne,",
+        "without",
+        "assistance."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "equal",
+          5,
+          8,
+          5,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.08,
+          "end": 1.0,
+          "key": "sesinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.5,
+          "end": 1.6,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "affecting",
+          "start": 1.6,
+          "end": 1.92,
+          "key": "affecting",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "one's",
+          "start": 1.92,
+          "end": 2.36,
+          "key": "ones",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "soul",
+          "start": 2.36,
+          "end": 2.52,
+          "key": "soul",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "throne",
+          "start": 2.52,
+          "end": 2.9,
+          "key": "throne",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 2.9,
+          "end": 3.32,
+          "key": "without",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "assistance.",
+          "start": 3.32,
+          "end": 3.8,
+          "key": "assistance",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.0,
+          "end": 0.75
+        },
+        {
+          "text": "And",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "text": "affecting",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "text": "one",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "text": "sole",
+          "start": 2.22,
+          "end": 2.37
+        },
+        {
+          "text": "throne,",
+          "start": 2.52,
+          "end": 2.9
+        },
+        {
+          "text": "without",
+          "start": 2.9,
+          "end": 3.32
+        },
+        {
+          "text": "assistance.",
+          "start": 3.32,
+          "end": 3.8
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 0.625,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18538437690585852
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7d3f57587e4f9ff1fac726f3de5d8eba0377db699572c122d8b92f8d42f0b2b9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}
