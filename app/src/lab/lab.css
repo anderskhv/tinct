@@ -1998,6 +1998,24 @@
   padding-top: 0.08em;
 }
 
+/*
+ * One line of verse, recovered at render time from the edition's lineation
+ * sidecar (see labVerseLines.ts). A block, so each line starts at the left
+ * margin; a hanging indent, so a line too long for the column wraps visibly
+ * indented and can never be mistaken for the next line of verse.
+ *
+ * Never justified, whatever the alignment control says: a short verse line
+ * stretched to the full measure is all gaps. The colour, face and line height
+ * are inherited, so every theme and every type size follows on its own.
+ */
+.lab-verse-line {
+  display: block;
+  text-align: start;
+  text-justify: auto;
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+}
+
 .lab-verse-mark {
   font-size: 0.58em;
   vertical-align: super;

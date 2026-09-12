@@ -201,6 +201,7 @@ export const HAMLET: Book = {
       label: 'Original Text',
       aligned: true,
       hasAudio: true,
+      hasVerseLines: true,
     },
     {
       key: 'modern-en',
@@ -238,6 +239,7 @@ export const MACBETH: Book = {
       label: 'Original Text',
       aligned: true,
       hasAudio: true,
+      hasVerseLines: true,
     },
     {
       key: 'modern-en',

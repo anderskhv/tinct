@@ -13,6 +13,7 @@ import {
 import { hearingFollowPaintActive, hearingReadingPageLines, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, labVerseMarkerDisplay, readingPageLines, tokenizeHearingWords } from './labHearing'
 import type { ChapterHearingPage } from './labHearing'
 import { followGranularity, followWordRole, type FollowParagraph, type FollowTarget } from './labFollow'
+import { verseLineRanges } from './labVerseLines'
 import { labSwipeCompareSwap, labSwipePageDirection, labTapPageDirection, labTapTurnAllowed, type LabPageTurnDirection, type LabTapTurnZones } from './labChrome'
 
 export type LabPassageMode = 'reading' | 'hearing'
@@ -98,32 +99,71 @@ function renderWordText(text: string, hasFollowingWord = false, emphasis = false
   return emphasis ? <em>{content}</em> : content
 }
 
-function renderWordGroups<T extends { text: string }>(
+/**
+ * Where a paragraph is lineated verse, `lineation` gives the paragraph's text
+ * and the paragraph-local index of this slice's first word, and the words are
+ * wrapped in one block per verse line. Passing nothing -- or a paragraph with
+ * no recovered lineation, which is every paragraph of every other book --
+ * returns exactly the markup this has always produced.
+ */
+export function renderWordGroups<T extends { text: string }>(
   words: T[],
   renderWord: (word: T, wordIndex: number, spacing: string) => ReactNode,
+  lineation?: { text?: string; from: number },
 ): ReactNode[] {
-  const rendered: ReactNode[] = []
+  const rendered: Array<{ at: number; node: ReactNode }> = []
   for (let wordIndex = 0; wordIndex < words.length; wordIndex += 1) {
     const word = words[wordIndex]
     if (isLabVerseMarker(word.text) && words[wordIndex + 1]) {
-      rendered.push(
-        <Fragment key={`verse-${wordIndex}`}>
-          <span className="lab-verse-unit">
-            {renderWord(word, wordIndex, wordSpacing(word, wordIndex, words[wordIndex - 1]))}
-            {renderWord(words[wordIndex + 1], wordIndex + 1, wordSpacing(words[wordIndex + 1], wordIndex + 1, word))}
-          </span>
-        </Fragment>,
-      )
+      rendered.push({
+        at: wordIndex,
+        node: (
+          <Fragment key={`verse-${wordIndex}`}>
+            <span className="lab-verse-unit">
+              {renderWord(word, wordIndex, wordSpacing(word, wordIndex, words[wordIndex - 1]))}
+              {renderWord(words[wordIndex + 1], wordIndex + 1, wordSpacing(words[wordIndex + 1], wordIndex + 1, word))}
+            </span>
+          </Fragment>
+        ),
+      })
       wordIndex += 1
     } else {
-      rendered.push(
-        <Fragment key={`word-${wordIndex}`}>
-          {renderWord(word, wordIndex, wordSpacing(word, wordIndex, words[wordIndex - 1]))}
-        </Fragment>,
-      )
+      rendered.push({
+        at: wordIndex,
+        node: (
+          <Fragment key={`word-${wordIndex}`}>
+            {renderWord(word, wordIndex, wordSpacing(word, wordIndex, words[wordIndex - 1]))}
+          </Fragment>
+        ),
+      })
     }
   }
-  return rendered
+  const ranges = lineation
+    ? verseLineRanges(lineation.text, lineation.from, lineation.from + words.length)
+    : null
+  if (!ranges) return rendered.map(item => item.node)
+  const base = lineation!.from
+  return ranges.map(([start, end], index) => (
+    <span className="lab-verse-line" key={`verse-line-${index}`}>
+      {rendered.filter(item => base + item.at >= start && base + item.at < end).map(item => item.node)}
+    </span>
+  ))
+}
+
+/**
+ * Wrap an already-rendered, one-node-per-word run in one block per verse line.
+ *
+ * The Compare column paints its own word spans -- deliberately, since cloning
+ * the reading column's verse-unit markup would change Bible line breaks -- so
+ * it groups the finished nodes rather than routing through renderWordGroups.
+ * Returns the nodes untouched for prose.
+ */
+function asVerseLines(text: string | undefined, from: number, nodes: ReactNode[]): ReactNode[] {
+  const ranges = verseLineRanges(text, from, from + nodes.length)
+  if (!ranges) return nodes
+  return ranges.map(([start, end], index) => (
+    <span className="lab-verse-line" key={`verse-line-${index}`}>{nodes.slice(start - from, end - from)}</span>
+  ))
 }
 
 /**
@@ -180,7 +220,9 @@ export function markFullContinuedTails(root: HTMLElement | null): void {
       const padLeft = parseFloat(style?.paddingLeft || '0') || 0
       const padRight = parseFloat(style?.paddingRight || '0') || 0
       const fragments: TailRect[] = []
-      line.querySelectorAll<HTMLElement>(':scope > span, :scope > .lab-verse-unit > span').forEach((word) => {
+      line.querySelectorAll<HTMLElement>(
+        ':scope > span:not(.lab-verse-line), :scope > .lab-verse-unit > span, :scope > .lab-verse-line > span',
+      ).forEach((word) => {
         for (const rect of word.getClientRects()) fragments.push(rect)
       })
       const fill = continuedTailFill(box.left + padLeft, box.right - padRight, fragments)
@@ -197,9 +239,22 @@ function renderPlainWords(lines: ReturnType<typeof readingPageLines>, paragraphs
           {spacing}
           {renderWordText(word.text, wordIndex < line.words.length - 1, word.emphasis)}
         </span>
-      ))}
+      ), lineationFor(paragraphs, line))}
     </p>
   ))
+}
+
+/** The lineation of the paragraph a painted slice came from, if it has one. */
+function lineationFor(
+  paragraphs: string[],
+  line: { paragraphIndex?: number; from?: number },
+  fallbackParagraph = 0,
+  fallbackFrom = 0,
+): { text?: string; from: number } {
+  return {
+    text: paragraphs[line.paragraphIndex ?? fallbackParagraph],
+    from: line.from ?? fallbackFrom,
+  }
 }
 
 /** `data-follow-granularity` marks paragraphs whose weak sidecar alignment follows by sentence. */
@@ -248,7 +303,7 @@ function renderHearingWords(
               {renderWordText(word.text, wordIndex < line.words.length - 1, word.emphasis)}
             </span>
           )
-        })}
+        }, lineationFor(paragraphs, line, fallbackParagraphIndex))}
       </p>
     )
   })
@@ -644,7 +699,7 @@ export function LabPassage({
                           {renderWordText(word.text, wordIndex < line.words.length - 1, word.emphasis)}
                         </span>
                       )
-                    })}
+                    }, { text: paragraphs[paragraphIndex], from: wordBase })}
                   </p>
                 )
               })
@@ -753,7 +808,7 @@ export function LabPassage({
               const segment = alignCompare ? comparisonSegment({ paragraphIndex, from, to: from + line.words.length }, paragraphs, source) : { from, to: from + line.words.length }
               const text = words.slice(segment.from, segment.to).map(word => word.text).join(' ')
               if (!alignCompare && !text) return null
-              return <p key={lineIndex} className="lab-hearing-line" style={alignCompare ? { gridColumn: 2, gridRow: lineIndex + 1 } : undefined} data-compare-paragraph={paragraphIndex} data-compare-from={segment.from} data-compare-to={segment.to}>{words.slice(segment.from, segment.to).map((word, index) => <span key={index} className={labHighlightCssClass(highlightColorAt(compareHighlights, chapterNumber, paragraphIndex, segment.from + index), !!activeSelecting && !!(localSelecting ? dragRef.current?.comparison : selectingComparison) && wordInHighlightRange(activeSelecting, paragraphIndex, segment.from + index))} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={segment.from + index}>{index > 0 ? ' ' : ''}{word.emphasis ? <em>{word.text}</em> : word.text}</span>)}</p>
+              return <p key={lineIndex} className="lab-hearing-line" style={alignCompare ? { gridColumn: 2, gridRow: lineIndex + 1 } : undefined} data-compare-paragraph={paragraphIndex} data-compare-from={segment.from} data-compare-to={segment.to}>{asVerseLines(source[paragraphIndex], segment.from, words.slice(segment.from, segment.to).map((word, index) => <span key={index} className={labHighlightCssClass(highlightColorAt(compareHighlights, chapterNumber, paragraphIndex, segment.from + index), !!activeSelecting && !!(localSelecting ? dragRef.current?.comparison : selectingComparison) && wordInHighlightRange(activeSelecting, paragraphIndex, segment.from + index))} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={segment.from + index}>{index > 0 ? ' ' : ''}{word.emphasis ? <em>{word.text}</em> : word.text}</span>))}</p>
             })}
           </div>
         )}
@@ -810,7 +865,7 @@ export function LabPageMeasurePaint(input: {
                     {spacing}
                     {renderWordText(word.text, wordIndex < line.words.length - 1, word.emphasis)}
                   </span>
-                ))}
+                ), lineationFor(input.paragraphs, line, input.page.paragraphIndex, input.page.from))}
               </p>
             ))}
           </div>
