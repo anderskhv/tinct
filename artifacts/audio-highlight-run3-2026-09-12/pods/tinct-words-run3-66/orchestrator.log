@@ -49,3 +49,9 @@
 [2026-09-12T16:05:22Z] 20.5 min: aligning {"arm_chapters_passed": 24, "arm_chapters_rejected": 23, "arm_chapters_running": 1, "paragraph_diagnostics": 2374}
 [2026-09-12T16:06:00Z] snapshot 5035617 bytes
 [2026-09-12T16:06:00Z] 21.0 min: aligning {"arm_chapters_passed": 24, "arm_chapters_rejected": 23, "arm_chapters_running": 1, "paragraph_diagnostics": 2405}
+[2026-09-12T16:06:30Z] phase done at 21.6 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "c43ab3799d5b71c58b770ed22e1bd7bb9b2774cf", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T16:06:30Z] 21.6 min: done {"arm_chapters_passed": 25, "arm_chapters_rejected": 23, "arm_chapters_running": 0, "paragraph_diagnostics": 2412}
+[2026-09-12T16:06:38Z] fetched out.tar.gz (5101077 bytes)
+[2026-09-12T16:06:39Z] stop akvdrgw81r9b7x: HTTP 200
+[2026-09-12T16:06:40Z] terminate akvdrgw81r9b7x: HTTP 204
+[2026-09-12T16:06:40Z] pod akvdrgw81r9b7x done: outcome=done uptime=21.8m est $0.18
