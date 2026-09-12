@@ -79,3 +79,11 @@
 [2026-09-12T06:51:43Z] 34.6 min: aligning {"arm_chapters_passed": 20, "arm_chapters_rejected": 5, "arm_chapters_running": 1, "paragraph_diagnostics": 542}
 [2026-09-12T06:52:13Z] 35.1 min: aligning {"arm_chapters_passed": 20, "arm_chapters_rejected": 7, "arm_chapters_running": 1, "paragraph_diagnostics": 548}
 [2026-09-12T06:52:44Z] 35.6 min: aligning {"arm_chapters_passed": 20, "arm_chapters_rejected": 7, "arm_chapters_running": 1, "paragraph_diagnostics": 550}
+[2026-09-12T06:53:14Z] 36.1 min: aligning {"arm_chapters_passed": 21, "arm_chapters_rejected": 7, "arm_chapters_running": 1, "paragraph_diagnostics": 556}
+[2026-09-12T06:53:45Z] 36.6 min: aligning {"arm_chapters_passed": 21, "arm_chapters_rejected": 7, "arm_chapters_running": 1, "paragraph_diagnostics": 567}
+[2026-09-12T06:54:15Z] phase done-with-errors at 37.1 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T06:54:15Z] 37.1 min: done-with-errors {"arm_chapters_passed": 21, "arm_chapters_rejected": 7, "arm_chapters_running": 1, "paragraph_diagnostics": 571}
+[2026-09-12T06:54:31Z] fetched out.tar.gz (16321487 bytes)
+[2026-09-12T06:54:32Z] stop l5514cbeagjdqr: HTTP 200
+[2026-09-12T06:54:34Z] terminate l5514cbeagjdqr: HTTP 204
+[2026-09-12T06:54:34Z] pod l5514cbeagjdqr done: outcome=done-with-errors uptime=37.4m est $0.31
